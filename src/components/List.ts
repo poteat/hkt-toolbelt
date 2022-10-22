@@ -2,7 +2,7 @@ import $, { Kind, Cast } from "hkt-toolbelt";
 
 export declare namespace List {
   export type _$map<F extends Kind, X extends unknown[]> = {
-    [key in keyof X]: $<F, X[key]>;
+    [key in keyof X]: $<F, Cast<X[key], Kind.ParameterOf<F>>>;
   };
 
   export abstract class Map<F extends Kind> extends Kind {
@@ -13,7 +13,7 @@ export declare namespace List {
     infer Head,
     ...infer Tail
   ]
-    ? $<F, Head> extends true
+    ? $<F, Cast<Head, Kind.ParameterOf<F>>> extends true
       ? Head
       : _$find<F, Tail>
     : never;
@@ -26,7 +26,7 @@ export declare namespace List {
     infer Head,
     ...infer Tail
   ]
-    ? $<F, Head> extends true
+    ? $<F, Cast<Head, Kind.ParameterOf<F>>> extends true
       ? [Head, ..._$filter<F, Tail>]
       : _$filter<F, Tail>
     : [];

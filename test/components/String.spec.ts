@@ -2,9 +2,6 @@ import { String } from "../../src/components/String";
 import { Test } from "../../src/components/Test";
 import { $ } from "../../src/components/$";
 
-/**
- * @internal
- */
 type StartsWith_Spec = [
   /**
    * Prefixes should match correctly.
@@ -96,5 +93,11 @@ type EndsWith_Spec = [
   /**
    * Every string ends with "".
    */
-  Test.Expect<$<String.EndsWith<"">, string>>
+  Test.Expect<$<String.EndsWith<"">, string>>,
+
+  /**
+   * Non-string input results in a compiler error.
+   */
+  // @ts-expect-error
+  Test.Expect<$<String.EndsWith<"">, number>>
 ];
