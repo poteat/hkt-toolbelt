@@ -1,0 +1,33 @@
+{
+  "name": "hkt-toolbelt",
+  "version": "1.0.0",
+  "description": "A collection of useful HKT utilities and building blocks",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/poteat/hkt-toolbelt.git"
+  },
+  "keywords": [
+    "HKT",
+    "types",
+    "typescript",
+    "type",
+    "system",
+    "higher",
+    "kinded",
+    "types",
+    "kinds"
+  ],
+  "author": "Michael Poteat <admin@code.lol>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poteat/hkt-toolbelt/issues"
+  },
+  "homepage": "https://github.com/poteat/hkt-toolbelt#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
