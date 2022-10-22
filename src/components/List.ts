@@ -1,13 +1,11 @@
-import { $ } from "./$";
-import { Kind } from "./Kind";
-import { Cast } from "./Cast";
+import $, { Kind, Cast } from "hkt-toolbelt";
 
 export declare namespace List {
   export type _$map<F extends Kind, X extends unknown[]> = {
     [key in keyof X]: $<F, X[key]>;
   };
 
-  export abstract class $map<F extends Kind> extends Kind {
+  export abstract class Map<F extends Kind> extends Kind {
     abstract f: (x: Cast<this[Kind._], unknown[]>) => _$map<F, typeof x>;
   }
 
@@ -20,7 +18,7 @@ export declare namespace List {
       : _$find<F, Tail>
     : never;
 
-  export abstract class $find<F extends Kind> extends Kind {
+  export abstract class Find<F extends Kind> extends Kind {
     abstract f: (x: Cast<this[Kind._], unknown[]>) => _$find<F, typeof x>;
   }
 
@@ -33,7 +31,9 @@ export declare namespace List {
       : _$filter<F, Tail>
     : [];
 
-  export abstract class $filter<F extends Kind> extends Kind {
+  export abstract class Filter<F extends Kind> extends Kind {
     abstract f: (x: Cast<Kind._, unknown[]>) => _$filter<F, typeof x>;
   }
 }
+
+export default List;

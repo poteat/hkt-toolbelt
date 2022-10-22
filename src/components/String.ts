@@ -1,14 +1,13 @@
-import { Cast } from "./Cast";
-import { Kind } from "./Kind";
+import { Cast, Kind } from "hkt-toolbelt";
 
 export declare namespace String {
-  export type _$beginsWith<
+  export type _$startsWith<
     Prefix extends string,
     S extends string
   > = S extends `${Prefix}${string}` ? true : false;
 
-  export abstract class $beginsWith<Sub extends string> extends Kind {
-    abstract f: (x: Cast<Kind._, string>) => _$beginsWith<Sub, typeof x>;
+  export abstract class StartsWith<Sub extends string> extends Kind {
+    abstract f: (x: Cast<this[Kind._], string>) => _$startsWith<Sub, typeof x>;
   }
 
   export type _$endsWith<
@@ -16,7 +15,9 @@ export declare namespace String {
     S extends string
   > = S extends `${string}${Postfix}` ? true : false;
 
-  export abstract class $endsWith<Sub extends string> extends Kind {
-    abstract f: (x: Cast<Kind._, string>) => _$endsWith<Sub, typeof x>;
+  export abstract class EndsWith<Sub extends string> extends Kind {
+    abstract f: (x: Cast<this[Kind._], string>) => _$endsWith<Sub, typeof x>;
   }
 }
+
+export default String;

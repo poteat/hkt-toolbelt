@@ -1,7 +1,9 @@
-import { Kind } from "./Kind";
+import { Kind } from "hkt-toolbelt";
 
 export type $<F extends Kind, X> = ReturnType<
   (F & {
-    readonly x: X;
+    readonly [Kind._]: X;
   })["f"]
 >;
+
+export default $;

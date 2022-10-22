@@ -1,1 +1,3 @@
-export type Cast<T, U> = T extends U ? T : U;
+export type Cast<A, B> = A extends B ? A : B;
+
+export default Cast;

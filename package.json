@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "A collection of useful HKT utilities and building blocks",
   "main": "./src/index.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
