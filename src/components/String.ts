@@ -6,17 +6,28 @@ export declare namespace String {
     S extends string
   > = S extends `${Prefix}${string}` ? true : false;
 
-  export abstract class StartsWith<Sub extends string> extends Kind {
-    abstract f: (x: Cast<this[Kind._], string>) => _$startsWith<Sub, typeof x>;
+  export abstract class StartsWith<Prefix extends string> extends Kind {
+    abstract f: (
+      x: Cast<this[Kind._], string>
+    ) => _$startsWith<Prefix, typeof x>;
   }
 
   export type _$endsWith<
-    Postfix extends string,
+    Suffix extends string,
     S extends string
-  > = S extends `${string}${Postfix}` ? true : false;
+  > = S extends `${string}${Suffix}` ? true : false;
 
-  export abstract class EndsWith<Sub extends string> extends Kind {
-    abstract f: (x: Cast<this[Kind._], string>) => _$endsWith<Sub, typeof x>;
+  export abstract class EndsWith<Suffix extends string> extends Kind {
+    abstract f: (x: Cast<this[Kind._], string>) => _$endsWith<Suffix, typeof x>;
+  }
+
+  export type _$includes<
+    Infix extends string,
+    S extends string
+  > = S extends `${string}${Infix}${string}` ? true : false;
+
+  export abstract class Includes<Infix extends string> extends Kind {
+    abstract f: (x: Cast<this[Kind._], string>) => _$includes<Infix, typeof x>;
   }
 }
 

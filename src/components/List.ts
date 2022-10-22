@@ -38,6 +38,21 @@ export declare namespace List {
   > extends Kind {
     abstract f: (x: Cast<this[Kind._], unknown[]>) => _$filter<F, typeof x>;
   }
+
+  export type _$includes<F extends Kind, X extends unknown[]> = X extends [
+    infer Head,
+    ...infer Tail
+  ]
+    ? $<F, Cast<Head, Kind.ParameterOf<F>>> extends true
+      ? true
+      : _$includes<F, Tail>
+    : false;
+
+  export abstract class Includes<
+    F extends Kind<(x: never) => boolean>
+  > extends Kind {
+    abstract f: (x: Cast<this[Kind._], unknown[]>) => _$includes<F, typeof x>;
+  }
 }
 
 export default List;
