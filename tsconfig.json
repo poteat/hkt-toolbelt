@@ -31,7 +31,7 @@
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
       "hkt-toolbelt": ["./src"],
-      "hkt-toolbelt/apply": ["./src/components/$"],
+      "hkt-toolbelt/$": ["./src/components/$"],
       "hkt-toolbelt/cast": ["./src/components/Cast"],
       "hkt-toolbelt/conditional": ["./src/components/Conditional"],
       "hkt-toolbelt/function": ["./src/components/Function"],

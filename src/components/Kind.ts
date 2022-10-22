@@ -1,4 +1,4 @@
-import $, { Cast, Function } from "hkt-toolbelt";
+import $, { Cast, Function, String } from "hkt-toolbelt";
 
 export declare namespace Kind {
   const _: unique symbol;
@@ -19,6 +19,12 @@ export declare namespace Kind {
     abstract f: (x: this[Kind._]) => _$compose<FX, typeof x>;
   }
 
+  export abstract class Apply<X> extends Kind {
+    abstract f: (
+      x: Cast<this[Kind._], Kind<(x: X) => unknown>>
+    ) => $<typeof x, Cast<X, ParameterOf<typeof x>>>;
+  }
+
   export type ParameterOf<F extends Kind> = F extends {
     f: (x: infer X) => unknown;
   }
@@ -28,9 +34,9 @@ export declare namespace Kind {
 
 declare const Kind2: typeof Kind;
 
-export declare abstract class Kind {
+export declare abstract class Kind<F extends Function = Function> {
   abstract readonly [Kind2._]: unknown;
-  abstract f: Function;
+  abstract f: F;
 }
 
 export default Kind;

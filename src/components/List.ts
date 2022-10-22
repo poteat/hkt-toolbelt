@@ -18,7 +18,9 @@ export declare namespace List {
       : _$find<F, Tail>
     : never;
 
-  export abstract class Find<F extends Kind> extends Kind {
+  export abstract class Find<
+    F extends Kind<(x: never) => boolean>
+  > extends Kind {
     abstract f: (x: Cast<this[Kind._], unknown[]>) => _$find<F, typeof x>;
   }
 
@@ -31,8 +33,10 @@ export declare namespace List {
       : _$filter<F, Tail>
     : [];
 
-  export abstract class Filter<F extends Kind> extends Kind {
-    abstract f: (x: Cast<Kind._, unknown[]>) => _$filter<F, typeof x>;
+  export abstract class Filter<
+    F extends Kind<(x: never) => boolean>
+  > extends Kind {
+    abstract f: (x: Cast<this[Kind._], unknown[]>) => _$filter<F, typeof x>;
   }
 }
 
