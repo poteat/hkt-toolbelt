@@ -1,6 +1,6 @@
 {
   "name": "hkt-toolbelt",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A collection of useful HKT utilities and building blocks",
   "main": "./src/index.ts",
   "types": "./dist/index.d.ts",

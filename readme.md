@@ -40,8 +40,11 @@ This library is a companion to [ts-toolbelt]() that provides higher-kinded-type 
     - [Conditional.SubtypeOf\<A>](#conditionalsubtypeofa)
   - [Function Types](#function-types)
     - [Function](#function)
+    - [Function.Constant\<A>](#functionconstanta)
+    - [Function.Identity](#functionidentity)
   - [Kind Types](#kind-types)
     - [Kind\<F>](#kindf)
+    - [Kind.Composable\<FX>](#kindcomposablefx)
     - [Kind.Compose\<FX>](#kindcomposefx)
     - [Kind.\_](#kind_)
   - [List Types](#list-types)
@@ -102,6 +105,14 @@ The `SubtypeOf` type is used to check if a type is a subtype of another type. It
 
 The `Function` type is a supertype of all functions, i.e. all functions are a subtype of `Function`.
 
+### Function.Constant\<A>
+
+The `Constant` type takes in a type and returns a function that takes in any type and returns the original type.
+
+### Function.Identity
+
+The `Identity` type takes in a type and returns the same type, on the higher-kinded-type level.
+
 ## Kind Types
 
 ### Kind\<F>
@@ -110,9 +121,15 @@ The `Kind` type denotes a type function that may be applied to a type using `$`.
 
 The Kind type can optionally be provided a function type to increase the specificity of its internal parameter and return types.
 
+### Kind.Composable\<FX>
+
+The `Composable` type checks whether a tuple of kinds are composable. A tuple of kinds is composable if the output of kind N is a subtype of the input of kind N-1.
+
 ### Kind.Compose\<FX>
 
 The `Compose` type takes in a tuple of type functions, and composes them into one type function.
+
+`Compose` checks that the tuple of kinds is composable, and returns a higher-kinded-type function that takes in a type and returns the result of the composition.
 
 ### Kind.\_
 

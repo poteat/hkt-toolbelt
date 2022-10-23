@@ -15,12 +15,30 @@ export declare namespace Kind {
       >
     : X;
 
-  export type _$composable<
-    F extends Kind,
-    G extends Kind
-  > = Kind.Output<G> extends Kind.Input<F> ? true : false;
+  type _$composablePair<F extends [Kind, Kind]> = Kind.Output<
+    F[1]
+  > extends Kind.Input<F[0]>
+    ? true
+    : false;
 
-  export abstract class Compose<FX extends Kind[]> extends Kind {
+  abstract class ComposablePair extends Kind {
+    abstract f: (
+      x: Cast<this[Kind._], [Kind, Kind]>
+    ) => _$composablePair<typeof x>;
+  }
+
+  export type _$composable<FX extends Kind[]> = List._$every<
+    Kind.ComposablePair,
+    List._$pair<FX>
+  >;
+
+  export abstract class Composable extends Kind {
+    abstract f: (x: Cast<this[Kind._], Kind[]>) => _$composable<typeof x>;
+  }
+
+  export abstract class Compose<
+    FX extends _$composable<FX> extends true ? Kind[] : never
+  > extends Kind {
     abstract f: (
       x: Cast<this[Kind._], FX extends [] ? unknown : Input<List._$last<FX>>>
     ) => _$compose<FX, typeof x>;
