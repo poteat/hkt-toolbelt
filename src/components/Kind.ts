@@ -11,13 +11,13 @@ export declare namespace Kind {
   ]
     ? _$compose<
         Cast<Init, Kind[]>,
-        $<Cast<Last, Kind>, Cast<X, Input<Cast<Last, Kind>>>>
+        $<Cast<Last, Kind>, Cast<X, InputOf<Cast<Last, Kind>>>>
       >
     : X;
 
-  type _$composablePair<F extends [Kind, Kind]> = Kind.Output<
+  type _$composablePair<F extends [Kind, Kind]> = Kind.OutputOf<
     F[1]
-  > extends Kind.Input<F[0]>
+  > extends Kind.InputOf<F[0]>
     ? true
     : false;
 
@@ -40,23 +40,23 @@ export declare namespace Kind {
     FX extends _$composable<FX> extends true ? Kind[] : never
   > extends Kind {
     abstract f: (
-      x: Cast<this[Kind._], FX extends [] ? unknown : Input<List._$last<FX>>>
+      x: Cast<this[Kind._], FX extends [] ? unknown : InputOf<List._$last<FX>>>
     ) => _$compose<FX, typeof x>;
   }
 
   export abstract class Apply<X> extends Kind {
     abstract f: (
       x: Cast<this[Kind._], Kind<(x: X) => unknown>>
-    ) => $<typeof x, Cast<X, Input<typeof x>>>;
+    ) => $<typeof x, Cast<X, InputOf<typeof x>>>;
   }
 
-  export type Input<F extends Kind> = F extends {
+  export type InputOf<F extends Kind> = F extends {
     f: (x: infer X) => unknown;
   }
     ? X
     : unknown;
 
-  export type Output<F extends Kind> = F extends {
+  export type OutputOf<F extends Kind> = F extends {
     f: (x: never) => infer X;
   }
     ? X

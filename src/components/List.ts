@@ -2,7 +2,7 @@ import $, { Boolean, Kind, Cast } from "hkt-toolbelt";
 
 export declare namespace List {
   export type _$map<F extends Kind, X extends unknown[]> = {
-    [key in keyof X]: $<F, Cast<X[key], Kind.Input<F>>>;
+    [key in keyof X]: $<F, Cast<X[key], Kind.InputOf<F>>>;
   };
 
   export abstract class Map<F extends Kind> extends Kind {
@@ -13,7 +13,7 @@ export declare namespace List {
     infer Head,
     ...infer Tail
   ]
-    ? $<F, Cast<Head, Kind.Input<F>>> extends true
+    ? $<F, Cast<Head, Kind.InputOf<F>>> extends true
       ? Head
       : _$find<F, Tail>
     : never;
@@ -28,7 +28,7 @@ export declare namespace List {
     infer Head,
     ...infer Tail
   ]
-    ? $<F, Cast<Head, Kind.Input<F>>> extends true
+    ? $<F, Cast<Head, Kind.InputOf<F>>> extends true
       ? [Head, ..._$filter<F, Tail>]
       : _$filter<F, Tail>
     : [];
@@ -43,7 +43,7 @@ export declare namespace List {
     infer Head,
     ...infer Tail
   ]
-    ? $<F, Cast<Head, Kind.Input<F>>> extends true
+    ? $<F, Cast<Head, Kind.InputOf<F>>> extends true
       ? true
       : _$includes<F, Tail>
     : false;
@@ -96,14 +96,14 @@ export declare namespace List {
     F extends Kind<(x: never) => boolean>,
     T extends unknown[]
   > = T extends [infer Head, ...infer Rest]
-    ? Boolean._$and<$<F, Cast<Head, Kind.Input<F>>>, _$every<F, Rest>>
+    ? Boolean._$and<$<F, Cast<Head, Kind.InputOf<F>>>, _$every<F, Rest>>
     : true;
 
   export abstract class Every<
     F extends Kind<(x: never) => boolean>
   > extends Kind {
     abstract f: (
-      x: Cast<this[Kind._], Kind.Input<F>[]>
+      x: Cast<this[Kind._], Kind.InputOf<F>[]>
     ) => _$every<F, typeof x>;
   }
 }
