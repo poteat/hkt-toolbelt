@@ -1,4 +1,11 @@
-import $, { List, Conditional, Test, Function, Kind } from "hkt-toolbelt";
+import $, {
+  List,
+  Conditional,
+  Test,
+  Function,
+  Kind,
+  String,
+} from "hkt-toolbelt";
 
 type Map_Spec = [
   /**
@@ -202,4 +209,135 @@ type Includes_Spec = [
    */
   // @ts-expect-error
   $<List.Includes<Function.Constant<true>>, number>
+];
+
+type Append_Spec = [
+  /**
+   * Can append items.
+   */
+  Test.Expect<Conditional._$equals<$<List.Push<4>, [1, 2, 3]>, [1, 2, 3, 4]>>,
+
+  /**
+   * Will emit an error if applied to a non-tuple.
+   */
+  // @ts-expect-error
+  $<List.Push<4>, number>
+];
+
+type Unshift_Spec = [
+  /**
+   * Can prepend items.
+   */
+  Test.Expect<
+    Conditional._$equals<$<List.Unshift<1>, [2, 3, 4]>, [1, 2, 3, 4]>
+  >,
+
+  /**
+   * Will emit an error if applied to a non-tuple.
+   */
+  // @ts-expect-error
+  $<List.Unshift<4>, number>
+];
+
+type Last_Spec = [
+  /**
+   * Can extract the last element of a tuple.
+   */
+  Test.Expect<Conditional._$equals<$<List.Last, [1, 2, 3]>, 3>>,
+
+  /**
+   * The last element of an empty tuple is never.
+   */
+  Test.Expect<Conditional._$equals<$<List.Last, []>, never>>,
+
+  /**
+   * The last element of a tuple of indeterminate length is the underlying type.
+   */
+  Test.Expect<Conditional._$equals<$<List.Last, number[]>, number>>,
+
+  /**
+   * When the last element of a tuple is variadic, the last element found is the
+   * underlying type under the variadic.
+   */
+  Test.Expect<
+    Conditional._$equals<$<List.Last, [string, ...number[]]>, number>
+  >,
+
+  /**
+   * When there are elements after a variadic type, the last such element is
+   * selected as the last element.
+   */
+  Test.Expect<
+    Conditional._$equals<$<List.Last, [string, ...number[], "foo"]>, "foo">
+  >,
+
+  /**
+   * The last element of a one-tuple is the one element.
+   */
+  Test.Expect<Conditional._$equals<$<List.Last, [string]>, string>>
+];
+
+type Pair_Spec = [
+  /**
+   * Can generate a tuple of pairs from a tuple, where each element is paired
+   * with the next element.
+   */
+  Test.Expect<
+    Conditional._$equals<$<List.Pair, [1, 2, 3, 4]>, [[1, 2], [2, 3], [3, 4]]>
+  >,
+
+  /**
+   * The pair of an empty tuple is an empty tuple.
+   */
+  Test.Expect<Conditional._$equals<$<List.Pair, []>, []>>,
+
+  /**
+   * The pair of a one-tuple is an empty tuple.
+   */
+  Test.Expect<Conditional._$equals<$<List.Pair, [1]>, []>>,
+
+  /**
+   * The pair of a two-tuple is a one-tuple.
+   */
+  Test.Expect<Conditional._$equals<$<List.Pair, [1, 2]>, [[1, 2]]>>,
+
+  /**
+   * The pair of a tuple of indeterminate length is a tuple of pairs of
+   * indeterminate length.
+   */
+  Test.Expect<Conditional._$equals<$<List.Pair, number[]>, [number, number][]>>,
+
+  /**
+   * When a variadic is introduced in a pair, it fuzzes the type of the pair.
+   */
+  Test.Expect<
+    Conditional._$equals<
+      $<List.Pair, [string, ...number[]]>,
+      [string | number, string | number][]
+    >
+  >
+];
+
+type Every_Spec = [
+  /**
+   * Can determine if every element in a tuple satisfies a predicate.
+   */
+  Test.Expect<$<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3]>>,
+
+  /**
+   * Can determine if every element in a tuple does not satisfy a predicate.
+   */
+  Test.ExpectNot<$<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3, "x"]>>,
+
+  /**
+   * Emits an error if the predicate does not return a boolean.
+   */
+  // @ts-expect-error
+  $<List.Every<Function.Constant<number>>, [1, 2, 3]>,
+
+  /**
+   * Emits an error if the provided tuple elements do not match the predicate.
+   */
+  // @ts-expect-error
+  $<List.Every<String.StartsWith<"foo">>, [1, 2, 3]>
 ];

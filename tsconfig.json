@@ -32,6 +32,7 @@
     "paths": {
       "hkt-toolbelt": ["./src"],
       "hkt-toolbelt/$": ["./src/components/$"],
+      "hkt-toolbelt/boolean": ["./src/components/boolean"],
       "hkt-toolbelt/cast": ["./src/components/Cast"],
       "hkt-toolbelt/conditional": ["./src/components/Conditional"],
       "hkt-toolbelt/function": ["./src/components/Function"],

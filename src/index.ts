@@ -1,4 +1,5 @@
 export * from "hkt-toolbelt/$";
+export * from "hkt-toolbelt/boolean";
 export * from "hkt-toolbelt/cast";
 export * from "hkt-toolbelt/conditional";
 export * from "hkt-toolbelt/function";
