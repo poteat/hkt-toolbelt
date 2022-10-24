@@ -28,6 +28,28 @@ type And_Spec = [
   Test.Expect<$<Boolean.And<true>, number>>
 ];
 
+type Or_Spec = [
+  /**
+   * True || True = True
+   */
+  Test.Expect<$<Boolean.Or<true>, true>>,
+
+  /**
+   * True || False = True
+   */
+  Test.Expect<$<Boolean.Or<true>, false>>,
+
+  /**
+   * False || True = True
+   */
+  Test.Expect<$<Boolean.Or<false>, true>>,
+
+  /**
+   * False || False = False
+   */
+  Test.ExpectNot<$<Boolean.Or<false>, false>>
+];
+
 type Not_Spec = [
   /**
    * !True = False

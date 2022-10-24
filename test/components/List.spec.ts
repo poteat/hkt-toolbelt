@@ -239,6 +239,29 @@ type Unshift_Spec = [
   $<List.Unshift<4>, number>
 ];
 
+type First_Spec = [
+  /**
+   * Can get the first element of a tuple.
+   */
+  Test.Expect<Conditional._$equals<$<List.First, [1, 2, 3]>, 1>>,
+
+  /**
+   * The first element of an empty tuple is never.
+   */
+  Test.Expect<Conditional._$equals<$<List.First, []>, never>>,
+
+  /**
+   * The first element of a variadic tuple is correct.
+   */
+  Test.Expect<Conditional._$equals<$<List.First, [1, 2, 3, ...number[]]>, 1>>,
+
+  /**
+   * Will emit an error if applied to a non-tuple.
+   */
+  // @ts-expect-error
+  $<List.First, number>
+];
+
 type Last_Spec = [
   /**
    * Can extract the last element of a tuple.
@@ -340,4 +363,63 @@ type Every_Spec = [
    */
   // @ts-expect-error
   $<List.Every<String.StartsWith<"foo">>, [1, 2, 3]>
+];
+
+type Some_Spec = [
+  /**
+   * Can determine if some element in a tuple satisfies a predicate.
+   */
+  Test.Expect<$<List.Some<Conditional.SubtypeOf<number>>, [1, 2, 3, "x"]>>,
+
+  /**
+   * Can determine if some element in a tuple does not satisfy a predicate.
+   */
+  Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, ["x", "y", "z"]>>,
+
+  /**
+   * Emits an error if the predicate does not return a boolean.
+   */
+  // @ts-expect-error
+  $<List.Some<Function.Constant<number>>, [1, 2, 3]>,
+
+  /**
+   * For all predicates, an empty tuple is false.
+   */
+  Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, []>>,
+
+  /**
+   * Emits an error if the provided tuple elements do not match the predicate.
+   */
+  // @ts-expect-error
+  $<List.Some<String.StartsWith<"foo">>, [1, 2, 3]>
+];
+
+type Reverse_Spec = [
+  /**
+   * Can reverse a tuple.
+   */
+  Test.Expect<$<List.Reverse, [1, 2, 3]>, [3, 2, 1]>,
+
+  /**
+   * The reverse of the empty tuple is the empty tuple.
+   */
+  Test.Expect<$<List.Reverse, []>, []>,
+
+  /**
+   * Can reverse a tuple of indeterminate length.
+   */
+  Test.Expect<$<List.Reverse, number[]>, number[]>,
+
+  /**
+   * Can reverse a tuple with a variadic.
+   */
+  Test.Expect<$<List.Reverse, [1, 2, 3, ...number[]]>, [...number[], 3, 2, 1]>,
+
+  /**
+   * Can reverse a tuple with a variadic and elements following the variadic.
+   */
+  Test.Expect<
+    $<List.Reverse, [1, 2, 3, ...number[], "foo"]>,
+    ["foo", ...number[], 3, 2, 1]
+  >
 ];

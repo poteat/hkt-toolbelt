@@ -30,11 +30,16 @@ This library is a companion to [ts-toolbelt]() that provides higher-kinded-type 
   - [Purpose](#purpose)
 - [API](#api)
   - [Basic Utilities](#basic-utilities)
-    - [$<F, A>](#f-a)
+    - [$<F, X>](#f-x)
+    - [$$<FX, X>](#fx-x)
     - [Cast<A, B>](#casta-b)
   - [Boolean Types](#boolean-types)
-    - [Boolean.And\<A>](#booleananda)
+    - [Boolean.And\<X>](#booleanandx)
+    - [Boolean.Or\<X>](#booleanorx)
     - [Boolean.Not](#booleannot)
+  - [Combinator Types](#combinator-types)
+    - [Combinator.Self](#combinatorself)
+    - [Combinator.ApplySelf](#combinatorapplyself)
   - [Conditional Types](#conditional-types)
     - [Conditional.Equals\<A>](#conditionalequalsa)
     - [Conditional.SubtypeOf\<A>](#conditionalsubtypeofa)
@@ -46,12 +51,14 @@ This library is a companion to [ts-toolbelt]() that provides higher-kinded-type 
     - [Kind\<F>](#kindf)
     - [Kind.Composable\<FX>](#kindcomposablefx)
     - [Kind.Compose\<FX>](#kindcomposefx)
+    - [Kind.Pipe\<FX>](#kindpipefx)
     - [Kind.\_](#kind_)
   - [List Types](#list-types)
     - [List.Map\<F>](#listmapf)
     - [List.Find\<F>](#listfindf)
     - [List.Filter\<F>](#listfilterf)
     - [List.Append\<F>](#listappendf)
+    - [List.First\<T>](#listfirstt)
     - [List.Last\<T>](#listlastt)
     - [List.Pair\<T>](#listpairt)
   - [String Types](#string-types)
@@ -69,7 +76,7 @@ All type functions (e.g. full Kinds) take in _one_ parameter at a time, to suppo
 
 ## Basic Utilities
 
-### $<F, A>
+### $<F, X>
 
 The `$` operator is used to apply a higher-kinded-type function to a type. It is equivalent to the `F<A>` syntax in TypeScript.
 
@@ -77,6 +84,22 @@ The `$` operator is used to apply a higher-kinded-type function to a type. It is
 import $, { String } from "hkt-toolbelt";
 
 type Result = $<String.Append<" world">, "hello">; // "hello world"
+```
+
+### $$<FX, X>
+
+The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Compose` operators.
+
+@see `$`
+@see `Kind.Compose`
+
+```ts
+import { $$, Kind, String } from "hkt-toolbelt";
+
+type Result = $$<
+  Kind.Compose<String.Append<" world">, String.Append<"!">>,
+  "hello"
+>; // "hello world!"
 ```
 
 ### Cast<A, B>
@@ -91,7 +114,7 @@ type Result = Cast<"hello", string>; // "hello"
 
 ## Boolean Types
 
-### Boolean.And\<A>
+### Boolean.And\<X>
 
 The `And` type takes in a boolean and returns a function that takes in another boolean and returns the result of the two booleans being `&&`'d together.
 
@@ -99,6 +122,16 @@ The `And` type takes in a boolean and returns a function that takes in another b
 import $, { Boolean } from "hkt-toolbelt";
 
 type Result = $<Boolean.And<true>, false>; // false
+```
+
+### Boolean.Or\<X>
+
+The `Or` type takes in a boolean and returns a function that takes in another boolean and returns the result of the two booleans being `||`'d together.
+
+```ts
+import $, { Boolean } from "hkt-toolbelt";
+
+type Result = $<Boolean.Or<true>, false>; // true
 ```
 
 ### Boolean.Not
@@ -109,6 +142,28 @@ The `Not` type takes in a boolean and returns the opposite boolean.
 import $, { Boolean } from "hkt-toolbelt";
 
 type Result = $<Boolean.Not, true>; // false
+```
+
+## Combinator Types
+
+### Combinator.Self
+
+The `Self` kind returns itself. This means it can be applied with $ infinitely.
+
+```ts
+import $, { Combinator } from "hkt-toolbelt";
+
+type Result = $<$<Combinator.Self, "foo">, "foo">; // Combinator.Self
+```
+
+### Combinator.ApplySelf
+
+The `ApplySelf` kind takes in a kind, and applies that kind to itself. This can be used to create syntho-recursive kinds.
+
+```ts
+import $, { Combinator } from "hkt-toolbelt";
+
+type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 ```
 
 ## Conditional Types
@@ -194,10 +249,19 @@ The `Compose` type takes in a tuple of type functions, and composes them into on
 ```ts
 import $, { Kind, String } from "hkt-toolbelt";
 
-type Result = $<
-  Kind.Compose<[String.Append<"bar">, String.Append<"foo">]>,
-  "hello "
->; // "hello foobar"
+type Result = $<Kind.Compose<[String.Append<"bar">, String.Append<"foo">]>, "">; // "foobar"
+```
+
+### Kind.Pipe\<FX>
+
+The `Pipe` type takes in a tuple of type functions, and pipes them into one type function. This operates from left to right, i.e. the first function in the tuple is executed first. This is the opposite order of `Compose`.
+
+`Pipe` is often more intuitive for programmers since it reads in order of execution. This is what `$$` uses internally.
+
+```ts
+import $, { Kind, String } from "hkt-toolbelt";
+
+type Result = $<Kind.Pipe<[String.Append<"foo">, String.Append<"bar">]>, "">; // "foobar"
 ```
 
 ### Kind.\_
@@ -244,6 +308,16 @@ The `Append` function takes in a type, and a tuple, and applies the type such th
 import $, { List } from "hkt-toolbelt";
 
 type Result = $<List.Append<"bar">, ["foo", "baz"]>; // ["foo", "baz", "bar"]
+```
+
+### List.First\<T>
+
+The `First` function takes in a tuple, and returns the first element of the tuple.
+
+```ts
+import $, { List } from "hkt-toolbelt";
+
+type Result = $<List.First, ["foo", "bar"]>; // "foo"
 ```
 
 ### List.Last\<T>

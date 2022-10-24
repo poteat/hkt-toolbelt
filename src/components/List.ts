@@ -66,6 +66,12 @@ export declare namespace List {
     abstract f: (x: Cast<this[Kind._], unknown[]>) => _$unshift<X, typeof x>;
   }
 
+  export type _$first<T extends unknown[]> = T extends [] ? never : T[0];
+
+  export abstract class First extends Kind {
+    abstract f: (x: Cast<this[Kind._], unknown[]>) => _$first<typeof x>;
+  }
+
   export type _$last<T extends unknown[]> = T extends [infer X]
     ? X
     : T extends [unknown, ...infer Tail]
@@ -105,6 +111,34 @@ export declare namespace List {
     abstract f: (
       x: Cast<this[Kind._], Kind.InputOf<F>[]>
     ) => _$every<F, typeof x>;
+  }
+
+  export type _$some<
+    F extends Kind<(x: never) => boolean>,
+    T extends unknown[]
+  > = T extends [infer Head, ...infer Rest]
+    ? Boolean._$or<$<F, Cast<Head, Kind.InputOf<F>>>, _$some<F, Rest>>
+    : false;
+
+  export abstract class Some<
+    F extends Kind<(x: never) => boolean>
+  > extends Kind {
+    abstract f: (
+      x: Cast<this[Kind._], Kind.InputOf<F>[]>
+    ) => _$some<F, typeof x>;
+  }
+
+  export type _$reverse<T extends unknown[]> = T extends [
+    infer Head,
+    ...infer Tail
+  ]
+    ? [..._$reverse<Tail>, Head]
+    : T extends [...infer Init, infer Last]
+    ? [Last, ..._$reverse<Init>]
+    : T;
+
+  export abstract class Reverse extends Kind {
+    abstract f: (x: Cast<this[Kind._], unknown[]>) => _$reverse<typeof x>;
   }
 }
 

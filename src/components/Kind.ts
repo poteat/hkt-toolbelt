@@ -44,6 +44,16 @@ export declare namespace Kind {
     ) => _$compose<FX, typeof x>;
   }
 
+  export type _$pipe<FX extends Kind[], X> = _$compose<List._$reverse<FX>, X>;
+
+  export abstract class Pipe<
+    FX extends _$composable<List._$reverse<FX>> extends true ? Kind[] : never
+  > extends Kind {
+    abstract f: (
+      x: Cast<this[Kind._], FX extends [] ? unknown : InputOf<List._$first<FX>>>
+    ) => _$pipe<FX, typeof x>;
+  }
+
   export abstract class Apply<X> extends Kind {
     abstract f: (
       x: Cast<this[Kind._], Kind<(x: X) => unknown>>
