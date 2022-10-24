@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0
+
+- Added shorthand `$$` pipe-application operator.
+- Added `Boolean.Or` for `||` HKT-level operator.
+- Added `Combinator.Self` and `Combinator.ApplySelf` combinators.
+- Added `Kind.Pipe` left-to-right composition.
+- Added `List.First`, `List.Some`, `List.Reverse` tuple utilities.
+- Improve `Test.Expect` error messages to use ᛰ for strict type equality.
+
 ## 0.3.0
 
 - Added `String.Append` and `String.Prepend` types.
