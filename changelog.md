@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- Fix internal import paths and build process for package types.
+
 ## 0.4.0
 
 - Added shorthand `$$` pipe-application operator.
