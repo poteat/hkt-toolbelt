@@ -1,4 +1,7 @@
-import $, { Boolean, Kind, Cast } from "hkt-toolbelt";
+import Cast from "./Cast";
+import Kind from "./Kind";
+import Boolean from "./Boolean";
+import $ from "./$";
 
 export declare namespace List {
   export type _$map<F extends Kind, X extends unknown[]> = {

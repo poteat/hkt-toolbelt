@@ -1,4 +1,7 @@
-import $, { Cast, Function, List } from "hkt-toolbelt";
+import Cast from "./Cast";
+import List from "./List";
+import Function from "./Function";
+import $ from "./$";
 
 export declare namespace Kind {
   const _: unique symbol;

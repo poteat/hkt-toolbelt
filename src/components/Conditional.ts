@@ -1,4 +1,4 @@
-import { Kind } from "hkt-toolbelt";
+import { Kind } from "./Kind";
 
 export declare namespace Conditional {
   export type _$equals<T, U> = [T, U] extends [U, T] ? true : false;

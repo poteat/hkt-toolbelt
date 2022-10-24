@@ -1,21 +1,12 @@
-import $, {
-  List,
-  Conditional,
-  Test,
-  Function,
-  Kind,
-  String,
-} from "hkt-toolbelt";
+import $, { List, Conditional, Test, Function, Kind, String } from "../../src";
 
 type Map_Spec = [
   /**
    * Map can execute conditionals over tuples.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<List.Map<Conditional.Equals<"foo">>, ["foo", "bar"]>,
-      [true, false]
-    >
+    $<List.Map<Conditional.Equals<"foo">>, ["foo", "bar"]>,
+    [true, false]
   >,
 
   /**

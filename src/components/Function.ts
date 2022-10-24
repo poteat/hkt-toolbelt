@@ -1,4 +1,4 @@
-import { Kind } from "hkt-toolbelt";
+import Kind from "./Kind";
 
 export declare namespace Function {
   export abstract class Constant<X> extends Kind {

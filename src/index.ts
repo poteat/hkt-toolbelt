@@ -1,12 +1,13 @@
-export * from "hkt-toolbelt/$";
-export * from "hkt-toolbelt/boolean";
-export * from "hkt-toolbelt/cast";
-export * from "hkt-toolbelt/conditional";
-export * from "hkt-toolbelt/function";
-export * from "hkt-toolbelt/kind";
-export * from "hkt-toolbelt/list";
-export * from "hkt-toolbelt/string";
-export * from "hkt-toolbelt/test";
+export * from "./components/$";
+export * from "./components/Boolean";
+export * from "./components/Cast";
+export * from "./components/Combinator";
+export * from "./components/Conditional";
+export * from "./components/Function";
+export * from "./components/Kind";
+export * from "./components/List";
+export * from "./components/String";
+export * from "./components/Test";
 
-import { $ } from "hkt-toolbelt/$";
+import { $ } from "./components/$";
 export default $;

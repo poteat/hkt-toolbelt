@@ -1,4 +1,6 @@
-import $, { Cast, Kind } from "hkt-toolbelt";
+import Cast from "./Cast";
+import Kind from "./Kind";
+import $ from "./$";
 
 export declare namespace Combinator {
   export abstract class Self extends Kind {

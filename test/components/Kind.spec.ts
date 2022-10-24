@@ -1,4 +1,4 @@
-import $, { Kind, List, Test, Function, String } from "hkt-toolbelt";
+import $, { Kind, List, Test, Function, String } from "../../src";
 
 type Composable_Spec = [
   /**

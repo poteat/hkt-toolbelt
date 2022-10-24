@@ -1,4 +1,4 @@
-import Test from "./Test";
+import { Test } from "../../src";
 
 type Test_Spec = [
   /**

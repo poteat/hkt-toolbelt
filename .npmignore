@@ -3,3 +3,4 @@ test
 .tsbuildinfo
 *.tgz
 package-lock.json
+src

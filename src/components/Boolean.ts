@@ -1,4 +1,5 @@
-import { Cast, Kind } from "hkt-toolbelt";
+import Cast from "./Cast";
+import Kind from "./Kind";
 
 export declare namespace Boolean {
   export type _$and<T extends boolean, U extends boolean> = [T, U] extends [
@@ -29,3 +30,5 @@ export declare namespace Boolean {
     abstract f: (x: Cast<this[Kind._], boolean>) => _$not<typeof x>;
   }
 }
+
+export default Boolean;

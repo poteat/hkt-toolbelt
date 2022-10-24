@@ -1,4 +1,5 @@
-import { Kind, List } from "hkt-toolbelt";
+import Kind from "./Kind";
+import List from "./List";
 
 export type $<F extends Kind, X extends Kind.InputOf<F>> = ReturnType<
   (F & {

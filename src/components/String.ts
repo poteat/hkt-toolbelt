@@ -1,4 +1,5 @@
-import { Cast, Kind } from "hkt-toolbelt";
+import Cast from "./Cast";
+import Kind from "./Kind";
 
 export declare namespace String {
   export type _$startsWith<

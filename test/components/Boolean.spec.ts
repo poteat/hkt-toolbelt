@@ -1,4 +1,4 @@
-import $, { Test, Boolean } from "hkt-toolbelt";
+import $, { Test, Boolean } from "../../src";
 
 type And_Spec = [
   /**
