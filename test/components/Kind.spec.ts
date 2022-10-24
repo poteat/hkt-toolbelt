@@ -84,4 +84,17 @@ type Compose_Spec = [
    */
   // @ts-expect-error
   $<Kind.Compose<[String.StartsWith<"foo">, List.Push<"bar">]>, []>
+
+  /**
+   * String operations may be composed.
+   */
+  // Test.Expect<
+  //   Conditional._$equals<
+  //     $<
+  //       Kind.Compose<[String.StartsWith<"foo">, String.EndsWith<"bar">]>,
+  //       "foobar"
+  //     >,
+  //     "foobar"
+  //   >
+  // >
 ];

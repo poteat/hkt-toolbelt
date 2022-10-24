@@ -29,6 +29,24 @@ export declare namespace String {
   export abstract class Includes<Infix extends string> extends Kind {
     abstract f: (x: Cast<this[Kind._], string>) => _$includes<Infix, typeof x>;
   }
+
+  export type _$append<
+    Suffix extends string,
+    S extends string
+  > = `${S}${Suffix}`;
+
+  export abstract class Append<Suffix extends string> extends Kind {
+    abstract f: (x: Cast<this[Kind._], string>) => _$append<Suffix, typeof x>;
+  }
+
+  export type _$prepend<
+    Prefix extends string,
+    S extends string
+  > = `${Prefix}${S}`;
+
+  export abstract class Prepend<Prefix extends string> extends Kind {
+    abstract f: (x: Cast<this[Kind._], string>) => _$prepend<Prefix, typeof x>;
+  }
 }
 
 export default String;
