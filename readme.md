@@ -39,7 +39,7 @@ type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
 
 ## 1.3. Purpose
 
-This library is a companion to [ts-toolbelt]() that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
+This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
 
 - [[[Higher-Kinded-Type Toolbelt]](https://www.npmjs.com/package/hkt-toolbelt)](#higher-kinded-type-toolbelt)
   - [1.1. Installation](#11-installation)
