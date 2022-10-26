@@ -1,4 +1,4 @@
-## [Higher-Kinded-Type Toolbelt]
+# [[Higher-Kinded-Type Toolbelt]](https://www.npmjs.com/package/hkt-toolbelt)
 
 _A higher-kinded-type companion to ts-toolbelt._
 
@@ -37,6 +37,11 @@ type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
 
 This library is a companion to [ts-toolbelt]() that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
 
+- [[[Higher-Kinded-Type Toolbelt]](https://www.npmjs.com/package/hkt-toolbelt)](#higher-kinded-type-toolbelt)
+  - [1.1. Installation](#11-installation)
+  - [1.2. Usage](#12-usage)
+    - [1.2.1. Subpath Imports](#121-subpath-imports)
+  - [1.3. Purpose](#13-purpose)
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
