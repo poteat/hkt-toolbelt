@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.4
+
+- Fix typo in documentation link on npm.
+
 ## 0.4.3
 
 - Add minified readme to npm package.
