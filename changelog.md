@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3
+
+- Add minified readme to npm package.
+
 ## 0.4.2
 
 - Allow alternative subpath imports, e.g. `hkt-toolbelt/string`.
