@@ -1,5 +1,4 @@
-import Kind from "./Kind";
-import List from "./List";
+import { Kind, List } from ".";
 
 export type $<F extends Kind, X extends Kind.InputOf<F>> = ReturnType<
   (F & {
@@ -11,5 +10,3 @@ export type $$<
   FX extends Kind[],
   X extends FX extends [] ? unknown : Kind.InputOf<List._$first<FX>>
 > = Kind._$pipe<FX, X>;
-
-export default $;

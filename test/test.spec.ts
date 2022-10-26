@@ -1,4 +1,4 @@
-import { Test } from "../../src";
+import { Test } from "hkt-toolbelt";
 
 type Test_Spec = [
   /**

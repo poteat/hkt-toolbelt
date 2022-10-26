@@ -1,4 +1,4 @@
-import { Test, $, $$, List, Kind, Function, String } from "../../src";
+import $, { $$, Function, Kind, List, String, Test } from "hkt-toolbelt";
 
 type $_Spec = [
   /**

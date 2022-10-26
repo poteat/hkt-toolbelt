@@ -1,22 +1,14 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "target": "es2016",
     "module": "commonjs",
-    // "paths": {
-    //   "hkt-toolbelt": ["./src"],
-    //   "hkt-toolbelt/$": ["./src/components/$"],
-    //   "hkt-toolbelt/boolean": ["./src/components/boolean"],
-    //   "hkt-toolbelt/cast": ["./src/components/Cast"],
-    //   "hkt-toolbelt/conditional": ["./src/components/Conditional"],
-    //   "hkt-toolbelt/function": ["./src/components/Function"],
-    //   "hkt-toolbelt/kind": ["./src/components/Kind"],
-    //   "hkt-toolbelt/list": ["./src/components/List"],
-    //   "hkt-toolbelt/string": ["./src/components/String"],
-    //   "hkt-toolbelt/test": ["./src/components/Test"]
-    // },
+    "paths": {
+      "hkt-toolbelt": ["./src"]
+    },
     "rootDir": "./",
     "declaration": true,
-    "declarationMap": true,
+    "noEmit": true,
     "outDir": "./dist/",
     "stripInternal": true,
     "noEmitOnError": true,

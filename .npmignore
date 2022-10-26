@@ -1,6 +1,0 @@
-node_modules
-test
-.tsbuildinfo
-*.tgz
-package-lock.json
-src

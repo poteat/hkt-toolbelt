@@ -1,6 +1,4 @@
-import { String } from "../../src/components/String";
-import { Test } from "../../src/components/Test";
-import { $ } from "../../src/components/$";
+import $, { String, Test } from "hkt-toolbelt";
 
 type StartsWith_Spec = [
   /**

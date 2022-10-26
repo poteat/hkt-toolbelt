@@ -1,7 +1,4 @@
-import Cast from "./Cast";
-import List from "./List";
-import Function from "./Function";
-import $ from "./$";
+import $, { Cast, Function, List } from ".";
 
 export declare namespace Kind {
   const _: unique symbol;
@@ -75,6 +72,26 @@ export declare namespace Kind {
     ? X
     : unknown;
 }
+
+export const Composable = Kind.Composable;
+export type Composable = Kind.Composable;
+
+export const Compose = Kind.Compose;
+export type Compose<
+  FX extends Kind._$composable<FX> extends true ? Kind[] : never
+> = Kind.Compose<FX>;
+
+export const Pipe = Kind.Pipe;
+export type Pipe<
+  FX extends Kind._$composable<List._$reverse<FX>> extends true ? Kind[] : never
+> = Kind.Pipe<FX>;
+
+export const Apply = Kind.Apply;
+export type Apply<X> = Kind.Apply<X>;
+
+export type InputOf<F extends Kind> = Kind.InputOf<F>;
+
+export type OutputOf<F extends Kind> = Kind.OutputOf<F>;
 
 declare const Kind_: typeof Kind;
 

@@ -1,4 +1,11 @@
-import $, { List, Conditional, Test, Function, Kind, String } from "../../src";
+import $, {
+  Conditional,
+  Function,
+  Kind,
+  List,
+  String,
+  Test,
+} from "hkt-toolbelt";
 
 type Map_Spec = [
   /**
