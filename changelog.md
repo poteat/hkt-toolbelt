@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2
+
+- Allow alternative subpath imports, e.g. `hkt-toolbelt/string`.
+
 ## 0.4.1
 
 - Fix internal import paths and build process for package types.

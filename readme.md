@@ -2,81 +2,95 @@
 
 A higher-kinded-type companion to ts-toolbelt.
 
-## Installation
+## 1.1. Installation
 
 ```bash
 npm install hkt-toolbelt
 ```
 
-## Usage
+## 1.2. Usage
 
 ```ts
-import { List, Conditional } from "hkt-toolbelt/list";
+import $, { List, Conditional } from "hkt-toolbelt";
 
-// Filter a tuple to only numbers
+// A kind that filters a tuple to only number elements.
 type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
 
-// A :: [1, 2, 3]
-type A = $<FilterNumbers, [1, null, 2, 3, "4"]>;
+type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
 ```
 
-## Purpose
+### 1.2.1. Subpath Imports
+
+You can also optionally import subpaths:
+
+```ts
+import $ from "hkt-toolbelt";
+import { Filter } from "hkt-toolbelt/list";
+import { SubtypeOf } from "hkt-toolbelt/conditional";
+
+type FilterNumbers = Filter<SubtypeOf<number>>;
+
+type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
+```
+
+## 1.3. Purpose
 
 This library is a companion to [ts-toolbelt]() that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
 
 - [hkt-toolbelt](#hkt-toolbelt)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Purpose](#purpose)
-- [API](#api)
-  - [Basic Utilities](#basic-utilities)
-    - [$<F, X>](#f-x)
-    - [$$<FX, X>](#fx-x)
-    - [Cast<A, B>](#casta-b)
-  - [Boolean Types](#boolean-types)
-    - [Boolean.And\<X>](#booleanandx)
-    - [Boolean.Or\<X>](#booleanorx)
-    - [Boolean.Not](#booleannot)
-  - [Combinator Types](#combinator-types)
-    - [Combinator.Self](#combinatorself)
-    - [Combinator.ApplySelf](#combinatorapplyself)
-  - [Conditional Types](#conditional-types)
-    - [Conditional.Equals\<A>](#conditionalequalsa)
-    - [Conditional.SubtypeOf\<A>](#conditionalsubtypeofa)
-  - [Function Types](#function-types)
-    - [Function](#function)
-    - [Function.Constant\<A>](#functionconstanta)
-    - [Function.Identity](#functionidentity)
-  - [Kind Types](#kind-types)
-    - [Kind\<F>](#kindf)
-    - [Kind.Composable\<FX>](#kindcomposablefx)
-    - [Kind.Compose\<FX>](#kindcomposefx)
-    - [Kind.Pipe\<FX>](#kindpipefx)
-    - [Kind.\_](#kind_)
-  - [List Types](#list-types)
-    - [List.Map\<F>](#listmapf)
-    - [List.Find\<F>](#listfindf)
-    - [List.Filter\<F>](#listfilterf)
-    - [List.Append\<F>](#listappendf)
-    - [List.First\<T>](#listfirstt)
-    - [List.Last\<T>](#listlastt)
-    - [List.Pair\<T>](#listpairt)
-  - [String Types](#string-types)
-    - [String.StartsWith\<S>](#stringstartswiths)
-    - [String.EndsWith\<S>](#stringendswiths)
-    - [String.Includes\<S>](#stringincludess)
-    - [String.Append\<S>](#stringappends)
-    - [String.Prepend\<S>](#stringprepends)
+  - [1.1. Installation](#11-installation)
+  - [1.2. Usage](#12-usage)
+    - [1.2.1. Subpath Imports](#121-subpath-imports)
+  - [1.3. Purpose](#13-purpose)
+- [2. API](#2-api)
+  - [2.1. Basic Utilities](#21-basic-utilities)
+    - [2.1.1. $<F, X>](#211-f-x)
+    - [2.1.2. $$<FX, X>](#212-fx-x)
+    - [2.1.3. Cast<A, B>](#213-casta-b)
+  - [2.2. Boolean Types](#22-boolean-types)
+    - [2.2.1. Boolean.And\<X>](#221-booleanandx)
+    - [2.2.2. Boolean.Or\<X>](#222-booleanorx)
+    - [2.2.3. Boolean.Not](#223-booleannot)
+  - [2.3. Combinator Types](#23-combinator-types)
+    - [2.3.1. Combinator.Self](#231-combinatorself)
+    - [2.3.2. Combinator.ApplySelf](#232-combinatorapplyself)
+  - [2.4. Conditional Types](#24-conditional-types)
+    - [2.4.1. Conditional.Equals\<A>](#241-conditionalequalsa)
+    - [2.4.2. Conditional.SubtypeOf\<A>](#242-conditionalsubtypeofa)
+  - [2.5. Function Types](#25-function-types)
+    - [2.5.1. Function](#251-function)
+    - [2.5.2. Function.Constant\<A>](#252-functionconstanta)
+    - [2.5.3. Function.Identity](#253-functionidentity)
+  - [2.6. Kind Types](#26-kind-types)
+    - [2.6.1. Kind\<F>](#261-kindf)
+    - [2.6.2. Kind.Composable\<FX>](#262-kindcomposablefx)
+    - [2.6.3. Kind.Compose\<FX>](#263-kindcomposefx)
+    - [2.6.4. Kind.Pipe\<FX>](#264-kindpipefx)
+    - [2.6.5. Kind.\_](#265-kind_)
+  - [2.7. List Types](#27-list-types)
+    - [2.7.1. List.Map\<F>](#271-listmapf)
+    - [2.7.2. List.Find\<F>](#272-listfindf)
+    - [2.7.3. List.Filter\<F>](#273-listfilterf)
+    - [2.7.4. List.Append\<F>](#274-listappendf)
+    - [2.7.5. List.First\<T>](#275-listfirstt)
+    - [2.7.6. List.Last\<T>](#276-listlastt)
+    - [2.7.7. List.Pair\<T>](#277-listpairt)
+  - [2.8. String Types](#28-string-types)
+    - [2.8.1. String.StartsWith\<S>](#281-stringstartswiths)
+    - [2.8.2. String.EndsWith\<S>](#282-stringendswiths)
+    - [2.8.3. String.Includes\<S>](#283-stringincludess)
+    - [2.8.4. String.Append\<S>](#284-stringappends)
+    - [2.8.5. String.Prepend\<S>](#285-stringprepends)
 
-# API
+# 2. API
 
 The curried nature of the functions in this library is intended to be utilized to compose types using point-free style. In this respect, API types will first take in 'operations' and then the data to be operated on.
 
 All type functions (e.g. full Kinds) take in _one_ parameter at a time, to support currying and point-free style.
 
-## Basic Utilities
+## 2.1. Basic Utilities
 
-### $<F, X>
+### 2.1.1. $<F, X>
 
 The `$` operator is used to apply a higher-kinded-type function to a type. It is equivalent to the `F<A>` syntax in TypeScript.
 
@@ -86,7 +100,7 @@ import $, { String } from "hkt-toolbelt";
 type Result = $<String.Append<" world">, "hello">; // "hello world"
 ```
 
-### $$<FX, X>
+### 2.1.2. $$<FX, X>
 
 The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Compose` operators.
 
@@ -102,7 +116,7 @@ type Result = $$<
 >; // "hello world!"
 ```
 
-### Cast<A, B>
+### 2.1.3. Cast<A, B>
 
 The `Cast` type is used to cast a type to another type. It is equivalent to the `A as B` syntax in TypeScript. For subtle cases.
 
@@ -112,9 +126,9 @@ import { Cast } from "hkt-toolbelt";
 type Result = Cast<"hello", string>; // "hello"
 ```
 
-## Boolean Types
+## 2.2. Boolean Types
 
-### Boolean.And\<X>
+### 2.2.1. Boolean.And\<X>
 
 The `And` type takes in a boolean and returns a function that takes in another boolean and returns the result of the two booleans being `&&`'d together.
 
@@ -124,7 +138,7 @@ import $, { Boolean } from "hkt-toolbelt";
 type Result = $<Boolean.And<true>, false>; // false
 ```
 
-### Boolean.Or\<X>
+### 2.2.2. Boolean.Or\<X>
 
 The `Or` type takes in a boolean and returns a function that takes in another boolean and returns the result of the two booleans being `||`'d together.
 
@@ -134,7 +148,7 @@ import $, { Boolean } from "hkt-toolbelt";
 type Result = $<Boolean.Or<true>, false>; // true
 ```
 
-### Boolean.Not
+### 2.2.3. Boolean.Not
 
 The `Not` type takes in a boolean and returns the opposite boolean.
 
@@ -144,9 +158,9 @@ import $, { Boolean } from "hkt-toolbelt";
 type Result = $<Boolean.Not, true>; // false
 ```
 
-## Combinator Types
+## 2.3. Combinator Types
 
-### Combinator.Self
+### 2.3.1. Combinator.Self
 
 The `Self` kind returns itself. This means it can be applied with $ infinitely.
 
@@ -156,7 +170,7 @@ import $, { Combinator } from "hkt-toolbelt";
 type Result = $<$<Combinator.Self, "foo">, "foo">; // Combinator.Self
 ```
 
-### Combinator.ApplySelf
+### 2.3.2. Combinator.ApplySelf
 
 The `ApplySelf` kind takes in a kind, and applies that kind to itself. This can be used to create syntho-recursive kinds.
 
@@ -166,9 +180,9 @@ import $, { Combinator } from "hkt-toolbelt";
 type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 ```
 
-## Conditional Types
+## 2.4. Conditional Types
 
-### Conditional.Equals\<A>
+### 2.4.1. Conditional.Equals\<A>
 
 The `Equals` type is used to check if a type is equal to another type. It is equivalent to the `A extends B ? (B extends A ? true : false) : false` syntax in TypeScript.
 
@@ -180,7 +194,7 @@ import $, { Conditional } from "hkt-toolbelt";
 type Result = $<Conditional.Equals<"foo">, "bar">; // false
 ```
 
-### Conditional.SubtypeOf\<A>
+### 2.4.2. Conditional.SubtypeOf\<A>
 
 The `SubtypeOf` type is used to check if a type is a subtype of another type. It is equivalent to the `A extends B ? true : false` syntax in TypeScript.
 
@@ -194,13 +208,13 @@ import $, { Conditional } from "hkt-toolbelt";
 type Result = $<Conditional.SubtypeOf<string>, "bar">; // true
 ```
 
-## Function Types
+## 2.5. Function Types
 
-### Function
+### 2.5.1. Function
 
 The `Function` type is a supertype of all functions, i.e. all functions are a subtype of `Function`. It is not a kind and cannot be applied.
 
-### Function.Constant\<A>
+### 2.5.2. Function.Constant\<A>
 
 The `Constant` type takes in a type and returns a function that takes in any type and returns the original type. It ignores its applied input and always returns the configured type.
 
@@ -210,7 +224,7 @@ import $, { Function } from "hkt-toolbelt";
 type Result = $<Function.Constant<"foo">, number>; // "foo"
 ```
 
-### Function.Identity
+### 2.5.3. Function.Identity
 
 The `Identity` type takes in a type and returns the same type, on the higher-kinded-type level.
 
@@ -220,15 +234,15 @@ import $, { Function } from "hkt-toolbelt";
 type Result = $<Function.Identity, "foo">; // "foo"
 ```
 
-## Kind Types
+## 2.6. Kind Types
 
-### Kind\<F>
+### 2.6.1. Kind\<F>
 
 The `Kind` type denotes a type function that may be applied to a type using `$`.
 
 The Kind type can optionally be provided a function type to increase the specificity of its internal parameter and return types. This is used to create new kinds.
 
-### Kind.Composable\<FX>
+### 2.6.2. Kind.Composable\<FX>
 
 The `Composable` type checks whether a tuple of kinds are composable. A tuple of kinds is composable if the output of kind $N$ is a subtype of the input of kind $N-1$.
 
@@ -238,7 +252,7 @@ import $, { Kind, String } from "hkt-toolbelt";
 type Result = $<Kind.Composable, [String.Append<"bar">, String.Append<"foo">]>; // true
 ```
 
-### Kind.Compose\<FX>
+### 2.6.3. Kind.Compose\<FX>
 
 The `Compose` type takes in a tuple of type functions, and composes them into one type function.
 
@@ -252,7 +266,7 @@ import $, { Kind, String } from "hkt-toolbelt";
 type Result = $<Kind.Compose<[String.Append<"bar">, String.Append<"foo">]>, "">; // "foobar"
 ```
 
-### Kind.Pipe\<FX>
+### 2.6.4. Kind.Pipe\<FX>
 
 The `Pipe` type takes in a tuple of type functions, and pipes them into one type function. This operates from left to right, i.e. the first function in the tuple is executed first. This is the opposite order of `Compose`.
 
@@ -264,13 +278,13 @@ import $, { Kind, String } from "hkt-toolbelt";
 type Result = $<Kind.Pipe<[String.Append<"foo">, String.Append<"bar">]>, "">; // "foobar"
 ```
 
-### Kind.\_
+### 2.6.5. Kind.\_
 
 The `_` type represents the 'unique placeholder type' used in type functions before application. `Kind._` is used by `$` for application.
 
-## List Types
+## 2.7. List Types
 
-### List.Map\<F>
+### 2.7.1. List.Map\<F>
 
 The `Map` function takes in a type function, and returns a higher kinded type that takes in a tuple type. It applies the given type function over every element in the tuple.
 
@@ -280,7 +294,7 @@ import $, { List, String } from "hkt-toolbelt";
 type Result = $<List.Map<String.Append<"bar">>, ["foo", "baz"]>; // ["foobar", "bazbar"]
 ```
 
-### List.Find\<F>
+### 2.7.2. List.Find\<F>
 
 The `Find` function takes in a type function, then a tuple, and returns the first tuple element for which the finder function returns `true`. If no such element exists, `Find` returns `never`.
 
@@ -290,7 +304,7 @@ import $, { List, String } from "hkt-toolbelt";
 type Result = $<List.Find<String.StartsWith<"foo">>, ["bar", "foobar"]>; // "foobar"
 ```
 
-### List.Filter\<F>
+### 2.7.3. List.Filter\<F>
 
 The `Filter` function takes in a type function, and a tuple, and returns a tuple in-order of the input tuple, whereby only elements for which the filter function returns `true` remain in the resultant tuple.
 
@@ -300,7 +314,7 @@ import $, { List, String } from "hkt-toolbelt";
 type Result = $<List.Filter<String.StartsWith<"foo">>, ["bar", "foobar"]>; // ["foobar"]
 ```
 
-### List.Append\<F>
+### 2.7.4. List.Append\<F>
 
 The `Append` function takes in a type, and a tuple, and applies the type such that it is appended to the end of the provided tuple.
 
@@ -310,7 +324,7 @@ import $, { List } from "hkt-toolbelt";
 type Result = $<List.Append<"bar">, ["foo", "baz"]>; // ["foo", "baz", "bar"]
 ```
 
-### List.First\<T>
+### 2.7.5. List.First\<T>
 
 The `First` function takes in a tuple, and returns the first element of the tuple.
 
@@ -320,7 +334,7 @@ import $, { List } from "hkt-toolbelt";
 type Result = $<List.First, ["foo", "bar"]>; // "foo"
 ```
 
-### List.Last\<T>
+### 2.7.6. List.Last\<T>
 
 The `Last` function takes in a tuple, and returns the last element of the tuple. In the case of tuples with variadic elements, the variadic element is properly handled, even if it's infix.
 
@@ -330,7 +344,7 @@ import $, { List } from "hkt-toolbelt";
 type Result = $<List.Last, ["foo", "bar", "baz"]>; // "baz"
 ```
 
-### List.Pair\<T>
+### 2.7.7. List.Pair\<T>
 
 The `Pair` function takes in a tuple, and returns a tuple of tuples, where each tuple is a pair of the original tuple's elements, in order. e.g. `[1, 2, 3]` becomes `[[1, 2], [2, 3]]`.
 
@@ -342,9 +356,9 @@ type Result = $<List.Pair, [1, 2, 3]>; // [[1, 2], [2, 3]]
 
 For variadic tuples, the variadic element is handled via introducing unions to represent the possible combinations of variadic pair elements.
 
-## String Types
+## 2.8. String Types
 
-### String.StartsWith\<S>
+### 2.8.1. String.StartsWith\<S>
 
 The `StartsWith` function takes in a string literal and returns whether or not it starts with the given prefix, returning `true` or `false` as appropriate.
 
@@ -358,7 +372,7 @@ import $, { String } from "hkt-toolbelt";
 type Result = $<String.StartsWith<"foo">, "foobar">; // true
 ```
 
-### String.EndsWith\<S>
+### 2.8.2. String.EndsWith\<S>
 
 The `EndsWith` function takes in a string literal and returns whether or not it ends with the given suffix, returning `true` or `false` as appropriate.
 
@@ -370,7 +384,7 @@ import $, { String } from "hkt-toolbelt";
 type Result = $<String.EndsWith<"bar">, "foobar">; // true
 ```
 
-### String.Includes\<S>
+### 2.8.3. String.Includes\<S>
 
 The `Includes` function takes in a string literal and returns whether or not it is a substring of the given string, returning `true` or `false` as appropriate.
 
@@ -382,7 +396,7 @@ import $, { String } from "hkt-toolbelt";
 type Result = $<String.Includes<"foo">, "barfoobar">; // true
 ```
 
-### String.Append\<S>
+### 2.8.4. String.Append\<S>
 
 The `Append` function takes in a string literal and returns a higher-kinded-type function that takes in a string and returns the result of appending the string literal to the end of the string.
 
@@ -392,7 +406,7 @@ import $, { String } from "hkt-toolbelt";
 type Result = $<String.Append<"bar">, "foo">; // "foobar"
 ```
 
-### String.Prepend\<S>
+### 2.8.5. String.Prepend\<S>
 
 The `Prepend` function takes in a string literal and returns a higher-kinded-type function that takes in a string and returns the result of prepending the string literal to the beginning of the string.
 
