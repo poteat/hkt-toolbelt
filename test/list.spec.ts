@@ -19,9 +19,7 @@ type Map_Spec = [
   /**
    * Empty input corresponds to empty output.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Map<Conditional.Equals<"foo">>, []>, []>
-  >,
+  Test.Expect<$<List.Map<Conditional.Equals<"foo">>, []>, []>,
 
   /**
    * Non-tuple input emits a compiler error
@@ -32,21 +30,14 @@ type Map_Spec = [
   /**
    * Mapping over identity results in the same tuple.
    */
-  Test.Expect<
-    Conditional._$equals<
-      $<List.Map<Function.Identity>, ["foo", "bar"]>,
-      ["foo", "bar"]
-    >
-  >,
+  Test.Expect<$<List.Map<Function.Identity>, ["foo", "bar"]>, ["foo", "bar"]>,
 
   /**
    * Mapping over constant results in a tuple solely composed of such elements.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<List.Map<Function.Constant<"foo">>, ["foo", "bar"]>,
-      ["foo", "foo"]
-    >
+    $<List.Map<Function.Constant<"foo">>, ["foo", "bar"]>,
+    ["foo", "foo"]
   >
 ];
 
@@ -54,25 +45,19 @@ type Find_Spec = [
   /**
    * Can find a number present in a tuple.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Find<Conditional.Equals<3>>, [1, 2, 3]>, 3>
-  >,
+  Test.Expect<$<List.Find<Conditional.Equals<3>>, [1, 2, 3]>, 3>,
 
   /**
    * Searching for a non-existent element returns `never`.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Find<Conditional.Equals<4>>, [1, 2, 3]>, never>
-  >,
+  Test.Expect<$<List.Find<Conditional.Equals<4>>, [1, 2, 3]>, never>,
 
   /**
    * Can find elements according to dynamic conditions.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<List.Find<Conditional.SubtypeOf<string>>, [1, 2, 3, "foo", "bar"]>,
-      "foo"
-    >
+    $<List.Find<Conditional.SubtypeOf<string>>, [1, 2, 3, "foo", "bar"]>,
+    "foo"
   >,
 
   /**
@@ -86,49 +71,30 @@ type Filter_Spec = [
   /**
    * Can filter specific elements in a tuple.
    */
-  Test.Expect<
-    Conditional._$equals<
-      $<List.Filter<Conditional.Equals<3>>, [1, 2, 3, 3]>,
-      [3, 3]
-    >
-  >,
+  Test.Expect<$<List.Filter<Conditional.Equals<3>>, [1, 2, 3, 3]>, [3, 3]>,
 
   /**
    * Can perform dynamic subtype checks.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<List.Filter<Conditional.SubtypeOf<string>>, [1, "f", 2, "g", 3]>,
-      ["f", "g"]
-    >
+    $<List.Filter<Conditional.SubtypeOf<string>>, [1, "f", 2, "g", 3]>,
+    ["f", "g"]
   >,
 
   /**
    * Filtering an empty tuple results in an empty tuple.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Filter<Function.Constant<true>>, []>, []>
-  >,
+  Test.Expect<$<List.Filter<Function.Constant<true>>, []>, []>,
 
   /**
    * Filtering with a constant true condition results in the same tuple.
    */
-  Test.Expect<
-    Conditional._$equals<
-      $<List.Filter<Function.Constant<true>>, [1, 2, 3]>,
-      [1, 2, 3]
-    >
-  >,
+  Test.Expect<$<List.Filter<Function.Constant<true>>, [1, 2, 3]>, [1, 2, 3]>,
 
   /**
    * Filtering with a constant false condition results in the empty tuple.
    */
-  Test.Expect<
-    Conditional._$equals<
-      $<List.Filter<Function.Constant<false>>, [1, 2, 3]>,
-      []
-    >
-  >,
+  Test.Expect<$<List.Filter<Function.Constant<false>>, [1, 2, 3]>, []>,
 
   /**
    * Non-boolean returning filter functions emit an error.
@@ -146,13 +112,8 @@ type Filter_Spec = [
    * Values can be applied to a filter function using Apply.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<
-        Kind.Apply<[1, "foo", 2, 3]>,
-        List.Filter<Conditional.SubtypeOf<number>>
-      >,
-      [1, 2, 3]
-    >
+    $<Kind.Apply<[1, "foo", 2, 3]>, List.Filter<Conditional.SubtypeOf<number>>>,
+    [1, 2, 3]
   >
 ];
 
@@ -187,13 +148,11 @@ type Includes_Spec = [
    * only tuples that contain at least one string.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<
-        List.Filter<List.Includes<Conditional.SubtypeOf<string>>>,
-        [[1, 2, 3], [1, 2, 3, "f"], ["a", "b", "c"]]
-      >,
-      [[1, 2, 3, "f"], ["a", "b", "c"]]
-    >
+    $<
+      List.Filter<List.Includes<Conditional.SubtypeOf<string>>>,
+      [[1, 2, 3], [1, 2, 3, "f"], ["a", "b", "c"]]
+    >,
+    [[1, 2, 3, "f"], ["a", "b", "c"]]
   >,
 
   /**
@@ -213,7 +172,7 @@ type Append_Spec = [
   /**
    * Can append items.
    */
-  Test.Expect<Conditional._$equals<$<List.Push<4>, [1, 2, 3]>, [1, 2, 3, 4]>>,
+  Test.Expect<$<List.Push<4>, [1, 2, 3]>, [1, 2, 3, 4]>,
 
   /**
    * Will emit an error if applied to a non-tuple.
@@ -226,9 +185,7 @@ type Unshift_Spec = [
   /**
    * Can prepend items.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Unshift<1>, [2, 3, 4]>, [1, 2, 3, 4]>
-  >,
+  Test.Expect<$<List.Unshift<1>, [2, 3, 4]>, [1, 2, 3, 4]>,
 
   /**
    * Will emit an error if applied to a non-tuple.
@@ -241,17 +198,17 @@ type First_Spec = [
   /**
    * Can get the first element of a tuple.
    */
-  Test.Expect<Conditional._$equals<$<List.First, [1, 2, 3]>, 1>>,
+  Test.Expect<$<List.First, [1, 2, 3]>, 1>,
 
   /**
    * The first element of an empty tuple is never.
    */
-  Test.Expect<Conditional._$equals<$<List.First, []>, never>>,
+  Test.Expect<$<List.First, []>, never>,
 
   /**
    * The first element of a variadic tuple is correct.
    */
-  Test.Expect<Conditional._$equals<$<List.First, [1, 2, 3, ...number[]]>, 1>>,
+  Test.Expect<$<List.First, [1, 2, 3, ...number[]]>, 1>,
 
   /**
    * Will emit an error if applied to a non-tuple.
@@ -264,38 +221,34 @@ type Last_Spec = [
   /**
    * Can extract the last element of a tuple.
    */
-  Test.Expect<Conditional._$equals<$<List.Last, [1, 2, 3]>, 3>>,
+  Test.Expect<$<List.Last, [1, 2, 3]>, 3>,
 
   /**
    * The last element of an empty tuple is never.
    */
-  Test.Expect<Conditional._$equals<$<List.Last, []>, never>>,
+  Test.Expect<$<List.Last, []>, never>,
 
   /**
    * The last element of a tuple of indeterminate length is the underlying type.
    */
-  Test.Expect<Conditional._$equals<$<List.Last, number[]>, number>>,
+  Test.Expect<$<List.Last, number[]>, number>,
 
   /**
    * When the last element of a tuple is variadic, the last element found is the
    * underlying type under the variadic.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Last, [string, ...number[]]>, number>
-  >,
+  Test.Expect<$<List.Last, [string, ...number[]]>, number>,
 
   /**
    * When there are elements after a variadic type, the last such element is
    * selected as the last element.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Last, [string, ...number[], "foo"]>, "foo">
-  >,
+  Test.Expect<$<List.Last, [string, ...number[], "foo"]>, "foo">,
 
   /**
    * The last element of a one-tuple is the one element.
    */
-  Test.Expect<Conditional._$equals<$<List.Last, [string]>, string>>
+  Test.Expect<$<List.Last, [string]>, string>
 ];
 
 type Pair_Spec = [
@@ -303,39 +256,35 @@ type Pair_Spec = [
    * Can generate a tuple of pairs from a tuple, where each element is paired
    * with the next element.
    */
-  Test.Expect<
-    Conditional._$equals<$<List.Pair, [1, 2, 3, 4]>, [[1, 2], [2, 3], [3, 4]]>
-  >,
+  Test.Expect<$<List.Pair, [1, 2, 3, 4]>, [[1, 2], [2, 3], [3, 4]]>,
 
   /**
    * The pair of an empty tuple is an empty tuple.
    */
-  Test.Expect<Conditional._$equals<$<List.Pair, []>, []>>,
+  Test.Expect<$<List.Pair, []>, []>,
 
   /**
    * The pair of a one-tuple is an empty tuple.
    */
-  Test.Expect<Conditional._$equals<$<List.Pair, [1]>, []>>,
+  Test.Expect<$<List.Pair, [1]>, []>,
 
   /**
    * The pair of a two-tuple is a one-tuple.
    */
-  Test.Expect<Conditional._$equals<$<List.Pair, [1, 2]>, [[1, 2]]>>,
+  Test.Expect<$<List.Pair, [1, 2]>, [[1, 2]]>,
 
   /**
    * The pair of a tuple of indeterminate length is a tuple of pairs of
    * indeterminate length.
    */
-  Test.Expect<Conditional._$equals<$<List.Pair, number[]>, [number, number][]>>,
+  Test.Expect<$<List.Pair, number[]>, [number, number][]>,
 
   /**
    * When a variadic is introduced in a pair, it fuzzes the type of the pair.
    */
   Test.Expect<
-    Conditional._$equals<
-      $<List.Pair, [string, ...number[]]>,
-      [string | number, string | number][]
-    >
+    $<List.Pair, [string, ...number[]]>,
+    [string | number, string | number][]
   >
 ];
 
@@ -373,6 +322,11 @@ type Some_Spec = [
    * Can determine if some element in a tuple does not satisfy a predicate.
    */
   Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, ["x", "y", "z"]>>,
+
+  /**
+   * Always returns false for an empty tuple.
+   */
+  Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, []>>,
 
   /**
    * Emits an error if the predicate does not return a boolean.

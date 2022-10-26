@@ -1,6 +1,6 @@
-# hkt-toolbelt
+## [Higher-Kinded-Type Toolbelt]
 
-A higher-kinded-type companion to ts-toolbelt.
+_A higher-kinded-type companion to ts-toolbelt._
 
 ## 1.1. Installation
 
@@ -13,7 +13,7 @@ npm install hkt-toolbelt
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-// A kind that filters a tuple to only number elements.
+// A kind that filters to find numbers.
 type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
 
 type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
@@ -21,7 +21,7 @@ type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
 
 ### 1.2.1. Subpath Imports
 
-You can also optionally import subpaths:
+You can also optionally import subpaths.
 
 ```ts
 import $ from "hkt-toolbelt";
@@ -37,11 +37,6 @@ type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
 
 This library is a companion to [ts-toolbelt]() that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
 
-- [hkt-toolbelt](#hkt-toolbelt)
-  - [1.1. Installation](#11-installation)
-  - [1.2. Usage](#12-usage)
-    - [1.2.1. Subpath Imports](#121-subpath-imports)
-  - [1.3. Purpose](#13-purpose)
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
@@ -75,6 +70,9 @@ This library is a companion to [ts-toolbelt]() that provides higher-kinded-type 
     - [2.7.5. List.First\<T>](#275-listfirstt)
     - [2.7.6. List.Last\<T>](#276-listlastt)
     - [2.7.7. List.Pair\<T>](#277-listpairt)
+    - [2.7.8. List.Every\<T>](#278-listeveryt)
+    - [2.7.9. List.Some\<T>](#279-listsomet)
+    - [2.7.10. List.Reverse\<T>](#2710-listreverset)
   - [2.8. String Types](#28-string-types)
     - [2.8.1. String.StartsWith\<S>](#281-stringstartswiths)
     - [2.8.2. String.EndsWith\<S>](#282-stringendswiths)
@@ -355,6 +353,38 @@ type Result = $<List.Pair, [1, 2, 3]>; // [[1, 2], [2, 3]]
 ```
 
 For variadic tuples, the variadic element is handled via introducing unions to represent the possible combinations of variadic pair elements.
+
+### 2.7.8. List.Every\<T>
+
+The `Every` function takes in a predicate function, and a tuple, and returns `true` if every element in the tuple satisfies the predicate function, and `false` otherwise.
+
+```ts
+import $, { List, Conditional } from "hkt-toolbelt";
+
+type Result = $<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3]>; // true
+```
+
+### 2.7.9. List.Some\<T>
+
+The `Some` function takes in a predicate function, and a tuple, and returns `true` if at least one element in the tuple satisfies the predicate function, and `false` otherwise.
+
+```ts
+import $, { List, Conditional } from "hkt-toolbelt";
+
+type Result = $<List.Some<Conditional.SubtypeOf<string>>, [1, 2, 3]>; // false
+```
+
+### 2.7.10. List.Reverse\<T>
+
+The `Reverse` function takes in a tuple, and returns a tuple with the elements in reverse order.
+
+This kind properly handles variadic tuple types, e.g. `[1, 2, ...string[]]` becomes `[...string[], 2, 1]`.
+
+```ts
+import $, { List } from "hkt-toolbelt";
+
+type Result = $<List.Reverse, [1, 2, 3]>; // [3, 2, 1]
+```
 
 ## 2.8. String Types
 

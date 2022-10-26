@@ -1,14 +1,11 @@
 # Changelog
 
-## 0.4.4
+## 0.5.1
 
-- Fix typo in documentation link on npm.
+- Fix bug with `Test.Expect` in checking equality between two `never` types.
+- Publish improved docs on npm.
 
-## 0.4.3
-
-- Add minified readme to npm package.
-
-## 0.4.2
+## 0.5.0
 
 - Allow alternative subpath imports, e.g. `hkt-toolbelt/string`.
 

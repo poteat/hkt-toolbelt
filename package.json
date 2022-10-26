@@ -2,6 +2,7 @@
   "name": "hkt-toolbelt",
   "private": true,
   "scripts": {
+    "test": "tsc",
     "build": "./build.sh"
   },
   "license": "MIT",
