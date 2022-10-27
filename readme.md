@@ -3,14 +3,16 @@
   </h1>
 
 <p align="center">
-  <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
+  <a href="https://www.npmjs.com/package/hkt-toolbelt">
+    <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
+  </a>
   <img src=https://img.shields.io/github/workflow/status/poteat/hkt-toolbelt/build>
   <img src=https://img.shields.io/github/repo-size/poteat/hkt-toolbelt>
   <br>
   <img src=https://img.shields.io/npm/dw/hkt-toolbelt>
   <img src=https://img.shields.io/github/license/poteat/hkt-toolbelt>
   <a href="https://code.lol">
-    <img src=https://img.shields.io/badge/-code.lol-yellow>
+    <img src=https://img.shields.io/badge/blog-code.lol-blue>
   </a>
 </p>
 
@@ -19,6 +21,10 @@
 </p>
 
 ---
+
+This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
+
+We aim to support hundreds of kind categories, including **List**, **Boolean**, **String**, **Function**, and more. We also provide a set of combinators for composing types.
 
 ## 1.1. Installation
 
@@ -34,7 +40,7 @@ import $, { List, Conditional } from "hkt-toolbelt";
 // A kind that filters to find numbers.
 type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
 
-type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
+type Result = $<FilterNumbers, [1, "foo", 2, 3, "bar"]>; // [1, 2, 3]
 ```
 
 ### 1.2.1. Subpath Imports
@@ -46,9 +52,7 @@ import $ from "hkt-toolbelt";
 import { Filter } from "hkt-toolbelt/list";
 import { SubtypeOf } from "hkt-toolbelt/conditional";
 
-type FilterNumbers = Filter<SubtypeOf<number>>;
-
-type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
+type Result = $<Filter<SubtypeOf<number>>, [1, "foo", 2, 3, "bar"]>; // [1, 2, 3]
 ```
 
 ## 1.3 What is a HKT?
@@ -73,16 +77,14 @@ Using kinds allows us to represent new types that are not possible with generics
 
 As well, for even types that are representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
 
-## 1.4. Purpose
+## 1.4. Table of Contents
 
-This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
-
-- [[Higher-Kinded-Type Toolbelt]](#higher-kinded-type-toolbelt)
+- [[HK-Types Toolbelt]](#higher-kinded-type-toolbelt)
   - [1.1. Installation](#11-installation)
   - [1.2. Usage](#12-usage)
     - [1.2.1. Subpath Imports](#121-subpath-imports)
   - [1.3. What is a HKT?](#13-what-is-a-hkt)
-  - [1.4. Purpose](#14-purpose)
+  - [1.4. Table of Contents](#14-table-of-contents)
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)

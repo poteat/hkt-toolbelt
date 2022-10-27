@@ -1,36 +1,50 @@
-## [Higher-Kinded-Type Toolbelt]
+  <h1 align="center">
+    [HK-Types Toolbelt]
+  </h1>
 
-_A higher-kinded-type companion to ts-toolbelt._
+<p align="center">
+  <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
+  <img src=https://img.shields.io/github/workflow/status/poteat/hkt-toolbelt/build>
+  <img src=https://img.shields.io/github/repo-size/poteat/hkt-toolbelt>
+  <br>
+  <img src=https://img.shields.io/npm/dw/hkt-toolbelt>
+  <img src=https://img.shields.io/github/license/poteat/hkt-toolbelt>
+  <a href="https://code.lol">
+    <img src=https://img.shields.io/badge/blog-code.lol-blue>
+  </a>
+</p>
 
-# [[Full API Docs]](https://github.com/poteat/hkt-toolbelt#readme.md)
+<p align="center">
+  <i>A higher-kinded-type companion to ts-toolbelt</i>
+</p>
 
-## 1.1. Installation
+---
+
+This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
+
+We aim to support hundreds of kind categories, including **List**, **Boolean**, **String**, **Function**, and more. We also provide a set of combinators for composing types.
+
+<h1 align="center">
+  <a href="https://github.com/poteat/hkt-toolbelt#readme.md">
+  (Full API Docs)
+  </a>
+</h1>
+
+---
+
+## 1. Installation
 
 ```bash
-npm install hkt-toolbelt
+> npm install hkt-toolbelt
 ```
 
-## 1.2. Usage
+## 2. Usage
 
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-// A kind that filters to find numbers.
-type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
-
-type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
-```
-
-### 1.2.1. Subpath Imports
-
-You can also optionally import subpaths.
-
-```ts
-import $ from "hkt-toolbelt";
-import { Filter } from "hkt-toolbelt/list";
-import { SubtypeOf } from "hkt-toolbelt/conditional";
-
-type FilterNumbers = Filter<SubtypeOf<number>>;
-
-type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
+type Result = $<
+  List.Filter<Conditional.SubtypeOf<number>>,
+  [1, "foo", 2, 3, "bar"]
+>; // [1, 2, 3]
 ```
