@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1
+
+- Publish updated npm readme.
+
 ## 0.6.0
 
 - Added `String.Join`, `String.Split`, and `String.IsTemplate` kinds.
