@@ -42,11 +42,11 @@ export abstract class Prepend<Prefix extends string> extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$prepend<Prefix, typeof x>;
 }
 
-type _$simpleSplit<S extends string> = string extends S
+type _$simpleSplit<S extends string, O extends string[] = []> = string extends S
   ? [string]
   : S extends `${infer Head}${infer Tail}`
-  ? [Head, ..._$simpleSplit<Tail>]
-  : [];
+  ? _$simpleSplit<Tail, [...O, Head]>
+  : O;
 
 export type _$isTemplate<S extends string> = string extends S
   ? false
