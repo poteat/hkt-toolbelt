@@ -1,4 +1,4 @@
-import { Cast, Kind } from ".";
+import { Cast, Conditional, Kind, List } from ".";
 
 export type _$startsWith<
   Prefix extends string,
@@ -40,6 +40,54 @@ export type _$prepend<
 
 export abstract class Prepend<Prefix extends string> extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$prepend<Prefix, typeof x>;
+}
+
+type _$simpleSplit<S extends string> = string extends S
+  ? [string]
+  : S extends `${infer Head}${infer Tail}`
+  ? [Head, ..._$simpleSplit<Tail>]
+  : [];
+
+export type _$isTemplate<S extends string> = string extends S
+  ? false
+  : List._$some<Conditional.Equals<string>, _$simpleSplit<S>>;
+
+export abstract class IsTemplate extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$isTemplate<typeof x>;
+}
+
+export type _$join<
+  T extends string[],
+  D extends string = ""
+> = List._$isVariadic<T> extends true
+  ? string
+  : T extends [infer Head, ...infer Tail]
+  ? Tail extends []
+    ? Head
+    : `${Cast<Head, string>}${D}${_$join<Cast<Tail, string[]>, D>}`
+  : string[] extends T
+  ? string
+  : "";
+
+export abstract class Join<D extends string = ""> extends Kind {
+  abstract f: (x: Cast<this[Kind._], string[]>) => _$join<typeof x, D>;
+}
+
+export type _$split<
+  S extends string,
+  Delimiter extends string = ""
+> = _$isTemplate<Delimiter> extends true
+  ? string[]
+  : string extends Delimiter
+  ? string[]
+  : S extends `${infer Head}${Delimiter}${infer Tail}`
+  ? [Head, ..._$split<Tail, Delimiter>]
+  : S extends Delimiter
+  ? []
+  : [S];
+
+export abstract class Split<Delimiter extends string = ""> extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$split<typeof x, Delimiter>;
 }
 
 export * as String from "./string";

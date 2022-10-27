@@ -432,6 +432,18 @@ import $, { List } from "hkt-toolbelt";
 type Result = $<List.Reverse, [1, 2, 3]>; // [3, 2, 1]
 ```
 
+### 2.7.11. List.IsVariadic
+
+The `IsVariadic` type takes in a tuple, and returns `true` if the tuple is variadic, and `false` otherwise.
+
+We consider a tuple to be variadic if it has an indeterminate length.
+
+```ts
+import { List } from "hkt-toolbelt";
+
+type Result = List.IsVariadic<[1, 2, 3]>; // false
+```
+
 ## 2.8. String Types
 
 ### 2.8.1. String.StartsWith\<S>
@@ -491,3 +503,41 @@ import $, { String } from "hkt-toolbelt";
 
 type Result = $<String.Prepend<"foo">, "bar">; // "foobar"
 ```
+
+### 2.8.6. String.IsTemplate
+
+The `IsTemplate` function takes in a string and returns whether or not it is a template literal, returning `true` or `false` as appropriate.
+
+A string is considered to be a template literal if it cannot be reduced to a literal string, i.e. if it contains `${string}` within it.
+
+This is a potentially expensive type operation.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.IsTemplate, `foo${string}`>; // true
+```
+
+### 2.8.7. String.Join\<S>
+
+The `Join` function takes in a string literal and returns a higher-kinded-type function that takes in a tuple of strings and returns the result of joining the strings in the tuple with the string literal acting as the separator.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Join<" ">, ["foo", "bar", "baz"]>; // "foo bar baz"
+```
+
+`Join` can handle template literal strings as well, and will properly handle the template literal's embedded expressions. In the case of variadic tuple input, we resolve the join to `string`. String unions are supported for both the separator and the tuple elements.
+
+### 2.8.8. String.Split\<S>
+
+The `Split` function takes in a string literal and returns a higher-kinded-type function that takes in a string and returns a tuple of strings, where the original string is split on the string literal.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Split<" ">, "foo bar baz">; // ["foo", "bar", "baz"]
+```
+
+`Split` can handle template literal strings as well, and will properly handle the template literal's embedded expressions. However, all string literal delimiters result in `string[]` as the split result. String unions are supported for both the separator and the tuple elements.

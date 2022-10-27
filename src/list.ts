@@ -138,4 +138,12 @@ export abstract class Reverse extends Kind {
   abstract f: (x: Cast<this[Kind._], unknown[]>) => _$reverse<typeof x>;
 }
 
+export type _$isVariadic<T extends unknown[]> = number extends T["length"]
+  ? true
+  : false;
+
+export abstract class IsVariadic extends Kind {
+  abstract f: (x: Cast<this[Kind._], unknown[]>) => _$isVariadic<typeof x>;
+}
+
 export * as List from "./list";

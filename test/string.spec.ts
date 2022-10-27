@@ -215,3 +215,242 @@ type Prepend_Spec = [
   // @ts-expect-error
   Test.Expect<$<String.Prepend<"">, number>, string>
 ];
+
+type IsTemplateLiteral_Spec = [
+  /**
+   * A template literal string is a template literal string.
+   */
+  Test.Expect<$<String.IsTemplate, `foo${string}`>, true>,
+
+  /**
+   * A string is not a template literal string.
+   */
+  Test.Expect<$<String.IsTemplate, string>, false>,
+
+  /**
+   * A literal string is not a template literal string.
+   */
+  Test.Expect<$<String.IsTemplate, "foo">, false>,
+
+  /**
+   * An empty string is not a template literal string.
+   */
+  Test.Expect<$<String.IsTemplate, "">, false>,
+
+  /**
+   * A template literal string can begin with `string`.
+   */
+  Test.Expect<$<String.IsTemplate, `${string}foo`>, true>,
+
+  /**
+   * An error is thrown if the input is not a string.
+   */
+  // @ts-expect-error
+  Test.Expect<$<String.IsTemplate, number>, true>,
+
+  /**
+   * `${string}` is equal to `string` and therefore is not a template literal
+   * string.
+   */
+  Test.Expect<$<String.IsTemplate, `${string}`>, false>
+];
+
+type Join_Spec = [
+  /**
+   * Can join strings.
+   */
+  Test.Expect<$<String.Join<"">, ["foo", "bar"]>, "foobar">,
+
+  /**
+   * Can join strings with a separator.
+   */
+  Test.Expect<$<String.Join<" ">, ["foo", "bar"]>, "foo bar">,
+
+  /**
+   * Joining an empty array results in the empty string.
+   */
+  Test.Expect<$<String.Join<"">, []>, "">,
+
+  /**
+   * Joining an array of strings results in a string.
+   */
+  Test.Expect<$<String.Join<"">, string[]>, string>,
+
+  /**
+   * Can join literal strings and 'string'.
+   */
+  Test.Expect<$<String.Join<"">, ["foo", string]>, `foo${string}`>,
+
+  /**
+   * Can join 'string' and literal strings.
+   */
+  Test.Expect<$<String.Join<"">, [string, "foo"]>, `${string}foo`>,
+
+  /**
+   * Non-string input results in a compiler error.
+   */
+  // @ts-expect-error
+  $<String.Join<"">, number>,
+
+  /**
+   * Properly handles string union types.
+   */
+  Test.Expect<
+    $<String.Join<"">, ["foo", "bar"] | ["baz", "qux"]>,
+    "foobar" | "bazqux"
+  >,
+
+  /**
+   * Properly handles string union as the separator.
+   */
+  Test.Expect<$<String.Join<" " | "-">, ["foo", "bar"]>, "foo bar" | "foo-bar">,
+
+  /**
+   * Enforces string separator type.
+   */
+  // @ts-expect-error
+  $<String.Join<1>, ["foo", "bar"]>,
+
+  /**
+   * Properly handles 'string' delimiter.
+   */
+  Test.Expect<$<String.Join<string>, ["foo", "bar"]>, `foo${string}bar`>,
+
+  /**
+   * All variadic tuples are joined as a string.
+   */
+  Test.Expect<$<String.Join<"">, ["foo", ...string[]]>, string>,
+
+  /**
+   * Properly handles variadic tuples with a separator.
+   */
+  Test.Expect<$<String.Join<" ">, ["foo", ...string[]]>, string>,
+
+  /**
+   * Properly handles variadic tuples with template literal separators.
+   */
+  Test.Expect<
+    $<String.Join<` ${string} `>, ["foo", ...string[], "bar"]>,
+    string
+  >,
+
+  /**
+   * Can join large tuples.
+   */
+  Test.Expect<
+    $<
+      String.Join<"">,
+      [
+        "foo",
+        "bar",
+        "baz",
+        "qux",
+        "quux",
+        "corge",
+        "grault",
+        "garply",
+        "waldo",
+        "fred",
+        "plugh",
+        "xyzzy",
+        "thud"
+      ]
+    >,
+    "foobarbazquxquuxcorgegraultgarplywaldofredplughxyzzythud"
+  >
+];
+
+type Split_Spec = [
+  /**
+   * Can split strings.
+   */
+  Test.Expect<$<String.Split<"">, "foobar">, ["f", "o", "o", "b", "a", "r"]>,
+
+  /**
+   * Can split strings with a separator.
+   */
+  Test.Expect<$<String.Split<" ">, "foo bar">, ["foo", "bar"]>,
+
+  /**
+   * Splitting the empty string results in an empty array.
+   */
+  Test.Expect<$<String.Split<"">, "">, []>,
+
+  /**
+   * Splitting a string results in a singular string tuple.
+   */
+  Test.Expect<$<String.Split<"">, string>, [string]>,
+
+  /**
+   * Can split literal strings and 'string'.
+   */
+  Test.Expect<$<String.Split<"">, `foo${string}`>, ["f", "o", "o", string]>,
+
+  /**
+   * Can split 'string' and literal strings.
+   */
+  Test.Expect<$<String.Split<"">, `${string}foo`>, [string, "f", "o", "o"]>,
+
+  /**
+   * Non-string input results in a compiler error.
+   */
+  // @ts-expect-error
+  $<String.Split<"">, number>,
+
+  /**
+   * Properly handles string union types.
+   */
+  Test.Expect<
+    $<String.Split<"">, "foobar" | "bazqux">,
+    ["f", "o", "o", "b", "a", "r"] | ["b", "a", "z", "q", "u", "x"]
+  >,
+
+  /**
+   * Properly handles string union as the separator.
+   */
+  Test.Expect<
+    $<String.Split<" " | "-">, "foo bar" | "foo-bar">,
+    ["foo", "bar"] | ["foo", "bar"]
+  >,
+
+  /**
+   * Enforces string separator type.
+   */
+  // @ts-expect-error
+  $<String.Split<1>, "foo bar">,
+
+  /**
+   * The 'string' delimiter is not supported and fuzzes the type.
+   */
+  Test.Expect<$<String.Split<string>, `foo${string}bar`>, string[]>,
+
+  /**
+   * All template literal delimiters result in string[].
+   */
+  Test.Expect<$<String.Split<`${string}x`>, `fooxfoo`>, string[]>,
+
+  /**
+   * Can split larger strings.
+   */
+  Test.Expect<
+    $<
+      String.Split<" ">,
+      "foo bar baz qux quux corge grault garply waldo fred plugh xyzzy thud"
+    >,
+    [
+      "foo",
+      "bar",
+      "baz",
+      "qux",
+      "quux",
+      "corge",
+      "grault",
+      "garply",
+      "waldo",
+      "fred",
+      "plugh",
+      "xyzzy",
+      "thud"
+    ]
+  >
+];
