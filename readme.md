@@ -1,4 +1,6 @@
-# [[Higher-Kinded-Type Toolbelt]](https://www.npmjs.com/package/hkt-toolbelt)
+  <h1 align="center">
+    [HK-Types Toolbelt]
+  </h1>
 
 <p align="center">
   <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
@@ -9,7 +11,9 @@
   <img src=https://img.shields.io/github/license/poteat/hkt-toolbelt>
 </p>
 
-_A higher-kinded-type companion to ts-toolbelt._ ❤️
+<p align="center">
+  <i>A higher-kinded-type companion to ts-toolbelt</i>
+</p>
 
 ---
 
