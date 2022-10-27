@@ -1,6 +1,13 @@
 # [[Higher-Kinded-Type Toolbelt]](https://www.npmjs.com/package/hkt-toolbelt)
 
-![](https://img.shields.io/npm/v/hkt-toolbelt?color=green) ![](https://img.shields.io/github/repo-size/poteat/hkt-toolbelt) ![](https://img.shields.io/npm/dw/hkt-toolbelt) ![](https://img.shields.io/github/license/poteat/hkt-toolbelt)
+<p align="center">
+  <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
+  <img src=https://img.shields.io/github/workflow/status/poteat/hkt-toolbelt/build>
+  <img src=https://img.shields.io/github/repo-size/poteat/hkt-toolbelt>
+  <br>
+  <img src=https://img.shields.io/npm/dw/hkt-toolbelt>
+  <img src=https://img.shields.io/github/license/poteat/hkt-toolbelt>
+</p>
 
 _A higher-kinded-type companion to ts-toolbelt._ ❤️
 
