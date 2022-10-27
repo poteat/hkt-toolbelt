@@ -29,7 +29,7 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 <p align="right">
 <b>Translations</b>
 <br>
-  <a href="./">
+  <a href="">
     <img src="https://img.shields.io/badge/docs-english-blue">
   </a>
   <a href="./docs/readme.chinese.md">
