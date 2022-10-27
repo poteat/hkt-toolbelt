@@ -10,7 +10,7 @@
   <img src=https://img.shields.io/npm/dw/hkt-toolbelt>
   <img src=https://img.shields.io/github/license/poteat/hkt-toolbelt>
   <a href="https://code.lol">
-    <img src=https://img.shields.io/badge/-code.lol-ff69b4>
+    <img src=https://img.shields.io/badge/-code.lol-yellow>
   </a>
 </p>
 
