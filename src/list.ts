@@ -18,7 +18,7 @@ export type _$find<F extends Kind, X extends unknown[]> = X extends [
   : never;
 
 export abstract class Find<F extends Kind<(x: never) => boolean>> extends Kind {
-  abstract f: (x: Cast<this[Kind._], unknown[]>) => _$find<F, typeof x>;
+  abstract f: (x: Cast<this[Kind._], Kind.InputOf<F>[]>) => _$find<F, typeof x>;
 }
 
 export type _$filter<F extends Kind, X extends unknown[]> = X extends [
@@ -33,7 +33,9 @@ export type _$filter<F extends Kind, X extends unknown[]> = X extends [
 export abstract class Filter<
   F extends Kind<(x: never) => boolean>
 > extends Kind {
-  abstract f: (x: Cast<this[Kind._], unknown[]>) => _$filter<F, typeof x>;
+  abstract f: (
+    x: Cast<this[Kind._], Kind.InputOf<F>[]>
+  ) => _$filter<F, typeof x>;
 }
 
 export type _$includes<F extends Kind, X extends unknown[]> = X extends [
@@ -48,7 +50,9 @@ export type _$includes<F extends Kind, X extends unknown[]> = X extends [
 export abstract class Includes<
   F extends Kind<(x: never) => boolean>
 > extends Kind {
-  abstract f: (x: Cast<this[Kind._], unknown[]>) => _$includes<F, typeof x>;
+  abstract f: (
+    x: Cast<this[Kind._], Kind.InputOf<F>[]>
+  ) => _$includes<F, typeof x>;
 }
 
 export type _$push<X, T extends unknown[]> = [...T, X];

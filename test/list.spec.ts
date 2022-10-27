@@ -162,6 +162,12 @@ type Includes_Spec = [
   List.Includes<Function.Constant<number>>,
 
   /**
+   * Applying data that doesn't match the predicate input type emits an error.
+   */
+  // @ts-expect-error
+  $<List.Includes<String.StartsWith<"foo">>, [1, 2, 3]>,
+
+  /**
    * Applying includes to a non-tuple results in an error.
    */
   // @ts-expect-error
@@ -306,6 +312,12 @@ type Every_Spec = [
   $<List.Every<Function.Constant<number>>, [1, 2, 3]>,
 
   /**
+   * Emits an error if the predicate input type does not match the tuple type.
+   */
+  // @ts-expect-error
+  $<List.Every<String.StartsWith<"foo">>, [1, 2, 3]>,
+
+  /**
    * Emits an error if the provided tuple elements do not match the predicate.
    */
   // @ts-expect-error
@@ -338,6 +350,12 @@ type Some_Spec = [
    * For all predicates, an empty tuple is false.
    */
   Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, []>>,
+
+  /**
+   * Emits an error if the predicate input type does not match the tuple type.
+   */
+  // @ts-expect-error
+  $<List.Some<String.StartsWith<"foo">>, [1, 2, 3]>,
 
   /**
    * Emits an error if the provided tuple elements do not match the predicate.
