@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0
+
+- Added `String.Join`, `String.Split`, and `String.IsTemplate` kinds.
+- Added `List.IsVariadic` kind.
+
 ## 0.5.1
 
 - Fix bug with `Test.Expect` in checking equality between two `never` types.
