@@ -1,6 +1,6 @@
-  <h1 align="center">
-    [HK-Types Toolbelt]
-  </h1>
+<h1 align="center">
+  [HK-Types Toolbelt]
+</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/hkt-toolbelt">
@@ -25,6 +25,17 @@
 This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
 
 We aim to support hundreds of kind categories, including **List**, **Boolean**, **String**, **Function**, and more. We also provide a set of combinators for composing types.
+
+<p align="right">
+<b>Translations</b>
+<br>
+  <a href=".">
+    <img src="https://img.shields.io/badge/docs-english-blue">
+  </a>
+  <a href="./docs/readme.chinese.md">
+    <img src="https://img.shields.io/badge/docs-chinese-red">
+  </a>
+</p>
 
 ## 1.1. Installation
 
