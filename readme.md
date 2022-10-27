@@ -30,10 +30,10 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 <b>Translations</b>
 <br>
   <a href="https://github.com/poteat/hkt-toolbelt#readme">
-    <img src="https://img.shields.io/badge/docs-english-blue">
+    <img src="https://img.shields.io/badge/english-blue">
   </a>
   <a href="./docs/readme.chinese.md">
-    <img src="https://img.shields.io/badge/docs-chinese | 中国人-red">
+    <img src="https://img.shields.io/badge/-中国人-red">
   </a>
 </p>
 
