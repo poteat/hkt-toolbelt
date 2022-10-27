@@ -74,19 +74,23 @@ export declare namespace Kind {
 }
 
 export const Composable = Kind.Composable;
+
 export type Composable = Kind.Composable;
 
 export const Compose = Kind.Compose;
+
 export type Compose<
   FX extends Kind._$composable<FX> extends true ? Kind[] : never
 > = Kind.Compose<FX>;
 
 export const Pipe = Kind.Pipe;
+
 export type Pipe<
   FX extends Kind._$composable<List._$reverse<FX>> extends true ? Kind[] : never
 > = Kind.Pipe<FX>;
 
 export const Apply = Kind.Apply;
+
 export type Apply<X> = Kind.Apply<X>;
 
 export type InputOf<F extends Kind> = Kind.InputOf<F>;
