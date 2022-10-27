@@ -48,7 +48,29 @@ type FilterNumbers = Filter<SubtypeOf<number>>;
 type Result = $<FilterNumbers, [1, null, 2, 3, "4"]>; // [1, 2, 3]
 ```
 
-## 1.3. Purpose
+## 1.3 What is a HKT?
+
+> **> HKT stands for "higher-kinded type"**
+
+Typescript has two _different_ constructions: types, and generics.
+
+- **type**: An compile-time expression that is used to describe a value.
+- **generic**: A 'template' type that can be instantiated with one or more type arguments, and resolves to a type.
+
+Generics are not first-class citizens in Typescript - you cannot reference them without immediately supplying all of their type arguments. You can't pass in generics as arguments to other generics, or return them. This is a limitation of the language.
+
+**`hkt-toolbelt` introduces two additional constructions:**
+
+- **kind**: A compile-time expression that is used to describe a type, and is parameterized such that it may be applied to an argument type.
+- **generic kind**: A generic type that returns a kind.
+
+We apply kinds to types using the `$<kind, type>` generic.
+
+Using kinds allows us to represent new types that are not possible with generics alone. For example: the narrow composition of generic functions.
+
+As well, for even types that are representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
+
+## 1.4. Purpose
 
 This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
 
@@ -56,7 +78,8 @@ This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-to
   - [1.1. Installation](#11-installation)
   - [1.2. Usage](#12-usage)
     - [1.2.1. Subpath Imports](#121-subpath-imports)
-  - [1.3. Purpose](#13-purpose)
+  - [1.3. What is a HKT?](#13-what-is-a-hkt)
+  - [1.4. Purpose](#14-purpose)
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
