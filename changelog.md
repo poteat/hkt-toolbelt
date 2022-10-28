@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.0
+
+- Optimize string splitting routine in `String.IsTemplate` using tail-call optimization.
+- Add `String.First` and `String.Last` kinds.
+
 ## 0.6.1
 
 - Publish updated npm readme.
