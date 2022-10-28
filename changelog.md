@@ -1,13 +1,18 @@
 # Changelog
 
+## 0.7.0
+
+- Optimize string splitting routine in `String.IsTemplate` using tail-call optimization.
+- Add `String.First` and `String.Last` kinds.
+
 ## 0.6.1
 
 - Publish updated npm readme.
 
 ## 0.6.0
 
-- Added `String.Join`, `String.Split`, and `String.IsTemplate` kinds.
-- Added `List.IsVariadic` kind.
+- Add `String.Join`, `String.Split`, and `String.IsTemplate` kinds.
+- Add `List.IsVariadic` kind.
 
 ## 0.5.1
 
@@ -24,27 +29,27 @@
 
 ## 0.4.0
 
-- Added shorthand `$$` pipe-application operator.
-- Added `Boolean.Or` for `||` HKT-level operator.
-- Added `Combinator.Self` and `Combinator.ApplySelf` combinators.
-- Added `Kind.Pipe` left-to-right composition.
-- Added `List.First`, `List.Some`, `List.Reverse` tuple utilities.
+- Add shorthand `$$` pipe-application operator.
+- Add `Boolean.Or` for `||` HKT-level operator.
+- Add `Combinator.Self` and `Combinator.ApplySelf` combinators.
+- Add `Kind.Pipe` left-to-right composition.
+- Add `List.First`, `List.Some`, `List.Reverse` tuple utilities.
 - Improve `Test.Expect` error messages to use ᛰ for strict type equality.
 
 ## 0.3.0
 
-- Added `String.Append` and `String.Prepend` types.
-- Improved `Test.Expect` behavior and error messages.
+- Add `String.Append` and `String.Prepend` types.
+- Improve `Test.Expect` behavior and error messages.
 
 ## 0.2.1
 
-- Renamed `Kind.Input` to `Kind.InputOf` and `Kind.Output` to `Kind.OutputOf`.
+- Rename `Kind.Input` to `Kind.InputOf` and `Kind.Output` to `Kind.OutputOf`.
 
 ## 0.2.0
 
-- Added HKT-level composability check for `Kind.Compose`.
+- Add HKT-level composability check for `Kind.Compose`.
 
 ## 0.1.0
 
 - First experimental release.
-- Introduced `Boolean`, `Cast`, `Conditional`, `Function`, `Kind`, `List`, `String`, and `Test` core components.
+- Introduce `Boolean`, `Cast`, `Conditional`, `Function`, `Kind`, `List`, `String`, and `Test` core components.

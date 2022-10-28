@@ -45,16 +45,38 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 
 ## 1.2. Usage
 
+In short, **`hkt-toolbelt`** let's you go from this:
+
+```ts
+/**
+ * Remove all non-numeric elements from a tuple.
+ */
+type FilterNum<T extends unknown[]> = T extends [Head, ...Tail]
+  ? Head extends number
+    ? [Head, ...FilterNum<Tail>]
+    : FilterNum<Tail>
+  : [];
+```
+
+To this:
+
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-// A kind that filters to find numbers.
-type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
-
-type Result = $<FilterNumbers, [1, "foo", 2, 3, "bar"]>; // [1, 2, 3]
+type FilterNum = List.Filter<Conditional.SubtypeOf<number>>;
 ```
 
-### 1.2.1. Subpath Imports
+**`hkt-toolbelt`** let's you express advanced types in a readable way, via composition of higher-kinded primitives.
+
+### 1.2.1. Kind Apply with $
+
+You apply your kinds to an input with the `$` operator:
+
+```ts
+type Result = $<FilterNum, [1, "x", 2, "y", 3]>; // [1, 2, 3]
+```
+
+### 1.2.2. Subpath Imports
 
 You can also optionally import subpaths.
 
@@ -63,7 +85,7 @@ import $ from "hkt-toolbelt";
 import { Filter } from "hkt-toolbelt/list";
 import { SubtypeOf } from "hkt-toolbelt/conditional";
 
-type Result = $<Filter<SubtypeOf<number>>, [1, "foo", 2, 3, "bar"]>; // [1, 2, 3]
+type FilterNum = Filter<SubtypeOf<number>>;
 ```
 
 ## 1.3 What is a HKT?
@@ -88,14 +110,18 @@ Using kinds allows us to represent new types that are not possible with generics
 
 As well, for even types that are representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
 
-## 1.4. Table of Contents
+> **Note on Terminology**
+> Technically, using the word **_kind_** like this is incorrect. However, always mentioning 'higher-kinded type' is cumbersome, so we use **'kind'** as shorthand.
 
-- [[HK-Types Toolbelt]](#higher-kinded-type-toolbelt)
-  - [1.1. Installation](#11-installation)
-  - [1.2. Usage](#12-usage)
-    - [1.2.1. Subpath Imports](#121-subpath-imports)
-  - [1.3. What is a HKT?](#13-what-is-a-hkt)
-  - [1.4. Table of Contents](#14-table-of-contents)
+## 1.4. Guides
+
+We have additional resources to help you get started with `hkt-toolbelt`, that go in depth on the concepts and usage.
+
+- **[[Custom Kinds]](./docs/guides/custom-kinds.md)** - How do I create my own Kinds?
+- **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a Kind's input?
+
+## 1.5. Table of Contents
+
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
@@ -132,12 +158,18 @@ As well, for even types that are representible using generics, we can use kinds 
     - [2.7.8. List.Every\<T>](#278-listeveryt)
     - [2.7.9. List.Some\<T>](#279-listsomet)
     - [2.7.10. List.Reverse\<T>](#2710-listreverset)
+    - [2.7.11. List.IsVariadic](#2711-listisvariadic)
   - [2.8. String Types](#28-string-types)
     - [2.8.1. String.StartsWith\<S>](#281-stringstartswiths)
     - [2.8.2. String.EndsWith\<S>](#282-stringendswiths)
     - [2.8.3. String.Includes\<S>](#283-stringincludess)
     - [2.8.4. String.Append\<S>](#284-stringappends)
     - [2.8.5. String.Prepend\<S>](#285-stringprepends)
+    - [2.8.6. String.IsTemplate](#286-stringistemplate)
+    - [2.8.7. String.Join\<S>](#287-stringjoins)
+    - [2.8.8. String.Split\<S>](#288-stringsplits)
+    - [2.8.9. String.First](#289-stringfirst)
+    - [2.8.10. String.Last](#2810-stringlast)
 
 # 2. API
 
@@ -159,18 +191,17 @@ type Result = $<String.Append<" world">, "hello">; // "hello world"
 
 ### 2.1.2. $$<FX, X>
 
-The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Compose` operators.
+The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Pipe` operators, to avoid the need for explicitly calling `Kind.Pipe`.
+
+`Kind.Pipe` composes kinds from left-to-right.
 
 @see `$`
-@see `Kind.Compose`
+@see `Kind.Pipe`
 
 ```ts
 import { $$, Kind, String } from "hkt-toolbelt";
 
-type Result = $$<
-  Kind.Compose<String.Append<" world">, String.Append<"!">>,
-  "hello"
->; // "hello world!"
+type Result = $$<[String.Append<" world">, String.Append<"!">], "hello">; // "hello world!"
 ```
 
 ### 2.1.3. Cast<A, B>
@@ -554,3 +585,25 @@ type Result = $<String.Split<" ">, "foo bar baz">; // ["foo", "bar", "baz"]
 ```
 
 `Split` can handle template literal strings as well, and will properly handle the template literal's embedded expressions. However, all string literal delimiters result in `string[]` as the split result. String unions are supported for both the separator and the tuple elements.
+
+### 2.8.9. String.First
+
+> **"If ya ain't `[First]`, you're `[Last]`"** - _Ricky Bobby_
+
+The `First` function takes in a string and returns the first character of the string.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.First, "foo">; // "f"
+```
+
+### 2.8.10. String.Last
+
+The `Last` function takes in a string and returns the last character of the string.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Last, "foo">; // "o"
+```
