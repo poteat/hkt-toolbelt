@@ -45,16 +45,38 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 
 ## 1.2. Usage
 
+In short, **`hkt-toolbelt`** let's you go from this:
+
+```ts
+/**
+ * Remove all non-numeric elements from a tuple.
+ */
+type FilterNum<T extends unknown[]> = T extends [Head, ...Tail]
+  ? Head extends number
+    ? [Head, ...FilterNum<Tail>]
+    : FilterNum<Tail>
+  : [];
+```
+
+To this:
+
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-// A kind that filters to find numbers.
-type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
-
-type Result = $<FilterNumbers, [1, "foo", 2, 3, "bar"]>; // [1, 2, 3]
+type FilterNum = List.Filter<Conditional.SubtypeOf<number>>;
 ```
 
-### 1.2.1. Subpath Imports
+**`hkt-toolbelt`** let's you express advanced types in a readable way, via composition of higher-kinded primitives.
+
+### 1.2.1. Kind Apply with $
+
+You apply your kinds to an input with the `$` operator:
+
+```ts
+type Result = $<FilterNum, [1, "x", 2, "y", 3]>; // [1, 2, 3]
+```
+
+### 1.2.2. Subpath Imports
 
 You can also optionally import subpaths.
 
@@ -63,7 +85,7 @@ import $ from "hkt-toolbelt";
 import { Filter } from "hkt-toolbelt/list";
 import { SubtypeOf } from "hkt-toolbelt/conditional";
 
-type Result = $<Filter<SubtypeOf<number>>, [1, "foo", 2, 3, "bar"]>; // [1, 2, 3]
+type FilterNum = Filter<SubtypeOf<number>>;
 ```
 
 ## 1.3 What is a HKT?
