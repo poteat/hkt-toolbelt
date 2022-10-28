@@ -112,4 +112,28 @@ export abstract class Last extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$last<typeof x>;
 }
 
+export type _$tail<S extends string> = S extends `${string}${infer Tail}`
+  ? Tail extends ""
+    ? S
+    : Tail
+  : string extends S
+  ? S
+  : "";
+
+export abstract class Tail extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$tail<typeof x>;
+}
+
+type _$init2<S extends string> = S extends `${infer Head}${infer Tail}`
+  ? Tail extends ""
+    ? ""
+    : `${Head}${_$init2<Tail>}`
+  : "";
+
+export type _$init<S extends string> = string extends S ? string : _$init2<S>;
+
+export abstract class Init extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$init<typeof x>;
+}
+
 export * as String from "./string";
