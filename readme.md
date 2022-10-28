@@ -554,3 +554,23 @@ type Result = $<String.Split<" ">, "foo bar baz">; // ["foo", "bar", "baz"]
 ```
 
 `Split` can handle template literal strings as well, and will properly handle the template literal's embedded expressions. However, all string literal delimiters result in `string[]` as the split result. String unions are supported for both the separator and the tuple elements.
+
+### 2.8.9. String.First
+
+The `First` function takes in a string and returns the first character of the string.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.First, "foo">; // "f"
+```
+
+### 2.8.10. String.Last
+
+The `Last` function takes in a string and returns the last character of the string.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Last, "foo">; // "o"
+```
