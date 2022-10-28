@@ -100,13 +100,6 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
 
 ## 1.5. Table of Contents
 
-- [[HK-Types Toolbelt]](#higher-kinded-type-toolbelt)
-  - [1.1. Installation](#11-installation)
-  - [1.2. Usage](#12-usage)
-    - [1.2.1. Subpath Imports](#121-subpath-imports)
-  - [1.3. What is a HKT?](#13-what-is-a-hkt)
-  - [1.4. Custom Kinds](#14-custom-hkts)
-  - [1.5. Table of Contents](#15-table-of-contents)
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
@@ -143,12 +136,18 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
     - [2.7.8. List.Every\<T>](#278-listeveryt)
     - [2.7.9. List.Some\<T>](#279-listsomet)
     - [2.7.10. List.Reverse\<T>](#2710-listreverset)
+    - [2.7.11. List.IsVariadic](#2711-listisvariadic)
   - [2.8. String Types](#28-string-types)
     - [2.8.1. String.StartsWith\<S>](#281-stringstartswiths)
     - [2.8.2. String.EndsWith\<S>](#282-stringendswiths)
     - [2.8.3. String.Includes\<S>](#283-stringincludess)
     - [2.8.4. String.Append\<S>](#284-stringappends)
     - [2.8.5. String.Prepend\<S>](#285-stringprepends)
+    - [2.8.6. String.IsTemplate](#286-stringistemplate)
+    - [2.8.7. String.Join\<S>](#287-stringjoins)
+    - [2.8.8. String.Split\<S>](#288-stringsplits)
+    - [2.8.9. String.First](#289-stringfirst)
+    - [2.8.10. String.Last](#2810-stringlast)
 
 # 2. API
 
@@ -564,6 +563,8 @@ type Result = $<String.Split<" ">, "foo bar baz">; // ["foo", "bar", "baz"]
 `Split` can handle template literal strings as well, and will properly handle the template literal's embedded expressions. However, all string literal delimiters result in `string[]` as the split result. String unions are supported for both the separator and the tuple elements.
 
 ### 2.8.9. String.First
+
+> **"If ya ain't `[First]`, you're `[Last]`"** - _Ricky Bobby_
 
 The `First` function takes in a string and returns the first character of the string.
 
