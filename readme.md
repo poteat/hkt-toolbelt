@@ -191,10 +191,12 @@ type Result = $<String.Append<" world">, "hello">; // "hello world"
 
 ### 2.1.2. $$<FX, X>
 
-The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Compose` operators, to avoid the need for explicitly calling `Kind.Compose`.
+The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Pipe` operators, to avoid the need for explicitly calling `Kind.Pipe`.
+
+`Kind.Pipe` composes kinds from left-to-right.
 
 @see `$`
-@see `Kind.Compose`
+@see `Kind.Pipe`
 
 ```ts
 import { $$, Kind, String } from "hkt-toolbelt";
