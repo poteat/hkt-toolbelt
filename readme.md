@@ -88,35 +88,12 @@ Using kinds allows us to represent new types that are not possible with generics
 
 As well, for even types that are representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
 
-## 1.4. Custom Kinds
+## 1.4. Guides
 
-If the API does not provide a feature, defining a custom Kind in your application logic is somewhat straight-forward. As an example, let's define a Kind that takes in an object and omits all non-string values.
+We have additional resources to help you get started with `hkt-toolbelt`, that go in depth on the concepts and usage.
 
-The approach is usually to define the type first using a generic, and then 'wrap' it in a kind construction.
-
-```ts
-type OmitNonStrings<O extends Record<string, unknown>> = {
-  [key in keyof O as O[key] extends string ? key : never]: O[key];
-};
-
-type Result = OmitNonStrings<{ foo: number; bar: string }>; // { bar: string }
-```
-
-After `OmitNonStrings` is available, we can wrap it in a kind as follows:
-
-```ts
-import { Kind } from "hkt-toolbelt";
-
-declare abstract class OmitNonStringsKind extends Kind {
-  abstract f: (
-    x: Cast<this[Kind._], Record<string, unknown>>
-  ) => OmitNonStrings<typeof x>;
-}
-```
-
-The `Cast` parameter _enforces_ that this kind _must_ be applied with a subtype of `Record<string, unknown>`. This is a useful pattern for ensuring that the kind is applied correctly.
-
-Now that `OmitNonStringsKind` is available, we can use it in kind combinators like `List.Map` to map over a tuple of object types.
+- **[[Custom Kinds]](./docs/guides/custom-kinds.md)** - How do I create my own Kinds?
+- **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a Kind's input?
 
 ## 1.5. Table of Contents
 
@@ -190,7 +167,7 @@ type Result = $<String.Append<" world">, "hello">; // "hello world"
 
 ### 2.1.2. $$<FX, X>
 
-The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Compose` operators.
+The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Compose` operators, to avoid the need for explicitly calling `Kind.Compose`.
 
 @see `$`
 @see `Kind.Compose`
@@ -198,10 +175,7 @@ The `$$` operator is used to apply a pipeline of kinds to a designated input typ
 ```ts
 import { $$, Kind, String } from "hkt-toolbelt";
 
-type Result = $$<
-  Kind.Compose<String.Append<" world">, String.Append<"!">>,
-  "hello"
->; // "hello world!"
+type Result = $$<[String.Append<" world">, String.Append<"!">], "hello">; // "hello world!"
 ```
 
 ### 2.1.3. Cast<A, B>
