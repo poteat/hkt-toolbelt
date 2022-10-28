@@ -90,4 +90,26 @@ export abstract class Split<Delimiter extends string = ""> extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$split<typeof x, Delimiter>;
 }
 
+export type _$first<S extends string> = S extends `${infer Head}${string}`
+  ? Head
+  : string extends S
+  ? S
+  : "";
+
+export abstract class First extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$first<typeof x>;
+}
+
+export type _$last<S extends string> = S extends `${string}${infer Tail}`
+  ? Tail extends ""
+    ? S
+    : _$last<Tail>
+  : string extends S
+  ? S
+  : "";
+
+export abstract class Last extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$last<typeof x>;
+}
+
 export * as String from "./string";
