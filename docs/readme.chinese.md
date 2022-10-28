@@ -1,26 +1,22 @@
-<h1 align= `center` >
+<h1 align="center">
   [HK-Types Toolbelt]
 </h1>
 
-<p align= `center` >
-  <a href= `https://www.npmjs.com/package/hkt-toolbelt` >
-
+<p align= "center">
+  <a href="https://www.npmjs.com/package/hkt-toolbelt">
     <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
-
   </a>
   <img src=https://img.shields.io/github/workflow/status/poteat/hkt-toolbelt/build>
   <img src=https://img.shields.io/github/repo-size/poteat/hkt-toolbelt>
   <br>
   <img src=https://img.shields.io/npm/dw/hkt-toolbelt>
   <img src=https://img.shields.io/github/license/poteat/hkt-toolbelt>
-  <a href= `https://code.lol` >
-
-    <img src=https://img.shields.ixo/badge/blog-code.lol-blue>
-
+  <a href="https://code.lol">
+    <img src=https://img.shields.io/badge/blog-code.lol-blue>
   </a>
 </p>
 
-<p align= `center` >
+<p align="center" >
   <i>ts-toolbelt的高阶类型版本</i>
 </p>
 
