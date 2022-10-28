@@ -88,6 +88,9 @@ Using kinds allows us to represent new types that are not possible with generics
 
 As well, for even types that are representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
 
+> **Note on Terminology**
+> Technically, using the word **_kind_** like this is incorrect. However, always mentioning 'higher-kinded type' is cumbersome, so we use **'kind'** as shorthand.
+
 ## 1.4. Guides
 
 We have additional resources to help you get started with `hkt-toolbelt`, that go in depth on the concepts and usage.
