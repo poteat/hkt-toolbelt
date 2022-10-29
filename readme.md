@@ -112,13 +112,16 @@ As well, for even types that are representible using generics, we can use kinds 
 
 > **Note on Terminology**
 > Technically, using the word **_kind_** like this is incorrect. However, always mentioning 'higher-kinded type' is cumbersome, so we use **'kind'** as shorthand.
+>
+> In some places we use 'hk-type' instead, which is more correct.
 
 ## 1.4. Guides
 
 We have additional resources to help you get started with `hkt-toolbelt`, that go in depth on the concepts and usage.
 
-- **[[Custom Kinds]](./docs/guides/custom-kinds.md)** - How do I create my own Kinds?
-- **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a Kind's input?
+- **[[Custom Kinds]](./docs/guides/custom-kinds.md)** - How do I create my own higher kinded types?
+- **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a hk-type's input?
+- **[[HK-Type Encoding]](./docs/guides/hk-type-encoding.md)** - Details on the internal encoding.
 
 ## 1.5. Table of Contents
 
