@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- Add `String.Tail`, `String.Init`, and `String.Reverse` hk-types.
+
 ## 0.7.0
 
 - Optimize string splitting routine in `String.IsTemplate` using tail-call optimization.
