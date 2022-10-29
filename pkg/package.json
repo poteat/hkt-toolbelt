@@ -1,7 +1,7 @@
 {
   "name": "hkt-toolbelt",
   "version": "0.8.0",
-  "description": "A collection of useful HKT utilities and building blocks",
+  "description": "Functional and composable type utilities",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",

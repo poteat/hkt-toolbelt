@@ -1,6 +1,4 @@
-<h1 align="center">
-  [HK-Types Toolbelt]
-</h1>
+![logo](docs/logo.jpeg)
 
 <p align="center">
   <a href="https://www.npmjs.com/package/hkt-toolbelt">
@@ -17,12 +15,14 @@
 </p>
 
 <p align="center">
-  <i>A higher-kinded-type companion to ts-toolbelt</i>
+  <i>Functional and composable type utilities</i>
 </p>
 
 ---
 
-This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
+This library provides type-level utilities across many domains that may be mapped and combined in a functional way, using higher-kinded types.
+
+Write robust, type-safe software with the benefit of composable and compile-time efficient types.
 
 We aim to support hundreds of kind categories, including **List**, **Boolean**, **String**, **Function**, and more. We also provide a set of combinators for composing types.
 
@@ -123,7 +123,13 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
 - **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a hk-type's input?
 - **[[HK-Type Encoding]](./docs/guides/hk-type-encoding.md)** - Details on the internal encoding.
 
-## 1.5. Table of Contents
+## 1.5. Similar Projects
+
+- _Inspired by [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt)_
+- _Awesome TS learning resource: [type-challenges](https://github.com/type-challenges/type-challenges)_
+- _Value-level utilities: [lodash](https://lodash.com)_
+
+## 1.6. Table of Contents
 
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
