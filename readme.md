@@ -173,6 +173,7 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
     - [2.8.11. String.Tail](#2811-stringtail)
     - [2.8.12. String.Init](#2812-stringinit)
     - [2.8.13. String.Replace\<From, To>](#2813-stringreplacefrom-to)
+    - [2.8.14. String.Reverse](#2814-stringreverse)
 
 # 2. API
 
@@ -639,4 +640,14 @@ The `Replace` generic, given two 'From' and 'To' types that represent a string t
 import $, { String } from "hkt-toolbelt";
 
 type Result = $<String.Replace<"foo", "bar">, "foo foo foo">; // "bar bar bar"
+```
+
+### 2.8.14. String.Reverse
+
+The `Reverse` function takes in a string and returns the string with the characters in reverse order.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Reverse, "foobar">; // "raboof"
 ```
