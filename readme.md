@@ -33,7 +33,7 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
     <img src="https://img.shields.io/badge/docs-english-blue">
   </a>
   <a href="./docs/readme.chinese.md">
-    <img src="https://img.shields.io/badge/-中国人-red">
+    <img src="https://img.shields.io/badge/-中文-blue">
   </a>
 </p>
 
