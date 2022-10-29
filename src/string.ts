@@ -164,4 +164,15 @@ export abstract class Replace<
   abstract f: (x: Cast<this[Kind._], string>) => _$replace<typeof x, From, To>;
 }
 
+export type _$reverse<
+  S extends string,
+  O extends string = ""
+> = S extends `${infer Head}${infer Tail}`
+  ? _$reverse<Tail, `${Head}${O}`>
+  : `${string extends S ? string : ""}${O}`;
+
+export abstract class Reverse extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$reverse<typeof x>;
+}
+
 export * as String from "./string";
