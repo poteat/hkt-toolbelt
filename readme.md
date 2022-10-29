@@ -170,6 +170,9 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
     - [2.8.8. String.Split\<S>](#288-stringsplits)
     - [2.8.9. String.First](#289-stringfirst)
     - [2.8.10. String.Last](#2810-stringlast)
+    - [2.8.11. String.Tail](#2811-stringtail)
+    - [2.8.12. String.Init](#2812-stringinit)
+    - [2.8.13. String.Replace\<From, To>](#2813-stringreplacefrom-to)
 
 # 2. API
 
@@ -606,4 +609,34 @@ The `Last` function takes in a string and returns the last character of the stri
 import $, { String } from "hkt-toolbelt";
 
 type Result = $<String.Last, "foo">; // "o"
+```
+
+### 2.8.11. String.Tail
+
+The `Tail` function takes in a string and returns the string with the first character removed.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Tail, "foobar">; // "oobar"
+```
+
+### 2.8.12. String.Init
+
+The `Init` function takes in a string and returns the string with the last character removed.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Init, "foobar">; // "fooba"
+```
+
+### 2.8.13. String.Replace\<From, To>
+
+The `Replace` generic, given two 'From' and 'To' types that represent a string to replace, and a string to replace it with, returns a higher-kinded-type that takes in a string and returns the result of replacing all instances of the 'From' string with the 'To' string.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.Replace<"foo", "bar">, "foo foo foo">; // "bar bar bar"
 ```
