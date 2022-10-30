@@ -8,6 +8,14 @@ export abstract class Equals<T> extends Kind {
 
 export type _$subtype<Super, X> = X extends Super ? true : false;
 
+export abstract class Extends<Super> extends Kind {
+  abstract f: (x: this[Kind._]) => _$subtype<Super, typeof x>;
+}
+
+/**
+ * @alias Extends
+ * @deprecated
+ */
 export abstract class SubtypeOf<Super> extends Kind {
   abstract f: (x: this[Kind._]) => _$subtype<Super, typeof x>;
 }

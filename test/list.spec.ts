@@ -56,7 +56,7 @@ type Find_Spec = [
    * Can find elements according to dynamic conditions.
    */
   Test.Expect<
-    $<List.Find<Conditional.SubtypeOf<string>>, [1, 2, 3, "foo", "bar"]>,
+    $<List.Find<Conditional.Extends<string>>, [1, 2, 3, "foo", "bar"]>,
     "foo"
   >,
 
@@ -77,7 +77,7 @@ type Filter_Spec = [
    * Can perform dynamic subtype checks.
    */
   Test.Expect<
-    $<List.Filter<Conditional.SubtypeOf<string>>, [1, "f", 2, "g", 3]>,
+    $<List.Filter<Conditional.Extends<string>>, [1, "f", 2, "g", 3]>,
     ["f", "g"]
   >,
 
@@ -112,7 +112,7 @@ type Filter_Spec = [
    * Values can be applied to a filter function using Apply.
    */
   Test.Expect<
-    $<Kind.Apply<[1, "foo", 2, 3]>, List.Filter<Conditional.SubtypeOf<number>>>,
+    $<Kind.Apply<[1, "foo", 2, 3]>, List.Filter<Conditional.Extends<number>>>,
     [1, 2, 3]
   >
 ];
@@ -149,7 +149,7 @@ type Includes_Spec = [
    */
   Test.Expect<
     $<
-      List.Filter<List.Includes<Conditional.SubtypeOf<string>>>,
+      List.Filter<List.Includes<Conditional.Extends<string>>>,
       [[1, 2, 3], [1, 2, 3, "f"], ["a", "b", "c"]]
     >,
     [[1, 2, 3, "f"], ["a", "b", "c"]]
@@ -298,12 +298,12 @@ type Every_Spec = [
   /**
    * Can determine if every element in a tuple satisfies a predicate.
    */
-  Test.Expect<$<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3]>>,
+  Test.Expect<$<List.Every<Conditional.Extends<number>>, [1, 2, 3]>>,
 
   /**
    * Can determine if every element in a tuple does not satisfy a predicate.
    */
-  Test.ExpectNot<$<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3, "x"]>>,
+  Test.ExpectNot<$<List.Every<Conditional.Extends<number>>, [1, 2, 3, "x"]>>,
 
   /**
    * Emits an error if the predicate does not return a boolean.
@@ -328,17 +328,17 @@ type Some_Spec = [
   /**
    * Can determine if some element in a tuple satisfies a predicate.
    */
-  Test.Expect<$<List.Some<Conditional.SubtypeOf<number>>, [1, 2, 3, "x"]>>,
+  Test.Expect<$<List.Some<Conditional.Extends<number>>, [1, 2, 3, "x"]>>,
 
   /**
    * Can determine if some element in a tuple does not satisfy a predicate.
    */
-  Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, ["x", "y", "z"]>>,
+  Test.ExpectNot<$<List.Some<Conditional.Extends<number>>, ["x", "y", "z"]>>,
 
   /**
    * Always returns false for an empty tuple.
    */
-  Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, []>>,
+  Test.ExpectNot<$<List.Some<Conditional.Extends<number>>, []>>,
 
   /**
    * Emits an error if the predicate does not return a boolean.
@@ -349,7 +349,7 @@ type Some_Spec = [
   /**
    * For all predicates, an empty tuple is false.
    */
-  Test.ExpectNot<$<List.Some<Conditional.SubtypeOf<number>>, []>>,
+  Test.ExpectNot<$<List.Some<Conditional.Extends<number>>, []>>,
 
   /**
    * Emits an error if the predicate input type does not match the tuple type.
