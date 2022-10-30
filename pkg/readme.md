@@ -44,7 +44,7 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 import $, { List, Conditional } from "hkt-toolbelt";
 
 type Result = $<
-  List.Filter<Conditional.SubtypeOf<number>>,
+  List.Filter<Conditional.Extends<number>>,
   [1, "foo", 2, 3, "bar"]
 >; // [1, 2, 3]
 ```

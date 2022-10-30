@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.1
+
+- Introduce `Conditional.Extends` utility type.
+- Deprecate alias `Conditional.SubtypeOf` in favor of `Conditional.Extends`.
+
 ## 0.8.0
 
 - Add `String.Tail`, `String.Init`, and `String.Reverse` hk-types.

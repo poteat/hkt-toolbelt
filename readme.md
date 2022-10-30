@@ -63,7 +63,7 @@ To this:
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-type FilterNum = List.Filter<Conditional.SubtypeOf<number>>;
+type FilterNum = List.Filter<Conditional.Extends<number>>;
 ```
 
 **`hkt-toolbelt`** let's you express advanced types in a readable way, via composition of higher-kinded primitives.
@@ -83,9 +83,9 @@ You can also optionally import subpaths.
 ```ts
 import $ from "hkt-toolbelt";
 import { Filter } from "hkt-toolbelt/list";
-import { SubtypeOf } from "hkt-toolbelt/conditional";
+import { Extends } from "hkt-toolbelt/conditional";
 
-type FilterNum = Filter<SubtypeOf<number>>;
+type FilterNum = Filter<Extends<number>>;
 ```
 
 ## 1.3 What is a HKT?
@@ -145,7 +145,7 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
     - [2.3.2. Combinator.ApplySelf](#232-combinatorapplyself)
   - [2.4. Conditional Types](#24-conditional-types)
     - [2.4.1. Conditional.Equals\<A>](#241-conditionalequalsa)
-    - [2.4.2. Conditional.SubtypeOf\<A>](#242-conditionalsubtypeofa)
+    - [2.4.2. Conditional.Extends\<A>](#242-conditionalextendsa)
   - [2.5. Function Types](#25-function-types)
     - [2.5.1. Function](#251-function)
     - [2.5.2. Function.Constant\<A>](#252-functionconstanta)
@@ -295,18 +295,18 @@ import $, { Conditional } from "hkt-toolbelt";
 type Result = $<Conditional.Equals<"foo">, "bar">; // false
 ```
 
-### 2.4.2. Conditional.SubtypeOf\<A>
+### 2.4.2. Conditional.Extends\<A>
 
-The `SubtypeOf` type is used to check if a type is a subtype of another type. It is equivalent to the `A extends B ? true : false` syntax in TypeScript.
+The `Extends` type is used to check if a type is a subtype of another type. It is equivalent to the `A extends B ? true : false` syntax in TypeScript.
 
 The first type passed in is the supertype, and the second type passed in is the subtype.
 
-`SubtypeOf` returns a higher-kinded-type function that takes a type and returns a boolean.
+`Extends` returns a higher-kinded-type function that takes a type and returns a boolean.
 
 ```ts
 import $, { Conditional } from "hkt-toolbelt";
 
-type Result = $<Conditional.SubtypeOf<string>, "bar">; // true
+type Result = $<Conditional.Extends<string>, "bar">; // true
 ```
 
 ## 2.5. Function Types
@@ -464,7 +464,7 @@ The `Every` function takes in a predicate function, and a tuple, and returns `tr
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-type Result = $<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3]>; // true
+type Result = $<List.Every<Conditional.Extends<number>>, [1, 2, 3]>; // true
 ```
 
 ### 2.7.9. List.Some\<T>
@@ -474,7 +474,7 @@ The `Some` function takes in a predicate function, and a tuple, and returns `tru
 ```ts
 import $, { List, Conditional } from "hkt-toolbelt";
 
-type Result = $<List.Some<Conditional.SubtypeOf<string>>, [1, 2, 3]>; // false
+type Result = $<List.Some<Conditional.Extends<string>>, [1, 2, 3]>; // false
 ```
 
 ### 2.7.10. List.Reverse\<T>

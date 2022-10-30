@@ -38,7 +38,7 @@
 import $, { List, Conditional } from `hkt-toolbelt`;
 
 // 一个过滤出数字的类型
-type FilterNumbers = List.Filter<Conditional.SubtypeOf<number>>;
+type FilterNumbers = List.Filter<Conditional.Extends<number>>;
 
 type Result = $<FilterNumbers, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
 ```
@@ -50,9 +50,9 @@ type Result = $<FilterNumbers, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
 ```ts
 import $ from `hkt-toolbelt`;
 import { Filter } from `hkt-toolbelt/list`;
-import { SubtypeOf } from `hkt-toolbelt/conditional`;
+import { Extends } from `hkt-toolbelt/conditional`;
 
-type Result = $<Filter<SubtypeOf<number>>, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
+type Result = $<Filter<Extends<number>>, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
 ```
 
 ## 1.3 什么是 HKT?
@@ -61,16 +61,16 @@ type Result = $<Filter<SubtypeOf<number>>, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3
 
 Typescript 关于类型有两个 _不同_ 的类型结构: 类、泛型。
 
-* **type(类)**: 在编译期间，用于对于值的描述。
+- **type(类)**: 在编译期间，用于对于值的描述。
 
-* **generic(泛型)**: `template(模版)` 的类型，可以通过不同类型的参数值实例并解析出类型。
+- **generic(泛型)**: `template(模版)` 的类型，可以通过不同类型的参数值实例并解析出类型。
 
-泛型在Typescript中不是一级公民——如果不立即提供它们的所有类型参数，就不能引用它们。不能将泛型作为参数传递给其他泛型，也不能返回它们。这是语言的局限性。
+泛型在 Typescript 中不是一级公民——如果不立即提供它们的所有类型参数，就不能引用它们。不能将泛型作为参数传递给其他泛型，也不能返回它们。这是语言的局限性。
 
-** `hkt-toolbelt` 带来两个新增的两个类型结构概念:**  
+** `hkt-toolbelt` 带来两个新增的两个类型结构概念:**
 
-* **kind(高阶类)**: 一个编译期间下的表达式，用于描述类型，可以使用形参来表示，当在使用的时候，实参取得可能的类型结果。
-* **generic kind(高阶泛型类)**: 一个泛型类能返回一个特指的类型。
+- **kind(高阶类)**: 一个编译期间下的表达式，用于描述类型，可以使用形参来表示，当在使用的时候，实参取得可能的类型结果。
+- **generic kind(高阶泛型类)**: 一个泛型类能返回一个特指的类型。
 
 我们在应用、定义高阶类型时，使用 `$<kind,type>` "泛型类"。
 
@@ -79,38 +79,38 @@ Typescript 关于类型有两个 _不同_ 的类型结构: 类、泛型。
 
 ## 1.4. Table of Contents
 
-* [[HK-Types Toolbelt]](#higher-kinded-type-toolbelt)
-  + [1.1. 安装](#11-安装)
-  + [1.2. 用法](#12-用法)
+- [[HK-Types Toolbelt]](#higher-kinded-type-toolbelt)
+  - [1.1. 安装](#11-安装)
+  - [1.2. 用法](#12-用法)
     - [1.2.1. Subpath Imports](#121-subpath-imports)
-  + [1.3. What is a HKT?](#13-what-is-a-hkt)
-  + [1.4. Table of Contents](#14-table-of-contents)
-* [2. API](#2-api)
-  + [2.1. Basic Utilities](#21-basic-utilities)
+  - [1.3. What is a HKT?](#13-what-is-a-hkt)
+  - [1.4. Table of Contents](#14-table-of-contents)
+- [2. API](#2-api)
+  - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
     - [2.1.2. $$<FX, X>](#212-fx-x)
     - [2.1.3. Cast<A, B>](#213-casta-b)
-  + [2.2. Boolean Types](#22-boolean-types)
+  - [2.2. Boolean Types](#22-boolean-types)
     - [2.2.1. Boolean.And\<X>](#221-booleanandx)
     - [2.2.2. Boolean.Or\<X>](#222-booleanorx)
     - [2.2.3. Boolean.Not](#223-booleannot)
-  + [2.3. Combinator Types](#23-combinator-types)
+  - [2.3. Combinator Types](#23-combinator-types)
     - [2.3.1. Combinator.Self](#231-combinatorself)
     - [2.3.2. Combinator.ApplySelf](#232-combinatorapplyself)
-  + [2.4. Conditional Types](#24-conditional-types)
+  - [2.4. Conditional Types](#24-conditional-types)
     - [2.4.1. Conditional.Equals\<A>](#241-conditionalequalsa)
-    - [2.4.2. Conditional.SubtypeOf\<A>](#242-conditionalsubtypeofa)
-  + [2.5. Function Types](#25-function-types)
+    - [2.4.2. Conditional.Extends\<A>](#242-conditionalExtendsa)
+  - [2.5. Function Types](#25-function-types)
     - [2.5.1. Function](#251-function)
     - [2.5.2. Function.Constant\<A>](#252-functionconstanta)
     - [2.5.3. Function.Identity](#253-functionidentity)
-  + [2.6. Kind Types](#26-kind-types)
+  - [2.6. Kind Types](#26-kind-types)
     - [2.6.1. Kind\<F>](#261-kindf)
     - [2.6.2. Kind.Composable\<FX>](#262-kindcomposablefx)
     - [2.6.3. Kind.Compose\<FX>](#263-kindcomposefx)
     - [2.6.4. Kind.Pipe\<FX>](#264-kindpipefx)
     - [2.6.5. Kind.\_](#265-kind_)
-  + [2.7. List Types](#27-list-types)
+  - [2.7. List Types](#27-list-types)
     - [2.7.1. List.Map\<F>](#271-listmapf)
     - [2.7.2. List.Find\<F>](#272-listfindf)
     - [2.7.3. List.Filter\<F>](#273-listfilterf)
@@ -121,15 +121,16 @@ Typescript 关于类型有两个 _不同_ 的类型结构: 类、泛型。
     - [2.7.8. List.Every\<T>](#278-listeveryt)
     - [2.7.9. List.Some\<T>](#279-listsomet)
     - [2.7.10. List.Reverse\<T>](#2710-listreverset)
-  + [2.8. String Types](#28-string-types)
+  - [2.8. String Types](#28-string-types)
     - [2.8.1. String.StartsWith\<S>](#281-stringstartswiths)
     - [2.8.2. String.EndsWith\<S>](#282-stringendswiths)
     - [2.8.3. String.Includes\<S>](#283-stringincludess)
     - [2.8.4. String.Append\<S>](#284-stringappends)
     - [2.8.5. String.Prepend\<S>](#285-stringprepends)
+
 # 2. API
 
-柯里化函数下，这个仓库旨在用于使用 `point-free 编程风格` 来组合类型。在这方面，API类型将首先接收 `执行的操作(一系列函数)` ，然后接收要操作的数据。
+柯里化函数下，这个仓库旨在用于使用 `point-free 编程风格` 来组合类型。在这方面，API 类型将首先接收 `执行的操作(一系列函数)` ，然后接收要操作的数据。
 
 > 先将会执行哪几个函数串起来，最后参数变量，连串贯通的意思。
 
@@ -144,7 +145,7 @@ Typescript 关于类型有两个 _不同_ 的类型结构: 类、泛型。
 ### 2.1.1. $<F, X>
 
 `$` 操作符用于对定义类型更高类型的函数。  
-它相当于TypeScript中的 `F<A>` 语法。
+它相当于 TypeScript 中的 `F<A>` 语法。
 
 ```ts
 import $, { String } from `hkt-toolbelt`;
@@ -152,7 +153,7 @@ import $, { String } from `hkt-toolbelt`;
 type Result = $<String.Append<` world`>, `hello`>; // `hello world`
 ```
 
-### 2.1.2. $$<FX, X>  
+### 2.1.2. $$<FX, X>
 
 `$$` 操作用于将已经定义的类型作为输入，放进一系列的类型管道上，应用并计算。这是 `$` 和 `Kind. Compose` 的语法糖。
 
@@ -169,7 +170,7 @@ type Result = $$<
 
 ### 2.1.3. Cast<A, B>
 
-`Cast` 类型用于将一个类型转换为另一个类型。它相当于TypeScript中的 `A as B` 语法，用于对代码一些轻微修正情况下。
+`Cast` 类型用于将一个类型转换为另一个类型。它相当于 TypeScript 中的 `A as B` 语法，用于对代码一些轻微修正情况下。
 
 ```ts
 import { Cast } from `hkt-toolbelt`;
@@ -235,7 +236,7 @@ type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 
 ### 2.4.1. Conditional. Equals\<A>
 
-`Equals` 用于检查一个类型是否等于另一个类型。它等价于 ` A extends B ?( B extends A ? true: false ) : false ` 。
+`Equals` 用于检查一个类型是否等于另一个类型。它等价于 `A extends B ?( B extends A ? true: false ) : false` 。
 
 `Equals` 返回一个高阶类型函数包裹着传入一个类型的函数，然后返回布尔值。
 
@@ -245,18 +246,18 @@ import $, { Conditional } from `hkt-toolbelt`;
 type Result = $<Conditional.Equals<`foo`>, `bar`>; // false
 ```
 
-### 2.4.2. Conditional. SubtypeOf\<A>
+### 2.4.2. Conditional. Extends\<A>
 
-`SubtypeOf` 用于检查一个类型是否是另一个类型的子类型。它等价于 `A extends B ? true : false` .
+`Extends` 用于检查一个类型是否是另一个类型的子类型。它等价于 `A extends B ? true : false` .
 
 传入的第一个类型是父类，传入的第二个类型是子类。
 
-`SubtypeOf` 传入一个类型并返回布尔值的高阶类型函数。
+`Extends` 传入一个类型并返回布尔值的高阶类型函数。
 
 ```ts
 import $, { Conditional } from `hkt-toolbelt`;
 
-type Result = $<Conditional.SubtypeOf<string>, `bar`>; // true
+type Result = $<Conditional.Extends<string>, `bar`>; // true
 ```
 
 ## 2.5. Function Types
@@ -307,7 +308,7 @@ type Result = $<Kind.Composable, [String.Append<`bar`>, String.Append<`foo`>]>; 
 
 `Compose` 传入一个 `函数类元组` ，并将它们组合成一个函数类。
 
-`Compose` 检查types元组是否可组合，并返回一个传入一个类且返回类型和结果的高阶类型。
+`Compose` 检查 types 元组是否可组合，并返回一个传入一个类且返回类型和结果的高阶类型。
 
 `Compose` 从右向左执行函数，即元组中最后一个函数先执行——这是数学中的传统。
 
@@ -349,7 +350,7 @@ type Result = $<List.Map<String.Append<`bar`>>, [`foo`, `baz`]>; // [`foobar`, `
 
 ### 2.7.2. List. Find\<F>
 
-`Find` 函数先接受一个 `函数类` ，然后接受一个 `元组` ，并返回finder函数返回 `true` 的第一个元组元素。如果不存在这样的元素， `Find` 返回 `never` 。
+`Find` 函数先接受一个 `函数类` ，然后接受一个 `元组` ，并返回 finder 函数返回 `true` 的第一个元组元素。如果不存在这样的元素， `Find` 返回 `never` 。
 
 ```ts
 import $, { List, String } from `hkt-toolbelt`;
@@ -359,7 +360,7 @@ type Result = $<List.Find<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // `foo
 
 ### 2.7.3. List. Filter\<F>
 
-`Filter` 传入一个类型函数和一个元组，并按输入元组的顺序返回一个元组，因此只有Filter函数返回 `true` 的元素保留在结果元组中。
+`Filter` 传入一个类型函数和一个元组，并按输入元组的顺序返回一个元组，因此只有 Filter 函数返回 `true` 的元素保留在结果元组中。
 
 ```ts
 import $, { List, String } from `hkt-toolbelt`;
@@ -416,7 +417,7 @@ type Result = $<List.Pair, [1, 2, 3]>; // [[1, 2], [2, 3]]
 ```ts
 import $, { List, Conditional } from `hkt-toolbelt`;
 
-type Result = $<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3]>; // true
+type Result = $<List.Every<Conditional.Extends<number>>, [1, 2, 3]>; // true
 ```
 
 ### 2.7.9. List. Some\<T>
@@ -426,12 +427,12 @@ type Result = $<List.Every<Conditional.SubtypeOf<number>>, [1, 2, 3]>; // true
 ```ts
 import $, { List, Conditional } from `hkt-toolbelt`;
 
-type Result = $<List.Some<Conditional.SubtypeOf<string>>, [1, 2, 3]>; // false
+type Result = $<List.Some<Conditional.Extends<string>>, [1, 2, 3]>; // false
 ```
 
 ### 2.7.10. List. Reverse\<T>
 
-Reverse函数接受一个元组，并返回一个包含倒序元素的元组。
+Reverse 函数接受一个元组，并返回一个包含倒序元素的元组。
 
 这种类型正确地处理可变元组类型，例如。[1、2、……string[]] "变成"[…string[] 2 1]”。
 
@@ -458,7 +459,7 @@ type Result = List.IsVariadic<[1, 2, 3]>; // false
 
 `StartsWith` 函数接受一个模版字符串，并返回它是否以给定的前缀开头，根据情况返回 `true` 或 `false` 。
 
-当 _开始于_ 这个开头 `string` ，因此 `StartsWith<string>` 对于所有后续的字符串类型将返回true。
+当 _开始于_ 这个开头 `string` ，因此 `StartsWith<string>` 对于所有后续的字符串类型将返回 true。
 
 然而， `string` 开头没有特定的前缀，因此 `$<startwith <` f `>, string>` 将导致 false。所有字符串也都以空字符串开头。
 
