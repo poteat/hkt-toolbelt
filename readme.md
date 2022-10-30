@@ -1,4 +1,9 @@
-![logo](docs/logo.jpeg)
+<a href="https://github.com/poteat/hkt-toolbelt#readme">
+  <img src=https://raw.githubusercontent.com/poteat/hkt-toolbelt/main/docs/logo.jpeg>
+</a>
+
+<br>
+<br>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/hkt-toolbelt">

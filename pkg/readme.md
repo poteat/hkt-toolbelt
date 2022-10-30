@@ -1,6 +1,9 @@
-  <h1 align="center">
-    [HK-Types Toolbelt]
-  </h1>
+<a href="https://github.com/poteat/hkt-toolbelt#readme">
+  <img src=https://raw.githubusercontent.com/poteat/hkt-toolbelt/main/docs/logo.jpeg>
+</a>
+
+<br>
+<br>
 
 <p align="center">
   <img src=https://img.shields.io/npm/v/hkt-toolbelt?color=green>
@@ -26,7 +29,7 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 
 <h1 align="center">
   <a href="https://github.com/poteat/hkt-toolbelt#readme.md">
-  (Full API Docs)
+  [Full API Docs]
   </a>
 </h1>
 
