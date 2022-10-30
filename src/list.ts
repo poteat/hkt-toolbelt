@@ -21,14 +21,15 @@ export abstract class Find<F extends Kind<(x: never) => boolean>> extends Kind {
   abstract f: (x: Cast<this[Kind._], Kind.InputOf<F>[]>) => _$find<F, typeof x>;
 }
 
-export type _$filter<F extends Kind, X extends unknown[]> = X extends [
-  infer Head,
-  ...infer Tail
-]
+export type _$filter<
+  F extends Kind,
+  X extends unknown[],
+  O extends unknown[] = []
+> = X extends [infer Head, ...infer Tail]
   ? $<F, Cast<Head, Kind.InputOf<F>>> extends true
-    ? [Head, ..._$filter<F, Tail>]
-    : _$filter<F, Tail>
-  : [];
+    ? _$filter<F, Tail, [...O, Head]>
+    : _$filter<F, Tail, O>
+  : O;
 
 export abstract class Filter<
   F extends Kind<(x: never) => boolean>
@@ -85,15 +86,14 @@ export abstract class Last extends Kind {
   abstract f: (x: Cast<this[Kind._], unknown[]>) => _$last<typeof x>;
 }
 
-export type _$pair<T extends unknown[]> = T extends [
-  infer X1,
-  infer X2,
-  ...infer Rest
-]
-  ? [[X1, X2], ..._$pair<[X2, ...Rest]>]
+export type _$pair<
+  T extends unknown[],
+  O extends unknown[][] = []
+> = T extends [infer X1, infer X2, ...infer Rest]
+  ? _$pair<[X2, ...Rest], [...O, [X1, X2]]>
   : number extends T["length"]
   ? [T[number], T[number]][]
-  : [];
+  : O;
 
 export abstract class Pair extends Kind {
   abstract f: (x: Cast<this[Kind._], unknown[]>) => _$pair<typeof x>;
@@ -101,10 +101,11 @@ export abstract class Pair extends Kind {
 
 export type _$every<
   F extends Kind<(x: never) => boolean>,
-  T extends unknown[]
+  T extends unknown[],
+  O extends boolean = true
 > = T extends [infer Head, ...infer Rest]
-  ? Boolean._$and<$<F, Cast<Head, Kind.InputOf<F>>>, _$every<F, Rest>>
-  : true;
+  ? _$every<F, Rest, Boolean._$and<O, $<F, Cast<Head, Kind.InputOf<F>>>>>
+  : O;
 
 export abstract class Every<
   F extends Kind<(x: never) => boolean>
@@ -116,23 +117,35 @@ export abstract class Every<
 
 export type _$some<
   F extends Kind<(x: never) => boolean>,
-  T extends unknown[]
+  T extends unknown[],
+  O extends boolean = false
 > = T extends [infer Head, ...infer Rest]
-  ? Boolean._$or<$<F, Cast<Head, Kind.InputOf<F>>>, _$some<F, Rest>>
-  : false;
+  ? _$some<F, Rest, Boolean._$or<O, $<F, Cast<Head, Kind.InputOf<F>>>>>
+  : O;
 
 export abstract class Some<F extends Kind<(x: never) => boolean>> extends Kind {
   abstract f: (x: Cast<this[Kind._], Kind.InputOf<F>[]>) => _$some<F, typeof x>;
 }
 
-export type _$reverse<T extends unknown[]> = T extends [
-  infer Head,
-  ...infer Tail
+type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
+  ...infer Init,
+  infer Last
 ]
-  ? [..._$reverse<Tail>, Head]
-  : T extends [...infer Init, infer Last]
-  ? [Last, ..._$reverse<Init>]
-  : T;
+  ? Init extends []
+    ? [...O, Last]
+    : _$reverse2<Init, [...O, Last]>
+  : T extends [infer Head, ...unknown[]]
+  ? Head
+  : [...O, ...T];
+
+export type _$reverse<
+  T extends unknown[],
+  O extends unknown[] = []
+> = T extends [infer Head, ...infer Tail]
+  ? _$reverse<Tail, [Head, ...O]>
+  : T extends []
+  ? O
+  : [..._$reverse2<T>, ...O];
 
 export abstract class Reverse extends Kind {
   abstract f: (x: Cast<this[Kind._], unknown[]>) => _$reverse<typeof x>;
