@@ -132,6 +132,14 @@ type Pipe_Spec = [
   >,
 
   /**
+   * Can pipe unions of hk-types.
+   */
+  Test.Expect<
+    $<Kind.Pipe<[List.Push<"foo"> | List.Push<"qux">, List.Push<"bar">]>, []>,
+    ["foo" | "qux", "bar"]
+  >,
+
+  /**
    * Can pipe ten operations without hitting the depth limit.
    */
   Test.Expect<
