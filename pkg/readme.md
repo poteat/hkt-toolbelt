@@ -23,7 +23,9 @@
 
 ---
 
-This library is a companion to [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt) that provides higher-kinded-type versions of its functionality. This allows for more complex types to be constructed.
+This library provides type-level utilities across many domains that may be mapped and combined in a functional way, using higher-kinded types.
+
+Write robust, type-safe software with the benefit of composable and compile-time efficient types.
 
 We aim to support hundreds of kind categories, including **List**, **Boolean**, **String**, **Function**, and more. We also provide a set of combinators for composing types.
 
