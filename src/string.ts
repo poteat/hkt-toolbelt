@@ -58,16 +58,21 @@ export abstract class IsTemplate extends Kind {
 
 export type _$join<
   T extends string[],
-  D extends string = ""
+  D extends string = "",
+  O extends string = ""
 > = List._$isVariadic<T> extends true
   ? string
   : T extends [infer Head, ...infer Tail]
   ? Tail extends []
-    ? Head
-    : `${Cast<Head, string>}${D}${_$join<Cast<Tail, string[]>, D>}`
+    ? `${O}${D}${Cast<Head, string>}`
+    : _$join<
+        Cast<Tail, string[]>,
+        D,
+        `${O}${O extends "" ? "" : D}${Cast<Head, string>}`
+      >
   : string[] extends T
-  ? string
-  : "";
+  ? `${O}${string}`
+  : O;
 
 export abstract class Join<D extends string = ""> extends Kind {
   abstract f: (x: Cast<this[Kind._], string[]>) => _$join<typeof x, D>;

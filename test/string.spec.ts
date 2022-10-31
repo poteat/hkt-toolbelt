@@ -264,7 +264,7 @@ type Join_Spec = [
   /**
    * Can join strings with a separator.
    */
-  Test.Expect<$<String.Join<" ">, ["foo", "bar"]>, "foo bar">,
+  Test.Expect<$<String.Join<" ">, ["foo", "bar", "qux"]>, "foo bar qux">,
 
   /**
    * Joining an empty array results in the empty string.
