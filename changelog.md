@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.2
+## 0.9.0
 
 - Fix a type resolution issue for `Conditional.Extends` hk-type.
 - Strengthen hk-level type check for `Combinator.ApplySelf` hk-type.
