@@ -80,16 +80,17 @@ export abstract class Join<D extends string = ""> extends Kind {
 
 export type _$split<
   S extends string,
-  Delimiter extends string = ""
+  Delimiter extends string = "",
+  O extends unknown[] = []
 > = _$isTemplate<Delimiter> extends true
   ? string[]
   : string extends Delimiter
   ? string[]
   : S extends `${infer Head}${Delimiter}${infer Tail}`
-  ? [Head, ..._$split<Tail, Delimiter>]
+  ? _$split<Tail, Delimiter, [...O, Head]>
   : S extends Delimiter
-  ? []
-  : [S];
+  ? O
+  : [...O, S];
 
 export abstract class Split<Delimiter extends string = ""> extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$split<typeof x, Delimiter>;
@@ -129,11 +130,14 @@ export abstract class Tail extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$tail<typeof x>;
 }
 
-type _$init2<S extends string> = S extends `${infer Head}${infer Tail}`
+type _$init2<
+  S extends string,
+  O extends string = ""
+> = S extends `${infer Head}${infer Tail}`
   ? Tail extends ""
-    ? ""
-    : `${Head}${_$init2<Tail>}`
-  : "";
+    ? O
+    : _$init2<Tail, `${O}${Head}`>
+  : O;
 
 export type _$init<S extends string> = string extends S ? string : _$init2<S>;
 
