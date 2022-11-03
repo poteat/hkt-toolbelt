@@ -39,11 +39,17 @@ type Test_Spec = [
    * Expect should emit an error on the never type.
    */
   // @ts-expect-error
-  Test.Expect<never>,
+  Test.Expect<never, true>,
 
   /**
    * Expect should emit an error on the never type.
    */
   // @ts-expect-error
-  Test.ExpectNot<never>
+  Test.ExpectNot<never>,
+
+  /**
+   * ExpectNot should error if passed in never.
+   */
+  // @ts-expect-error
+  Test.ExpectNot<true, never>
 ];

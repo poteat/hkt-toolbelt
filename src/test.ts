@@ -17,5 +17,3 @@ export type ExpectNot<
 > = IsNever<V> extends true ? X : IsNever<X> extends true ? ExpectNot<X, V> : X;
 
 export * as Test from "./test";
-
-type Foo = never extends number ? true : false;
