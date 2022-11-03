@@ -184,4 +184,10 @@ export abstract class Reverse extends Kind {
   abstract f: (x: Cast<this[Kind._], string>) => _$reverse<typeof x>;
 }
 
+export type _$isString<S extends unknown> = S extends string ? true : false;
+
+export abstract class IsString extends Kind {
+  abstract f: (x: this[Kind._]) => _$isString<typeof x>;
+}
+
 export * as String from "./string";
