@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+- Add `Conditional.If` hk-type for type-level control flow.
+- Add `String.IsString` hk-level predicate.
+- Add `Type`, `Union`, and `Object` core components.
+
 ## 0.9.0
 
 - Fix a type resolution issue for `Conditional.Extends` hk-type.
