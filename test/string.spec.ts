@@ -806,3 +806,103 @@ type IsString_Spec = [
    */
   Test.Expect<$<String.IsString, boolean | number>, false>
 ];
+
+/**
+ * Tests for `String.ToUpper`, which converts a string to uppercase for all
+ * characters.
+ */
+type ToUpper_Spec = [
+  /**
+   * Can uppercase a string.
+   */
+  Test.Expect<$<String.ToUpper, "foo">, "FOO">,
+
+  /**
+   * Can uppercase an empty string.
+   */
+  Test.Expect<$<String.ToUpper, "">, "">,
+
+  /**
+   * Can uppercase a template literal string.
+   */
+  Test.Expect<$<String.ToUpper, `foo${string}`>, `FOO${Uppercase<string>}`>,
+
+  /**
+   * Can uppercase a template literal string.
+   */
+  Test.Expect<$<String.ToUpper, `${string}foo`>, `${Uppercase<string>}FOO`>,
+
+  /**
+   * Non-string input results in a compiler error.
+   */
+  // @ts-expect-error
+  $<String.ToUpper, number>,
+
+  /**
+   * Properly handles string union types.
+   */
+  Test.Expect<$<String.ToUpper, "foobar" | "bazqux">, "FOOBAR" | "BAZQUX">,
+
+  /**
+   * The 'string' template is supported.
+   */
+  Test.Expect<
+    $<String.ToUpper, `foo${string}bar`>,
+    `FOO${Uppercase<string>}BAR`
+  >,
+
+  /**
+   * The upper of a string is string.
+   */
+  Test.Expect<$<String.ToUpper, string>, Uppercase<string>>
+];
+
+/**
+ * Tests for `String.ToLower`, which converts a string to lowercase for all
+ * characters.
+ */
+type ToLower_Spec = [
+  /**
+   * Can lowercase a string.
+   */
+  Test.Expect<$<String.ToLower, "FOO">, "foo">,
+
+  /**
+   * Can lowercase an empty string.
+   */
+  Test.Expect<$<String.ToLower, "">, "">,
+
+  /**
+   * Can lowercase a template literal string.
+   */
+  Test.Expect<$<String.ToLower, `FOO${string}`>, `foo${Lowercase<string>}`>,
+
+  /**
+   * Can lowercase a template literal string.
+   */
+  Test.Expect<$<String.ToLower, `${string}FOO`>, `${Lowercase<string>}foo`>,
+
+  /**
+   * Non-string input results in a compiler error.
+   */
+  // @ts-expect-error
+  $<String.ToLower, number>,
+
+  /**
+   * Properly handles string union types.
+   */
+  Test.Expect<$<String.ToLower, "FOOBAR" | "BAZQUX">, "foobar" | "bazqux">,
+
+  /**
+   * The 'string' template is supported.
+   */
+  Test.Expect<
+    $<String.ToLower, `FOO${string}BAR`>,
+    `foo${Lowercase<string>}bar`
+  >,
+
+  /**
+   * The lower of a string is string.
+   */
+  Test.Expect<$<String.ToLower, string>, Lowercase<string>>
+];

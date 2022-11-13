@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.11.0
+
+- Add `String.ToUpper` and `String.ToLower` methods
+- Add `Object.MapKeys` and `Object.MapValues` methods
+
 ## 0.10.0
 
 - Add `Conditional.If` hk-type for type-level control flow.

@@ -47,6 +47,71 @@ type Values_Spec = [
   $<Object.Values, number>
 ];
 
+type MapKeys_Spec = [
+  /**
+   * Can map the keys of an object.
+   */
+  Test.Expect<
+    $<Object.MapKeys<String.ToUpper>, { a: 1; b: 2; c: 3 }>,
+    { A: 1; B: 2; C: 3 }
+  >,
+
+  /**
+   * MapKeys does not apply recursively.
+   */
+  Test.Expect<
+    $<Object.MapKeys<String.ToUpper>, { a: 1; b: { c: 2; d: 3 } }>,
+    { A: 1; B: { c: 2; d: 3 } }
+  >,
+
+  /**
+   * Requires the function to return a string.
+   */
+  // @ts-expect-error
+  $<Object.MapKeys<String.EndsWith<"foo">>, { a: 1; b: 2; c: 3 }>,
+
+  /**
+   * Will emit an error if applied to a non-object.
+   */
+  // @ts-expect-error
+  $<Object.MapKeys<String.ToUpper>, number>
+];
+
+type MapValues_Spec = [
+  /**
+   * Can map the values of an object.
+   */
+  Test.Expect<
+    $<Object.MapValues<String.ToUpper>, { a: "foo"; b: "bar"; c: "baz" }>,
+    { a: "FOO"; b: "BAR"; c: "BAZ" }
+  >,
+
+  /**
+   * Checks that the value is the input type.
+   */
+  // @ts-expect-error
+  $<Object.MapValues<String.ToUpper>, { a: 1; b: 2; c: 3 }>,
+
+  /**
+   * MapValues does not apply recursively.
+   */
+  Test.Expect<
+    $<
+      Object.MapValues<
+        Conditional.If<String.IsString, String.ToUpper, Function.Identity>
+      >,
+      { a: "foo"; b: { c: "bar"; d: "baz" } }
+    >,
+    { a: "FOO"; b: { c: "bar"; d: "baz" } }
+  >,
+
+  /**
+   * Will emit an error if applied to a non-object.
+   */
+  // @ts-expect-error
+  $<Object.MapValues<String.ToUpper>, number>
+];
+
 /**
  * Tests for `Object.DeepMap` type, which maps over nested values in an object.
  */
@@ -213,7 +278,7 @@ type Paths_Spec = [
           };
         };
       }
-    >,
+    >[number],
     [
       ["a"],
       ["a", "aa"],
@@ -229,7 +294,7 @@ type Paths_Spec = [
       ["b", "bb"],
       ["b", "bb", "bba"],
       ["b", "bb", "bbb"]
-    ]
+    ][number]
   >
 ];
 

@@ -20,6 +20,28 @@ export abstract class Values extends Kind {
   ) => _$values<typeof x>;
 }
 
+export type _$mapKeys<T extends Record<string, unknown>, F extends Kind> = {
+  [key in keyof T as $<F, Cast<key, Kind.InputOf<F>>>]: T[key];
+};
+
+export abstract class MapKeys<
+  F extends Kind<(x: string) => string>
+> extends Kind {
+  abstract f: (
+    x: Cast<this[Kind._], Record<string, unknown>>
+  ) => _$mapKeys<typeof x, F>;
+}
+
+export type _$mapValues<T extends Record<string, unknown>, F extends Kind> = {
+  [key in keyof T]: $<F, Cast<T[key], Kind.InputOf<F>>>;
+};
+
+export abstract class MapValues<F extends Kind> extends Kind {
+  abstract f: (
+    x: Cast<this[Kind._], Record<string, Kind.InputOf<F>>>
+  ) => _$mapValues<typeof x, F>;
+}
+
 type RecursiveKindInput<F extends Kind> =
   | Kind.InputOf<F>
   | Record<string, Kind.InputOf<F>>

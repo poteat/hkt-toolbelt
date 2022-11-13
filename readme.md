@@ -177,6 +177,8 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
   - [Object Types](#object-types)
     - [Object.Keys\<F>](#objectkeysf)
     - [Object.Values\<F>](#objectvaluesf)
+    - [Object.MapKeys\<F>](#objectmapkeysf)
+    - [Object.MapValues\<F>](#objectmapvaluesf)
     - [Object.DeepMap\<F>](#objectdeepmapf)
     - [Object.Paths](#objectpaths)
     - [Object.At\<K>](#objectatk)
@@ -197,6 +199,8 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
     - [String.Replace\<From, To>](#stringreplacefrom-to)
     - [String.Reverse](#stringreverse)
     - [String.IsString](#stringisstring)
+    - [String.ToUpper](#stringtoupper)
+    - [String.ToLower](#stringtolower)
   - ["`Type`" Types](#type-types)
     - [Type.Display](#typedisplay)
     - [Type.ValueOf](#typevalueof)
@@ -564,6 +568,26 @@ import $, { Object } from "hkt-toolbelt";
 type Result = $<Object.Values, { foo: string; bar: number }>; // [string, number]
 ```
 
+### Object.MapKeys\<F>
+
+The `MapKeys` function takes in a type function, and an object type, and returns an object type with the keys of the original object type mapped by the given type function.
+
+```ts
+import $, { Object, String } from "hkt-toolbelt";
+
+type Result = $<Object.MapKeys<String.Append<"bar">>, { foo: string }>; // { foobar: string }
+```
+
+### Object.MapValues\<F>
+
+The `MapValues` function takes in a type function, and an object type, and returns an object type with the values of the original object type mapped by the given type function.
+
+```ts
+import $, { Object, String } from "hkt-toolbelt";
+
+type Result = $<Object.MapValues<String.Append<"bar">>, { foo: "foo" }>; // { foo: "foobar" }
+```
+
 ### Object.DeepMap\<F>
 
 The `DeepMap` function takes in a type function, and an object type, and returns an object type where every value in the object is mapped by the given type function.
@@ -778,6 +802,26 @@ The `IsString` function takes in a type and returns whether or not it is a strin
 import $, { String } from "hkt-toolbelt";
 
 type Result = $<String.IsString, "foobar">; // true
+```
+
+### String.ToUpper
+
+The `ToUpper` function takes in a string and returns the string with all characters converted to uppercase.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.ToUpper, "foobar">; // "FOOBAR"
+```
+
+### String.ToLower
+
+The `ToLower` function takes in a string and returns the string with all characters converted to lowercase.
+
+```ts
+import $, { String } from "hkt-toolbelt";
+
+type Result = $<String.ToLower, "FOOBAR">; // "foobar"
 ```
 
 ## "`Type`" Types
