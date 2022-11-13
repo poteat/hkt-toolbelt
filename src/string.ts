@@ -190,4 +190,16 @@ export abstract class IsString extends Kind {
   abstract f: (x: this[Kind._]) => _$isString<typeof x>;
 }
 
+export type _$toUpper<S extends string> = Uppercase<S>;
+
+export abstract class ToUpper extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$toUpper<typeof x>;
+}
+
+export type _$toLower<S extends string> = Lowercase<S>;
+
+export abstract class ToLower extends Kind {
+  abstract f: (x: Cast<this[Kind._], string>) => _$toLower<typeof x>;
+}
+
 export * as String from "./string";
