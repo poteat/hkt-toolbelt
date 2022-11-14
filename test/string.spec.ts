@@ -1,4 +1,4 @@
-import $, { String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "hkt-toolbelt";
 
 type StartsWith_Spec = [
   /**

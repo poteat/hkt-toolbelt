@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "incremental": true,
+    // "tsBuildInfoFile": ".tsbuildinfo",
     "target": "es2016",
     "module": "commonjs",
     "paths": {

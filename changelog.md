@@ -1,9 +1,17 @@
 # Changelog
 
+## 0.12.0
+
+- **[Breaking]** Switch default package export from '$' to entire module.
+- **[Breaking]** Remove deprecated `Conditional.SubtypeOf` in favor of `Conditional.Extends`.
+- **[Breaking]** Remove `Kind` namespace-class merging in favor of `Kind.Kind`.
+- Add support for deep subpath imports.
+  - e.g. `import { StartsWith } from "hkt-toolbelt/string/starts-with"`
+
 ## 0.11.0
 
-- Add `String.ToUpper` and `String.ToLower` methods
-- Add `Object.MapKeys` and `Object.MapValues` methods
+- Add `String.ToUpper` and `String.ToLower` methods.
+- Add `Object.MapKeys` and `Object.MapValues` methods.
 
 ## 0.10.0
 

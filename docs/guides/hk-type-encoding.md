@@ -71,7 +71,7 @@ Here, we use the `InputOf` type to extract and constrain the input type of the h
 ### 2.1. Apply Example
 
 ```ts
-import $ from "hkt-toolbelt";
+import { $ } from "hkt-toolbelt";
 
 type Result = $<Length, [1, 2, 3]>; // 3
 ```

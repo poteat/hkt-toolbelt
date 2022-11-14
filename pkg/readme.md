@@ -46,7 +46,7 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
 ## 2. Usage
 
 ```ts
-import $, { List, Conditional } from "hkt-toolbelt";
+import { $, List, Conditional } from "hkt-toolbelt";
 
 type Result = $<
   List.Filter<Conditional.Extends<number>>,

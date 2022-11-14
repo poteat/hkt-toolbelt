@@ -35,7 +35,7 @@
 ## 1.2. 用法
 
 ```ts
-import $, { List, Conditional } from `hkt-toolbelt`;
+import { $, List, Conditional } from `hkt-toolbelt`;
 
 // 一个过滤出数字的类型
 type FilterNumbers = List.Filter<Conditional.Extends<number>>;
@@ -48,7 +48,7 @@ type Result = $<FilterNumbers, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
 你还可以用子路径导入
 
 ```ts
-import $ from `hkt-toolbelt`;
+import { $ } from `hkt-toolbelt`;
 import { Filter } from `hkt-toolbelt/list`;
 import { Extends } from `hkt-toolbelt/conditional`;
 
@@ -148,7 +148,7 @@ Typescript 关于类型有两个 _不同_ 的类型结构: 类、泛型。
 它相当于 TypeScript 中的 `F<A>` 语法。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.Append<` world`>, `hello`>; // `hello world`
 ```
@@ -185,7 +185,7 @@ type Result = Cast<`hello`, string>; // `hello`
 `And` 传入布尔类型并返回一个接受另一个布尔值的函数，然后返回两个布尔值之和为 `&&` 的结果。
 
 ```ts
-import $, { Boolean } from `hkt-toolbelt`;
+import { $, Boolean } from `hkt-toolbelt`;
 
 type Result = $<Boolean.And<true>, false>; // false
 ```
@@ -195,7 +195,7 @@ type Result = $<Boolean.And<true>, false>; // false
 `Or` 传入一个布尔类型并返回一个接受另一个布尔值的函数，然后返回两个布尔值的结果为 `||` 。
 
 ```ts
-import $, { Boolean } from `hkt-toolbelt`;
+import { $, Boolean } from `hkt-toolbelt`;
 
 type Result = $<Boolean.Or<true>, false>; // true
 ```
@@ -205,7 +205,7 @@ type Result = $<Boolean.Or<true>, false>; // true
 `Not` 传入一个布尔类型值并返回相反的布尔值。
 
 ```ts
-import $, { Boolean } from `hkt-toolbelt`;
+import { $, Boolean } from `hkt-toolbelt`;
 
 type Result = $<Boolean.Not, true>; // false
 ```
@@ -217,7 +217,7 @@ type Result = $<Boolean.Not, true>; // false
 `Self` 返回自己。这意味着它可以无限地应用$。
 
 ```ts
-import $, { Combinator } from `hkt-toolbelt`;
+import { $, Combinator } from `hkt-toolbelt`;
 
 type Result = $<$<Combinator.Self, `foo`>, `foo`>; // Combinator.Self
 ```
@@ -227,7 +227,7 @@ type Result = $<$<Combinator.Self, `foo`>, `foo`>; // Combinator.Self
 `ApplySelf` 传入一个高阶类，并将那个高阶类型应用到它自己。这可用于创建合成递归类型。
 
 ```ts
-import $, { Combinator } from `hkt-toolbelt`;
+import { $, Combinator } from `hkt-toolbelt`;
 
 type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 ```
@@ -241,7 +241,7 @@ type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 `Equals` 返回一个高阶类型函数包裹着传入一个类型的函数，然后返回布尔值。
 
 ```ts
-import $, { Conditional } from `hkt-toolbelt`;
+import { $, Conditional } from `hkt-toolbelt`;
 
 type Result = $<Conditional.Equals<`foo`>, `bar`>; // false
 ```
@@ -255,7 +255,7 @@ type Result = $<Conditional.Equals<`foo`>, `bar`>; // false
 `Extends` 传入一个类型并返回布尔值的高阶类型函数。
 
 ```ts
-import $, { Conditional } from `hkt-toolbelt`;
+import { $, Conditional } from `hkt-toolbelt`;
 
 type Result = $<Conditional.Extends<string>, `bar`>; // true
 ```
@@ -271,7 +271,7 @@ type Result = $<Conditional.Extends<string>, `bar`>; // true
 `Constant` 传入一个 `类型` 并返回一个函数，该函数接受任何类型并返回原始类型。它忽略其应用的输入并总是返回配置的类型。
 
 ```ts
-import $, { Function } from `hkt-toolbelt`;
+import { $, Function } from `hkt-toolbelt`;
 
 type Result = $<Function.Constant<`foo`>, number>; // `foo`
 ```
@@ -281,7 +281,7 @@ type Result = $<Function.Constant<`foo`>, number>; // `foo`
 `Identity` 传入一个 `类型` ，并返回一个对应这个类型的高阶类型。
 
 ```ts
-import $, { Function } from `hkt-toolbelt`;
+import { $, Function } from `hkt-toolbelt`;
 
 type Result = $<Function.Identity, `foo`>; // `foo`
 ```
@@ -299,7 +299,7 @@ Kind 作为可选的类型，提供一个高阶函数类型，以添加这个函
 `Composable` 检查一个由各种组成的 `元组是否可组合` 。如果类型 $N$ 的输出是类型 $N-1$ 的输入的子类型，则类型元组是可组合的。
 
 ```ts
-import $, { Kind, String } from `hkt-toolbelt`;
+import { $, Kind, String } from `hkt-toolbelt`;
 
 type Result = $<Kind.Composable, [String.Append<`bar`>, String.Append<`foo`>]>; // true
 ```
@@ -313,7 +313,7 @@ type Result = $<Kind.Composable, [String.Append<`bar`>, String.Append<`foo`>]>; 
 `Compose` 从右向左执行函数，即元组中最后一个函数先执行——这是数学中的传统。
 
 ```ts
-import $, { Kind, String } from `hkt-toolbelt`;
+import { $, Kind, String } from `hkt-toolbelt`;
 
 type Result = $<Kind.Compose<[String.Append<`bar`>, String.Append<`foo`>]>, ``>; // `foobar`
 ```
@@ -325,7 +325,7 @@ type Result = $<Kind.Compose<[String.Append<`bar`>, String.Append<`foo`>]>, ``>;
 `Pipe` 通常对程序员来说更直观，因为它按执行顺序读取。这就是 `$$` 在内部使用的内容。
 
 ```ts
-import $, { Kind, String } from `hkt-toolbelt`;
+import { $, Kind, String } from `hkt-toolbelt`;
 
 type Result = $<Kind.Pipe<[String.Append<`foo`>, String.Append<`bar`>]>, ``>; // `foobar`
 ```
@@ -343,7 +343,7 @@ type Result = $<Kind.Pipe<[String.Append<`foo`>, String.Append<`bar`>]>, ``>; //
 `Map` 传入一个 `函数类` ，并返回一个接受元组类型的高级类型。它将给定的类型函数应用于元组中的每个元素。
 
 ```ts
-import $, { List, String } from `hkt-toolbelt`;
+import { $, List, String } from `hkt-toolbelt`;
 
 type Result = $<List.Map<String.Append<`bar`>>, [`foo`, `baz`]>; // [`foobar`, `bazbar`]
 ```
@@ -353,7 +353,7 @@ type Result = $<List.Map<String.Append<`bar`>>, [`foo`, `baz`]>; // [`foobar`, `
 `Find` 函数先接受一个 `函数类` ，然后接受一个 `元组` ，并返回 finder 函数返回 `true` 的第一个元组元素。如果不存在这样的元素， `Find` 返回 `never` 。
 
 ```ts
-import $, { List, String } from `hkt-toolbelt`;
+import { $, List, String } from `hkt-toolbelt`;
 
 type Result = $<List.Find<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // `foobar`
 ```
@@ -363,7 +363,7 @@ type Result = $<List.Find<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // `foo
 `Filter` 传入一个类型函数和一个元组，并按输入元组的顺序返回一个元组，因此只有 Filter 函数返回 `true` 的元素保留在结果元组中。
 
 ```ts
-import $, { List, String } from `hkt-toolbelt`;
+import { $, List, String } from `hkt-toolbelt`;
 
 type Result = $<List.Filter<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // [`foobar`]
 ```
@@ -373,7 +373,7 @@ type Result = $<List.Filter<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // [`
 `Append` 传入一个类型和一个元组，并应用该类型，使其被附加到所提供的元组的末尾。
 
 ```ts
-import $, { List } from `hkt-toolbelt`;
+import { $, List } from `hkt-toolbelt`;
 
 type Result = $<List.Append<`bar`>, [`foo`, `baz`]>; // [`foo`, `baz`, `bar`]
 ```
@@ -383,7 +383,7 @@ type Result = $<List.Append<`bar`>, [`foo`, `baz`]>; // [`foo`, `baz`, `bar`]
 `First` 传入一个元组，并返回该元组的第一个元素。
 
 ```ts
-import $, { List } from `hkt-toolbelt`;
+import { $, List } from `hkt-toolbelt`;
 
 type Result = $<List.First, [`foo`, `bar`]>; // `foo`
 ```
@@ -393,7 +393,7 @@ type Result = $<List.First, [`foo`, `bar`]>; // `foo`
 `Last` 传入一个 `元组` ，并返回元组的最后一个元素。在具有可变元素的元组的情况下，可变元素被正确处理，即使它是中缀。
 
 ```ts
-import $, { List } from `hkt-toolbelt`;
+import { $, List } from `hkt-toolbelt`;
 
 type Result = $<List.Last, [`foo`, `bar`, `baz`]>; // `baz`
 ```
@@ -403,7 +403,7 @@ type Result = $<List.Last, [`foo`, `bar`, `baz`]>; // `baz`
 `Pair` 传入一个 `元组` ，并返回元组的元组，其中每个元组是原始元组的一对元素，按顺序排列。如。'[1, 2, 3] '变成'[[1, 2]，[2, 3]]'。
 
 ```ts
-import $, { List } from `hkt-toolbelt`;
+import { $, List } from `hkt-toolbelt`;
 
 type Result = $<List.Pair, [1, 2, 3]>; // [[1, 2], [2, 3]]
 ```
@@ -415,7 +415,7 @@ type Result = $<List.Pair, [1, 2, 3]>; // [[1, 2], [2, 3]]
 `Every` 接受一个操作函数类和一个元组，如果元组中的每个元素都满足这个操作函数，则返回 `true` ，否则返回 `false` 。
 
 ```ts
-import $, { List, Conditional } from `hkt-toolbelt`;
+import { $, List, Conditional } from `hkt-toolbelt`;
 
 type Result = $<List.Every<Conditional.Extends<number>>, [1, 2, 3]>; // true
 ```
@@ -425,7 +425,7 @@ type Result = $<List.Every<Conditional.Extends<number>>, [1, 2, 3]>; // true
 ` Some` 接受一个操作函数类和一个元组，如果元组中至少有一个元素满足操作函数类，则返回' true '，否则返回 ` ` false` 。
 
 ```ts
-import $, { List, Conditional } from `hkt-toolbelt`;
+import { $, List, Conditional } from `hkt-toolbelt`;
 
 type Result = $<List.Some<Conditional.Extends<string>>, [1, 2, 3]>; // false
 ```
@@ -437,7 +437,7 @@ Reverse 函数接受一个元组，并返回一个包含倒序元素的元组。
 这种类型正确地处理可变元组类型，例如。[1、2、……string[]] "变成"[…string[] 2 1]”。
 
 ```ts
-import $, { List } from `hkt-toolbelt`;
+import { $, List } from `hkt-toolbelt`;
 
 type Result = $<List.Reverse, [1, 2, 3]>; // [3, 2, 1]
 ```
@@ -464,7 +464,7 @@ type Result = List.IsVariadic<[1, 2, 3]>; // false
 然而， `string` 开头没有特定的前缀，因此 `$<startwith <` f `>, string>` 将导致 false。所有字符串也都以空字符串开头。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.StartsWith<`foo`>, `foobar`>; // true
 ```
@@ -474,7 +474,7 @@ type Result = $<String.StartsWith<`foo`>, `foobar`>; // true
 `EndsWith` 传入一个模版字符串，并返回是否以给定后缀结束，根据情况返回 `true` 或 `false` 。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.EndsWith<`bar`>, `foobar`>; // true
 ```
@@ -486,7 +486,7 @@ type Result = $<String.EndsWith<`bar`>, `foobar`>; // true
 @see `String.StartsWith`
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.Includes<`foo`>, `barfoobar`>; // true
 ```
@@ -496,7 +496,7 @@ type Result = $<String.Includes<`foo`>, `barfoobar`>; // true
 `Append` 传入一个模版字符串并返回一个高阶函数类，该函数接受一个字符串并返回将传入的模版字符串添加到字符串末尾的结果。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.Append<`bar`>, `foo`>; // `foobar`
 ```
@@ -506,7 +506,7 @@ type Result = $<String.Append<`bar`>, `foo`>; // `foobar`
 `Prepend` 传入一个模版字符类型并返回一个高阶类型函数，该函数接受一个字符串并返回将传入的模版字符串添加到字符串开头的结果。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.Prepend<`foo`>, `bar`>; // `foobar`
 ```
@@ -520,7 +520,7 @@ type Result = $<String.Prepend<`foo`>, `bar`>; // `foobar`
 > 这可能会是一步非常耗费性能的计算。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.IsTemplate, `foo${string}`>; // true
 ```
@@ -530,7 +530,7 @@ type Result = $<String.IsTemplate, `foo${string}`>; // true
 `Join` 传入一个模版字符串，并返回一个更高类型的函数，该函数接受一个字符串元组，并返回以模版字符串值作为分隔符连接元组中的字符串的结果。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.Join<` `>, [`foo`, `bar`, `baz`]>; // `foo bar baz`
 ```
@@ -542,7 +542,7 @@ type Result = $<String.Join<` `>, [`foo`, `bar`, `baz`]>; // `foo bar baz`
 `Split` 传入一个模版字符串值并返回一个更高类型的函数，该函数接受一个字符串并返回一个字符串元组，其中原始字符串根据字符串字面值进行拆分。
 
 ```ts
-import $, { String } from `hkt-toolbelt`;
+import { $, String } from `hkt-toolbelt`;
 
 type Result = $<String.Split<` `>, `foo bar baz`>; // [`foo`, `bar`, `baz`]
 ```
