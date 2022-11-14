@@ -1,4 +1,4 @@
-import $, { Combinator, Function, String, Test } from "hkt-toolbelt";
+import { $, Combinator, Function, String, Test } from "hkt-toolbelt";
 
 type Self_Spec = [
   /**

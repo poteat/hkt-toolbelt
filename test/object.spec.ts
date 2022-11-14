@@ -1,4 +1,4 @@
-import $, { Test, Object, String, Function, Conditional } from "hkt-toolbelt";
+import { $, Test, Object, String, Function, Conditional } from "hkt-toolbelt";
 
 /**
  * Tests for `Object.Keys` type, which returns the keys as a tuple.
@@ -115,13 +115,13 @@ type MapValues_Spec = [
 /**
  * Tests for `Object.DeepMap` type, which maps over nested values in an object.
  */
-type DeepMap_Spec = [
+type DeepMapValues_Spec = [
   /**
    * Can map over an object.
    */
   Test.Expect<
     $<
-      Object.DeepMap<String.StartsWith<"foo">>,
+      Object.DeepMapValues<String.StartsWith<"foo">>,
       { a: "foobar"; b: "foo"; c: "bar" }
     >,
     { a: true; b: true; c: false }
@@ -132,7 +132,7 @@ type DeepMap_Spec = [
    */
   Test.Expect<
     $<
-      Object.DeepMap<String.StartsWith<"foo">>,
+      Object.DeepMapValues<String.StartsWith<"foo">>,
       { a: { b: "foobar"; c: "foo" }; d: "bar" }
     >,
     { a: { b: true; c: true }; d: false }
@@ -149,14 +149,14 @@ type DeepMap_Spec = [
    * values.
    */
   // @ts-expect-error
-  $<Object.DeepMap<String.StartsWith<"foo">>, { a: 1; b: 2; c: 3 }>,
+  $<Object.DeepMapValues<String.StartsWith<"foo">>, { a: 1; b: 2; c: 3 }>,
 
   /**
    * Can be applied conditionally using `If`.
    */
   Test.Expect<
     $<
-      Object.DeepMap<
+      Object.DeepMapValues<
         Conditional.If<
           String.IsString,
           String.StartsWith<"foo">,
