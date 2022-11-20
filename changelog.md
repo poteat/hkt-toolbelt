@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.0
+
+- Add `Number`, `NaturalNumber`, `Digit`, and `DigitList` modules.
+- Add `Type.IsNever` method.
+- Add `Union.Length` method.
+
 ## 0.12.0
 
 - **[Breaking]** Switch default package export from '$' to entire module.
