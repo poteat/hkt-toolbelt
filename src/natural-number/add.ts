@@ -1,5 +1,4 @@
 import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
-import { _$isNatural } from "../number";
 
 export type _$add<
   A extends Number.Number,
@@ -13,11 +12,11 @@ export type _$add<
 declare abstract class Add_T<A extends Number.Number> extends Kind.Kind {
   abstract f: (
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => _$isNatural<typeof x> extends true ? _$add<A, typeof x> : never;
+  ) => Number._$isNatural<typeof x> extends true ? _$add<A, typeof x> : never;
 }
 
 export declare abstract class Add extends Kind.Kind {
   abstract f: (
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => _$isNatural<typeof x> extends true ? Add_T<typeof x> : never;
+  ) => Number._$isNatural<typeof x> extends true ? Add_T<typeof x> : never;
 }
