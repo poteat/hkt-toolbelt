@@ -10,6 +10,12 @@ export * as Combinator from "./combinator";
 import * as Conditional from "./conditional";
 export * as Conditional from "./conditional";
 
+import * as DigitList from "./digit-list";
+export * as DigitList from "./digit-list";
+
+import * as Digit from "./digit";
+export * as Digit from "./digit";
+
 import * as Function from "./function";
 export * as Function from "./function";
 
@@ -18,6 +24,12 @@ export * as Kind from "./kind";
 
 import * as List from "./list";
 export * as List from "./list";
+
+import * as NaturalNumber from "./natural-number";
+export * as NaturalNumber from "./natural-number";
+
+import * as Number from "./number";
+export * as Number from "./number";
 
 import * as Object from "./object";
 export * as Object from "./object";
@@ -39,9 +51,13 @@ export default {
   ...Boolean,
   ...Combinator,
   ...Conditional,
+  ...DigitList,
+  ...Digit,
   ...Function,
   ...Kind,
   ...List,
+  ...NaturalNumber,
+  ...Number,
   ...Object,
   ...String,
   ...Test,
