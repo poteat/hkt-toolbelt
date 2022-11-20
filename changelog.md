@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.1
+
+- Add `List.Reduce` method.
+
 ## 0.13.0
 
 - Add `Number`, `NaturalNumber`, `Digit`, and `DigitList` modules.

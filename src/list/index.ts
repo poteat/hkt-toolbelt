@@ -9,6 +9,7 @@ export * from "./map";
 export * from "./pair";
 export * from "./pop";
 export * from "./push";
+export * from "./reduce";
 export * from "./reverse";
 export * from "./shift";
 export * from "./some";
