@@ -4,7 +4,7 @@ export type _$toList<
   S extends string,
   O extends string[] = []
 > = string extends S
-  ? string[]
+  ? [string]
   : S extends `${infer Head}${infer Tail}`
   ? _$toList<Tail, [...O, Head]>
   : O;

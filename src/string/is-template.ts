@@ -7,3 +7,5 @@ export type _$isTemplate<S extends string> = string extends S
 export abstract class IsTemplate extends Kind.Kind {
   abstract f: (x: Type._$cast<this[Kind._], string>) => _$isTemplate<typeof x>;
 }
+
+type R = String._$toList<`foo${string}`>;
