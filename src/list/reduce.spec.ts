@@ -25,7 +25,12 @@ type Reduce_Spec = [
   /**
    * Can handle a list of 500 elements.
    */
-  Test.Expect<$<List.Reduce<NaturalNumber.Add, 0>, FiveHundred>, "2750">
+  Test.Expect<$<List.Reduce<NaturalNumber.Add, 0>, FiveHundred>, "2750">,
+
+  /**
+   * Can handle a list of 1000 elements.
+   */
+  Test.Expect<$<List.Reduce<NaturalNumber.Add, 0>, Thousand>, "5500">
 ];
 
 type Ten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -44,3 +49,5 @@ type Hundred = [
 ];
 
 type FiveHundred = [...Hundred, ...Hundred, ...Hundred, ...Hundred, ...Hundred];
+
+type Thousand = [...FiveHundred, ...FiveHundred];
