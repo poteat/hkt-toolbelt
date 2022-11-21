@@ -1,10 +1,12 @@
-import { $, Type, Kind } from "..";
+import { $, Kind, Type } from "..";
 
 export type _$reduce<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
   X extends unknown[],
   O
-> = X extends [infer H, ...infer T]
+> = 1 extends 0
+  ? never
+  : X extends [infer H, ...infer T]
   ? $<
       $<F, Type._$cast<O, Kind._$inputOf<F>>>,
       Type._$cast<
