@@ -1,10 +1,5 @@
 import { Digit, DigitList, Kind, Type } from "..";
 
-type _$bothDigitListsEmpty<
-  A extends DigitList.DigitList,
-  B extends DigitList.DigitList
-> = A extends [] ? (B extends [] ? true : false) : false;
-
 type _$add2<
   /**
    * The first digit list to add.
@@ -87,7 +82,7 @@ type _$add2<
   /**
    * We are done when both digit lists are empty.
    */
-  IS_BASE_CASE = _$bothDigitListsEmpty<A, B>,
+  IS_BASE_CASE = A extends [] ? (B extends [] ? true : false) : false,
   /**
    * If both digit lists are empty, then we prepend the carry digit to the
    * output, and we are done. If the carry digit is "0", then we don't prepend.
