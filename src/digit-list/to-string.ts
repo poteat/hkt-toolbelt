@@ -1,6 +1,6 @@
 import { Type, Kind, DigitList } from "..";
 
-export type _$toString2<
+type _$toString2<
   T extends DigitList.DigitList,
   O extends string = ""
 > = T extends []
