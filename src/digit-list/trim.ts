@@ -1,12 +1,10 @@
 import { Type, Kind, DigitList } from "..";
 
 type _$trim2<A extends DigitList.DigitList> = A extends [
-  infer First,
+  "0",
   ...infer Rest extends DigitList.DigitList
 ]
-  ? First extends "0"
-    ? _$trim2<Rest>
-    : A
+  ? _$trim2<Rest>
   : A;
 
 export type _$trim<
