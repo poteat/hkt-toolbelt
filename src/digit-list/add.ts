@@ -38,12 +38,12 @@ type _$add2<
    * If the first digit list is empty, then this is an empty list. We iterate
    * until both digit lists are empty.
    */
-  NEXT_A extends DigitList.DigitList = DigitList._$pop<A>,
+  A_NEXT extends DigitList.DigitList = DigitList._$pop<A>,
   /**
    * The next digit list of B, which is the second digit list without its last
    * digit.
    */
-  NEXT_B extends DigitList.DigitList = DigitList._$pop<B>,
+  B_NEXT extends DigitList.DigitList = DigitList._$pop<B>,
   /**
    * The sum of the last digits of A and B, according to modular arithmetic.
    * This encodes the 'ones' place of the result, not including the carry value.
@@ -55,10 +55,14 @@ type _$add2<
    */
   SUM_TENS extends Digit.Digit = Digit._$addTens<A_LAST, B_LAST>,
   /**
+   * The ones place of the sum of A and B, including the carry digit.
+   */
+  SUM_CARRY extends Digit.Digit = Digit._$add<SUM, CARRY>,
+  /**
    * If the sum and the current carry digit add up to "10" or more, then we need
    * to carry a "1" to the next iteration.
    */
-  CARRY_SUM extends Digit.Digit = Digit._$addTens<SUM, CARRY>,
+  SUM_CARRY_TENS extends Digit.Digit = Digit._$addTens<SUM, CARRY>,
   /**
    * If the sum of A and B is "10" or more, then we need to carry a "1" to the
    * next iteration.
@@ -66,11 +70,7 @@ type _$add2<
    * As well, if the ones place sum of A and B, and the carry digit is "10" or
    * more, then we need to carry a "1" to the next iteration.
    */
-  NEXT_CARRY extends Digit.Digit = SUM_TENS extends "1" ? "1" : CARRY_SUM,
-  /**
-   * The ones place of the sum of A and B, including the carry digit.
-   */
-  RESULT extends Digit.Digit = Digit._$add<CARRY, SUM>,
+  CARRY_NEXT extends Digit.Digit = SUM_TENS extends "1" ? "1" : SUM_CARRY_TENS,
   /**
    * The next output result, which is the result of this iteration prepended to
    * the previous iteration's result.
@@ -78,23 +78,23 @@ type _$add2<
    * We evaluate arithmetic from right to left, because base-10 arithmetic is
    * little endian.
    */
-  NEXT_OUTPUT extends DigitList.DigitList = [RESULT, ...OUTPUT],
+  OUTPUT_NEXT extends DigitList.DigitList = [SUM_CARRY, ...OUTPUT],
   /**
    * We are done when both digit lists are empty.
    */
-  IS_BASE_CASE = A extends [] ? (B extends [] ? true : false) : false,
+  DONE = A extends [] ? (B extends [] ? true : false) : false,
   /**
    * If both digit lists are empty, then we prepend the carry digit to the
    * output, and we are done. If the carry digit is "0", then we don't prepend.
    */
-  FINAL_OUTPUT = CARRY extends "1" ? [CARRY, ...OUTPUT] : OUTPUT
+  RESULT = CARRY extends "1" ? [CARRY, ...OUTPUT] : OUTPUT
   /**
    * If we are not done, then we recurse to the next iteration - otherwise, we
    * return the final output.
    */
-> = IS_BASE_CASE extends true
-  ? FINAL_OUTPUT
-  : _$add2<NEXT_A, NEXT_B, NEXT_CARRY, NEXT_OUTPUT>;
+> = DONE extends true
+  ? RESULT
+  : _$add2<A_NEXT, B_NEXT, CARRY_NEXT, OUTPUT_NEXT>;
 
 export type _$add<
   A extends DigitList.DigitList,
