@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.2
+
+- Add `NaturalNumber.Increment` and `NaturalNumber.Decrement` methods.
+- Add `NaturalNumber.Subtract` method.
+
 ## 0.13.1
 
 - Add `List.Reduce` method.
