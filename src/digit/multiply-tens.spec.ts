@@ -19,5 +19,20 @@ type Multiply_Spec = [
   /**
    * 5 * 5 = 25
    */
-  Test.Expect<$<$<Digit.MultiplyTens, "5">, "5">, "2">
+  Test.Expect<$<$<Digit.MultiplyTens, "5">, "5">, "2">,
+
+  /**
+   * 5 * 3 = 15
+   */
+  Test.Expect<$<$<Digit.MultiplyTens, "5">, "3">, "1">,
+
+  /**
+   * 5 * 4 = 20
+   */
+  Test.Expect<$<$<Digit.MultiplyTens, "5">, "4">, "2">,
+
+  /**
+   * 4 * 5 = 20
+   */
+  Test.Expect<$<$<Digit.MultiplyTens, "4">, "5">, "2">
 ];
