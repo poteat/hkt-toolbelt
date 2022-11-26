@@ -5,6 +5,8 @@ export * from "./decrement";
 export * from "./digit";
 export * from "./increment-tens";
 export * from "./increment";
+export * from "./multiply-tens";
+export * from "./multiply";
 export * from "./subtract-tens";
 export * from "./subtract";
 export * from "./zero";
