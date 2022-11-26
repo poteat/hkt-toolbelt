@@ -24,5 +24,10 @@ type Multiply_Spec = [
   /**
    * 9*9 = 81 which wraps to 1.
    */
-  Test.Expect<$<$<Digit.Multiply, "9">, "9">, "1">
+  Test.Expect<$<$<Digit.Multiply, "9">, "9">, "1">,
+
+  /**
+   * 5*3 = 15 which wraps to 5.
+   */
+  Test.Expect<$<$<Digit.Multiply, "5">, "3">, "5">
 ];
