@@ -7,6 +7,7 @@ export * from "./is-string";
 export * from "./is-template";
 export * from "./join";
 export * from "./last";
+export * from "./length";
 export * from "./prepend";
 export * from "./replace";
 export * from "./reverse";
