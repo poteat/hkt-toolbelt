@@ -1,6 +1,6 @@
 import { Type, Kind, Digit, DigitList } from "..";
 
-export type _$multiply<
+export type _$multiply2<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
   SCALE extends DigitList.DigitList = [],
@@ -11,7 +11,12 @@ export type _$multiply<
   MUL_SCALE extends DigitList.DigitList = [...MUL, ...SCALE],
   ADD extends DigitList.DigitList = DigitList._$add<SUM, MUL_SCALE>,
   NEXT_SCALE extends DigitList.DigitList = [Digit.Zero, ...SCALE]
-> = B extends [] ? SUM : _$multiply<A, POP_B, NEXT_SCALE, ADD>;
+> = B extends [] ? SUM : _$multiply2<A, POP_B, NEXT_SCALE, ADD>;
+
+export type _$multiply<
+  A extends DigitList.DigitList,
+  B extends DigitList.DigitList
+> = Type._$cast<_$multiply2<A, B>, DigitList.DigitList>;
 
 export declare abstract class Multiply_T<
   T extends DigitList.DigitList
