@@ -9,7 +9,7 @@ export type _$multiply<
     A_LIST,
     B_LIST
   >,
-  PRODUCT = DigitList._$toString<PRODUCT_LIST>
+  PRODUCT = Number._$fromString<DigitList._$toString<PRODUCT_LIST>>
 > = PRODUCT;
 
 declare abstract class Multiply_T<A extends Number.Number> extends Kind.Kind {

@@ -4,7 +4,9 @@ export type _$decrement<
   A extends Number.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   DECREMENT extends DigitList.DigitList = DigitList._$decrement<A_LIST>,
-  RESULT extends Number.Number = DigitList._$toString<DECREMENT>
+  RESULT extends Number.Number = Number._$fromString<
+    DigitList._$toString<DECREMENT>
+  >
 > = RESULT;
 
 export declare abstract class Decrement extends Kind.Kind {

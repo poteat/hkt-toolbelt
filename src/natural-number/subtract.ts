@@ -6,7 +6,7 @@ export type _$subtract<
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
   SUB_LIST extends DigitList.DigitList = DigitList._$subtract<A_LIST, B_LIST>,
-  RESULT = DigitList._$toString<SUB_LIST>
+  RESULT = Number._$fromString<DigitList._$toString<SUB_LIST>>
 > = RESULT;
 
 declare abstract class Subtract_T<X extends Number.Number> extends Kind.Kind {
