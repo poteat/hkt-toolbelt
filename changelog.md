@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.0
+
+- Add `NaturalNumber.Multiply` method.
+- **[Breaking]** Change return type of natural arithmetic to numbers instead of strings.
+
 ## 0.13.2
 
 - Add `NaturalNumber.Increment` and `NaturalNumber.Decrement` methods.
