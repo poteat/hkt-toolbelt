@@ -4,6 +4,7 @@ export * from "./digit-list";
 export * from "./increment";
 export * from "./last";
 export * from "./multiply-digit";
+export * from "./multiply";
 export * from "./pop";
 export * from "./subtract";
 export * from "./to-string";
