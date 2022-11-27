@@ -4,7 +4,9 @@ export type _$increment<
   A extends Number.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   INCREMENT extends DigitList.DigitList = DigitList._$increment<A_LIST>,
-  RESULT extends Number.Number = DigitList._$toString<INCREMENT>
+  RESULT extends Number.Number = Number._$fromString<
+    DigitList._$toString<INCREMENT>
+  >
 > = RESULT;
 
 export declare abstract class Increment extends Kind.Kind {
