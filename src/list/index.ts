@@ -5,6 +5,7 @@ export * from "./first";
 export * from "./includes";
 export * from "./is-variadic";
 export * from "./last";
+export * from "./length";
 export * from "./map";
 export * from "./pair";
 export * from "./pop";

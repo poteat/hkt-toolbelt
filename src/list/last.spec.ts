@@ -1,4 +1,4 @@
-import { $, List, Test } from "hkt-toolbelt";
+import { $, List, Test } from "..";
 
 type Last_Spec = [
   /**
