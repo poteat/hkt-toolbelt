@@ -2,6 +2,8 @@ export * from "./add";
 export * from "./decrement";
 export * from "./digit-list";
 export * from "./increment";
+export * from "./is-even";
+export * from "./is-odd";
 export * from "./last";
 export * from "./multiply-digit";
 export * from "./multiply";
