@@ -1,6 +1,6 @@
 import { Type, Kind, Digit, DigitList } from "..";
 
-export type _$decrement2<
+type _$decrement2<
   /**
    * The digit-list to decrement.
    */
