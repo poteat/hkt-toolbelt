@@ -12,6 +12,11 @@ type DivideBySubtraction_Spec = [
   Test.Expect<$<$<DigitList.DivideBySubtraction, ["1", "0"]>, ["2"]>, ["5"]>,
 
   /**
+   * 2 / 2 = 1
+   */
+  Test.Expect<$<$<DigitList.DivideBySubtraction, ["2"]>, ["2"]>, ["1"]>,
+
+  /**
    * 123 / 17 results is 7 remainder 4.
    */
   Test.Expect<
