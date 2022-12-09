@@ -25,6 +25,9 @@ export * as Kind from "./kind";
 import * as List from "./list";
 export * as List from "./list";
 
+import * as NaturalNumberTheory from "./natural-number-theory";
+export * as NaturalNumberTheory from "./natural-number-theory";
+
 import * as NaturalNumber from "./natural-number";
 export * as NaturalNumber from "./natural-number";
 
@@ -56,6 +59,7 @@ export default {
   Function,
   Kind,
   List,
+  NaturalNumberTheory,
   NaturalNumber,
   Number,
   Object,

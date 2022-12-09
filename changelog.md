@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.16.0
+
+- Introduce `NaturalNumberTheory` module for abstract natural number theory.
+  - Add `NaturalNumberTheory.Collatz`
+  - Add `NaturalNumberTheory.CollatzSequence` for generating hailstorm numbers.
+- Add `Combinator.FixSequence` for fixed-point iteration of a sequence.
+- Add `NaturalNumber.DivideBy`, for argument swapping of `NaturalNumber.Divide`.
+
 ## 0.15.1
 
 - Fix `String.Join` bug that did not properly handle one-tuple elements.
