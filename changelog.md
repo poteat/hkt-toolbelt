@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.0
+
+- Add `List.Length` method.
+- Add `List.Times` method, which constructs the tuple from 0 to N - 1.
+- Add `NaturalNumber.Divide` and `NaturalNumber.Modulo` methods.
+- Add `NaturalNumber.IsEven` and `NaturalNumber.IsOdd` methods.
+- Add various digit-list level division methods.
+
 ## 0.14.0
 
 - Add `NaturalNumber.Multiply` method.
