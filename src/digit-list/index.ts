@@ -7,6 +7,7 @@ export * from "./increment";
 export * from "./is-even";
 export * from "./is-odd";
 export * from "./last";
+export * from "./modulo";
 export * from "./multiply-digit";
 export * from "./multiply";
 export * from "./pop";
