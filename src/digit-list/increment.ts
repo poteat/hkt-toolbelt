@@ -45,12 +45,14 @@ export type _$increment<
   /**
    * When A is empty, we prepend the carry digit to the output if it is "1".
    */
-  FINAL_RESULT = CARRY extends "1" ? [CARRY, ...OUTPUT] : OUTPUT,
+  FINAL_RESULT extends DigitList.DigitList = CARRY extends "1"
+    ? [CARRY, ...OUTPUT]
+    : OUTPUT,
   /**
    * Is the carry bit is "0", we can skip the rest of the computation and return
    * the rest of 'A' prepended to the output.
    */
-  SHORT_CIRCUIT = [...A, ...OUTPUT]
+  SHORT_CIRCUIT extends DigitList.DigitList = [...A, ...OUTPUT]
 > = A extends []
   ? FINAL_RESULT
   : CARRY extends "0"
