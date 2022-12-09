@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.15.1
+
+- Fix `String.Join` bug that did not properly handle one-tuple elements.
+
 ## 0.15.0
 
 - Add `List.Length` method.
