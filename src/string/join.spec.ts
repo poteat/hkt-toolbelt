@@ -7,6 +7,11 @@ type Join_Spec = [
   Test.Expect<$<String.Join<"">, ["foo", "bar"]>, "foobar">,
 
   /**
+   * Can join a single tuple.
+   */
+  Test.Expect<$<String.Join<".">, ["foo"]>, "foo">,
+
+  /**
    * Can join strings with a separator.
    */
   Test.Expect<$<String.Join<" ">, ["foo", "bar", "qux"]>, "foo bar qux">,

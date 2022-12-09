@@ -8,7 +8,7 @@ export type _$join<
   ? string
   : T extends [infer Head, ...infer Tail]
   ? Tail extends []
-    ? `${O}${D}${Type._$cast<Head, string>}`
+    ? `${O}${O extends "" ? "" : D}${Type._$cast<Head, string>}`
     : _$join<
         Type._$cast<Tail, string[]>,
         D,
