@@ -31,7 +31,9 @@ type _$divide2<
    * of the previous step. This is where you 'draw an arrow down' in the long
    * division paper algorithm.
    */
-  ARROW_DOWN extends DigitList.DigitList = [...REMAINDER, ACTIVE],
+  ARROW_DOWN extends DigitList.DigitList = DigitList._$trim<
+    [...REMAINDER, ACTIVE]
+  >,
   /**
    * A sub-division step, computed via repeated subtraction. This results in the
    * next quotient value.

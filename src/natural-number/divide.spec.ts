@@ -17,6 +17,11 @@ type Divide_Spec = [
   Test.Expect<$<$<NaturalNumber.Divide, 123>, 17>, 7>,
 
   /**
+   * 3922 / 2 = 1961.
+   */
+  Test.Expect<$<$<NaturalNumber.Divide, 3922>, 2>, 1961>,
+
+  /**
    * 123 / 1 = 123. The quotient is 123.
    */
   Test.Expect<$<$<NaturalNumber.Divide, 123>, 1>, 123>,

@@ -25,6 +25,19 @@ type Divide_Spec = [
   Test.Expect<$<$<DigitList.Divide, ["1", "2", "3"]>, ["1", "7"]>, ["7"]>,
 
   /**
+   * 22 / 2 = 11.
+   */
+  Test.Expect<$<$<DigitList.Divide, ["2", "2"]>, ["2"]>, ["1", "1"]>,
+
+  /**
+   * 3922 / 2 = 1961.
+   */
+  Test.Expect<
+    $<$<DigitList.Divide, ["3", "9", "2", "2"]>, ["2"]>,
+    ["1", "9", "6", "1"]
+  >,
+
+  /**
    * 123 / 1 = 123. The quotient is 123.
    */
   Test.Expect<$<$<DigitList.Divide, ["1", "2", "3"]>, ["1"]>, ["1", "2", "3"]>,
