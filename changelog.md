@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.16.1
+
+- Fix division bug that led to rare incorrect results for `NaturalNumber.Divide`.
+
 ## 0.16.0
 
 - Introduce `NaturalNumberTheory` module for abstract natural number theory.
