@@ -44,14 +44,6 @@ type _$divide2<
     B
   >,
   /**
-   * The remainder from the sub-division step.
-   */
-  SUB_MOD extends DigitList.DigitList = DigitList._$divideBySubtraction<
-    ARROW_DOWN,
-    B,
-    "MODULO"
-  >,
-  /**
    * The next value of DIVIDEND on each step. We shift the current value, i.e.
    * remove the leftmost digit. Once this value is empty, we have reached the
    * end of the division.
@@ -73,7 +65,11 @@ type _$divide2<
    * For efficiency, we use the remainder from the sub-division step, which is
    * equivalent to the remainder from the subtraction step.
    */
-  NEXT_REMAINDER extends DigitList.DigitList = SUB_MOD,
+  NEXT_REMAINDER extends DigitList.DigitList = DigitList._$divideBySubtraction<
+    ARROW_DOWN,
+    B,
+    "MODULO"
+  >,
   /**
    * We have reached the end of the division when the next dividend is empty.
    */
