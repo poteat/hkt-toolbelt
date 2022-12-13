@@ -37,6 +37,9 @@ export * as Number from "./number";
 import * as Object from "./object";
 export * as Object from "./object";
 
+import * as Parser from "./parser";
+export * as Parser from "./parser";
+
 import * as String from "./string";
 export * as String from "./string";
 
@@ -63,6 +66,7 @@ export default {
   NaturalNumber,
   Number,
   Object,
+  Parser,
   String,
   Test,
   Type,
