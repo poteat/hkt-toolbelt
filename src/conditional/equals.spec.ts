@@ -24,5 +24,10 @@ type Equals_Spec = [
   /**
    * Never does not equal true.
    */
-  Test.ExpectNot<$<Conditional.Equals<never>, true>>
+  Test.ExpectNot<$<Conditional.Equals<never>, true>>,
+
+  /**
+   * Never equals never.
+   */
+  Test.Expect<$<Conditional.Equals<never>, never>>
 ];
