@@ -7,9 +7,9 @@ type Choice_Spec = [
   Test.Expect<
     $<
       $<Parser.Choice, [$<Parser.String, "hello">, $<Parser.String, "world">]>,
-      "hello"
+      { input: "hello world"; index: 0; result: never }
     >,
-    "hello"
+    { input: "hello world"; index: 5; result: "hello" }
   >,
 
   /**
@@ -18,14 +18,20 @@ type Choice_Spec = [
   Test.Expect<
     $<
       $<Parser.Choice, [$<Parser.String, "hello">, $<Parser.String, "world">]>,
-      "world"
+      { input: "world hello"; index: 0; result: never }
     >,
-    "world"
+    { input: "world hello"; index: 5; result: "world" }
   >,
 
   /**
    * If we have a parser "hello" | "world", matching "foobar" will result in
    * never.
    */
-  Test.Expect<$<$<Parser.Choice, [$<Parser.String, "hello">]>, "foobar">, never>
+  Test.Expect<
+    $<
+      $<Parser.Choice, [$<Parser.String, "hello">]>,
+      { input: "foobar"; index: 0; result: never }
+    >,
+    never
+  >
 ];
