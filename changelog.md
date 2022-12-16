@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.17.0
+
+- Introduce `Parser` module for parser combinators.
+  - Add `Parser.String` for parsing string literals.
+  - Add `Parser.Choice` for parsing alternatives.
+  - Add `Parser.Sequence` for parsing sequences.
+- Add `List.Slice<N>` method, to remove the first N elements from a list.
+- Add `String.Slice` method.
+
 ## 0.16.1
 
 - Fix division bug that led to rare incorrect results for `NaturalNumber.Divide`.
