@@ -14,6 +14,7 @@ export * from "./push";
 export * from "./reduce";
 export * from "./reverse";
 export * from "./shift";
+export * from "./slice";
 export * from "./some";
 export * from "./times";
 export * from "./unshift";
