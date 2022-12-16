@@ -1,9 +1,29 @@
-import { Type, Kind } from "..";
+import { Type, Kind, Parser, String as _String, NaturalNumber } from "..";
 
-export type _$string<Input, S> = Input extends S ? Input : never;
+export type _$string<
+  STATE extends Parser._$state,
+  TARGET extends string,
+  SLICED_INPUT extends string = _String._$slice<STATE["input"], STATE["index"]>,
+  MATCH_RESULT extends string = SLICED_INPUT extends `${TARGET}${string}`
+    ? TARGET
+    : never,
+  NEW_INDEX extends number = NaturalNumber._$add<
+    STATE["index"],
+    _String._$length<MATCH_RESULT>
+  >,
+  NEW_STATE extends Parser._$state = MATCH_RESULT extends never
+    ? never
+    : {
+        input: STATE["input"];
+        index: NEW_INDEX;
+        result: MATCH_RESULT;
+      }
+> = NEW_STATE;
 
-declare abstract class String_T<S extends string> extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => _$string<typeof x, S>;
+declare abstract class String_T<S extends string> extends Parser.Parser {
+  abstract f: (
+    x: Type._$cast<this[Kind._], Parser._$state>
+  ) => _$string<typeof x, S>;
 }
 
 export declare abstract class String extends Kind.Kind {
