@@ -1,6 +1,7 @@
 export * from "./append";
 export * from "./ends-with";
 export * from "./first";
+export * from "./from-list";
 export * from "./includes";
 export * from "./init";
 export * from "./is-string";
@@ -11,6 +12,7 @@ export * from "./length";
 export * from "./prepend";
 export * from "./replace";
 export * from "./reverse";
+export * from "./slice";
 export * from "./split";
 export * from "./starts-with";
 export * from "./tail";
