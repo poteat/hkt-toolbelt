@@ -2,7 +2,7 @@
   "name": "hkt-toolbelt",
   "private": true,
   "scripts": {
-    "test": "tsc",
+    "test": "NODE_OPTIONS='--max-old-space-size=8192' tsc",
     "build": "./build.sh"
   },
   "license": "MIT",
