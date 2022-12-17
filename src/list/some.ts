@@ -4,7 +4,9 @@ export type _$some<
   F extends Kind.Kind<(x: never) => boolean>,
   T extends unknown[],
   O extends boolean = false
-> = T extends [infer Head, ...infer Rest]
+> = 0 extends 1
+  ? never
+  : T extends [infer Head, ...infer Rest]
   ? _$some<F, Rest, Boolean._$or<O, $<F, Type._$cast<Head, Kind._$inputOf<F>>>>>
   : O;
 
