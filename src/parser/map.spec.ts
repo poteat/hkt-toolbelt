@@ -1,4 +1,4 @@
-import { $, $$, Test, Parser, Number } from "..";
+import { $, $$, Test, Parser, Number, Object } from "..";
 
 type Map_Spec = [
   /**
@@ -10,5 +10,19 @@ type Map_Spec = [
       "123"
     >,
     123
+  >,
+
+  /**
+   * Can map a letters parser to an object using emplace.
+   */
+  Test.Expect<
+    $<
+      $<
+        Parser.Run,
+        $<$<Parser.Map, $<Object.Emplace, "data">>, Parser.Letters>
+      >,
+      "hello"
+    >,
+    { data: "hello" }
   >
 ];
