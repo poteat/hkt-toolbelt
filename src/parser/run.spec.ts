@@ -22,5 +22,10 @@ type Run_Spec = [
       "helloworld"
     >,
     ["hello", "world"]
-  >
+  >,
+
+  /**
+   * A failing parser returns `never`.
+   */
+  Test.Expect<$<$<Parser.Run, $<Parser.String, "hello">>, "world">, never>
 ];
