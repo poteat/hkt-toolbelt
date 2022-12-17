@@ -1,6 +1,6 @@
 import { Parser, Kind, String, NaturalNumber, Type } from "..";
 
-type __letter =
+export type __$letter =
   | "a"
   | "b"
   | "c"
@@ -58,7 +58,7 @@ export type _$letter<
   STATE extends Parser._$state,
   SLICED_INPUT extends string = String._$slice<STATE["input"], STATE["index"]>,
   MATCH_RESULT extends string = SLICED_INPUT extends `${infer L}${string}`
-    ? L extends __letter
+    ? L extends __$letter
       ? L
       : never
     : never
