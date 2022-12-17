@@ -50,5 +50,32 @@ type Slice_Spec = [
       "abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi "
     >,
     "abcdefghi "
-  >
+  >,
+
+  /**
+   * Can slice 10 characters.
+   */
+  Test.Expect<$<$<String.Slice, 10>, Ten>, "">,
+
+  /**
+   * Can slice 100 characters.
+   */
+  Test.Expect<$<$<String.Slice, 100>, Hundred>, "">,
+
+  /**
+   * Can slice 1000 characters.
+   */
+  Test.Expect<$<$<String.Slice, 1000>, Thousand>, "">,
+
+  /**
+   * Can slice 2000 characters.
+   */
+  Test.Expect<$<$<String.Slice, 2000>, `${Thousand}${Thousand}`>, "">
 ];
+
+type Ten = "abcdefghij";
+
+type Hundred = `${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}`;
+
+type Thousand =
+  `${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}`;

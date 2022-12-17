@@ -12,12 +12,24 @@ type Length_Spec = [
   Test.Expect<$<String.Length, "">, 0>,
 
   /**
-   * The length of a string is `number`.
+   * The length of a string is 'number'.
    */
   Test.Expect<$<String.Length, string>, number>,
 
   /**
    * A variadic string is of length `number`.
    */
-  Test.Expect<$<String.Length, `foo${string}`>, number>
+  Test.Expect<$<String.Length, `foo${string}`>, number>,
+
+  /**
+   * Can get the length of 1000 characters.
+   */
+  Test.Expect<$<String.Length, Thousand>, 1000>
 ];
+
+type Ten = `abcdefghij`;
+
+type Hundred = `${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}`;
+
+type Thousand =
+  `${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}`;
