@@ -1,9 +1,8 @@
 import { NaturalNumber, Number, DigitList, Digit, Kind, Type } from "..";
 
-type _$slice2<T extends unknown[], N extends DigitList.DigitList> = T extends [
-  unknown,
-  ...infer Tail
-]
+type _$slice2<T extends unknown[], N extends DigitList.DigitList> = 0 extends 1
+  ? never
+  : T extends [unknown, ...infer Tail]
   ? N extends [Digit.Zero]
     ? T
     : _$slice2<Tail, DigitList._$decrement<N>>
