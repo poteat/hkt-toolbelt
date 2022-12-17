@@ -1,4 +1,5 @@
 export * from "./choice";
+export * from "./letter";
 export * from "./map";
 export * from "./parser";
 export * from "./run";
