@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.17.1
+
+- Introduce various other `Parser` combinators.
+  - Add `Parser.Run` for state management.
+  - Add `Parser.Map` for mapping over the result of a parser.
+  - Add `Parser.Letter` and `Parser.Letters` for parsing letters.
+  - Add `Parser.ObjectSequence` for better result extraction.
+- Add `Object.Emplace` and `Object.Merge` methods.
+- Increase performance of various string and list utilities.
+
 ## 0.17.0
 
 - Introduce `Parser` module for parser combinators.
