@@ -3,6 +3,7 @@ export * from "./letter";
 export * from "./letters";
 export * from "./map";
 export * from "./object-sequence";
+export * from "./optional";
 export * from "./parser";
 export * from "./run";
 export * from "./sequence";
