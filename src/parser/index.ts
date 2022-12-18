@@ -8,3 +8,4 @@ export * from "./run";
 export * from "./sequence";
 export * from "./state";
 export * from "./string";
+export * from "./take-sequence";
