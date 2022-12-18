@@ -6,5 +6,6 @@ export * from "./emplace";
 export * from "./keys";
 export * from "./map-keys";
 export * from "./map-values";
+export * from "./merge";
 export * from "./paths";
 export * from "./values";
