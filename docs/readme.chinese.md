@@ -22,9 +22,11 @@
 
 ---
 
-这个库是[ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt)的高阶类型的实现版本，提供了其功能的更高级别类型的版本，这个包允许构造更复杂的类型。
+此库旨在提供适用于不同领域的辅助类（type）,这些类可以通过高阶类型(higher-kinded types)以函数的形式加以映射和组合。
 
-我们的目标是支持数百种类型类别，包括 **List**， **Boolean**， **String**， **Function** 等等，我们还为组合类型提供了一组集合。
+利用此库对类谱写的支持和编译时的高效，您可以更好的编写可靠且类安全的程序。
+
+我们意在实现对数百种高阶种类（kind categories）的支持，例如 **List**， **Boolean**， **String**， **Function** 等等。除此之外，我们还内置了帮助类谱写的组合类函数（combinators）。
 
 ## 1.1. 安装
 
@@ -34,57 +36,83 @@
 
 ## 1.2. 用法
 
+简而言之，**`hkt-toolbelt`** 可以将以下代码：
+
 ```ts
-import { $, List, Conditional } from `hkt-toolbelt`;
-
-// 一个过滤出数字的类型
-type FilterNumbers = List.Filter<Conditional.Extends<number>>;
-
-type Result = $<FilterNumbers, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
+/**
+ * 去掉元组中的非数元素
+ */
+type FilterNum<T extends unknown[]> = T extends [Head, ...Tail]
+  ? Head extends number
+    ? [Head, ...FilterNum<Tail>]
+    : FilterNum<Tail>
+  : [];
 ```
 
-### 1.2.1. Subpath Imports
+简化成这样：
 
-你还可以用子路径导入
+```ts
+import { $, List, Conditional } from "hkt-toolbelt";
+
+type FilterNum = List.Filter<Conditional.Extends<number>>;
+```
+
+您可以通过编谱 **`hkt-toolbelt`** 的高阶原始类让自己编写的复杂类更可读。
+
+### 1.2.1 用$引用高阶类（kind）
+
+您可以通过 `$` 运算符来使用您的高阶类:
+
+```ts
+type Result = $<FilterNum, [1, "x", 2, "y", 3]>; // [1, 2, 3]
+```
+
+### 1.2.2. 子路径导入
+
+导入也可以以子路径的形式实现。
 
 ```ts
 import { $ } from `hkt-toolbelt`;
 import { Filter } from `hkt-toolbelt/list`;
 import { Extends } from `hkt-toolbelt/conditional`;
-
-type Result = $<Filter<Extends<number>>, [1, `foo`, 2, 3, `bar`]>; // [1, 2, 3]
 ```
 
-## 1.3 什么是 HKT?
+## 1.3 HKT是什么?
 
 > **> HKT 是 higher-kinded type 简称**
 
-Typescript 关于类型有两个 _不同_ 的类型结构: 类、泛型。
+Typescript 有两种 _不同_ 的类型结构: “类”和“泛型”。
 
-- **type(类)**: 在编译期间，用于对于值的描述。
+- **type(类)**: 编译时用来描述值的表达式。
+- **generic(泛型)**: 类似模板的形式参数类，可以通过提供一个或多个实际参数实例化，并解析出类（type）。
 
-- **generic(泛型)**: `template(模版)` 的类型，可以通过不同类型的参数值实例并解析出类型。
+泛型在 Typescript 中并非一类对象（first-class citizen）——除非已经提供全部所需的实际参数类，否则它们不可以被直接引用；泛型不能作为参数提供给其他泛型，也不能被返还——这些都是由语言本身的局限导致。
 
-泛型在 Typescript 中不是一级公民——如果不立即提供它们的所有类型参数，就不能引用它们。不能将泛型作为参数传递给其他泛型，也不能返回它们。这是语言的局限性。
+** `hkt-toolbelt` 额外引入两个类型结构:**
 
-** `hkt-toolbelt` 带来两个新增的两个类型结构概念:**
+- **kind(高阶类)**: 编译时用来描述类（type）的表达式；参数化设计，因而可以应用到实际参数中。
+- **generic kind(高阶泛型)**: 能够返还高阶类的泛型。
 
-- **kind(高阶类)**: 一个编译期间下的表达式，用于描述类型，可以使用形参来表示，当在使用的时候，实参取得可能的类型结果。
-- **generic kind(高阶泛型类)**: 一个泛型类能返回一个特指的类型。
+而高阶类（kind）对类(type)的使用，我们通过泛型`$<kind, type>`来实现。
 
-我们在应用、定义高阶类型时，使用 `$<kind,type>` "泛型类"。
+利用高阶类，我们可以写出仅凭泛型无法实现的新类型，譬如对泛用函数的紧缩编写。
 
-写类型系统时，是允许我们表示但仅用泛型，但无法实例出对于泛型之上的新类型。
-例如: 泛型函数的类型收紧组合中。
+即便某个类可以通过泛型表达，我们也可以利用高阶类实现更美观、易用的接口。
 
-## 1.4. Table of Contents
+> **关于术语的使用**
+> 高阶类的英文，严格来说仅使用 **_kind_** 并不正确，不过“higher-kinded type”有点长，所以用 **'kind'** 简略表达.
+>
+> 有时候我们也会用“hk-type”来表达，这样其实更合适。
+
+## 1.4. 目录
 
 - [[HK-Types Toolbelt]](#higher-kinded-type-toolbelt)
   - [1.1. 安装](#11-安装)
   - [1.2. 用法](#12-用法)
-    - [1.2.1. Subpath Imports](#121-subpath-imports)
-  - [1.3. What is a HKT?](#13-what-is-a-hkt)
-  - [1.4. Table of Contents](#14-table-of-contents)
+    - [1.2.1. 用$引用高阶类（kind）](#121-用$引用高阶类（kind）)
+    - [1.2.2. 子路径导入](#122-子路径导入)
+  - [1.3. HKT是什么?](#13-hkt是什么)
+  - [1.4. 目录](#14-目录)
 - [2. API](#2-api)
   - [2.1. Basic Utilities](#21-basic-utilities)
     - [2.1.1. $<F, X>](#211-f-x)
