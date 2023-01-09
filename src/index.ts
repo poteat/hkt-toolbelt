@@ -40,6 +40,9 @@ export * as Object from "./object";
 import * as Parser from "./parser";
 export * as Parser from "./parser";
 
+import * as Stress from "./stress";
+export * as Stress from "./stress";
+
 import * as String from "./string";
 export * as String from "./string";
 
@@ -67,6 +70,7 @@ export default {
   Number,
   Object,
   Parser,
+  Stress,
   String,
   Test,
   Type,
