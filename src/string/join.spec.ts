@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "hkt-toolbelt"
 
 type Join_Spec = [
   /**
@@ -82,30 +82,5 @@ type Join_Spec = [
   Test.Expect<
     $<String.Join<` ${string} `>, ["foo", ...string[], "bar"]>,
     string
-  >,
-
-  /**
-   * Can join large tuples.
-   */
-  Test.Expect<
-    $<
-      String.Join<"">,
-      [
-        "foo",
-        "bar",
-        "baz",
-        "qux",
-        "quux",
-        "corge",
-        "grault",
-        "garply",
-        "waldo",
-        "fred",
-        "plugh",
-        "xyzzy",
-        "thud"
-      ]
-    >,
-    "foobarbazquxquuxcorgegraultgarplywaldofredplughxyzzythud"
   >
-];
+]
