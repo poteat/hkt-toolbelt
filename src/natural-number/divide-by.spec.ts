@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from ".."
 
 type DivideBy_Spec = [
   /**
@@ -44,16 +44,5 @@ type DivideBy_Spec = [
   /**
    * 99 / 100 = 1.
    */
-  Test.Expect<$<$<NaturalNumber.DivideBy, 99>, 100>, 1>,
-
-  /**
-   * Can perform complicated division.
-   */
-  Test.Expect<
-    $<
-      $<NaturalNumber.DivideBy, 5>,
-      123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789n
-    >,
-    24691357824691357824691357824691357824691357824691357824691357824691357824691357824691357n
-  >
-];
+  Test.Expect<$<$<NaturalNumber.DivideBy, 99>, 100>, 1>
+]

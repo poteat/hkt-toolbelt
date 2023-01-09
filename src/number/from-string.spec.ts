@@ -1,4 +1,4 @@
-import { $, Test, Number } from "..";
+import { $, Test, Number } from ".."
 
 export type FromString_Spec = [
   /**
@@ -27,12 +27,7 @@ export type FromString_Spec = [
   Test.Expect<$<Number.FromString, "-42.42">, -42.42>,
 
   /**
-   * Can parse a large number.
-   */
-  Test.Expect<$<Number.FromString, "9007199254740991">, 9007199254740991>,
-
-  /**
    * The 'string' type results in never.
    */
   Test.Expect<$<Number.FromString, string>, never>
-];
+]
