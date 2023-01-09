@@ -1,6 +1,6 @@
 import { Stress } from ".."
 
-type ThousandTuple = [
+export type ThousandTuple = [
   ...Stress.HundredTuple,
   ...Stress.HundredTuple,
   ...Stress.HundredTuple,

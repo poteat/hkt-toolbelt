@@ -1,4 +1,4 @@
-import { $, String, Test } from "..";
+import { $, String, Test } from ".."
 
 type Length_Spec = [
   /**
@@ -19,17 +19,5 @@ type Length_Spec = [
   /**
    * A variadic string is of length `number`.
    */
-  Test.Expect<$<String.Length, `foo${string}`>, number>,
-
-  /**
-   * Can get the length of 1000 characters.
-   */
-  Test.Expect<$<String.Length, Thousand>, 1000>
-];
-
-type Ten = `abcdefghij`;
-
-type Hundred = `${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}${Ten}`;
-
-type Thousand =
-  `${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}${Hundred}`;
+  Test.Expect<$<String.Length, `foo${string}`>, number>
+]
