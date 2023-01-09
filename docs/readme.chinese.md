@@ -17,24 +17,24 @@
 </p>
 
 <p align="center" >
-  <i>支持函数式编谱的实用辅助类库</i>
+  <i>函数式（functional）、可谱写（composable）的辅助类（type utilities）</i>
 </p>
 
 ---
 
-此库旨在提供适用于不同领域的实用辅助类（utility types）,这些类可以通过高阶类型(higher-kinded types)以函数的形式加以映射和组合。
+此库旨在提供适用于不同领域的辅助类（utility types）,这些类可以通过高阶类(higher-kinded types)以函数的形式加以映射和组合。
 
-利用此库对类谱写的支持和编译时的高效，您可以更好的编写可靠且类安全的程序。
+利用此库提供的可谱写（composable）且可高效编译（compile-time efficient）的辅助类，您可以更好的编写可靠且类安全的程序。
 
-我们意在实现对数百种高阶种类（kind categories）的支持，例如 **List**， **Boolean**， **String**， **Function** 等等。除此之外，我们还内置了帮助类谱写的组合类函数（combinators）。
+我们意在实现对数百种高阶类种（kind categories）的支持，例如 **List**， **Boolean**， **String**， **Function** 等等。除此之外，我们还内置了帮助类谱写（composing type）的类组合接口（combinators）。
 
-## 1.1. 安装
+## 安装
 
 ```bash
 > npm install hkt-toolbelt
 ```
 
-## 1.2. 用法
+## 用法
 
 简而言之，**`hkt-toolbelt`** 可以将以下代码：
 
@@ -57,9 +57,9 @@ import { $, List, Conditional } from "hkt-toolbelt";
 type FilterNum = List.Filter<Conditional.Extends<number>>;
 ```
 
-您可以通过编谱 **`hkt-toolbelt`** 的高阶原始类让自己编写的复杂类更可读。
+您可以通过谱写 **`hkt-toolbelt`** 的高阶原始类让自己编写的复杂类更可读。
 
-### 1.2.1 用$引用高阶类（kind）
+### 用$调用高阶类（kind）
 
 您可以通过 `$` 运算符来使用您的高阶类:
 
@@ -67,7 +67,7 @@ type FilterNum = List.Filter<Conditional.Extends<number>>;
 type Result = $<FilterNum, [1, "x", 2, "y", 3]>; // [1, 2, 3]
 ```
 
-### 1.2.2. 子路径导入
+### 子路径导入
 
 导入也可以以子路径的形式实现。
 
@@ -77,7 +77,7 @@ import { Filter } from `hkt-toolbelt/list`;
 import { Extends } from `hkt-toolbelt/conditional`;
 ```
 
-## 1.3 HKT是什么?
+## HKT是什么?
 
 > **> HKT 是 higher-kinded type 简称**
 
@@ -86,16 +86,16 @@ Typescript 有两种 _不同_ 的类型结构: “类”和“泛型”。
 - **type(类)**: 编译时用来描述值的表达式。
 - **generic(泛型)**: 类似模板的形式参数类，可以通过提供一个或多个实际参数实例化，并解析出类（type）。
 
-泛型在 Typescript 中并非一类对象（first-class citizen）——除非已经提供全部所需的实际参数类，否则它们不可以被直接引用；泛型不能作为参数提供给其他泛型，也不能被返还——这些都是由语言本身的局限导致。
+泛型在 Typescript 中并非一类对象（first-class citizen）——除非已经提供全部所需的实际参数类，否则它们不可以被直接调用；泛型不能作为参数提供给其他泛型，也不能被返还——这些都是由语言本身的局限导致。
 
-** `hkt-toolbelt` 额外引入两个类型结构:**
+**`hkt-toolbelt` 额外引入两个类型结构:**
 
-- **kind(高阶类)**: 编译时用来描述类（type）的表达式；参数化设计，因而可以应用到实际参数中。
+- **kind(高阶类)**: 编译时用来描述类（type）的表达式，实际设计成函数的形式，可以接纳类作为参数进行运算。
 - **generic kind(高阶泛型)**: 能够返还高阶类的泛型。
 
-而高阶类（kind）对类(type)的使用，我们通过泛型`$<kind, type>`来实现。
+而以类(type)为参数的高阶类（kind）运算，我们通过泛型`$<kind, type>`来实现。
 
-利用高阶类，我们可以写出仅凭泛型无法实现的新类型，譬如对泛用函数的紧缩编写。
+利用高阶类，我们可以写出仅凭泛型无法实现的新类型，譬如对泛用函数的紧缩谱写（narrow composition）。
 
 即便某个类可以通过泛型表达，我们也可以利用高阶类实现更美观、易用的接口。
 
@@ -104,76 +104,108 @@ Typescript 有两种 _不同_ 的类型结构: “类”和“泛型”。
 >
 > 有时候我们也会用“hk-type”来表达，这样其实更合适。
 
-## 1.4. 目录
+> **中文译者注**
+> 原文中出现的 higher-kinded type（高阶类）, type function（类函数）, higher-kinded-type function（高阶类函数）等词汇，虽然严格来说存在差别，但多数时候可以理解为相似的概念。
 
-- [[HK-Types Toolbelt]](#--hk-types-toolbelt)
-  - [1.1. 安装](#11-安装)
-  - [1.2. 用法](#12-用法)
-    - [1.2.1. 用$引用高阶类（kind）](#121-用引用高阶类kind)
-    - [1.2.2. 子路径导入](#122-子路径导入)
-  - [1.3. HKT是什么?](#13-hkt是什么)
-  - [1.4. 目录](#14-目录)
-- [2. API](#2-api)
-  - [2.1. Basic Utilities](#21-basic-utilities)
-    - [2.1.1. $<F, X>](#211-f-x)
-    - [2.1.2. $$<FX, X>](#212-fx-x)
-    - [2.1.3. Cast<A, B>](#213-casta-b)
-  - [2.2. Boolean Types](#22-boolean-types)
-    - [2.2.1. Boolean.And\<X>](#221-booleanandx)
-    - [2.2.2. Boolean.Or\<X>](#222-booleanorx)
-    - [2.2.3. Boolean.Not](#223-booleannot)
-  - [2.3. Combinator Types](#23-combinator-types)
-    - [2.3.1. Combinator.Self](#231-combinatorself)
-    - [2.3.2. Combinator.ApplySelf](#232-combinatorapplyself)
-  - [2.4. Conditional Types](#24-conditional-types)
-    - [2.4.1. Conditional.Equals\<A>](#241-conditionalequalsa)
-    - [2.4.2. Conditional.Extends\<A>](#242-conditionalExtendsa)
-  - [2.5. Function Types](#25-function-types)
-    - [2.5.1. Function](#251-function)
-    - [2.5.2. Function.Constant\<A>](#252-functionconstanta)
-    - [2.5.3. Function.Identity](#253-functionidentity)
-  - [2.6. Kind Types](#26-kind-types)
-    - [2.6.1. Kind\<F>](#261-kindf)
-    - [2.6.2. Kind.Composable\<FX>](#262-kindcomposablefx)
-    - [2.6.3. Kind.Compose\<FX>](#263-kindcomposefx)
-    - [2.6.4. Kind.Pipe\<FX>](#264-kindpipefx)
-    - [2.6.5. Kind.\_](#265-kind_)
-  - [2.7. List Types](#27-list-types)
-    - [2.7.1. List.Map\<F>](#271-listmapf)
-    - [2.7.2. List.Find\<F>](#272-listfindf)
-    - [2.7.3. List.Filter\<F>](#273-listfilterf)
-    - [2.7.4. List.Append\<F>](#274-listappendf)
-    - [2.7.5. List.First\<T>](#275-listfirstt)
-    - [2.7.6. List.Last\<T>](#276-listlastt)
-    - [2.7.7. List.Pair\<T>](#277-listpairt)
-    - [2.7.8. List.Every\<T>](#278-listeveryt)
-    - [2.7.9. List.Some\<T>](#279-listsomet)
-    - [2.7.10. List.Reverse\<T>](#2710-listreverset)
-  - [2.8. String Types](#28-string-types)
-    - [2.8.1. String.StartsWith\<S>](#281-stringstartswiths)
-    - [2.8.2. String.EndsWith\<S>](#282-stringendswiths)
-    - [2.8.3. String.Includes\<S>](#283-stringincludess)
-    - [2.8.4. String.Append\<S>](#284-stringappends)
-    - [2.8.5. String.Prepend\<S>](#285-stringprepends)
+## 帮助指引
 
-# 2. API
+我们准备了可以帮助您上手 `hkt-toolbelt` 的资料，其中含有对相关概念和用法的详解。
 
-柯里化函数下，这个仓库旨在用于使用 `point-free 编程风格` 来组合类型。在这方面，API 类型将首先接收 `执行的操作(一系列函数)` ，然后接收要操作的数据。
+- **[[自定义高阶类]](./docs/guides/custom-kinds.md)** - 如何自定义新的高阶类?
+- **[[参数限定]](./docs/guides/kind-constraints.md)** - 如何限定高阶类的输入参数?
+- **[[底层编码]](./docs/guides/hk-type-encoding.md)** - 底层编码相关细节.
 
-> 先将会执行哪几个函数串起来，最后参数变量，连串贯通的意思。
+## 相关或相似的项目
 
-所有函数类 每次接受 _一个_ 参数，以支持 `柯里化函数` 和 `point-free 风格` 。
+- _此库灵感来源于 [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt)_
+- _超棒的TS学习资源: [type-challenges](https://github.com/type-challenges/type-challenges)_
+- _用于值（value）的辅助函数: [lodash](https://lodash.com)_
 
-> `point-free 风格` 解释: 基本上是你写代码但不显式地在代码中提供参数, 简单来说，就是省略函数的参数。
+## 目录
 
-这非常有用，特别是在需要函数的回调中, 让代码更易读。
+- [API](#api)
+  - [基础接口](#基础接口)
+    - [$\<F, X\>](#f-x)
+    - [$$\<FX, X\>](#fx-x)
+    - [Cast\<A, B\>](#casta-b)
+  - [布尔（Boolean）类接口](#布尔boolean类接口)
+    - [Boolean.And\<X\>](#booleanandx)
+    - [Boolean.Or\<X\>](#booleanorx)
+    - [Boolean.Not](#booleannot)
+  - [类组合（Combinator）接口](#类组合combinator接口)
+    - [Combinator.Self](#combinatorself)
+    - [Combinator.ApplySelf](#combinatorapplyself)
+  - [条件判定（Conditional）类接口](#条件判定conditional类接口)
+    - [Conditional.Equals\<A\>](#conditionalequalsa)
+    - [Conditional.Extends\<A\>](#conditionalextendsa)
+    - [If\<P, T, E\>](#ifp-t-e)
+  - [函数（Function）类接口](#函数function类接口)
+    - [Function](#function)
+    - [Function.Constant\<A\>](#functionconstanta)
+    - [Function.Identity](#functionidentity)
+  - [高阶类（Kind）接口](#高阶类kind接口)
+    - [Kind\<F\>](#kindf)
+    - [Kind.Composable\<FX\>](#kindcomposablefx)
+    - [Kind.Compose\<FX\>](#kindcomposefx)
+    - [Kind.Pipe\<FX\>](#kindpipefx)
+    - [Kind.\_](#kind_)
+  - [列表（List）类接口](#列表list类接口)
+    - [List.Map\<F\>](#listmapf)
+    - [List.Find\<F\>](#listfindf)
+    - [List.Filter\<F\>](#listfilterf)
+    - [List.Append\<F\>](#listappendf)
+    - [List.First\<T\>](#listfirstt)
+    - [List.Last\<T\>](#listlastt)
+    - [List.Pair\<T\>](#listpairt)
+    - [List.Every\<T\>](#listeveryt)
+    - [List.Some\<T\>](#listsomet)
+    - [List.Reverse\<T\>](#listreverset)
+    - [List.IsVariadic](#listisvariadic)
+  - [对象（Object）类接口](#对象object类接口)
+    - [Object.Keys\<F\>](#objectkeysf)
+    - [Object.Values\<F\>](#objectvaluesf)
+    - [Object.MapKeys\<F\>](#objectmapkeysf)
+    - [Object.MapValues\<F\>](#objectmapvaluesf)
+    - [Object.DeepMap\<F\>](#objectdeepmapf)
+    - [Object.Paths](#objectpaths)
+    - [Object.At\<K\>](#objectatk)
+    - [Object.AtPath\<P\>](#objectatpathp)
+  - [字串（String）类接口](#字串string类接口)
+    - [String.StartsWith\<S\>](#stringstartswiths)
+    - [String.EndsWith\<S\>](#stringendswiths)
+    - [String.Includes\<S\>](#stringincludess)
+    - [String.Append\<S\>](#stringappends)
+    - [String.Prepend\<S\>](#stringprepends)
+    - [String.IsTemplate](#stringistemplate)
+    - [String.Join\<S\>](#stringjoins)
+    - [String.Split\<S\>](#stringsplits)
+    - [String.First](#stringfirst)
+    - [String.Last](#stringlast)
+    - [String.Tail](#stringtail)
+    - [String.Init](#stringinit)
+    - [String.Replace\<From, To\>](#stringreplacefrom-to)
+    - [String.Reverse](#stringreverse)
+    - [String.IsString](#stringisstring)
+    - [String.ToUpper](#stringtoupper)
+    - [String.ToLower](#stringtolower)
+  - ["`Type`"接口](#type接口)
+    - [Type.Display](#typedisplay)
+    - [Type.ValueOf](#typevalueof)
+  - [联合（Union）类接口](#联合union类接口)
+    - [Union.ToIntersection](#uniontointersection)
+    - [Union.ToTuple](#uniontotuple)
 
-## 2.1. Basic Utilities
+# API
 
-### 2.1.1. $<F, X>
+此库的高阶类多为柯里化（currying）函数，旨在支持以无参风格（point-free style）实现类谱写。因此，使用类接口（API types）时需要先提供“操作”（operations），再提供操作的目标数据。
 
-`$` 操作符用于对定义类型更高类型的函数。  
-它相当于 TypeScript 中的 `F<A>` 语法。
+同样为了支持柯里化和无参风，所有类函数（type functions），例如 full Kinds，一次只接受 _一个_ 参数。
+
+## 基础接口
+
+### $<F, X>
+
+`$` 操作符用于将类作为参数提供给高阶类函数（higher-kinded-type function），相当于 TypeScript 中的 `F<A>` 。
 
 ```ts
 import { $, String } from `hkt-toolbelt`;
@@ -181,24 +213,24 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.Append<` world`>, `hello`>; // `hello world`
 ```
 
-### 2.1.2. $$<FX, X>
+### $$<FX, X>
 
-`$$` 操作用于将已经定义的类型作为输入，放进一系列的类型管道上，应用并计算。这是 `$` 和 `Kind. Compose` 的语法糖。
+`$$` 操作符用于将类作为起始参数提供给一条高阶类通道（pipeline of kinds），它其实是简化同时使用 `$` 和 `Kind.Pipe` 的语法糖，用来免去完整调用后者的麻烦。
 
-@see `$` @see `Kind.Compose`
+`Kind.Pipe` 以从左到右的顺序组合类函数。
+
+@参考 `$`
+@参考 `Kind.Compose`
 
 ```ts
 import { $$, Kind, String } from `hkt-toolbelt`;
 
-type Result = $$<
-  Kind.Compose<String.Append<` world`>, String.Append<`!`>>,
-  `hello`
->; // `hello world!`
+type Result = $$<[String.Append<" world">, String.Append<"!">], "hello">; // "hello world!"
 ```
 
-### 2.1.3. Cast<A, B>
+### Cast<A, B>
 
-`Cast` 类型用于将一个类型转换为另一个类型。它相当于 TypeScript 中的 `A as B` 语法，用于对代码一些轻微修正情况下。
+`Cast` 用于将一个类转换成另一个类，相当于 TypeScript 中的 `A as B`，多用于微调。
 
 ```ts
 import { Cast } from `hkt-toolbelt`;
@@ -206,11 +238,11 @@ import { Cast } from `hkt-toolbelt`;
 type Result = Cast<`hello`, string>; // `hello`
 ```
 
-## 2.2. Boolean Types
+## 布尔（Boolean）类接口
 
-### 2.2.1. Boolean. And\<X>
+### Boolean.And\<X>
 
-`And` 传入布尔类型并返回一个接受另一个布尔值的函数，然后返回两个布尔值之和为 `&&` 的结果。
+`And` 纳入一个布尔类并返还一个函数，这个函数可以纳入另一个布尔类并返回两个布尔类 `&&` 的结果。
 
 ```ts
 import { $, Boolean } from `hkt-toolbelt`;
@@ -218,9 +250,9 @@ import { $, Boolean } from `hkt-toolbelt`;
 type Result = $<Boolean.And<true>, false>; // false
 ```
 
-### 2.2.2. Boolean. Or\<X>
+### Boolean.Or\<X>
 
-`Or` 传入一个布尔类型并返回一个接受另一个布尔值的函数，然后返回两个布尔值的结果为 `||` 。
+`Or` 纳入一个布尔类并返还一个函数，这个函数可以纳入另一个布尔类并返回两个布尔类 `||` 的结果。
 
 ```ts
 import { $, Boolean } from `hkt-toolbelt`;
@@ -228,9 +260,9 @@ import { $, Boolean } from `hkt-toolbelt`;
 type Result = $<Boolean.Or<true>, false>; // true
 ```
 
-### 2.2.3. Boolean. Not
+### Boolean.Not
 
-`Not` 传入一个布尔类型值并返回相反的布尔值。
+`Not` 纳入一个布尔类并返还相反的布尔类。
 
 ```ts
 import { $, Boolean } from `hkt-toolbelt`;
@@ -238,11 +270,11 @@ import { $, Boolean } from `hkt-toolbelt`;
 type Result = $<Boolean.Not, true>; // false
 ```
 
-## 2.3. Combinator Types
+## 类组合（Combinator）接口
 
-### 2.3.1. Combinator. Self
+### Combinator.Self
 
-`Self` 返回自己。这意味着它可以无限地应用$。
+`Self` 返还自身，因而可以利用$无限调用。
 
 ```ts
 import { $, Combinator } from `hkt-toolbelt`;
@@ -250,9 +282,9 @@ import { $, Combinator } from `hkt-toolbelt`;
 type Result = $<$<Combinator.Self, `foo`>, `foo`>; // Combinator.Self
 ```
 
-### 2.3.2. Combinator. ApplySelf
+### Combinator.ApplySelf
 
-`ApplySelf` 传入一个高阶类，并将那个高阶类型应用到它自己。这可用于创建合成递归类型。
+`ApplySelf` 纳入一个高阶类，并将其作为参数提供给其自身，可用于创建 syntho 递归高阶类。
 
 ```ts
 import { $, Combinator } from `hkt-toolbelt`;
@@ -260,13 +292,13 @@ import { $, Combinator } from `hkt-toolbelt`;
 type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 ```
 
-## 2.4. Conditional Types
+## 条件判定（Conditional）类接口
 
-### 2.4.1. Conditional. Equals\<A>
+### Conditional.Equals\<A>
 
-`Equals` 用于检查一个类型是否等于另一个类型。它等价于 `A extends B ?( B extends A ? true: false ) : false` 。
+`Equals` 用于检验一个类是否等于另一个类，等同于 TypeScript 中的 `A extends B ? ( B extends A ? true : false ) : false` 。
 
-`Equals` 返回一个高阶类型函数包裹着传入一个类型的函数，然后返回布尔值。
+`Equals` 返还一个高阶类函数（higher-kinded-type function），此函数可以纳入另一个类，然后返还一个布尔类。
 
 ```ts
 import { $, Conditional } from `hkt-toolbelt`;
@@ -274,13 +306,13 @@ import { $, Conditional } from `hkt-toolbelt`;
 type Result = $<Conditional.Equals<`foo`>, `bar`>; // false
 ```
 
-### 2.4.2. Conditional. Extends\<A>
+### Conditional.Extends\<A>
 
-`Extends` 用于检查一个类型是否是另一个类型的子类型。它等价于 `A extends B ? true : false` .
+`Extends` 用于检验一个类是否是另一个类的子类，等同于 TypeScript 中的 `A extends B ? true : false` 。
 
-传入的第一个类型是父类，传入的第二个类型是子类。
+需先提供母类，再提供子类。
 
-`Extends` 传入一个类型并返回布尔值的高阶类型函数。
+`Extends` 返还一个高阶类函数（higher-kinded-type function），此函数可以纳入另一个类，然后返还一个布尔类。
 
 ```ts
 import { $, Conditional } from `hkt-toolbelt`;
@@ -288,15 +320,36 @@ import { $, Conditional } from `hkt-toolbelt`;
 type Result = $<Conditional.Extends<string>, `bar`>; // true
 ```
 
-## 2.5. Function Types
+### If<P, T, E>
 
-### 2.5.1. Function
+`If` 根据条件返还一个类，等同于 TypeScript 中的 `P<X> extends true ? T<X> : E<X>`，不过其以无参风格（point-free style）纳入参数 `X`。
 
-`Function` 类型是所有函数的超类型，即所有函数都是 `Function` 的子类型。它不是高阶类型，不能直接应用。
+`If` 纳入一个条件函数（predicate），一个真时类，和一个假时类；其返还一个高阶类函数，此函数可纳入一个类并根据判定结果返还对应真/假时类。
 
-### 2.5.2. Function. Constant\<A>
+```ts
+import { $, Conditional } from "hkt-toolbelt";
 
-`Constant` 传入一个 `类型` 并返回一个函数，该函数接受任何类型并返回原始类型。它忽略其应用的输入并总是返回配置的类型。
+type Result = $<
+  Conditional.If<
+    Conditional.Equals<"foo">,
+    String.Append<"bar">,
+    String.Append<"baz">
+  >,
+  "foo"
+>; // "foobar"
+```
+
+此高阶类专用于类层面的流程控制。
+
+## 函数（Function）类接口
+
+### Function
+
+`Function` 是所有函数的母类，也即所有函数都是 `Function` 的子类。其并非高阶类且不能直接调用。
+
+### Function.Constant\<A>
+
+`Constant` 纳入一个类并返还一个函数，该函数可纳入任何类并返还最初纳入的类，即它会忽略后来纳入的类且始终返还最初的类。
 
 ```ts
 import { $, Function } from `hkt-toolbelt`;
@@ -304,9 +357,9 @@ import { $, Function } from `hkt-toolbelt`;
 type Result = $<Function.Constant<`foo`>, number>; // `foo`
 ```
 
-### 2.5.3. Function. Identity
+### Function.Identity
 
-`Identity` 传入一个 `类型` ，并返回一个对应这个类型的高阶类型。
+`Identity` 纳入一个类，并在高阶类的层面上返还该类。
 
 ```ts
 import { $, Function } from `hkt-toolbelt`;
@@ -314,17 +367,17 @@ import { $, Function } from `hkt-toolbelt`;
 type Result = $<Function.Identity, `foo`>; // `foo`
 ```
 
-## 2.6. Kind Types
+## 高阶类（Kind）接口
 
-### 2.6.1. Kind\<F>
+### Kind\<F>
 
-`Kind` 类型表示可以使用 `$` 应用于类型的类型函数。
+`Kind` 代表了可以通过 `$` 将类作为参数进行运算的类函数。
 
-Kind 作为可选的类型，提供一个高阶函数类型，以添加这个函数类型具体的 `形参` 以及 `返回的类型` ，这用于创建新的类型。
+您可以选择给 Kind 提供一个函数类（function type）以提高其内部参数和返还值的优先级，以次创造新的高阶类。
 
-### 2.6.2. Kind. Composable\<FX>
+### Kind.Composable\<FX>
 
-`Composable` 检查一个由各种组成的 `元组是否可组合` 。如果类型 $N$ 的输出是类型 $N-1$ 的输入的子类型，则类型元组是可组合的。
+`Composable` 检验一个高阶类元组中的高阶类是否可以组合（composable）。如果元组中高阶类 $N$ 的输出类型是高阶类 $N-1$ 的输入类型的子类型，则该元组中的高阶类可以组合。
 
 ```ts
 import { $, Kind, String } from `hkt-toolbelt`;
@@ -332,13 +385,13 @@ import { $, Kind, String } from `hkt-toolbelt`;
 type Result = $<Kind.Composable, [String.Append<`bar`>, String.Append<`foo`>]>; // true
 ```
 
-### 2.6.3. Kind. Compose\<FX>
+### Kind.Compose\<FX>
 
-`Compose` 传入一个 `函数类元组` ，并将它们组合成一个函数类。
+`Compose` 可以将一个由高阶类组成的元组组合成一个类函数（type function）。
 
-`Compose` 检查 types 元组是否可组合，并返回一个传入一个类且返回类型和结果的高阶类型。
+`Compose` 会检查提供的高阶类元组是否可以组合（composable），且会返回一个高阶类函数（higher-kinded-type function)，此函数可纳入一个类然后返还组合的结果。
 
-`Compose` 从右向左执行函数，即元组中最后一个函数先执行——这是数学中的传统。
+`Compose` 从右向左执行函数，即——遵循数学的传统——元组中最后一个函数最先执行。
 
 ```ts
 import { $, Kind, String } from `hkt-toolbelt`;
@@ -346,11 +399,11 @@ import { $, Kind, String } from `hkt-toolbelt`;
 type Result = $<Kind.Compose<[String.Append<`bar`>, String.Append<`foo`>]>, ``>; // `foobar`
 ```
 
-### 2.6.4. Kind. Pipe\<FX>
+### Kind.Pipe\<FX>
 
-`Pipe` 传入一个 `函数类元组` ，并将它们输送到一个函数类中。这是从左向右操作的，即首先执行元组中的第一个函数。这是 `组合` 的相反顺序。
+`Pipe` 纳入一个由类函数（type function）组成的元组，并将它们“输送”到另一个类函数（type function）中。这里的执行顺序是从左向右，即元组中的首个函数最先执行，与 `Compose` 刚好相反。
 
-`Pipe` 通常对程序员来说更直观，因为它按执行顺序读取。这就是 `$$` 在内部使用的内容。
+`Pipe` 对程序员来说更直观，因为其阅读顺序与执行顺序统一。`$$` 语法糖实际运行的就是 `Pipe`。
 
 ```ts
 import { $, Kind, String } from `hkt-toolbelt`;
@@ -358,15 +411,13 @@ import { $, Kind, String } from `hkt-toolbelt`;
 type Result = $<Kind.Pipe<[String.Append<`foo`>, String.Append<`bar`>]>, ``>; // `foobar`
 ```
 
-### 2.6.5. Kind.\_
+### Kind.\_
 
-`_` 类型表示在被调用之前，这个类型是指向 `unique symbol` 类型。
+`_` 是类函数（type function）被调用前临时“占位”的独有类。`Kind._` 由 `$` 调用。
 
-`Kind._` 是由 `$` 来调用。
+## 列表（List）类接口
 
-## 2.7. List Type
-
-### 2.7.1. List. Map\<F>
+### List.Map\<F>
 
 `Map` 传入一个 `函数类` ，并返回一个接受元组类型的高级类型。它将给定的类型函数应用于元组中的每个元素。
 
@@ -376,7 +427,7 @@ import { $, List, String } from `hkt-toolbelt`;
 type Result = $<List.Map<String.Append<`bar`>>, [`foo`, `baz`]>; // [`foobar`, `bazbar`]
 ```
 
-### 2.7.2. List. Find\<F>
+### List.Find\<F>
 
 `Find` 函数先接受一个 `函数类` ，然后接受一个 `元组` ，并返回 finder 函数返回 `true` 的第一个元组元素。如果不存在这样的元素， `Find` 返回 `never` 。
 
@@ -386,7 +437,7 @@ import { $, List, String } from `hkt-toolbelt`;
 type Result = $<List.Find<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // `foobar`
 ```
 
-### 2.7.3. List. Filter\<F>
+### List.Filter\<F>
 
 `Filter` 传入一个类型函数和一个元组，并按输入元组的顺序返回一个元组，因此只有 Filter 函数返回 `true` 的元素保留在结果元组中。
 
@@ -396,7 +447,7 @@ import { $, List, String } from `hkt-toolbelt`;
 type Result = $<List.Filter<String.StartsWith<`foo`>>, [`bar`, `foobar`]>; // [`foobar`]
 ```
 
-### 2.7.4. List. Append\<F>
+### List.Append\<F>
 
 `Append` 传入一个类型和一个元组，并应用该类型，使其被附加到所提供的元组的末尾。
 
@@ -406,7 +457,7 @@ import { $, List } from `hkt-toolbelt`;
 type Result = $<List.Append<`bar`>, [`foo`, `baz`]>; // [`foo`, `baz`, `bar`]
 ```
 
-### 2.7.5. List. First\<T>
+### List.First\<T>
 
 `First` 传入一个元组，并返回该元组的第一个元素。
 
@@ -416,7 +467,7 @@ import { $, List } from `hkt-toolbelt`;
 type Result = $<List.First, [`foo`, `bar`]>; // `foo`
 ```
 
-### 2.7.6. List. Last\<T>
+### List.Last\<T>
 
 `Last` 传入一个 `元组` ，并返回元组的最后一个元素。在具有可变元素的元组的情况下，可变元素被正确处理，即使它是中缀。
 
@@ -426,7 +477,7 @@ import { $, List } from `hkt-toolbelt`;
 type Result = $<List.Last, [`foo`, `bar`, `baz`]>; // `baz`
 ```
 
-### 2.7.7. List. Pair\<T>
+### List.Pair\<T>
 
 `Pair` 传入一个 `元组` ，并返回元组的元组，其中每个元组是原始元组的一对元素，按顺序排列。如。'[1, 2, 3] '变成'[[1, 2]，[2, 3]]'。
 
@@ -438,7 +489,7 @@ type Result = $<List.Pair, [1, 2, 3]>; // [[1, 2], [2, 3]]
 
 对于可变元组，通过引入联合来表示可变对元素的可能组合来处理可变元素。
 
-### 2.7.8. List. Every\<T>
+### List.Every\<T>
 
 `Every` 接受一个操作函数类和一个元组，如果元组中的每个元素都满足这个操作函数，则返回 `true` ，否则返回 `false` 。
 
@@ -448,7 +499,7 @@ import { $, List, Conditional } from `hkt-toolbelt`;
 type Result = $<List.Every<Conditional.Extends<number>>, [1, 2, 3]>; // true
 ```
 
-### 2.7.9. List. Some\<T>
+### List.Some\<T>
 
 ` Some` 接受一个操作函数类和一个元组，如果元组中至少有一个元素满足操作函数类，则返回' true '，否则返回 ` ` false` 。
 
@@ -458,7 +509,7 @@ import { $, List, Conditional } from `hkt-toolbelt`;
 type Result = $<List.Some<Conditional.Extends<string>>, [1, 2, 3]>; // false
 ```
 
-### 2.7.10. List. Reverse\<T>
+### List.Reverse\<T>
 
 Reverse 函数接受一个元组，并返回一个包含倒序元素的元组。
 
@@ -470,7 +521,7 @@ import { $, List } from `hkt-toolbelt`;
 type Result = $<List.Reverse, [1, 2, 3]>; // [3, 2, 1]
 ```
 
-### 2.7.11. List. IsVariadic
+### List.IsVariadic
 
 `IsVariadic` 传入一个元组，如果元组是可变的，则返回 `true` ，否则返回 `false` 。
 如果一个元组的长度不确定，我们就认为它是可变的。
@@ -481,9 +532,97 @@ import { List } from `hkt-toolbelt`;
 type Result = List.IsVariadic<[1, 2, 3]>; // false
 ```
 
-## 2.8. String Types
+## 对象（Object）类接口
 
-### 2.8.1. String. StartsWith\<S>
+### Object.Keys\<F>
+
+The `Keys` function takes in an object type, and returns a tuple of the keys of the object.
+
+```ts
+import { $, Object } from "hkt-toolbelt";
+
+type Result = $<Object.Keys, { foo: string; bar: number }>; // ["foo", "bar"]
+```
+
+### Object.Values\<F>
+
+The `Values` function takes in an object type, and returns a tuple of the values of the object.
+
+```ts
+import { $, Object } from "hkt-toolbelt";
+
+type Result = $<Object.Values, { foo: string; bar: number }>; // [string, number]
+```
+
+### Object.MapKeys\<F>
+
+The `MapKeys` function takes in a type function, and an object type, and returns an object type with the keys of the original object type mapped by the given type function.
+
+```ts
+import { $, Object, String } from "hkt-toolbelt";
+
+type Result = $<Object.MapKeys<String.Append<"bar">>, { foo: string }>; // { foobar: string }
+```
+
+### Object.MapValues\<F>
+
+The `MapValues` function takes in a type function, and an object type, and returns an object type with the values of the original object type mapped by the given type function.
+
+```ts
+import { $, Object, String } from "hkt-toolbelt";
+
+type Result = $<Object.MapValues<String.Append<"bar">>, { foo: "foo" }>; // { foo: "foobar" }
+```
+
+### Object.DeepMap\<F>
+
+The `DeepMap` function takes in a type function, and an object type, and returns an object type where every value in the object is mapped by the given type function.
+
+```ts
+import { $, Object, String } from "hkt-toolbelt";
+
+type Result = $<
+  Object.DeepMap<String.Append<"bar">>,
+  { name: { first: "foo"; last: "bar" } }
+>; // { name: { first: "foobar"; last: "barbar" } }
+```
+
+### Object.Paths
+
+The `Paths` type takes in an object type, and returns a tuple of tuples, where each tuple is a path to a value in the object.
+
+```ts
+import { Object } from "hkt-toolbelt";
+
+type Result = Object.Paths<{ name: { first: "foo"; last: "bar" } }>; // [["name", "first"], ["name", "last"]]
+```
+
+### Object.At\<K>
+
+The `At` function takes in a key, and an object type, and returns the value at the given key in the object.
+
+```ts
+import { $, Object } from "hkt-toolbelt";
+
+type Result = $<Object.At<"name">, { name: "foo" }>; // "foo"
+```
+
+### Object.AtPath\<P>
+
+The `AtPath` function takes in a path, and an object type, and returns the value at the given path in the object.
+
+```ts
+import { $, Object } from "hkt-toolbelt";
+
+type Result = $<
+  Object.AtPath<["name", "first"]>,
+  { name: { first: "foo"; last: "bar" } }
+>; // "foo"
+```
+
+## 字串（String）类接口
+
+### String.StartsWith\<S>
 
 `StartsWith` 函数接受一个模版字符串，并返回它是否以给定的前缀开头，根据情况返回 `true` 或 `false` 。
 
@@ -497,7 +636,7 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.StartsWith<`foo`>, `foobar`>; // true
 ```
 
-### 2.8.2. String. EndsWith\<S>
+### String.EndsWith\<S>
 
 `EndsWith` 传入一个模版字符串，并返回是否以给定后缀结束，根据情况返回 `true` 或 `false` 。
 
@@ -507,7 +646,7 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.EndsWith<`bar`>, `foobar`>; // true
 ```
 
-### 2.8.3. String. Includes\<S>
+### String.Includes\<S>
 
 `Includes` 传入一个字符串文字并返回它是否包含给定字符串的子字符串，根据情况返回 `true` 或 `false` 。
 
@@ -519,7 +658,7 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.Includes<`foo`>, `barfoobar`>; // true
 ```
 
-### 2.8.4. String. Append\<S>
+### String.Append\<S>
 
 `Append` 传入一个模版字符串并返回一个高阶函数类，该函数接受一个字符串并返回将传入的模版字符串添加到字符串末尾的结果。
 
@@ -529,7 +668,7 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.Append<`bar`>, `foo`>; // `foobar`
 ```
 
-### 2.8.5. String. Prepend\<S>
+### String.Prepend\<S>
 
 `Prepend` 传入一个模版字符类型并返回一个高阶类型函数，该函数接受一个字符串并返回将传入的模版字符串添加到字符串开头的结果。
 
@@ -539,7 +678,7 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.Prepend<`foo`>, `bar`>; // `foobar`
 ```
 
-### 2.8.6. String. IsTemplate
+### String.IsTemplate
 
 `IsTemplate` 传入一个字符串并返回它是否是模板字符串类型，根据情况返回 `true` 或 `false` 。
 
@@ -553,7 +692,7 @@ import { $, String } from `hkt-toolbelt`;
 type Result = $<String.IsTemplate, `foo${string}`>; // true
 ```
 
-### 2.8.7. String. Join\<S>
+### String.Join\<S>
 
 `Join` 传入一个模版字符串，并返回一个更高类型的函数，该函数接受一个字符串元组，并返回以模版字符串值作为分隔符连接元组中的字符串的结果。
 
@@ -565,7 +704,7 @@ type Result = $<String.Join<` `>, [`foo`, `bar`, `baz`]>; // `foo bar baz`
 
 `Join` 也可以处理模板字符串，并将正确处理模板字面量的嵌入表达式。在可变元组输入的情况下，我们将联接解析为 `string` 。分隔符和元组元素都支持字符串联合。
 
-### 2.8.8. String. Split\<S>
+### String.Split\<S>
 
 `Split` 传入一个模版字符串值并返回一个更高类型的函数，该函数接受一个字符串并返回一个字符串元组，其中原始字符串根据字符串字面值进行拆分。
 
@@ -576,3 +715,141 @@ type Result = $<String.Split<` `>, `foo bar baz`>; // [`foo`, `bar`, `baz`]
 ```
 
 `Split` 也可以处理模板字符串，并将正确处理模板字面量的嵌入表达式。但是，所有字符串字面值分隔符的结果都是 `string[]` 作为分割结果。分隔符和元组元素都支持字符串联合。
+
+### String.First
+
+> **"If ya ain't `[First]`, you're `[Last]`"** - _Ricky Bobby_
+
+The `First` function takes in a string and returns the first character of the string.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.First, "foo">; // "f"
+```
+
+### String.Last
+
+The `Last` function takes in a string and returns the last character of the string.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.Last, "foo">; // "o"
+```
+
+### String.Tail
+
+The `Tail` function takes in a string and returns the string with the first character removed.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.Tail, "foobar">; // "oobar"
+```
+
+### String.Init
+
+The `Init` function takes in a string and returns the string with the last character removed.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.Init, "foobar">; // "fooba"
+```
+
+### String.Replace\<From, To>
+
+The `Replace` generic, given two 'From' and 'To' types that represent a string to replace, and a string to replace it with, returns a higher-kinded-type that takes in a string and returns the result of replacing all instances of the 'From' string with the 'To' string.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.Replace<"foo", "bar">, "foo foo foo">; // "bar bar bar"
+```
+
+### String.Reverse
+
+The `Reverse` function takes in a string and returns the string with the characters in reverse order.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.Reverse, "foobar">; // "raboof"
+```
+
+### String.IsString
+
+The `IsString` function takes in a type and returns whether or not it is a string, returning `true` or `false` as appropriate.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.IsString, "foobar">; // true
+```
+
+### String.ToUpper
+
+The `ToUpper` function takes in a string and returns the string with all characters converted to uppercase.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.ToUpper, "foobar">; // "FOOBAR"
+```
+
+### String.ToLower
+
+The `ToLower` function takes in a string and returns the string with all characters converted to lowercase.
+
+```ts
+import { $, String } from "hkt-toolbelt";
+
+type Result = $<String.ToLower, "FOOBAR">; // "foobar"
+```
+
+## "`Type`"接口
+
+### Type.Display
+
+The `Display` function takes in a type and attempts to force the Typescript compiler to display the resolved type in IDEs and other tools.
+
+This is a useful internal tool to ensure resultant types remain legible.
+
+```ts
+import { $, Type } from "hkt-toolbelt";
+
+type Result = $<Type.Display, "foobar">; // "foobar"
+```
+
+### Type.ValueOf
+
+The `ValueOf` function takes in a type and returns the associated union value of the type, a higher-kinded equivalent to the `T[keyof T]` operator.
+
+```ts
+import { $, Type } from "hkt-toolbelt";
+
+type Result = $<Type.ValueOf, { foo: "bar" }>; // "bar"
+```
+
+## 联合（Union）类接口
+
+### Union.ToIntersection
+
+The `ToIntersection` function takes in a union type and returns the intersection of all the types in the union.
+
+```ts
+import { $, Union } from "hkt-toolbelt";
+
+type Result = $<Union.ToIntersection, { foo: "bar" } | { bar: "bar" }>; // { foo: "bar"; bar: "bar" }
+```
+
+### Union.ToTuple
+
+The `ToTuple` function takes in a union type and returns a tuple of all the types in the union.
+
+```ts
+import { $, Union } from "hkt-toolbelt";
+
+type Result = $<Union.ToTuple, { foo: "bar" } | { bar: "bar" }>; // [{ foo: "bar" }, { bar: "bar" }]
+```
