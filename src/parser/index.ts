@@ -1,6 +1,7 @@
 export * from "./choice";
 export * from "./letter";
 export * from "./letters";
+export * from "./many1";
 export * from "./map";
 export * from "./object-sequence";
 export * from "./optional";
