@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    // "tsBuildInfoFile": ".tsbuildinfo",
+    "target": "es2016",
+    "module": "commonjs",
+    "paths": {
+      "hkt-toolbelt": ["./src"]
+    },
+    "rootDir": "./",
+    "declaration": true,
+    "noEmit": true,
+    "outDir": "./dist/",
+    "stripInternal": true,
+    "noEmitOnError": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": false,
+    "strict": true
+  },
+  "include": ["src/**/*.stress.spec.ts"]
+}

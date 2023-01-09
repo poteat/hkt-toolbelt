@@ -67,5 +67,3 @@ type HundredString =
 
 type ThousandString =
   `${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}`;
-
-type X = $<String.FromList, Hundred>;
