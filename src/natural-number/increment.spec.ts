@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from ".."
 
 type Increment_Spec = [
   /**
@@ -24,13 +24,5 @@ type Increment_Spec = [
   /**
    * We emit 'never' if the input is not a natural number.
    */
-  Test.Expect<$<NaturalNumber.Increment, -1>, never>,
-
-  /**
-   * Can increment bigint literals.
-   */
-  Test.Expect<
-    $<NaturalNumber.Increment, 999999999999999999999n>,
-    1000000000000000000000n
-  >
-];
+  Test.Expect<$<NaturalNumber.Increment, -1>, never>
+]

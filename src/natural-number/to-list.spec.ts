@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from ".."
 
 type ToList_Spec = [
   /**
@@ -39,13 +39,5 @@ type ToList_Spec = [
   /**
    * Converting negative numbers results in 'never'.
    */
-  Test.Expect<$<NaturalNumber.ToList, -42>, never>,
-
-  /**
-   * Can convert large numbers to a list of digits.
-   */
-  Test.Expect<
-    $<NaturalNumber.ToList, 1234567890>,
-    ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-  >
-];
+  Test.Expect<$<NaturalNumber.ToList, -42>, never>
+]

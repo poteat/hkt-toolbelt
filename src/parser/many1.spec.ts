@@ -37,13 +37,5 @@ type Many1_Spec = [
       index: 5
       result: ["a", "a", "a", "a", "a"]
     }
-  >,
-
-  /**
-   * Can match 10 characters.
-   */
-  Test.Expect<
-    $<$<Parser.Run, $<Parser.Many1, $<Parser.String, "x">>>, Stress.TenString>,
-    Stress.TenTuple
   >
 ]

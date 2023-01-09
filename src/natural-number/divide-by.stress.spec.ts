@@ -1,0 +1,14 @@
+import { $, Test, NaturalNumber } from ".."
+
+type DivideBy_Spec = [
+  /**
+   * Can perform complicated division.
+   */
+  Test.Expect<
+    $<
+      $<NaturalNumber.DivideBy, 5>,
+      123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789n
+    >,
+    24691357824691357824691357824691357824691357824691357824691357824691357824691357824691357n
+  >
+]
