@@ -1,5 +1,6 @@
 export * from "./add-tens";
 export * from "./add";
+export * from "./compare";
 export * from "./decrement-tens";
 export * from "./decrement";
 export * from "./digit";
