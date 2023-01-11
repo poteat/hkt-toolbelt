@@ -2,7 +2,7 @@ import { $, DigitList, Test } from '../'
 
 export type First_Spec = [
   /**
-   * Can get the frst digit of a digit list.
+   * Can get the first digit of a digit list.
    */
   Test.Expect<$<DigitList.First, ["1", "2", "3"]>, "1">,
 

@@ -32,13 +32,13 @@ type Compare_Spec = [
   Test.Expect<$<$<Digit.Compare, "9">, "1">, 1>,
 
   /**
-   * Compareing a non-digit throws an error.
+   * Comparing a non-digit throws an error.
    */
   // @ts-expect-error
   $<$<Digit.Compare, "a">, "1">,
 
   /**
-   * Compareing numeric literals throws an error.
+   * Comparing numeric literals throws an error.
    */
   // @ts-expect-error
   $<$<Digit.Compare, 1>, "1">
