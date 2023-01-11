@@ -2,22 +2,22 @@ import { $, Boolean, Test } from "hkt-toolbelt";
 
 type Nor_Spec = [
   /**
-   * True || True = False
+   * !(True || True) = False
    */
   Test.ExpectNot<$<Boolean.Nor<true>, true>>,
 
   /**
-   * True || False = False
+   * !(True || False) = False
    */
   Test.ExpectNot<$<Boolean.Nor<true>, false>>,
 
   /**
-   * False || True = False
+   * !(False || True) = False
    */
   Test.ExpectNot<$<Boolean.Nor<false>, true>>,
 
   /**
-   * False || False = True
+   * !(False || False) = True
    */
   Test.Expect<$<Boolean.Nor<false>, false>>
 ];
