@@ -1,4 +1,4 @@
-import { $, Boolean, Digit, DigitList, Kind, NaturalNumber, Type } from '../'
+import { Boolean, Digit, DigitList, Kind, NaturalNumber, Type } from '../'
 
 type _$compare2<
   A extends DigitList.DigitList,

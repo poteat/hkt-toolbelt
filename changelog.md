@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.18.0
+
+- Add various numeric comparison types.
+  - Add `DigitList.Compare` for comparing digit list magnitude.
+  - Add `Digit.Compare` for comparing single-digit magnitude.
+- Add various parser combinators.
+  - Add `Parser.Many1` for parsing one or more elements.
+  - Add `Parser.Optional` for parsing an optional element.
+- Introduce `Stress` module for common stress-testing types.
+
 ## 0.17.1
 
 - Introduce various other `Parser` combinators.
@@ -21,7 +31,8 @@
 
 ## 0.16.1
 
-- Fix division bug that led to rare incorrect results for `NaturalNumber.Divide`.
+- Fix division bug that led to rare incorrect results for
+  `NaturalNumber.Divide`.
 
 ## 0.16.0
 
@@ -46,7 +57,8 @@
 ## 0.14.0
 
 - Add `NaturalNumber.Multiply` method.
-- **[Breaking]** Change return type of natural arithmetic to numbers instead of strings.
+- **[Breaking]** Change return type of natural arithmetic to numbers instead of
+  strings.
 
 ## 0.13.2
 
@@ -66,7 +78,8 @@
 ## 0.12.0
 
 - **[Breaking]** Switch default package export from '$' to entire module.
-- **[Breaking]** Remove deprecated `Conditional.SubtypeOf` in favor of `Conditional.Extends`.
+- **[Breaking]** Remove deprecated `Conditional.SubtypeOf` in favor of
+  `Conditional.Extends`.
 - **[Breaking]** Remove `Kind` namespace-class merging in favor of `Kind.Kind`.
 - Add support for deep subpath imports.
   - e.g. `import { StartsWith } from "hkt-toolbelt/string/starts-with"`
@@ -99,7 +112,8 @@
 
 ## 0.7.0
 
-- Optimize string splitting routine in `String.IsTemplate` using tail-call optimization.
+- Optimize string splitting routine in `String.IsTemplate` using tail-call
+  optimization.
 - Add `String.First` and `String.Last` kinds.
 
 ## 0.6.1
@@ -149,4 +163,5 @@
 ## 0.1.0
 
 - First experimental release.
-- Introduce `Boolean`, `Cast`, `Conditional`, `Function`, `Kind`, `List`, `String`, and `Test` core components.
+- Introduce `Boolean`, `Cast`, `Conditional`, `Function`, `Kind`, `List`,
+  `String`, and `Test` core components.
