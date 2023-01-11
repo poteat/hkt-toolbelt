@@ -5,3 +5,5 @@ export * from "./or";
 export * from "./nor";
 export * from "./xor";
 export * from "./xnor";
+export * from "./imply";
+export * from "./nimply";
