@@ -2,22 +2,22 @@ import { $, Boolean, Test } from "hkt-toolbelt";
 
 type Nand_Spec = [
   /**
-   * True && True = False
+   * !(True && True) = False
    */
   Test.ExpectNot<$<Boolean.Nand<true>, true>>,
 
   /**
-   * True && False = True
+   * !(True && False) = True
    */
   Test.Expect<$<Boolean.Nand<true>, false>>,
 
   /**
-   * False && True = True
+   * !(False && True) = True
    */
   Test.Expect<$<Boolean.Nand<false>, true>>,
 
   /**
-   * False && False = True
+   * !(False && False) = True
    */
   Test.Expect<$<Boolean.Nand<false>, false>>,
 
