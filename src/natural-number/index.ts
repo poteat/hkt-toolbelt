@@ -1,4 +1,5 @@
 export * from "./add";
+export * from "./compare";
 export * from "./decrement";
 export * from "./divide-by";
 export * from "./divide";
