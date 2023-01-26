@@ -111,9 +111,9 @@ Typescript 有两种 _不同_ 的类型结构: “类”和“泛型”。
 
 我们准备了可以帮助您上手 `hkt-toolbelt` 的资料，其中含有对相关概念和用法的详解。
 
-- **[[自定义高阶类]](./docs/guides/custom-kinds.md)** - 如何自定义新的高阶类?
-- **[[参数限定]](./docs/guides/kind-constraints.md)** - 如何限定高阶类的输入参数?
-- **[[底层编码]](./docs/guides/hk-type-encoding.md)** - 底层编码相关细节.
+- **[[自定义高阶类]](./guides/custom-kinds.md)** - 如何自定义新的高阶类?
+- **[[参数限定]](./guides/kind-constraints.md)** - 如何限定高阶类的输入参数?
+- **[[底层编码]](./guides/hk-type-encoding.md)** - 底层编码相关细节.
 
 ## 相关或相似的项目
 
