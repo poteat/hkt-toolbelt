@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.18.1
+
+- Add `NaturalNumber.Compare` for comparing natural numbers.
+
 ## 0.18.0
 
 - Add various numeric comparison types.
