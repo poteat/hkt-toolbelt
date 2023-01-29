@@ -212,7 +212,7 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
 
 The curried nature of the functions in this library is intended to be utilized to compose types using point-free style. In this respect, API types will first take in 'operations' and then the data to be operated on.
 
-All type functions (e.g. full Kinds) take in _one_ parameter at a time, to support currying and point-free style.
+All higher-order types take in one argument, to support currying and point-free style. The `$` operator applies a parameter value to a higher-order type.
 
 ## Basic Utilities
 
@@ -297,7 +297,7 @@ type Result = $<$<Combinator.Self, "foo">, "foo">; // Combinator.Self
 
 ### Combinator.ApplySelf
 
-The `ApplySelf` kind takes in a kind, and applies that kind to itself. This can be used to create syntho-recursive kinds.
+The `ApplySelf` kind takes in a kind, and applies that kind to itself. This can be used to model recursion for higher-order types.
 
 ```ts
 import { $, Combinator } from "hkt-toolbelt";
@@ -606,9 +606,9 @@ type Result = $<
 The `Paths` type takes in an object type, and returns a tuple of tuples, where each tuple is a path to a value in the object.
 
 ```ts
-import { Object } from "hkt-toolbelt";
+import { $, Object } from "hkt-toolbelt";
 
-type Result = Object.Paths<{ name: { first: "foo"; last: "bar" } }>; // [["name", "first"], ["name", "last"]]
+type Result = $<Object.Paths, { name: { first: "foo"; last: "bar" } }>; // [["name", "first"], ["name", "last"]]
 ```
 
 ### Object.At\<K>

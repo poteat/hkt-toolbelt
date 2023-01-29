@@ -77,7 +77,7 @@ import { Filter } from `hkt-toolbelt/list`;
 import { Extends } from `hkt-toolbelt/conditional`;
 ```
 
-## HKT是什么?
+## HKT 是什么?
 
 > **> HKT 是 higher-kinded type 简称**
 
@@ -118,7 +118,7 @@ Typescript 有两种 _不同_ 的类型结构: “类”和“泛型”。
 ## 相关或相似的项目
 
 - _此库灵感来源于 [ts-toolbelt](https://www.npmjs.com/package/ts-toolbelt)_
-- _超棒的TS学习资源: [type-challenges](https://github.com/type-challenges/type-challenges)_
+- _超棒的 TS 学习资源: [type-challenges](https://github.com/type-challenges/type-challenges)_
 - _用于值（value）的辅助函数: [lodash](https://lodash.com)_
 
 ## 目录
@@ -594,7 +594,7 @@ The `Paths` type takes in an object type, and returns a tuple of tuples, where e
 ```ts
 import { Object } from "hkt-toolbelt";
 
-type Result = Object.Paths<{ name: { first: "foo"; last: "bar" } }>; // [["name", "first"], ["name", "last"]]
+type Result = $<Object.Paths, { name: { first: "foo"; last: "bar" } }>; // [["name", "first"], ["name", "last"]]
 ```
 
 ### Object.At\<K>
