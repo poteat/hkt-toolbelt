@@ -2,8 +2,8 @@
   "name": "hkt-toolbelt",
   "private": true,
   "scripts": {
-    "test": "tsc --project tsconfig.spec.json",
-    "stress": "tsc --project tsconfig.stress.json",
+    "test": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.spec.json",
+    "stress": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.stress.json",
     "build": "./build.sh"
   },
   "license": "MIT",
