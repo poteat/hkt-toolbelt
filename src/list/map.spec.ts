@@ -5,14 +5,14 @@ type Map_Spec = [
    * Map can execute conditionals over tuples.
    */
   Test.Expect<
-    $<List.Map<Conditional.Equals<"foo">>, ["foo", "bar"]>,
+    $<List.Map<$<Conditional.Equals, "foo">>, ["foo", "bar"]>,
     [true, false]
   >,
 
   /**
    * Empty input corresponds to empty output.
    */
-  Test.Expect<$<List.Map<Conditional.Equals<"foo">>, []>, []>,
+  Test.Expect<$<List.Map<$<Conditional.Equals, "foo">>, []>, []>,
 
   /**
    * Non-tuple input emits a compiler error

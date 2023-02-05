@@ -9,7 +9,13 @@ type If_Spec = [
    * If-then-else statement with a true predicate.
    */
   Test.Expect<
-    $<Conditional.If<Function.Constant<true>, Function.Constant<"foo">>, 0>,
+    $<
+      $<
+        $<$<Conditional.If, Function.Constant<true>>, Function.Constant<"foo">>,
+        Function.Constant<"bar">
+      >,
+      0
+    >,
     "foo"
   >,
 
@@ -17,7 +23,16 @@ type If_Spec = [
    * If-then-else statement with a false predicate.
    */
   Test.Expect<
-    $<Conditional.If<Function.Constant<false>, Function.Constant<"foo">>, 0>,
+    $<
+      $<
+        $<
+          $<Conditional.If, Function.Constant<false>>,
+          Function.Constant<"foo">
+        >,
+        Function.Constant<never>
+      >,
+      0
+    >,
     never
   >,
 
@@ -26,10 +41,9 @@ type If_Spec = [
    */
   Test.Expect<
     $<
-      Conditional.If<
-        Function.Constant<true>,
-        Function.Identity,
-        Function.Constant<"bar">
+      $<
+        $<$<Conditional.If, Function.Constant<true>>, Function.Identity>,
+        Function.Constant<never>
       >,
       "foo"
     >,
@@ -41,7 +55,12 @@ type If_Spec = [
    */
   Test.Expect<
     $<
-      List.Map<Conditional.If<String.IsString, String.StartsWith<"foo">>>,
+      List.Map<
+        $<
+          $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
+          Function.Constant<never>
+        >
+      >,
       ["foo", "bar", 42, "foobar"]
     >,
     [true, false, never, true]

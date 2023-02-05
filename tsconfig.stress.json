@@ -18,5 +18,6 @@
     "forceConsistentCasingInFileNames": false,
     "strict": true
   },
-  "include": ["src/**/*.stress.spec.ts"]
+  "include": ["src/**/*.stress.spec.ts"],
+  "exclude": ["node_modules", "prompts"]
 }

@@ -4,12 +4,12 @@ type Every_Spec = [
   /**
    * Can determine if every element in a tuple satisfies a predicate.
    */
-  Test.Expect<$<List.Every<Conditional.Extends<number>>, [1, 2, 3]>>,
+  Test.Expect<$<List.Every<$<Conditional.Extends, number>>, [1, 2, 3]>>,
 
   /**
    * Can determine if every element in a tuple does not satisfy a predicate.
    */
-  Test.ExpectNot<$<List.Every<Conditional.Extends<number>>, [1, 2, 3, "x"]>>,
+  Test.ExpectNot<$<List.Every<$<Conditional.Extends, number>>, [1, 2, 3, "x"]>>,
 
   /**
    * Emits an error if the predicate does not return a boolean.

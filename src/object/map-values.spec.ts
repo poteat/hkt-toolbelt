@@ -21,7 +21,10 @@ type MapValues_Spec = [
   Test.Expect<
     $<
       Object.MapValues<
-        Conditional.If<String.IsString, String.ToUpper, Function.Identity>
+        $<
+          $<$<Conditional.If, String.IsString>, String.ToUpper>,
+          Function.Identity
+        >
       >,
       { a: "foo"; b: { c: "bar"; d: "baz" } }
     >,
