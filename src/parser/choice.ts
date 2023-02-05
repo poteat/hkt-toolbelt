@@ -6,7 +6,10 @@ export type _$choice<
   MATCH_RESULT extends Parser._$state = Type._$cast<
     $<
       Kind.Pipe<
-        [List.Map<Kind.Apply<STATE>>, List.Find<Conditional.NotEquals<never>>]
+        [
+          List.Map<Kind.Apply<STATE>>,
+          List.Find<$<Conditional.NotEquals, never>>
+        ]
       >,
       PX
     >,

@@ -4,7 +4,7 @@ type Zero_Spec = [
   /**
    * "0" is assignable to a digit.
    */
-  Test.Expect<$<Conditional.Extends<Digit.Digit>, Digit.Zero>>,
+  Test.Expect<$<$<Conditional.Extends, Digit.Digit>, Digit.Zero>>,
 
   /**
    * Zero plus zero is zero.

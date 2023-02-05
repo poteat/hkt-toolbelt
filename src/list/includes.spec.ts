@@ -4,12 +4,12 @@ type Includes_Spec = [
   /**
    * Can determine existence of elements in a tuple
    */
-  Test.Expect<$<List.Includes<Conditional.Equals<3>>, [1, 2, 3]>>,
+  Test.Expect<$<List.Includes<$<Conditional.Equals, 3>>, [1, 2, 3]>>,
 
   /**
    * Can determine non-existence of elements in a tuple
    */
-  Test.ExpectNot<$<List.Includes<Conditional.Equals<4>>, [1, 2, 3]>>,
+  Test.ExpectNot<$<List.Includes<$<Conditional.Equals, 4>>, [1, 2, 3]>>,
 
   /**
    * Empty tuples always result in false on search.
@@ -32,7 +32,7 @@ type Includes_Spec = [
    */
   Test.Expect<
     $<
-      List.Filter<List.Includes<Conditional.Extends<string>>>,
+      List.Filter<List.Includes<$<Conditional.Extends, string>>>,
       [[1, 2, 3], [1, 2, 3, "f"], ["a", "b", "c"]]
     >,
     [[1, 2, 3, "f"], ["a", "b", "c"]]

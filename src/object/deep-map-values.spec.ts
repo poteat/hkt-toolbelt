@@ -45,9 +45,8 @@ type DeepMapValues_Spec = [
   Test.Expect<
     $<
       Object.DeepMapValues<
-        Conditional.If<
-          String.IsString,
-          String.StartsWith<"foo">,
+        $<
+          $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
           Function.Identity
         >
       >,

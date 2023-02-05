@@ -4,13 +4,13 @@ type Filter_Spec = [
   /**
    * Can filter specific elements in a tuple.
    */
-  Test.Expect<$<List.Filter<Conditional.Equals<3>>, [1, 2, 3, 3]>, [3, 3]>,
+  Test.Expect<$<List.Filter<$<Conditional.Equals, 3>>, [1, 2, 3, 3]>, [3, 3]>,
 
   /**
    * Can perform dynamic subtype checks.
    */
   Test.Expect<
-    $<List.Filter<Conditional.Extends<string>>, [1, "f", 2, "g", 3]>,
+    $<List.Filter<$<Conditional.Extends, string>>, [1, "f", 2, "g", 3]>,
     ["f", "g"]
   >,
 
@@ -45,7 +45,10 @@ type Filter_Spec = [
    * Values can be applied to a filter function using Apply.
    */
   Test.Expect<
-    $<Kind.Apply<[1, "foo", 2, 3]>, List.Filter<Conditional.Extends<number>>>,
+    $<
+      Kind.Apply<[1, "foo", 2, 3]>,
+      List.Filter<$<Conditional.Extends, number>>
+    >,
     [1, 2, 3]
   >
 ];
