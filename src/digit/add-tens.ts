@@ -18,16 +18,10 @@ export type _$addTens<
   B extends Digit.Digit
 > = _$addTens_LUT[A][B];
 
-export declare abstract class AddTens_T<
-  A extends Digit.Digit
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Digit.Digit>
-  ) => _$addTens<A, typeof x>;
+export interface AddTens_T<A extends Digit.Digit> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$addTens<A, typeof x>;
 }
 
-export declare abstract class AddTens extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Digit.Digit>
-  ) => AddTens_T<typeof x>;
+export interface AddTens extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): AddTens_T<typeof x>;
 }
