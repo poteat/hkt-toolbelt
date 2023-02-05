@@ -17,14 +17,14 @@ export type _$fixSequence<
       NEXT_STATE
     >;
 
-declare abstract class FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
-  abstract f: (
+export interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Kind._$inputOf<KIND>>
-  ) => _$fixSequence<KIND, typeof x>;
+  ): _$fixSequence<KIND, typeof x>;
 }
 
-export declare abstract class FixSequence extends Kind.Kind {
-  abstract f: (
+export interface FixSequence extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Kind.Kind>
-  ) => FixSequence_T<Type._$cast<this[Kind._], Kind.Kind>>;
+  ): FixSequence_T<Type._$cast<this[Kind._], Kind.Kind>>;
 }
