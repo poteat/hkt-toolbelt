@@ -6,8 +6,6 @@ export type _$pop<T extends DigitList.DigitList> = T extends []
   ? X
   : [];
 
-export declare abstract class Pop extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$pop<typeof x>;
+export interface Pop extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$pop<typeof x>;
 }

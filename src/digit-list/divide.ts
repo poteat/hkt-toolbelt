@@ -98,16 +98,10 @@ export type _$divide<
     : [Digit.Zero]
   : _$divide2<A, B, OPERATION>;
 
-declare abstract class Divide_T<
-  A extends DigitList.DigitList
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$divide<A, typeof x>;
+interface Divide_T<A extends DigitList.DigitList> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$divide<A, typeof x>;
 }
 
-export declare abstract class Divide extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => Divide_T<typeof x>;
+export interface Divide extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Divide_T<typeof x>;
 }
