@@ -8,6 +8,8 @@ for file in $files
 do
   if [[ ! "$file" =~ .*"$exclude"$ ]]; then
     echo "Processing $file"
-    ./prompt.sh $template $file
+    ./prompt.sh $template $file &
   fi
 done
+
+wait

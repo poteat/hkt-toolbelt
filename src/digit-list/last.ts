@@ -6,8 +6,6 @@ export type _$last<T extends DigitList.DigitList> = T extends []
   ? X
   : Digit.Zero;
 
-export declare abstract class Last extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$last<typeof x>;
+export interface Last extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$last<typeof x>;
 }

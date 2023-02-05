@@ -6,8 +6,6 @@ export type _$shift<T extends DigitList.DigitList> = T extends []
   ? X
   : [];
 
-export declare abstract class Shift extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$shift<typeof x>;
+export interface Shift extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$shift<typeof x>;
 }

@@ -21,16 +21,12 @@ export type _$multiplyDigit<
   B extends Digit.Digit
 > = B extends "0" ? ["0"] : _$multiplyDigit2<A, B>;
 
-export declare abstract class MultiplyDigit_T<
-  T extends Digit.Digit
-> extends Kind.Kind {
-  abstract f: (
+export interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$multiplyDigit<typeof x, T>;
+  ): _$multiplyDigit<typeof x, T>;
 }
 
-export declare abstract class MultiplyDigit extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Digit.Digit>
-  ) => MultiplyDigit_T<typeof x>;
+export interface MultiplyDigit extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): MultiplyDigit_T<typeof x>;
 }
