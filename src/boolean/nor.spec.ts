@@ -4,20 +4,20 @@ type Nor_Spec = [
   /**
    * !(True || True) = False
    */
-  Test.ExpectNot<$<Boolean.Nor<true>, true>>,
+  Test.ExpectNot<$<$<Boolean.Nor, true>, true>>,
 
   /**
    * !(True || False) = False
    */
-  Test.ExpectNot<$<Boolean.Nor<true>, false>>,
+  Test.ExpectNot<$<$<Boolean.Nor, true>, false>>,
 
   /**
    * !(False || True) = False
    */
-  Test.ExpectNot<$<Boolean.Nor<false>, true>>,
+  Test.ExpectNot<$<$<Boolean.Nor, false>, true>>,
 
   /**
    * !(False || False) = True
    */
-  Test.Expect<$<Boolean.Nor<false>, false>>
+  Test.Expect<$<$<Boolean.Nor, false>, false>>
 ];
