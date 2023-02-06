@@ -5,15 +5,15 @@ export type _$pipe<FX extends Kind.Kind[], X> = Kind._$compose<
   X
 >;
 
-export abstract class Pipe<
+export interface Pipe<
   FX extends Kind._$composable<List._$reverse<FX>> extends true
     ? Kind.Kind[]
     : never
 > extends Kind.Kind {
-  abstract f: (
+  f(
     x: Type._$cast<
       this[Kind._],
       FX extends [] ? unknown : Kind._$inputOf<List._$first<FX>>
     >
-  ) => _$pipe<FX, typeof x>;
+  ): _$pipe<FX, typeof x>;
 }

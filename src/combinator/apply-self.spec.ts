@@ -9,7 +9,7 @@ type ApplySelf_Spec = [
   /**
    * May be applied to a constant function.
    */
-  Test.Expect<$<Combinator.ApplySelf, Function.Constant<"foo">>, "foo">,
+  Test.Expect<$<Combinator.ApplySelf, $<Function.Constant, "foo">>, "foo">,
 
   /**
    * Emits an error if applied to a function that may not be applied to itself.

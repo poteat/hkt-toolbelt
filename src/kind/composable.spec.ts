@@ -28,6 +28,6 @@ type Composable_Spec = [
    * then it is not composable.
    */
   Test.ExpectNot<
-    $<Kind.Composable, [List.Push<"foo">, Function.Constant<"bar">]>
+    $<Kind.Composable, [List.Push<"foo">, $<Function.Constant, "bar">]>
   >
 ];

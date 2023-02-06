@@ -8,5 +8,5 @@ export declare abstract class Kind<
   F extends Function.Function = Function.Function
 > {
   abstract readonly [_]: unknown;
-  abstract f: F;
+  f: F;
 }

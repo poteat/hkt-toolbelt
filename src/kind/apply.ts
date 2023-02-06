@@ -1,9 +1,9 @@
 import { $, Type, Kind } from "..";
 
-export abstract class Apply<X> extends Kind.Kind {
-  abstract f: (
+export interface Apply<X> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Kind.Kind<(x: X) => unknown>>
-  ) => $<
+  ): $<
     typeof x,
     Type._$cast<
       X,

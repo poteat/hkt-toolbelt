@@ -1,4 +1,4 @@
-import { $, Kind, Type } from "..";
+import { $, Kind, Type, Function } from "..";
 
 export type _$reduce<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
@@ -12,7 +12,7 @@ export type _$reduce<
       Type._$cast<
         H,
         Kind._$inputOf<
-          ReturnType<
+          Function._$returnType<
             (F & { readonly [Kind._]: Type._$cast<O, Kind._$inputOf<F>> })["f"]
           >
         >

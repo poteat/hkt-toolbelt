@@ -15,7 +15,7 @@ type Every_Spec = [
    * Emits an error if the predicate does not return a boolean.
    */
   // @ts-expect-error
-  $<List.Every<Function.Constant<number>>, [1, 2, 3]>,
+  $<List.Every<$<Function.Constant, number>>, [1, 2, 3]>,
 
   /**
    * Emits an error if the predicate input type does not match the tuple type.

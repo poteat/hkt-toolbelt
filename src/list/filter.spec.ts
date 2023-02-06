@@ -17,23 +17,23 @@ type Filter_Spec = [
   /**
    * Filtering an empty tuple results in an empty tuple.
    */
-  Test.Expect<$<List.Filter<Function.Constant<true>>, []>, []>,
+  Test.Expect<$<List.Filter<$<Function.Constant, true>>, []>, []>,
 
   /**
    * Filtering with a constant true condition results in the same tuple.
    */
-  Test.Expect<$<List.Filter<Function.Constant<true>>, [1, 2, 3]>, [1, 2, 3]>,
+  Test.Expect<$<List.Filter<$<Function.Constant, true>>, [1, 2, 3]>, [1, 2, 3]>,
 
   /**
    * Filtering with a constant false condition results in the empty tuple.
    */
-  Test.Expect<$<List.Filter<Function.Constant<false>>, [1, 2, 3]>, []>,
+  Test.Expect<$<List.Filter<$<Function.Constant, false>>, [1, 2, 3]>, []>,
 
   /**
    * Non-boolean returning filter functions emit an error.
    */
   // @ts-expect-error
-  List.Filter<Function.Constant<number>>,
+  List.Filter<$<Function.Constant, number>>,
 
   /**
    * Non-kind filter parameters result in a compilation error.
