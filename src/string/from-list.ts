@@ -6,6 +6,6 @@ export type _$fromList<T, O extends string = ""> = 0 extends 1
   ? _$fromList<Tail, `${O}${Type._$cast<Head, string>}`>
   : O;
 
-export abstract class FromList extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string[]>) => _$fromList<typeof x>;
+export interface FromList extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string[]>): _$fromList<typeof x>;
 }

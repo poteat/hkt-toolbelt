@@ -6,6 +6,6 @@ export type _$first<S extends string> = S extends `${infer Head}${string}`
   ? S
   : "";
 
-export abstract class First extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => _$first<typeof x>;
+export interface First extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$first<typeof x>;
 }
