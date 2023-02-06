@@ -33,6 +33,6 @@ interface Sequence_T<PX extends Parser.Parser[]> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Parser._$state>): _$sequence<typeof x, PX>;
 }
 
-interface Sequence extends Kind.Kind {
+export interface Sequence extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Parser.Parser[]>): Sequence_T<typeof x>;
 }
