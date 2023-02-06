@@ -9,10 +9,8 @@ export type _$decrement<
   >
 > = RESULT;
 
-export declare abstract class Decrement extends Kind.Kind {
-  abstract f: (
+export interface Decrement extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true
-    ? _$decrement<typeof x>
-    : never;
+  ): Number._$isNatural<typeof x> extends true ? _$decrement<typeof x> : never;
 }

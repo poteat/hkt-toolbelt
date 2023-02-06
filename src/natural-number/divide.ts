@@ -12,16 +12,14 @@ export type _$divide<
   QUOTIENT = Number._$fromString<DigitList._$toString<QUOTIENT_LIST>>
 > = QUOTIENT;
 
-declare abstract class Divide_T<A extends Number.Number> extends Kind.Kind {
-  abstract f: (
+interface Divide_T<A extends Number.Number> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true
-    ? _$divide<A, typeof x>
-    : never;
+  ): Number._$isNatural<typeof x> extends true ? _$divide<A, typeof x> : never;
 }
 
-export declare abstract class Divide extends Kind.Kind {
-  abstract f: (
+export interface Divide extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? Divide_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Divide_T<typeof x> : never;
 }

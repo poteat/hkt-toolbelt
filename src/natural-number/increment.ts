@@ -9,10 +9,7 @@ export type _$increment<
   >
 > = RESULT;
 
-export declare abstract class Increment extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true
-    ? _$increment<typeof x>
-    : never;
+export interface Increment extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Number.Number>):
+    | (Number._$isNatural<typeof x> extends true ? _$increment<typeof x> : never);
 }
