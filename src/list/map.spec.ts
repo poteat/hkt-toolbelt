@@ -29,7 +29,7 @@ type Map_Spec = [
    * Mapping over constant results in a tuple solely composed of such elements.
    */
   Test.Expect<
-    $<List.Map<Function.Constant<"foo">>, ["foo", "bar"]>,
+    $<List.Map<$<Function.Constant, "foo">>, ["foo", "bar"]>,
     ["foo", "foo"]
   >
 ];

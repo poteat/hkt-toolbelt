@@ -11,8 +11,11 @@ type If_Spec = [
   Test.Expect<
     $<
       $<
-        $<$<Conditional.If, Function.Constant<true>>, Function.Constant<"foo">>,
-        Function.Constant<"bar">
+        $<
+          $<Conditional.If, $<Function.Constant, true>>,
+          $<Function.Constant, "foo">
+        >,
+        $<Function.Constant, "bar">
       >,
       0
     >,
@@ -26,14 +29,14 @@ type If_Spec = [
     $<
       $<
         $<
-          $<Conditional.If, Function.Constant<false>>,
-          Function.Constant<"foo">
+          $<Conditional.If, $<Function.Constant, false>>,
+          $<Function.Constant, "foo">
         >,
-        Function.Constant<never>
+        $<Function.Constant, "bar">
       >,
       0
     >,
-    never
+    "bar"
   >,
 
   /**
@@ -42,12 +45,26 @@ type If_Spec = [
   Test.Expect<
     $<
       $<
-        $<$<Conditional.If, Function.Constant<true>>, Function.Identity>,
-        Function.Constant<never>
+        $<$<Conditional.If, $<Function.Constant, true>>, Function.Identity>,
+        $<Function.Constant, never>
       >,
       "foo"
     >,
     "foo"
+  >,
+
+  /**
+   * Works with other boolean utilities.
+   */
+  Test.Expect<
+    $<
+      $<
+        $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
+        $<Function.Constant, never>
+      >,
+      42
+    >,
+    never
   >,
 
   /**
@@ -58,7 +75,7 @@ type If_Spec = [
       List.Map<
         $<
           $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
-          Function.Constant<never>
+          $<Function.Constant, never>
         >
       >,
       ["foo", "bar", 42, "foobar"]

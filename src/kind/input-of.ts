@@ -6,6 +6,6 @@ export type _$inputOf<F extends Kind.Kind> = F extends {
   ? X
   : unknown;
 
-export abstract class InputOf extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], Kind.Kind>) => _$inputOf<typeof x>;
+export interface InputOf extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind.Kind>): _$inputOf<typeof x>;
 }

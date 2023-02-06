@@ -8,7 +8,7 @@ export type Collatz = $<
 export type CollatzSequence = $<
   Combinator.FixSequence,
   $<
-    $<$<Conditional.If, $<Conditional.Equals, 1>>, Function.Constant<1>>,
+    $<$<Conditional.If, $<Conditional.Equals, 1>>, $<Function.Constant, 1>>,
     Collatz
   >
 >;

@@ -20,7 +20,7 @@ type Some_Spec = [
    * Emits an error if the predicate does not return a boolean.
    */
   // @ts-expect-error
-  $<List.Some<Function.Constant<number>>, [1, 2, 3]>,
+  $<List.Some<$<Function.Constant, number>>, [1, 2, 3]>,
 
   /**
    * For all predicates, an empty tuple is false.

@@ -367,7 +367,7 @@ The `Constant` type takes in a type and returns a function that takes in any typ
 ```ts
 import { $, Function } from "hkt-toolbelt";
 
-type Result = $<Function.Constant<"foo">, number>; // "foo"
+type Result = $<$<Function.Constant, "foo">, number>; // "foo"
 ```
 
 ### Function.Identity

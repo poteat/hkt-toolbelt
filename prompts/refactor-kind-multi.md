@@ -19,7 +19,7 @@ export type _$if<
 export abstract class If<
   Predicate extends Kind.Kind<(x: never) => boolean>,
   Then extends Kind.Kind,
-  Else extends Kind.Kind = Function.Constant<never>
+  Else extends Kind.Kind = $<Function.Constant, never>
 > extends Kind.Kind {
   abstract f: (
     x: Type._$cast<this[Kind._], Kind._$inputOf<Predicate>>
@@ -44,7 +44,7 @@ export type _$if<
 export interface If_T3<
   Predicate extends Kind.Kind<(x: never) => boolean>,
   Then extends Kind.Kind,
-  Else extends Kind.Kind = Function.Constant<never>
+  Else extends Kind.Kind = $<Function.Constant, never>
 > extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Kind._$inputOf<Predicate>>

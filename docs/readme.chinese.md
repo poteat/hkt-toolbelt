@@ -354,7 +354,7 @@ type Result = $<
 ```ts
 import { $, Function } from `hkt-toolbelt`;
 
-type Result = $<Function.Constant<`foo`>, number>; // `foo`
+type Result = $<$<Function.Constant, `foo`>, number>; // `foo`
 ```
 
 ### Function.Identity
