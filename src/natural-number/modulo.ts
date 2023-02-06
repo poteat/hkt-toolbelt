@@ -9,16 +9,14 @@ export type _$modulo<
   MODULUS = Number._$fromString<DigitList._$toString<MODULUS_LIST>>
 > = MODULUS;
 
-declare abstract class Modulo_T<A extends Number.Number> extends Kind.Kind {
-  abstract f: (
+interface Modulo_T<A extends Number.Number> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true
-    ? _$modulo<A, typeof x>
-    : never;
+  ): Number._$isNatural<typeof x> extends true ? _$modulo<A, typeof x> : never;
 }
 
-export declare abstract class Modulo extends Kind.Kind {
-  abstract f: (
+export interface Modulo extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? Modulo_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Modulo_T<typeof x> : never;
 }

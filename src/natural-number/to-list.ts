@@ -9,8 +9,8 @@ export type _$toList<
   ? O
   : ["0"];
 
-export declare abstract class ToList extends Kind.Kind {
-  abstract f: (
+export interface ToList extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? _$toList<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? _$toList<typeof x> : never;
 }
