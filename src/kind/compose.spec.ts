@@ -5,7 +5,7 @@ type Compose_Spec = [
    * Can compose simple operations.
    */
   Test.Expect<
-    $<Kind.Compose<[List.Push<"bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Compose, [List.Push<"bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
     ["foo", 1, 2, 3, "bar"]
   >,
 
@@ -18,13 +18,13 @@ type Compose_Spec = [
   /**
    * Composition of an empty tuple of kinds is equal to the identity function.
    */
-  Test.Expect<Kind.Compose<[]>, Function.Identity>,
+  Test.Expect<$<Kind.Compose, []>, Function.Identity>,
 
   /**
    * Composition occurs from right-to-left, consistent with standard math.
    */
   Test.Expect<
-    $<Kind.Compose<[List.Push<"bar">, List.Push<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Compose, [List.Push<"bar">, List.Push<"foo">]>, [1, 2, 3]>,
     [1, 2, 3, "foo", "bar"]
   >,
 
@@ -46,6 +46,6 @@ type Compose_Spec = [
    * String operations may be composed.
    */
   Test.Expect<
-    $<Kind.Compose<[String.EndsWith<"bar">, String.Append<"bar">]>, "foobar">
+    $<$<Kind.Compose, [String.EndsWith<"bar">, String.Append<"bar">]>, "foobar">
   >
 ];

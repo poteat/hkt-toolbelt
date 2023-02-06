@@ -12,5 +12,5 @@ chatgpt_response=$(echo "$resolved_template" | ./prompts/chatgpt/index.sh)
 # Extract out the first code block contents
 extracted_code=$(echo "$chatgpt_response" | ./prompts/scripts/extract-code-block.sh)
 
-# Output to standard out
-echo "$extracted_code"
+# Overwrite the original content_file path
+echo "$extracted_code" > "$content_file"
