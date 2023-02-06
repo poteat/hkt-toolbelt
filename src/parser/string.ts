@@ -20,12 +20,10 @@ export type _$string<
       }
 > = NEW_STATE;
 
-declare abstract class String_T<S extends string> extends Parser.Parser {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$string<typeof x, S>;
+interface String_T<S extends string> extends Parser.Parser {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$string<typeof x, S>;
 }
 
-export declare abstract class String extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => String_T<typeof x>;
+export interface String extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): String_T<typeof x>;
 }
