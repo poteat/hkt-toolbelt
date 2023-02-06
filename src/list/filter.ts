@@ -10,10 +10,7 @@ export type _$filter<
     : _$filter<F, Tail, O>
   : O;
 
-export abstract class Filter<
-  F extends Kind.Kind<(x: never) => boolean>
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>
-  ) => _$filter<F, typeof x>;
+export interface Filter<F extends Kind.Kind<(x: never) => boolean>>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>): _$filter<F, typeof x>;
 }
