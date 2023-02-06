@@ -1,1 +1,1 @@
-export type List = unknown[];
+export interface List extends Array<unknown> {}

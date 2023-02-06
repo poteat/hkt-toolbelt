@@ -20,6 +20,6 @@ export type _$reverse<
   ? O
   : [..._$reverse2<T>, ...O];
 
-export abstract class Reverse extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], unknown[]>) => _$reverse<typeof x>;
+export interface Reverse extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown[]>): _$reverse<typeof x>;
 }

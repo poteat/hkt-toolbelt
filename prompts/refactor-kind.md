@@ -14,8 +14,8 @@ export type _$and<T extends boolean, U extends boolean> = [T, U] extends [
   ? true
   : false;
 
-export abstract class And<T extends boolean> extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], boolean>) => _$and<T, typeof x>;
+interface class And<T extends boolean> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], boolean>): _$and<T, typeof x>;
 }
 ```
 
@@ -39,12 +39,6 @@ export interface And extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], boolean>): And_T<typeof x>;
 }
 ```
-
-So the steps can be summarized as:
-
-1. Change all classes to interfaces
-2. Rename the current class to '\_T'
-3. Provide a new class without the \_T that has no generic parameter.
 
 With all that in mind, I would like the following utility to be refactored:
 

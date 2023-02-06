@@ -12,10 +12,13 @@ export type _$every<
     >
   : O;
 
-export abstract class Every<
-  F extends Kind.Kind<(x: never) => boolean>
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>
-  ) => _$every<F, typeof x>;
+interface Every_T<F extends Kind.Kind<(x: never) => boolean>>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>): _$every<F, typeof x>;
+}
+
+export interface Every extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
+  ): Every_T<typeof x>;
 }
