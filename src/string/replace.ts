@@ -22,11 +22,7 @@ export type _$replace<
   ? `${To}${_$replace2<S, From, To>}`
   : _$replace2<S, From, To>;
 
-export abstract class Replace<
-  From extends string,
-  To extends string
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], string>
-  ) => _$replace<typeof x, From, To>;
+export interface Replace<From extends string, To extends string>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$replace<typeof x, From, To>;
 }

@@ -8,6 +8,6 @@ export type _$tail<S extends string> = S extends `${string}${infer Tail}`
   ? S
   : "";
 
-export abstract class Tail extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => _$tail<typeof x>;
+export interface Tail extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$tail<typeof x>;
 }

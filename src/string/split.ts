@@ -1,11 +1,10 @@
-import { Type, Kind } from "..";
-import { _$isTemplate } from "./is-template";
+import { Type, Kind, String } from "..";
 
 export type _$split<
   S extends string,
   Delimiter extends string = "",
   O extends unknown[] = []
-> = _$isTemplate<Delimiter> extends true
+> = String._$isTemplate<Delimiter> extends true
   ? string[]
   : string extends Delimiter
   ? string[]
@@ -15,8 +14,6 @@ export type _$split<
   ? O
   : [...O, S];
 
-export abstract class Split<Delimiter extends string = ""> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], string>
-  ) => _$split<typeof x, Delimiter>;
+export interface Split<Delimiter extends string = ""> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$split<typeof x, Delimiter>;
 }

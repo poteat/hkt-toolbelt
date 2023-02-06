@@ -7,6 +7,6 @@ export type _$reverse<
   ? _$reverse<Tail, `${Head}${O}`>
   : `${string extends S ? string : ""}${O}`;
 
-export abstract class Reverse extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => _$reverse<typeof x>;
+export interface Reverse extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$reverse<typeof x>;
 }
