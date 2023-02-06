@@ -7,8 +7,6 @@ export type _$isNatural<T extends Number.Number> =
       : false
     : false;
 
-export declare abstract class IsNatural extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Number.Number>
-  ) => _$isNatural<typeof x>;
+export interface IsNatural extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Number.Number>): _$isNatural<typeof x>;
 }
