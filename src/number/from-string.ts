@@ -6,6 +6,6 @@ export type _$fromString<T extends string> = T extends `${infer T extends
   ? T
   : never;
 
-export declare abstract class FromString extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => _$fromString<typeof x>;
+export interface FromString extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$fromString<typeof x>;
 }
