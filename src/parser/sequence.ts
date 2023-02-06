@@ -29,16 +29,10 @@ export type _$sequence<
       }
   : _$sequence<NEXT_STATE, NEXT_PX, NEXT_RESULTS>;
 
-declare abstract class Sequence_T<
-  PX extends Parser.Parser[]
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$sequence<typeof x, PX>;
+interface Sequence_T<PX extends Parser.Parser[]> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$sequence<typeof x, PX>;
 }
 
-export declare abstract class Sequence extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser.Parser[]>
-  ) => Sequence_T<typeof x>;
+interface Sequence extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser.Parser[]>): Sequence_T<typeof x>;
 }
