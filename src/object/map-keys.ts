@@ -7,10 +7,10 @@ export type _$mapKeys<
   [key in keyof T as $<F, Type._$cast<key, Kind._$inputOf<F>>>]: T[key];
 };
 
-export abstract class MapKeys<
+export interface MapKeys<
   F extends Kind.Kind<(x: string) => string | number | symbol>
 > extends Kind.Kind {
-  abstract f: (
+  f(
     x: Type._$cast<this[Kind._], Record<string, unknown>>
-  ) => _$mapKeys<typeof x, F>;
+  ): _$mapKeys<typeof x, F>;
 }

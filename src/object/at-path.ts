@@ -14,10 +14,8 @@ export type _$atPath<Path extends (string | symbol)[], T> = Path extends [
       >
   : never;
 
-export abstract class AtPath<
-  Path extends (string | symbol)[]
-> extends Kind.Kind {
-  abstract f: (
+export interface AtPath<Path extends (string | symbol)[]> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Record<string, unknown>>
-  ) => _$atPath<Path, typeof x>;
+  ): _$atPath<Path, typeof x>;
 }

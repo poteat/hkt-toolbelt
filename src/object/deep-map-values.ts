@@ -9,8 +9,8 @@ export type _$deepMapValues<F extends Kind.Kind, O> = {
   >;
 };
 
-export abstract class DeepMapValues<F extends Kind.Kind> extends Kind.Kind {
-  abstract f: (
+export interface DeepMapValues<F extends Kind.Kind> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], _$deepInputOf<F>>
-  ) => _$deepMapValues<F, typeof x>;
+  ): _$deepMapValues<F, typeof x>;
 }
