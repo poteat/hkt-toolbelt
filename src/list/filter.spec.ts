@@ -46,7 +46,7 @@ type Filter_Spec = [
    */
   Test.Expect<
     $<
-      Kind.Apply<[1, "foo", 2, 3]>,
+      $<Kind.Apply, [1, "foo", 2, 3]>,
       List.Filter<$<Conditional.Extends, number>>
     >,
     [1, 2, 3]

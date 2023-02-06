@@ -13,13 +13,17 @@ export type _$compose<FX extends Kind.Kind[], X> = FX extends [
     >
   : X;
 
-export interface Compose<
-  FX extends Kind._$composable<FX> extends true ? Kind.Kind[] : never
-> extends Kind.Kind {
+interface Compose_T<FX extends Kind.Kind[]> extends Kind.Kind {
   f(
     x: Type._$cast<
       this[Kind._],
       FX extends [] ? unknown : Kind._$inputOf<List._$last<FX>>
     >
   ): _$compose<FX, typeof x>;
+}
+
+export interface Compose extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind.Kind[]>
+  ): Kind._$composable<typeof x> extends true ? Compose_T<typeof x> : never;
 }

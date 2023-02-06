@@ -5,7 +5,7 @@ type Pipe_Spec = [
    * Can pipe simple operations.
    */
   Test.Expect<
-    $<Kind.Pipe<[List.Push<"bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Pipe, [List.Push<"bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
     ["foo", 1, 2, 3, "bar"]
   >,
 
@@ -18,13 +18,13 @@ type Pipe_Spec = [
   /**
    * Pipe of an empty tuple of kinds is equal to the identity function.
    */
-  Test.Expect<Kind.Pipe<[]>, Function.Identity>,
+  Test.Expect<$<Kind.Pipe, []>, Function.Identity>,
 
   /**
    * Pipe occurs from left-to-right.
    */
   Test.Expect<
-    $<Kind.Pipe<[List.Push<"bar">, List.Push<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Pipe, [List.Push<"bar">, List.Push<"foo">]>, [1, 2, 3]>,
     [1, 2, 3, "bar", "foo"]
   >,
 
@@ -46,14 +46,17 @@ type Pipe_Spec = [
    * String operations may be piped.
    */
   Test.Expect<
-    $<Kind.Pipe<[String.Append<"bar">, String.EndsWith<"bar">]>, "foobar">
+    $<$<Kind.Pipe, [String.Append<"bar">, String.EndsWith<"bar">]>, "foobar">
   >,
 
   /**
    * Can pipe unions of hk-types.
    */
   Test.Expect<
-    $<Kind.Pipe<[List.Push<"foo"> | List.Push<"qux">, List.Push<"bar">]>, []>,
+    $<
+      $<Kind.Pipe, [List.Push<"foo"> | List.Push<"qux">, List.Push<"bar">]>,
+      []
+    >,
     ["foo" | "qux", "bar"]
   >,
 
@@ -62,7 +65,8 @@ type Pipe_Spec = [
    */
   Test.Expect<
     $<
-      Kind.Pipe<
+      $<
+        Kind.Pipe,
         [
           List.Push<1>,
           List.Push<2>,

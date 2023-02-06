@@ -5,9 +5,10 @@ export type _$choice<
   STATE extends Parser._$state,
   MATCH_RESULT extends Parser._$state = Type._$cast<
     $<
-      Kind.Pipe<
+      $<
+        Kind.Pipe,
         [
-          List.Map<Kind.Apply<STATE>>,
+          List.Map<$<Kind.Apply, STATE>>,
           List.Find<$<Conditional.NotEquals, never>>
         ]
       >,

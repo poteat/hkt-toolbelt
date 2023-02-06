@@ -1,6 +1,6 @@
 import { $, Type, Kind } from "..";
 
-export interface Apply<X> extends Kind.Kind {
+interface Apply_T<X> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Kind.Kind<(x: X) => unknown>>
   ): $<
@@ -10,4 +10,8 @@ export interface Apply<X> extends Kind.Kind {
       Kind._$inputOf<Type._$cast<this[Kind._], Kind.Kind<(x: X) => unknown>>>
     >
   >;
+}
+
+export interface Apply extends Kind.Kind {
+  f(x: this[Kind._]): Apply_T<typeof x>;
 }
