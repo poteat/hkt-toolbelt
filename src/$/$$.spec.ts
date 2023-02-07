@@ -5,7 +5,7 @@ type $$_Spec = [
    * Can pipe simple operations.
    */
   Test.Expect<
-    $$<[List.Push<"bar">, List.Unshift<"foo">], [1, 2, 3]>,
+    $$<[$<List.Push, "bar">, List.Unshift<"foo">], [1, 2, 3]>,
     ["foo", 1, 2, 3, "bar"]
   >,
 
@@ -24,7 +24,7 @@ type $$_Spec = [
    * Pipe occurs from left-to-right.
    */
   Test.Expect<
-    $$<[List.Push<"bar">, List.Push<"foo">], [1, 2, 3]>,
+    $$<[$<List.Push, "bar">, $<List.Push, "foo">], [1, 2, 3]>,
     [1, 2, 3, "bar", "foo"]
   >,
 
@@ -33,14 +33,14 @@ type $$_Spec = [
    * in a type error.
    */
   // @ts-expect-error
-  $$<[List.Push<"bar">], number>,
+  $$<[$<List.Push, "bar">], number>,
 
   /**
    * Incompatible kinds in the pipe emit a type error. That is, the output of
    * kind $N$ must be a subtype of the input of kind $N+1$.
    */
   // @ts-expect-error
-  $$<[String.StartsWith<"foo">, List.Push<"bar">], []>,
+  $$<[String.StartsWith<"foo">, $<List.Push, "bar">], []>,
 
   /**
    * String operations may be piped.
