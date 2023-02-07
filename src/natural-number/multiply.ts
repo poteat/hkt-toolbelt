@@ -12,16 +12,16 @@ export type _$multiply<
   PRODUCT = Number._$fromString<DigitList._$toString<PRODUCT_LIST>>
 > = PRODUCT;
 
-declare abstract class Multiply_T<A extends Number.Number> extends Kind.Kind {
-  abstract f: (
+interface Multiply_T<A extends Number.Number> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true
+  ): Number._$isNatural<typeof x> extends true
     ? _$multiply<A, typeof x>
     : never;
 }
 
-export declare abstract class Multiply extends Kind.Kind {
-  abstract f: (
+export interface Multiply extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? Multiply_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Multiply_T<typeof x> : never;
 }

@@ -9,10 +9,13 @@ export type _$includes<F extends Kind.Kind, X extends unknown[]> = X extends [
     : _$includes<F, Tail>
   : false;
 
-export abstract class Includes<
-  F extends Kind.Kind<(x: never) => boolean>
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>
-  ) => _$includes<F, typeof x>;
+interface Includes_T<T extends Kind.Kind<(x: never) => boolean>>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind._$inputOf<T>[]>): _$includes<T, typeof x>;
+}
+
+export interface Includes extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
+  ): Includes_T<typeof x>;
 }

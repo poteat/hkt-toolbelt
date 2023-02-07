@@ -28,8 +28,6 @@ export type _$letters<
       }
 > = NEW_STATE;
 
-export declare abstract class Letters extends Parser.Parser {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$letters<typeof x>;
+export interface Letters extends Parser.Parser {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$letters<typeof x>;
 }

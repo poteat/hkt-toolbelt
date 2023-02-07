@@ -11,6 +11,6 @@ type _$init2<
 
 export type _$init<S extends string> = string extends S ? string : _$init2<S>;
 
-export abstract class Init extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], string>) => _$init<typeof x>;
+export interface Init extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$init<typeof x>;
 }

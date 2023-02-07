@@ -8,6 +8,6 @@ export type _$display<T> = T extends (...args: never[]) => unknown
       [key in keyof T]: T[key];
     };
 
-export abstract class Display extends Kind.Kind {
-  abstract f: (x: this[Kind._]) => _$display<this[Kind._]>;
+export interface Display extends Kind.Kind {
+  f(x: this[Kind._]): _$display<this[Kind._]>;
 }

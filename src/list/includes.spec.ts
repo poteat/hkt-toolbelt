@@ -4,27 +4,27 @@ type Includes_Spec = [
   /**
    * Can determine existence of elements in a tuple
    */
-  Test.Expect<$<List.Includes<Conditional.Equals<3>>, [1, 2, 3]>>,
+  Test.Expect<$<$<List.Includes, $<Conditional.Equals, 3>>, [1, 2, 3]>>,
 
   /**
    * Can determine non-existence of elements in a tuple
    */
-  Test.ExpectNot<$<List.Includes<Conditional.Equals<4>>, [1, 2, 3]>>,
+  Test.ExpectNot<$<$<List.Includes, $<Conditional.Equals, 4>>, [1, 2, 3]>>,
 
   /**
    * Empty tuples always result in false on search.
    */
-  Test.ExpectNot<$<List.Includes<Function.Constant<true>>, []>>,
+  Test.ExpectNot<$<$<List.Includes, $<Function.Constant, true>>, []>>,
 
   /**
    * Setting a constant inclusion function results in true for non-empty tuples.
    */
-  Test.Expect<$<List.Includes<Function.Constant<true>>, [1, 2, 3]>>,
+  Test.Expect<$<$<List.Includes, $<Function.Constant, true>>, [1, 2, 3]>>,
 
   /**
    * Setting a constant-false inclusion function results in false.
    */
-  Test.ExpectNot<$<List.Includes<Function.Constant<false>>, [1, 2, 3]>>,
+  Test.ExpectNot<$<$<List.Includes, $<Function.Constant, false>>, [1, 2, 3]>>,
 
   /**
    * Can perform complex multidimensional filtering. In this example, select
@@ -32,7 +32,7 @@ type Includes_Spec = [
    */
   Test.Expect<
     $<
-      List.Filter<List.Includes<Conditional.Extends<string>>>,
+      $<List.Filter, $<List.Includes, $<Conditional.Extends, string>>>,
       [[1, 2, 3], [1, 2, 3, "f"], ["a", "b", "c"]]
     >,
     [[1, 2, 3, "f"], ["a", "b", "c"]]
@@ -42,7 +42,7 @@ type Includes_Spec = [
    * Non-boolean inclusion check emit an error.
    */
   // @ts-expect-error
-  List.Includes<Function.Constant<number>>,
+  List.Includes<$<Function.Constant, number>>,
 
   /**
    * Applying data that doesn't match the predicate input type emits an error.
@@ -54,5 +54,5 @@ type Includes_Spec = [
    * Applying includes to a non-tuple results in an error.
    */
   // @ts-expect-error
-  $<List.Includes<Function.Constant<true>>, number>
+  $<List.Includes<$<Function.Constant, true>>, number>
 ];

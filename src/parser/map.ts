@@ -13,21 +13,15 @@ export type _$map<
       result: $<K, Type._$cast<NEW_STATE["result"], Kind._$inputOf<K>>>;
     };
 
-declare abstract class Map_T2<
-  P extends Parser.Parser,
-  K extends Kind.Kind
-> extends Parser.Parser {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$map<typeof x, P, K>;
+interface Map_T2<P extends Parser.Parser, K extends Kind.Kind>
+  extends Parser.Parser {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$map<typeof x, P, K>;
 }
 
-declare abstract class Map_T<K extends Kind.Kind> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser.Parser>
-  ) => Map_T2<typeof x, K>;
+interface Map_T<K extends Kind.Kind> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser.Parser>): Map_T2<typeof x, K>;
 }
 
-export declare abstract class Map extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], Kind.Kind>) => Map_T<typeof x>;
+export interface Map extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind.Kind>): Map_T<typeof x>;
 }

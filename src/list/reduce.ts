@@ -1,4 +1,4 @@
-import { $, Kind, Type } from "..";
+import { $, Kind, Type, Function } from "..";
 
 export type _$reduce<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
@@ -12,7 +12,7 @@ export type _$reduce<
       Type._$cast<
         H,
         Kind._$inputOf<
-          ReturnType<
+          Function._$returnType<
             (F & { readonly [Kind._]: Type._$cast<O, Kind._$inputOf<F>> })["f"]
           >
         >
@@ -22,11 +22,18 @@ export type _$reduce<
     : never
   : O;
 
-export abstract class Reduce<
-  F extends Kind.Kind<(x: never) => Kind.Kind>,
-  O
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], unknown[]>
-  ) => _$reduce<F, typeof x, O>;
+interface Reduce_T2<F extends Kind.Kind<(x: never) => Kind.Kind>, X>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown[]>): _$reduce<F, typeof x, X>;
+}
+
+interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown>): Reduce_T2<F, typeof x>;
+}
+
+export interface Reduce extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => Kind.Kind>>
+  ): Reduce_T<typeof x>;
 }

@@ -16,8 +16,8 @@ export type _$times<N extends Number.Number> = _$times2<
   NaturalNumber._$toList<N>
 >;
 
-export abstract class Times extends Kind.Kind {
-  abstract f: (
+export interface Times extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? _$times<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? _$times<typeof x> : never;
 }

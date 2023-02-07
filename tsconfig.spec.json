@@ -19,5 +19,5 @@
     "strict": true
   },
   "include": ["src/**/*.spec.ts"],
-  "exclude": ["src/**/*.stress.spec.ts"]
+  "exclude": ["src/**/*.stress.spec.ts", "node_modules", "prompts"]
 }

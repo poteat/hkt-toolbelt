@@ -1,6 +1,6 @@
 import { $, Kind, Type, Parser, List } from "..";
 
-export type _$takeSequence<
+type _$takeSequence<
   STATE extends Parser._$state,
   PX extends ([Parser.Parser] | Parser.Parser)[],
   RESULT = never,
@@ -32,16 +32,13 @@ export type _$takeSequence<
       }
   : _$takeSequence<NEXT_STATE, NEXT_PX, NEXT_RESULT>;
 
-declare abstract class TakeSequence_T<
-  PX extends ([Parser.Parser] | Parser.Parser)[]
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$takeSequence<typeof x, PX>;
+interface TakeSequence_T<PX extends ([Parser.Parser] | Parser.Parser)[]>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$takeSequence<typeof x, PX>;
 }
 
-export declare abstract class TakeSequence extends Kind.Kind {
-  abstract f: (
+export interface TakeSequence extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], ([Parser.Parser] | Parser.Parser)[]>
-  ) => TakeSequence_T<typeof x>;
+  ): TakeSequence_T<typeof x>;
 }

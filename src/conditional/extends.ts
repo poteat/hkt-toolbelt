@@ -1,9 +1,13 @@
 import { Kind } from "..";
 
-export type _$extends<Super, X> = (X extends unknown ? X : never) extends Super
+export type _$extends<T, X> = (X extends unknown ? X : never) extends T
   ? true
   : false;
 
-export abstract class Extends<Super> extends Kind.Kind {
-  abstract f: (x: this[Kind._]) => _$extends<Super, typeof x>;
+interface Extends_T<T> extends Kind.Kind {
+  f(x: this[Kind._]): _$extends<T, typeof x>;
+}
+
+export interface Extends extends Kind.Kind {
+  f(x: this[Kind._]): Extends_T<typeof x>;
 }

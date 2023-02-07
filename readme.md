@@ -316,7 +316,7 @@ The `Equals` type is used to check if a type is equal to another type. It is equ
 ```ts
 import { $, Conditional } from "hkt-toolbelt";
 
-type Result = $<Conditional.Equals<"foo">, "bar">; // false
+type Result = $<$<Conditional.Equals, "foo">, "bar">; // false
 ```
 
 ### Conditional.Extends\<A>
@@ -330,7 +330,7 @@ The first type passed in is the supertype, and the second type passed in is the 
 ```ts
 import { $, Conditional } from "hkt-toolbelt";
 
-type Result = $<Conditional.Extends<string>, "bar">; // true
+type Result = $<$<Conditional.Extends, string>, "bar">; // true
 ```
 
 ### If<P, T, E>
@@ -367,7 +367,7 @@ The `Constant` type takes in a type and returns a function that takes in any typ
 ```ts
 import { $, Function } from "hkt-toolbelt";
 
-type Result = $<Function.Constant<"foo">, number>; // "foo"
+type Result = $<$<Function.Constant, "foo">, number>; // "foo"
 ```
 
 ### Function.Identity

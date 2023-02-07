@@ -20,16 +20,10 @@ export type _$optional<
       result: NEXT_STATE["result"];
     };
 
-declare abstract class Optional_T<
-  P extends Parser.Parser
-> extends Parser.Parser {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$optional<typeof x, P>;
+interface Optional_T<P extends Parser.Parser> extends Parser.Parser {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$optional<typeof x, P>;
 }
 
-export declare abstract class Optional extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser.Parser>
-  ) => Optional_T<typeof x>;
+export interface Optional extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser.Parser>): Optional_T<typeof x>;
 }

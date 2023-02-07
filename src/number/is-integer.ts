@@ -6,8 +6,6 @@ export type _$isInteger<T extends Number.Number> = `${T}` extends `${bigint}`
     : true
   : false;
 
-export declare abstract class IsInteger extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Number.Number>
-  ) => _$isInteger<typeof x>;
+export interface IsInteger extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Number.Number>): _$isInteger<typeof x>;
 }

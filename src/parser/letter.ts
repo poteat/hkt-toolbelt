@@ -70,8 +70,6 @@ export type _$letter<
       result: MATCH_RESULT;
     };
 
-export declare abstract class Letter extends Parser.Parser {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$letter<typeof x>;
+export interface Letter extends Parser.Parser {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$letter<typeof x>;
 }

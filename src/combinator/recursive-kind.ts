@@ -1,5 +1,5 @@
 import { Type, Kind } from "..";
 
-export declare abstract class RecursiveKind extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], RecursiveKind>) => unknown;
+export interface RecursiveKind extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], RecursiveKind>): unknown;
 }

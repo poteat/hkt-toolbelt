@@ -26,7 +26,7 @@ type ObjectSequence_Spec = [
 type WeatherString = $<Parser.String, "Weather">;
 
 type TimeString = $<
-  $<Parser.Map, Object.At<"time">>,
+  $<Parser.Map, $<Object.At, "time">>,
   $<
     Parser.ObjectSequence,
     [

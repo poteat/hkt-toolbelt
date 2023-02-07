@@ -1,5 +1,4 @@
-import { $, Kind, Type } from "..";
-import { _$deepInputOf } from "./deep-input-of";
+import { $, Kind, Type, Object } from "..";
 
 export type _$deepMapValues<F extends Kind.Kind, O> = {
   [key in keyof O]: Type._$display<
@@ -9,8 +8,12 @@ export type _$deepMapValues<F extends Kind.Kind, O> = {
   >;
 };
 
-export abstract class DeepMapValues<F extends Kind.Kind> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], _$deepInputOf<F>>
-  ) => _$deepMapValues<F, typeof x>;
+interface DeepMapValues_T<T extends Kind.Kind> extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Object._$deepInputOf<T>>
+  ): _$deepMapValues<T, typeof x>;
+}
+
+export interface DeepMapValues extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind.Kind>): DeepMapValues_T<typeof x>;
 }

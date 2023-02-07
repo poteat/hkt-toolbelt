@@ -9,6 +9,6 @@ export type _$pair<
   ? [T[number], T[number]][]
   : O;
 
-export abstract class Pair extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], unknown[]>) => _$pair<typeof x>;
+export interface Pair extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown[]>): _$pair<typeof x>;
 }

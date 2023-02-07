@@ -1,0 +1,27 @@
+{
+  "name": "make-prompt",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Run prompts via stdin and pass completion to stdout",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Mike <admin@code.lol>",
+  "license": "MIT",
+  "dependencies": {
+    "chatgpt": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.19",
+    "ts-node": "^10.9.1"
+  }
+}

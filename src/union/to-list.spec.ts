@@ -45,9 +45,9 @@ type ToList_Spec = [
   Test.Expect<$<Union.ToList, "foo" | "bar" | "qux">["length"], 3>,
 
   /**
-   * When `never` is provided, a tuple of 'never' is emitted.
+   * When `never` is provided, an empty tuple is emitted.
    */
-  Test.Expect<$<Union.ToList, never>, [never]>,
+  Test.Expect<$<Union.ToList, never>, []>,
 
   /**
    * Can convert unions of tuples.

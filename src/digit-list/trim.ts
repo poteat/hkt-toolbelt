@@ -13,8 +13,6 @@ export type _$trim<
   OUTPUT extends DigitList.DigitList = TRIM extends [] ? ["0"] : TRIM
 > = OUTPUT;
 
-export declare abstract class Trim extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$trim<typeof x>;
+export interface Trim extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$trim<typeof x>;
 }

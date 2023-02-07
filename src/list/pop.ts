@@ -7,8 +7,6 @@ export type _$pop<T extends readonly unknown[]> = T extends [
   ? Head
   : never;
 
-export abstract class Pop extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], readonly unknown[]>
-  ) => _$pop<typeof x>;
+export interface Pop extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], readonly unknown[]>): _$pop<typeof x>;
 }
