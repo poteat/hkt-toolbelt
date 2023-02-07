@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt"
+import { $, String, Test } from "hkt-toolbelt";
 
 type Join_Spec = [
   /**
@@ -6,7 +6,7 @@ type Join_Spec = [
    */
   Test.Expect<
     $<
-      String.Join<"">,
+      $<String.Join, "">,
       [
         "foo",
         "bar",
@@ -25,4 +25,4 @@ type Join_Spec = [
     >,
     "foobarbazquxquuxcorgegraultgarplywaldofredplughxyzzythud"
   >
-]
+];
