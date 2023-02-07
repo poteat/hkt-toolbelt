@@ -9,7 +9,7 @@ type DeepMapValues_Spec = [
    */
   Test.Expect<
     $<
-      Object.DeepMapValues<String.StartsWith<"foo">>,
+      $<Object.DeepMapValues, String.StartsWith<"foo">>,
       { a: "foobar"; b: "foo"; c: "bar" }
     >,
     { a: true; b: true; c: false }
@@ -20,7 +20,7 @@ type DeepMapValues_Spec = [
    */
   Test.Expect<
     $<
-      Object.DeepMapValues<String.StartsWith<"foo">>,
+      $<Object.DeepMapValues, String.StartsWith<"foo">>,
       { a: { b: "foobar"; c: "foo" }; d: "bar" }
     >,
     { a: { b: true; c: true }; d: false }
@@ -44,7 +44,8 @@ type DeepMapValues_Spec = [
    */
   Test.Expect<
     $<
-      Object.DeepMapValues<
+      $<
+        Object.DeepMapValues,
         $<
           $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
           Function.Identity
