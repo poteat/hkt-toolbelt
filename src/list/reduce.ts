@@ -22,7 +22,18 @@ export type _$reduce<
     : never
   : O;
 
-export interface Reduce<F extends Kind.Kind<(x: never) => Kind.Kind>, O>
+interface Reduce_T2<F extends Kind.Kind<(x: never) => Kind.Kind>, X>
   extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): _$reduce<F, typeof x, O>;
+  f(x: Type._$cast<this[Kind._], unknown[]>): _$reduce<F, typeof x, X>;
+}
+
+interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
+  extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown>): Reduce_T2<F, typeof x>;
+}
+
+export interface Reduce extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => Kind.Kind>>
+  ): Reduce_T<typeof x>;
 }

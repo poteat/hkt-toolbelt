@@ -72,7 +72,8 @@ type If_Spec = [
    */
   Test.Expect<
     $<
-      List.Map<
+      $<
+        List.Map,
         $<
           $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
           $<Function.Constant, never>

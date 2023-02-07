@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber, List } from ".."
+import { $, Test, NaturalNumber, List } from "..";
 
 export type Add_Spec = [
   /**
@@ -31,7 +31,7 @@ export type Add_Spec = [
    * Can map and add over lists.
    */
   Test.Expect<
-    $<List.Map<$<NaturalNumber.Add, 1>>, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]>,
+    $<$<List.Map, $<NaturalNumber.Add, 1>>, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]>,
     [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   >,
 
@@ -110,4 +110,4 @@ export type Add_Spec = [
     >,
     246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578246913578n
   >
-]
+];

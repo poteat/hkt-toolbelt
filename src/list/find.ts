@@ -9,7 +9,12 @@ export type _$find<F extends Kind.Kind, X extends unknown[]> = X extends [
     : _$find<F, Tail>
   : never;
 
-export interface Find<F extends Kind.Kind<(x: never) => boolean>>
-  extends Kind.Kind {
+interface Find_T<F extends Kind.Kind<(x: never) => boolean>> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>): _$find<F, typeof x>;
+}
+
+export interface Find extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
+  ): Find_T<typeof x>;
 }

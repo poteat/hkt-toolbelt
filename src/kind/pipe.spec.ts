@@ -5,7 +5,7 @@ type Pipe_Spec = [
    * Can pipe simple operations.
    */
   Test.Expect<
-    $<$<Kind.Pipe, [List.Push<"bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Pipe, [$<List.Push, "bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
     ["foo", 1, 2, 3, "bar"]
   >,
 
@@ -24,7 +24,7 @@ type Pipe_Spec = [
    * Pipe occurs from left-to-right.
    */
   Test.Expect<
-    $<$<Kind.Pipe, [List.Push<"bar">, List.Push<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Pipe, [$<List.Push, "bar">, $<List.Push, "foo">]>, [1, 2, 3]>,
     [1, 2, 3, "bar", "foo"]
   >,
 
@@ -33,14 +33,14 @@ type Pipe_Spec = [
    * in a type error.
    */
   // @ts-expect-error
-  $<Kind.Pipe<[List.Push<"bar">]>, number>,
+  $<Kind.Pipe<[$<List.Push, "bar">]>, number>,
 
   /**
    * Incompatible kinds in the pipe emit a type error. That is, the output of
    * kind $N$ must be a subtype of the input of kind $N+1$.
    */
   // @ts-expect-error
-  $<Kind.Pipe<[List.Push<"bar">, String.StartsWith<"foo">]>, []>,
+  $<Kind.Pipe<[$<List.Push, "bar">, String.StartsWith<"foo">]>, []>,
 
   /**
    * String operations may be piped.
@@ -54,7 +54,10 @@ type Pipe_Spec = [
    */
   Test.Expect<
     $<
-      $<Kind.Pipe, [List.Push<"foo"> | List.Push<"qux">, List.Push<"bar">]>,
+      $<
+        Kind.Pipe,
+        [$<List.Push, "foo"> | $<List.Push, "qux">, $<List.Push, "bar">]
+      >,
       []
     >,
     ["foo" | "qux", "bar"]
@@ -68,16 +71,16 @@ type Pipe_Spec = [
       $<
         Kind.Pipe,
         [
-          List.Push<1>,
-          List.Push<2>,
-          List.Push<3>,
-          List.Push<4>,
-          List.Push<5>,
-          List.Push<6>,
-          List.Push<7>,
-          List.Push<8>,
-          List.Push<9>,
-          List.Push<10>
+          $<List.Push, 1>,
+          $<List.Push, 2>,
+          $<List.Push, 3>,
+          $<List.Push, 4>,
+          $<List.Push, 5>,
+          $<List.Push, 6>,
+          $<List.Push, 7>,
+          $<List.Push, 8>,
+          $<List.Push, 9>,
+          $<List.Push, 10>
         ]
       >,
       []

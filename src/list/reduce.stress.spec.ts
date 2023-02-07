@@ -1,4 +1,4 @@
-import { $, Test, List, Stress, NaturalNumber } from ".."
+import { $, Test, List, Stress, NaturalNumber } from "..";
 
 type Reduce_Spec = [
   /**
@@ -6,7 +6,7 @@ type Reduce_Spec = [
    */
   Test.Expect<
     $<
-      List.Reduce<NaturalNumber.Add, 0>,
+      $<$<List.Reduce, NaturalNumber.Add>, 0>,
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     >,
     210
@@ -16,7 +16,7 @@ type Reduce_Spec = [
    * Can handle a list of 100 elements.
    */
   Test.Expect<
-    $<List.Reduce<NaturalNumber.Add, 0>, Stress.HundredNumberList>,
+    $<$<$<List.Reduce, NaturalNumber.Add>, 0>, Stress.HundredNumberList>,
     550
   >,
 
@@ -25,7 +25,7 @@ type Reduce_Spec = [
    */
   Test.Expect<
     $<
-      List.Reduce<NaturalNumber.Add, 0>,
+      $<$<List.Reduce, NaturalNumber.Add>, 0>,
       [
         ...Stress.HundredNumberList,
         ...Stress.HundredNumberList,
@@ -41,7 +41,7 @@ type Reduce_Spec = [
    * Can handle a list of 1000 elements.
    */
   Test.Expect<
-    $<List.Reduce<NaturalNumber.Add, 0>, Stress.ThousandNumberList>,
+    $<$<$<List.Reduce, NaturalNumber.Add>, 0>, Stress.ThousandNumberList>,
     5500
   >
-]
+];

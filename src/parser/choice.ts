@@ -8,8 +8,8 @@ export type _$choice<
       $<
         Kind.Pipe,
         [
-          List.Map<$<Kind.Apply, STATE>>,
-          List.Find<$<Conditional.NotEquals, never>>
+          $<List.Map, $<Kind.Apply, STATE>>,
+          $<List.Find, $<Conditional.NotEquals, never>>
         ]
       >,
       PX
