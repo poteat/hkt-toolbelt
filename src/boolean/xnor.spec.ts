@@ -4,20 +4,20 @@ type Xnor_Spec = [
   /**
    * !(True ^ True) = True
    */
-  Test.Expect<$<Boolean.Xnor<true>, true>>,
+  Test.Expect<$<$<Boolean.Xnor, true>, true>>,
 
   /**
    * !(True ^ False) = False
    */
-  Test.ExpectNot<$<Boolean.Xnor<true>, false>>,
+  Test.ExpectNot<$<$<Boolean.Xnor, true>, false>>,
 
   /**
    * !(False ^ True) = False
    */
-  Test.ExpectNot<$<Boolean.Xnor<false>, true>>,
+  Test.ExpectNot<$<$<Boolean.Xnor, false>, true>>,
 
   /**
    * !(False ^ False) = True
    */
-  Test.Expect<$<Boolean.Xnor<false>, false>>
+  Test.Expect<$<$<Boolean.Xnor, false>, false>>
 ];

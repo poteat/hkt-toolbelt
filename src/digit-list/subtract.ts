@@ -26,16 +26,10 @@ export type _$subtract<
   B extends DigitList.DigitList
 > = DigitList._$trim<_$subtract2<A, B>>;
 
-declare abstract class Subtract_T<
-  X extends DigitList.DigitList
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$subtract<X, typeof x>;
+interface Subtract_T<X extends DigitList.DigitList> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$subtract<X, typeof x>;
 }
 
-export declare abstract class Subtract extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => Subtract_T<typeof x>;
+export interface Subtract extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Subtract_T<typeof x>;
 }

@@ -5,8 +5,10 @@ export type _$startsWith<
   S extends string
 > = S extends `${Prefix}${string}` ? true : false;
 
-export abstract class StartsWith<Prefix extends string> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], string>
-  ) => _$startsWith<Prefix, typeof x>;
+interface StartsWith_T<Prefix extends string> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$startsWith<Prefix, typeof x>;
+}
+
+export interface StartsWith extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): StartsWith_T<typeof x>;
 }

@@ -6,6 +6,6 @@ export type _$sign<T extends Number.Number> = number extends T
   ? "-"
   : "+";
 
-export declare abstract class Sign extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], Number.Number>) => _$sign<typeof x>;
+export interface Sign extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Number.Number>): _$sign<typeof x>;
 }

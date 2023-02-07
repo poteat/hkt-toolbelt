@@ -17,5 +17,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false,
     "strict": true
-  }
+  },
+  "exclude": ["node_modules", "prompts"]
 }

@@ -11,16 +11,12 @@ export type _$merge<
     : never;
 }>;
 
-declare abstract class Merge_T<
-  A extends Record<string, unknown>
-> extends Kind.Kind {
-  abstract f: (
+interface Merge_T<A extends Record<string, unknown>> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Record<string, unknown>>
-  ) => _$merge<A, typeof x>;
+  ): _$merge<A, typeof x>;
 }
 
-export declare abstract class Merge extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Record<string, unknown>>
-  ) => Merge_T<typeof x>;
+export interface Merge extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Record<string, unknown>>): Merge_T<typeof x>;
 }

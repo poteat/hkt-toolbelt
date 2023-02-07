@@ -5,8 +5,12 @@ export type _$choice<
   STATE extends Parser._$state,
   MATCH_RESULT extends Parser._$state = Type._$cast<
     $<
-      Kind.Pipe<
-        [List.Map<Kind.Apply<STATE>>, List.Find<Conditional.NotEquals<never>>]
+      $<
+        Kind.Pipe,
+        [
+          $<List.Map, $<Kind.Apply, STATE>>,
+          $<List.Find, $<Conditional.NotEquals, never>>
+        ]
       >,
       PX
     >,
@@ -21,16 +25,10 @@ export type _$choice<
       }
 > = NEW_STATE;
 
-declare abstract class Choice_T<
-  PX extends Parser.Parser[]
-> extends Parser.Parser {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser._$state>
-  ) => _$choice<PX, typeof x>;
+interface Choice_T<PX extends Parser.Parser[]> extends Parser.Parser {
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$choice<PX, typeof x>;
 }
 
-export declare abstract class Choice extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Parser.Parser[]>
-  ) => Choice_T<typeof x>;
+export interface Choice extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser.Parser[]>): Choice_T<typeof x>;
 }

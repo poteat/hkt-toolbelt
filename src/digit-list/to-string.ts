@@ -13,8 +13,6 @@ export type _$toString<
   RESULT = JOIN extends "" ? "0" : JOIN
 > = RESULT;
 
-export declare abstract class ToString extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$toString<typeof x>;
+export interface ToString extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$toString<typeof x>;
 }

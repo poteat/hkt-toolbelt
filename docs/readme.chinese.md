@@ -303,7 +303,7 @@ type Result = $<Combinator.ApplySelf, Function.Identity>; // Function.Identity
 ```ts
 import { $, Conditional } from `hkt-toolbelt`;
 
-type Result = $<Conditional.Equals<`foo`>, `bar`>; // false
+type Result = $<$<Conditional.Equals, `foo`>, `bar`>; // false
 ```
 
 ### Conditional.Extends\<A>
@@ -317,7 +317,7 @@ type Result = $<Conditional.Equals<`foo`>, `bar`>; // false
 ```ts
 import { $, Conditional } from `hkt-toolbelt`;
 
-type Result = $<Conditional.Extends<string>, `bar`>; // true
+type Result = $<$<Conditional.Extends, string>, `bar`>; // true
 ```
 
 ### If<P, T, E>
@@ -354,7 +354,7 @@ type Result = $<
 ```ts
 import { $, Function } from `hkt-toolbelt`;
 
-type Result = $<Function.Constant<`foo`>, number>; // `foo`
+type Result = $<$<Function.Constant, `foo`>, number>; // `foo`
 ```
 
 ### Function.Identity

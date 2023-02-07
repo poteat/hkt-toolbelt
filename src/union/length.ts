@@ -6,6 +6,6 @@ export type _$length<T> = Type._$isNever<T> extends true
   ? X["length"]
   : never;
 
-export declare abstract class Length extends Kind.Kind {
-  abstract f: (x: this[Kind._]) => _$length<typeof x>;
+export interface Length extends Kind.Kind {
+  f(x: this[Kind._]): _$length<typeof x>;
 }

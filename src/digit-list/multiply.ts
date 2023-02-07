@@ -18,16 +18,10 @@ export type _$multiply<
   B extends DigitList.DigitList
 > = Type._$cast<_$multiply2<A, B>, DigitList.DigitList>;
 
-export declare abstract class Multiply_T<
-  T extends DigitList.DigitList
-> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$multiply<typeof x, T>;
+export interface Multiply_T<T extends DigitList.DigitList> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$multiply<typeof x, T>;
 }
 
-export declare abstract class Multiply extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => Multiply_T<typeof x>;
+export interface Multiply extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Multiply_T<typeof x>;
 }

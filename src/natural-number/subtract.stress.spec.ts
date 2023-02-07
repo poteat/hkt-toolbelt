@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber, List } from ".."
+import { $, Test, NaturalNumber, List } from "..";
 
 type Subtract_Spec = [
   /**
@@ -24,7 +24,7 @@ type Subtract_Spec = [
    * Can use reduce to subtract over a list.
    */
   Test.Expect<
-    $<List.Reduce<NaturalNumber.Subtract, 10000>, [1, 2, 3, 4, 5]>,
+    $<$<$<List.Reduce, NaturalNumber.Subtract>, 10000>, [1, 2, 3, 4, 5]>,
     9985
   >
-]
+];

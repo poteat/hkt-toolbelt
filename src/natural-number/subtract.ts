@@ -9,16 +9,16 @@ export type _$subtract<
   RESULT = Number._$fromString<DigitList._$toString<SUB_LIST>>
 > = RESULT;
 
-declare abstract class Subtract_T<X extends Number.Number> extends Kind.Kind {
-  abstract f: (
+interface Subtract_T<X extends Number.Number> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true
+  ): Number._$isNatural<typeof x> extends true
     ? _$subtract<X, typeof x>
     : never;
 }
 
-export declare abstract class Subtract extends Kind.Kind {
-  abstract f: (
+export interface Subtract extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? Subtract_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Subtract_T<typeof x> : never;
 }

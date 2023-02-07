@@ -18,14 +18,10 @@ export type _$multiplyTens<
   B extends Digit.Digit
 > = _$multiplyTens_LUT[A][B];
 
-declare abstract class MultiplyTens_T<A extends Digit.Digit> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Digit.Digit>
-  ) => _$multiplyTens<A, typeof x>;
+interface MultiplyTens_T<A extends Digit.Digit> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$multiplyTens<A, typeof x>;
 }
 
-export declare abstract class MultiplyTens extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], Digit.Digit>
-  ) => MultiplyTens_T<typeof x>;
+export interface MultiplyTens extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): MultiplyTens_T<typeof x>;
 }

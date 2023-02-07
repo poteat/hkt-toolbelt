@@ -1,7 +1,13 @@
 import { Type, Kind } from "..";
 
-export type _$xor<T extends boolean, U extends boolean> = T extends U ? false : true;
+export type _$xor<T extends boolean, U extends boolean> = T extends U
+  ? false
+  : true;
 
-export abstract class Xor<T extends boolean> extends Kind.Kind {
-  abstract f: (x: Type._$cast<this[Kind._], boolean>) => _$xor<T, typeof x>;
+interface Xor_T<T extends boolean> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], boolean>): _$xor<T, typeof x>;
+}
+
+export interface Xor extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], boolean>): Xor_T<typeof x>;
 }

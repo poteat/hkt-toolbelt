@@ -6,8 +6,8 @@ export type _$isEven<
   RESULT = DigitList._$isEven<LIST>
 > = RESULT;
 
-export declare abstract class IsEven extends Kind.Kind {
-  abstract f: (
+export interface IsEven extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? _$isEven<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? _$isEven<typeof x> : never;
 }

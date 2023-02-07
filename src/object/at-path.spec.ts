@@ -10,7 +10,7 @@ type AtPath_Spec = [
    */
   Test.Expect<
     $<
-      Object.AtPath<["name", "first"]>,
+      $<Object.AtPath, ["name", "first"]>,
       {
         name: {
           first: "foo";
@@ -27,7 +27,7 @@ type AtPath_Spec = [
    */
   Test.Expect<
     $<
-      Object.AtPath<["name", "first"]>,
+      $<Object.AtPath, ["name", "first"]>,
       | {
           name: {
             first: "foo";
@@ -51,7 +51,7 @@ type AtPath_Spec = [
    */
   Test.Expect<
     $<
-      Object.AtPath<["name", "first"]>,
+      $<Object.AtPath, ["name", "first"]>,
       { name: { last: string }; age: number }
     >,
     never

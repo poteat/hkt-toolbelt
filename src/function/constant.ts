@@ -1,5 +1,9 @@
 import { Kind } from "..";
 
-export abstract class Constant<X> extends Kind.Kind {
-  abstract f: (x: this[Kind._]) => X;
+interface Constant_T<X> extends Kind.Kind {
+  f(x: this[Kind._]): X;
+}
+
+export interface Constant extends Kind.Kind {
+  f(x: this[Kind._]): Constant_T<typeof x>;
 }

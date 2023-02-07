@@ -59,8 +59,8 @@ export type _$increment<
   ? SHORT_CIRCUIT
   : _$increment<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>;
 
-export declare abstract class Increment extends Kind.Kind {
-  abstract f: (
+export interface Increment extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ) => _$increment<typeof x>;
+  ): _$increment<typeof x>;
 }

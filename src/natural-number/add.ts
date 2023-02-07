@@ -9,14 +9,14 @@ export type _$add<
   SUM = Number._$fromString<DigitList._$toString<SUM_LIST>>
 > = SUM;
 
-declare abstract class Add_T<A extends Number.Number> extends Kind.Kind {
-  abstract f: (
+interface Add_T<A extends Number.Number> extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? _$add<A, typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? _$add<A, typeof x> : never;
 }
 
-export declare abstract class Add extends Kind.Kind {
-  abstract f: (
+export interface Add extends Kind.Kind {
+  f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ) => Number._$isNatural<typeof x> extends true ? Add_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Add_T<typeof x> : never;
 }

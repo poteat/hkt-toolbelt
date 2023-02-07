@@ -5,8 +5,10 @@ export type _$endsWith<
   S extends string
 > = S extends `${string}${Suffix}` ? true : false;
 
-export abstract class EndsWith<Suffix extends string> extends Kind.Kind {
-  abstract f: (
-    x: Type._$cast<this[Kind._], string>
-  ) => _$endsWith<Suffix, typeof x>;
+interface EndsWith_T<T extends string> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$endsWith<T, typeof x>;
+}
+
+export interface EndsWith extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): EndsWith_T<typeof x>;
 }
