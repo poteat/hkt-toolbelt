@@ -46,6 +46,9 @@ type Compose_Spec = [
    * String operations may be composed.
    */
   Test.Expect<
-    $<$<Kind.Compose, [String.EndsWith<"bar">, String.Append<"bar">]>, "foobar">
+    $<
+      $<Kind.Compose, [$<String.EndsWith, "bar">, $<String.Append, "bar">]>,
+      "foobar"
+    >
   >
 ];

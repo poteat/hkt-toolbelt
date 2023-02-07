@@ -5,6 +5,10 @@ export type _$prepend<
   S extends string
 > = `${Prefix}${S}`;
 
-export interface Prepend<Prefix extends string> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], string>): _$prepend<Prefix, typeof x>;
+interface Prepend_T<T extends string> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$prepend<T, typeof x>;
+}
+
+export interface Prepend extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): Prepend_T<typeof x>;
 }

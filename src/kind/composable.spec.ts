@@ -20,7 +20,7 @@ type Composable_Spec = [
    * List and string operations are usually not composable.
    */
   Test.ExpectNot<
-    $<Kind.Composable, [String.StartsWith<"foo">, $<List.Push, "foo">]>
+    $<Kind.Composable, [$<String.StartsWith, "foo">, $<List.Push, "foo">]>
   >,
 
   /**

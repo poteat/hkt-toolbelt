@@ -14,6 +14,10 @@ export type _$split<
   ? O
   : [...O, S];
 
-export interface Split<Delimiter extends string = ""> extends Kind.Kind {
+interface Split_T<Delimiter extends string> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$split<typeof x, Delimiter>;
+}
+
+export interface Split extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): Split_T<typeof x>;
 }
