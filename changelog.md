@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.0
+
+- **[Breaking]** Complete overhaul of all modules, more consistent `$` usage.
+
 ## 0.18.1
 
 - Add `NaturalNumber.Compare` for comparing natural numbers.
