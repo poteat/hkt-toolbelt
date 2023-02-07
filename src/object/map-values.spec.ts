@@ -5,7 +5,7 @@ type MapValues_Spec = [
    * Can map the values of an object.
    */
   Test.Expect<
-    $<Object.MapValues<String.ToUpper>, { a: "foo"; b: "bar"; c: "baz" }>,
+    $<$<Object.MapValues, String.ToUpper>, { a: "foo"; b: "bar"; c: "baz" }>,
     { a: "FOO"; b: "BAR"; c: "BAZ" }
   >,
 
@@ -13,14 +13,15 @@ type MapValues_Spec = [
    * Checks that the value is the input type.
    */
   // @ts-expect-error
-  $<Object.MapValues<String.ToUpper>, { a: 1; b: 2; c: 3 }>,
+  $<$<Object.MapValues, String.ToUpper>, { a: 1; b: 2; c: 3 }>,
 
   /**
    * MapValues does not apply recursively.
    */
   Test.Expect<
     $<
-      Object.MapValues<
+      $<
+        Object.MapValues,
         $<
           $<$<Conditional.If, String.IsString>, String.ToUpper>,
           Function.Identity
@@ -35,5 +36,5 @@ type MapValues_Spec = [
    * Will emit an error if applied to a non-object.
    */
   // @ts-expect-error
-  $<Object.MapValues<String.ToUpper>, number>
+  $<$<Object.MapValues, String.ToUpper>, number>
 ];
