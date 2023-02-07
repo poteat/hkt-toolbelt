@@ -46,7 +46,10 @@ type Pipe_Spec = [
    * String operations may be piped.
    */
   Test.Expect<
-    $<$<Kind.Pipe, [String.Append<"bar">, String.EndsWith<"bar">]>, "foobar">
+    $<
+      $<Kind.Pipe, [$<String.Append, "bar">, $<String.EndsWith, "bar">]>,
+      "foobar"
+    >
   >,
 
   /**

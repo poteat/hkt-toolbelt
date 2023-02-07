@@ -59,7 +59,7 @@ type If_Spec = [
   Test.Expect<
     $<
       $<
-        $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
+        $<$<Conditional.If, String.IsString>, $<String.StartsWith, "foo">>,
         $<Function.Constant, never>
       >,
       42
@@ -75,7 +75,7 @@ type If_Spec = [
       $<
         List.Map,
         $<
-          $<$<Conditional.If, String.IsString>, String.StartsWith<"foo">>,
+          $<$<Conditional.If, String.IsString>, $<String.StartsWith, "foo">>,
           $<Function.Constant, never>
         >
       >,

@@ -18,6 +18,10 @@ export type _$join<
   ? `${O}${string}`
   : O;
 
-export interface Join<D extends string = ""> extends Kind.Kind {
+interface Join_T<D extends string> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string[]>): _$join<typeof x, D>;
+}
+
+export interface Join extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): Join_T<typeof x>;
 }
