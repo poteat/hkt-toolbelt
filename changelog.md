@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.19.1
+
+- Add `Kind.Reify` for reifying a higher-order type to a value-level type.
+- Add `Type.Infer` for inferring a narrow type in a parameter context.
+
 ## 0.19.0
 
 - **[Breaking]** Complete overhaul of all modules, more consistent `$` usage.
