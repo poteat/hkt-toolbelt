@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.2
+
+- Improve `NaturalNumber.Multiply` and `Combinator.FixSequence` performance.
+
 ## 0.19.1
 
 - Add `Kind.Reify` for reifying a higher-order type to a value-level type.
