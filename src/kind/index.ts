@@ -6,3 +6,4 @@ export * from "./input-of";
 export * from "./kind";
 export * from "./output-of";
 export * from "./pipe";
+export * from "./reify";
