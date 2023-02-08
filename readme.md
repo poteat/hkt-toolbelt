@@ -68,7 +68,7 @@ To this:
 ```ts
 import { $, List, Conditional } from "hkt-toolbelt";
 
-type FilterNum = List.Filter<Conditional.Extends<number>>;
+type FilterNum = $<List.Filter, $<Conditional.Extends, number>>;
 ```
 
 **`hkt-toolbelt`** let's you express advanced types in a readable way, via composition of higher-kinded primitives.
@@ -90,7 +90,7 @@ import { $ } from "hkt-toolbelt";
 import { Filter } from "hkt-toolbelt/list";
 import { Extends } from "hkt-toolbelt/conditional";
 
-type FilterNum = Filter<Extends<number>>;
+type FilterNum = $<Filter, $<Extends, number>>;
 ```
 
 ## What is a HKT?
@@ -135,6 +135,10 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
 - _Value-level utilities: [lodash](https://lodash.com)_
 
 ## Table of Contents
+
+> **Note:** Many examples are out of date, as many higher-kinded types have been modified to be more partially applicable.
+>
+> Generally, types such as `List.Filter<Fn>` are now `$<List.Filter, Fn>`.
 
 - [API](#api)
   - [Basic Utilities](#basic-utilities)
