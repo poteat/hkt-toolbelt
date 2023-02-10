@@ -1,5 +1,5 @@
-import { $, Test, Number, NaturalNumber } from "..";
-import { _$fracCompare } from "./compare";
+import { $, Test, Number } from "..";
+import { _$decimalCompare } from "./compare";
 
 type Compare_Spec = [
   /**
@@ -89,6 +89,8 @@ type Compare_Spec = [
   Test.Expect<$<$<Number.Compare, -42.04>, -42.02>, -1>,
 
   Test.Expect<$<$<Number.Compare, -42.02>, -42.04>, 1>,
+
+  Test.Expect<$<$<Number.Compare, 42.002>, 42.004>, 1>,
 
   Test.Expect<$<$<Number.Compare, 0.123>, 0.1>, 1>,
 
