@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, List, NaturalNumber, Conditional } from "..";
+import { Type, Number, Kind, Digit, DigitList, NaturalNumber, Conditional, Boolean } from "..";
 
 export type _$compare2<
   A extends Number.Number,
@@ -21,34 +21,30 @@ export type _$compare2<
     : ["0"],
   RESULT = A_SGN extends B_SGN
     ? A_INT extends B_INT
-      ? _$fracCompare<A_FRAC, B_FRAC>
+      ? _$decimalCompare<A_FRAC, B_FRAC>
       : A_SGN extends "+" 
         ? DigitList._$compare<A_INT, B_INT>
         : DigitList._$compare<B_INT, A_INT>
     : A_SGN extends "+" ? 1 : -1
 > = RESULT;
 
-export type _$fracCompare<
+export type _$decimalCompare<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  A_LENGTH extends Number.Number = A["length"],
-  B_LENGTH extends Number.Number = B["length"],
-  LENGTH_COMP extends 1 | 0 | -1 = NaturalNumber._$compare<A_LENGTH, B_LENGTH>,
-  SHORT extends DigitList.DigitList = LENGTH_COMP extends 1 ? B : LENGTH_COMP extends -1 ? A : A,
-  LONG extends DigitList.DigitList = LENGTH_COMP extends 1 ? A : LENGTH_COMP extends -1 ? B : B,
-  LENGTH_DIFF extends Number.Number = LENGTH_COMP extends 1 
-    ? NaturalNumber._$subtract<A_LENGTH, B_LENGTH> 
-    : LENGTH_COMP extends -1 
-    ? NaturalNumber._$subtract<B_LENGTH, A_LENGTH> 
-    : 0,
-  SHORT_PADDED extends DigitList.DigitList = _$padRight<SHORT, LENGTH_DIFF>,
-  RESULT extends 1 | 0 | -1 = LENGTH_COMP extends 1 
-      ? DigitList._$compare<LONG, SHORT_PADDED>
-      : DigitList._$compare<SHORT_PADDED, LONG>
+  A_FIRST extends Digit.Digit = DigitList._$first<A>,
+  B_FIRST extends Digit.Digit = DigitList._$first<B>,
+  A_NEXT extends DigitList.DigitList = DigitList._$shift<A>,
+  B_NEXT extends DigitList.DigitList = DigitList._$shift<B>,
+  COMP extends 1 | 0 | -1 = Digit._$compare<A_FIRST, B_FIRST>,
+  A_DONE extends boolean = Conditional._$equals<A, []>,
+  B_DONE extends boolean = Conditional._$equals<B, []>,
+  RESULT extends 1 | 0 | -1 = 
+    COMP extends 0
+      ? Boolean._$and<A_DONE, B_DONE> extends true
+        ? 0
+        : _$decimalCompare<A_NEXT, B_NEXT>
+      : COMP
 > = RESULT;
-
-export type _$padRight<T extends DigitList.DigitList, N extends Number.Number, M extends DigitList.DigitList = T>
- = N extends 0 ? M : _$padRight<[...M, "0"], NaturalNumber._$decrement<N>>
 
 export type _$compare<
   A extends Number.Number,
