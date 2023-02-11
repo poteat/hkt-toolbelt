@@ -1,0 +1,60 @@
+import { $, List, Test } from "hkt-toolbelt";
+
+type Splice_Spec = [
+  /**
+   * Can delete elements from start index without inserting elements. 
+   */
+  Test.Expect<$<$<$<List.Splice, [0, 1]>, []>, ["a", "b", "c"]>, ["b", "c"]>,
+  Test.Expect<$<$<$<List.Splice, [0, 2]>, []>, ["a", "b", "c"]>, ["c"]>,
+  Test.Expect<$<$<$<List.Splice, [1, 1]>, []>, ["a", "b", "c"]>, ["a", "c"]>,
+
+  /**
+   * Can delete elements when start index + delete count or start index is greater than or equal to array length. 
+   */
+  Test.Expect<$<$<$<List.Splice, [1, 3]>, []>, ["a", "b", "c"]>, ["a"]>,
+  Test.Expect<$<$<$<List.Splice, [4, 1]>, []>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+
+  /**
+   * Can insert elements from start index without deleting elements. 
+   */
+  Test.Expect<$<$<$<List.Splice, [0, 0]>, []>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+  Test.Expect<$<$<$<List.Splice, [0, 0]>, ["1"]>, ["a", "b", "c"]>, ["1", "a", "b", "c"]>,
+  Test.Expect<$<$<$<List.Splice, [2, 0]>, ["1", "2"]>, ["a", "b", "c"]>, ["a", "b", "1", "2", "c"]>,
+
+  /**
+   * Can both delete and insert elements from start index. 
+   */
+  Test.Expect<$<$<$<List.Splice, [1, 1]>, ["1", "2"]>, ["a", "b", "c"]>, ["a", "1", "2", "c"]>,
+
+  /**
+   * If start index is greater than or equal to array length, append inserts to end of array.
+   */
+  Test.Expect<$<$<$<List.Splice, [3, 0]>, ["1", "2"]>, ["a", "b", "c"]>, ["a", "b", "c", "1", "2"]>,
+  Test.Expect<$<$<$<List.Splice, [3, 3]>, ["1", "2"]>, ["a", "b", "c"]>, ["a", "b", "c", "1", "2"]>,
+
+  /**
+   * Non-natural numbers for start and delete count are not allowed.
+   */
+  Test.Expect<$<$<$<List.Splice, [1.5, 0.0]>, ["0"]>, [1, 2, 3]>, never>,
+  Test.Expect<$<$<$<List.Splice, [-1, 0]>, ["0"]>, [1, 2, 3]>, never>,
+
+  /**
+   * Emits an error if being applied to a non-tuple.
+   */
+  // @ts-expect-error/
+  $<$<$<List.Splice, [0, 0]>, []>, number>,
+
+  /**
+   * Emits an error if input is not a tuple.
+   */
+  // @ts-expect-error
+  $<$<$<List.Splice, 0>, [1, 2, 3]>, []>,
+
+  /**
+   * Emits an error if input is not a tuple of length 3.
+   */
+  // @ts-expect-error
+  $<$<$<List.Splice, [0]>, [1, 2, 3]>, []>,
+  // @ts-expect-error
+  $<$<$<List.Splice, [1, 2, 3, 4]>, [1, 2, 3]>, []>,
+];
