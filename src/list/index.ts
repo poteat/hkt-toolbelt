@@ -13,6 +13,7 @@ export * from "./pair";
 export * from "./pop";
 export * from "./push";
 export * from "./reduce";
+export * from "./repeat";
 export * from "./reverse";
 export * from "./shift";
 export * from "./slice";
