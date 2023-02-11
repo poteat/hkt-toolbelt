@@ -14,7 +14,7 @@ type _$splice2<
         ? [...PRE, ...INSERTS, ...POST]
         : _$splice2<T, DigitList._$decrement<START>, [Digit.Zero], INSERTS, List._$push<POST[0], PRE>, List._$shift<POST>>
       : START extends [Digit.Zero]
-        ? [...PRE, ...INSERTS, ...List._$shiftN<POST, Number._$fromString<DigitList._$toString<DEL_COUNT>>>]
+        ? [...PRE, ...INSERTS, ...List._$shiftN<POST, DigitList._$toNumber<DEL_COUNT>>]
         : _$splice2<T, DigitList._$decrement<START>, DEL_COUNT, INSERTS, List._$push<POST[0], PRE>, List._$shift<POST>>
 > = RESULT;
 
