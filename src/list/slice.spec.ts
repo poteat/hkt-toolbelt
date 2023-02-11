@@ -1,53 +1,80 @@
-import { $, Test, List } from ".."
+import { $, List, Test } from "hkt-toolbelt";
 
 type Slice_Spec = [
   /**
-   * slice(abc, 1) => bc
+   * Can slice one or more elements from both ends of an array with zero-based indexes.
    */
-  Test.Expect<$<$<List.Slice, 1>, ["a", "b", "c"]>, ["b", "c"]>,
+  Test.Expect<$<$<List.Slice, [0, 1]>, ["a", "b", "c"]>, ["a"]>,
+  Test.Expect<$<$<List.Slice, [0, 2]>, ["a", "b", "c"]>, ["a", "b"]>,
+  Test.Expect<$<$<List.Slice, [0, 3]>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+  Test.Expect<$<$<List.Slice, [1, 2]>, ["a", "b", "c"]>, ["b"]>,
+  Test.Expect<$<$<List.Slice, [1, 3]>, ["a", "b", "c"]>, ["b", "c"]>,
 
   /**
-   * Slice of zero is identity.
+   * Can slice one or more elements from both ends of an array with negative indexes.
    */
-  Test.Expect<$<$<List.Slice, 0>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+  Test.Expect<$<$<List.Slice, [-2, -1]>, ["a", "b", "c"]>, ["b"]>,
+  Test.Expect<$<$<List.Slice, [-3, -1]>, ["a", "b", "c"]>, ["a", "b"]>,
+  Test.Expect<$<$<List.Slice, [-3, -2]>, ["a", "b", "c"]>, ["a"]>,
+  
+  Test.Expect<$<$<List.Slice, [0, -2]>, ["a", "b", "c"]>, ["a"]>,
+  Test.Expect<$<$<List.Slice, [1, -1]>, ["a", "b", "c"]>, ["b"]>,
 
   /**
-   * Can slice an empty array.
+   * If end is positioned before or at start after normalization, return empty array.
    */
-  Test.Expect<$<$<List.Slice, 0>, []>, []>,
+  Test.Expect<$<$<List.Slice, [0, 0]>, ["a", "b", "c"]>, []>,
+  Test.Expect<$<$<List.Slice, [-1, -1]>, ["a", "b", "c"]>, []>,
+  Test.Expect<$<$<List.Slice, [2, 1]>, ["a", "b", "c"]>, []>,
+  Test.Expect<$<$<List.Slice, [-1, -2]>, ["a", "b", "c"]>, []>,
 
   /**
-   * Can do non-zero slice on empty array.
+   * Can handle being applied to an empty array.
    */
-  Test.Expect<$<$<List.Slice, 1>, []>, []>,
+  Test.Expect<$<$<List.Slice, [0, 0]>, []>, []>,
 
   /**
-   * Can slice a single element array.
+   * Can handle being applied to a single-element array.
    */
-  Test.Expect<$<$<List.Slice, 1>, ["a"]>, []>,
+  Test.Expect<$<$<List.Slice, [0, 1]>, ["a"]>, ["a"]>,
+  Test.Expect<$<$<List.Slice, [0, -1]>, ["a"]>, []>,
 
   /**
-   * Can execute slice of 2
+   * Can execute high-N and overflow slices.
+   * If start >= array.length, nothing is extracted.
+   * If start < -array.length or start is omitted, 0 is used.
+   * If end >= array.length, all elements until the end are extracted.
    */
-  Test.Expect<$<$<List.Slice, 2>, ["a", "b", "c"]>, ["c"]>,
+  Test.Expect<$<$<List.Slice, [0, 4]>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+  Test.Expect<$<$<List.Slice, [1, 4]>, ["a", "b", "c"]>, ["b", "c"]>,
+  Test.Expect<$<$<List.Slice, [4, 100]>, ["a", "b", "c"]>, []>,
+  Test.Expect<$<$<List.Slice, [-4, -1]>, ["a", "b", "c"]>, ["a", "b"]>,
+  Test.Expect<$<$<List.Slice, [-100, 4]>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+  Test.Expect<$<$<List.Slice, [-100, -1]>, ["a", "b", "c"]>, ["a", "b"]>,
+  Test.Expect<$<$<List.Slice, [-101, -100]>, ["a", "b", "c"]>, []>,
 
   /**
-   * Can execute high-N slices that result in empty array.
+   * Non-integer input are not allowed.
    */
-  Test.Expect<$<$<List.Slice, 3>, ["a", "b", "c"]>, []>,
+  Test.Expect<$<$<List.Slice, [1.5, 0]>, [1, 2, 3]>, never>,
 
   /**
-   * Can execute overflow slices.
+   * Emits an error if being applied to a non-tuple.
    */
-  Test.Expect<$<$<List.Slice, 4>, ["a", "b", "c"]>, []>,
+  // @ts-expect-error
+  $<$<List.Slice, [0, 0]>, number>,
 
   /**
-   * Non-integral slices are not allowed.
+   * Emits an error if range is given as a a non-tuple.
    */
-  Test.Expect<$<$<List.Slice, 1.5>, ["a", "b", "c"]>, never>,
+  // @ts-expect-error
+  $<$<List.Slice, 0>, [1, 2, 3]>,
 
   /**
-   * Negative slices are not allowed.
+   * Emits an error if range is not given as a tuple of length 2.
    */
-  Test.Expect<$<$<List.Slice, -1>, ["a", "b", "c"]>, never>
-]
+  // @ts-expect-error
+  $<$<List.Slice, [0]>, [1, 2, 3]>,
+  // @ts-expect-error
+  $<$<List.Slice, [1, 2, 3]>, [1, 2, 3]>,
+];
