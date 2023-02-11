@@ -1,5 +1,7 @@
 export * from "./concat";
 export * from "./every";
+export * from "./flatten";
+export * from "./flatten-n";
 export * from "./filter";
 export * from "./find";
 export * from "./first";
