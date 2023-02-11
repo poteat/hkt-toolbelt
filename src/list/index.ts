@@ -19,6 +19,7 @@ export * from "./reverse";
 export * from "./shift";
 export * from "./shift-n";
 export * from "./slice";
+export * from "./splice";
 export * from "./some";
 export * from "./times";
 export * from "./unshift";
