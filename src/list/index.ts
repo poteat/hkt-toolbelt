@@ -1,3 +1,4 @@
+export * from "./concat";
 export * from "./every";
 export * from "./filter";
 export * from "./find";
