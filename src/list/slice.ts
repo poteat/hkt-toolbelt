@@ -17,8 +17,8 @@ type _$slice2<
       ? [Digit.Zero]
       : DigitList._$subtract<T_LENGTH, END_ABS>
     : END_ABS,
-  SHIFT_COUNT extends Number.Number = Number._$fromString<DigitList._$toString<SHIFT_NORM>>,
-  POP_COUNT extends Number.Number = Number._$fromString<DigitList._$toString<POP_NORM>>,
+  SHIFT_COUNT extends Number.Number = DigitList._$toNumber<SHIFT_NORM>,
+  POP_COUNT extends Number.Number = DigitList._$toNumber<POP_NORM>,
   RESULT extends List.List = List._$shiftN<List._$popN<T, POP_COUNT>, SHIFT_COUNT>,
 > = RESULT;
 
