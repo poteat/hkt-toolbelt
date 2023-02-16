@@ -1,4 +1,4 @@
-import { Type, Number, Kind, Digit, DigitList, NaturalNumber, Conditional, Boolean } from "..";
+import { Type, Number, Kind, Digit, DigitList, NaturalNumber, Conditional, Boolean, List, $ } from "..";
 
 export type _$compare2<
   A extends Number.Number,
@@ -19,7 +19,7 @@ export type _$compare2<
   B_FRAC extends DigitList.DigitList = `${B}` extends `${string}.${infer FRAC extends string}` 
     ? DigitList._$fromString2<FRAC>
     : ["0"],
-  RESULT = A_SGN extends B_SGN
+  RESULT extends 1 | 0 | -1 = A_SGN extends B_SGN
     ? A_INT extends B_INT
       ? _$decimalCompare<A_FRAC, B_FRAC>
       : A_SGN extends "+" 
@@ -38,7 +38,7 @@ export type _$decimalCompare<
   COMP extends 1 | 0 | -1 = Digit._$compare<A_FIRST, B_FIRST>,
   A_DONE extends boolean = Conditional._$equals<A, []>,
   B_DONE extends boolean = Conditional._$equals<B, []>,
-  RESULT extends 1 | 0 | -1 = 
+  RESULT extends 1 | 0 | -1 =
     COMP extends 0
       ? Boolean._$and<A_DONE, B_DONE> extends true
         ? 0
@@ -49,7 +49,7 @@ export type _$decimalCompare<
 export type _$compare<
   A extends Number.Number,
   B extends Number.Number,
-  RESULT = _$compare2<A, B>
+  RESULT extends 1 | 0 | -1 = _$compare2<A, B>
 > = RESULT;
 
 interface Compare_T<X extends Number.Number> extends Kind.Kind {
