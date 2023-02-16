@@ -16,12 +16,13 @@ type _$compare_LUT = [
 export type _$compare<
   A extends Digit.Digit,
   B extends Digit.Digit,
-> = _$compare_LUT[A][B]
+  RESULT extends 1 | 0 | -1 = _$compare_LUT[A][B]
+> = RESULT;
 
 interface Compare_T<A extends Digit.Digit> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Digit.Digit>): _$compare<A, typeof x>;
 }
-  
+
 export interface Compare extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Digit.Digit>): Compare_T<typeof x>;
 }
