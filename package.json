@@ -4,10 +4,13 @@
   "scripts": {
     "test": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.spec.json",
     "stress": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.stress.json",
+    "wiki": "NODE_OPTIONS=--max-old-space-size=8192 ./node_modules/.bin/typedoc",
     "build": "./build.sh"
   },
   "license": "MIT",
   "devDependencies": {
+    "typedoc": "^0.23.25",
+    "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "^4.9.3"
   }
 }
