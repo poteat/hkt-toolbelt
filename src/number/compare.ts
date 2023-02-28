@@ -13,19 +13,24 @@ export type _$compare2<
   B_INT extends DigitList.DigitList = `${B_ABS}` extends `${infer INT extends Number.Number}.${string}` 
     ? NaturalNumber._$toList<INT>
     : NaturalNumber._$toList<B_ABS>,
-  A_FRAC extends DigitList.DigitList = `${A}` extends `${string}.${infer FRAC extends string}` 
-    ? DigitList._$fromString2<FRAC>
-    : ["0"],
-  B_FRAC extends DigitList.DigitList = `${B}` extends `${string}.${infer FRAC extends string}` 
-    ? DigitList._$fromString2<FRAC>
-    : ["0"],
-  RESULT extends 1 | 0 | -1 = A_SGN extends B_SGN
-    ? A_INT extends B_INT
-      ? _$decimalCompare<A_FRAC, B_FRAC>
-      : A_SGN extends "+" 
-        ? DigitList._$compare<A_INT, B_INT>
-        : DigitList._$compare<B_INT, A_INT>
-    : A_SGN extends "+" ? 1 : -1
+  A_DEC extends DigitList.DigitList = `${A}` extends `${string}.${infer DEC extends string}` 
+    ? DigitList._$fromString2<DEC>
+    : [Digit.Zero],
+  B_DEC extends DigitList.DigitList = `${B}` extends `${string}.${infer DEC extends string}` 
+    ? DigitList._$fromString2<DEC>
+    : [Digit.Zero],
+  RESULT extends 1 | 0 | -1 = 
+    A_SGN extends "+"
+      ? B_SGN extends "+"
+        ? A_INT extends B_INT
+          ? _$decimalCompare<A_DEC, B_DEC>
+          : DigitList._$compare<A_INT, B_INT>
+        : 1
+      : B_SGN extends "+"
+        ? -1
+        : A_INT extends B_INT
+          ? _$decimalCompare<B_DEC, A_DEC>
+          : DigitList._$compare<B_INT, A_INT>
 > = RESULT;
 
 export type _$decimalCompare<
