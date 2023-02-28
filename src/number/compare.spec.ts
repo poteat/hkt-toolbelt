@@ -85,7 +85,7 @@ type Compare_Spec = [
   Test.Expect<$<$<Number.Compare, 42.04>, 42.02>, 1>,
 
   Test.Expect<$<$<Number.Compare, 42.02>, 42.04>, -1>,
-
+  
   Test.Expect<$<$<Number.Compare, -42.04>, -42.02>, -1>,
 
   Test.Expect<$<$<Number.Compare, -42.02>, -42.04>, 1>,
