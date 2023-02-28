@@ -15,10 +15,10 @@ export type _$compare2<
     : NaturalNumber._$toList<B_ABS>,
   A_DEC extends DigitList.DigitList = `${A}` extends `${string}.${infer DEC extends string}` 
     ? DigitList._$fromString2<DEC>
-    : [Digit.Zero],
+    : [],
   B_DEC extends DigitList.DigitList = `${B}` extends `${string}.${infer DEC extends string}` 
     ? DigitList._$fromString2<DEC>
-    : [Digit.Zero],
+    : [],
   RESULT extends 1 | 0 | -1 = 
     A_SGN extends "+"
       ? B_SGN extends "+"
@@ -41,14 +41,16 @@ export type _$decimalCompare<
   A_NEXT extends DigitList.DigitList = DigitList._$shift<A>,
   B_NEXT extends DigitList.DigitList = DigitList._$shift<B>,
   COMP extends 1 | 0 | -1 = Digit._$compare<A_FIRST, B_FIRST>,
-  A_DONE extends boolean = Conditional._$equals<A, []>,
-  B_DONE extends boolean = Conditional._$equals<B, []>,
-  RESULT extends 1 | 0 | -1 =
-    COMP extends 0
-      ? Boolean._$and<A_DONE, B_DONE> extends true
+  RESULT extends 1 | 0 | -1 = 
+    A extends []
+      ? B extends []
         ? 0
-        : _$decimalCompare<A_NEXT, B_NEXT>
-      : COMP
+        : -1
+      : B extends []
+        ? 1
+        : COMP extends 0
+          ? _$decimalCompare<A_NEXT, B_NEXT>
+          : COMP
 > = RESULT;
 
 export type _$compare<
