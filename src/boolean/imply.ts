@@ -1,9 +1,9 @@
 import { Kind, Type } from "..";
 
 /**
- * `_imply` is a type-level function that takes in two boolean types, `T` and
+ * `_$imply` is a type-level function that takes in two boolean types, `T` and
  * `U`, and returns the boolean result of applying the 'imply' logical
- * operation on `T` and `U`. If `T` is true and `U` is false, then `_imply`
+ * operation on `T` and `U`. If `T` is true and `U` is false, then `_$imply`
  * returns false, otherwise it returns true.
  *
  * This is also known as the 'logical implication' operator.
@@ -17,14 +17,14 @@ import { Kind, Type } from "..";
  *
  * @example
  *
- * For example, we can use `_imply` to determine whether a statement is true
+ * For example, we can use `_$imply` to determine whether a statement is true
  * given the truth values of two propositions, `T` and `U`. In this example,
  * `true` and `false` are passed as type arguments to the type-level function:
  *
  * ```ts
- * import { _imply } from "hkt-toolbelt";
+ * import { Boolean } from "hkt-toolbelt";
  *
- * type Result = _imply<true, false>; // false
+ * type Result = Boolean._$imply<true, false>; // false
  * ```
  */
 export type _$imply<T extends boolean, U extends boolean> = [T, U] extends [
@@ -58,9 +58,9 @@ interface Imply_T<T extends boolean> extends Kind.Kind {
  * applicator:
  *
  * ```ts
- * import { $, Imply } from "hkt-toolbelt";
+ * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Imply, true>, false>; // false
+ * type Result = $<$<Boolean.Imply, true>, false>; // false
  * ```
  */
 export interface Imply extends Kind.Kind {
