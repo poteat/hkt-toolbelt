@@ -14,26 +14,26 @@ type _$compare2<
   B_FIRST extends Digit.Digit = DigitList._$first<B>,
   A_NEXT extends DigitList.DigitList = DigitList._$shift<A>,
   B_NEXT extends DigitList.DigitList = DigitList._$shift<B>,
-  COMP = Digit._$compare<A_FIRST, B_FIRST>,
-  RESULT = IS_SAME_LENGTH extends false
+  COMP extends 1 | 0 | -1 = Digit._$compare<A_FIRST, B_FIRST>,
+  RESULT extends 1 | 0 | -1 = IS_SAME_LENGTH extends false
     ? _$compare2<A_LENGTH, B_LENGTH>
     : A extends []
-    ? B extends []
-      ? 0
-      : -1
-    : B extends []
-    ? 1
-    : BOTH_SINGLE_DIGIT extends true
-    ? Digit._$compare<A_FIRST, B_FIRST>
-    : COMP extends 0
-    ? _$compare2<A_NEXT, B_NEXT>
-    : COMP
+      ? B extends []
+        ? 0
+        : -1
+      : B extends []
+        ? 1
+        : BOTH_SINGLE_DIGIT extends true
+          ? Digit._$compare<A_FIRST, B_FIRST>
+          : COMP extends 0
+            ? _$compare2<A_NEXT, B_NEXT>
+            : COMP
 > = RESULT;
 
 export type _$compare<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  RESULT = _$compare2<A, B>
+  RESULT extends 1 | 0 | -1 = _$compare2<A, B>
 > = RESULT;
 
 interface Compare_T<X extends DigitList.DigitList> extends Kind.Kind {
