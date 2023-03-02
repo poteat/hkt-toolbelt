@@ -16,4 +16,5 @@ export * from "./pop";
 export * from "./shift";
 export * from "./subtract";
 export * from "./to-string";
+export * from "./to-number";
 export * from "./trim";

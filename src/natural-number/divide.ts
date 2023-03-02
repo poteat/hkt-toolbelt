@@ -9,7 +9,7 @@ export type _$divide<
     A_LIST,
     B_LIST
   >,
-  QUOTIENT = Number._$fromString<DigitList._$toString<QUOTIENT_LIST>>
+  QUOTIENT = DigitList._$toNumber<QUOTIENT_LIST>
 > = QUOTIENT;
 
 interface Divide_T<A extends Number.Number> extends Kind.Kind {
