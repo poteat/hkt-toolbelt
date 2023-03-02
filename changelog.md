@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.20.0
+
+- Add various advanced `List` methods.
+  - Add `Concat`, `Repeat`, `ShiftN`, `PopN`, `Slice`, `Splice`, `Flatten`
+  - Add `FlattenN`, `DigitList.ToNumber`
+- **[Breaking]** Renamed prior `List.Slice` utility to `List.ShiftN`.
+
 ## 0.19.3
 
 - Make `String.Join` more composable with other list types.
