@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.3
+
+- Make `String.Join` more composable with other list types.
+
 ## 0.19.2
 
 - Improve `NaturalNumber.Multiply` and `Combinator.FixSequence` performance.
