@@ -1,7 +1,7 @@
 import { Type, Kind, List } from "..";
 
 export type _$join<
-  T extends string[],
+  T extends (string | unknown)[],
   D extends string = "",
   O extends string = ""
 > = List._$isVariadic<T> extends true
@@ -19,7 +19,7 @@ export type _$join<
   : O;
 
 interface Join_T<D extends string> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], string[]>): _$join<typeof x, D>;
+  f(x: Type._$cast<this[Kind._], (string | unknown)[]>): _$join<typeof x, D>;
 }
 
 export interface Join extends Kind.Kind {
