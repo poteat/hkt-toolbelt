@@ -4,6 +4,12 @@ I would like some help annotating some JSDoc documentation for some of my type u
 
 Here's an example of the code file for `$`, a very important type function that allows users to apply type functions to a type argument.
 
+# Few-shot Examples
+
+## Documentation for `$`
+
+### Code File for `$`
+
 ````ts
 import { Kind, Function } from "..";
 
@@ -160,14 +166,151 @@ export type $<
 >;
 ````
 
-With all that in mind, I would like some new documentation to be written for the following code file. This documentation should be an amazing level of quality.
+### Unit Tests for `$`
+
+```ts
+import { $, $$, Function, String, Test } from "hkt-toolbelt";
+
+type $_Spec = [
+  /**
+   * $ can apply kinds to types.
+   */
+  Test.Expect<$<Function.Identity, number>, number>,
+
+  /**
+   * $ enforces kind inputs.
+   */
+  // @ts-expect-error
+  $<String.StartsWith<"foo">, number>,
+
+  /**
+   * $ will emit an error on non-kinds.
+   */
+  // @ts-expect-error
+  $<number, number>
+];
+```
+
+## Documentation for `Boolean.And`
+
+### Code File for `Boolean.And`
+
+````ts
+import { Kind, Type } from "..";
+
+/**
+ * `_$and` is a type-level function that takes in two boolean types, `T` and
+ * `U`, and returns the boolean result of applying the 'and' logical operation
+ * on `T` and `U`. If both `T` and `U` are true, then `_$and` returns true,
+ * otherwise it returns false.
+ *
+ * ## Parameters
+ *
+ * @param T A boolean type.
+ * @param U A boolean type.
+ *
+ * ## Example
+ *
+ * @example
+ *
+ * For example, we can use `_$and` to determine whether two boolean types are
+ * both true. In this example, `true` and `false` are passed as type arguments
+ * to the type-level function:
+ *
+ * ```ts
+ * import { _$and } from "hkt-toolbelt";
+ *
+ * type Result = _$and<true, false>; // false
+ * ```
+ */
+export type _$and<T extends boolean, U extends boolean> = [T, U] extends [
+  true,
+  true
+]
+  ? true
+  : false;
+
+interface And_T<T extends boolean> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], boolean>): _$and<T, typeof x>;
+}
+
+/**
+ * `And` is a type-level function that takes in two boolean types, `T` and
+ * `U`, and returns the boolean result of applying the 'and' logical operation
+ * on `T` and `U`.
+ *
+ * @param T A boolean type.
+ * @param U A boolean type.
+ *
+ * @example
+ *
+ * For example, we can use `And` to determine whether two boolean types are
+ * both true. In this example, `true` and `false` are passed as type arguments
+ * to the type-level function:
+ *
+ * We apply `And` to `true` and `false` respectively using the `$` type-level
+ * applicator:
+ *
+ * ```ts
+ * import { $, And } from "hkt-toolbelt";
+ *
+ * type Result = $<$<And, true>, false>; // false
+ * ```
+ */
+export interface And extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], boolean>): And_T<typeof x>;
+}
+````
+
+### Unit Tests for `Boolean.And`
+
+```ts
+import { $, Boolean, Test } from "hkt-toolbelt";
+
+type And_Spec = [
+  /**
+   * True && True = True
+   */
+  Test.Expect<$<$<Boolean.And, true>, true>>,
+
+  /**
+   * True && False = False
+   */
+  Test.ExpectNot<$<$<Boolean.And, true>, false>>,
+
+  /**
+   * False && True = False
+   */
+  Test.ExpectNot<$<$<Boolean.And, false>, true>>,
+
+  /**
+   * False && False = False
+   */
+  Test.ExpectNot<$<$<Boolean.And, false>, false>>,
+
+  /**
+   * Running 'And' on a non-boolean type should emit an error.
+   */
+  // @ts-expect-error
+  Test.Expect<$<Boolean.And<true>, number>>
+];
+```
+
+# Prompt
+
+With all that in mind, I would like some new documentation to be written for
+the following input code file. This documentation should be written in a similar
+style to the above, but feel free to take liberties and express creativity.
 
 ```ts
 <FILE_CONTENTS>
 ```
 
-To provide context, here are the unit tests for the code file:
+To provide context, here are the unit tests for the input code file:
 
 ```ts
 <UNIT_TEST_CONTENTS>
 ```
+
+You only need to emit the code for the documented input code file. You do not
+need to emit the unit tests.
