@@ -15,10 +15,10 @@ export type _$compare2<
     : NaturalNumber._$toList<B_ABS>,
   A_DEC extends DigitList.DigitList = `${A}` extends `${string}.${infer DEC extends string}` 
     ? DigitList._$fromString2<DEC>
-    : [],
+    : [Digit.Zero],
   B_DEC extends DigitList.DigitList = `${B}` extends `${string}.${infer DEC extends string}` 
     ? DigitList._$fromString2<DEC>
-    : [],
+    : [Digit.Zero],
   RESULT extends 1 | 0 | -1 = 
     A_SGN extends "+"
       ? B_SGN extends "+"
