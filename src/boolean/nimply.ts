@@ -20,9 +20,9 @@ import { Kind, Type } from "..";
  * `false` are passed as type arguments to the type-level function:
  *
  * ```ts
- * import { _$nimply } from "hkt-toolbelt";
+ * import { Boolean } from "hkt-toolbelt";
  *
- * type Result = _$nimply<true, false>; // true
+ * type Result = Boolean._$nimply<true, false>; // true
  * ```
  */
 export type _$nimply<T extends boolean, U extends boolean> = [T, U] extends [
@@ -54,9 +54,9 @@ interface Nimply_T<T extends boolean> extends Kind.Kind {
  * applicator:
  *
  * ```ts
- * import { $, Nimply } from "hkt-toolbelt";
+ * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Nimply, true>, false>; // true
+ * type Result = $<$<Boolean.Nimply, true>, false>; // true
  * ```
  */
 export interface Nimply extends Kind.Kind {

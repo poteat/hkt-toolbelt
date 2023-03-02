@@ -1,9 +1,9 @@
 import { Type, Kind } from "..";
 
 /**
- * `_nand` is a type-level function that takes in two boolean types, `T` and
+ * `_$nand` is a type-level function that takes in two boolean types, `T` and
  * `U`, and returns the boolean result of applying the 'nand' logical operation
- * on `T` and `U`. If both `T` and `U` are true, then `_nand` returns false,
+ * on `T` and `U`. If both `T` and `U` are true, then `_$nand` returns false,
  * otherwise it returns true.
  *
  * ## Parameters
@@ -15,14 +15,14 @@ import { Type, Kind } from "..";
  *
  * @example
  *
- * For example, we can use `_nand` to determine whether two boolean types are
+ * For example, we can use `_$nand` to determine whether two boolean types are
  * not both true. In this example, `true` and `false` are passed as type
  * arguments to the type-level function:
  *
  * ```ts
- * import { _nand } from "hkt-toolbelt";
+ * import { Boolean } from "hkt-toolbelt";
  *
- * type Result = _nand<true, false>; // true
+ * type Result = Boolean._$nand<true, false>; // true
  * ```
  */
 export type _$nand<T extends boolean, U extends boolean> = [T, U] extends [
@@ -54,9 +54,9 @@ interface Nand_T<T extends boolean> extends Kind.Kind {
  * applicator:
  *
  * ```ts
- * import { $, Nand } from "hkt-toolbelt";
+ * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Nand, true>, false>; // true
+ * type Result = $<$<Boolean.Nand, true>, false>; // true
  * ```
  */
 export interface Nand extends Kind.Kind {

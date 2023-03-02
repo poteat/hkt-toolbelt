@@ -20,9 +20,9 @@ import { Kind, Type } from "..";
  * to the type-level function:
  *
  * ```ts
- * import { _$and } from "hkt-toolbelt";
+ * import { Boolean } from "hkt-toolbelt";
  *
- * type Result = _$and<true, false>; // false
+ * type Result = Boolean._$and<true, false>; // false
  * ```
  */
 export type _$and<T extends boolean, U extends boolean> = [T, U] extends [
@@ -54,9 +54,9 @@ interface And_T<T extends boolean> extends Kind.Kind {
  * applicator:
  * 
  * ```ts
- * import { $, And } from "hkt-toolbelt";
+ * import { $, Boolean } from "hkt-toolbelt";
  * 
- * type Result = $<$<And, true>, false>; // false
+ * type Result = $<$<Boolean.And, true>, false>; // false
  * ```
  */
 export interface And extends Kind.Kind {

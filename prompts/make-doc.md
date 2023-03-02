@@ -8,7 +8,7 @@ Here's an example of the code file for `$`, a very important type function that 
 
 ## Documentation for `$`
 
-### Code File for `$`
+### Code File for `src/$/$.ts`
 
 ````ts
 import { Kind, Function } from "..";
@@ -166,7 +166,7 @@ export type $<
 >;
 ````
 
-### Unit Tests for `$`
+### Unit Tests for `src/$/$.spec.ts`
 
 ```ts
 import { $, $$, Function, String, Test } from "hkt-toolbelt";
@@ -191,9 +191,7 @@ type $_Spec = [
 ];
 ```
 
-## Documentation for `Boolean.And`
-
-### Code File for `Boolean.And`
+## Documentation for `src/boolean/and.ts`
 
 ````ts
 import { Kind, Type } from "..";
@@ -218,9 +216,9 @@ import { Kind, Type } from "..";
  * to the type-level function:
  *
  * ```ts
- * import { _$and } from "hkt-toolbelt";
+ * import { Boolean } from "hkt-toolbelt";
  *
- * type Result = _$and<true, false>; // false
+ * type Result = Boolean._$and<true, false>; // false
  * ```
  */
 export type _$and<T extends boolean, U extends boolean> = [T, U] extends [
@@ -252,9 +250,9 @@ interface And_T<T extends boolean> extends Kind.Kind {
  * applicator:
  *
  * ```ts
- * import { $, And } from "hkt-toolbelt";
+ * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<And, true>, false>; // false
+ * type Result = $<$<Boolean.And, true>, false>; // false
  * ```
  */
 export interface And extends Kind.Kind {
@@ -262,7 +260,7 @@ export interface And extends Kind.Kind {
 }
 ````
 
-### Unit Tests for `Boolean.And`
+### Unit Tests for `src/boolean/and.spec.ts`
 
 ```ts
 import { $, Boolean, Test } from "hkt-toolbelt";
@@ -302,6 +300,8 @@ With all that in mind, I would like some new documentation to be written for
 the following input code file. This documentation should be written in a similar
 style to the above, but feel free to take liberties and express creativity.
 
+## Documentation for `<FILE_PATH>`:
+
 ```ts
 <FILE_CONTENTS>
 ```
@@ -312,5 +312,4 @@ To provide context, here are the unit tests for the input code file:
 <UNIT_TEST_CONTENTS>
 ```
 
-You only need to emit the code for the documented input code file. You do not
-need to emit the unit tests.
+Please only output the JSDoc annotated code file, and not the unit tests.
