@@ -31,7 +31,14 @@ export type _$compare2<
         : A_INT extends B_INT
           ? _$decimalCompare<B_DEC, A_DEC>
           : DigitList._$compare<B_INT, A_INT>
-> = RESULT;
+> = RESULT
+
+
+type Z = `${42.04}` extends `${string}.${infer DEC}` ? DigitList._$fromString2<DEC> : []
+
+type Y = DigitList._$fromString2<"04">
+
+type X = _$compare2<42.04, 42.02>
 
 export type _$decimalCompare<
   A extends DigitList.DigitList,
