@@ -6,7 +6,7 @@ export type _$fromString2<
   M extends DigitList.DigitList = []
 > = T extends `${infer D extends Digit.Digit}${infer Rest}`
   ? _$fromString2<Rest, [...M, D]>
-  : never
+  : M
 
 export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
 
