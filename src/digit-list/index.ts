@@ -5,6 +5,7 @@ export * from "./digit-list";
 export * from "./divide-by-subtraction";
 export * from "./divide";
 export * from "./first";
+export * from "./from-string";
 export * from "./increment";
 export * from "./is-even";
 export * from "./is-odd";
