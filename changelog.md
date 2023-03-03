@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.20.1
+
+- Add `DigitList.FromString` for parsing digit lists from strings.
+- Add `Number.Compare` for type-level numeric comparison.
+
 ## 0.20.0
 
 - Add various advanced `List` methods.
