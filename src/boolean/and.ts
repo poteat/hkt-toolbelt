@@ -1,9 +1,9 @@
 import { Kind, Type } from "..";
 
 /**
- * `_$and` is a type-level function that takes in two boolean types, `T` and 
- * `U`, and returns the boolean result of applying the 'and' logical operation 
- * on `T` and `U`. If both `T` and `U` are true, then `_$and` returns true, 
+ * `_$and` is a type-level function that takes in two boolean types, `T` and
+ * `U`, and returns the boolean result of applying the 'and' logical operation
+ * on `T` and `U`. If both `T` and `U` are true, then `_$and` returns true,
  * otherwise it returns false.
  *
  * ## Parameters
@@ -15,8 +15,8 @@ import { Kind, Type } from "..";
  *
  * @example
  *
- * For example, we can use `_$and` to determine whether two boolean types are 
- * both true. In this example, `true` and `false` are passed as type arguments 
+ * For example, we can use `_$and` to determine whether two boolean types are
+ * both true. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:
  *
  * ```ts
@@ -40,22 +40,22 @@ interface And_T<T extends boolean> extends Kind.Kind {
  * `And` is a type-level function that takes in two boolean types, `T` and
  * `U`, and returns the boolean result of applying the 'and' logical operation
  * on `T` and `U`.
- * 
+ *
  * @param T A boolean type.
  * @param U A boolean type.
- * 
+ *
  * @example
- * 
+ *
  * For example, we can use `And` to determine whether two boolean types are
  * both true. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:
- * 
+ *
  * We apply `And` to `true` and `false` respectively using the `$` type-level
  * applicator:
- * 
+ *
  * ```ts
  * import { $, Boolean } from "hkt-toolbelt";
- * 
+ *
  * type Result = $<$<Boolean.And, true>, false>; // false
  * ```
  */
