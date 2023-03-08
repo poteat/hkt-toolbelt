@@ -5,6 +5,7 @@ export * from "./divide-by";
 export * from "./divide";
 export * from "./increment";
 export * from "./is-even";
+export * from "./is-less-than";
 export * from "./is-odd";
 export * from "./modulo";
 export * from "./multiply";
