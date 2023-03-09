@@ -6,6 +6,17 @@ import { Kind } from ".."
  *
  * @param T The first type to compare.
  * @param U The second type to compare.
+ *
+ * @example
+ *
+ * In this example, `true` and `false` are passed as type arguments to the
+ * type-level function:
+ *
+ * ```ts
+ * import { Conditional } from "hkt-toolbelt";
+ *
+ * type Result = Conditional._$notEquals<true, false>; // true
+ * ```
  */
 export type _$notEquals<T, U> = [T, U] extends [U, T] ? false : true
 
