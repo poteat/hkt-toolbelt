@@ -15,13 +15,13 @@ import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from ".."
  * function - however this example is pedagogically valuable for demonstrating
  * the lifting technique.
  */
-type DivisibleByN = $N<
+type DivisibleBy = $N<
   Kind.Curry,
   [
     2,
     $<
       Kind.Pipe,
-      [$<Kind.Uncurry, NaturalNumber.Modulo>, $<Conditional.Equals, 0>]
+      [$<Kind.Uncurry, NaturalNumber.ModuloBy>, $<Conditional.Equals, 0>]
     >
   ]
 >
@@ -48,16 +48,16 @@ type DivisibleByN = $N<
 export type FizzBuzz = $N<
   Conditional.If,
   [
-    $<DivisibleByN, 15>,
+    $<DivisibleBy, 15>,
     $<Function.Constant, "FizzBuzz">,
     $N<
       Conditional.If,
       [
-        $<DivisibleByN, 3>,
+        $<DivisibleBy, 3>,
         $<Function.Constant, "Fizz">,
         $N<
           Conditional.If,
-          [$<DivisibleByN, 5>, $<Function.Constant, "Buzz">, Function.Identity]
+          [$<DivisibleBy, 5>, $<Function.Constant, "Buzz">, Function.Identity]
         >
       ]
     >

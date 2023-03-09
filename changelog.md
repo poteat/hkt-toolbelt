@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.21.0
+
+- Improve ability to compose type-level functions
+  - Add `$N` operator for uncurried type-level function application.
+  - Add `Kind.Curry` and `Kind.Uncurry` to support argument lifting.
+- Add various natural number operations:
+  - Add `NaturalNumber.ModuloBy` with swapped arguments.
+  - Add `NaturalNumber.IsLessThan`.
+- Add `Combinator.Collate` for theoretical / pedagogical purposes.
+- Add `NaturalNumberTheory.Factorial`.
+- Add `NaturalNumberTheory.FizzBuzz` and `NaturalNumberTheory.FizzBuzzSequence`.
+
 ## 0.20.1
 
 - Add `DigitList.FromString` for parsing digit lists from strings.
