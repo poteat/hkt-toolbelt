@@ -2,22 +2,22 @@ import { $, Conditional, Test } from "hkt-toolbelt";
 
 type Extends_Spec = [
   /**
-   * A type extends itself.
+   * T extends T => true
    */
   Test.Expect<$<$<Conditional.Extends, true>, true>>,
 
   /**
-   * A type extends a subtype.
+   * true extends boolean => true
    */
   Test.Expect<$<$<Conditional.Extends, boolean>, true>>,
 
   /**
-   * A type does not extend a supertype.
+   * boolean extends true => false
    */
   Test.ExpectNot<$<$<Conditional.Extends, true>, boolean>>,
 
   /**
-   * A type does not extend a different type.
+   * number extends string => false
    */
   Test.ExpectNot<$<$<Conditional.Extends, string>, number>>
 ];

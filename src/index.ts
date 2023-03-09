@@ -1,5 +1,5 @@
 import * as $ from "./$"
-export { $, $$ } from "./$"
+export { $, $$, $N } from "./$"
 
 import * as Boolean from "./boolean"
 export * as Boolean from "./boolean"
