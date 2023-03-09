@@ -1,4 +1,14 @@
-import { $, Conditional, Function, List, String, Test } from "hkt-toolbelt";
+import {
+  $,
+  $N,
+  Conditional,
+  Function,
+  List,
+  String,
+  Test,
+  NaturalNumber,
+  Kind,
+} from "hkt-toolbelt"
 
 /**
  * Tests associated with `Conditional.If`, which encodes kind-level if-then-else
@@ -9,15 +19,14 @@ type If_Spec = [
    * If-then-else statement with a true predicate.
    */
   Test.Expect<
-    $<
-      $<
-        $<
-          $<Conditional.If, $<Function.Constant, true>>,
-          $<Function.Constant, "foo">
-        >,
-        $<Function.Constant, "bar">
-      >,
-      0
+    $N<
+      Conditional.If,
+      [
+        $<Function.Constant, true>,
+        $<Function.Constant, "foo">,
+        $<Function.Constant, "bar">,
+        0
+      ]
     >,
     "foo"
   >,
@@ -26,15 +35,14 @@ type If_Spec = [
    * If-then-else statement with a false predicate.
    */
   Test.Expect<
-    $<
-      $<
-        $<
-          $<Conditional.If, $<Function.Constant, false>>,
-          $<Function.Constant, "foo">
-        >,
-        $<Function.Constant, "bar">
-      >,
-      0
+    $N<
+      Conditional.If,
+      [
+        $<Function.Constant, false>,
+        $<Function.Constant, "foo">,
+        $<Function.Constant, "bar">,
+        0
+      ]
     >,
     "bar"
   >,
@@ -43,12 +51,14 @@ type If_Spec = [
    * If-then-else statement with a true predicate and a false alternative.
    */
   Test.Expect<
-    $<
-      $<
-        $<$<Conditional.If, $<Function.Constant, true>>, Function.Identity>,
-        $<Function.Constant, never>
-      >,
-      "foo"
+    $N<
+      Conditional.If,
+      [
+        $<Function.Constant, true>,
+        Function.Identity,
+        $<Function.Constant, never>,
+        "foo"
+      ]
     >,
     "foo"
   >,
@@ -57,12 +67,14 @@ type If_Spec = [
    * Works with other boolean utilities.
    */
   Test.Expect<
-    $<
-      $<
-        $<$<Conditional.If, String.IsString>, $<String.StartsWith, "foo">>,
-        $<Function.Constant, never>
-      >,
-      42
+    $N<
+      Conditional.If,
+      [
+        String.IsString,
+        $<String.StartsWith, "foo">,
+        $<Function.Constant, never>,
+        42
+      ]
     >,
     never
   >,
@@ -71,16 +83,20 @@ type If_Spec = [
    * Can be wrapped around other kinds, such as string kinds.
    */
   Test.Expect<
-    $<
-      $<
-        List.Map,
-        $<
-          $<$<Conditional.If, String.IsString>, $<String.StartsWith, "foo">>,
-          $<Function.Constant, never>
-        >
-      >,
-      ["foo", "bar", 42, "foobar"]
+    $N<
+      List.Map,
+      [
+        $N<
+          Conditional.If,
+          [
+            String.IsString,
+            $<String.StartsWith, "foo">,
+            $<Function.Constant, never>
+          ]
+        >,
+        ["foo", "bar", 42, "foobar"]
+      ]
     >,
     [true, false, never, true]
   >
-];
+]
