@@ -1,8 +1,8 @@
-import { $, Conditional, Test } from "hkt-toolbelt";
+import { $, Conditional, Test } from "hkt-toolbelt"
 
 type NotEquals_Spec = [
   /**
-   * A type does not equal itself.
+   * A type doesn't not equal itself.
    */
   Test.ExpectNot<$<$<Conditional.NotEquals, true>, true>>,
 
@@ -30,4 +30,4 @@ type NotEquals_Spec = [
    * Never doesn't not equal never.
    */
   Test.ExpectNot<$<$<Conditional.NotEquals, never>, never>>
-];
+]
