@@ -24,10 +24,11 @@ type _$slice2<
 
 /**
  * `_$slice` is a type-level function that extracts and returns a subtuple of specified range from a tuple type. 
+ * 
  * It takes in two arguments: first, `T`, the tuple that is to be sliced, 
  * and second, `RANGE`, a tuple with two elements that each respectively specify the inclusive start and exclusive end indices of a slice. 
  * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood. 
- * 
+ * ´´
  * ## Parameters
  * 
  * @param T A tuple type.
