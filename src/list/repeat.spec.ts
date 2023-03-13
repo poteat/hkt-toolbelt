@@ -1,5 +1,7 @@
 import { $, Test, List } from ".."
 
+type TestType = string | number | undefined;
+
 type Repeat_Spec = [
   /**
    * Can create a tuple of length 0
@@ -18,7 +20,17 @@ type Repeat_Spec = [
   Test.Expect<$<$<List.Repeat, 5>, null>, [null, null, null, null, null]>,
 
   /**
-   * Has 'never' for non-natural numbers.
+   * Correctly handles repeating union type input.
    */
-  Test.Expect<$<$<List.Repeat, -1>, "a">, never>
-]
+  Test.Expect<$<$<List.Repeat, 3>, TestType>, [string | number | undefined, string | number | undefined, string | number | undefined]>,
+
+  /**
+   * Returns `never` for non-natural numbers.
+   */
+  Test.Expect<$<$<List.Repeat, -1>, "a">, never>,
+
+  /**
+   * Returns a fixed-length tuple that is non-variadic.
+   */
+  Test.ExpectNot<$<List.IsVariadic, $<$<List.Repeat, 10>, null>>>,
+];
