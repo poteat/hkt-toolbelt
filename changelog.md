@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.21.1
+
+- Add support for negative start indices in `List.Splice`.
+
 ## 0.21.0
 
 - Improve ability to compose type-level functions
