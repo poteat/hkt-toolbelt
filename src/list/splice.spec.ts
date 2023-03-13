@@ -33,10 +33,24 @@ type Splice_Spec = [
   Test.Expect<$<$<$<List.Splice, [3, 3]>, ["1", "2"]>, ["a", "b", "c"]>, ["a", "b", "c", "1", "2"]>,
 
   /**
-   * Non-natural numbers for start and delete count are not allowed.
+   * If start index is negative, the index counts back from the end of the array — if start < 0, start + array.length
    */
-  Test.Expect<$<$<$<List.Splice, [1.5, 0.0]>, ["0"]>, [1, 2, 3]>, never>,
-  Test.Expect<$<$<$<List.Splice, [-1, 0]>, ["0"]>, [1, 2, 3]>, never>,
+  Test.Expect<$<$<$<List.Splice, [-1, 0]>, ["0"]>, [1, 2, 3]>, [1, 2, "0", 3]>,
+  Test.Expect<$<$<$<List.Splice, [-2, 2]>, ["0"]>, [1, 2, 3]>, [1, "0"]>,
+
+  /**
+   * If start index is lesser than the negated array length, append inserts to start of array.
+   */
+  Test.Expect<$<$<$<List.Splice, [-4, 0]>, ["0"]>, [1, 2, 3]>, ["0", 1, 2, 3]>,
+
+
+  /**
+   * Non-natural numbers for delete count and non-integers for start index are not allowed.
+   */
+  Test.Expect<$<$<$<List.Splice, [1.5, 0]>, ["0"]>, [1, 2, 3]>, never>,
+  Test.Expect<$<$<$<List.Splice, [1, -1]>, ["0"]>, [1, 2, 3]>, never>,
+  Test.Expect<$<$<$<List.Splice, [1, 1.5]>, ["0"]>, [1, 2, 3]>, never>,
+  
 
   /**
    * Emits an error if being applied to a non-tuple.
