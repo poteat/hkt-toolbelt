@@ -2,5 +2,12 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["../src/index.ts"],
   "out": "../../hkt-toolbelt.wiki",
-  "plugin": ["typedoc-plugin-markdown"]
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "cleanOutputDir": false,
+//   "excludeNotDocumented": true,
+  "excludeInternal": true,
+  "entryDocument": "Home.md",
+  "hideInPageTOC": true,
+  "publicPath": "https://github.com/poteat/hkt-toolbelt/wiki"
 }

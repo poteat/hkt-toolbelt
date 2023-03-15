@@ -4,7 +4,7 @@
   "scripts": {
     "test": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.spec.json",
     "stress": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.stress.json",
-    "wiki": "NODE_OPTIONS=--max-old-space-size=8192 ./node_modules/.bin/typedoc",
+    "wiki": "./wiki.sh",
     "build": "./build.sh"
   },
   "license": "MIT",
