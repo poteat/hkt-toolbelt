@@ -1,4 +1,4 @@
-import { $, Function, Test } from "hkt-toolbelt";
+import { $, Function, Test } from "hkt-toolbelt"
 
 type Identity_Spec = [
   /**
@@ -18,4 +18,4 @@ type Identity_Spec = [
    * Can return itself.
    */
   Test.Expect<$<Function.Identity, Function.Identity>, Function.Identity>
-];
+]
