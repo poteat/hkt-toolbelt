@@ -40,8 +40,14 @@ export * as Object from "./object"
 import * as Parser from "./parser"
 export * as Parser from "./parser"
 
+import * as Parser2 from "./parser-2"
+export * as Parser2 from "./parser-2"
+
 import * as Stress from "./stress"
 export * as Stress from "./stress"
+
+import * as StringList from "./string-list"
+export * as StringList from "./string-list"
 
 import * as String from "./string"
 export * as String from "./string"
@@ -70,7 +76,9 @@ export default {
   Number,
   Object,
   Parser,
+  Parser2,
   Stress,
+  StringList,
   String,
   Test,
   Type,
