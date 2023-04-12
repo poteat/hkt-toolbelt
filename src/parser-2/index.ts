@@ -1,3 +1,4 @@
+export * from "./choice"
 export * from "./literal"
 export * from "./parser"
 export * from "./run"
