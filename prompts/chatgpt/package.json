@@ -17,11 +17,11 @@
   ],
   "author": "Mike <admin@code.lol>",
   "license": "MIT",
-  "dependencies": {
-    "chatgpt": "^4.2.0"
-  },
   "devDependencies": {
-    "@types/node": "^18.11.19",
+    "@types/node": "^18.16.7",
     "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "openai": "^3.2.1"
   }
 }
