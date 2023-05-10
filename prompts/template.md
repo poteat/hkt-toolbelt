@@ -320,13 +320,82 @@ style to the above.
 ## Documentation for `<FILE_PATH>`:
 
 ```ts
-<FILE_CONTENTS>
+import { Type, Digit, Kind } from ".."
+
+type _$addTens_LUT = [
+  ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
+  ["0", "0", "0", "0", "0", "0", "0", "0", "0", "1"],
+  ["0", "0", "0", "0", "0", "0", "0", "0", "1", "1"],
+  ["0", "0", "0", "0", "0", "0", "0", "1", "1", "1"],
+  ["0", "0", "0", "0", "0", "0", "1", "1", "1", "1"],
+  ["0", "0", "0", "0", "0", "1", "1", "1", "1", "1"],
+  ["0", "0", "0", "0", "1", "1", "1", "1", "1", "1"],
+  ["0", "0", "0", "1", "1", "1", "1", "1", "1", "1"],
+  ["0", "0", "1", "1", "1", "1", "1", "1", "1", "1"],
+  ["0", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+]
+
+export type _$addTens<
+  A extends Digit.Digit,
+  B extends Digit.Digit
+> = _$addTens_LUT[A][B]
+
+export interface AddTens_T<A extends Digit.Digit> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$addTens<A, typeof x>
+}
+
+export interface AddTens extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): AddTens_T<typeof x>
+}
 ```
 
 To provide context, here are the unit tests for the input code file:
 
 ```ts
-<UNIT_TEST_CONTENTS>
+import { $, Test, Digit } from ".."
+
+type AddTens_Spec = [
+  /**
+   * Zero plus zero is zero.
+   */
+  Test.Expect<$<$<Digit.AddTens, Digit.Zero>, Digit.Zero>, Digit.Zero>,
+
+  /**
+   * Zero plus one results in a zero in the tens place.
+   */
+  Test.Expect<$<$<Digit.AddTens, Digit.Zero>, "1">, "0">,
+
+  /**
+   * One plus zero results in a zero in the tens place.
+   */
+  Test.Expect<$<$<Digit.AddTens, "1">, Digit.Zero>, "0">,
+
+  /**
+   * One plus one results in a zero in the tens place.
+   */
+  Test.Expect<$<$<Digit.AddTens, "1">, "1">, "0">,
+
+  /**
+   * Five plus five results in a one in the tens place.
+   */
+  Test.Expect<$<$<Digit.AddTens, "5">, "5">, "1">,
+
+  /**
+   * Nine plus one results in a one in the tens place.
+   */
+  Test.Expect<$<$<Digit.AddTens, "9">, "1">, "1">,
+
+  /**
+   * Nine plus nine results in a one in the tens place.
+   */
+  Test.Expect<$<$<Digit.AddTens, "9">, "9">, "1">,
+
+  /**
+   * Adding a non-digit throws an error.
+   */
+  // @ts-expect-error
+  $<$<Digit.AddCarry, "a">, "1">
+]
 ```
 
 Please only output the JSDoc annotated code file, inside of a markdown code block.
