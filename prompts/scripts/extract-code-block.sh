@@ -1,10 +1,26 @@
 #!/bin/bash
 
-# Read the stdin into a string variable
 input=$(cat)
 
-# Extract the contents of the first markdown code block
-output=$(echo "$input" | sed -n '/```/,/```/{/```/d;p;}')
+# Initialize variables
+block_started=false
+output=""
 
-# Output the extracted code block to stdout
+# Read the input line by line
+while IFS= read -r line; do
+  if [[ $block_started == false ]]; then
+    # Check for the start of a markdown code block
+    if echo "$line" | grep -q '^```'; then
+      block_started=true
+    fi
+  else
+    # Check for the end of the markdown code block
+    if echo "$line" | grep -q '^```'; then
+      break
+    fi
+    # Extract content inside the code block
+    output+="$line"$'\n'
+  fi
+done <<< "$input"
+
 echo "$output"
