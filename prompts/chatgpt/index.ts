@@ -18,11 +18,18 @@ async function main() {
   })
 
   process.stdin.on('end', async () => {
-    const res = await openai.createCompletion({
-      prompt: input,
-      model: 'gpt-4'
+    const res = await openai.createChatCompletion({
+      messages: [
+        {
+          role: 'user',
+          content: input
+        }
+      ],
+      model: 'gpt-4',
+      temperature: 0
     })
-    console.log(res.data.choices[0].text)
+
+    console.log(res.data.choices[0].message?.content)
     process.exit(0)
   })
 }
