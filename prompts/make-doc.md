@@ -423,9 +423,7 @@ Here is a list of all utilities and their high-level descriptions.
 
 # Prompt
 
-With all that in mind, I would like some new documentation to be written for
-the following input code file. This documentation should be written in a similar
-style to the above.
+With all that in mind, I would like some new documentation to be written for the `<ITEM_NAME>` utility. This documentation should be written in a similar style to the above.
 
 ## Documentation for `<FILE_PATH>`:
 
@@ -443,12 +441,11 @@ To provide context, here are the unit tests for the input code file:
 
 Please read the following instructions carefully:
 
-Your task is to add JSDoc annotations to the code file provided. You will ONLY add JSDoc annotations for items that are being EXPORTED explicitly in the code file. Make sure that you fulfill the following requirements:
+Your task is to emit a JSDoc annotation for the `<ITEM_NAME>` utility. You will ONLY emit the JSDoc annotation of that one element.
 
-1. ONLY output the code file with added JSDoc. Ensure the final output is placed within a markdown code block.
-2. ONLY add JSDoc to items with 'export' keyword.
-3. DO NOT add JSDoc to any types or interfaces not being explicitly exported.
-4. MAINTAIN the complete original code as it is in the output. Do not remove, change or skip any part of the code.
-5. ENSURE accurate and relevant JSDoc annotations for each exported item.
+1. ONLY output the associated JSDoc. Ensure the final output is placed within a markdown code block.
+2. ONLY emit JSDoc for the exported element `<ITEM_NAME>`.
+3. DO NOT emit any non-JSDoc output.
+4. ENSURE accurate and relevant JSDoc annotation for `<ITEM_NAME>`.
 
-Kindly adhere to the guidelines mentioned above and present a JSDoc annotated code file.
+Kindly adhere to the guidelines mentioned above and emit the requested JSDoc.

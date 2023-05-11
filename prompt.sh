@@ -10,7 +10,7 @@ resolved_template=$(./prompts/scripts/resolve-template.sh "./prompts/$prompt_fil
 echo -n "$resolved_template" | xclip -selection clipboard
 
 # Generate ChatGPT response
-chatgpt_response=$(echo "$resolved_template" | ./prompts/chatgpt/index.sh)
+chatgpt_response=$(echo "$resolved_template" | ./prompts/meta/chat.sh)
 
 echo "$chatgpt_response"
 
