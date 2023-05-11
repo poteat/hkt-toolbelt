@@ -25,6 +25,50 @@ type _$splice2<
         : _$splice2<T, DigitList._$toNumber<DigitList._$decrement<START_NORM>>, DEL_COUNT, INSERTS, List._$push<POST[0], PRE>, List._$shift<POST>>
 > = RESULT;
 
+/**
+ * `_$splice` is a type-level function that changes the contents of a tuple type by removing or replacing existing elements and/or adding new elements. 
+ * 
+ * It takes in four arguments: 
+ * `T`, the tuple to splice,
+ * `START`, the index at which to start changing the tuple.
+ * `DEL_COUNT`, the number of elements to remove from `T` at the starting index, 
+ * `INSERTS`, an array of elements to insert into `T` at the starting index.
+ * 
+ * Both positive and negative indices are supported for `START`. Negative indices will be normalized into zero-based indices.
+ *
+ * ## Parameters
+ * 
+ * @param T The input tuple.
+ * @param START An integer representing the index at which to start splicing.
+ * * A negative index counts back from the end of the input tuple. 
+ * * If `START < 0`, `START + T["length"]` is used.
+ * @param DEL_COUNT A natural number representing the number of elements to remove from T at the starting index.
+ * @param INSERTS An array of elements to insert into T at the starting index.
+ * 
+ * ## Usage
+ * 
+ * @example
+ * 
+ * ```ts
+ * import { $, List } from 'hkt-toolbelt';
+ * 
+ * type MyList = [0, 1, 2, 3, 4]
+ * 
+ * type Result1 = List._$splice<[0, 1, 2, 3, 4], 1, 2, []>; // [0, 3, 4]
+ *
+ * type Result2 = List._$splice<[0, 1, 2, 3, 4], 1, 2, ['a', 'b']>; // [0, 'a', 'b', 3, 4]
+ * 
+ * type Result3 = List._$splice<[0, 1, 2, 3, 4], -2, 2, ['a', 'b']>; // [0, 1, 'a', 'b', 4]
+ * ```
+ * 
+ * ## Edge Cases
+ * 
+ * * If `START >= T["length"]`, no element will be deleted, but the method will behave as an adding function, adding as many elements as provided.
+ * * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
+ * * If `DEL_COUNT`is greater than or equal to the number of elements after the position specified by `START`, then all the elements from `START` to the end of the array will be deleted.
+ * * If `START` is not an integer, or `DEL_COUNT` is not a natural number, returns never.
+ * 
+ **/
 export type _$splice<
   T extends unknown[],
   START extends Number.Number,
@@ -43,6 +87,50 @@ interface Splice_T<INPUT extends [START: Number.Number, DEL_COUNT: Number.Number
   f(x: Type._$cast<this[Kind._], unknown[]>): Splice_T2<INPUT, typeof x>;
 }
 
+/**
+ * `Splice` is a type-level function that changes the contents of a tuple type by removing or replacing existing elements and/or adding new elements. 
+ * 
+ * It takes in four arguments: 
+ * `T`, the tuple to splice,
+ * `START`, the index at which to start changing the tuple.
+ * `DEL_COUNT`, the number of elements to remove from `T` at the starting index, 
+ * `INSERTS`, an array of elements to insert into `T` at the starting index.
+ * 
+ * Both positive and negative indices are supported for `START`. Negative indices will be normalized into zero-based indices.
+ *
+ * ## Parameters
+ * 
+ * @param T The input tuple.
+ * @param START An integer representing the index at which to start splicing.
+ * * A negative index counts back from the end of the input tuple. 
+ * * If `START < 0`, `START + T["length"]` is used.
+ * @param DEL_COUNT A natural number representing the number of elements to remove from T at the starting index.
+ * @param INSERTS An array of elements to insert into T at the starting index.
+ * 
+ * ## Usage
+ * 
+ * @example
+* 
+* ```ts
+* import { $, List } from 'hkt-toolbelt';
+* 
+* type MyList = [0, 1, 2, 3, 4]
+* 
+* type Result1 = <$<$<$<List.Splice, [1, 2]>, []>, [0, 1, 2, 3, 4]>; // [0, 3, 4]
+*
+* type Result2 = <$<$<$<List.Splice, [1, 2]>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 'a', 'b', 3, 4]
+* 
+* type Result3 = <$<$<$<List.Splice, [-2, 2]>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 1, 'a', 'b', 4]
+* ```
+* 
+* ## Edge Cases
+* 
+* * If `START >= T["length"]`, no element will be deleted, but the method will behave as an adding function, adding as many elements as provided.
+* * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
+* * If `DEL_COUNT`is greater than or equal to the number of elements after the position specified by `START`, then all the elements from `START` to the end of the array will be deleted.
+* * If `START` is not an integer, or `DEL_COUNT` is not a natural number, returns never.
+* 
+**/
 export interface Splice extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], [START: Number.Number, DEL_COUNT: Number.Number]>): Splice_T<typeof x>;
 }
