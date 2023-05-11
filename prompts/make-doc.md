@@ -445,7 +445,7 @@ Your task is to emit a JSDoc annotation for the `<ITEM_NAME>` utility. You will 
 
 1. ONLY output the associated JSDoc. Ensure the final output is placed within a markdown code block.
 2. ONLY emit JSDoc for the exported element `<ITEM_NAME>`.
-3. DO NOT emit any non-JSDoc output.
+3. DO NOT emit any non-JSDoc output. (DO NOT emit Typescript code outside of a lone JSDoc block)
 4. ENSURE accurate and relevant JSDoc annotation for `<ITEM_NAME>`.
 
 Kindly adhere to the guidelines mentioned above and emit the requested JSDoc.
