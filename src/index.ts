@@ -10,6 +10,9 @@ export * as Combinator from './combinator'
 import * as Conditional from './conditional'
 export * as Conditional from './conditional'
 
+import * as DecimalDigitList from './decimal-digit-list'
+export * as DecimalDigitList from './decimal-digit-list'
+
 import * as DigitList from './digit-list'
 export * as DigitList from './digit-list'
 
