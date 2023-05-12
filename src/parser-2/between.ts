@@ -36,24 +36,12 @@ export type _$between<
   RIGHT_RESULT extends Parser2._$state = [VALUE_RESULT] extends [never]
     ? never
     : $<RIGHT, Type._$cast<VALUE_RESULT, Kind._$inputOf<RIGHT>>>
-> =
-  // MODE extends 'right'
-  //   ? [RIGHT_RESULT] extends [never]
-  //     ? never
-  //     : {
-  //         input: RIGHT_RESULT['input']
-  //         result: VALUE_RESULT['result']
-  //       }
-  //   : [CURRENT_RESULT] extends [never]
-  //   ? never
-  //   : _$between<LEFT, RIGHT, VALUE, STATE, NEXT_MODE>
-
-  [RIGHT_RESULT] extends [never]
-    ? never
-    : {
-        input: RIGHT_RESULT['input']
-        result: VALUE_RESULT['result']
-      }
+> = [RIGHT_RESULT] extends [never]
+  ? never
+  : {
+      input: RIGHT_RESULT['input']
+      result: VALUE_RESULT['result']
+    }
 
 interface Between_T3<
   Left extends Parser2.Parser,

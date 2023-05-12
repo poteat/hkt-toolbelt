@@ -1,4 +1,4 @@
-import { $, Test, List, Function, String, Parser2 } from '..'
+import { $, Test, List, Function, String, Parser2 } from '../..'
 
 type TenSpaces = $<$<List.Map, $<Function.Constant, ' '>>, $<List.Times, 10>>
 type TenSpaceString = $<String.FromList, TenSpaces>
@@ -15,7 +15,7 @@ type ThousandSpaces = $<
 >
 type ThousandSpaceString = $<String.FromList, ThousandSpaces>
 
-type WhitespaceParser = $<Parser2.Run, Parser2.OptionalWhitespace>
+type WhitespaceParser = $<Parser2.Run, Parser2.Utility.OptionalWhitespace>
 
 type OptionalWhitespace_Spec = [
   /**

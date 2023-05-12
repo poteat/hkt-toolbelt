@@ -1,14 +1,14 @@
 import { $, Parser2, Type, Kind } from '..'
 
-export type _$sepBy<
+export type _$separatedBy<
   /**
    * The 'value' parser to be separated.
    */
   VALUE extends Parser2.Parser,
   /**
-   * The 'seperator' parser.
+   * The 'separator' parser.
    */
-  SEPERATOR extends Parser2.Parser,
+  SEPARATOR extends Parser2.Parser,
   /**
    * The state of the parser.
    */
@@ -44,9 +44,9 @@ export type _$sepBy<
   /**
    * The next state of the parser.
    */
-  CURRENT_SEPERATOR_RESULT extends Parser2._$state = $<
-    SEPERATOR,
-    Type._$cast<STATE, Kind._$inputOf<SEPERATOR>>
+  CURRENT_SEPARATOR_RESULT extends Parser2._$state = $<
+    SEPARATOR,
+    Type._$cast<STATE, Kind._$inputOf<SEPARATOR>>
   >,
   /**
    * The next result of the parser, appending the prior result.
@@ -64,39 +64,41 @@ export type _$sepBy<
           result: []
         }
       : never
-    : _$sepBy<
+    : _$separatedBy<
         VALUE,
-        SEPERATOR,
+        SEPARATOR,
         CURRENT_VALUE_RESULT,
         NEXT_MODE,
         NEXT_RESULTS,
         false
       >
-  : [CURRENT_SEPERATOR_RESULT] extends [never]
+  : [CURRENT_SEPARATOR_RESULT] extends [never]
   ? {
       input: STATE['input']
       result: RESULTS
     }
-  : _$sepBy<
+  : _$separatedBy<
       VALUE,
-      SEPERATOR,
-      CURRENT_SEPERATOR_RESULT,
+      SEPARATOR,
+      CURRENT_SEPARATOR_RESULT,
       NEXT_MODE,
       NEXT_RESULTS,
       false
     >
 
-interface SepBy_T2<Value extends Parser2.Parser, Sep extends Parser2.Parser>
-  extends Parser2.Parser {
+interface SeparatedBy_T2<
+  Value extends Parser2.Parser,
+  Sep extends Parser2.Parser
+> extends Parser2.Parser {
   f(
     x: Type._$cast<this[Kind._], Parser2._$state>
-  ): _$sepBy<Value, Sep, typeof x>
+  ): _$separatedBy<Value, Sep, typeof x>
 }
 
-interface SepBy_T<Sep extends Parser2.Parser> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Parser2.Parser>): SepBy_T2<typeof x, Sep>
+interface SeparatedBy_T<Sep extends Parser2.Parser> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser2.Parser>): SeparatedBy_T2<typeof x, Sep>
 }
 
-export interface SepBy extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Parser2.Parser>): SepBy_T<typeof x>
+export interface SeparatedBy extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Parser2.Parser>): SeparatedBy_T<typeof x>
 }

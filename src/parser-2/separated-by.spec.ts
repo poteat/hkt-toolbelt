@@ -1,11 +1,11 @@
 import { $, Test, Parser2 } from '..'
 
 type MySepParser = $<
-  $<Parser2.SepBy, $<Parser2.Literal, ' '>>,
+  $<Parser2.SeparatedBy, $<Parser2.Literal, ' '>>,
   $<Parser2.Literal, 'foobar'>
 >
 
-type SepBy_Spec = [
+type SeparatedBy_Spec = [
   /**
    * Can match words separated by spaces.
    */
