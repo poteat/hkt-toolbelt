@@ -20,7 +20,15 @@ type _$nestJSON = $<
   ]
 >
 
-type JSON3 = $<_$json, []>
+type JSON7 = $<_$json, []>
+
+type JSON6 = $<_$json, $<_$nestJSON, JSON7>>
+
+type JSON5 = $<_$json, $<_$nestJSON, JSON6>>
+
+type JSON4 = $<_$json, $<_$nestJSON, JSON5>>
+
+type JSON3 = $<_$json, $<_$nestJSON, JSON4>>
 
 type JSON2 = $<_$json, $<_$nestJSON, JSON3>>
 
