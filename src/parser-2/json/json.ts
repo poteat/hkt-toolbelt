@@ -35,3 +35,20 @@ type JSON2 = $<_$json, $<_$nestJSON, JSON3>>
 type JSON1 = $<_$json, $<_$nestJSON, JSON2>>
 
 export type JSON = $<_$json, $<_$nestJSON, JSON1>>
+
+/**
+ * The above is a 'hack' to get around the fact that I haven't been able to
+ * figure out co-recursive higher-order types yet. The below is the 'correct'
+ * version, but it doesn't work.
+ */
+
+// export type MyJSON = $<
+//   Parser2.Choice,
+//   [
+//     Parser2.JSON.Boolean,
+//     Parser2.JSON.Null,
+//     Parser2.JSON.String,
+//     $<Parser2.JSON.Array, MyJSON>,
+//     $<Parser2.JSON.Object, MyJSON>
+//   ]
+// >
