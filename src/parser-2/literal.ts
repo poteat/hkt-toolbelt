@@ -10,10 +10,12 @@ export type _$literal<
    */
   TARGET extends string
 > = STATE['input'] extends `${TARGET}${infer Tail}`
-  ? {
-      input: Tail
-      result: TARGET
-    }
+  ? STATE['input'] extends `${infer X extends TARGET}${Tail}`
+    ? {
+        input: Tail
+        result: X
+      }
+    : never
   : never
 
 interface Literal_T<T extends string> extends Parser2.Parser {

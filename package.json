@@ -9,5 +9,8 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "arcsecond": "^5.0.0"
   }
 }

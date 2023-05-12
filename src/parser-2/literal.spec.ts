@@ -24,5 +24,13 @@ type Literal_Spec = [
   Test.Expect<
     $<$<Parser2.Literal, 'barfoo'>, { input: 'foobar'; result: never }>,
     never
+  >,
+
+  /**
+   * You can cleverly use unions to match multiple literals.
+   */
+  Test.Expect<
+    $<$<Parser2.Literal, 'foo' | 'bar'>, { input: 'foo'; result: never }>,
+    { input: ''; result: 'foo' }
   >
 ]

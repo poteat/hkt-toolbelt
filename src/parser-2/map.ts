@@ -20,10 +20,10 @@ interface Map_T2<P extends Parser2.Parser, K extends Kind.Kind>
   f(x: Type._$cast<this[Kind._], Parser2._$state>): _$map<typeof x, P, K>
 }
 
-interface Map_T<K extends Kind.Kind> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Parser2.Parser>): Map_T2<typeof x, K>
+interface Map_T<K extends Parser2.Parser> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Kind.Kind>): Map_T2<K, typeof x>
 }
 
 export interface Map extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Kind.Kind>): Map_T<typeof x>
+  f(x: Type._$cast<this[Kind._], Parser2.Parser>): Map_T<typeof x>
 }

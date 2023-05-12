@@ -1,4 +1,4 @@
-import { $, $$, Test, Parser2, Number, Object } from '..'
+import { $, $$, Test, Parser2, Number, Object, Parser } from '..'
 
 type Map_Spec = [
   /**
@@ -6,9 +6,9 @@ type Map_Spec = [
    */
   Test.Expect<
     $<
-      $$<
-        [Parser2.Literal, $<Parser2.Map, Number.FromString>, Parser2.Run],
-        '123'
+      $<
+        Parser2.Run,
+        $<$<Parser2.Map, $<Parser2.Literal, '123'>>, Number.FromString>
       >,
       '123'
     >,
