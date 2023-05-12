@@ -1,4 +1,5 @@
 // export * from "./add";
+export * from "./compare";
 export * from "./decimal-digit-list";
 // export * from "./decrement";
 // export * from "./digit-list";
