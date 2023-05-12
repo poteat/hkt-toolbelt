@@ -54,8 +54,8 @@ interface Compare_T<A extends Digit.Digit> extends Kind.Kind {
  *
  * @example
  *
- * For example, using the `hkt-toolbelt` `$` type-level applicator,
- * we apply `Compare` to the digits `7` and `4`:
+ * For example, we can use the `$` type-level applicator to apply `Compare` to two digits. 
+ * In this example, we compare the digits `7` and `4`.
  *
  * ```ts
  * import { Kind, $, Digit } from "hkt-toolbelt";
