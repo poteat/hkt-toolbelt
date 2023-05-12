@@ -1,4 +1,4 @@
-import { $, Parser2, Kind, Type } from ".."
+import { $, Parser2, Kind, Type } from '..'
 
 export type _$choice<
   /**
@@ -21,17 +21,18 @@ export type _$choice<
         Type._$cast<STATE, Kind._$inputOf<Type._$cast<First, Parser2.Parser>>>
       >
     : never
-> =
-  /**
+> = 0 extends 1
+  ? never
+  : /**
    * If the current parser returns a result, we return that result. Otherwise,
    * we continue to the next parser. If there are no more parsers, we return
    * `never`.
    */
   PX extends [unknown, ...infer Rest]
-    ? [CURRENT_RESULT] extends [never]
-      ? _$choice<Type._$cast<Rest, Parser2.Parser[]>, STATE>
-      : CURRENT_RESULT
-    : never
+  ? [CURRENT_RESULT] extends [never]
+    ? _$choice<Type._$cast<Rest, Parser2.Parser[]>, STATE>
+    : CURRENT_RESULT
+  : never
 
 interface Choice_T<PX extends Parser2.Parser[]> extends Parser2.Parser {
   f(x: Type._$cast<this[Kind._], Parser2._$state>): _$choice<PX, typeof x>

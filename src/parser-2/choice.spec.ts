@@ -1,4 +1,4 @@
-import { $, Test, Parser2, String } from ".."
+import { $, Test, Parser2 } from '..'
 
 type Choice_Spec = [
   /**
@@ -8,18 +8,16 @@ type Choice_Spec = [
     $<
       $<
         Parser2.Choice,
-        [$<Parser2.Literal, "hello">, $<Parser2.Literal, "world">]
+        [$<Parser2.Literal, 'hello'>, $<Parser2.Literal, 'world'>]
       >,
       {
-        input: String._$toList<"hello world">
-        index: ["0"]
+        input: 'hello world'
         result: never
       }
     >,
     {
-      input: String._$toList<"hello world">
-      index: ["5"]
-      result: "hello"
+      input: ' world'
+      result: 'hello'
     }
   >,
 
@@ -30,18 +28,16 @@ type Choice_Spec = [
     $<
       $<
         Parser2.Choice,
-        [$<Parser2.Literal, "hello">, $<Parser2.Literal, "world">]
+        [$<Parser2.Literal, 'hello'>, $<Parser2.Literal, 'world'>]
       >,
       {
-        input: String._$toList<"world hello">
-        index: ["0"]
+        input: 'world hello'
         result: never
       }
     >,
     {
-      input: String._$toList<"world hello">
-      index: ["5"]
-      result: "world"
+      input: ' hello'
+      result: 'world'
     }
   >,
 
@@ -53,11 +49,10 @@ type Choice_Spec = [
     $<
       $<
         Parser2.Choice,
-        [$<Parser2.Literal, "hello">, $<Parser2.Literal, "world">]
+        [$<Parser2.Literal, 'hello'>, $<Parser2.Literal, 'world'>]
       >,
       {
-        input: String._$toList<"foobar">
-        index: ["0"]
+        input: 'foobar'
         result: never
       }
     >,
