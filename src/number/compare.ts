@@ -53,6 +53,40 @@ export type _$decimalCompare<
           : COMP
 > = RESULT;
 
+/**
+ * `_$compare` is a type-level function that takes in 
+ * two number types `A` and `B`, and returns the comparison result as a number type. 
+ * The result will be 1 if `A` is greater than `B`, 
+ * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
+ *
+ * ## Parameters
+ *
+ * @param A A number type.
+ * @param B A number type.
+ *
+ * ## Example
+ *
+ * @example
+ *
+ * For example, we can use `_$compare` to compare two numbers. 
+ *
+ * ```ts
+ * import { Number } from "hkt-toolbelt";
+ *
+ * type Result1 = Number._$compare<123, -321>; // 1
+ * type Result2 = Number._$compare<-123, 321>; // -1
+ * ```
+ *
+ * We can also use the `Compare` higher-order type with the `$` type-level
+ * applicator to achieve the same result:
+ *
+ * ```ts
+ * import { $, Number } from "hkt-toolbelt";
+ *
+ * type Result1 = $<$<Number.Compare, 123>, -321>; // 1
+ * type Result2 = $<$<Number.Compare, -123>, 321>; // -1
+ * ```
+ */
 export type _$compare<
   A extends Number.Number,
   B extends Number.Number,
@@ -63,6 +97,30 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): _$compare<X, typeof x>;
 }
 
+/**
+ * `Compare` is a type-level function that takes in 
+ * two number types `A` and `B`, and returns the comparison result as a number type. 
+ * The result will be 1 if `A` is greater than `B`, 
+ * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
+ *
+ * ## Parameters
+ *
+ * @param A A number type.
+ * @param B A number type.
+ *
+ * ## Example
+ *
+ * @example
+ *
+ * For example, we can use `Compare` to compare two numbers. 
+ *
+ * ```ts
+ * import { $, Number } from "hkt-toolbelt";
+ *
+ * type Result1 = $<$<Number.Compare, 123>, -321>; // 1
+ * type Result2 = $<$<Number.Compare, -123>, 321>; // -1
+ * ```
+ */
 export interface Compare extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Compare_T<typeof x>;
 }
