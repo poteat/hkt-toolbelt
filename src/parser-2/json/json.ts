@@ -1,4 +1,4 @@
-import { $, Parser2, List, Kind, Combinator } from '../..'
+import { $, Parser2, List, Kind } from '../..'
 
 type _$json = $<
   Kind.Pipe,
