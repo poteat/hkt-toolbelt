@@ -1,3 +1,3 @@
-import { Digit } from "..";
+import { Digit, Number } from "..";
 
-export type DecimalDigitList = readonly Digit.Digit[];
+export type DecimalDigitList = readonly [Number.Number, ...Digit.Digit[]];

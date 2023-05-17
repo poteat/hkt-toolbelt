@@ -4,13 +4,13 @@ type DigitList_Spec = [
   /**
    * "0.1" is assignable to a decimal digit list.
    */
-  Test.Expect<$<$<Conditional.Extends, DecimalDigitList.DecimalDigitList[number]>, "1">>,
+  Test.Expect<$<$<Conditional.Extends, [DecimalDigitList.DecimalDigitList[0]][number]>, number>>,
 
   /**
    * "0.0" is assignable.
    */
   Test.Expect<
-    $<$<Conditional.Extends, DecimalDigitList.DecimalDigitList[number]>, Digit.Zero>
+    $<$<Conditional.Extends, DecimalDigitList.DecimalDigitList[number]>, 0 | Digit.Zero>
   >,
 
   /**

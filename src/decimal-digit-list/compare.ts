@@ -1,4 +1,4 @@
-import { DecimalDigitList, Digit, DigitList, Kind, Type } from "..";
+import { DecimalDigitList, Digit, DigitList, Number, Kind, Type } from "..";
 
 export type _$compare2<
   A extends DigitList.DigitList,
@@ -23,8 +23,13 @@ export type _$compare2<
 export type _$compare<
   A extends DecimalDigitList.DecimalDigitList,
   B extends DecimalDigitList.DecimalDigitList,
-  RESULT extends 1 | 0 | -1 = _$compare2<DigitList._$trimRight<A>, DigitList._$trimRight<B>>
-> = RESULT
+  NUM_CMP extends 1 | 0 | -1 = Number._$compare<A[0], B[0]>,
+  A_DEC extends DigitList.DigitList = A extends [A[0], ...infer Rest] ? Rest : [],
+  B_DEC extends DigitList.DigitList = B extends [B[0], ...infer Rest] ? Rest : [],
+  RESULT extends 1 | 0 | -1 = NUM_CMP extends 0 
+    ?_$compare2<DigitList._$trimRight<A_DEC>, DigitList._$trimRight<B_DEC>>
+    : NUM_CMP
+> = RESULT;
 
 interface Compare_T<X extends DecimalDigitList.DecimalDigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DecimalDigitList.DecimalDigitList>): _$compare<X, typeof x>
