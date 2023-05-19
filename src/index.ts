@@ -21,6 +21,9 @@ export * as Digit from './digit'
 import * as Function from './function'
 export * as Function from './function'
 
+import * as Integer from './integer'
+export * as Integer from './integer'
+
 import * as Kind from './kind'
 export * as Kind from './kind'
 
