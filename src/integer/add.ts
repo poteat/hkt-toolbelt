@@ -8,7 +8,7 @@ export type _$add<
   A_LIST extends DigitList.DigitList = A_SGN extends "-" ? NaturalNumber._$toList<Number._$absolute<A>> : NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = B_SGN extends "-" ? NaturalNumber._$toList<Number._$absolute<B>> : NaturalNumber._$toList<B>,
   IS_A_GREATER extends 1 | 0 | -1 = DigitList._$compare<A_LIST, B_LIST>,
-  SUM extends Number.Number = 
+  SUM = 
     A_SGN extends "+"
       ? B_SGN extends "+"
         ? DigitList._$toNumber<DigitList._$add<A_LIST, B_LIST>>
