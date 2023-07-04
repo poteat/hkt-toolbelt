@@ -1,4 +1,4 @@
-import { $, Type, Kind, String } from '..'
+import { $, Type, Kind } from '..'
 
 export type _$map<T extends Kind.Kind, X extends unknown[]> = {
   [key in keyof X]: $<T, Type._$cast<X[key], Kind._$inputOf<T>>>
