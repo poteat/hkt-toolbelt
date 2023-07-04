@@ -7,3 +7,5 @@ interface _Capitalize extends Kind.Kind {
 }
 
 export { _Capitalize as Capitalize }
+
+export declare const capitalize: Kind._$reify<_Capitalize>
