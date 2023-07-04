@@ -56,7 +56,7 @@ In short, **`hkt-toolbelt`** let's you go from this:
 /**
  * Remove all non-numeric elements from a tuple.
  */
-type FilterNum<T extends unknown[]> = T extends [Head, ...Tail]
+type FilterNum<T extends unknown[]> = T extends [infer Head, ...infer Tail]
   ? Head extends number
     ? [Head, ...FilterNum<Tail>]
     : FilterNum<Tail>
