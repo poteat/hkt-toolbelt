@@ -16,7 +16,9 @@ type _$decrement2<
   NEXT_OUTPUT extends DigitList.DigitList = [DECREMENT, ...OUTPUT],
   FINAL_RESULT = CARRY extends '1' ? ['0'] : OUTPUT,
   SHORT_CIRCUIT = A extends '0'[] ? OUTPUT : [...A, ...OUTPUT]
-> = A extends '0'[]
+> = 0 extends 1
+  ? never
+  : A extends '0'[]
   ? FINAL_RESULT
   : CARRY extends '0'
   ? SHORT_CIRCUIT

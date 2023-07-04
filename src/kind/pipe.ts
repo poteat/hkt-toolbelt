@@ -11,6 +11,7 @@ interface Pipe_T<FX extends Kind.Kind[]> extends Kind.Kind {
       this[Kind._],
       FX extends [] ? unknown : Kind._$inputOf<List._$first<FX>>
     >
+    // @ts-ignore
   ): _$pipe<FX, typeof x>
 }
 
