@@ -10,9 +10,9 @@
  * For example, we can use `Zero` in arithmetic operations like addition:
  *
  * ```ts
- * import { $, DigitList, Digit } from "hkt-toolbelt";
+ * import { $, Digit } from "hkt-toolbelt";
  *
- * type Result = $<$<DigitList.Add, [Digit.Zero]>, ["1"]>; // ["1"]
+ * type Result = $<$<Digit.Add, Digit.Zero>, "2">; // "3"
  * ```
  *
  * In this example, we add `Zero` to the digit "1", and the result is a digit

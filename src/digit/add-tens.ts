@@ -1,21 +1,21 @@
-import { Type, Digit, Kind } from "..";
+import { Type, Digit, Kind } from '..'
 
 /**
  * `_addTens_LUT` is a type level lookup table for adding tens of two digits.
  * It should not be used directly by end-users, as it may change in the future.
  */
 type _$addTens_LUT = [
-  ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"],
-  ["0", "0", "0", "0", "0", "0", "0", "0", "0", "1"],
-  ["0", "0", "0", "0", "0", "0", "0", "0", "1", "1"],
-  ["0", "0", "0", "0", "0", "0", "0", "1", "1", "1"],
-  ["0", "0", "0", "0", "0", "0", "1", "1", "1", "1"],
-  ["0", "0", "0", "0", "0", "1", "1", "1", "1", "1"],
-  ["0", "0", "0", "0", "1", "1", "1", "1", "1", "1"],
-  ["0", "0", "0", "1", "1", "1", "1", "1", "1", "1"],
-  ["0", "0", "1", "1", "1", "1", "1", "1", "1", "1"],
-  ["0", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
-];
+  ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+  ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1'],
+  ['0', '0', '0', '0', '0', '0', '0', '0', '1', '1'],
+  ['0', '0', '0', '0', '0', '0', '0', '1', '1', '1'],
+  ['0', '0', '0', '0', '0', '0', '1', '1', '1', '1'],
+  ['0', '0', '0', '0', '0', '1', '1', '1', '1', '1'],
+  ['0', '0', '0', '0', '1', '1', '1', '1', '1', '1'],
+  ['0', '0', '0', '1', '1', '1', '1', '1', '1', '1'],
+  ['0', '0', '1', '1', '1', '1', '1', '1', '1', '1'],
+  ['0', '1', '1', '1', '1', '1', '1', '1', '1', '1']
+]
 
 /**
  * `_$addTens` is a type-level function that takes two separate decimal digit
@@ -42,10 +42,10 @@ type _$addTens_LUT = [
 export type _$addTens<
   A extends Digit.Digit,
   B extends Digit.Digit
-> = _$addTens_LUT[A][B];
+> = _$addTens_LUT[A][B]
 
 interface AddTens_T<A extends Digit.Digit> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$addTens<A, typeof x>;
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$addTens<A, typeof x>
 }
 
 /**
@@ -68,5 +68,5 @@ interface AddTens_T<A extends Digit.Digit> extends Kind.Kind {
  * ```
  */
 export interface AddTens extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Digit.Digit>): AddTens_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): AddTens_T<typeof x>
 }

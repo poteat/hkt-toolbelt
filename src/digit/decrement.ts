@@ -1,11 +1,16 @@
 import { Type, Digit, Kind } from '..'
 
+/**
+ * `_$decrement_LUT` is a type-level lookup table which maps each digit from "0"
+ * to "9" to its preceding digit.
+ */
 type _$decrement_LUT = ['9', '0', '1', '2', '3', '4', '5', '6', '7', '8']
 
 /**
- * `_$decrement` is a type-level function which takes in a required `Digit.Digit`
- * type parameter and returns a subsequent digit. The new digit is immediately
- * before the input digit in the sequence "0, 1, 2, 3, 4, 5, 6, 7, 8, 9".
+ * `_$decrement` is a type-level function which takes in a required
+ * `Digit.Digit` type parameter and returns a subsequent digit. The new digit
+ * is immediately before the input digit in the sequence "0, 1, 2, 3, 4, 5, 6,
+ * 7, 8, 9".
  *
  * ## Parameter
  *
@@ -19,9 +24,9 @@ type _$decrement_LUT = ['9', '0', '1', '2', '3', '4', '5', '6', '7', '8']
  * this type-level function as follows:
  *
  * ```ts
- * import { Digit } from 'hkt-toolbelt';
+ * import { Digit } from 'hkt-toolbelt'
  *
- * type Result = Digit._$decrement<'5'>; // "4"
+ * type Result = Digit._$decrement<'5'> // "4"
  * ```
  */
 export type _$decrement<A extends Digit.Digit> = _$decrement_LUT[A]
@@ -47,7 +52,7 @@ export type _$decrement<A extends Digit.Digit> = _$decrement_LUT[A]
  * ```ts
  * import { $, Digit } from 'hkt-toolbelt';
  *
- * type Result = $<Digit.Decrement, '5'>; // "4"
+ * type Result = $<Digit.Decrement, '5'> // "4"
  * ```
  */
 export interface Decrement extends Kind.Kind {
