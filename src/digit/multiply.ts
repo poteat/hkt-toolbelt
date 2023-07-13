@@ -1,5 +1,13 @@
 import { Type, Kind, Digit } from '..'
 
+/**
+ * `_$multiply_LUT` is a type-level lookup table that is used by `_$multiply` to
+ * multiply two digits together. It maps a digit type `A` and a digit type `B`
+ * to the result of multiplying `A` by `B`, modulo 10.
+ *
+ * For example, `_$multiply_LUT["2"]["3"]` is equal to `"6"`. Below, this is
+ * counted 'down' the rows and 'across' the columns in the table.
+ */
 type _$multiply_LUT = [
   ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
   ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
@@ -31,9 +39,9 @@ type _$multiply_LUT = [
  * example, `2` and `3` are passed as type arguments to the type-level function:
  *
  * ```ts
- * import { Digit } from "hkt-toolbelt";
+ * import { Digit } from "hkt-toolbelt"
  *
- * type Result = Digit._$multiply<"2", "3">; // "6"
+ * type Result = Digit._$multiply<"2", "3"> // "6"
  * ```
  */
 export type _$multiply<
@@ -62,9 +70,9 @@ interface Multiply_T<A extends Digit.Digit> extends Kind.Kind {
  * applicator:
  *
  * ```ts
- * import { $, Digit } from "hkt-toolbelt";
+ * import { $, Digit } from "hkt-toolbelt"
  *
- * type Result = $<$<Digit.Multiply, "2">, "3">; // "6"
+ * type Result = $<$<Digit.Multiply, "2">, "3"> // "6"
  * ```
  */
 export interface Multiply extends Kind.Kind {

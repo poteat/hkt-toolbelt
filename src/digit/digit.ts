@@ -11,9 +11,10 @@
  * Here are some usage examples of the `Digit` type:
  *
  * ```ts
- * import { Digit } from 'hkt-toolbelt';
+ * import { Digit } from 'hkt-toolbelt'
  *
- * type MyDigit = Digit; // "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+ * type MyDigit = Digit // "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" |
+ * "8" | "9"
  * ```
  *
  * @example
@@ -22,10 +23,10 @@
  * utilities such as numerical operations or string manipulation.
  *
  * ```ts
- * import { Digit, String } from 'hkt-toolbelt';
+ * import { Digit, String } from 'hkt-toolbelt'
  *
  * // `Increment` utility increments a decimal digit by 1.
- * type One = $<String.Increment, Digit.Zero>; // "1"
+ * type One = $<String.Increment, Digit.Zero> // "1"
  * ```
  */
 export type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'

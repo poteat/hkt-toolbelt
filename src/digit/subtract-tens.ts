@@ -35,9 +35,9 @@ type _$subtractTens_LUT = [
  * tens place:
  *
  * ```ts
- * import { Digit } from "hkt-toolbelt";
+ * import { Digit } from "hkt-toolbelt"
  *
- * type Result = Digit._$subtractTens<"2", "9">; // "1"
+ * type Result = Digit._$subtractTens<"2", "9"> // "1"
  * ```
  */
 export type _$subtractTens<
@@ -70,9 +70,9 @@ interface SubtractTens_T<A extends Digit.Digit> extends Kind.Kind {
  * type-level applicator:
  *
  * ```ts
- * import { $, Digit } from "hkt-toolbelt";
+ * import { $, Digit } from "hkt-toolbelt"
  *
- * type Result = $<$<Digit.SubtractTens, "2">, "9">; // "1"
+ * type Result = $<$<Digit.SubtractTens, "2">, "9"> // "1"
  * ```
  */
 export interface SubtractTens extends Kind.Kind {

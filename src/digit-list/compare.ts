@@ -84,7 +84,7 @@ interface Compare_T<X extends DigitList.DigitList> extends Kind.Kind {
  *
  * @example
  *
- * For example, we can use the `$` type-level applicator to apply `Compare` to two digit lists. 
+ * For example, we can use the `$` type-level applicator to apply `Compare` to two digit lists.
  * In this example, we compare the digit lists ["1", "2", "3"] and ["3", "2", "1"]:
  *
  * ```ts
