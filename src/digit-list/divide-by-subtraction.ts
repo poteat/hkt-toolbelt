@@ -31,8 +31,7 @@ type _$divideBySubtraction2<
 /**
  * `_$divideBySubtraction` is a type-level function that performs the division or modulo operation by subtraction.
  * It takes in two digit lists `A` and `B` representing the dividend and divisor respectively, and an operation type
- * which can be either "DIVIDE" or "MODULO". It checks if the divisor is zero or one, and if so, returns the appropriate
- * result. Otherwise, it calls the `_$divideBySubtraction2` function to perform the operation.
+ * which can be either "DIVIDE" or "MODULO". It returns the result of the operation (division or substraction).
  *
  * @param A A digit list representing a number to divide.
  * @param B A digit list representing a number to divide by.
@@ -79,13 +78,13 @@ interface DivideBySubtraction_T<A extends DigitList.DigitList>
 
 
 /**
- * `DivideBySubtraction` is a type-level function that performs the division by subtraction.
- * It takes in a digit list `A` representing the dividend and returns a function that takes in a DigitList representing
- * the divisor.
+ * `DivideBySubtraction` is a type-level function that performs a division by subtraction.
+ * It returns the result of the division.
  *
+ * ## Parameters
+ * 
  * @param A A digit list representing a number to divide.
  * @param B A digit list representing a number to divide by.
-
  *
  * @example
  *
