@@ -86,6 +86,39 @@ type _$divide2<
   ? RESULT
   : _$divide2<A, B, OPERATION, NEXT_DIVIDEND, NEXT_QUOTIENT, NEXT_REMAINDER>;
 
+
+/**
+ * `_$divide` is a type-level function that performs the division or modulo operation.
+ * It takes in two digit lists `A` and `B` representing the dividend and divisor respectively, and an operation type
+ * which can be either "DIVIDE" or "MODULO". It checks if the divisor is 0 or 1 and returns the appropriate result.
+ * If the divisor is neither 0 nor 1, it calls the `_$divide2` function to perform the division.
+ *
+ * ## Parameters
+ * 
+ * @param A A digit list representing a number to divide.
+ * @param B A digit list representing a number to divide by.
+ * @param OPERATION A string type representing the operation to be performed. Can be either "DIVIDE" or "MODULO".
+ *
+ * @example
+ *
+ * For example, we can use `_$divide` to divide a digit list representing the number 10 by 2:
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type Result = DigitList._$divide<["1", "0"], ["2"], "DIVIDE">; // ["5"]
+ * ```
+ *
+ * @example
+ *
+ * We can also use `_$divide` to find the remainder when a digit list representing the number 123 is divided by 17:
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type Result = DigitList._$divide<["1", "2", "3"], ["1", "7"], "MODULO">; // ["4"]
+ * ```
+ */
 export type _$divide<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
@@ -102,6 +135,22 @@ interface Divide_T<A extends DigitList.DigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$divide<A, typeof x>;
 }
 
+/**
+ * `Divide` is a type-level function that performs a division operation.
+ * It returns the result of the division operation.
+ *
+ * @example
+ *
+ * For example, we can use `Divide` to create a division operation that divides a digit list representing the number 10 by 2:
+ *
+ * ```ts
+ * import { $, DigitList } from "hkt-toolbelt";
+ *
+ * type Result = $<$<DigitList.Divide, ["1", "0"]>, ["2"]>; // ["5"]
+ * ```
+ *
+ * In this example, `Result` is a type that represents the digit list ["5"], which is the result of dividing 10 by 2.
+ */
 export interface Divide extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Divide_T<typeof x>;
 }

@@ -1,8 +1,7 @@
 import { Digit } from "..";
 
 /**
- * `DigitList` is a is a type alias representing a list of decimal
- * digits from "0" to "9" (inclusive).
+ * `DigitList` is a type alias representing a list of decimal digits from "0" to "9" (inclusive).
  *
  * ## Example
  *
