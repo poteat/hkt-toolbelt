@@ -1,4 +1,4 @@
-import { $, Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from "..";
 
 type _$divideBySubtraction2<
   A extends DigitList.DigitList,
