@@ -1,3 +1,32 @@
+## ABOUT THE CODEBASE
+
+The codebase you are working with is hkt-toolbelt. It is a type-level Typescript utility library that encodes composable higher-kinded types. It supports a number of utilities, such as functional utilities (map), list utilities (length, concatenation, prepend), string utilities, and type-level numeric utilities (such as type-level integer division). It's very advanced and many normal Typescript concepts don't apply here.
+
+## THE TASK
+
+I would like you to write JSDoc for every step in a type-level operation.
+
+When approaching TypeScript type-level operations, the main concept to bear in mind is that we're documenting behavior part of a type computation occurring solely at compile time.
+
+Here's how to go about describing these steps:
+
+1. Parameter identification: Identify and understand the role of each generic parameter in the operation. Know the input (subject of operation), and the intermediates used in the operation. If a parameter isn’t initially provided, find default values and understand their relevance.
+
+2. Follow the logic: In recursive operations, it helps to understand when and why the recursion stops. Look for short-circuit conditions which may reflect critical features of the system or edge cases.
+
+3. Understand the purpose: Each generic parameter and condition generally carries a precise intention. Consider why a particular operation is done.
+
+4. Consider consequences and failsafes: Type-level operations can't evaluate dynamic conditions and often lean on broad assumptions we give. Document any assumptive behaviors and their logical bounds.
+
+5. Prioritize readability: Keep comments clear, concise, and helpful. Break down complex operations into simpler terms. The goal is to allow readers to grasp the provided information efficiently.
+
+For each file, examine the piece of code thoroughly, clearly documenting every step using these principles. Adjust the comments for character limits as necessary, using sensible abbreviations to encapsulate concepts. Take into account the context for nuanced interpretations. By consistently applying these guidelines, you'll create understandable, maintainable code capable of supporting long-term projects.
+
+And remember, while comments are great, the goal of any good codebase should be for the code to be readable and understandable on its own, without overly relying on comments. When the code reads like sentences, it's usually a good indicator that you followed programming best practices.
+
+Here's an example of a well-documented type-level operation:
+
+````ts
 import { Type, Kind, Digit, DigitList } from '..'
 
 type _$decrement2<
@@ -162,3 +191,12 @@ export type _$decrement<A extends DigitList.DigitList> = DigitList._$trim<
 export interface Decrement extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$decrement<typeof x>
 }
+````
+
+## THE FILE TO DOCUMENT
+
+Here is the file that needs to be documented:
+
+```ts
+
+```
