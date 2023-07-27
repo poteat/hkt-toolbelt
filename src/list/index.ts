@@ -1,3 +1,4 @@
+export * from "./accumulate";
 export * from "./concat";
 export * from "./every";
 export * from "./flatten";
