@@ -1,4 +1,4 @@
-import { $, Boolean, Number, NaturalNumberTheory, Function, List, Test } from "hkt-toolbelt";
+import { $, Kind, Boolean, Number, NaturalNumber, NaturalNumberTheory, Function, List, Test } from "hkt-toolbelt";
 
 type Iterate_Spec = [
   /**
@@ -46,5 +46,21 @@ type Iterate_Spec = [
   Test.Expect<
     $<$<$<List.Iterate, NaturalNumberTheory.Factorial>, 2>, 4>,
     [4, 24]
-  >
+  >,
+
+  /**
+   * Can cumulatively increment by two.
+   */
+  Test.Expect<
+    $<$<$<List.Iterate, $<NaturalNumber.Add, 2>>, 5>, 0>,
+    [0, 2, 4, 6, 8]
+  >,
+
+  /**
+   * Iterates over the last digit cycle for multiples of three.
+   */
+  Test.Expect<
+    $<$<$<List.Iterate, $<Kind.Pipe, [$<NaturalNumber.Multiply, 3>, $<NaturalNumber.ModuloBy, 10>]>>, 8>, 1>,
+    [1, 3, 9, 7, 1, 3, 9, 7]
+  >,
 ];
