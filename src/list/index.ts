@@ -1,4 +1,5 @@
 export * from "./accumulate";
+export * from "./at";
 export * from "./concat";
 export * from "./every";
 export * from "./flatten";
@@ -27,3 +28,4 @@ export * from "./splice";
 export * from "./some";
 export * from "./times";
 export * from "./unshift";
+export * from './zip';
