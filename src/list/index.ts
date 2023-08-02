@@ -7,6 +7,7 @@ export * from "./filter";
 export * from "./find";
 export * from "./first";
 export * from "./includes";
+export * from "./iterate";
 export * from "./is-variadic";
 export * from "./last";
 export * from "./length";
