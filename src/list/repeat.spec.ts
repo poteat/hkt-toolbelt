@@ -1,7 +1,5 @@
 import { $, Test, List } from ".."
 
-type TestType = string | number | undefined;
-
 type Repeat_Spec = [
   /**
    * Can create a tuple of length 0
@@ -20,9 +18,14 @@ type Repeat_Spec = [
   Test.Expect<$<$<List.Repeat, 5>, null>, [null, null, null, null, null]>,
 
   /**
+   * Correctly handles tuple type input.
+   */
+  Test.Expect<$<$<List.Repeat, 3>, $<List.Times, 3>>, [[0, 1, 2], [0, 1, 2], [0, 1, 2]]>,
+
+  /**
    * Correctly handles repeating union type input.
    */
-  Test.Expect<$<$<List.Repeat, 3>, TestType>, [string | number | undefined, string | number | undefined, string | number | undefined]>,
+  Test.Expect<$<$<List.Repeat, 3>, string | number | undefined>, [string | number | undefined, string | number | undefined, string | number | undefined]>,
 
   /**
    * Returns `never` for non-natural numbers.

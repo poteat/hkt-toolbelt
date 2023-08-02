@@ -1,4 +1,4 @@
-import { $, Conditional, Function, List, Test } from "hkt-toolbelt";
+import { $, $N, $$, Conditional, Function, List, Test } from "hkt-toolbelt";
 
 type Map_Spec = [
   /**
@@ -34,5 +34,22 @@ type Map_Spec = [
   Test.Expect<
     $<$<List.Map, $<Function.Constant, "foo">>, ["foo", "bar"]>,
     ["foo", "foo"]
-  >
+  >,
+
+  /** 
+   * Can be used in its partially applied form as an input for a higher-order map operation over nested tuples.
+   */
+  Test.Expect<
+    $N<List.Map, [
+      $<List.Map, 
+        $N<Conditional.If, [
+          $<Conditional.Equals, 1>, 
+          Function.Identity,
+          $<Function.Constant, null>
+        ]>
+      >,
+      $<$<List.Repeat, 2>, $<List.Times, 3>>
+    ]>,
+    [[null, 1, null], [null, 1, null]]
+  >,
 ];
