@@ -8,7 +8,7 @@ export type _$accumulate<
   REST extends List.List = $<List.Shift, X>,
   ACC extends unknown = List._$reduce<F, [CURR], O>,
   RESULT = X extends [] ? [] : List._$unshift<ACC, _$accumulate<F, REST, ACC>>
-> = 1 extends 0 ? never : RESULT
+> = 0 extends 1 ? never : RESULT
 
 interface Accumulate_T2<F extends Kind.Kind<(x: never) => Kind.Kind>, X>
   extends Kind.Kind {
