@@ -1,12 +1,12 @@
 import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List, Boolean } from "..";
 
 type _$splice2<
-  T extends unknown[], 
+  T extends List.List, 
   START extends Number.Number,
   DEL_COUNT extends DigitList.DigitList,
-  INSERTS extends unknown[],
-  PRE extends unknown[] = [],
-  POST extends unknown[] = T,
+  INSERTS extends List.List,
+  PRE extends List.List = [],
+  POST extends List.List = T,
   T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T["length"]>,
   START_ABS extends DigitList.DigitList = NaturalNumber._$toList<Number._$absolute<START>>,
   START_NORM extends DigitList.DigitList = Number._$isNatural<START> extends true
@@ -70,21 +70,25 @@ type _$splice2<
  * 
  **/
 export type _$splice<
-  T extends unknown[],
+  T extends List.List,
   START extends Number.Number,
   DEL_COUNT extends Number.Number,
-  INSERTS extends unknown[],
+  INSERTS extends List.List,
   RESULT extends List.List = Boolean._$and<Number._$isInteger<START>, Number._$isNatural<DEL_COUNT>> extends true
     ? _$splice2<T, START, NaturalNumber._$toList<DEL_COUNT>, INSERTS>
     : never
 > = RESULT;
 
-interface Splice_T2<INPUT extends [START: Number.Number, DEL_COUNT: Number.Number], INSERTS extends unknown[]> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): _$splice<typeof x, INPUT[0], INPUT[1], INSERTS>;
+interface Splice_T3<START extends Number.Number, DEL_COUNT extends Number.Number, INSERTS extends List.List> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], List.List>): _$splice<typeof x, START, DEL_COUNT, INSERTS>;
 }
 
-interface Splice_T<INPUT extends [START: Number.Number, DEL_COUNT: Number.Number]> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): Splice_T2<INPUT, typeof x>;
+interface Splice_T2<START extends Number.Number, DEL_COUNT extends Number.Number> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], List.List>): Splice_T3<START, DEL_COUNT, typeof x>;
+}
+
+interface Splice_T<START extends Number.Number> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Number.Number>): Splice_T2<START, typeof x>;
 }
 
 /**
@@ -116,11 +120,11 @@ interface Splice_T<INPUT extends [START: Number.Number, DEL_COUNT: Number.Number
 * 
 * type MyList = [0, 1, 2, 3, 4]
 * 
-* type Result1 = <$<$<$<List.Splice, [1, 2]>, []>, [0, 1, 2, 3, 4]>; // [0, 3, 4]
+* type Result1 = $<$<$<$<List.Splice, 1>, 2>, []>, [0, 1, 2, 3, 4]>; // [0, 3, 4]
 *
-* type Result2 = <$<$<$<List.Splice, [1, 2]>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 'a', 'b', 3, 4]
+* type Result2 = $<<$<$<$<List.Splice, 1>, 2>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 'a', 'b', 3, 4]
 * 
-* type Result3 = <$<$<$<List.Splice, [-2, 2]>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 1, 'a', 'b', 4]
+* type Result3 = $<$<$<$<List.Splice, -2>, 2>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 1, 'a', 'b', 4]
 * ```
 * 
 * ## Edge Cases
@@ -132,5 +136,5 @@ interface Splice_T<INPUT extends [START: Number.Number, DEL_COUNT: Number.Number
 * 
 **/
 export interface Splice extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], [START: Number.Number, DEL_COUNT: Number.Number]>): Splice_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], Number.Number>): Splice_T<typeof x>;
 }
