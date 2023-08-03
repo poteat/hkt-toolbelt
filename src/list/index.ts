@@ -18,6 +18,7 @@ export * from "./pair";
 export * from "./pop";
 export * from "./pop-n";
 export * from "./push";
+export * from "./range";
 export * from "./reduce";
 export * from "./repeat";
 export * from "./reverse";
