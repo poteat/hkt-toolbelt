@@ -28,9 +28,10 @@ import { $, Kind, Type } from ".."
 export type _$unapply<
   K extends Kind.Kind,
   F extends Kind.Kind,
-> = K extends $<F, infer X>
+  X extends Kind._$inputOf<F> = K extends $<F, infer X>
     ? X
     : never
+> = X
 
 interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
   f(
