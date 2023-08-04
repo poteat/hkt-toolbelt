@@ -42,83 +42,110 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
   </a>
 </p>
 
-## Installation
+## Getting Started
+
+### Installation
 
 ```bash
 > npm install hkt-toolbelt
+> yarn add hkt-toolbelt
 ```
 
-## Usage
-
-In short, **`hkt-toolbelt`** let's you go from this:
+### Importing
 
 ```ts
-/**
- * Remove all non-numeric elements from a tuple.
- */
-type FilterNum<T extends unknown[]> = T extends [infer Head, ...infer Tail]
-  ? Head extends number
-    ? [Head, ...FilterNum<Tail>]
-    : FilterNum<Tail>
-  : [];
+import { 
+  $, $$, $N, 
+  Boolean, Conditional, Function
+  List, Object, String, Union
+  Number, NaturalNumber, 
+  Kind, Type, Combinator, Parser 
+} from "hkt-toolbelt";
 ```
-
-To this:
-
-```ts
-import { $, List, Conditional } from "hkt-toolbelt";
-
-type FilterNum = $<List.Filter, $<Conditional.Extends, number>>;
-```
-
-**`hkt-toolbelt`** let's you express advanced types in a readable way, via composition of higher-kinded primitives.
-
-### Kind Apply with $
-
-You apply your kinds to an input with the `$` operator:
-
-```ts
-type Result = $<FilterNum, [1, "x", 2, "y", 3]>; // [1, 2, 3]
-```
-
-### Subpath Imports
 
 You can also optionally import subpaths.
 
 ```ts
-import { $ } from "hkt-toolbelt";
-import { Filter } from "hkt-toolbelt/list";
-import { Extends } from "hkt-toolbelt/conditional";
-
-type FilterNum = $<Filter, $<Extends, number>>;
+import { $, $$, $N } from "hkt-toolbelt";
+import { Map, Filter, Reduce } from "hkt-toolbelt/list";
+import { Equals, Extends, If } from "hkt-toolbelt/conditional";
 ```
 
-## What is a HKT?
+## Usage
 
-> **> HKT stands for "higher-kinded type"**
+### 1) `$`: Applicator
 
-Typescript has two _different_ constructions: types, and generics.
+> **`$<KIND, ARG>`**
 
-- **type**: An compile-time expression that is used to describe a value.
-- **generic**: A 'template' type that can be instantiated with one or more type arguments, and resolves to a type.
+The kind utilities in **`hkt-toolbelt`** are curried, unary type-level functions that can be applied to type arguments using the `$` applicator.
 
-Generics are not first-class citizens in Typescript - you cannot reference them without immediately supplying all of their type arguments. You can't pass in generics as arguments to other generics, or return them. This is a limitation of the language.
+```ts
+import { $, Function } from "hkt-toolbelt";
 
-**`hkt-toolbelt` introduces two additional constructions:**
+type IAmI = $<Function.Identity, "I">; // ["I"]
+type HelloWorld = $<$<List.Push, ["world"]>, ["hello"]>; // ["hello", "world"]
+```
 
-- **kind**: A compile-time expression that is used to describe a type, and is parameterized such that it may be applied to an argument type.
-- **generic kind**: A generic type that returns a kind.
+```js
+// javascript translation
+const iAmI = ((x) => x)("I");
+const helloWorld = ((arr) => [...arr, "world"])(["hello"]);
+```
 
-We apply kinds to types using the `$<kind, type>` generic.
+### 2) `$N`: Pass *Multiple Arguments* into an uncurried Function
 
-Using kinds allows us to represent new types that are not possible with generics alone. For example: the narrow composition of generic functions.
+> **`$N<KIND, [ARG1, ARG2, ...]>`**
 
-As well, for even types that are representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
+What if your function needs multiple arguments? Simply use the `$N` operator. Now you can supply arguments in order using a tuple, instead of heavily nested `$` calls.
 
-> **Note on Terminology**
-> Technically, using the word **_kind_** like this is incorrect. However, always mentioning 'higher-kinded type' is cumbersome, so we use **'kind'** as shorthand.
->
-> In some places we use 'hk-type' instead, which is more correct.
+```ts
+import { $, $N, List, NaturalNumber } from "hkt-toolbelt";
+
+// example 1: full application
+type ReduceSum1to5$N = $N<List.Reduce, [
+  NaturalNumber.Add,
+  0,
+  [1, 2, 3, 4, 5]
+]>;  // 15
+
+// example 2: partial application
+type ReduceSum = $N<List.Reduce, [NaturalNumber.Add, 0]>;
+type ReduceSum1to5$ = $<ReduceSum, [1, 2, 3, 4, 5]>;  // 15
+```
+
+```js
+// javascript translation
+const reduceSum1to5$N =
+  [1, 2, 3, 4, 5].reduce((acc, curr) => acc + curr, 0);
+
+const reduceSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
+const reduceSum1to5$ = reduceSum([1, 2, 3, 4, 5]);
+```
+
+### 3) `$$`: Pipe an Argument through *Multiple Functions*
+
+> **`$$<[KIND1, KIND2, ...], ARG>`**
+
+What if you want to compose multiple functions over a single argument? This time, use the `$$` operator to supply the functions in order using a tuple.
+
+```ts
+import { $, $$, List, String } from "hkt-toolbelt";
+
+type UnshiftPushJoin = $$<[
+    $<List.Unshift, "first">,  // ["first", "second"]
+    $<List.Push, "third">,     // ["first", "second", "third"]
+    $<String.Join, ", ">,      // "first, second, third"
+  ], ["second"]>;
+```
+
+```js
+// javascript translation
+const unshiftPushJoin = 
+  ((arr) => arr.join(", "))(
+    (((arr) => [...arr, "third"])(
+      ((arr) => ["first", ...arr])(["second"])
+  )));
+```
 
 ## Guides
 
