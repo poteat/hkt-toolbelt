@@ -25,11 +25,11 @@
 
 ---
 
-This library provides type-level utilities across many domains that may be mapped and combined in a functional way, using higher-kinded types.
+**`hkt-toolbelt`** is a collection of type-level utilities that can be mapped and combined in functional ways using higher-kinded types.
 
-Write robust, type-safe software with the benefit of composable and compile-time efficient types.
+Our composable and compile time-efficient types enable users to write expressive and readable type-level code without getting mired in complexity.
 
-We aim to support hundreds of kind categories, including **List**, **Boolean**, **String**, **Function**, and more. We also provide a set of combinators for composing types.
+We support all of the kind categories you need, including **List**, **Boolean**, **String**, **Function**, and a set of combinators for composing types. We're always adding new and exciting features, so stay tuned!
 
 <p align="right">
 <b>Translations</b>
@@ -42,28 +42,50 @@ We aim to support hundreds of kind categories, including **List**, **Boolean**, 
   </a>
 </p>
 
+## What is a `HKT`?
+
+> **> HKT stands for "higher-kinded type"**
+
+TypeScript has two distinct constructions: types, and generics.
+
+- **type**: A compile-time expression that is used to describe a value.
+- **generic**: A "template" type that can be instantiated with one or more type arguments, and resolves to a type.
+
+Generics are *not* first-class citizens in TypeScript -- they can't be referenced without immediately supplying all of their type arguments, they can't pass in as arguments to other generics, and they can't be returned by other generics. These are limitations of the language itself.
+
+**`hkt-toolbelt` introduces two additional constructions:**
+
+- **kind**: A compile-time expression that is used to describe a type, and is parameterized such that it may be applied to an argument type.
+- **generic kind**: A generic type that returns a kind (a.k.a. **"higher-kinded type"**).
+
+> For convenience, we will use **"kind"** to refer to **"higher-kinded types"** as well.
+
+Using kinds allows us to represent new types that are not possible with generics alone (e.g. through narrow composition of generic functions). Even for types that *are* representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
+
 ## Getting Started
 
-### Installation
+### Install
 
 ```bash
 > npm install hkt-toolbelt
 > yarn add hkt-toolbelt
 ```
 
-### Importing
+### Import
+
+You can selectively import the kind categories that you need.
 
 ```ts
 import { 
   $, $$, $N, 
-  Boolean, Conditional, Function
-  List, Object, String, Union
-  Number, NaturalNumber, 
-  Kind, Type, Combinator, Parser 
+  Boolean, Conditional, Function,
+  List, Object, String, Union,
+  Number, NaturalNumber,
+  Kind, Type, Combinator, Parser,
 } from "hkt-toolbelt";
 ```
 
-You can also optionally import subpaths.
+You also have the option to load individual type utilities from subpaths.
 
 ```ts
 import { $, $$, $N } from "hkt-toolbelt";
@@ -77,18 +99,20 @@ import { Equals, Extends, If } from "hkt-toolbelt/conditional";
 
 > **`$<KIND, ARG>`**
 
-The kind utilities in **`hkt-toolbelt`** are curried, unary type-level functions that can be applied to type arguments using the `$` applicator.
+The kind utilities in **`hkt-toolbelt`** are curried, unary type-level functions that can be applied to a single type argument using the `$` applicator.
 
 ```ts
-import { $, Function } from "hkt-toolbelt";
+import { $, Function, List } from "hkt-toolbelt";
 
-type IAmI = $<Function.Identity, "I">; // ["I"]
-type HelloWorld = $<$<List.Push, ["world"]>, ["hello"]>; // ["hello", "world"]
+type IAmI = $<Function.Identity, "I">;  // ["I"]
+
+type HelloWorld = $<$<List.Push, ["world"]>, ["hello"]>;  // ["hello", "world"]
 ```
 
 ```js
-// javascript translation
+// In javascript, this would be..
 const iAmI = ((x) => x)("I");
+
 const helloWorld = ((arr) => [...arr, "world"])(["hello"]);
 ```
 
@@ -101,25 +125,29 @@ What if your function needs multiple arguments? Simply use the `$N` operator. No
 ```ts
 import { $, $N, List, NaturalNumber } from "hkt-toolbelt";
 
-// example 1: full application
-type ReduceSum1to5$N = $N<List.Reduce, [
-  NaturalNumber.Add,
-  0,
-  [1, 2, 3, 4, 5]
+// Example 1: full application (invoked with all three arguments)
+type ReduceSum1to5 = $N<List.Reduce, [
+  NaturalNumber.Add,  // callback
+  0,                  // initial value
+  [1, 2, 3, 4, 5]     // target array
 ]>;  // 15
 
-// example 2: partial application
+// Example 2: partial application (invoked with only the first two arguments)
 type ReduceSum = $N<List.Reduce, [NaturalNumber.Add, 0]>;
-type ReduceSum1to5$ = $<ReduceSum, [1, 2, 3, 4, 5]>;  // 15
+
+type ReduceSum1to5 = $<ReduceSum, [1, 2, 3, 4, 5]>;  // 15
 ```
 
 ```js
-// javascript translation
-const reduceSum1to5$N =
-  [1, 2, 3, 4, 5].reduce((acc, curr) => acc + curr, 0);
+// In javascript, this would be..
 
+// Example 1
+const reduceSum1to5$N = [1, 2, 3, 4, 5].reduce((acc, curr) => acc + curr, 0);
+
+// Example 2
 const reduceSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
-const reduceSum1to5$ = reduceSum([1, 2, 3, 4, 5]);
+
+const reduceSum1to5 = reduceSum([1, 2, 3, 4, 5]);
 ```
 
 ### 3) `$$`: Pipe an Argument through *Multiple Functions*
@@ -139,7 +167,7 @@ type UnshiftPushJoin = $$<[
 ```
 
 ```js
-// javascript translation
+// In javascript, this would be..
 const unshiftPushJoin = 
   ((arr) => arr.join(", "))(
     (((arr) => [...arr, "third"])(
@@ -149,10 +177,10 @@ const unshiftPushJoin =
 
 ## Guides
 
-We have additional resources to help you get started with `hkt-toolbelt`, that go in depth on the concepts and usage.
+We have additional resources to help you get started with **`hkt-toolbelt`**, that go in depth on the concepts and usage.
 
-- **[[Custom Kinds]](./docs/guides/custom-kinds.md)** - How do I create my own higher kinded types?
-- **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a hk-type's input?
+- **[[Custom Kinds]](./docs/guides/custom-kinds.md)** - How do I create my own higher-kinded types?
+- **[[Kind Constraints]](./docs/guides/kind-constraints.md)** - How do I constrain a higher-kinded type's input?
 - **[[HK-Type Encoding]](./docs/guides/hk-type-encoding.md)** - Details on the internal encoding.
 
 ## Similar Projects
@@ -168,10 +196,6 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
 > Generally, types such as `List.Filter<Fn>` are now `$<List.Filter, Fn>`.
 
 - [API](#api)
-  - [Basic Utilities](#basic-utilities)
-    - [$\<F, X\>](#f-x)
-    - [$$\<FX, X\>](#fx-x)
-    - [Cast\<A, B\>](#casta-b)
   - [Boolean Types](#boolean-types)
     - [Boolean.And\<X\>](#booleanandx)
     - [Boolean.Or\<X\>](#booleanorx)
@@ -233,6 +257,7 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
     - [String.ToUpper](#stringtoupper)
     - [String.ToLower](#stringtolower)
   - ["`Type`" Types](#type-types)
+    - [Cast\<A, B\>](#casta-b)
     - [Type.Display](#typedisplay)
     - [Type.ValueOf](#typevalueof)
   - [Union Types](#union-types)
@@ -241,46 +266,9 @@ We have additional resources to help you get started with `hkt-toolbelt`, that g
 
 # API
 
-The curried nature of the functions in this library is intended to be utilized to compose types using point-free style. In this respect, API types will first take in 'operations' and then the data to be operated on.
+The curried nature of the functions in this library is intended to be utilized to compose types using point-free style.
 
-All higher-order types take in one argument, to support currying and point-free style. The `$` operator applies a parameter value to a higher-order type.
-
-## Basic Utilities
-
-### $<F, X>
-
-The `$` operator is used to apply a higher-kinded-type function to a type. It is equivalent to the `F<A>` syntax in TypeScript.
-
-```ts
-import { $, String } from "hkt-toolbelt";
-
-type Result = $<String.Append<" world">, "hello">; // "hello world"
-```
-
-### $$<FX, X>
-
-The `$$` operator is used to apply a pipeline of kinds to a designated input type. This is a syntactic sugar for the `$` and `Kind.Pipe` operators, to avoid the need for explicitly calling `Kind.Pipe`.
-
-`Kind.Pipe` composes kinds from left-to-right.
-
-@see `$`
-@see `Kind.Pipe`
-
-```ts
-import { $$, Kind, String } from "hkt-toolbelt";
-
-type Result = $$<[String.Append<" world">, String.Append<"!">], "hello">; // "hello world!"
-```
-
-### Cast<A, B>
-
-The `Cast` type is used to cast a type to another type. It is equivalent to the `A as B` syntax in TypeScript. For subtle cases.
-
-```ts
-import { Cast } from "hkt-toolbelt";
-
-type Result = Cast<"hello", string>; // "hello"
-```
+As a general principle, API types are written to first take in operations, and then the data to be operated on.
 
 ## Boolean Types
 
@@ -383,7 +371,7 @@ type Result = $<
 >; // "foobar"
 ```
 
-This is a hk-type used to designate type-level control flow.
+This is a higher-kinded type used to designate type-level control flow.
 
 ## Function Types
 
@@ -857,9 +845,19 @@ type Result = $<String.ToLower, "FOOBAR">; // "foobar"
 
 ## "`Type`" Types
 
+### Cast<A, B>
+
+The `Cast` type is used to cast a type to another type. It is equivalent to the `A as B` syntax in TypeScript. For subtle cases.
+
+```ts
+import { Cast } from "hkt-toolbelt";
+
+type Result = Cast<"hello", string>; // "hello"
+```
+
 ### Type.Display
 
-The `Display` function takes in a type and attempts to force the Typescript compiler to display the resolved type in IDEs and other tools.
+The `Display` function takes in a type and attempts to force the TypeScript compiler to display the resolved type in IDEs and other tools.
 
 This is a useful internal tool to ensure resultant types remain legible.
 
