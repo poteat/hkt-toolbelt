@@ -1,18 +1,18 @@
-import { $, Kind, Type } from ".."
+import { $, Kind, Type, Function } from '..';
 
 /**
  * `_$unapply` is a type-level function that takes in 
- * a) a type-level function that has been partially or fully applied,
- * b) the type-level function that was applied to an argument to produce the first input type,
- * and then extracts and returns that very argument. 
+ * a) a type-level function that has been partially or fully applied with an argument,
+ * b) the original type-level function that was invoked to derive the first input type,
+ * and then extracts and returns the applied argument from closure. 
  *
  * @param K The target type-level function to unapply.
  * @param F The type-level function that was applied to an argument to derive `K`
- *
- * This is useful for determining what argument was passed into a known type-level function
- * to derive a given applied type-level function.
  * 
- * example
+ * Note that `_$unapply` infers the most specific type for the closure argument,
+ * whereas `Kind._$inputOf` returns the widest category of arguments accepted by the input function.
+ * 
+ * @example
  *
  * For example, we can use `_$unapply` to determine what argument was passed into an applied type-level function.
  * In this example, we pass in `Add2`, the target function, and `NaturalNumber.Add` into `_$unapply`, 
@@ -41,15 +41,15 @@ interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
 
 /**
  * `Unapply` is a type-level function that takes in 
- * a) a type-level function that has been partially or fully applied,
- * b) the type-level function that was applied to an argument to produce the first input type,
- * and then extracts and returns that very argument. 
+ * a) a type-level function that has been partially or fully applied with an argument,
+ * b) the original type-level function that was invoked to derive the first input type,
+ * and then extracts and returns the applied argument from closure. 
  *
  * @param K The target type-level function to unapply.
- * @param F The type-level function that was applied to an argument to produce `K`
+ * @param F The type-level function that was applied to an argument to derive `K`
  * 
- * This is useful for determining what argument was passed into a known type-level function
- * to derive a given applied type-level function.
+ * Note that `_$unapply` infers the most specific type for the closure argument,
+ * whereas `Kind._$inputOf` returns the widest category of arguments accepted by the input function.
  *
  * @example
  *
@@ -59,7 +59,7 @@ interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
  * if its input is the result of applying that function.
  *  
  * We then apply this partially applied function to `Add2` using the `$` type-levl applicator:
-
+ *
  * ```ts
  * import { $, Kind, NaturalNumber } from "hkt-toolbelt";
  *
@@ -68,5 +68,5 @@ interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
  * ```
  */
 export interface Unapply extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Kind.Kind>): Unapply_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], Kind.Kind>): Unapply_T<typeof x>
 }
