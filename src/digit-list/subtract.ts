@@ -21,6 +21,28 @@ type _$subtract2<
   ? RESULT
   : _$subtract2<A_NEXT, B_NEXT, CARRY_NEXT, OUTPUT_NEXT>;
 
+/**
+ * `_$subtract` is a type-level function that subtracts one digit list from another.
+ * It returns the result of the subtraction.
+ *
+ * ## Parameters
+ *
+ * @param A - A digit list representing a number to substract.
+ * @param B - A digit list representing a number to substract by.
+ *
+ * @example
+ *
+ * For example, we can use `_$subtract` to subtract one digit list from another:
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type Result = DigitList._$subtract<["1", "2", "5"], ["1", "2", "1"]>; // ["4"]
+ * ```
+ *
+ * In this example, `Result` is a type that represents ["4"], which is the result of subtracting ["1", "2", "5"] from ["1", "2", "1"].
+ *
+ */
 export type _$subtract<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList
@@ -30,6 +52,27 @@ interface Subtract_T<X extends DigitList.DigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$subtract<X, typeof x>;
 }
 
+/**
+ * `Subtract` is a type-level function that subtracts one digit list from another.
+ * It returns the result of the subtraction.
+ *
+ * ## Parameters
+ *
+ * @param A - A digit list representing a number to substract.
+ * @param B - A digit list representing a number to substract by.
+ * 
+ * @example
+ *
+ * For example, we can use `Subtract` to subtract one digit list from another:
+ *
+ * ```ts
+ * import { $, DigitList } from "hkt-toolbelt";
+ *
+ * type Result = $<DigitList.Subtract, ["5", "0"], ["2", "5"]>; // ["2", "5"]
+ * ```
+ *
+ * In this example, `Result` is a type that represents ["2", "5"], which is the result of subtracting ["2", "5"] from ["5", "0"].
+ */
 export interface Subtract extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Subtract_T<typeof x>;
 }
