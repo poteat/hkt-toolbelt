@@ -4,7 +4,7 @@ export type _$reduce<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
   X extends unknown[],
   O
-> = 1 extends 0
+> = 0 extends 1
   ? never
   : X extends [infer H, ...infer T]
   ? $<
