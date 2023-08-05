@@ -19,10 +19,10 @@ class Cat extends Animal {
 
 type ExtendsAll_Spec = [
   /**
-   * An empty array returns never.
+   * An empty array returns true.
    */
-  Test.Expect<$<$<Conditional.ExtendsAll, any>, []>, never>,
-  Test.Expect<$<$<Conditional.ExtendsAll, never>, []>, never>,
+  Test.Expect<$<$<Conditional.ExtendsAll, any>, []>, true>,
+  Test.Expect<$<$<Conditional.ExtendsAll, never>, []>, true>,
 
   /**
    * A non-array is not a valid argument.

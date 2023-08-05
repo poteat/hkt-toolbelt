@@ -2,7 +2,7 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
 
 /**
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,
- * and returns `true` if all elements of `T` are equal.
+ * and returns `true` if all elements of `T` are equal or `T` is empty.
  *
  * ## Parameters
  *
@@ -66,7 +66,7 @@ export type _$equalsAll<
 
 /**
  * `EqualsAll` is a type-level function that takes in one array of types, `T`, and returns a
- * type-level function that returns `true` if all elements of `T` evaluate to the same type,
+ * type-level function that returns `true` if all elements of `T` evaluate to the same type or `T` is empty,
  * and `false` if otherwise.
  *
  * @param T An array of types.
