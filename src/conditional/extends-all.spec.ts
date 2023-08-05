@@ -17,12 +17,12 @@ class Cat extends Animal {
   }
 }
 
-type Equals_Spec = [
+type ExtendsAll_Spec = [
   /**
-   * An empty array always returns true.
+   * An empty array returns never.
    */
-  Test.Expect<$<$<Conditional.ExtendsAll, []>, any>, true>,
-  Test.Expect<$<$<Conditional.ExtendsAll, []>, never>, true>,
+  Test.Expect<$<$<Conditional.ExtendsAll, any>, []>, never>,
+  Test.Expect<$<$<Conditional.ExtendsAll, never>, []>, never>,
 
   /**
    * A non-array is not a valid argument.
@@ -31,31 +31,31 @@ type Equals_Spec = [
   Test.Expect<$<$<Conditional.ExtendsAll, true>, true>, true>,
 
   /** Subclasses extend their Superclass */
-  Test.Expect<$<$<Conditional.ExtendsAll, [Cat, Dog]>, Animal>, true>,
+  Test.Expect<$<$<Conditional.ExtendsAll, Animal>, [Cat, Dog]>, true>,
 
   /**
    * Instances extend their Types
    */
-  Test.Expect<$<$<Conditional.ExtendsAll, [true, false]>, boolean>, true>,
-  Test.Expect<$<$<Conditional.ExtendsAll, [0, 100, -100]>, number>, true>,
+  Test.Expect<$<$<Conditional.ExtendsAll, boolean>, [true, false]>, true>,
+  Test.Expect<$<$<Conditional.ExtendsAll, number>, [0, 100, -100]>, true>,
 
   /**
    * Subtypes extend Supertypes
    */
-  Test.Expect<$<$<Conditional.ExtendsAll, [never]>, unknown>, true>,
+  Test.Expect<$<$<Conditional.ExtendsAll, unknown>, [never]>, true>,
 
   /**
    * Elements of Union Types extend their Unions.
    */
   Test.Expect<
     $<
-      $<Conditional.ExtendsAll, [string, number, boolean]>,
-      string | number | boolean
+      $<Conditional.ExtendsAll, string | number | boolean>,
+      [string, number, boolean]
     >,
     true
   >,
   Test.Expect<
-    $<$<Conditional.ExtendsAll, [string | number, string | boolean]>, string>,
+    $<$<Conditional.ExtendsAll, string>, [string | number, string | boolean]>,
     false
   >,
 
@@ -64,13 +64,13 @@ type Equals_Spec = [
    */
   Test.Expect<
     $<
-      $<Conditional.ExtendsAll, [{ a: 1 } & { b: 2 }, { a: 1 } & { c: 3 }]>,
-      { a: 1 }
+      $<Conditional.ExtendsAll, { a: 1 }>,
+      [{ a: 1 } & { b: 2 }, { a: 1 } & { c: 3 }]
     >,
     true
   >,
   Test.Expect<
-    $<$<Conditional.ExtendsAll, [{ a: 1 }, { b: 2 }]>, { a: 1 } & { b: 2 }>,
+    $<$<Conditional.ExtendsAll, { a: 1 } & { b: 2 }>, [{ a: 1 }, { b: 2 }]>,
     false
   >,
 
@@ -79,8 +79,8 @@ type Equals_Spec = [
    */
   Test.Expect<
     $<
-      $<Conditional.ExtendsAll, [any, unknown, never, string, number, boolean]>,
-      never
+      $<Conditional.ExtendsAll, never>,
+      [any, unknown, never, string, number, boolean]
     >,
     false
   >,
@@ -89,7 +89,7 @@ type Equals_Spec = [
    * `never` extends everything
    */
   Test.Expect<
-    $<$<Conditional.ExtendsAll, [never, never, never]>, any | unknown | never>,
+    $<$<Conditional.ExtendsAll, any | unknown | never>, [never, never, never]>,
     true
   >,
 
@@ -98,8 +98,8 @@ type Equals_Spec = [
    */
   Test.Expect<
     $<
-      $<Conditional.ExtendsAll, [any, unknown, never, string, number, boolean]>,
-      unknown
+      $<Conditional.ExtendsAll, unknown>,
+      [any, unknown, never, string, number, boolean]
     >,
     true
   >,
@@ -109,8 +109,8 @@ type Equals_Spec = [
    */
   Test.Expect<
     $<
-      $<Conditional.ExtendsAll, [unknown, unknown, unknown]>,
-      object | string | boolean | number | never
+      $<Conditional.ExtendsAll, object | string | boolean | number | never>,
+      [unknown, unknown, unknown]
     >,
     false
   >

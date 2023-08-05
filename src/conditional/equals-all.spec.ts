@@ -1,6 +1,6 @@
 import { $, Conditional, Test, List, NaturalNumber } from "hkt-toolbelt"
 
-type Equals_Spec = [
+type EqualsAll_Spec = [
   /**
    * An empty array or an array of one element always returns true.
    */
@@ -11,7 +11,7 @@ type Equals_Spec = [
   /**
    * A non-array is not a valid argument.
    */
-  //@ts-expect-error
+  // @ts-expect-error
   Test.Expect<$<Conditional.EqualsAll, true>, true>,
 
   /**
