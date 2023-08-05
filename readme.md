@@ -29,7 +29,9 @@
 
 Our composable and compile time-efficient types enable users to write expressive and readable type-level code without getting mired in complexity.
 
-We support all of the kind categories you need, including **List**, **Boolean**, **String**, **Function**, and a set of combinators for composing types. We're always adding new and exciting features, so stay tuned!
+We support all of the type categories that you'll need (**List**, **Object**, **String**, **Union**, **Function**, **Boolean**, **Number**, and more), plus our very own **Kind** and **Combinator** utilities for composing types.
+
+We're always adding new and exciting features, so stay tuned!
 
 <p align="right">
 <b>Translations</b>
@@ -42,25 +44,25 @@ We support all of the kind categories you need, including **List**, **Boolean**,
   </a>
 </p>
 
-## What is a `HKT`?
+## What is a **`hkt`**?
 
-> **> HKT stands for "higher-kinded type"**
+> **`hkt`** stands for **"higher-kinded type"**
 
 TypeScript has two distinct constructions: types, and generics.
 
-- **type**: A compile-time expression that is used to describe a value.
-- **generic**: A "template" type that can be instantiated with one or more type arguments, and resolves to a type.
+- **Type**: A compile-time expression used to describe a value.
+- **Generic**: A type "template" that resolves into a new type when instantiated with type arguments.
 
-Generics are *not* first-class citizens in TypeScript -- they can't be referenced without immediately supplying all of their type arguments, they can't pass in as arguments to other generics, and they can't be returned by other generics. These are limitations of the language itself.
+Generics are *not* first-class citizens in TypeScript: a) they can't be referenced without being supplied all of their type arguments, b) they can't be passed in as arguments to other generics, and c) they can't be returned by other generics. These were fundamental limitations of the TypeScript language ... until now.
 
-**`hkt-toolbelt` introduces two additional constructions:**
+**`hkt-toolbelt`** introduces two new constructions:
 
-- **kind**: A compile-time expression that is used to describe a type, and is parameterized such that it may be applied to an argument type.
-- **generic kind**: A generic type that returns a kind (a.k.a. **"higher-kinded type"**).
+- **Kind**: A compile-time expression that is used to describe a type, and is parameterized so that it can be applied to an argument type.
+- **Generic Kind**: A generic type that returns a kind (a.k.a. **"higher-kinded type"**).
 
 > For convenience, we will use **"kind"** to refer to **"higher-kinded types"** as well.
 
-Using kinds allows us to represent new types that are not possible with generics alone (e.g. through narrow composition of generic functions). Even for types that *are* representible using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
+Using kinds allows us to represent new types that cannot be expressed using generics alone. Even for types that *are* representable using generics, we can use kinds to provide a more ergonomic API and elegant implementation.
 
 ## Getting Started
 
@@ -191,9 +193,11 @@ We have additional resources to help you get started with **`hkt-toolbelt`**, th
 
 ## Table of Contents
 
-> **Note:** Many examples are out of date, as many higher-kinded types have been modified to be more partially applicable.
+> **Note:** Many examples here are out of date, as many higher-kinded types have been modified to be more partially applicable.
 >
 > Generally, types such as `List.Filter<Fn>` are now `$<List.Filter, Fn>`.
+>
+> More updates on API documentation coming soon.
 
 - [API](#api)
   - [Boolean Types](#boolean-types)
