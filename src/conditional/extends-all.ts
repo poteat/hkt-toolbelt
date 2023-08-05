@@ -58,40 +58,39 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
 export type _$extendsAll<
   T extends List.List,
   U extends unknown,
-  APPLY = $<$<List.Map, $<Conditional.Extends, U>>, T>,
-  RESULT extends boolean = APPLY extends boolean[]
-    ? $<$<$<List.Reduce, Boolean.And>, true>, APPLY>
-    : never
-> = RESULT
+> = T extends [infer CURR, ...infer REST]
+  ? Conditional._$extends<U, CURR> extends false
+    ? false
+    : _$extendsAll<REST, U>
+  : never
 
-interface ExtendsAll_T<T extends List.List> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown>): _$extendsAll<T, typeof x>
+interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], List.List>): _$extendsAll<typeof x, U>
 }
 
 /**
- * `ExtendsAll` is a type-level function that takes in an array of types, `T`, and a type `U`
- * and return sa type-level function that returns `true` if all elements of `T` extend `U`,
+ * `ExtendsAll` is a type-level function that takes in a type `U` and an array of types, `T`,
+ * and returns a type-level function that returns `true` if all elements of `T` extend `U`,
  * and `false` if otherwise.
  *
- * @param T An array of types.
  * @param U A type.
+ * @param T An array of types.
  *
  * @example
  *
  * For example, we can use `ExtendsAll` to determine whether a series of types all extend a second input type.
- * In this example, we partially apply `ExtendsAll` to `[string, number]`, which results in a
- * type-level function that returns `true` if `string` and `number` both extend its input.
+ * In this example, we partially apply `ExtendsAll` to `string | number` and `never`, which result in
+ * two type-level functions that return `true` if all elements of their input extend `string | number` and `never`, respectively.
  *
- * We then apply this partially applied function to `string | number` and `never`
- * respectively using the `$` type-level applicator:
+ * We then apply both of these partially applied functions to `[string, number]` using the `$` type-level applicator.
  *
  * ```ts
  * import { $, Conditional } from "hkt-toolbelt";
  *
- * type IsTrue = $<$<Conditional.ExtendsAll, [string, number]>, string | number>; // true
- * type IsNotTrue = $<$<Conditional.ExtendsAll, [string, number]>, never>; // false
+ * type IsTrue = $<$<Conditional.ExtendsAll, string | number>, [string, number]>; // true
+ * type IsNotTrue = $<$<Conditional.ExtendsAll, never>, [string, number]>; // false
  * ```
  */
 export interface ExtendsAll extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], List.List>): ExtendsAll_T<typeof x>
+  f(x: Type._$cast<this[Kind._], unknown>): ExtendsAll_T<typeof x>
 }

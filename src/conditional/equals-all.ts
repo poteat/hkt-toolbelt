@@ -2,9 +2,7 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
 
 /**
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,
- * and returns `true` if all elements of `T` are equal to its first element.
- * Optionally, a second type `U` can be supplied, in which case `true` will be returned
- * if and only if all elements of `T` are equal to `U`.
+ * and returns `true` if all elements of `T` are equal.
  *
  * ## Parameters
  *
@@ -59,16 +57,16 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  */
 export type _$equalsAll<
   T extends List.List,
-  U extends unknown = T[0],
-  APPLY = $<$<List.Map, $<Conditional.Equals, U>>, T>,
-  RESULT extends boolean = APPLY extends boolean[]
-    ? $<$<$<List.Reduce, Boolean.And>, true>, APPLY>
-    : never
-> = RESULT
+  PREV = T[0],
+> = T extends [infer CURR, ...infer REST]
+  ? Conditional._$equals<PREV, CURR> extends false
+    ? false
+    : _$equalsAll<REST, CURR>
+  : true
 
 /**
  * `EqualsAll` is a type-level function that takes in one array of types, `T`, and returns a
- * type-level function that returns `true` if all elements of `T` evaluate to the same type as the first element of `T`,
+ * type-level function that returns `true` if all elements of `T` evaluate to the same type,
  * and `false` if otherwise.
  *
  * @param T An array of types.
