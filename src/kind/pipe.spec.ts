@@ -5,7 +5,7 @@ type Pipe_Spec = [
    * Can pipe simple operations.
    */
   Test.Expect<
-    $<$<Kind.Pipe, [$<List.Push, "bar">, List.Unshift<"foo">]>, [1, 2, 3]>,
+    $<$<Kind.Pipe, [$<List.Push, "bar">, $<List.Unshift, "foo">]>, [1, 2, 3]>,
     ["foo", 1, 2, 3, "bar"]
   >,
 
