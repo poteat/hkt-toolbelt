@@ -1,4 +1,4 @@
-import { Kind, Type, Digit, DigitList } from "..";
+import { $, Kind, Type, Digit, DigitList } from "..";
 
 type _$multiplyDigit2<
   A extends DigitList.DigitList,
@@ -16,6 +16,28 @@ type _$multiplyDigit2<
   RESULT extends DigitList.DigitList = CARRY extends "0" ? OUT : [CARRY, ...OUT]
 > = A extends [] ? RESULT : _$multiplyDigit2<POP_A, B, NEXT_CARRY, NEXT_OUT>;
 
+/**
+ * `_$multiplyDigit` is a type-level function that multiplies a digit list by a single digit.
+ * Returns the result of the multiplication operation.
+ *
+ * ## Parameters
+ *
+ * @param A - The digit list.
+ * @param B - The single digit.
+ *
+ * @example
+ *
+ * For example, we can use `_$multiplyDigit` to multiply a digit list by a single digit:
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ * 
+ * type Result = DigitList._$multiplyDigit<["3"], "2">; // ["6"]
+ * ```
+ *
+ * In this example, `Result` is a type that represents ["6"], which is the result of multiplying ["3"] by "2".
+ *
+ */
 export type _$multiplyDigit<
   A extends DigitList.DigitList,
   B extends Digit.Digit
@@ -27,6 +49,27 @@ export interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
   ): _$multiplyDigit<typeof x, T>;
 }
 
+/**
+ * `MultiplyDigit` is a type-level function that multiplies a digit list by a single digit.
+ * Returns the result of the multiplication operation.
+ *
+ * ## Parameters
+ *
+ * @param A - The digit list.
+ * @param B - The single digit.
+ *
+ * @example
+ *
+ * For example, we can use `MultiplyDigit` to multiply a digit list by a single digit:
+ *
+ * ```ts
+ * import { $, DigitList } from "hkt-toolbelt";
+ *
+ * type Result = $<$<DigitList.MultiplyDigit, "2">, ["3"]>; // ["6"]
+ * ```
+ *
+ * In this example, `Result` is a type that represents ["6"], which is the result of multiplying ["3"] by "2".
+ */
 export interface MultiplyDigit extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Digit.Digit>): MultiplyDigit_T<typeof x>;
 }

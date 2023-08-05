@@ -59,6 +59,26 @@ export type _$increment<
   ? SHORT_CIRCUIT
   : _$increment<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>;
 
+/**
+ * `Increment` is a type-level function that increments a digit list.
+ * It returns the incremented digit list.
+ *
+ * ## Parameters
+ *
+ * @param A - The digit list to increment.
+ *
+ * @example
+ *
+ * For example, we can use `Increment` to increment a digit list:
+ *
+ * ```ts
+ * import { $, DigitList, Type } from "hkt-toolbelt";
+ *
+ * type Result = $<DigitList.Increment, ["1", "0"]>; // ["1", "1"]
+ * ```
+ *
+ * In this example, `Result` is a type that represents the digit list ["1", "1"], which is the result of incrementing the digit list ["1", "0"].
+ */
 export interface Increment extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], DigitList.DigitList>
