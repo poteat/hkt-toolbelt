@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.22.0
+
+- Add various conditional 'variadic' utilities:
+  - Add `Conditional.EqualsAll` for checking if every type in a list is equal.
+  - Add `Conditional.ExtendsAll` for performing composite subtype checks.
+- Add `Union.FromList` for constructing a union from a list of types.
+- Add list utilities:
+  - Add `List.At`, `List.Accumulate`, `List.Iterate`, `List.Zip`.
+  - Add `List.Range`, for generating ranges of numbers.
+- Add various number utilities:
+  - Add `Number.Negate` for integer negation.
+  - Add `Number.Max` and `Number.Min` for binary max/min operations.
+  - Add `Number.MAX_SAFE_INTEGER` and `Number.MIN_SAFE_INTEGER` constants.
+- Add `NaturalNumber.SubtractBy` for argument-swapped subtraction.
+- **[Breaking]** Improve `List.Slice`, `List.Splice`, and `List.Unshift` interfaces.
+
 ## 0.21.1
 
 - Add support for negative start indices in `List.Splice`.
@@ -26,7 +42,7 @@
 - Add various advanced `List` methods.
   - Add `Concat`, `Repeat`, `ShiftN`, `PopN`, `Slice`, `Splice`, `Flatten`
   - Add `FlattenN`, `DigitList.ToNumber`
-- **[Breaking]** Renamed prior `List.Slice` utility to `List.ShiftN`.
+- **[Breaking]** Rename prior `List.Slice` utility to `List.ShiftN`.
 
 ## 0.19.3
 
