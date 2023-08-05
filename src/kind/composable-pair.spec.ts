@@ -5,7 +5,7 @@ type ComposablePair_Spec = [
    * Simple list operations should be composable.
    */
   Test.Expect<
-    Kind._$composablePair<[$<List.Push, "foo">, List.Unshift<"bar">]>
+    Kind._$composablePair<[$<List.Push, "foo">, $<List.Unshift, "bar">]>
   >,
 
   /**

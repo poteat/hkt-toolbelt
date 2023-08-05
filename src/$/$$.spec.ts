@@ -5,7 +5,7 @@ type $$_Spec = [
    * Can pipe simple operations.
    */
   Test.Expect<
-    $$<[$<List.Push, "bar">, List.Unshift<"foo">], [1, 2, 3]>,
+    $$<[$<List.Push, "bar">, $<List.Unshift, "foo">], [1, 2, 3]>,
     ["foo", 1, 2, 3, "bar"]
   >,
 
