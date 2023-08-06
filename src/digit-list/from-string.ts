@@ -1,4 +1,4 @@
-import { Kind, Type , DigitList, Digit } from "hkt-toolbelt";
+import { Kind, Type, DigitList, Digit } from "..";
 
 export type _$fromString2<
   T extends string,

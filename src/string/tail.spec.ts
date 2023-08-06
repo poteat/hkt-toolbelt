@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "..";
 
 /**
  * Tests for String.Tail, which extracts every element after the first element

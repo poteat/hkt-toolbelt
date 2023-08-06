@@ -1,4 +1,4 @@
-import { $, Test, Object, String, Function, Conditional } from "hkt-toolbelt";
+import { $, Test, Object, String, Function, Conditional } from "..";
 
 type MapValues_Spec = [
   /**

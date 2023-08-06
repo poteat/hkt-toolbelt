@@ -1,4 +1,4 @@
-import { NaturalNumber, Type, Number, Kind } from "hkt-toolbelt";
+import { NaturalNumber, Type, Number, Kind } from "..";
 
 /**
  * `_$moduloBy` is a type-level function that takes in two natural number types,

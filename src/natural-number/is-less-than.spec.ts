@@ -1,4 +1,4 @@
-import { $, NaturalNumber, Test } from "hkt-toolbelt";
+import { $, NaturalNumber, Test } from "..";
 
 type IsLessThan_Spec = [
   /**

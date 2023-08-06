@@ -1,4 +1,4 @@
-import { $, $$, $N, Kind, Conditional, Function, Test } from "hkt-toolbelt";
+import { $, $$, $N, Kind, Conditional, Function, Test } from "..";
 
 type Extends_Spec = [
   /**

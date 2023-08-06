@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "..";
 
 /**
  * Tests for String.Last, which extracts the last character type from a
