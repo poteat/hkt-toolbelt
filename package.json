@@ -9,8 +9,8 @@
     "eslint-check": "npx eslint --ext .ts ./src/**",
     "eslint-fix": "npx eslint --fix --ext .ts ./src/**",
     "remove-unused-imports": "npx eslint --fix --ext .ts --no-eslintrc --config ./.eslintrc-remove-imports ./src/**",
-    "prettier-check": "npx prettier --check .",
-    "prettier-fix": "npx prettier --write .",
+    "prettier-check": "npx prettier --check ./src/**",
+    "prettier-fix": "npx prettier --write ./src/**",
     "npm-update": "npx -y npm-check-updates -u && npm i"
   },
   "license": "MIT",

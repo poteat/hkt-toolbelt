@@ -11,3 +11,5 @@ package-lock.json
 **/*.sh
 **/*.html
 **/*.css
+.*rc
+.*eslintrc-remove-imports
