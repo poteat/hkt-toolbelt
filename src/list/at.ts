@@ -1,6 +1,4 @@
 import {
-  $,
-  Digit,
   DigitList,
   Kind,
   Type,

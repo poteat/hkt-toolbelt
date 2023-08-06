@@ -1,4 +1,4 @@
-import { $, Kind, Function, Conditional, NaturalNumber, List, Test } from "..";
+import { $, Kind, Function, NaturalNumber, List, Test } from "..";
 
 type Add2 = $<NaturalNumber.Add, 2>;
 type ReduceAdd = $<List.Reduce, NaturalNumber.Add>;

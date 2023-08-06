@@ -1,5 +1,4 @@
 import { $, Test, Number } from "..";
-import { _$decimalCompare } from "./compare";
 
 type Compare_Spec = [
   /**

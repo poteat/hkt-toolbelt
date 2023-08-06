@@ -1,4 +1,4 @@
-import { Number, Type, Kind, Combinator, Function } from "..";
+import { Number, Type, Kind, Function } from "..";
 
 /**
  * `_$negate` is a type-level function that takes a number type `T`, and returns its negated value.

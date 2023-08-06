@@ -1,4 +1,4 @@
-import { $, Test, Parser, Stress } from "..";
+import { $, Test, Parser } from "..";
 
 type Many1_Spec = [
   /**

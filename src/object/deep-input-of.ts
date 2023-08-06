@@ -1,4 +1,4 @@
-import { $, Kind, Type } from "..";
+import { Kind, Type } from "..";
 
 export type _$deepInputOf<F extends Kind.Kind> =
   | Kind._$inputOf<F>

@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber, List } from "..";
+import { $, Test, NaturalNumber } from "..";
 
 type Subtract_Spec = [
   /**

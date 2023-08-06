@@ -5,10 +5,7 @@ import {
   Digit,
   DigitList,
   NaturalNumber,
-  Conditional,
-  Boolean,
-  List,
-  $
+  Boolean
 } from "..";
 
 export type _$compare2<

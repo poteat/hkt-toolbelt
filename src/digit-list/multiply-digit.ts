@@ -1,4 +1,4 @@
-import { $, Kind, Type, Digit, DigitList } from "..";
+import { Kind, Type, Digit, DigitList } from "..";
 
 type _$multiplyDigit2<
   A extends DigitList.DigitList,

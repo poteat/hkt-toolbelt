@@ -1,4 +1,4 @@
-import { $, Type, Kind, Number } from "..";
+import { Type, Kind, Number } from "..";
 
 export type _$sign<T extends Number.Number> = number extends T
   ? "+" | "-"

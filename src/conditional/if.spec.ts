@@ -1,14 +1,4 @@
-import {
-  $,
-  $N,
-  Conditional,
-  Function,
-  List,
-  String,
-  Test,
-  NaturalNumber,
-  Kind
-} from "hkt-toolbelt";
+import { $, $N, Conditional, Function, List, String, Test } from "..";
 
 /**
  * Tests associated with `Conditional.If`, which encodes kind-level if-then-else

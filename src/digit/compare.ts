@@ -1,4 +1,4 @@
-import { $, Digit, Kind, Type } from "../";
+import { Digit, Kind, Type } from "../";
 
 type _$compare_LUT = [
   [0, -1, -1, -1, -1, -1, -1, -1, -1, -1],
