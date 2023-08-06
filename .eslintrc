@@ -1,0 +1,123 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json",
+            "./tsconfig.spec.json",
+            "./tsconfig.stress.json"
+        ]
+    },
+    "ignorePatterns": [
+        "**/*.json",
+        "**/*.md",
+        "**/*.yml",
+        "**/*.sh",
+        "**/*.html",
+        "**/*.css",
+        "prompts/**",
+        "scripts/**",
+        "pkg/**",
+        "docs/**",
+        "node_modules/**",
+        "dist/**"
+    ],
+    "plugins": [
+        "@typescript-eslint",
+        "jsdoc",
+        "prettier"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "strict": "error",
+        "prettier/prettier": "off",
+        "semi": "off",
+        "@typescript-eslint/semi": "off",
+        "no-unexpected-multiline": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-duplicate-type-constituents": "off",
+        "@typescript-eslint/no-redundant-type-constituents": "off",
+        "@typescript-eslint/no-unnecessary-type-constraint": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-use-before-define": [
+            "warn",
+            {
+                "functions": false,
+                "classes": true,
+                "variables": true,
+                "typedefs": false
+            }
+        ],
+        "arrow-body-style": "off", // conflicts with prettier	
+        "class-methods-use-this": "off",
+        "curly": "off",
+        "eqeqeq": "off",
+        "import/extensions": "off",
+        "import/no-default-export": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/prefer-default-export": "off", // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html	
+        "no-nested-ternary": "off",
+        "no-prototype-builtins": "off", // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins	
+        "no-underscore-dangle": "off",
+        "prefer-arrow-callback": "off", // conflicts with prettier	
+        /**	
+         * This is a compatibility ruleset that:	
+         * - disables rules from eslint:recommended which are already handled by TypeScript.	
+         * - enables rules that make sense due to TS"s typechecking / transpilation.	
+         * @see: {@link: https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended.ts}	
+         */
+        "constructor-super": "off", // ts(2335) & ts(2377)	
+        "getter-return": "off", // ts(2378)	
+        "no-const-assign": "off", // ts(2588)	
+        "no-dupe-args": "off", // ts(2300)	
+        "no-dupe-class-members": "off", // ts(2393) & ts(2300)	
+        "no-dupe-keys": "off", // ts(1117)	
+        "no-func-assign": "off", // ts(2539)	
+        "no-import-assign": "off", // ts(2539) & ts(2540)	
+        "no-new-symbol": "off", // ts(2588)	
+        "no-obj-calls": "off", // ts(2349)	
+        "no-redeclare": "off", // ts(2451)	
+        "no-setter-return": "off", // ts(2408)	
+        "no-this-before-super": "off", // ts(2376)	
+        "no-undef": "off", // ts(2304)	
+        "no-unreachable": "off", // ts(7027)	
+        "no-unsafe-negation": "off", // ts(2365) & ts(2360) & ts(2358)	
+        "no-use-before-define": "off",
+        "no-var": "error", // ts transpiles let/const to var, so no need for vars any more	
+        "prefer-const": "error", // ts provides better types with const	
+        "prefer-rest-params": "error", // ts provides better types with rest args over arguments	
+        "prefer-spread": "error", // ts transpiles spread to apply, so no need for manual apply	
+        "valid-typeof": "off" // ts(2367)	
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".ts"
+            ]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+                // use an array of glob patterns
+                "project": [
+                    "./tsconfig.json"
+                ]
+            }
+        }
+    }
+}
