@@ -1,4 +1,4 @@
-import { $, Test, String, Stress } from ".."
+import { $, Test, String, Stress } from "..";
 
 type Slice_Spec = [
   /**
@@ -37,4 +37,4 @@ type Slice_Spec = [
     >,
     ""
   >
-]
+];

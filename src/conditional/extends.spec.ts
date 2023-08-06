@@ -33,11 +33,14 @@ type Extends_Spec = [
 
   Test.Expect<
     $<
-      $N<Conditional.If, [
-        $<Conditional.Extends, never>,
-        $<Function.Constant, true>,
-        $<Function.Constant, false>,
-      ]>, 
+      $N<
+        Conditional.If,
+        [
+          $<Conditional.Extends, never>,
+          $<Function.Constant, true>,
+          $<Function.Constant, false>
+        ]
+      >,
       never
     >,
     true
@@ -46,28 +49,64 @@ type Extends_Spec = [
   /**
    * `never` extends everything, everything extends `unknown`.
    */
-  Test.Expect<$<$<Conditional.Extends, string | number | boolean | symbol | object | unknown[]>, never>>,
+  Test.Expect<
+    $<
+      $<
+        Conditional.Extends,
+        string | number | boolean | symbol | object | unknown[]
+      >,
+      never
+    >
+  >,
   Test.Expect<$<$<Conditional.Extends, unknown>, never>>,
-  Test.Expect<$<$<Conditional.Extends, unknown>, string | number | boolean | symbol | object | unknown[]>>,
+  Test.Expect<
+    $<
+      $<Conditional.Extends, unknown>,
+      string | number | boolean | symbol | object | unknown[]
+    >
+  >,
 
   /**
    * Nothing extends `never`, `unknown` extends nothing.
    */
-  Test.ExpectNot<$<$<Conditional.Extends, never>, string | number | boolean | symbol | object | unknown[]>>,
+  Test.ExpectNot<
+    $<
+      $<Conditional.Extends, never>,
+      string | number | boolean | symbol | object | unknown[]
+    >
+  >,
   Test.ExpectNot<$<$<Conditional.Extends, never>, unknown>>,
-  Test.ExpectNot<$<$<Conditional.Extends, string | number | boolean | symbol | object | unknown[]>, unknown>>,
+  Test.ExpectNot<
+    $<
+      $<
+        Conditional.Extends,
+        string | number | boolean | symbol | object | unknown[]
+      >,
+      unknown
+    >
+  >,
 
   /**
    * Deeply extends nested lists
    */
-  Test.Expect<$<$<Conditional.Extends, [1, [2, [3, [4]]]]>, [1, [2, [3, [4]]]]>>,
+  Test.Expect<
+    $<$<Conditional.Extends, [1, [2, [3, [4]]]]>, [1, [2, [3, [4]]]]>
+  >,
 
   /**
    * Deeply extends nested objects
    */
-  Test.Expect<$<$<Conditional.Extends, { a: 1, b: 2, c: { d: 3, e: { f: 4, g: [5, 6, 7], h: 8 | 9 | 10 } } }>, { a: 1, b: 2, c: { d: 3, e: { f: 4, g: [5, 6, 7], h: 8 | 9 | 10 } } }>>,
-  
-  /** 
+  Test.Expect<
+    $<
+      $<
+        Conditional.Extends,
+        { a: 1; b: 2; c: { d: 3; e: { f: 4; g: [5, 6, 7]; h: 8 | 9 | 10 } } }
+      >,
+      { a: 1; b: 2; c: { d: 3; e: { f: 4; g: [5, 6, 7]; h: 8 | 9 | 10 } } }
+    >
+  >,
+
+  /**
    * Extends empty lists and objects
    */
   Test.Expect<$<$<Conditional.Extends, []>, []>>,
@@ -75,5 +114,5 @@ type Extends_Spec = [
   Test.Expect<$<$<Conditional.Extends, {}>, {}>>,
   Test.Expect<$<$<Conditional.Extends, {}>, object>>,
   Test.Expect<$<$<Conditional.Extends, {}>, Record<PropertyKey, unknown>>>,
-  Test.Expect<$<$<Conditional.Extends, [{}]>, [{}]>>,
+  Test.Expect<$<$<Conditional.Extends, [{}]>, [{}]>>
 ];

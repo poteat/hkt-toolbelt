@@ -16,7 +16,7 @@ type Slice_Spec = [
   Test.Expect<$<$<$<List.Slice, -2>, -1>, ["a", "b", "c"]>, ["b"]>,
   Test.Expect<$<$<$<List.Slice, -3>, -1>, ["a", "b", "c"]>, ["a", "b"]>,
   Test.Expect<$<$<$<List.Slice, -3>, -2>, ["a", "b", "c"]>, ["a"]>,
-  
+
   Test.Expect<$<$<$<List.Slice, 0>, -2>, ["a", "b", "c"]>, ["a"]>,
   Test.Expect<$<$<$<List.Slice, 1>, -1>, ["a", "b", "c"]>, ["b"]>,
 
@@ -70,5 +70,5 @@ type Slice_Spec = [
   // @ts-expect-error
   $<$<List.Slice, 0>, [1, 2, 3]>,
   // @ts-expect-error
-  $<$<$<$<List.Slice, 1>, 2>, 3>, [1, 2, 3]>,
+  $<$<$<$<List.Slice, 1>, 2>, 3>, [1, 2, 3]>
 ];

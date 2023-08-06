@@ -1,4 +1,4 @@
-import { $, Test, Union } from "hkt-toolbelt"
+import { $, Test, Union } from "hkt-toolbelt";
 
 /**
  * Test `Union.ToTuple`, which converts a union type to a tuple composed of the
@@ -72,4 +72,4 @@ type ToList_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Union.FromList, unknown>, unknown>
-]
+];

@@ -10,6 +10,7 @@ export type _$increment<
 > = RESULT;
 
 export interface Increment extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>):
-    | (Number._$isNatural<typeof x> extends true ? _$increment<typeof x> : never);
+  f(
+    x: Type._$cast<this[Kind._], Number.Number>
+  ): Number._$isNatural<typeof x> extends true ? _$increment<typeof x> : never;
 }

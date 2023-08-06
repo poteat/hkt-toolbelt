@@ -29,4 +29,4 @@ export * from "./splice";
 export * from "./some";
 export * from "./times";
 export * from "./unshift";
-export * from './zip';
+export * from "./zip";

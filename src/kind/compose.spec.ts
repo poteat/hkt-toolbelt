@@ -5,7 +5,10 @@ type Compose_Spec = [
    * Can compose simple operations.
    */
   Test.Expect<
-    $<$<Kind.Compose, [$<List.Push, "bar">, $<List.Unshift, "foo">]>, [1, 2, 3]>,
+    $<
+      $<Kind.Compose, [$<List.Push, "bar">, $<List.Unshift, "foo">]>,
+      [1, 2, 3]
+    >,
     ["foo", 1, 2, 3, "bar"]
   >,
 

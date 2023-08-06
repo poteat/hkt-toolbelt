@@ -86,7 +86,6 @@ type _$divide2<
   ? RESULT
   : _$divide2<A, B, OPERATION, NEXT_DIVIDEND, NEXT_QUOTIENT, NEXT_REMAINDER>;
 
-
 /**
  * `_$divide` is a type-level function that performs the division or modulo operation.
  * It takes in two digit lists `A` and `B` representing the dividend and divisor respectively, and an operation type
@@ -94,7 +93,7 @@ type _$divide2<
  * If the divisor is neither 0 nor 1, it calls the `_$divide2` function to perform the division.
  *
  * ## Parameters
- * 
+ *
  * @param A A digit list representing a number to divide.
  * @param B A digit list representing a number to divide by.
  * @param OPERATION A string type representing the operation to be performed. Can be either "DIVIDE" or "MODULO".

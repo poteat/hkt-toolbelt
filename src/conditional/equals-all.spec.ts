@@ -1,4 +1,4 @@
-import { $, Conditional, Test, List, NaturalNumber } from "hkt-toolbelt"
+import { $, Conditional, Test, List, NaturalNumber } from "hkt-toolbelt";
 
 type EqualsAll_Spec = [
   /**
@@ -72,4 +72,4 @@ type EqualsAll_Spec = [
     >,
     true
   >
-]
+];

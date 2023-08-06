@@ -1,4 +1,4 @@
-import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from ".."
+import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from "..";
 
 /**
  * Check whether a natural number `N` is divisible by another number `M`.
@@ -24,7 +24,7 @@ type DivisibleBy = $N<
       [$<Kind.Uncurry, NaturalNumber.ModuloBy>, $<Conditional.Equals, 0>]
     >
   ]
->
+>;
 
 /**
  * A type-level function that returns "FizzBuzz" if the input is divisible by
@@ -62,7 +62,7 @@ export type FizzBuzz = $N<
       ]
     >
   ]
->
+>;
 
 /**
  * A type-level function that returns a list of the FizzBuzz results for the
@@ -82,4 +82,4 @@ export type FizzBuzz = $N<
 export type FizzBuzzSequence = $<
   Kind.Pipe,
   [List.Times, $<List.Map, $<Kind.Pipe, [NaturalNumber.Increment, FizzBuzz]>>]
->
+>;

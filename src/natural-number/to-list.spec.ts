@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type ToList_Spec = [
   /**
@@ -40,4 +40,4 @@ type ToList_Spec = [
    * Converting negative numbers results in 'never'.
    */
   Test.Expect<$<NaturalNumber.ToList, -42>, never>
-]
+];

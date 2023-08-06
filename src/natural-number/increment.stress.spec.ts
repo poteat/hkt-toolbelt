@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type Increment_Spec = [
   /**
@@ -8,4 +8,4 @@ type Increment_Spec = [
     $<NaturalNumber.Increment, 999999999999999999999n>,
     1000000000000000000000n
   >
-]
+];

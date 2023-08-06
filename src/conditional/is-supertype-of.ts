@@ -5,11 +5,11 @@ import { $, $$, Conditional, Kind } from "..";
  * and returns a boolean value. `_$isSupertypeOf` will return `true` if `X` is a
  * supertype of `T`, otherwise it returns `false`.
  *
- * This function checks the converse of `_$extends`. 
- * While `_$extends` returns `true` if `X` -> `T` is true, 
+ * This function checks the converse of `_$extends`.
+ * While `_$extends` returns `true` if `X` -> `T` is true,
  * `_$isSupertypeOf` will return `true` if and only if `X` <- `T` is true.
- * 
- * This is useful if it is known that `T` extends `X`, 
+ *
+ * This is useful if it is known that `T` extends `X`,
  * but the two arguments are being supplied in the opposite order expected by `_$extends`.
  *
  * ## Parameters
@@ -33,7 +33,10 @@ import { $, $$, Conditional, Kind } from "..";
  *
  * Here, `boolean` is a supertype of `true`, so `_$isSupertypeOf` returns `true`.
  */
-export type _$isSupertypeOf<T, X> = $$<[Conditional.Extends, $<Kind.Apply, T>], X>
+export type _$isSupertypeOf<T, X> = $$<
+  [Conditional.Extends, $<Kind.Apply, T>],
+  X
+>;
 
 interface IsSupertypeOf_T<T> extends Kind.Kind {
   f(x: this[Kind._]): _$isSupertypeOf<T, typeof x>;
@@ -42,12 +45,12 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
 /**
  * `IsSupertypeOf` is a type-level function that takes in two types, `T` and `U`, and
  * returns a boolean that represents whether `T` is a supertype of `U`.
- * 
- * This function checks the converse of `Extends`. 
- * While `Extends` returns `true` if `T` -> `U` is true, 
+ *
+ * This function checks the converse of `Extends`.
+ * While `Extends` returns `true` if `T` -> `U` is true,
  * `IsSupertypeOf` will return `true` if and only if `T` <- `U` is true.
- * 
- * This is useful if it is known that `U` extends `T`, 
+ *
+ * This is useful if it is known that `U` extends `T`,
  * but the two arguments are being supplied in the opposite order expected by `Extends`.
  *
  * ## Parameters
@@ -59,7 +62,7 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
  *
  * @example
  *
- * For example, we can use `IsSupertypeOf` to determine whether a given type `T` is a supertype of 
+ * For example, we can use `IsSupertypeOf` to determine whether a given type `T` is a supertype of
  * another type `U`. In this example, we test whether `boolean` is a supertype of `true`:
  *
  * We apply `IsSupertypeOf` to `true` and `boolean` respectively using the `$`

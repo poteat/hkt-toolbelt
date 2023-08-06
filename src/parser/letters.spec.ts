@@ -1,4 +1,4 @@
-import { $, Parser, Test } from ".."
+import { $, Parser, Test } from "..";
 
 type Letters_Spec = [
   /**
@@ -10,4 +10,4 @@ type Letters_Spec = [
    * The parse will fail if the input does not start with a letter.
    */
   Test.Expect<$<$<Parser.Run, Parser.Letters>, " 123">, never>
-]
+];

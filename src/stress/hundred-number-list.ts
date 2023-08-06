@@ -1,4 +1,4 @@
-import { Stress } from ".."
+import { Stress } from "..";
 
 export type HundredNumberList = [
   ...Stress.TenNumberList,
@@ -11,4 +11,4 @@ export type HundredNumberList = [
   ...Stress.TenNumberList,
   ...Stress.TenNumberList,
   ...Stress.TenNumberList
-]
+];

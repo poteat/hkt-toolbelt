@@ -1,28 +1,27 @@
-import { Kind, Type } from "hkt-toolbelt";
-import { DigitList, Digit } from '..';
+import { Kind, Type , DigitList, Digit } from "hkt-toolbelt";
 
 export type _$fromString2<
   T extends string,
   M extends DigitList.DigitList = []
 > = T extends `${infer D extends Digit.Digit}${infer Rest}`
   ? _$fromString2<Rest, [...M, D]>
-  : M
+  : M;
 
 /**
  * `_$fromString` is a type-level function that converts a string into a digit list and trims leading zeros.
- * 
+ *
  * ## Parameters
- * 
+ *
  * @param T - The string to be converted into a digit list.
  *
  * @example
- * 
+ *
  * ```ts
  * import { DigitList } from "..";
  *
  * type Result = DigitList._$fromString<"00123">; // ["1", "2", "3"]
  * ```
-*/
+ */
 export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
 
 /**
@@ -30,7 +29,7 @@ export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
  * It returns a digit list from a string.
  *
  * ## Parameters
- * 
+ *
  * @param A - The string to be converted into a digit list.
  *
  * @example
@@ -44,14 +43,14 @@ export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
  * ```
  *
  * @example
- * 
+ *
  * Also we can use `FromString` to convert a string into a digit list and trim leading zeros.
  *
  * ```ts
  * import { $, DigitList, Type } from "hkt-toolbelt";
  *
  * type Result = $<DigitList.FromString, "00123">; // ["1", "2", "3"]
- * ``` 
+ * ```
  *
  */
 export interface FromString extends Kind.Kind {

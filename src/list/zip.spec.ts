@@ -1,4 +1,4 @@
-import { $, Test, List } from ".."
+import { $, Test, List } from "..";
 
 type Zip_Spec = [
   /**
@@ -45,4 +45,4 @@ type Zip_Spec = [
    * Non-array input returns never
    */
   Test.Expect<$<List.Zip, boolean>, never>
-]
+];

@@ -1,4 +1,4 @@
-import { $, Type, Kind, List, Conditional, Boolean } from ".."
+import { $, Type, Kind, List, Conditional, Boolean } from "..";
 
 /**
  * `_$extendsAll` is a type-level function that takes in an array of types `T` and a type `U`,
@@ -55,24 +55,24 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * ], never>; // false
  * ```
  */
-export type _$extendsAll<
-  T extends List.List,
-  U extends unknown,
-> = T extends [infer CURR, ...infer REST]
+export type _$extendsAll<T extends List.List, U extends unknown> = T extends [
+  infer CURR,
+  ...infer REST
+]
   ? Conditional._$extends<U, CURR> extends false
     ? false
     : _$extendsAll<REST, U>
-  : true
+  : true;
 
 interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], List.List>): _$extendsAll<typeof x, U>
+  f(x: Type._$cast<this[Kind._], List.List>): _$extendsAll<typeof x, U>;
 }
 
 /**
  * `ExtendsAll` is a type-level function that takes in a type `U` and an array of types, `T`,
  * and returns a type-level function that returns `true` if all elements of `T` extend `U`,
  * and `false` if otherwise.
- * 
+ *
  * If T is empty, `true` is returned.
  *
  * @param U A type.
@@ -94,5 +94,5 @@ interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
  * ```
  */
 export interface ExtendsAll extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown>): ExtendsAll_T<typeof x>
+  f(x: Type._$cast<this[Kind._], unknown>): ExtendsAll_T<typeof x>;
 }

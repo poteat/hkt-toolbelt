@@ -1,4 +1,4 @@
-import { $, List, Test } from "hkt-toolbelt"
+import { $, List, Test } from "hkt-toolbelt";
 
 type Unshift_Spec = [
   /**
@@ -11,4 +11,4 @@ type Unshift_Spec = [
    */
   // @ts-expect-error
   $<List.Unshift<4>, number>
-]
+];

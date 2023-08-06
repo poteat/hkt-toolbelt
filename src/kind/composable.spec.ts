@@ -4,7 +4,9 @@ type Composable_Spec = [
   /**
    * Simple list operations should be composable.
    */
-  Test.Expect<$<Kind.Composable, [$<List.Push, "foo">, $<List.Unshift, "bar">]>>,
+  Test.Expect<
+    $<Kind.Composable, [$<List.Push, "foo">, $<List.Unshift, "bar">]>
+  >,
 
   /**
    * The empty tuple should be composable.

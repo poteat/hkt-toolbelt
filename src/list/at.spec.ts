@@ -1,4 +1,4 @@
-import { $, List, Test } from "hkt-toolbelt"
+import { $, List, Test } from "hkt-toolbelt";
 
 type At_Spec = [
   /**
@@ -49,4 +49,4 @@ type At_Spec = [
    */
   // @ts-expect-error
   $<$<List.At, 1>, number>
-]
+];

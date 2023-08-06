@@ -1,4 +1,4 @@
-import { $, Test, Parser, Stress } from ".."
+import { $, Test, Parser, Stress } from "..";
 
 type Many1_StressSpec = [
   /**
@@ -18,4 +18,4 @@ type Many1_StressSpec = [
   //     >,
   //     Stress.HundredTuple
   //   >
-]
+];

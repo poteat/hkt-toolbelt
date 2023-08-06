@@ -1,4 +1,4 @@
-import { Kind } from ".."
+import { Kind } from "..";
 
 /**
  * `$N` is a type-level function that applies a type-level function to a list of
@@ -50,4 +50,4 @@ import { Kind } from ".."
  * Since all type-level functions are curried, the resultant `Parity` type-level
  * function may be applied to get the result.
  */
-export type $N<K extends Kind.Kind, X extends unknown[]> = Kind._$uncurry<K, X>
+export type $N<K extends Kind.Kind, X extends unknown[]> = Kind._$uncurry<K, X>;

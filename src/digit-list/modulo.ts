@@ -3,14 +3,14 @@ import { Kind, Type, DigitList } from "..";
 /**
  * `_$modulo` is a type-level function that calculates the modulo of two digit lists.
  * Returns the result of the modulo operation.
- * 
+ *
  * ## Parameters
- * 
+ *
  * @param A - The first digit list.
  * @param B - The second digit list.
- * 
+ *
  * @example
- * 
+ *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
@@ -29,9 +29,9 @@ interface Modulo_T<T extends DigitList.DigitList> extends Kind.Kind {
 /**
  * `Modulo` is a type-level function that calculates the modulo of two digit lists.
  * Returns the result of the modulo operation.
- * 
+ *
  * ## Parameters
- * 
+ *
  * @param A - The first digit list.
  * @param B - The second digit list.
  *

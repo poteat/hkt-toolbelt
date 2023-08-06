@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type ModuloBy_Spec = [
   /**
@@ -45,4 +45,4 @@ type ModuloBy_Spec = [
    * 100 % 99 = 1.
    */
   Test.Expect<$<$<NaturalNumber.ModuloBy, 99>, 100>, 1>
-]
+];

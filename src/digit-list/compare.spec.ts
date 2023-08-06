@@ -1,11 +1,11 @@
-import { $, DigitList, Test } from '../'
+import { $, DigitList, Test } from "../";
 
 type Compare_Spec = [
   /**
    * Can compare two numbers.
    */
   Test.Expect<$<$<DigitList.Compare, ["1", "2", "3"]>, ["1", "2", "3"]>, 0>,
-  
+
   Test.Expect<$<$<DigitList.Compare, ["1", "2", "3"]>, ["3", "2", "1"]>, -1>,
 
   Test.Expect<$<$<DigitList.Compare, ["3", "2", "1"]>, ["1", "2", "3"]>, 1>,
@@ -34,7 +34,7 @@ type Compare_Spec = [
    * Can compare a larger number to a smaller one.
    */
   Test.Expect<$<$<DigitList.Compare, ["1", "0", "0", "0"]>, ["1"]>, 1>,
-  
+
   /**
    * Can compare a smaller number to a larger one.
    */
@@ -58,7 +58,13 @@ type Compare_Spec = [
   /**
    * Can compare large numbers.
    */
-  Test.Expect<$<$<DigitList.Compare, ["1", "2", "3", "4", "5", "6", "7", "8", "9"]>, ["1"]>, 1>,
+  Test.Expect<
+    $<
+      $<DigitList.Compare, ["1", "2", "3", "4", "5", "6", "7", "8", "9"]>,
+      ["1"]
+    >,
+    1
+  >,
 
   /**
    * Can compare numbers that are close together.

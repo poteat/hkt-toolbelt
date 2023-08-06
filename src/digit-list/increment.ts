@@ -80,7 +80,5 @@ export type _$increment<
  * In this example, `Result` is a type that represents the digit list ["1", "1"], which is the result of incrementing the digit list ["1", "0"].
  */
 export interface Increment extends Kind.Kind {
-  f(
-    x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ): _$increment<typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$increment<typeof x>;
 }

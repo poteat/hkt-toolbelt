@@ -76,13 +76,12 @@ interface DivideBySubtraction_T<A extends DigitList.DigitList>
   ): _$divideBySubtraction<A, typeof x>;
 }
 
-
 /**
  * `DivideBySubtraction` is a type-level function that performs a division by subtraction.
  * It returns the result of the division.
  *
  * ## Parameters
- * 
+ *
  * @param A A digit list representing a number to divide.
  * @param B A digit list representing a number to divide by.
  *

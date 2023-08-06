@@ -1,1 +1,1 @@
-export type TenString = "xxxxxxxxxx"
+export type TenString = "xxxxxxxxxx";

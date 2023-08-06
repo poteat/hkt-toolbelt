@@ -1,9 +1,9 @@
 import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
 
 /**
- * `_$compare` is a type-level function that takes in 
- * two natural number types `A` and `B`, and returns the comparison result as a number type. 
- * The result will be 1 if `A` is greater than `B`, 
+ * `_$compare` is a type-level function that takes in
+ * two natural number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
  * ## Parameters
@@ -15,7 +15,7 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
  *
  * @example
  *
- * For example, we can use `_$compare` to compare two natural numbers. 
+ * For example, we can use `_$compare` to compare two natural numbers.
  * In this example, we compare 123 and 321:
  *
  * ```ts
@@ -50,9 +50,9 @@ interface Compare_T<A extends Number.Number> extends Kind.Kind {
 }
 
 /**
- * `Compare` is a type-level function that takes in 
- * two natural number types `A` and `B`, and returns the comparison result as a number type. 
- * The result will be 1 if `A` is greater than `B`, 
+ * `Compare` is a type-level function that takes in
+ * two natural number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
  * ## Parameters
@@ -64,7 +64,7 @@ interface Compare_T<A extends Number.Number> extends Kind.Kind {
  *
  * @example
  *
- * For example, we can use `Compare` to compare two natural numbers. 
+ * For example, we can use `Compare` to compare two natural numbers.
  * In this example, we compare 123 and 321:
  *
  * ```ts

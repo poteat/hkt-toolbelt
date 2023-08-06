@@ -14,7 +14,7 @@ import { Type, Kind, DigitList } from "..";
  *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
- * 
+ *
  * type Result = DigitList._$shift<["1", "2", "3"]>; // ["2", "3"]
  * ```
  *

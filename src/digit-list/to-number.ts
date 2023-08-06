@@ -24,7 +24,9 @@ import { DigitList, Kind, Number, Type } from "..";
  */
 export type _$toNumber<
   T extends DigitList.DigitList,
-  RESULT extends Number.Number = T extends [] ? never : Number._$fromString<DigitList._$toString<T>>
+  RESULT extends Number.Number = T extends []
+    ? never
+    : Number._$fromString<DigitList._$toString<T>>
 > = RESULT;
 
 /**

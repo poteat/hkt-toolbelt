@@ -1,4 +1,14 @@
-import { $, Kind, Boolean, Number, NaturalNumber, NaturalNumberTheory, Function, List, Test } from "hkt-toolbelt";
+import {
+  $,
+  Kind,
+  Boolean,
+  Number,
+  NaturalNumber,
+  NaturalNumberTheory,
+  Function,
+  List,
+  Test
+} from "hkt-toolbelt";
 
 type Iterate_Spec = [
   /**
@@ -25,15 +35,9 @@ type Iterate_Spec = [
   /**
    * Can iterate over Negate
    */
-  Test.Expect<
-    $<$<$<List.Iterate, Number.Negate>, 5>, 1>,
-    [1, -1, 1, -1, 1]
-  >,
+  Test.Expect<$<$<$<List.Iterate, Number.Negate>, 5>, 1>, [1, -1, 1, -1, 1]>,
 
-  Test.Expect<
-    $<$<$<List.Iterate, Number.Negate>, 5>, -1>,
-    [-1, 1, -1, 1, -1]
-  >,
+  Test.Expect<$<$<$<List.Iterate, Number.Negate>, 5>, -1>, [-1, 1, -1, 1, -1]>,
 
   /**
    * Can iterate over Factorial
@@ -60,7 +64,19 @@ type Iterate_Spec = [
    * Iterates over the last digit cycle for multiples of three.
    */
   Test.Expect<
-    $<$<$<List.Iterate, $<Kind.Pipe, [$<NaturalNumber.Multiply, 3>, $<NaturalNumber.ModuloBy, 10>]>>, 8>, 1>,
+    $<
+      $<
+        $<
+          List.Iterate,
+          $<
+            Kind.Pipe,
+            [$<NaturalNumber.Multiply, 3>, $<NaturalNumber.ModuloBy, 10>]
+          >
+        >,
+        8
+      >,
+      1
+    >,
     [1, 3, 9, 7, 1, 3, 9, 7]
-  >,
+  >
 ];

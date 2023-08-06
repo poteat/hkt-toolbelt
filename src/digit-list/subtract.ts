@@ -60,7 +60,7 @@ interface Subtract_T<X extends DigitList.DigitList> extends Kind.Kind {
  *
  * @param A - A digit list representing a number to substract.
  * @param B - A digit list representing a number to substract by.
- * 
+ *
  * @example
  *
  * For example, we can use `Subtract` to subtract one digit list from another:

@@ -1,4 +1,4 @@
-import { Kind } from ".."
+import { Kind } from "..";
 
 /**
  * `_$notEquals` is a type-level function that returns `true` if `T` and `U` are
@@ -18,10 +18,10 @@ import { Kind } from ".."
  * type Result = Conditional._$notEquals<true, false>; // true
  * ```
  */
-export type _$notEquals<T, U> = [T, U] extends [U, T] ? false : true
+export type _$notEquals<T, U> = [T, U] extends [U, T] ? false : true;
 
 interface NotEquals_T<T> extends Kind.Kind {
-  f(x: this[Kind._]): _$notEquals<T, typeof x>
+  f(x: this[Kind._]): _$notEquals<T, typeof x>;
 }
 
 /**
@@ -39,5 +39,5 @@ interface NotEquals_T<T> extends Kind.Kind {
  * ```
  */
 export interface NotEquals extends Kind.Kind {
-  f(x: this[Kind._]): NotEquals_T<typeof x>
+  f(x: this[Kind._]): NotEquals_T<typeof x>;
 }

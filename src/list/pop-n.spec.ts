@@ -52,5 +52,5 @@ type PopN_Spec = [
    * Emits an error if being applied to a non-tuple.
    */
   // @ts-expect-error
-  $<List.PopN<1>, number>,
+  $<List.PopN<1>, number>
 ];

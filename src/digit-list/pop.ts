@@ -3,7 +3,7 @@ import { Type, Kind, DigitList } from "..";
 /**
  * `_$pop` is a type-level function that removes the last digit from a digit list.
  * It returns the digit list after the last digit has been removed.
- * 
+ *
  * ## Parameters
  *
  * @param A - The digit list.
@@ -14,7 +14,7 @@ import { Type, Kind, DigitList } from "..";
  *
  * ```ts
  *  import { DigitList } from "hkt-toolbelt";
- * 
+ *
  * type Result = DigitList._$pop<["1", "2", "3"]>; // ["1", "2"]
  * ```
  *
@@ -34,7 +34,7 @@ export type _$pop<T extends DigitList.DigitList> = T extends []
  * ## Parameters
  *
  * @param A - The digit list.
- * 
+ *
  * @example
  *
  * For example, we can use `Pop` to remove the last digit from a digit list:

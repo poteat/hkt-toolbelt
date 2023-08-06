@@ -1,4 +1,4 @@
-import { $, Test, Object } from "hkt-toolbelt"
+import { $, Test, Object } from "hkt-toolbelt";
 
 /**
  * Tests for `Object.Paths`, which returns the paths to all values in an object
@@ -13,10 +13,10 @@ type Paths_Spec = [
       Object.Paths,
       {
         name: {
-          first: string
-          last: string
-        }
-        age: number
+          first: string;
+          last: string;
+        };
+        age: number;
       }
     >[number],
     [["name"], ["name", "first"], ["name", "last"], ["age"]][number]
@@ -41,18 +41,18 @@ type Paths_Spec = [
       Object.Paths,
       {
         name: {
-          first: string
-          last: string
-        }
-        age: number
+          first: string;
+          last: string;
+        };
+        age: number;
         address: {
-          street: string
-          city: string
-          state: string
+          street: string;
+          city: string;
+          state: string;
           zip: {
-            code: string
-          }
-        }
+            code: string;
+          };
+        };
       }
     >[number],
     [
@@ -68,4 +68,4 @@ type Paths_Spec = [
       ["address", "zip", "code"]
     ][number]
   >
-]
+];

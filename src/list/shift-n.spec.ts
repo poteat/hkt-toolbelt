@@ -52,5 +52,5 @@ type ShiftN_Spec = [
    * Emits an error if being applied to a non-tuple.
    */
   // @ts-expect-error
-  $<List.ShiftN<1>, number>,
+  $<List.ShiftN<1>, number>
 ];

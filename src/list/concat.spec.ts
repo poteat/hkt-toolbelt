@@ -23,7 +23,10 @@ type Concat_Spec = [
   /**
    * Concatenating a tuple with union types results in a tuple with the union types.
    */
-  Test.Expect<$<$<List.Concat, ["foo" | "bar", "alice" | "bob"]>, []>, ["foo" | "bar", "alice" | "bob"]>,
+  Test.Expect<
+    $<$<List.Concat, ["foo" | "bar", "alice" | "bob"]>, []>,
+    ["foo" | "bar", "alice" | "bob"]
+  >,
 
   /**
    * Concatenating a non-tuple element results in the element being pushed to the end of a tuple.

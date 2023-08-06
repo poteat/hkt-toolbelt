@@ -1,4 +1,4 @@
-import { $, Test, DigitList } from ".."
+import { $, Test, DigitList } from "..";
 
 type Subtract_Spec = [
   /**
@@ -11,4 +11,4 @@ type Subtract_Spec = [
     >,
     ["1", "2", "3", "4", "5", "6", "7", "8", "8"]
   >
-]
+];

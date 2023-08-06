@@ -1,4 +1,4 @@
-import { $, $N, Test, Combinator } from ".."
+import { $, $N, Test, Combinator } from "..";
 
 type Collate_Spec = [
   /**
@@ -10,4 +10,4 @@ type Collate_Spec = [
    * Collate of 0 merely returns an empty tuple.
    */
   Test.Expect<$<Combinator.Collate, 0>, []>
-]
+];

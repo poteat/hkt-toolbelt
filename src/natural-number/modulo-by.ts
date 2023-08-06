@@ -1,4 +1,4 @@
-import { NaturalNumber, Type, Number, Kind } from "hkt-toolbelt"
+import { NaturalNumber, Type, Number, Kind } from "hkt-toolbelt";
 
 /**
  * `_$moduloBy` is a type-level function that takes in two natural number types,
@@ -21,12 +21,14 @@ export type _$moduloBy<
    * The numerator.
    */
   B extends number
-> = NaturalNumber._$modulo<B, A>
+> = NaturalNumber._$modulo<B, A>;
 
 interface ModuloBy_T<A extends number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], number>
-  ): Number._$isNatural<typeof x> extends true ? _$moduloBy<A, typeof x> : never
+  ): Number._$isNatural<typeof x> extends true
+    ? _$moduloBy<A, typeof x>
+    : never;
 }
 
 /**
@@ -58,5 +60,5 @@ interface ModuloBy_T<A extends number> extends Kind.Kind {
  * ```
  */
 export interface ModuloBy extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], number>): ModuloBy_T<typeof x>
+  f(x: Type._$cast<this[Kind._], number>): ModuloBy_T<typeof x>;
 }

@@ -1,19 +1,19 @@
-import { $, Conditional, Test } from "hkt-toolbelt"
+import { $, Conditional, Test } from "hkt-toolbelt";
 
 class Animal {
-  name: string
+  name: string;
   constructor(name: string) {
-    this.name = name
+    this.name = name;
   }
 }
 class Dog extends Animal {
   constructor(name: string) {
-    super(name)
+    super(name);
   }
 }
 class Cat extends Animal {
   constructor(name: string) {
-    super(name)
+    super(name);
   }
 }
 
@@ -114,4 +114,4 @@ type ExtendsAll_Spec = [
     >,
     false
   >
-]
+];

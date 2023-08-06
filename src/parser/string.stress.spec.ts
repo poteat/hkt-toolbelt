@@ -1,4 +1,4 @@
-import { $, Test, Parser, Stress } from ".."
+import { $, Test, Parser, Stress } from "..";
 
 type String_StressSpec = [
   /**
@@ -10,9 +10,9 @@ type String_StressSpec = [
       { input: Stress.ThousandString; index: 0; result: never }
     >,
     {
-      input: Stress.ThousandString
-      index: 1_000
-      result: Stress.ThousandString
+      input: Stress.ThousandString;
+      index: 1_000;
+      result: Stress.ThousandString;
     }
   >,
 
@@ -25,9 +25,9 @@ type String_StressSpec = [
       { input: `${Stress.ThousandString}`; index: 999; result: never }
     >,
     {
-      input: `${Stress.ThousandString}`
-      index: 1_000
-      result: "x"
+      input: `${Stress.ThousandString}`;
+      index: 1_000;
+      result: "x";
     }
   >
-]
+];

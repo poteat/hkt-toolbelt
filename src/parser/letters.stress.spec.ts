@@ -1,4 +1,4 @@
-import { $, Parser, Test, Stress } from ".."
+import { $, Parser, Test, Stress } from "..";
 
 type Letters_Spec = [
   /**
@@ -50,15 +50,15 @@ type Letters_Spec = [
     $<
       Parser.Letters,
       {
-        input: Stress.ThousandString
-        index: 0
-        result: never
+        input: Stress.ThousandString;
+        index: 0;
+        result: never;
       }
     >,
     {
-      input: Stress.ThousandString
-      index: 1000
-      result: Stress.ThousandString
+      input: Stress.ThousandString;
+      index: 1000;
+      result: Stress.ThousandString;
     }
   >
-]
+];

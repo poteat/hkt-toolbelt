@@ -1,4 +1,4 @@
-import { $, Kind, List, Number, NaturalNumber } from ".."
+import { $, Kind, List, Number, NaturalNumber } from "..";
 
 /**
  * `_$zip` is a type-level function that takes in an array of arrays `T`,
@@ -55,7 +55,7 @@ export type _$zip<
     : IDX extends MIN_LENGTH
     ? ACC
     : _$zip<T, NaturalNumber._$increment<IDX>, List._$push<CURR, ACC>>
-> = RESULT
+> = RESULT;
 
 /**
  * `Zip` is a type-level function that takes in one array of arrays, `T`,
@@ -79,5 +79,5 @@ import { MAX_SAFE_INTEGER } from '../number/number';
  * ```
  */
 export interface Zip extends Kind.Kind {
-  f(x: this[Kind._]): typeof x extends List.List ? _$zip<typeof x> : never
+  f(x: this[Kind._]): typeof x extends List.List ? _$zip<typeof x> : never;
 }

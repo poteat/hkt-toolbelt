@@ -31,7 +31,7 @@ type _$multiplyDigit2<
  *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
- * 
+ *
  * type Result = DigitList._$multiplyDigit<["3"], "2">; // ["6"]
  * ```
  *

@@ -1,4 +1,4 @@
-import { $, Test, List, Stress } from ".."
+import { $, Test, List, Stress } from "..";
 
 type ShiftN_Spec = [
   /**
@@ -100,4 +100,4 @@ type ShiftN_Spec = [
     $<$<List.ShiftN, 1990>, [...Stress.ThousandTuple, ...Stress.ThousandTuple]>,
     Stress.TenTuple
   >
-]
+];

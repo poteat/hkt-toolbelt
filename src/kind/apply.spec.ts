@@ -7,8 +7,8 @@ import {
   Conditional,
   List,
   String,
-  Test,
-} from "hkt-toolbelt"
+  Test
+} from "hkt-toolbelt";
 
 type Apply_Spec = [
   /**
@@ -22,13 +22,16 @@ type Apply_Spec = [
   Test.Expect<$<$<Kind.Apply, never>, Function.Identity>, never>,
   Test.Expect<
     $<
-      $<Kind.Apply, never>, 
-      $N<Conditional.If, [
-        $<Conditional.Extends, never>,
-        $<Function.Constant, true>,
-        $<Function.Constant, false>,
-      ]>
-    >, 
+      $<Kind.Apply, never>,
+      $N<
+        Conditional.If,
+        [
+          $<Conditional.Extends, never>,
+          $<Function.Constant, true>,
+          $<Function.Constant, false>
+        ]
+      >
+    >,
     true
   >,
 
@@ -36,16 +39,16 @@ type Apply_Spec = [
    * Can be used in its partially applied form.
    */
   Test.Expect<
-    $N<List.Map, [
-      $<
-        $<Kind.Apply, $<Function.Constant, null>>,
-        $N<Conditional.If, [
-          $<Conditional.Equals, 1>, 
-          Function.Identity
-        ]>
-      >,
-      $<List.Times, 3>
-    ]>,
+    $N<
+      List.Map,
+      [
+        $<
+          $<Kind.Apply, $<Function.Constant, null>>,
+          $N<Conditional.If, [$<Conditional.Equals, 1>, Function.Identity]>
+        >,
+        $<List.Times, 3>
+      ]
+    >,
     [null, 1, null]
   >,
 
@@ -60,4 +63,4 @@ type Apply_Spec = [
    */
   // @ts-expect-error
   $<$<Kind.Apply, number>, number>
-]
+];

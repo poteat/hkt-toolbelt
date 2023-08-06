@@ -1,21 +1,21 @@
-import { Type, Digit, Kind } from '..'
+import { Type, Digit, Kind } from "..";
 
 /**
  * `_$subtractTens_LUT` is a lookup table used internally by `_$subtractTens`
  * to compute the result of subtracting two digits in the tens place.
  */
 type _$subtractTens_LUT = [
-  ['0', '1', '1', '1', '1', '1', '1', '1', '1', '1'],
-  ['0', '0', '1', '1', '1', '1', '1', '1', '1', '1'],
-  ['0', '0', '0', '1', '1', '1', '1', '1', '1', '1'],
-  ['0', '0', '0', '0', '1', '1', '1', '1', '1', '1'],
-  ['0', '0', '0', '0', '0', '1', '1', '1', '1', '1'],
-  ['0', '0', '0', '0', '0', '0', '1', '1', '1', '1'],
-  ['0', '0', '0', '0', '0', '0', '0', '1', '1', '1'],
-  ['0', '0', '0', '0', '0', '0', '0', '0', '1', '1'],
-  ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1'],
-  ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
-]
+  ["0", "1", "1", "1", "1", "1", "1", "1", "1", "1"],
+  ["0", "0", "1", "1", "1", "1", "1", "1", "1", "1"],
+  ["0", "0", "0", "1", "1", "1", "1", "1", "1", "1"],
+  ["0", "0", "0", "0", "1", "1", "1", "1", "1", "1"],
+  ["0", "0", "0", "0", "0", "1", "1", "1", "1", "1"],
+  ["0", "0", "0", "0", "0", "0", "1", "1", "1", "1"],
+  ["0", "0", "0", "0", "0", "0", "0", "1", "1", "1"],
+  ["0", "0", "0", "0", "0", "0", "0", "0", "1", "1"],
+  ["0", "0", "0", "0", "0", "0", "0", "0", "0", "1"],
+  ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
+];
 
 /**
  * `_$subtractTens` is a type-level function that takes in two digit types, `A`
@@ -43,14 +43,14 @@ type _$subtractTens_LUT = [
 export type _$subtractTens<
   A extends Digit.Digit,
   B extends Digit.Digit
-> = _$subtractTens_LUT[A][B]
+> = _$subtractTens_LUT[A][B];
 
 /**
  * `SubtractTens_T` is an internal type used by `SubtractTens` to compute the
  * result of subtracting two digit types in the tens place.
  */
 interface SubtractTens_T<A extends Digit.Digit> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$subtractTens<A, typeof x>
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): _$subtractTens<A, typeof x>;
 }
 
 /**
@@ -76,5 +76,5 @@ interface SubtractTens_T<A extends Digit.Digit> extends Kind.Kind {
  * ```
  */
 export interface SubtractTens extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Digit.Digit>): SubtractTens_T<typeof x>
+  f(x: Type._$cast<this[Kind._], Digit.Digit>): SubtractTens_T<typeof x>;
 }

@@ -1,4 +1,4 @@
-import { Kind, NaturalNumber, Number, Conditional, Type } from ".."
+import { Kind, NaturalNumber, Number, Conditional, Type } from "..";
 
 interface _$collate2<
   /**
@@ -26,7 +26,7 @@ interface _$collate2<
     x: this[Kind._]
   ): DONE extends true
     ? [...OUT, typeof x]
-    : _$collate2<N, NEXT, [...OUT, typeof x]>
+    : _$collate2<N, NEXT, [...OUT, typeof x]>;
 }
 
 /**
@@ -35,7 +35,7 @@ interface _$collate2<
  * applications will return a tuple of length `N`, containing the arguments
  * applied.
  */
-export type _$collate<N extends number> = N extends 0 ? [] : _$collate2<N>
+export type _$collate<N extends number> = N extends 0 ? [] : _$collate2<N>;
 
 /**
  * `Collate` is a combinator that takes a number `N` and returns a type-level
@@ -64,5 +64,5 @@ export type _$collate<N extends number> = N extends 0 ? [] : _$collate2<N>
  * ```
  */
 export interface Collate extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], number>): _$collate<typeof x>
+  f(x: Type._$cast<this[Kind._], number>): _$collate<typeof x>;
 }

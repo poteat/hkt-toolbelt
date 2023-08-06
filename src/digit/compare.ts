@@ -1,22 +1,22 @@
-import { $, Digit, Kind, Type } from '../'
+import { $, Digit, Kind, Type } from "../";
 
 type _$compare_LUT = [
-  [0, -1, -1, -1, -1, -1, -1, -1, -1, -1], 
-  [1,  0, -1, -1, -1, -1, -1, -1, -1, -1], 
-  [1,  1,  0, -1, -1, -1, -1, -1, -1, -1], 
-  [1,  1,  1,  0, -1, -1, -1, -1, -1, -1], 
-  [1,  1,  1,  1,  0, -1, -1, -1, -1, -1], 
-  [1,  1,  1,  1,  1,  0, -1, -1, -1, -1], 
-  [1,  1,  1,  1,  1,  1,  0, -1, -1, -1], 
-  [1,  1,  1,  1,  1,  1,  1,  0, -1, -1], 
-  [1,  1,  1,  1,  1,  1,  1,  1,  0, -1], 
-  [1,  1,  1,  1,  1,  1,  1,  1,  1,  0],
+  [0, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+  [1, 0, -1, -1, -1, -1, -1, -1, -1, -1],
+  [1, 1, 0, -1, -1, -1, -1, -1, -1, -1],
+  [1, 1, 1, 0, -1, -1, -1, -1, -1, -1],
+  [1, 1, 1, 1, 0, -1, -1, -1, -1, -1],
+  [1, 1, 1, 1, 1, 0, -1, -1, -1, -1],
+  [1, 1, 1, 1, 1, 1, 0, -1, -1, -1],
+  [1, 1, 1, 1, 1, 1, 1, 0, -1, -1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 0, -1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 ];
 
 /**
  * `_$compare` is a type-level function that takes two decimal digit types,`A` and `B`,
- * and returns the comparison status {-1, 0 or 1}. 
- * 
+ * and returns the comparison status {-1, 0 or 1}.
+ *
  * It returns `1` if A > B, `-1` if A < B and `0` if A === B.
  *
  * ## Parameters
@@ -54,7 +54,7 @@ interface Compare_T<A extends Digit.Digit> extends Kind.Kind {
  *
  * @example
  *
- * For example, we can use the `$` type-level applicator to apply `Compare` to two digits. 
+ * For example, we can use the `$` type-level applicator to apply `Compare` to two digits.
  * In this example, we compare the digits `7` and `4`.
  *
  * ```ts

@@ -29,7 +29,7 @@ export type _$multiply2<
  *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
- * 
+ *
  * type Result = DigitList._$multiplyDigit<["3"], "2">; // ["6"]
  * ```
  *
@@ -53,7 +53,7 @@ export interface Multiply_T<T extends DigitList.DigitList> extends Kind.Kind {
  *
  * @param A - The digit list.
  * @param B - The single digit.
- * 
+ *
  * @example
  *
  * For example, we can use `MultiplyDigit` to multiply a digit list by a single digit:

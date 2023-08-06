@@ -1,4 +1,4 @@
-import { $, Test, Parser, Stress } from ".."
+import { $, Test, Parser, Stress } from "..";
 
 type Many1_Spec = [
   /**
@@ -8,15 +8,15 @@ type Many1_Spec = [
     $<
       $<Parser.Many1, $<Parser.String, "a">>,
       {
-        input: "a"
-        index: 0
-        result: never
+        input: "a";
+        index: 0;
+        result: never;
       }
     >,
     {
-      input: "a"
-      index: 1
-      result: ["a"]
+      input: "a";
+      index: 1;
+      result: ["a"];
     }
   >,
 
@@ -27,15 +27,15 @@ type Many1_Spec = [
     $<
       $<Parser.Many1, $<Parser.String, "a">>,
       {
-        input: "aaaaa"
-        index: 0
-        result: never
+        input: "aaaaa";
+        index: 0;
+        result: never;
       }
     >,
     {
-      input: "aaaaa"
-      index: 5
-      result: ["a", "a", "a", "a", "a"]
+      input: "aaaaa";
+      index: 5;
+      result: ["a", "a", "a", "a", "a"];
     }
   >
-]
+];

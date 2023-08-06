@@ -4,9 +4,7 @@ export type _$fromList<
   T extends List.List,
   FIRST = $<List.First, T>,
   REST extends List.List = $<List.Shift, T>,
-  RESULT = T extends []
-    ? | never 
-    : | FIRST | _$fromList<REST>,
+  RESULT = T extends [] ? never : FIRST | _$fromList<REST>
 > = RESULT;
 
 export interface FromList extends Kind.Kind {

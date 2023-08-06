@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber, List } from ".."
+import { $, Test, NaturalNumber, List } from "..";
 
 type Subtract_Spec = [
   /**
@@ -50,4 +50,4 @@ type Subtract_Spec = [
    * Subtracting more than the first number results in zero.
    */
   Test.Expect<$<$<NaturalNumber.Subtract, 123>, 456>, 0>
-]
+];

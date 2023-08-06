@@ -14,9 +14,9 @@ type _$add_LUT = [
 ];
 
 /**
- * `_$add` is a type-level function that takes two decimal digit types, `A` and 
- * `B`, and returns the digit that results from their addition. The operation 
- * does not include any carry-over from the addition (see `_$addTens` for tens 
+ * `_$add` is a type-level function that takes two decimal digit types, `A` and
+ * `B`, and returns the digit that results from their addition. The operation
+ * does not include any carry-over from the addition (see `_$addTens` for tens
  * place operation).
  *
  * ## Parameters
