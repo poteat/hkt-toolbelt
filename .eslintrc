@@ -36,11 +36,14 @@
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:jsdoc/recommended"
     ],
     "rules": {
         "strict": "error",
         "prettier/prettier": "off",
+        "jsdoc/require-jsdoc": "warn",
+        "jsdoc/tag-lines": "off",
         "semi": "off",
         "@typescript-eslint/semi": "off",
         "no-unexpected-multiline": "error",

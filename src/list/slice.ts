@@ -12,9 +12,9 @@ import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from "..";
  * @param T A tuple type.
  * @param START An integer type.
  * @param END An integer type.
- * * A negative index counts back from the end of the input tuple.
- * * If `START < 0`, `START + T["length"]` is used.
- * * If `END < 0`, `END + T["length"]` is used.
+ * A negative index counts back from the end of the input tuple.
+ * If `START < 0`, `START + T["length"]` is used.
+ * If `END < 0`, `END + T["length"]` is used.
  *
  * ## Basic Usage
  *
@@ -37,11 +37,11 @@ import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from "..";
  *
  * ## Edge Cases
  *
- * * If `RANGE` is not of length two, or any of its elements is not an integer, returns `never`.
- * * If `START >= T["length"]`, returns empty tuple.
- * * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
- * * If `END` is greater than or equal to the length of `T`, all elements up to the end are extracted.
- * * If `END` is positioned before or at `START` after normalization, returns empty tuple.
+ * If `RANGE` is not of length two, or any of its elements is not an integer, returns `never`.
+ * If `START >= T["length"]`, returns empty tuple.
+ * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
+ * If `END` is greater than or equal to the length of `T`, all elements up to the end are extracted.
+ * If `END` is positioned before or at `START` after normalization, returns empty tuple.
  *
  */
 type _$slice<
@@ -93,9 +93,9 @@ interface Slice_T<START extends Number.Number> extends Kind.Kind {
  *
  * @param START An integer type.
  * @param END An integer type.
- * * A negative index counts back from the end of the input tuple.
- * * If `START < 0`, `START + T["length"]` is used.
- * * If `END < 0`, `END + T["length"]` is used.
+ * A negative index counts back from the end of the input tuple.
+ * If `START < 0`, `START + T["length"]` is used.
+ * If `END < 0`, `END + T["length"]` is used.
  * @param T A tuple type.
  *
  * ## Basic Usage
@@ -121,11 +121,11 @@ interface Slice_T<START extends Number.Number> extends Kind.Kind {
  *
  * ## Edge Cases
  *
- * * If `START` or `END` is not an integer, returns `never`.
- * * If `START >= T["length"]`, returns empty tuple.
- * * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
- * * If `END` is greater than or equal to the length of `T`, all elements up to the end are extracted.
- * * If `END` is positioned before or at `START` after normalization, returns empty tuple.
+ * If `START` or `END` is not an integer, returns `never`.
+ * If `START >= T["length"]`, returns empty tuple.
+ * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
+ * If `END` is greater than or equal to the length of `T`, all elements up to the end are extracted.
+ * If `END` is positioned before or at `START` after normalization, returns empty tuple.
  */
 export interface Slice extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Slice_T<typeof x>;

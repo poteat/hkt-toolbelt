@@ -41,7 +41,7 @@ type _$flattenShallow<
  * type Result4 = List._$flattenN<MyList, 5> // [0, 1, 2, 3, 4]
  * ```
  *
- **/
+ */
 export type _$flattenN<
   T extends unknown[],
   N extends Number.Number,
@@ -77,7 +77,7 @@ interface FlattenN_T<N extends Number.Number> extends Kind.Kind {
  * type Result4 = $<$<List.FlattenN, 5>, MyList> // [0, 1, 2, 3, 4]
  * ```
  *
- **/
+ */
 export interface FlattenN extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): FlattenN_T<typeof x>;
 }

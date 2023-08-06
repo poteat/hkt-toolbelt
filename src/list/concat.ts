@@ -10,7 +10,7 @@ import { Type, Kind, List } from "..";
  *
  * @param T A tuple type.
  * @param U A tuple type, or an unknown.
- * * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
+ * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
  *
  * ## Basic Usage
  *
@@ -34,7 +34,7 @@ import { Type, Kind, List } from "..";
  * List._$concat<[1, 2, ...string[]], ["foo"]>; // [1, 2, ...string[], "foo"]
  * ```
  *
- **/
+ */
 export type _$concat<
   U extends unknown,
   T extends unknown[]
@@ -54,7 +54,7 @@ interface Concat_T<U extends unknown> extends Kind.Kind {
  *
  * @param T A tuple type.
  * @param U A tuple type, or an unknown.
- * * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
+ * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
  *
  * ## Basic Usage
  *
@@ -78,7 +78,7 @@ interface Concat_T<U extends unknown> extends Kind.Kind {
  * $<$<List.Concat, ["foo"]>, [1, 2, ...string[]]>; // [1, 2, ...string[], "foo"]
  * ```
  *
- **/
+ */
 export interface Concat extends Kind.Kind {
   f(x: this[Kind._]): Concat_T<typeof x>;
 }

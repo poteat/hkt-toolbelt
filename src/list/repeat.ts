@@ -28,7 +28,7 @@ type _$repeat2<
  *
  * @param T An unknown type.
  * @param N A natural number.
- * * If `N` is not a natural number, returns `never`.
+ * If `N` is not a natural number, returns `never`.
  *
  * ## Basic Usage
  *
@@ -40,7 +40,7 @@ type _$repeat2<
  * type Result = List._$repeat<"a", 3>; // ["a", "a", "a"]
  * ```
  *
- **/
+ */
 export type _$repeat<
   T extends unknown,
   N extends Number.Number,
