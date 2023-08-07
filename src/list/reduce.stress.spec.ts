@@ -1,4 +1,4 @@
-import { $, Test, List, Stress, NaturalNumber } from "..";
+import { $, Test, List, Stress, NaturalNumber } from '..'
 
 type Reduce_Spec = [
   /**
@@ -44,4 +44,4 @@ type Reduce_Spec = [
     $<$<$<List.Reduce, NaturalNumber.Add>, 0>, Stress.ThousandNumberList>,
     5500
   >
-];
+]

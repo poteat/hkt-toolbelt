@@ -1,4 +1,4 @@
-import { Kind, List } from "..";
+import { Kind, List } from '..'
 
 /**
  * `$$` is a type-level function in `hkt-toolbelt` that allows users to pipe
@@ -82,4 +82,4 @@ import { Kind, List } from "..";
 export type $$<
   FX extends Kind.Kind[],
   X extends FX extends [] ? unknown : Kind._$inputOf<List._$first<FX>>
-> = Kind._$pipe<FX, X>;
+> = Kind._$pipe<FX, X>

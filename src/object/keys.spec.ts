@@ -1,4 +1,4 @@
-import { $, Test, Object } from "..";
+import { $, Test, Object } from '..'
 
 /**
  * Tests for `Object.Keys` type, which returns the keys as a tuple.
@@ -7,12 +7,12 @@ type Keys_Spec = [
   /**
    * Can get the keys of an object.
    */
-  Test.Expect<$<Object.Keys, { a: 1; b: 2; c: 3 }>[number], "a" | "b" | "c">,
+  Test.Expect<$<Object.Keys, { a: 1; b: 2; c: 3 }>[number], 'a' | 'b' | 'c'>,
 
   /**
    * The resultant tuple has correct length.
    */
-  Test.Expect<$<Object.Keys, { a: 1; b: 2; c: 3 }>["length"], 3>,
+  Test.Expect<$<Object.Keys, { a: 1; b: 2; c: 3 }>['length'], 3>,
 
   /**
    * The keys of an empty object is an empty tuple.
@@ -24,4 +24,4 @@ type Keys_Spec = [
    */
   // @ts-expect-error
   $<Object.Keys, number>
-];
+]

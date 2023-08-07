@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "..";
+import { $, Boolean, Test } from '..'
 
 type Not_Spec = [
   /**
@@ -16,4 +16,4 @@ type Not_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Boolean.Not, number>>
-];
+]

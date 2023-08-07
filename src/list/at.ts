@@ -1,19 +1,17 @@
 import {
-  $,
-  Digit,
   DigitList,
   Kind,
   Type,
   Number,
   List,
   NaturalNumber,
-  Boolean,
-} from "../"
+  Boolean
+} from '../'
 
 export type _$at<
   T extends List.List,
   POS extends Number.Number,
-  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T["length"]>,
+  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T['length']>,
   POS_ABS extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<POS>
   >,
@@ -25,9 +23,7 @@ export type _$at<
     ? never
     : DigitList._$subtract<T_LENGTH, POS_ABS>,
   INDEX extends number = DigitList._$toNumber<POS_NORM>
-> = POS_NORM extends never
-  ? never
-  : T[INDEX]
+> = POS_NORM extends never ? never : T[INDEX]
 
 interface At_T<X extends Number.Number> extends Kind.Kind {
   f(

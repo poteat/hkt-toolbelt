@@ -1,1 +1,1 @@
-export type Function = (...x: never[]) => unknown;
+export type Function = (...x: never[]) => unknown

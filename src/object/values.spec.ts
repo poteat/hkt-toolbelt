@@ -1,4 +1,4 @@
-import { $, Test, Object } from "..";
+import { $, Test, Object } from '..'
 
 /**
  * Tests for `Object.Values` type, which returns the values as a tuple.
@@ -19,4 +19,4 @@ type Values_Spec = [
    */
   // @ts-expect-error
   $<Object.Values, number>
-];
+]

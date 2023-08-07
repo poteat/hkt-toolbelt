@@ -1,4 +1,4 @@
-import { $, Test, Digit } from "..";
+import { $, Test, Digit } from '..'
 
 type Add_Spec = [
   /**
@@ -9,42 +9,42 @@ type Add_Spec = [
   /**
    * Zero plus one is one.
    */
-  Test.Expect<$<$<Digit.Add, Digit.Zero>, "1">, "1">,
+  Test.Expect<$<$<Digit.Add, Digit.Zero>, '1'>, '1'>,
 
   /**
    * One plus zero is one.
    */
-  Test.Expect<$<$<Digit.Add, "1">, Digit.Zero>, "1">,
+  Test.Expect<$<$<Digit.Add, '1'>, Digit.Zero>, '1'>,
 
   /**
    * One plus one is two.
    */
-  Test.Expect<$<$<Digit.Add, "1">, "1">, "2">,
+  Test.Expect<$<$<Digit.Add, '1'>, '1'>, '2'>,
 
   /**
    * Two plus two is four.
    */
-  Test.Expect<$<$<Digit.Add, "2">, "2">, "4">,
+  Test.Expect<$<$<Digit.Add, '2'>, '2'>, '4'>,
 
   /**
    * Nine plus one is wraps to zero.
    */
-  Test.Expect<$<$<Digit.Add, "9">, "1">, "0">,
+  Test.Expect<$<$<Digit.Add, '9'>, '1'>, '0'>,
 
   /**
    * Nine plus nine is wraps to eight.
    */
-  Test.Expect<$<$<Digit.Add, "9">, "9">, "8">,
+  Test.Expect<$<$<Digit.Add, '9'>, '9'>, '8'>,
 
   /**
    * Adding a non-digit throws an error.
    */
   // @ts-expect-error
-  $<$<Digit.Add, "a">, "1">,
+  $<$<Digit.Add, 'a'>, '1'>,
 
   /**
    * Adding numeric literals throws an error.
    */
   // @ts-expect-error
-  $<$<Digit.Add, 1>, "1">
-];
+  $<$<Digit.Add, 1>, '1'>
+]

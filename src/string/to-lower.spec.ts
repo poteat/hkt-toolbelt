@@ -1,4 +1,4 @@
-import { $, String, Test } from "..";
+import { $, String, Test } from '..'
 
 /**
  * Tests for `String.ToLower`, which converts a string to lowercase for all
@@ -8,12 +8,12 @@ type ToLower_Spec = [
   /**
    * Can lowercase a string.
    */
-  Test.Expect<$<String.ToLower, "FOO">, "foo">,
+  Test.Expect<$<String.ToLower, 'FOO'>, 'foo'>,
 
   /**
    * Can lowercase an empty string.
    */
-  Test.Expect<$<String.ToLower, "">, "">,
+  Test.Expect<$<String.ToLower, ''>, ''>,
 
   /**
    * Can lowercase a template literal string.
@@ -34,7 +34,7 @@ type ToLower_Spec = [
   /**
    * Properly handles string union types.
    */
-  Test.Expect<$<String.ToLower, "FOOBAR" | "BAZQUX">, "foobar" | "bazqux">,
+  Test.Expect<$<String.ToLower, 'FOOBAR' | 'BAZQUX'>, 'foobar' | 'bazqux'>,
 
   /**
    * The 'string' template is supported.
@@ -48,4 +48,4 @@ type ToLower_Spec = [
    * The lower of a string is string.
    */
   Test.Expect<$<String.ToLower, string>, Lowercase<string>>
-];
+]

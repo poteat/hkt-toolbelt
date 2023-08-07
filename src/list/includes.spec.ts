@@ -1,4 +1,4 @@
-import { $, Conditional, Function, List, String, Test } from "..";
+import { $, Conditional, Function, List, String, Test } from '..'
 
 type Includes_Spec = [
   /**
@@ -33,9 +33,9 @@ type Includes_Spec = [
   Test.Expect<
     $<
       $<List.Filter, $<List.Includes, $<Conditional.Extends, string>>>,
-      [[1, 2, 3], [1, 2, 3, "f"], ["a", "b", "c"]]
+      [[1, 2, 3], [1, 2, 3, 'f'], ['a', 'b', 'c']]
     >,
-    [[1, 2, 3, "f"], ["a", "b", "c"]]
+    [[1, 2, 3, 'f'], ['a', 'b', 'c']]
   >,
 
   /**
@@ -48,11 +48,11 @@ type Includes_Spec = [
    * Applying data that doesn't match the predicate input type emits an error.
    */
   // @ts-expect-error
-  $<List.Includes<String.StartsWith<"foo">>, [1, 2, 3]>,
+  $<List.Includes<String.StartsWith<'foo'>>, [1, 2, 3]>,
 
   /**
    * Applying includes to a non-tuple results in an error.
    */
   // @ts-expect-error
   $<List.Includes<$<Function.Constant, true>>, number>
-];
+]

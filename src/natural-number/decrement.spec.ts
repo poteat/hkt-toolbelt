@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..'
 
 type Decrement_Spec = [
   /**
@@ -33,4 +33,4 @@ type Decrement_Spec = [
     $<NaturalNumber.Decrement, 999999999999999999999n>,
     999999999999999999998n
   >
-];
+]

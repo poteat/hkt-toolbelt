@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$xor` is a type-level function that takes in two boolean types, `T` and
@@ -22,10 +22,10 @@ import { Type, Kind } from "..";
  */
 export type _$xor<T extends boolean, U extends boolean> = T extends U
   ? false
-  : true;
+  : true
 
 interface Xor_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$xor<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$xor<T, typeof x>
 }
 
 /**
@@ -69,5 +69,5 @@ interface Xor_T<T extends boolean> extends Kind.Kind {
  * operation (i.e., `A !== B` is equivalent to `A ^ B`).
  */
 export interface Xor extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Xor_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Xor_T<typeof x>
 }

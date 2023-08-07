@@ -1,4 +1,4 @@
-import { Test } from "..";
+import { Test } from '..'
 
 type Expect_Spec = [
   /**
@@ -23,4 +23,4 @@ type Expect_Spec = [
    */
   // @ts-expect-error
   Test.Expect<never, true>
-];
+]

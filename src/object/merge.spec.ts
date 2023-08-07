@@ -1,4 +1,4 @@
-import { $, Test, Object } from "..";
+import { $, Test, Object } from '..'
 
 type Merge_Spec = [
   /**
@@ -18,4 +18,4 @@ type Merge_Spec = [
    * The second object takes precedence.
    */
   Test.Expect<$<$<Object.Merge, { a: 1 }>, { a: 2 }>, { a: 2 }>
-];
+]

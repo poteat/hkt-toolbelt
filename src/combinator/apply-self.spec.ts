@@ -1,4 +1,4 @@
-import { $, Combinator, Function, String, Test } from "..";
+import { $, Combinator, Function, String, Test } from '..'
 
 type ApplySelf_Spec = [
   /**
@@ -9,11 +9,11 @@ type ApplySelf_Spec = [
   /**
    * May be applied to a constant function.
    */
-  Test.Expect<$<Combinator.ApplySelf, $<Function.Constant, "foo">>, "foo">,
+  Test.Expect<$<Combinator.ApplySelf, $<Function.Constant, 'foo'>>, 'foo'>,
 
   /**
    * Emits an error if applied to a function that may not be applied to itself.
    */
   // @ts-expect-error
-  $<Combinator.ApplySelf, String.Append<"foo">>
-];
+  $<Combinator.ApplySelf, String.Append<'foo'>>
+]

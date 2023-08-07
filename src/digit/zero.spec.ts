@@ -1,4 +1,4 @@
-import { $, Test, DigitList, Conditional, Digit, Union } from "..";
+import { $, Test, DigitList, Conditional, Digit } from '..'
 
 type Zero_Spec = [
   /**
@@ -14,10 +14,10 @@ type Zero_Spec = [
   /**
    * Zero plus one is one.
    */
-  Test.Expect<$<$<DigitList.Add, [Digit.Zero]>, ["1"]>, ["1"]>,
+  Test.Expect<$<$<DigitList.Add, [Digit.Zero]>, ['1']>, ['1']>,
 
   /**
    * Zero is zero.
    */
-  Test.Expect<Digit.Zero, "0">
-];
+  Test.Expect<Digit.Zero, '0'>
+]

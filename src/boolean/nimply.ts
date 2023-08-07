@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..'
 
 /**
  * `_$nimply` is a type-level function that takes in two boolean types, `T` and
@@ -25,10 +25,10 @@ export type _$nimply<T extends boolean, U extends boolean> = [T, U] extends [
   false
 ]
   ? true
-  : false;
+  : false
 
 interface Nimply_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$nimply<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$nimply<T, typeof x>
 }
 
 /**
@@ -54,5 +54,5 @@ interface Nimply_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Nimply extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Nimply_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Nimply_T<typeof x>
 }

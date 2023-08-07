@@ -1,4 +1,4 @@
-import { Kind, NaturalNumber, Number, Conditional, Type } from ".."
+import { Kind, NaturalNumber, Number, Conditional, Type } from '..'
 
 interface _$collate2<
   /**

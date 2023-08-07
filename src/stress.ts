@@ -1,1 +1,1 @@
-export * from "./stress/"
+export * from './stress/'

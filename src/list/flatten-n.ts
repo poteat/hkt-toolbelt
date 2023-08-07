@@ -1,4 +1,4 @@
-import { DigitList, Kind, Number, Type, NaturalNumber, Digit, List } from '..';
+import { DigitList, Kind, Number, Type, NaturalNumber, Digit, List } from '..'
 
 type _$flattenN2<
   T extends unknown[],
@@ -7,7 +7,7 @@ type _$flattenN2<
   RESULT extends List.List = N extends [Digit.Zero]
     ? T
     : _$flattenN2<_$flattenShallow<T>, N_NEXT>
-> = RESULT;
+> = RESULT
 
 type _$flattenShallow<
   T extends unknown[],
@@ -16,27 +16,27 @@ type _$flattenShallow<
       ? [...H, ..._$flattenShallow<R>]
       : [H, ..._$flattenShallow<R>]
     : []
-> = RESULT;
+> = RESULT
 
 /**
- * `_$flattenN` is a type-level function that flattens a tuple up to a specified depth level by recursively concatenating nested subtuple elements. 
- * 
+ * `_$flattenN` is a type-level function that flattens a tuple up to a specified depth level by recursively concatenating nested subtuple elements.
+ *
  * @param T The input tuple.
  * @param N Natural number specifying the depth level by which a nested tuple should be flattened.
- * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely. 
- * 
+ * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely.
+ *
  * @example
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
- * 
+ *
  * type MyList = [0, [1, [2, [3, [4]]]]]
- * 
+ *
  * type Result1 = List._$flattenN<MyList, 1> // [0, 1, [2, [3, [4]]]]
  *
  * type Result2 = List._$flattenN<MyList, 2> // [0, 1, 2, [3, [4]]]
- * 
+ *
  * type Result3 = List._$flattenN<MyList, 4> // [0, 1, 2, 3, 4]
- *  
+ *
  * type Result4 = List._$flattenN<MyList, 5> // [0, 1, 2, 3, 4]
  * ```
  *
@@ -44,22 +44,22 @@ type _$flattenShallow<
 export type _$flattenN<
   T extends unknown[],
   N extends Number.Number,
-  RESULT extends List.List = Number._$isNatural<N> extends true 
+  RESULT extends List.List = Number._$isNatural<N> extends true
     ? _$flattenN2<T, NaturalNumber._$toList<N>>
     : never
-> = RESULT;
+> = RESULT
 
 interface FlattenN_T<N extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$flattenN<typeof x, N>
 }
 
 /**
- * `FlattenN` is a type-level function that flattens a tuple up to a specified depth level by recursively concatenating nested subtuple elements. 
- * 
+ * `FlattenN` is a type-level function that flattens a tuple up to a specified depth level by recursively concatenating nested subtuple elements.
+ *
  * @param T The input tuple.
  * @param N Natural number specifying the depth level by which a nested tuple should be flattened.
- * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely. 
- * 
+ * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely.
+ *
  * @example
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
@@ -77,5 +77,5 @@ interface FlattenN_T<N extends Number.Number> extends Kind.Kind {
  *
  */
 export interface FlattenN extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>): FlattenN_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], Number.Number>): FlattenN_T<typeof x>
 }
