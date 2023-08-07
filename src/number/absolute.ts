@@ -5,8 +5,6 @@ import { Number, Type, Kind } from "..";
  *
  * It returns `T` if T >= 0, and `-T` if T < 0.
  *
- * ## Parameters
- *
  * @param T A number type.
  *
  * @example
@@ -24,8 +22,6 @@ export type _$absolute<T extends Number.Number> =
  * `Absolute` is a type-level function that takes a number type `T`, and returns its absolute value.
  *
  * It returns `T` if T >= 0, and `-T` if T < 0.
- *
- * ## Parameters
  *
  * @param T A number type.
  *

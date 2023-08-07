@@ -8,11 +8,7 @@ import { $, Kind, List, Number, NaturalNumber } from "..";
  * The zip operation stops when the shortest sub-array is exhausted.
  * Any remaining items in the longer sub-array are ignored, cutting off the result to the length of the shortest sub-array.
  *
- * ## Parameters
- *
  * @param T An array of types.
- *
- * ## Examples
  *
  * @example
  * For example, we can use `_$zip` to perform parallel iteration.

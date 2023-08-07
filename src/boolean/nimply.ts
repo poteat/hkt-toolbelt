@@ -6,12 +6,8 @@ import { Kind, Type } from "..";
  * operation on `T` and `U`. If `T` is true and `U` is false, then `_$nimply`
  * returns true, otherwise it returns false.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$nimply` to determine whether two boolean types

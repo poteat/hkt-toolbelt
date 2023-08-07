@@ -10,8 +10,6 @@ export type _$fromString2<
 /**
  * `_$fromString` is a type-level function that converts a string into a digit list and trims leading zeros.
  *
- * ## Parameters
- *
  * @param T - The string to be converted into a digit list.
  *
  * @example
@@ -26,8 +24,6 @@ export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
 /**
  * `FromString` is a type-level function that converts a string into a digit list and trims leading zeros.
  * It returns a digit list from a string.
- *
- * ## Parameters
  *
  * @param A - The string to be converted into a digit list.
  *

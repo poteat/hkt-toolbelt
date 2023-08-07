@@ -92,8 +92,6 @@ type _$divide2<
  * which can be either "DIVIDE" or "MODULO". It checks if the divisor is 0 or 1 and returns the appropriate result.
  * If the divisor is neither 0 nor 1, it calls the `_$divide2` function to perform the division.
  *
- * ## Parameters
- *
  * @param A A digit list representing a number to divide.
  * @param B A digit list representing a number to divide by.
  * @param OPERATION A string type representing the operation to be performed. Can be either "DIVIDE" or "MODULO".

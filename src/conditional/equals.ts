@@ -4,12 +4,8 @@ import { Kind } from "..";
  * `_$equals` is a type-level function that takes in two types, `T` and `U`, and
  * returns `true` if `T` and `U` are the same type, and `false` otherwise.
  *
- * ## Parameters
- *
  * @param T A type.
  * @param U A type.
- *
- * ## Examples
  *
  * @example
  * For example, we can use `_$equals` to determine whether two types are equal.

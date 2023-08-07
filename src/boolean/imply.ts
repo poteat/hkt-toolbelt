@@ -8,12 +8,8 @@ import { Kind, Type } from "..";
  *
  * This is also known as the 'logical implication' operator.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$imply` to determine whether a statement is true

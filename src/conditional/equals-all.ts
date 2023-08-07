@@ -4,12 +4,8 @@ import { Type, Kind, List, Conditional, Boolean } from "..";
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,
  * and returns `true` if all elements of `T` are equal or `T` is empty.
  *
- * ## Parameters
- *
  * @param T An array of types.
  * @param U A type.
- *
- * ## Examples
  *
  * @example
  * For example, we can use `_$equalsAll` to determine whether a series of types are equal.

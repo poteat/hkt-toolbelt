@@ -4,8 +4,6 @@ import { Type, Kind, DigitList } from "..";
  * `_$shift` is a type-level function that removes the first digit from a digit list.
  * It returns the result of the shift operation.
  *
- * ## Parameters
- *
  * @param T - The digit list.
  *
  * @example

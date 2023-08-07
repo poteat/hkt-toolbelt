@@ -11,8 +11,6 @@ type _$trim2<A extends DigitList.DigitList> = A extends [
  * `_$trim` is a type-level function that trims leading zeros from a digit list.
  * It returns the trimmed digit list.
  *
- * ## Parameters
- *
  * @param A - The digit list to trim.
  * @param TRIM - The digit list after trimming leading zeros.
  * @param OUTPUT - The final output after trimming. If the trimmed list is empty, it returns ["0"].
@@ -38,8 +36,6 @@ export type _$trim<
 /**
  * `Trim` is a type-level function that trims leading zeros from a digit list.
  * It returns the trimmed digit list.
- *
- * ## Parameters
  *
  * @param x - A digit list to trim leading zeros from.
  *

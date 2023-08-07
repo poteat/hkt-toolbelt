@@ -4,8 +4,6 @@ import { NaturalNumber, Type, Number, Kind } from "..";
  * `_$moduloBy` is a type-level function that takes in two natural number types,
  * `A` and `B`, and returns the remainder of `B` divided by `A`.
  *
- * ## Parameters
- *
  * @param A The number to divide by to calculate the remainder.
  * @param B The numerator.
  *
@@ -34,8 +32,6 @@ interface ModuloBy_T<A extends number> extends Kind.Kind {
 /**
  * `ModuloBy` is a type-level function that takes in two natural number types,
  * `A` and `B`, and returns the remainder of `B` divided by `A`.
- *
- * ## Parameters
  *
  * @param A The number to divide by to calculate the remainder.
  * @param B The numerator.

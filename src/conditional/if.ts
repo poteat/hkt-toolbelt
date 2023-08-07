@@ -8,8 +8,6 @@ import { $, Type, Kind } from "..";
  *
  * This can be thought of as a type-level ternary operator.
  *
- * ## Parameters
- *
  * @param Predicate A type-level function of the form `(x: never) => boolean`.
  * @param Then A type-level function that is applied on the truthy branch.
  * @param Else A type-level function that is applied on the falsy branch.
@@ -55,8 +53,6 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  * to `X`.
  *
  * This can be thought of as a type-level ternary operator.
- *
- * ## Parameters
  *
  * @param Predicate A type-level function of the form `(x: never) => boolean`.
  * @param Then A type-level function that is applied when the predicate returns

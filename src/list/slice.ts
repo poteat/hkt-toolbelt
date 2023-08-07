@@ -7,8 +7,6 @@ import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from "..";
  * then `START` and `END`, which respectively specify the inclusive start and exclusive end indices of a slice.
  * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood.
  * ´´
- * ## Parameters
- *
  * @param T A tuple type.
  * @param START An integer type.
  * @param END An integer type.
@@ -87,8 +85,6 @@ interface Slice_T<START extends Number.Number> extends Kind.Kind {
  * It takes in three arguments: `START` and `END`, which respectively specify the inclusive start and exclusive end indices of a slice,
  * and `T`, the tuple that is to be sliced.
  * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood.
- *
- * ## Parameters
  *
  * @param START An integer type.
  * @param END An integer type.

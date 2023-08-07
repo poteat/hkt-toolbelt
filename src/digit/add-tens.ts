@@ -23,8 +23,6 @@ type _$addTens_LUT = [
  * the two specified digits.
  * Details can be found in the corresponding lookup-table `_$addTens_LUT`.
  *
- * ## Parameters
- *
  * @param A A one-character decimal digit type.
  * @param B A one-character decimal digit type.
  *

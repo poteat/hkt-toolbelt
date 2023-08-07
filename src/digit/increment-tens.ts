@@ -8,11 +8,7 @@ type _$incrementTens_LUT = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "1"];
  * is "9", it returns "1", otherwise, it returns "0". The result can be used for
  * incrementing a tens place in a number string.
  *
- * ## Parameters
- *
  * @param A A digit type.
- *
- * ## Example
  *
  * @example
  * For example, incrementing a digit "9" will result in the tens place increment
@@ -38,11 +34,7 @@ export type _$incrementTens<A extends Digit.Digit> = _$incrementTens_LUT[A];
  * `IncrementTens` is a type-level function that takes a digit type `A` as
  * input and returns the tens place increment for that digit.
  *
- * ## Parameters
- *
  * @param A A digit type.
- *
- * ## Example
  *
  * @example
  * We apply `IncrementTens` to a digit using the `$` type-level applicator:

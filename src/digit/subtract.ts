@@ -19,12 +19,8 @@ type _$subtract_LUT = [
  * is performed using a lookup table (`_$subtract_LUT`), which contains the
  * results of all possible digit subtractions.
  *
- * ## Parameters
- *
  * @param A A digit type.
  * @param B A digit type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$subtract` to subtract two digit types. In this

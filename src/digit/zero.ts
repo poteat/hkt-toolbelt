@@ -3,8 +3,6 @@
  * `Digit` type, and can be used in various arithmetic operations and
  * comparisons provided by the `DigitList` and `NaturalNumber` namespaces.
  *
- * ## Example
- *
  * @example
  * For example, we can use `Zero` in arithmetic operations like addition:
  *

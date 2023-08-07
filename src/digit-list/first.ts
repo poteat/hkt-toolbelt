@@ -4,8 +4,6 @@ import { Digit, DigitList, Kind, Type } from "../";
  * `_$first` is a type-level function that returns the first digit of a digit list.
  * If the list is empty, it returns ["0"].
  *
- * ## Parameters
- *
  * @param T The digit list to extract the first digit from.
  *
  * @example

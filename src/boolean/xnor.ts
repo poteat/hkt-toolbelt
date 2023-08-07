@@ -6,12 +6,8 @@ import { Type, Kind } from "..";
  * on `T` and `U`. If `T` and `U` are equal, then `_$xnor` returns true,
  * otherwise it returns false.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
- *
- * ## Examples
  *
  * @example
  * For example, we can use `_$xnor` to determine whether two boolean types are

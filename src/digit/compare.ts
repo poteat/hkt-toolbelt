@@ -19,8 +19,6 @@ type _$compare_LUT = [
  *
  * It returns `1` if A > B, `-1` if A < B and `0` if A === B.
  *
- * ## Parameters
- *
  * @param A A one-character decimal digit type.
  * @param B A one-character decimal digit type.
  *

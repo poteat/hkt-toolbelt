@@ -25,8 +25,6 @@ type _$subtract2<
  * `_$subtract` is a type-level function that subtracts one digit list from another.
  * It returns the result of the subtraction.
  *
- * ## Parameters
- *
  * @param A - A digit list representing a number to substract.
  * @param B - A digit list representing a number to substract by.
  *
@@ -54,8 +52,6 @@ interface Subtract_T<X extends DigitList.DigitList> extends Kind.Kind {
 /**
  * `Subtract` is a type-level function that subtracts one digit list from another.
  * It returns the result of the subtraction.
- *
- * ## Parameters
  *
  * @param A - A digit list representing a number to substract.
  * @param B - A digit list representing a number to substract by.

@@ -19,8 +19,6 @@ type _$add_LUT = [
  * does not include any carry-over from the addition (see `_$addTens` for tens
  * place operation).
  *
- * ## Parameters
- *
  * @param A A one-character decimal digit type.
  * @param B A one-character decimal digit type.
  *

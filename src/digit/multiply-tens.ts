@@ -5,12 +5,8 @@ import { Type, Kind, Digit } from "..";
  * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
  * This function works with digit types represented as strings.
  *
- * ## Parameters
- *
  * @param A A single-digit type.
  * @param B A single-digit type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$multiplyTens` to compute the tens place of the

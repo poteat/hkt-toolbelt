@@ -12,12 +12,8 @@ import { $, $$, Conditional, Kind } from "..";
  * This is useful if it is known that `T` extends `X`,
  * but the two arguments are being supplied in the opposite order expected by `_$extends`.
  *
- * ## Parameters
- *
  * @param T The subtype that we are checking if `X` is a supertype of.
  * @param X The type that we are checking if it is a supertype of `T`.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$isSupertypeOf` to determine whether a type is a supertype
@@ -52,12 +48,8 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
  * This is useful if it is known that `U` extends `T`,
  * but the two arguments are being supplied in the opposite order expected by `Extends`.
  *
- * ## Parameters
- *
  * @param T The supertype that we are checking if `U` extends.
  * @param U The type that we are checking if it is a subtype of `T`.
- *
- * ## Example
  *
  * @example
  * For example, we can use `IsSupertypeOf` to determine whether a given type `T` is a supertype of

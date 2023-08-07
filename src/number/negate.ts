@@ -5,8 +5,6 @@ import { Number, Type, Kind, Function } from "..";
  *
  * It returns `-T` if T >= 0, and `T` if T < 0.
  *
- * ## Parameters
- *
  * @param T A number type.
  *
  * @example
@@ -30,8 +28,6 @@ export type _$negate<
  * `Negate` is a type-level function that takes a number type `T`, and returns its absolute value.
  *
  * It returns `-T` if T >= 0, and `T` if T < 0.
- *
- * ## Parameters
  *
  * @param T A number type.
  *

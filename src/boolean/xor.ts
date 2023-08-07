@@ -6,12 +6,8 @@ import { Type, Kind } from "..";
  * logical operation on `T` and `U`. If `T` and `U` are the same, then
  * `_$xor` returns false, otherwise it returns true.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$xor` to determine whether two boolean types are

@@ -6,12 +6,8 @@ import { Type, Kind } from "..";
  * on `T` and `U`. If both `T` and `U` are false, then `_$nor` returns true,
  * otherwise it returns false.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$nor` to determine whether two boolean types are

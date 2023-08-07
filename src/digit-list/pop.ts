@@ -4,8 +4,6 @@ import { Type, Kind, DigitList } from "..";
  * `_$pop` is a type-level function that removes the last digit from a digit list.
  * It returns the digit list after the last digit has been removed.
  *
- * ## Parameters
- *
  * @param A - The digit list.
  *
  * @example
@@ -29,8 +27,6 @@ export type _$pop<T extends DigitList.DigitList> = T extends []
 /**
  * `Pop` is a type-level function that removes the last digit from a digit list.
  * It returns the digit list after the last digit has been removed.
- *
- * ## Parameters
  *
  * @param A - The digit list.
  *

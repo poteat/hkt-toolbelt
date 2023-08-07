@@ -3,8 +3,6 @@ import { Type, Kind, Digit, DigitList } from "..";
 /**
  * `_$isOdd` is a type-level function that checks if a digit list is odd.
  *
- * ## Parameters
- *
  * @param T - The digit list to check.
  * @param LAST - The last digit of T.
  *
@@ -25,8 +23,6 @@ export type _$isOdd<
 /**
  * `IsOdd` is a type-level function that checks if a digit list is odd.
  * It returns a function that takes a digit list as a parameter and returns `true` if the digit list is odd, `false` otherwise.
- *
- * ## Parameters
  *
  * @param T - The digit list to check.
  *

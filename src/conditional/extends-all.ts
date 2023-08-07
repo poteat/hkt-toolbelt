@@ -5,12 +5,8 @@ import { Type, Kind, List, Conditional, Boolean } from "..";
  * and returns `true` if and only if all elements of `T` extend `U`, or `T` is empty.
  * Otherwise it returns `false`.
  *
- * ## Parameters
- *
  * @param T An array of types.
  * @param U A type.
- *
- * ## Examples
  *
  * @example
  * For example, we can use `_$extendsAll` to determine whether a series of type expressions all extend a second input type.

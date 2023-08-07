@@ -28,11 +28,7 @@ type _$decrement2<
  * digit list by 1. If the input digit list is empty or represents zero, the
  * result will be a digit list representing zero.
  *
- * ## Parameters
- *
  * @param A A digit list type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$decrement` to decrement a digit list representing
@@ -67,11 +63,7 @@ export type _$decrement<A extends DigitList.DigitList> = DigitList._$trim<
  * digit list by 1. If the input digit list is empty or represents zero, the
  * result will be a digit list representing zero.
  *
- * ## Parameters
- *
  * @param A A digit list type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `Decrement` to decrement a digit list representing

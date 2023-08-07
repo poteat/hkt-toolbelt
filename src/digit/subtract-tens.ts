@@ -22,12 +22,8 @@ type _$subtractTens_LUT = [
  * and `B`, and returns the result of subtracting `B` from `A` in the tens
  * place. If `B` is greater than `A`, the result is 1.
  *
- * ## Parameters
- *
  * @param A A digit type.
  * @param B A digit type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$subtractTens` to subtract two digit types in the

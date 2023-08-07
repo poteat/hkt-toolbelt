@@ -5,11 +5,7 @@ import { Type, Kind } from "..";
  * returns the boolean result of applying the 'not' logical operation on `T`.
  * If `T` is true, then `_$not` returns false, otherwise it returns true.
  *
- * ## Parameters
- *
  * @param T A boolean type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$not` to negate a boolean type:

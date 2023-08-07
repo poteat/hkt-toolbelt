@@ -18,12 +18,8 @@ type _$multiply_LUT = [
  * `B`, and returns the result of multiplying `A` by `B`, modulo 10. The result
  * is a single digit type.
  *
- * ## Parameters
- *
  * @param A A digit type.
  * @param B A digit type.
- *
- * ## Example
  *
  * @example
  * For example, we can use `_$multiply` to multiply two digit types. In this
