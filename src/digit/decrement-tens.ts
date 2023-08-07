@@ -20,12 +20,9 @@ type _$decrementTens_LUT = ['1', '0', '0', '0', '0', '0', '0', '0', '0', '0']
  * It only operates on individual digits and does not handle the logic
  * for the full subtraction or decrementing of the tens digit.
  *
- * ## Parameters
- *
  * @param A A one-character decimal digit type.
  *
  * @example
- *
  * For example, forwarding a decimal digit `9` will result in:
  *
  * ```ts

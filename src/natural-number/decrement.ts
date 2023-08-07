@@ -1,4 +1,4 @@
-import { Type, Kind, DigitList, NaturalNumber, Number } from "..";
+import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
 
 export type _$decrement<
   A extends Number.Number,
@@ -7,10 +7,10 @@ export type _$decrement<
   RESULT extends Number.Number = Number._$fromString<
     DigitList._$toString<DECREMENT>
   >
-> = RESULT;
+> = RESULT
 
 export interface Decrement extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? _$decrement<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? _$decrement<typeof x> : never
 }

@@ -1,1 +1,1 @@
-export * from "./combinator/";
+export * from './combinator/'

@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from '..'
 
 /**
  * Tests for `String.ToUpper`, which converts a string to uppercase for all
@@ -8,12 +8,12 @@ type ToUpper_Spec = [
   /**
    * Can uppercase a string.
    */
-  Test.Expect<$<String.ToUpper, "foo">, "FOO">,
+  Test.Expect<$<String.ToUpper, 'foo'>, 'FOO'>,
 
   /**
    * Can uppercase an empty string.
    */
-  Test.Expect<$<String.ToUpper, "">, "">,
+  Test.Expect<$<String.ToUpper, ''>, ''>,
 
   /**
    * Can uppercase a template literal string.
@@ -34,7 +34,7 @@ type ToUpper_Spec = [
   /**
    * Properly handles string union types.
    */
-  Test.Expect<$<String.ToUpper, "foobar" | "bazqux">, "FOOBAR" | "BAZQUX">,
+  Test.Expect<$<String.ToUpper, 'foobar' | 'bazqux'>, 'FOOBAR' | 'BAZQUX'>,
 
   /**
    * The 'string' template is supported.
@@ -48,4 +48,4 @@ type ToUpper_Spec = [
    * The upper of a string is string.
    */
   Test.Expect<$<String.ToUpper, string>, Uppercase<string>>
-];
+]

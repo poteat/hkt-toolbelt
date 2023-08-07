@@ -1,7 +1,7 @@
-import { Conditional, Type } from "..";
+import { Conditional, Type } from '..'
 
 export abstract class _ {
-  abstract readonly _: symbol;
+  abstract readonly _: symbol
 }
 
 export type Expect<
@@ -11,4 +11,4 @@ export type Expect<
   ? X
   : Type._$isNever<X> extends true
   ? Expect<X, V>
-  : X;
+  : X

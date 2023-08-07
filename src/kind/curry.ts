@@ -73,7 +73,6 @@ interface Curry_T<N extends number> extends Kind.Kind {
  * See `Combinator.Collate` for a similar combinator.
  *
  * @example
- *
  * ```ts
  * import { $, Kind, Type } from "ts-toolbelt"
  *

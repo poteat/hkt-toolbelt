@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 export type _$last<T extends readonly unknown[]> = T extends [infer X]
   ? X
@@ -6,8 +6,8 @@ export type _$last<T extends readonly unknown[]> = T extends [infer X]
   ? _$last<Tail>
   : T extends [...unknown[], infer X]
   ? X
-  : T[number];
+  : T[number]
 
 export interface Last extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], readonly unknown[]>): _$last<typeof x>;
+  f(x: Type._$cast<this[Kind._], readonly unknown[]>): _$last<typeof x>
 }

@@ -1,4 +1,4 @@
-import { $, List, Test } from "hkt-toolbelt";
+import { $, List, Test } from '..'
 
 type IsVariadic_Spec = [
   /**
@@ -21,4 +21,4 @@ type IsVariadic_Spec = [
    */
   // @ts-expect-error
   $<List.IsVariadic, number>
-];
+]

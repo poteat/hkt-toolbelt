@@ -101,15 +101,10 @@ type _$compare2<
  * 1 if `A` is greater than `B`, 0 if `A` is equal to `B`, and -1 if `A` is
  * less than `B`.
  *
- * ## Parameters
- *
  * @param A A digit list type.
  * @param B A digit list type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$compare` to compare two digit lists. In this
  * example, we compare the digit lists ["1", "2", "3"] and ["3", "2", "1"]:
  *

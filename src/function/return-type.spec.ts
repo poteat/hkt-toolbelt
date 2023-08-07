@@ -1,4 +1,4 @@
-import { $, Test, Function } from "hkt-toolbelt";
+import { $, Test, Function } from '..'
 
 type ReturnType_Spec = [
   /**
@@ -21,4 +21,4 @@ type ReturnType_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Function.ReturnType, number>>
-];
+]

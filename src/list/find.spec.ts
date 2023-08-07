@@ -1,4 +1,4 @@
-import { $, Conditional, Function, List, Test } from "hkt-toolbelt";
+import { $, Conditional, Function, List, Test } from '..'
 
 type Find_Spec = [
   /**
@@ -15,8 +15,8 @@ type Find_Spec = [
    * Can find elements according to dynamic conditions.
    */
   Test.Expect<
-    $<$<List.Find, $<Conditional.Extends, string>>, [1, 2, 3, "foo", "bar"]>,
-    "foo"
+    $<$<List.Find, $<Conditional.Extends, string>>, [1, 2, 3, 'foo', 'bar']>,
+    'foo'
   >,
 
   /**
@@ -24,4 +24,4 @@ type Find_Spec = [
    */
   // @ts-expect-error
   List.Find<Function.Identity>
-];
+]

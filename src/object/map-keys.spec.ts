@@ -1,4 +1,4 @@
-import { $, Test, Object, String } from "hkt-toolbelt";
+import { $, Test, Object, String } from '..'
 
 type MapKeys_Spec = [
   /**
@@ -21,11 +21,11 @@ type MapKeys_Spec = [
    * Requires the function to return a string.
    */
   // @ts-expect-error
-  $<$<Object.MapKeys, String.EndsWith<"foo">>, { a: 1; b: 2; c: 3 }>,
+  $<$<Object.MapKeys, String.EndsWith<'foo'>>, { a: 1; b: 2; c: 3 }>,
 
   /**
    * Will emit an error if applied to a non-object.
    */
   // @ts-expect-error
   $<$<Object.MapKeys, String.ToUpper>, number>
-];
+]

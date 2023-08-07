@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..'
 
 type Choice_Spec = [
   /**
@@ -6,10 +6,10 @@ type Choice_Spec = [
    */
   Test.Expect<
     $<
-      $<Parser.Choice, [$<Parser.String, "hello">, $<Parser.String, "world">]>,
-      { input: "hello world"; index: 0; result: never }
+      $<Parser.Choice, [$<Parser.String, 'hello'>, $<Parser.String, 'world'>]>,
+      { input: 'hello world'; index: 0; result: never }
     >,
-    { input: "hello world"; index: 5; result: "hello" }
+    { input: 'hello world'; index: 5; result: 'hello' }
   >,
 
   /**
@@ -17,10 +17,10 @@ type Choice_Spec = [
    */
   Test.Expect<
     $<
-      $<Parser.Choice, [$<Parser.String, "hello">, $<Parser.String, "world">]>,
-      { input: "world hello"; index: 0; result: never }
+      $<Parser.Choice, [$<Parser.String, 'hello'>, $<Parser.String, 'world'>]>,
+      { input: 'world hello'; index: 0; result: never }
     >,
-    { input: "world hello"; index: 5; result: "world" }
+    { input: 'world hello'; index: 5; result: 'world' }
   >,
 
   /**
@@ -29,9 +29,9 @@ type Choice_Spec = [
    */
   Test.Expect<
     $<
-      $<Parser.Choice, [$<Parser.String, "hello">]>,
-      { input: "foobar"; index: 0; result: never }
+      $<Parser.Choice, [$<Parser.String, 'hello'>]>,
+      { input: 'foobar'; index: 0; result: never }
     >,
     never
   >
-];
+]

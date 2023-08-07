@@ -23,13 +23,10 @@ type _$add_LUT = [
  * does not include any carry-over from the addition (see `_$addTens` for tens
  * place operation).
  *
- * ## Parameters
- *
  * @param A A one-character decimal digit type.
  * @param B A one-character decimal digit type.
  *
  * @example
- *
  * For example, forwarding two decimal digits `7` and `4` will result in `1`
  * as the result of adding those digits.
  *
@@ -58,7 +55,6 @@ interface Add_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A one-character decimal digit type.
  *
  * @example
- *
  * For example, using the `hkt-toolbelt` `$` type-level applicator,
  * we apply `Add` to the digits `7` and `4`:
  *

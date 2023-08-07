@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..'
 
 type Parser_Spec = [
   /**
@@ -8,11 +8,11 @@ type Parser_Spec = [
     $<
       Parser.Parser,
       {
-        input: "hello world";
-        index: 0;
-        result: never;
+        input: 'hello world'
+        index: 0
+        result: never
       }
     >,
     Parser._$state
   >
-];
+]

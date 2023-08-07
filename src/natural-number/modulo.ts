@@ -1,10 +1,8 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from ".."
+import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
 
 /**
  * `Modulo` is a type-level function that takes in two natural number types,
  * `A` and `B`, and returns the remainder of `A` divided by `B`.
- *
- * ## Parameters
  *
  * @param A The number to divide.
  * @param B The number to divide by.
@@ -28,15 +26,12 @@ interface Modulo_T<A extends Number.Number> extends Kind.Kind {
  * `Modulo` is a type-level function that takes in two natural number types,
  * `A` and `B`, and returns the remainder of `A` divided by `B`.
  *
- * ## Parameters
- *
  * @param A The number to divide.
  * @param B The number to divide by.
  *
  * ## Usage Examples
  *
  * @example
- *
  * For example, we can use `Modulo` to determine the remainder of a natural
  * number divided by another natural number. In this example, `3` and `2` are
  * passed as type arguments to the type-level function:
@@ -51,7 +46,6 @@ interface Modulo_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * Here we calculate the remainder of `10` divided by `3`:
  *
  * ```ts

@@ -1,4 +1,4 @@
-import { $, Test, String, Stress } from ".."
+import { $, Test, String, Stress } from '..'
 
 type Slice_Spec = [
   /**
@@ -7,25 +7,25 @@ type Slice_Spec = [
   Test.Expect<
     $<
       $<String.Slice, 90>,
-      "abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi "
+      'abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi abcdefghi '
     >,
-    "abcdefghi "
+    'abcdefghi '
   >,
 
   /**
    * Can slice 10 characters.
    */
-  Test.Expect<$<$<String.Slice, 10>, Stress.TenString>, "">,
+  Test.Expect<$<$<String.Slice, 10>, Stress.TenString>, ''>,
 
   /**
    * Can slice 100 characters.
    */
-  Test.Expect<$<$<String.Slice, 100>, Stress.HundredString>, "">,
+  Test.Expect<$<$<String.Slice, 100>, Stress.HundredString>, ''>,
 
   /**
    * Can slice 1000 characters.
    */
-  Test.Expect<$<$<String.Slice, 1000>, Stress.ThousandString>, "">,
+  Test.Expect<$<$<String.Slice, 1000>, Stress.ThousandString>, ''>,
 
   /**
    * Can slice 2000 characters.
@@ -35,6 +35,6 @@ type Slice_Spec = [
       $<String.Slice, 2000>,
       `${Stress.ThousandString}${Stress.ThousandString}`
     >,
-    ""
+    ''
   >
 ]

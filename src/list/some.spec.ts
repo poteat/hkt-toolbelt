@@ -1,16 +1,16 @@
-import { $, Conditional, Function, List, String, Test } from "hkt-toolbelt";
+import { $, Conditional, Function, List, String, Test } from '..'
 
 type Some_Spec = [
   /**
    * Can determine if some element in a tuple satisfies a predicate.
    */
-  Test.Expect<$<$<List.Some, $<Conditional.Extends, number>>, [1, 2, 3, "x"]>>,
+  Test.Expect<$<$<List.Some, $<Conditional.Extends, number>>, [1, 2, 3, 'x']>>,
 
   /**
    * Can determine if some element in a tuple does not satisfy a predicate.
    */
   Test.ExpectNot<
-    $<$<List.Some, $<Conditional.Extends, number>>, ["x", "y", "z"]>
+    $<$<List.Some, $<Conditional.Extends, number>>, ['x', 'y', 'z']>
   >,
 
   /**
@@ -33,11 +33,11 @@ type Some_Spec = [
    * Emits an error if the predicate input type does not match the tuple type.
    */
   // @ts-expect-error
-  $<List.Some<String.StartsWith<"foo">>, [1, 2, 3]>,
+  $<List.Some<String.StartsWith<'foo'>>, [1, 2, 3]>,
 
   /**
    * Emits an error if the provided tuple elements do not match the predicate.
    */
   // @ts-expect-error
-  $<List.Some<String.StartsWith<"foo">>, [1, 2, 3]>
-];
+  $<List.Some<String.StartsWith<'foo'>>, [1, 2, 3]>
+]

@@ -1,4 +1,4 @@
-import { $, Test, Object, String, Function, Conditional } from "hkt-toolbelt";
+import { $, Test, Object, String, Function, Conditional } from '..'
 
 /**
  * Tests for `Object.DeepMap` type, which maps over nested values in an object.
@@ -9,8 +9,8 @@ type DeepMapValues_Spec = [
    */
   Test.Expect<
     $<
-      $<Object.DeepMapValues, $<String.StartsWith, "foo">>,
-      { a: "foobar"; b: "foo"; c: "bar" }
+      $<Object.DeepMapValues, $<String.StartsWith, 'foo'>>,
+      { a: 'foobar'; b: 'foo'; c: 'bar' }
     >,
     { a: true; b: true; c: false }
   >,
@@ -20,8 +20,8 @@ type DeepMapValues_Spec = [
    */
   Test.Expect<
     $<
-      $<Object.DeepMapValues, $<String.StartsWith, "foo">>,
-      { a: { b: "foobar"; c: "foo" }; d: "bar" }
+      $<Object.DeepMapValues, $<String.StartsWith, 'foo'>>,
+      { a: { b: 'foobar'; c: 'foo' }; d: 'bar' }
     >,
     { a: { b: true; c: true }; d: false }
   >,
@@ -30,14 +30,14 @@ type DeepMapValues_Spec = [
    * Emits an error if applied to a non-object.
    */
   // @ts-expect-error
-  $<Object.DeepMap<$<String.StartsWith, "foo">>, number>,
+  $<Object.DeepMap<$<String.StartsWith, 'foo'>>, number>,
 
   /**
    * Emits an error if the specified mapper cannot be applied to the object's
    * values.
    */
   // @ts-expect-error
-  $<Object.DeepMapValues<$<String.StartsWith, "foo">>, { a: 1; b: 2; c: 3 }>,
+  $<Object.DeepMapValues<$<String.StartsWith, 'foo'>>, { a: 1; b: 2; c: 3 }>,
 
   /**
    * Can be applied conditionally using `If`.
@@ -47,24 +47,24 @@ type DeepMapValues_Spec = [
       $<
         Object.DeepMapValues,
         $<
-          $<$<Conditional.If, String.IsString>, $<String.StartsWith, "foo">>,
+          $<$<Conditional.If, String.IsString>, $<String.StartsWith, 'foo'>>,
           Function.Identity
         >
       >,
       {
         name: {
-          first: "foo";
-          last: "bar";
-        };
-        age: 42;
+          first: 'foo'
+          last: 'bar'
+        }
+        age: 42
       }
     >,
     {
       name: {
-        first: true;
-        last: false;
-      };
-      age: 42;
+        first: true
+        last: false
+      }
+      age: 42
     }
   >
-];
+]

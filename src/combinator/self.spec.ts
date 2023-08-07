@@ -1,4 +1,4 @@
-import { $, Combinator, Test } from "hkt-toolbelt";
+import { $, Combinator, Test } from '..'
 
 type Self_Spec = [
   /**
@@ -10,4 +10,4 @@ type Self_Spec = [
    * Can be applied an arbitrary amount of times.
    */
   $<$<$<Combinator.Self, 0>, 0>, 0>
-];
+]

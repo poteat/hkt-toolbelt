@@ -1,4 +1,4 @@
-import { $, Test, Number } from "..";
+import { $, Test, Number } from '..'
 
 type IsNaturalNumber_Spec = [
   /**
@@ -34,15 +34,15 @@ type IsNaturalNumber_Spec = [
   /**
    * Invalid strings are not natural numbers.
    */
-  Test.Expect<$<Number.IsNatural, "foo">, false>,
+  Test.Expect<$<Number.IsNatural, 'foo'>, false>,
 
   /**
    * Empty strings are not natural numbers.
    */
-  Test.Expect<$<Number.IsNatural, "">, false>,
+  Test.Expect<$<Number.IsNatural, ''>, false>,
 
   /**
    * The 'string' type is not a natural number.
    */
   Test.Expect<$<Number.IsNatural, string>, false>
-];
+]
