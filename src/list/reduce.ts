@@ -16,9 +16,8 @@ import { $, Kind, Type, Function } from "..";
  *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
  * 
  * @example
- * 
- * For example, we can use `_$reduce` to derive the sum of all elements in a list of numeric types. 
- * 
+ * For example, we can use `_$reduce` to derive the sum of all elements in a list of numeric types.
+ *
  * ```ts
  * import { List } from "hkt-toolbelt";
  * 
@@ -73,9 +72,8 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * @param X A list of types. The target of the reduce operation.
  * 
  * @example
- * 
- * For example, we can use `Reduce` to derive the sum of all elements in a list of numeric types. 
- * 
+ * For example, we can use `Reduce` to derive the sum of all elements in a list of numeric types.
+ *
  * ```ts
  * import { $, List } from "hkt-toolbelt";
  * 
@@ -83,7 +81,6 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * ```
  * 
  * @example
- * 
  * We can also use the `$N` applicator to invoke `Reduce` with a list containing the required arguments
  * This improves readability by allowing us to avoid nesting `$` calls three level deep. 
  * 
@@ -98,8 +95,7 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * ```
  * 
  * @example
- * 
- * By partially applying only the first two arguments to `Reduce`, 
+ * By partially applying only the first two arguments to `Reduce`,
  * we can define a type-level function that can apply the same operation to multiple list inputs.
  * 
  * ```ts
@@ -111,7 +107,6 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * ```
  * 
  * @example
- * 
  * Another use case for a partially-applied `Reduce` function is to implement
  * sophisticated higher-order functionality by passing it into other type-level functions. 
  * 

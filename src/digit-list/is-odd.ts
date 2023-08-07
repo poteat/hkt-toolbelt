@@ -3,15 +3,12 @@ import { Type, Kind, Digit, DigitList } from "..";
 /**
  * `_$isOdd` is a type-level function that checks if a digit list is odd.
  *
- * ## Parameters
- *
  * @param T - The digit list to check.
  * @param LAST - The last digit of T.
  *
  * @returns `true` if the digit list is odd, `false` otherwise.
  *
  * @example
- *
  * ```ts
  * import { DigitList} from "hkt-toolbelt";
  *
@@ -27,12 +24,9 @@ export type _$isOdd<
  * `IsOdd` is a type-level function that checks if a digit list is odd.
  * It returns a function that takes a digit list as a parameter and returns `true` if the digit list is odd, `false` otherwise.
  *
- * ## Parameters
- *
  * @param T - The digit list to check.
  *
  * @example
- *
  * For example, we can use `IsOdd` to check if a digit list is odd:
  *
  * ```ts

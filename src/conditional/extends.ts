@@ -11,15 +11,10 @@ import { Kind } from "..";
  * ensures that we are only checking if `X` is a subtype of `T`, rather than
  * checking if `T` is a subtype of `X`.
  *
- * ## Parameters
- *
  * @param T The supertype that we are checking if `X` extends.
  * @param X The type that we are checking if it is a subtype of `T`.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$extends` to determine whether a type is a subtype
  * of another type. In this example, we are checking whether the type `true` is
  * a subtype of the type `boolean`:
@@ -44,15 +39,10 @@ interface Extends_T<T> extends Kind.Kind {
  * `Extends` is a type-level function that takes in two types, `T` and `U`, and
  * returns a boolean that represents whether `T` extends `U`.
  *
- * ## Parameters
- *
  * @param T The supertype that we are checking if `U` extends.
  * @param U The type that we are checking if it is a subtype of `T`.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `Extends` to determine whether a type `T` extends a
  * type `U`. In this example, we test whether `true` extends `boolean`:
  *

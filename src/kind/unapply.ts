@@ -13,7 +13,6 @@ import { $, Kind, Type, Function } from '..';
  * whereas `Kind._$inputOf` returns the widest category of arguments accepted by the input function.
  * 
  * @example
- *
  * For example, we can use `_$unapply` to determine what argument was passed into an applied type-level function.
  * In this example, we pass in `Add2`, the target function, and `NaturalNumber.Add` into `_$unapply`, 
  * which gives us the input that was passed into `NaturalNumber.Add` to derive `Add2`.
@@ -52,7 +51,6 @@ interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
  * whereas `Kind._$inputOf` returns the widest category of arguments accepted by the input function.
  *
  * @example
- *
  * For example, we can use `Unapply` to determine what argument was passed into an applied type-level function.
  * In this example, we partially apply `Unapply` to `NaturalNumber.Add`, which results in a
  * type-level function that returns the argument passed into `NaturalNumber.Add` to derive its input, 

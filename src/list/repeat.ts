@@ -18,24 +18,21 @@ type _$repeat2<
  * 
  * `_$repeat` can handle an output tuple length of up to 2137, 
  * which is larger than 999, the maximum recursion depth limit of TypeScript.
- * 
- * ## Parameters
- * 
+ *
  * @param T An unknown type.
  * @param N A natural number.
- * * If `N` is not a natural number, returns `never`.
- * 
+ * If `N` is not a natural number, returns `never`.
+ *
  * ## Basic Usage
  * 
  * @example
- * 
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  * 
  * type Result = List._$repeat<"a", 3>; // ["a", "a", "a"]
  * ```
  *
- **/
+ */
 export type _$repeat<
   T extends unknown, 
   N extends Number.Number,

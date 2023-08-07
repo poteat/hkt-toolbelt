@@ -6,15 +6,10 @@ import { Type, Kind } from "..";
  * logical operation on `T` and `U`. If `T` and `U` are the same, then
  * `_$xor` returns false, otherwise it returns true.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$xor` to determine whether two boolean types are
  * different. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:
@@ -42,7 +37,6 @@ interface Xor_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Xor` to determine whether two boolean types are
  * different. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:

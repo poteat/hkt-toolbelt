@@ -23,15 +23,10 @@ type _$add2<
  * `_$add` is a type-level function that takes in two digit lists `A` and `B`,
  * and returns the sum of the two digit lists as a new digit list.
  *
- * ## Parameters
- *
  * @param A A digit list.
  * @param B A digit list.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$add` to add two digit lists representing the
  * numbers 123 and 456:
  *
@@ -60,7 +55,6 @@ interface Add_T<X extends DigitList.DigitList> extends Kind.Kind {
  * @param B A digit list.
  *
  * @example
- *
  * For example, we can use `Add` to add two digit lists representing the
  * numbers 123 and 456:
  *

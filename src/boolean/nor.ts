@@ -6,15 +6,10 @@ import { Type, Kind } from "..";
  * on `T` and `U`. If both `T` and `U` are false, then `_$nor` returns true,
  * otherwise it returns false.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$nor` to determine whether two boolean types are
  * both false. In this example, `true` and `true` are passed as type arguments
  * to the type-level function:
@@ -45,7 +40,6 @@ interface Nor_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Nor` to determine whether two boolean types are both
  * false. In this example, `true` and `true` are passed as type arguments to the
  * type-level function:
