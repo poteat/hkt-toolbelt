@@ -6,15 +6,10 @@ import { Type, Kind } from "..";
  * on `T` and `U`. If `T` and `U` are equal, then `_$xnor` returns true,
  * otherwise it returns false.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
  *
- * ## Examples
- *
  * @example
- *
  * For example, we can use `_$xnor` to determine whether two boolean types are
  * equal. In this example, `true` and `true` are passed as type arguments to the
  * type-level function:
@@ -26,7 +21,6 @@ import { Type, Kind } from "..";
  * ```
  *
  * @example
- *
  * In this example, `true` and `false` are passed as type arguments to the
  * type-level function:
  *
@@ -53,7 +47,6 @@ interface Xnor_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Xnor` to determine whether two boolean types are
  * equal. In this example, `true` and `true` are passed as type arguments to the
  * type-level function:
@@ -68,7 +61,6 @@ interface Xnor_T<T extends boolean> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * In this example, `true` and `false` are passed as type arguments to the
  * type-level function:
  *

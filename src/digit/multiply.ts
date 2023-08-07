@@ -18,15 +18,10 @@ type _$multiply_LUT = [
  * `B`, and returns the result of multiplying `A` by `B`, modulo 10. The result
  * is a single digit type.
  *
- * ## Parameters
- *
  * @param A A digit type.
  * @param B A digit type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$multiply` to multiply two digit types. In this
  * example, `2` and `3` are passed as type arguments to the type-level function:
  *
@@ -54,7 +49,6 @@ interface Multiply_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A digit type.
  *
  * @example
- *
  * For example, we can use `Multiply` to multiply two digit types. In this
  * example, `2` and `3` are passed as type arguments to the type-level function:
  *

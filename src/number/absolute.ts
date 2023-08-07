@@ -5,12 +5,9 @@ import { Number, Type, Kind } from "..";
  * 
  * It returns `T` if T >= 0, and `-T` if T < 0.
  *
- * ## Parameters
- *
  * @param T A number type.
  *
  * @example
- *
  * ```ts
  * import { Number } from "hkt-toolbelt";
  *
@@ -25,19 +22,16 @@ export type _$absolute<T extends Number.Number> = `${T}` extends `-${infer U ext
  * 
  * It returns `T` if T >= 0, and `-T` if T < 0.
  *
- * ## Parameters
- *
  * @param T A number type.
  *
  * @example
+ * ```ts
+ * import { Number } from "hkt-toolbelt";
  *
-* ```ts
-* import { Number } from "hkt-toolbelt";
-*
-* type Result1 = $<Number.Absolute, 42>; // 42
-* type Result2 = $<Number.Absolute, -42>; // 42
-* ```
-*/
+ * type Result1 = $<Number.Absolute, 42>; // 42
+ * type Result2 = $<Number.Absolute, -42>; // 42
+ * ```
+ */
 export interface Absolute extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>

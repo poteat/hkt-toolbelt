@@ -1,4 +1,4 @@
-import { $, Kind, NaturalNumber, List, Test } from "hkt-toolbelt";
+import { $, Kind, NaturalNumber, List, Test } from "..";
 
 type Iterate_Stress_Spec = [
   Test.Expect<

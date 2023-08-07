@@ -4,13 +4,10 @@ import { Type, Kind, Digit, DigitList } from "..";
  * `_$isEven` is a type-level function that checks if a digit list is even.
  * It returns `true` if the digit list is even, `false` otherwise.
  *
- * ## Parameters
- *
  * @param T - The digit list to check.
  * @param LAST - The last digit of T.
 * 
  * @example
- * 
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
@@ -26,12 +23,9 @@ export type _$isEven<
  * `IsEven` is a type-level function that checks if a digit list is even.
  * It returns `true` if the digit list is even, `false` otherwise.
  *
- * ## Parameters
- *
  * @param T - The digit list to check.
  *
  * @example
- *
  * For example, we can use `IsEven` to check if a digit list is even:
  *
  * ```ts

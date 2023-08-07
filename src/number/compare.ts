@@ -59,16 +59,11 @@ export type _$decimalCompare<
  * The result will be 1 if `A` is greater than `B`, 
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * ## Parameters
- *
  * @param A A number type.
  * @param B A number type.
  *
- * ## Example
- *
  * @example
- *
- * For example, we can use `_$compare` to compare two numbers. 
+ * For example, we can use `_$compare` to compare two numbers.
  *
  * ```ts
  * import { Number } from "hkt-toolbelt";
@@ -103,16 +98,11 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
  * The result will be 1 if `A` is greater than `B`, 
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * ## Parameters
- *
  * @param A A number type.
  * @param B A number type.
  *
- * ## Example
- *
  * @example
- *
- * For example, we can use `Compare` to compare two numbers. 
+ * For example, we can use `Compare` to compare two numbers.
  *
  * ```ts
  * import { $, Number } from "hkt-toolbelt";

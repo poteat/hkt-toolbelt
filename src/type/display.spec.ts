@@ -1,4 +1,4 @@
-import { $, Test, Type } from "hkt-toolbelt";
+import { $, Test, Type } from "..";
 
 /**
  * Tests associated with `Type.Display`, which forces the compiler to resolve

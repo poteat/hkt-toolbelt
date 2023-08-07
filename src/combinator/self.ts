@@ -4,8 +4,6 @@ import { Kind } from "..";
  * `Self` is a higher-order type-level function that outputs itself. Since it
  * outputs itself, it can be applied an arbitrary amount of times.
  *
- * ## Example
- *
  * ```ts
  * import { $, Combinator } from "hkt-toolbelt";
  *

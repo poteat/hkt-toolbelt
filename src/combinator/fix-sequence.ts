@@ -25,8 +25,6 @@ import { $, Type, Kind } from "..";
  * fixed-point sequence. This is optional and defaults to an array containing
  * the initial `VALUE`.
  *
- * ## Examples
- *
  * ### Term Rewriting
  *
  * Here we show a simple example of a convergent fixed-point sequence. Term
@@ -134,8 +132,6 @@ interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
  *
  * If convergence is not reached, the 'infinite type instantiation' error will
  * be emitted by the TypeScript compiler.
- *
- * ## Examples
  *
  * ### Term Rewriting
  *

@@ -1,4 +1,4 @@
-import { $, Conditional, Function, Kind, List, Test } from "hkt-toolbelt";
+import { $, Conditional, Function, Kind, List, Test } from "..";
 
 type Filter_Spec = [
   /**

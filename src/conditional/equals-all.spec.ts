@@ -1,4 +1,4 @@
-import { $, Conditional, Test, List, NaturalNumber } from "hkt-toolbelt"
+import { $, Conditional, Test, List, NaturalNumber } from "..";
 
 type EqualsAll_Spec = [
   /**
