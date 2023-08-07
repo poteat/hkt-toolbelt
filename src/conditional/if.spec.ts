@@ -6,9 +6,7 @@ import {
   List,
   String,
   Test,
-  NaturalNumber,
-  Kind,
-} from "hkt-toolbelt"
+} from ".."
 
 /**
  * Tests associated with `Conditional.If`, which encodes kind-level if-then-else

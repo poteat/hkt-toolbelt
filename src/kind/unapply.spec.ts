@@ -2,7 +2,6 @@ import {
   $,
   Kind,
   Function,
-  Conditional,
   NaturalNumber,
   List,
   Test,

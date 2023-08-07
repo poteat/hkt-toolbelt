@@ -1,4 +1,4 @@
-import { $, $N, Kind, Type, List } from ".."
+import { $N, Kind, Type, List } from ".."
 
 export type _$accumulate<
   F extends Kind.Kind<(x: never) => Kind.Kind>,

@@ -1,4 +1,4 @@
-import { $, Test, Kind, DigitList } from "..";
+import { $, Test, DigitList } from "..";
 
 type Trim_Spec = [
   /**

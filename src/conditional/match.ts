@@ -3,14 +3,13 @@ import {
   $$,
   $N,
   Kind,
-  Type,
   Function,
   Conditional,
   List,
   Object,
   String,
   Test,
-} from "hkt-toolbelt"
+} from ".."
 
 interface LocationSchema {
   city: string

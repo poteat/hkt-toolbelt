@@ -1,4 +1,4 @@
-import { $, Test, DigitList, Conditional, Digit, Union } from "..";
+import { $, Test, DigitList, Conditional, Digit } from "..";
 
 type Zero_Spec = [
   /**

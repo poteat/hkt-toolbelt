@@ -1,6 +1,4 @@
 import {
-  $,
-  Digit,
   DigitList,
   Kind,
   Type,
@@ -8,7 +6,7 @@ import {
   List,
   NaturalNumber,
   Boolean,
-} from "../"
+} from ".."
 
 export type _$at<
   T extends List.List,

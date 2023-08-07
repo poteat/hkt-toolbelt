@@ -1,6 +1,5 @@
 import {
   $,
-  $$,
   $N,
   Kind,
   Function,
@@ -8,7 +7,7 @@ import {
   List,
   String,
   Test,
-} from "hkt-toolbelt"
+} from ".."
 
 type Apply_Spec = [
   /**
