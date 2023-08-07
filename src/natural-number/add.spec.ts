@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..';
 
 export type Add_Spec = [
   /**
@@ -29,5 +29,5 @@ export type Add_Spec = [
   /**
    * Can add numbers as strings.
    */
-  Test.Expect<$<$<NaturalNumber.Add, "123456789">, "123456789">, 246913578>
+  Test.Expect<$<$<NaturalNumber.Add, '123456789'>, '123456789'>, 246913578>
 ];

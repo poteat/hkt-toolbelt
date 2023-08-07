@@ -1,4 +1,4 @@
-import { Kind, Function } from "..";
+import { Kind, Function } from '..';
 
 /**
  * `$` is the most fundamental type in `hkt-toolbelt`. `$` is a generic type
@@ -141,5 +141,5 @@ export type $<
 > = Function._$returnType<
   (F & {
     readonly [Kind._]: X;
-  })["f"]
+  })['f']
 >;

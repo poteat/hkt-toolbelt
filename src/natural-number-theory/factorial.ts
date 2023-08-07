@@ -1,4 +1,4 @@
-import { Kind, Type, Number, NaturalNumber } from "..";
+import { Kind, Type, Number, NaturalNumber } from '..';
 
 export type _$factorial<
   COUNTER extends Number.Number,

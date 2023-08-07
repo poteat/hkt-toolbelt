@@ -1,1 +1,1 @@
-export * from "./natural-number/";
+export * from './natural-number/';

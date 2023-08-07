@@ -1,4 +1,4 @@
-import { DigitList, Kind, Number, Type } from "..";
+import { DigitList, Kind, Number, Type } from '..';
 
 /**
  * `_$toNumber` is a type-level function that converts a digit list to a number.

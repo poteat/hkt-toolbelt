@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..';
 
 /**
  * `_$isEven` is a type-level function that checks if a digit list is even.
@@ -17,7 +17,7 @@ import { Type, Kind, Digit, DigitList } from "..";
 export type _$isEven<
   T extends DigitList.DigitList,
   LAST extends Digit.Digit = DigitList._$last<T>
-> = LAST extends Digit.Zero | "2" | "4" | "6" | "8" ? true : false;
+> = LAST extends Digit.Zero | '2' | '4' | '6' | '8' ? true : false;
 
 /**
  * `IsEven` is a type-level function that checks if a digit list is even.

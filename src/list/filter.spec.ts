@@ -1,4 +1,4 @@
-import { $, Conditional, Function, Kind, List, Test } from "..";
+import { $, Conditional, Function, Kind, List, Test } from '..';
 
 type Filter_Spec = [
   /**
@@ -13,8 +13,8 @@ type Filter_Spec = [
    * Can perform dynamic subtype checks.
    */
   Test.Expect<
-    $<$<List.Filter, $<Conditional.Extends, string>>, [1, "f", 2, "g", 3]>,
-    ["f", "g"]
+    $<$<List.Filter, $<Conditional.Extends, string>>, [1, 'f', 2, 'g', 3]>,
+    ['f', 'g']
   >,
 
   /**
@@ -52,7 +52,7 @@ type Filter_Spec = [
    */
   Test.Expect<
     $<
-      $<Kind.Apply, [1, "foo", 2, 3]>,
+      $<Kind.Apply, [1, 'foo', 2, 3]>,
       $<List.Filter, $<Conditional.Extends, number>>
     >,
     [1, 2, 3]

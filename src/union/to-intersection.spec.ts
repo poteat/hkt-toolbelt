@@ -1,4 +1,4 @@
-import { $, Test, Union } from "..";
+import { $, Test, Union } from '..';
 
 declare function overloaded(x: number): string;
 declare function overloaded(x: string): string;
@@ -12,8 +12,8 @@ type ToIntersection_Spec = [
    * `Union.ToIntersection` should convert a union type to an intersection type.
    */
   Test.Expect<
-    $<Union.ToIntersection, { a: "foo" } | { b: "foo" }>,
-    { a: "foo"; b: "foo" }
+    $<Union.ToIntersection, { a: 'foo' } | { b: 'foo' }>,
+    { a: 'foo'; b: 'foo' }
   >,
 
   /**

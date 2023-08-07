@@ -1,14 +1,14 @@
-import { Boolean, Digit, DigitList, Kind, NaturalNumber, Type } from "../";
+import { Boolean, Digit, DigitList, Kind, NaturalNumber, Type } from '../';
 
 type _$compare2<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  A_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<A["length"]>,
-  B_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<B["length"]>,
+  A_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<A['length']>,
+  B_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<B['length']>,
   IS_SAME_LENGTH extends boolean = A_LENGTH extends B_LENGTH ? true : false,
   BOTH_SINGLE_DIGIT extends boolean = Boolean._$and<
-    A_LENGTH extends ["1"] ? true : false,
-    B_LENGTH extends ["1"] ? true : false
+    A_LENGTH extends ['1'] ? true : false,
+    B_LENGTH extends ['1'] ? true : false
   >,
   A_FIRST extends Digit.Digit = DigitList._$first<A>,
   B_FIRST extends Digit.Digit = DigitList._$first<B>,

@@ -6,12 +6,12 @@ import {
   List,
   NaturalNumber,
   Boolean
-} from "../";
+} from '../';
 
 export type _$at<
   T extends List.List,
   POS extends Number.Number,
-  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T["length"]>,
+  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T['length']>,
   POS_ABS extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<POS>
   >,

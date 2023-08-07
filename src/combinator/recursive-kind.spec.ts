@@ -1,4 +1,4 @@
-import { $, Combinator, Test, Kind } from "..";
+import { $, Combinator, Test, Kind } from '..';
 
 type RecursiveKind_Spec = [
   /**

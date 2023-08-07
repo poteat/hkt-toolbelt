@@ -1,4 +1,4 @@
-import { $, Test, String, Stress } from "..";
+import { $, Test, String, Stress } from '..';
 
 type FromList_Spec = [
   /**

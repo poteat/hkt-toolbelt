@@ -1,4 +1,4 @@
-import { $, Test, Object, Kind } from "..";
+import { $, Test, Object, Kind } from '..';
 
 type DeepInputOf_Spec = [
   /**

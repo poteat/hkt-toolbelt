@@ -6,13 +6,13 @@ import {
   DigitList,
   NaturalNumber,
   Boolean
-} from "..";
+} from '..';
 
 export type _$compare2<
   A extends Number.Number,
   B extends Number.Number,
-  A_SGN extends "+" | "-" = Number._$sign<A>,
-  B_SGN extends "+" | "-" = Number._$sign<B>,
+  A_SGN extends '+' | '-' = Number._$sign<A>,
+  B_SGN extends '+' | '-' = Number._$sign<B>,
   A_ABS extends Number.Number = Number._$absolute<A>,
   B_ABS extends Number.Number = Number._$absolute<B>,
   A_INT extends DigitList.DigitList = `${A_ABS}` extends `${infer INT extends
@@ -31,13 +31,13 @@ export type _$compare2<
     DigitList.DigitList = `${B}` extends `${string}.${infer DEC extends string}`
     ? DigitList._$fromString2<DEC>
     : [Digit.Zero],
-  RESULT extends 1 | 0 | -1 = A_SGN extends "+"
-    ? B_SGN extends "+"
+  RESULT extends 1 | 0 | -1 = A_SGN extends '+'
+    ? B_SGN extends '+'
       ? A_INT extends B_INT
         ? _$decimalCompare<A_DEC, B_DEC>
         : DigitList._$compare<A_INT, B_INT>
       : 1
-    : B_SGN extends "+"
+    : B_SGN extends '+'
     ? -1
     : A_INT extends B_INT
     ? _$decimalCompare<B_DEC, A_DEC>

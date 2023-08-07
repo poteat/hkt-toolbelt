@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "..";
+import { $, Boolean, Test } from '..';
 
 type Nor_Spec = [
   /**

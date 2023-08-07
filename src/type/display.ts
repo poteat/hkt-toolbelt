@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 export type _$display<T> = T extends (...args: never[]) => unknown
   ? T

@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 export type _$valueOf<T> = T extends unknown[] ? T[number] : T[keyof T];
 

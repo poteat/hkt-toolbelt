@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "..";
+import { $, Boolean, Test } from '..';
 
 type And_Spec = [
   /**

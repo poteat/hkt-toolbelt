@@ -1,4 +1,4 @@
-import { $, NaturalNumber, Test } from "../";
+import { $, NaturalNumber, Test } from '../';
 
 type Compare_Spec = [
   /**

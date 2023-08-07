@@ -1,4 +1,4 @@
-import { $, Kind, NaturalNumber, List, Test } from "..";
+import { $, Kind, NaturalNumber, List, Test } from '..';
 
 type Iterate_Stress_Spec = [
   Test.Expect<

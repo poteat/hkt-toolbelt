@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 /**
  * `_$not` is a type-level function that takes in a boolean type `T`, and

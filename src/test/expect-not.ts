@@ -1,4 +1,4 @@
-import { Conditional, Test, Type } from "..";
+import { Conditional, Test, Type } from '..';
 
 export type ExpectNot<
   X extends Conditional._$equals<X, V> extends true ? V : V & Test._,

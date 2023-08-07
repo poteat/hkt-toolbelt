@@ -1,4 +1,4 @@
-import { $, Kind, Type } from "..";
+import { $, Kind, Type } from '..';
 
 export type _$mapValues<
   T extends Record<string, unknown>,

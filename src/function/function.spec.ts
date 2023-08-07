@@ -1,4 +1,4 @@
-import { $, Conditional, Function, Test } from "..";
+import { $, Conditional, Function, Test } from '..';
 
 type Function_Spec = [
   /**

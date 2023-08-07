@@ -1,4 +1,4 @@
-import { Type, Number, Kind, NaturalNumber } from "..";
+import { Type, Number, Kind, NaturalNumber } from '..';
 
 interface DivideBy_T<A extends Number.Number> extends Kind.Kind {
   f(

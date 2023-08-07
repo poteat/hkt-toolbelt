@@ -1,4 +1,4 @@
-import { $, Kind, Combinator, Conditional, Function, NaturalNumber } from "..";
+import { $, Kind, Combinator, Conditional, Function, NaturalNumber } from '..';
 
 export type Collatz = $<
   $<$<Conditional.If, NaturalNumber.IsEven>, $<NaturalNumber.DivideBy, 2>>,

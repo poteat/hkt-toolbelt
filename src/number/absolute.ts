@@ -1,4 +1,4 @@
-import { Number, Type, Kind } from "..";
+import { Number, Type, Kind } from '..';
 
 /**
  * `_$absolute` is a type-level function that takes a number type `T`, and returns its absolute value.

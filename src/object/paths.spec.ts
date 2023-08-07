@@ -1,4 +1,4 @@
-import { $, Test, Object } from "..";
+import { $, Test, Object } from '..';
 
 /**
  * Tests for `Object.Paths`, which returns the paths to all values in an object
@@ -19,7 +19,7 @@ type Paths_Spec = [
         age: number;
       }
     >[number],
-    [["name"], ["name", "first"], ["name", "last"], ["age"]][number]
+    [['name'], ['name', 'first'], ['name', 'last'], ['age']][number]
   >,
 
   /**
@@ -56,16 +56,16 @@ type Paths_Spec = [
       }
     >[number],
     [
-      ["name"],
-      ["name", "first"],
-      ["name", "last"],
-      ["age"],
-      ["address"],
-      ["address", "street"],
-      ["address", "city"],
-      ["address", "state"],
-      ["address", "zip"],
-      ["address", "zip", "code"]
+      ['name'],
+      ['name', 'first'],
+      ['name', 'last'],
+      ['age'],
+      ['address'],
+      ['address', 'street'],
+      ['address', 'city'],
+      ['address', 'state'],
+      ['address', 'zip'],
+      ['address', 'zip', 'code']
     ][number]
   >
 ];

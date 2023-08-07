@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..';
 
 /**
  * `_$isOdd` is a type-level function that checks if a digit list is odd.
@@ -18,7 +18,7 @@ import { Type, Kind, Digit, DigitList } from "..";
 export type _$isOdd<
   T extends DigitList.DigitList,
   LAST extends Digit.Digit = DigitList._$last<T>
-> = LAST extends "1" | "3" | "5" | "7" | "9" ? true : false;
+> = LAST extends '1' | '3' | '5' | '7' | '9' ? true : false;
 
 /**
  * `IsOdd` is a type-level function that checks if a digit list is odd.

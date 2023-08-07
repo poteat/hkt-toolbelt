@@ -1,6 +1,6 @@
-import { Type, Digit, Kind } from "..";
+import { Type, Digit, Kind } from '..';
 
-type _$decrement_LUT = ["9", "0", "1", "2", "3", "4", "5", "6", "7", "8"];
+type _$decrement_LUT = ['9', '0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
 /**
  * `_$decrement` is a type-level function which takes in a required `Digit.Digit`

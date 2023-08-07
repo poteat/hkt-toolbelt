@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..';
 
 export type _$atPath<Path extends (string | symbol)[], T> = Path extends [
   infer Head,

@@ -1,4 +1,4 @@
-import { $, Conditional, Function, List, String, Test } from "..";
+import { $, Conditional, Function, List, String, Test } from '..';
 
 type Every_Spec = [
   /**
@@ -10,7 +10,7 @@ type Every_Spec = [
    * Can determine if every element in a tuple does not satisfy a predicate.
    */
   Test.ExpectNot<
-    $<$<List.Every, $<Conditional.Extends, number>>, [1, 2, 3, "x"]>
+    $<$<List.Every, $<Conditional.Extends, number>>, [1, 2, 3, 'x']>
   >,
 
   /**
@@ -23,11 +23,11 @@ type Every_Spec = [
    * Emits an error if the predicate input type does not match the tuple type.
    */
   // @ts-expect-error
-  $<List.Every<String.StartsWith<"foo">>, [1, 2, 3]>,
+  $<List.Every<String.StartsWith<'foo'>>, [1, 2, 3]>,
 
   /**
    * Emits an error if the provided tuple elements do not match the predicate.
    */
   // @ts-expect-error
-  $<List.Every<String.StartsWith<"foo">>, [1, 2, 3]>
+  $<List.Every<String.StartsWith<'foo'>>, [1, 2, 3]>
 ];

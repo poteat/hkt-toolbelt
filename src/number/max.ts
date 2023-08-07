@@ -1,4 +1,4 @@
-import { Kind, Type, Number } from "..";
+import { Kind, Type, Number } from '..';
 
 export type _$max<
   A extends Number.Number,

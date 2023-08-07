@@ -1,4 +1,4 @@
-import { $, Kind, Type, Parser, List } from "..";
+import { $, Kind, Type, Parser, List } from '..';
 
 export type _$sequence<
   STATE extends Parser._$state,
@@ -13,7 +13,7 @@ export type _$sequence<
     ACTIVE_PX,
     Type._$cast<STATE, Kind._$inputOf<ACTIVE_PX>>
   >,
-  NEXT_RESULTS extends unknown[] = [...RESULTS, NEXT_STATE["result"]],
+  NEXT_RESULTS extends unknown[] = [...RESULTS, NEXT_STATE['result']],
   IS_DONE extends boolean = NEXT_PX extends []
     ? true
     : NEXT_STATE extends never
@@ -23,8 +23,8 @@ export type _$sequence<
   ? NEXT_STATE extends never
     ? never
     : {
-        input: STATE["input"];
-        index: NEXT_STATE["index"];
+        input: STATE['input'];
+        index: NEXT_STATE['index'];
         result: NEXT_RESULTS;
       }
   : _$sequence<NEXT_STATE, NEXT_PX, NEXT_RESULTS>;

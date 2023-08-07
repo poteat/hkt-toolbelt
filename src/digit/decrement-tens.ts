@@ -1,6 +1,6 @@
-import { Type, Digit, Kind } from "..";
+import { Type, Digit, Kind } from '..';
 
-type _$decrementTens_LUT = ["1", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
+type _$decrementTens_LUT = ['1', '0', '0', '0', '0', '0', '0', '0', '0', '0'];
 
 /**
  * `_$decrementTens` is a type-level function that takes a single decimal digit

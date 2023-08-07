@@ -1,4 +1,4 @@
-import { $, Test, Number, Conditional } from "..";
+import { $, Test, Number, Conditional } from '..';
 
 type Number_Spec = [
   /**

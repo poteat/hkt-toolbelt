@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$emplace<K extends string | number | symbol, V> = {
   [k in K]: V;

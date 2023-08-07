@@ -1,4 +1,4 @@
-import { $, Test, List } from "..";
+import { $, Test, List } from '..';
 
 type Range_Stress_Spec = [
   Test.Expect<

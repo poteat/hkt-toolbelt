@@ -1,4 +1,4 @@
-import { $, Test, Number } from "..";
+import { $, Test, Number } from '..';
 
 export type IsInteger_Spec = [
   /**
@@ -34,12 +34,12 @@ export type IsInteger_Spec = [
   /**
    * Can recognize string-encoded integers.
    */
-  Test.Expect<$<Number.IsInteger, "42">>,
+  Test.Expect<$<Number.IsInteger, '42'>>,
 
   /**
    * Can recognize string-encoded non-integers.
    */
-  Test.Expect<$<Number.IsInteger, "42.42">, false>,
+  Test.Expect<$<Number.IsInteger, '42.42'>, false>,
 
   /**
    * Can recognize bigint integers.
@@ -49,5 +49,5 @@ export type IsInteger_Spec = [
   /**
    * Hex strings are not integers.
    */
-  Test.Expect<$<Number.IsInteger, "0x42">, false>
+  Test.Expect<$<Number.IsInteger, '0x42'>, false>
 ];

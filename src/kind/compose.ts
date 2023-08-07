@@ -1,4 +1,4 @@
-import { $, Type, List, Kind } from "..";
+import { $, Type, List, Kind } from '..';
 
 export type _$compose<FX extends Kind.Kind[], X> = FX extends [
   ...infer Init,

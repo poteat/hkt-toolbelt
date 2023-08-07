@@ -1,4 +1,4 @@
-import { Kind, Type, String, Number, List } from "..";
+import { Kind, Type, String, Number, List } from '..';
 
 export type _$slice<
   S extends string,

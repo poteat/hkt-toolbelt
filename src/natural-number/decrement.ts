@@ -1,4 +1,4 @@
-import { Type, Kind, DigitList, NaturalNumber, Number } from "..";
+import { Type, Kind, DigitList, NaturalNumber, Number } from '..';
 
 export type _$decrement<
   A extends Number.Number,

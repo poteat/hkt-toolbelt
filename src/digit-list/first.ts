@@ -1,4 +1,4 @@
-import { Digit, DigitList, Kind, Type } from "../";
+import { Digit, DigitList, Kind, Type } from '../';
 
 /**
  * `_$first` is a type-level function that returns the first digit of a digit list.

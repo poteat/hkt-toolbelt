@@ -1,4 +1,4 @@
-import { $, Kind, Type, List } from "..";
+import { $, Kind, Type, List } from '..';
 
 export type _$fromList<
   T extends List.List,

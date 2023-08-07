@@ -1,10 +1,10 @@
-import { $, Test, DigitList, Conditional, Digit, Union } from "..";
+import { $, Test, DigitList, Conditional, Digit, Union } from '..';
 
 type DigitList_Spec = [
   /**
    * "1" is assignable to a digit list.
    */
-  Test.Expect<$<$<Conditional.Extends, DigitList.DigitList[number]>, "1">>,
+  Test.Expect<$<$<Conditional.Extends, DigitList.DigitList[number]>, '1'>>,
 
   /**
    * The zero digit is assignable.
@@ -16,5 +16,5 @@ type DigitList_Spec = [
   /**
    * There are 10 digits.
    */
-  Test.Expect<$<Union.ToList, DigitList.DigitList[number]>["length"], 10>
+  Test.Expect<$<Union.ToList, DigitList.DigitList[number]>['length'], 10>
 ];

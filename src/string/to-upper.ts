@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$toUpper<S extends string> = Uppercase<S>;
 

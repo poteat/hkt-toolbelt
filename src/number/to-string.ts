@@ -1,4 +1,4 @@
-import { Kind, Type, Number } from "..";
+import { Kind, Type, Number } from '..';
 
 export type _$toString<N extends Number.Number> = `${N}`;
 

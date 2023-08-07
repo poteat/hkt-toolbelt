@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$append<Suffix extends string, S extends string> = `${S}${Suffix}`;
 

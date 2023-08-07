@@ -1,4 +1,4 @@
-import { Digit, DigitList, Kind, Type } from "..";
+import { Digit, DigitList, Kind, Type } from '..';
 
 type _$add2<
   A extends DigitList.DigitList,
@@ -13,10 +13,10 @@ type _$add2<
   SUM_TENS extends Digit.Digit = Digit._$addTens<A_LAST, B_LAST>,
   SUM_CARRY extends Digit.Digit = Digit._$add<SUM, CARRY>,
   SUM_CARRY_TENS extends Digit.Digit = Digit._$addTens<SUM, CARRY>,
-  CARRY_NEXT extends Digit.Digit = SUM_TENS extends "1" ? "1" : SUM_CARRY_TENS,
+  CARRY_NEXT extends Digit.Digit = SUM_TENS extends '1' ? '1' : SUM_CARRY_TENS,
   OUTPUT_NEXT extends DigitList.DigitList = [SUM_CARRY, ...OUTPUT],
   DONE = A extends [] ? (B extends [] ? true : false) : false,
-  RESULT = CARRY extends "1" ? [CARRY, ...OUTPUT] : OUTPUT
+  RESULT = CARRY extends '1' ? [CARRY, ...OUTPUT] : OUTPUT
 > = DONE extends true
   ? RESULT
   : _$add2<A_NEXT, B_NEXT, CARRY_NEXT, OUTPUT_NEXT>;

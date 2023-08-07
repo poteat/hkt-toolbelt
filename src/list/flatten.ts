@@ -1,4 +1,4 @@
-import { Kind, List, Type } from "..";
+import { Kind, List, Type } from '..';
 
 /**
  * `_$flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements.

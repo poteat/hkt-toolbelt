@@ -1,4 +1,4 @@
-import { $, Test, List, Stress, NaturalNumber } from "..";
+import { $, Test, List, Stress, NaturalNumber } from '..';
 
 type Reduce_Spec = [
   /**

@@ -1,4 +1,4 @@
-import { $, Kind, Parser, Type } from "..";
+import { $, Kind, Parser, Type } from '..';
 
 export type _$map<
   STATE extends Parser._$state,
@@ -8,9 +8,9 @@ export type _$map<
 > = NEW_STATE extends never
   ? never
   : {
-      input: NEW_STATE["input"];
-      index: NEW_STATE["index"];
-      result: $<K, Type._$cast<NEW_STATE["result"], Kind._$inputOf<K>>>;
+      input: NEW_STATE['input'];
+      index: NEW_STATE['index'];
+      result: $<K, Type._$cast<NEW_STATE['result'], Kind._$inputOf<K>>>;
     };
 
 interface Map_T2<P extends Parser.Parser, K extends Kind.Kind>

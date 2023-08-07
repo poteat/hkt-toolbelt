@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$push<X, T extends unknown[]> = [...T, X];
 

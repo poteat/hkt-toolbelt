@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..';
 
 export type _$fromString<T extends string> = T extends `${infer T extends
   | number

@@ -7,7 +7,7 @@ import {
   Type,
   List,
   Boolean
-} from "..";
+} from '..';
 
 type _$splice2<
   T extends List.List,
@@ -16,7 +16,7 @@ type _$splice2<
   INSERTS extends List.List,
   PRE extends List.List = [],
   POST extends List.List = T,
-  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T["length"]>,
+  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T['length']>,
   START_ABS extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<START>
   >,
@@ -28,7 +28,7 @@ type _$splice2<
     : DigitList._$subtract<T_LENGTH, START_ABS>,
   RESULT extends List.List = DigitList._$compare<
     START_NORM,
-    NaturalNumber._$toList<T["length"]>
+    NaturalNumber._$toList<T['length']>
   > extends 1 | 0
     ? List._$concat<INSERTS, T>
     : DEL_COUNT extends [Digit.Zero]

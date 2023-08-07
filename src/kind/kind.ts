@@ -1,4 +1,4 @@
-import { Function } from "..";
+import { Function } from '..';
 
 export declare const _: unique symbol;
 

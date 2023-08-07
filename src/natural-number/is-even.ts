@@ -1,4 +1,4 @@
-import { Type, Kind, Number, NaturalNumber, DigitList } from "..";
+import { Type, Kind, Number, NaturalNumber, DigitList } from '..';
 
 export type _$isEven<
   T extends Number.Number,

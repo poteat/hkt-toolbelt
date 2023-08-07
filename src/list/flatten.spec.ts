@@ -1,4 +1,4 @@
-import { $, Test, List } from "..";
+import { $, Test, List } from '..';
 
 type Flatten_Spec = [
   /**
@@ -9,35 +9,35 @@ type Flatten_Spec = [
   /**
    * Flattening array with no nested elements is identity.
    */
-  Test.Expect<$<List.Flatten, ["a", "b", "c", "d"]>, ["a", "b", "c", "d"]>,
+  Test.Expect<$<List.Flatten, ['a', 'b', 'c', 'd']>, ['a', 'b', 'c', 'd']>,
 
   /**
    * Flattens array with single-level nested elements.
    */
-  Test.Expect<$<List.Flatten, ["a", ["b", "c", "d"]]>, ["a", "b", "c", "d"]>,
+  Test.Expect<$<List.Flatten, ['a', ['b', 'c', 'd']]>, ['a', 'b', 'c', 'd']>,
 
   /**
    * Flattens array with multiple higher-level nested elements.
    */
   Test.Expect<
-    $<List.Flatten, ["a", ["b"], ["c", [["d"]]]]>,
-    ["a", "b", "c", "d"]
+    $<List.Flatten, ['a', ['b'], ['c', [['d']]]]>,
+    ['a', 'b', 'c', 'd']
   >,
 
   /**
    * Flattens nested array with elements of multiple types.
    */
   Test.Expect<
-    $<List.Flatten, [[{ foo: "bar"; 2: 10 }, "foobar"]]>,
-    [{ foo: "bar"; 2: 10 }, "foobar"]
+    $<List.Flatten, [[{ foo: 'bar'; 2: 10 }, 'foobar']]>,
+    [{ foo: 'bar'; 2: 10 }, 'foobar']
   >,
 
   /**
    * Flattens array nested at 20 levels.
    */
   Test.Expect<
-    $<List.Flatten, [[[[[[[[[[[[[[[[[[[["a"]]]]]]]]]]]]]]]]]]]]>,
-    ["a"]
+    $<List.Flatten, [[[[[[[[[[[[[[[[[[[['a']]]]]]]]]]]]]]]]]]]]>,
+    ['a']
   >,
 
   /**

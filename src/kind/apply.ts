@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..';
 
 interface Apply_T<X> extends Kind.Kind {
   f(

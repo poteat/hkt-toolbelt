@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..';
 
 export type _$includes<F extends Kind.Kind, X extends unknown[]> = X extends [
   infer Head,

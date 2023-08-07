@@ -1,4 +1,4 @@
-import { $, Test, List, Number, NaturalNumber } from "..";
+import { $, Test, List, Number, NaturalNumber } from '..';
 
 type Accumulate_Spec = [
   /**

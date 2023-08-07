@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..';
 
 /**
  * `_$filter` is a type-level function that takes in two inputs:

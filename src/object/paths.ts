@@ -1,4 +1,4 @@
-import { Kind, Type, Union } from "..";
+import { Kind, Type, Union } from '..';
 
 type _$paths2<T, O extends unknown[] = []> =
   | {

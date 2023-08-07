@@ -1,4 +1,4 @@
-import { Kind, Union } from "..";
+import { Kind, Union } from '..';
 
 export type _$toList<T, O extends unknown[] = []> = Union._$toIntersection<
   T extends unknown ? (t: T) => T : never

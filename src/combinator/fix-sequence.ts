@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..';
 
 /**
  * _$fixSequence is a type-level function that generates a fixed-point sequence

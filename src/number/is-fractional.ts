@@ -1,4 +1,4 @@
-import { Number, Kind, Type } from "..";
+import { Number, Kind, Type } from '..';
 
 export type _$isFractional<
   T extends Number.Number,

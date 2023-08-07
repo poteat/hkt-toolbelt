@@ -1,6 +1,6 @@
-import { Type, Digit, Kind } from "..";
+import { Type, Digit, Kind } from '..';
 
-type _$incrementTens_LUT = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "1"];
+type _$incrementTens_LUT = ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1'];
 
 /**
  * `_$incrementTens` is a type-level function that takes a digit type `A` as

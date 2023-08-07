@@ -1,4 +1,4 @@
-import { Type, Kind, DigitList, Number, NaturalNumber } from "..";
+import { Type, Kind, DigitList, Number, NaturalNumber } from '..';
 
 export type _$isOdd<
   T extends Number.Number,

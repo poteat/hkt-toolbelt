@@ -1,4 +1,4 @@
-import { Number, NaturalNumber, DigitList, Type, Kind } from "..";
+import { Number, NaturalNumber, DigitList, Type, Kind } from '..';
 
 export type _$subtract<
   A extends Number.Number,

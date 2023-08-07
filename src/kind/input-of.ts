@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$inputOf<F extends Kind.Kind> = F extends {
   f: (x: infer X) => unknown;

@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..';
 
 export type _$at<K extends keyof T, T extends Record<string, unknown>> = T[K];
 

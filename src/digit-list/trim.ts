@@ -1,7 +1,7 @@
-import { Type, Kind, DigitList } from "..";
+import { Type, Kind, DigitList } from '..';
 
 type _$trim2<A extends DigitList.DigitList> = A extends [
-  "0",
+  '0',
   ...infer Rest extends DigitList.DigitList
 ]
   ? _$trim2<Rest>
@@ -30,7 +30,7 @@ type _$trim2<A extends DigitList.DigitList> = A extends [
 export type _$trim<
   A extends DigitList.DigitList,
   TRIM extends DigitList.DigitList = _$trim2<A>,
-  OUTPUT extends DigitList.DigitList = TRIM extends [] ? ["0"] : TRIM
+  OUTPUT extends DigitList.DigitList = TRIM extends [] ? ['0'] : TRIM
 > = OUTPUT;
 
 /**

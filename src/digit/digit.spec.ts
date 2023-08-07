@@ -1,4 +1,4 @@
-import { $, Test, Conditional, Digit, Union } from "..";
+import { $, Test, Conditional, Digit, Union } from '..';
 
 type Digit_Spec = [
   /**

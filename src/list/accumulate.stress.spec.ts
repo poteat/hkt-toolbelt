@@ -1,4 +1,4 @@
-import { $, Test, List, Stress, Number, NaturalNumber } from "..";
+import { $, Test, List, Stress, Number, NaturalNumber } from '..';
 
 type Accumulate_Stress_Spec = [
   Test.Expect<

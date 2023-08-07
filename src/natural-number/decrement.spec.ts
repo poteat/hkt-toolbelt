@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..';
 
 type Decrement_Spec = [
   /**

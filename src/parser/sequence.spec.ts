@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..';
 
 type Sequence_Spec = [
   /**
@@ -8,11 +8,11 @@ type Sequence_Spec = [
     $<
       $<
         Parser.Sequence,
-        [$<Parser.String, "hello">, $<Parser.String, "world">]
+        [$<Parser.String, 'hello'>, $<Parser.String, 'world'>]
       >,
-      { input: "helloworld"; index: 0; result: never }
+      { input: 'helloworld'; index: 0; result: never }
     >,
-    { input: "helloworld"; index: 10; result: ["hello", "world"] }
+    { input: 'helloworld'; index: 10; result: ['hello', 'world'] }
   >,
 
   /**
@@ -22,40 +22,40 @@ type Sequence_Spec = [
     $<
       $<
         Parser.Sequence,
-        [$<Parser.String, "hello">, $<Parser.String, "world">]
+        [$<Parser.String, 'hello'>, $<Parser.String, 'world'>]
       >,
-      { input: "hello"; index: 0; result: never }
+      { input: 'hello'; index: 0; result: never }
     >,
     never
   >
 ];
 
-type WeatherString = $<Parser.String, "Weather">;
+type WeatherString = $<Parser.String, 'Weather'>;
 
 type TimeString = $<
   Parser.Sequence,
   [
-    $<Parser.String, "(">,
+    $<Parser.String, '('>,
     $<
       Parser.Choice,
-      [$<Parser.String, "today">, $<Parser.String, "yesterday">]
+      [$<Parser.String, 'today'>, $<Parser.String, 'yesterday'>]
     >,
-    $<Parser.String, ")">
+    $<Parser.String, ')'>
   ]
 >;
 
 type WeatherType = $<
   Parser.Choice,
-  [$<Parser.String, "Sunny">, $<Parser.String, "Cloudy">]
+  [$<Parser.String, 'Sunny'>, $<Parser.String, 'Cloudy'>]
 >;
 
 type FullParser = $<
   Parser.Sequence,
   [
     WeatherString,
-    $<Parser.String, " ">,
+    $<Parser.String, ' '>,
     TimeString,
-    $<Parser.String, ": ">,
+    $<Parser.String, ': '>,
     WeatherType
   ]
 >;
@@ -66,11 +66,11 @@ type FullParser_Spec = [
    * : Sunny".
    */
   Test.Expect<
-    $<FullParser, { input: "Weather (today): Sunny"; index: 0; result: never }>,
+    $<FullParser, { input: 'Weather (today): Sunny'; index: 0; result: never }>,
     {
-      input: "Weather (today): Sunny";
+      input: 'Weather (today): Sunny';
       index: 22;
-      result: ["Weather", " ", ["(", "today", ")"], ": ", "Sunny"];
+      result: ['Weather', ' ', ['(', 'today', ')'], ': ', 'Sunny'];
     }
   >
 ];

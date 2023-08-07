@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..';
 
 /**
  * `_$if` is a type-level function that evaluates a predicate `Predicate` with

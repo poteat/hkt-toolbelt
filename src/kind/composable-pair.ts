@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$composablePair<F extends [Kind.Kind, Kind.Kind]> =
   Kind._$outputOf<F[1]> extends Kind._$inputOf<F[0]> ? true : false;

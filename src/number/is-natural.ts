@@ -1,8 +1,8 @@
-import { Number, Type, Kind } from "..";
+import { Number, Type, Kind } from '..';
 
 export type _$isNatural<T extends Number.Number> =
   Number._$isInteger<T> extends true
-    ? Number._$sign<T> extends "+"
+    ? Number._$sign<T> extends '+'
       ? true
       : false
     : false;

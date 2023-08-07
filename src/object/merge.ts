@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..';
 
 export type _$merge<
   A extends Record<string, unknown>,

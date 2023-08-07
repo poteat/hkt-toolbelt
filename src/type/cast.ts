@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 export type _$cast<T, U> = T extends U ? T : U;
 

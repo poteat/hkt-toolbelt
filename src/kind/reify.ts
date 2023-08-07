@@ -1,4 +1,4 @@
-import { $, Kind, Type } from "..";
+import { $, Kind, Type } from '..';
 
 export type _$reify<K extends Kind.Kind> = K & {
   <X extends Kind._$inputOf<K>>(

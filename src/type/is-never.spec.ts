@@ -1,10 +1,10 @@
-import { $, Test, Type } from "..";
+import { $, Test, Type } from '..';
 
 type IsNever_Spec = [
   /**
    * "1" is not never.
    */
-  Test.Expect<$<Type.IsNever, "1">, false>,
+  Test.Expect<$<Type.IsNever, '1'>, false>,
 
   /**
    * 'never' is never.

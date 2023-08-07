@@ -1,4 +1,4 @@
-import { Type, Kind, List, Conditional, Boolean } from "..";
+import { Type, Kind, List, Conditional, Boolean } from '..';
 
 /**
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,

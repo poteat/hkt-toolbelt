@@ -1,10 +1,10 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 type _$init2<
   S extends string,
-  O extends string = ""
+  O extends string = ''
 > = S extends `${infer Head}${infer Tail}`
-  ? Tail extends ""
+  ? Tail extends ''
     ? O
     : _$init2<Tail, `${O}${Head}`>
   : O;

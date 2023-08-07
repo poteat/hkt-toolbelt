@@ -1,4 +1,4 @@
-import { $, Test, Number } from "..";
+import { $, Test, Number } from '..';
 
 export type Negate_Spec = [
   /**

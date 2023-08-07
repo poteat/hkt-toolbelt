@@ -1,4 +1,4 @@
-import { $, Kind, Type, Function } from "..";
+import { $, Kind, Type, Function } from '..';
 
 /**
  * `_$reduce` is a type-level function that takes in three inputs:
@@ -37,7 +37,7 @@ export type _$reduce<
         H,
         Kind._$inputOf<
           Function._$returnType<
-            (F & { readonly [Kind._]: Type._$cast<O, Kind._$inputOf<F>> })["f"]
+            (F & { readonly [Kind._]: Type._$cast<O, Kind._$inputOf<F>> })['f']
           >
         >
       >

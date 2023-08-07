@@ -1,4 +1,4 @@
-import { $, Function, Kind, Test } from "..";
+import { $, Function, Kind, Test } from '..';
 
 type Reify_Spec = [
   /**

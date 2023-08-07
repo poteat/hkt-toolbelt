@@ -1,25 +1,25 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..';
 
 type ToList_Spec = [
   /**
    * Can convert a number to a list of digits.
    */
-  Test.Expect<$<NaturalNumber.ToList, 42>, ["4", "2"]>,
+  Test.Expect<$<NaturalNumber.ToList, 42>, ['4', '2']>,
 
   /**
    * Zero is converted to a list of one digit.
    */
-  Test.Expect<$<NaturalNumber.ToList, 0>, ["0"]>,
+  Test.Expect<$<NaturalNumber.ToList, 0>, ['0']>,
 
   /**
    * Can convert string-encoded numbers to a list of digits.
    */
-  Test.Expect<$<NaturalNumber.ToList, "42">, ["4", "2"]>,
+  Test.Expect<$<NaturalNumber.ToList, '42'>, ['4', '2']>,
 
   /**
    * Can convert bigint literals to a list of digits.
    */
-  Test.Expect<$<NaturalNumber.ToList, 42n>, ["4", "2"]>,
+  Test.Expect<$<NaturalNumber.ToList, 42n>, ['4', '2']>,
 
   /**
    * Converting the 'number' type results in 'never'.

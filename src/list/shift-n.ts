@@ -1,4 +1,4 @@
-import { Type, Kind, Number, NaturalNumber, DigitList, Digit, List } from "..";
+import { Type, Kind, Number, NaturalNumber, DigitList, Digit, List } from '..';
 
 type _$shiftN2<
   T extends unknown[],

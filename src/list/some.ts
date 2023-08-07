@@ -1,4 +1,4 @@
-import { $, Boolean, Type, Kind } from "..";
+import { $, Boolean, Type, Kind } from '..';
 
 export type _$some<
   F extends Kind.Kind<(x: never) => boolean>,

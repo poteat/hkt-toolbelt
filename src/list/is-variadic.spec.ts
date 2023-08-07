@@ -1,4 +1,4 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..';
 
 type IsVariadic_Spec = [
   /**

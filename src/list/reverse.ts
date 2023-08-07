@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
   ...infer Init,

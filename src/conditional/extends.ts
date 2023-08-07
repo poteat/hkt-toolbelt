@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 /**
  * `_$extends` is a type-level function that takes in two types, `T` and `X`,

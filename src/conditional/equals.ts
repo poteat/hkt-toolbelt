@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 /**
  * `_$equals` is a type-level function that takes in two types, `T` and `U`, and

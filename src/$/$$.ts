@@ -1,4 +1,4 @@
-import { Kind, List } from "..";
+import { Kind, List } from '..';
 
 /**
  * `$$` is a type-level function in `hkt-toolbelt` that allows users to pipe

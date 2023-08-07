@@ -1,4 +1,4 @@
-import { $, Kind, Type, Number, List, NaturalNumber, Conditional } from "..";
+import { $, Kind, Type, Number, List, NaturalNumber, Conditional } from '..';
 
 type _$range2<
   START extends Number.Number,

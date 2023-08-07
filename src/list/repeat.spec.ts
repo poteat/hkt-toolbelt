@@ -1,17 +1,17 @@
-import { $, Test, List } from "..";
+import { $, Test, List } from '..';
 
 type Repeat_Spec = [
   /**
    * Can create a tuple of length 0
    */
-  Test.Expect<$<$<List.Repeat, 0>, "0">, []>,
+  Test.Expect<$<$<List.Repeat, 0>, '0'>, []>,
 
   /**
    * N = 8
    */
   Test.Expect<
-    $<$<List.Repeat, 8>, "0">,
-    ["0", "0", "0", "0", "0", "0", "0", "0"]
+    $<$<List.Repeat, 8>, '0'>,
+    ['0', '0', '0', '0', '0', '0', '0', '0']
   >,
 
   /**
@@ -46,7 +46,7 @@ type Repeat_Spec = [
   /**
    * Returns `never` for non-natural numbers.
    */
-  Test.Expect<$<$<List.Repeat, -1>, "a">, never>,
+  Test.Expect<$<$<List.Repeat, -1>, 'a'>, never>,
 
   /**
    * Returns a fixed-length tuple that is non-variadic.

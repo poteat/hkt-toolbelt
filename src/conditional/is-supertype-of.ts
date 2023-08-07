@@ -1,4 +1,4 @@
-import { $, $$, Conditional, Kind } from "..";
+import { $, $$, Conditional, Kind } from '..';
 
 /**
  * `_$isSupertypeOf` is a type-level function that takes in two types, `T` and `X`,

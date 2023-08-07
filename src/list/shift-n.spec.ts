@@ -1,16 +1,16 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..';
 
 type ShiftN_Spec = [
   /**
    * Can shfit one or more elements from the head of an array.
    */
-  Test.Expect<$<$<List.ShiftN, 1>, ["a", "b", "c"]>, ["b", "c"]>,
-  Test.Expect<$<$<List.ShiftN, 2>, ["a", "b", "c"]>, ["c"]>,
+  Test.Expect<$<$<List.ShiftN, 1>, ['a', 'b', 'c']>, ['b', 'c']>,
+  Test.Expect<$<$<List.ShiftN, 2>, ['a', 'b', 'c']>, ['c']>,
 
   /**
    * Shift of zero is identity.
    */
-  Test.Expect<$<$<List.ShiftN, 0>, ["a", "b", "c"]>, ["a", "b", "c"]>,
+  Test.Expect<$<$<List.ShiftN, 0>, ['a', 'b', 'c']>, ['a', 'b', 'c']>,
 
   /**
    * Can handle being applied to an empty array.
@@ -21,14 +21,14 @@ type ShiftN_Spec = [
   /**
    * Can handle being applied to a single-element array.
    */
-  Test.Expect<$<$<List.ShiftN, 1>, ["a"]>, []>,
+  Test.Expect<$<$<List.ShiftN, 1>, ['a']>, []>,
 
   /**
    * Can execute high-N and overflow slices that result in empty array.
    */
-  Test.Expect<$<$<List.ShiftN, 3>, ["a", "b", "c"]>, []>,
-  Test.Expect<$<$<List.ShiftN, 4>, ["a", "b", "c"]>, []>,
-  Test.Expect<$<$<List.ShiftN, 100>, ["a", "b", "c"]>, []>,
+  Test.Expect<$<$<List.ShiftN, 3>, ['a', 'b', 'c']>, []>,
+  Test.Expect<$<$<List.ShiftN, 4>, ['a', 'b', 'c']>, []>,
+  Test.Expect<$<$<List.ShiftN, 100>, ['a', 'b', 'c']>, []>,
 
   /**
    * Can handle nested arrays.
@@ -40,7 +40,7 @@ type ShiftN_Spec = [
   /**
    * Can handle different element types.
    */
-  Test.Expect<$<$<List.ShiftN, 3>, ["foo" | "bar", null, ["a"]]>, []>,
+  Test.Expect<$<$<List.ShiftN, 3>, ['foo' | 'bar', null, ['a']]>, []>,
 
   /**
    * Non-natural number N are not allowed.

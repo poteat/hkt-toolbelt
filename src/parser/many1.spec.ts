@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..';
 
 type Many1_Spec = [
   /**
@@ -6,17 +6,17 @@ type Many1_Spec = [
    */
   Test.Expect<
     $<
-      $<Parser.Many1, $<Parser.String, "a">>,
+      $<Parser.Many1, $<Parser.String, 'a'>>,
       {
-        input: "a";
+        input: 'a';
         index: 0;
         result: never;
       }
     >,
     {
-      input: "a";
+      input: 'a';
       index: 1;
-      result: ["a"];
+      result: ['a'];
     }
   >,
 
@@ -25,17 +25,17 @@ type Many1_Spec = [
    */
   Test.Expect<
     $<
-      $<Parser.Many1, $<Parser.String, "a">>,
+      $<Parser.Many1, $<Parser.String, 'a'>>,
       {
-        input: "aaaaa";
+        input: 'aaaaa';
         index: 0;
         result: never;
       }
     >,
     {
-      input: "aaaaa";
+      input: 'aaaaa';
       index: 5;
-      result: ["a", "a", "a", "a", "a"];
+      result: ['a', 'a', 'a', 'a', 'a'];
     }
   >
 ];

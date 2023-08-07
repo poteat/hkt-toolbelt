@@ -1,4 +1,4 @@
-import { Type, Kind, DigitList } from "..";
+import { Type, Kind, DigitList } from '..';
 
 /**
  * `_$shift` is a type-level function that removes the first digit from a digit list.

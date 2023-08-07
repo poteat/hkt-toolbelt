@@ -1,4 +1,4 @@
-import { $, $N, Conditional, Function, List, String, Test } from "..";
+import { $, $N, Conditional, Function, List, String, Test } from '..';
 
 /**
  * Tests associated with `Conditional.If`, which encodes kind-level if-then-else
@@ -13,12 +13,12 @@ type If_Spec = [
       Conditional.If,
       [
         $<Function.Constant, true>,
-        $<Function.Constant, "foo">,
-        $<Function.Constant, "bar">,
+        $<Function.Constant, 'foo'>,
+        $<Function.Constant, 'bar'>,
         0
       ]
     >,
-    "foo"
+    'foo'
   >,
 
   /**
@@ -29,12 +29,12 @@ type If_Spec = [
       Conditional.If,
       [
         $<Function.Constant, false>,
-        $<Function.Constant, "foo">,
-        $<Function.Constant, "bar">,
+        $<Function.Constant, 'foo'>,
+        $<Function.Constant, 'bar'>,
         0
       ]
     >,
-    "bar"
+    'bar'
   >,
 
   /**
@@ -47,10 +47,10 @@ type If_Spec = [
         $<Function.Constant, true>,
         Function.Identity,
         $<Function.Constant, never>,
-        "foo"
+        'foo'
       ]
     >,
-    "foo"
+    'foo'
   >,
 
   /**
@@ -61,7 +61,7 @@ type If_Spec = [
       Conditional.If,
       [
         String.IsString,
-        $<String.StartsWith, "foo">,
+        $<String.StartsWith, 'foo'>,
         $<Function.Constant, never>,
         42
       ]
@@ -80,11 +80,11 @@ type If_Spec = [
           Conditional.If,
           [
             String.IsString,
-            $<String.StartsWith, "foo">,
+            $<String.StartsWith, 'foo'>,
             $<Function.Constant, never>
           ]
         >,
-        ["foo", "bar", 42, "foobar"]
+        ['foo', 'bar', 42, 'foobar']
       ]
     >,
     [true, false, never, true]

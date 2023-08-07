@@ -1,4 +1,4 @@
-import { $, Parser, Test, Stress } from "..";
+import { $, Parser, Test, Stress } from '..';
 
 type Letters_Spec = [
   /**
@@ -12,16 +12,16 @@ type Letters_Spec = [
           Parser.Sequence,
           [
             Parser.Letters,
-            $<Parser.String, " ">,
+            $<Parser.String, ' '>,
             Parser.Letters,
-            $<Parser.String, " ">,
+            $<Parser.String, ' '>,
             Parser.Letters
           ]
         >
       >,
-      "hello world hello"
+      'hello world hello'
     >,
-    ["hello", " ", "world", " ", "hello"]
+    ['hello', ' ', 'world', ' ', 'hello']
   >,
 
   /**
@@ -30,9 +30,9 @@ type Letters_Spec = [
   Test.Expect<
     $<
       $<Parser.Run, Parser.Letters>,
-      "helloworldhelloworldhelloworldhelloworldhelloworldhelloworld"
+      'helloworldhelloworldhelloworldhelloworldhelloworldhelloworld'
     >,
-    "helloworldhelloworldhelloworldhelloworldhelloworldhelloworld"
+    'helloworldhelloworldhelloworldhelloworldhelloworldhelloworld'
   >,
 
   /**

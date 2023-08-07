@@ -1,4 +1,4 @@
-import { $, Function, String, Test } from "..";
+import { $, Function, String, Test } from '..';
 
 type $_Spec = [
   /**
@@ -10,7 +10,7 @@ type $_Spec = [
    * $ enforces kind inputs.
    */
   // @ts-expect-error
-  $<String.StartsWith<"foo">, number>,
+  $<String.StartsWith<'foo'>, number>,
 
   /**
    * $ will emit an error on non-kinds.

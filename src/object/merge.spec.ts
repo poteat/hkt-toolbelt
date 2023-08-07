@@ -1,4 +1,4 @@
-import { $, Test, Object } from "..";
+import { $, Test, Object } from '..';
 
 type Merge_Spec = [
   /**

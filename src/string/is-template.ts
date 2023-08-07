@@ -1,4 +1,4 @@
-import { $, Type, Conditional, Kind, List, String } from "..";
+import { $, Type, Conditional, Kind, List, String } from '..';
 
 export type _$isTemplate<S extends string> = string extends S
   ? false

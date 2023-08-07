@@ -1,4 +1,4 @@
-import { Type, Kind, DigitList, NaturalNumber, Number } from "..";
+import { Type, Kind, DigitList, NaturalNumber, Number } from '..';
 
 export type _$increment<
   A extends Number.Number,

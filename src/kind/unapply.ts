@@ -1,4 +1,4 @@
-import { $, Kind, Type, Function } from "..";
+import { $, Kind, Type, Function } from '..';
 
 /**
  * `_$unapply` is a type-level function that takes in

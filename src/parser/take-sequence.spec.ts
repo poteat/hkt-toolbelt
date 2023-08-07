@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..';
 
 type TakeSequence_Spec = [
   /**
@@ -10,11 +10,11 @@ type TakeSequence_Spec = [
         Parser.Run,
         $<
           Parser.TakeSequence,
-          [$<Parser.String, "hello">, $<Parser.String, " ">, [Parser.Letters]]
+          [$<Parser.String, 'hello'>, $<Parser.String, ' '>, [Parser.Letters]]
         >
       >,
-      "hello world"
+      'hello world'
     >,
-    "world"
+    'world'
   >
 ];

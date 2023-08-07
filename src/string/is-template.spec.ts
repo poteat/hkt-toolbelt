@@ -1,4 +1,4 @@
-import { $, String, Test } from "..";
+import { $, String, Test } from '..';
 
 type IsTemplate_Spec = [
   /**
@@ -14,12 +14,12 @@ type IsTemplate_Spec = [
   /**
    * A literal string is not a template literal string.
    */
-  Test.Expect<$<String.IsTemplate, "foo">, false>,
+  Test.Expect<$<String.IsTemplate, 'foo'>, false>,
 
   /**
    * An empty string is not a template literal string.
    */
-  Test.Expect<$<String.IsTemplate, "">, false>,
+  Test.Expect<$<String.IsTemplate, ''>, false>,
 
   /**
    * A template literal string can begin with `string`.

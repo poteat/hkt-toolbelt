@@ -1,4 +1,4 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..';
 
 type Reverse_Spec = [
   /**
@@ -25,7 +25,7 @@ type Reverse_Spec = [
    * Can reverse a tuple with a variadic and elements following the variadic.
    */
   Test.Expect<
-    $<List.Reverse, [1, 2, 3, ...number[], "foo"]>,
-    ["foo", ...number[], 3, 2, 1]
+    $<List.Reverse, [1, 2, 3, ...number[], 'foo']>,
+    ['foo', ...number[], 3, 2, 1]
   >
 ];

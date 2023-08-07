@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..';
 
 export type _$returnType<T> = T extends (...args: never[]) => infer R
   ? R

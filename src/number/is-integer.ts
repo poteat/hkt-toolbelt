@@ -1,4 +1,4 @@
-import { Type, Kind, Number } from "..";
+import { Type, Kind, Number } from '..';
 
 export type _$isInteger<T extends Number.Number> = `${T}` extends `${bigint}`
   ? T extends `0x${string}`

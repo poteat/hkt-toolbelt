@@ -1,4 +1,4 @@
-import { $, Test, Parser, Object } from "..";
+import { $, Test, Parser, Object } from '..';
 
 type ObjectSequence_Spec = [
   /**
@@ -11,41 +11,41 @@ type ObjectSequence_Spec = [
         $<
           Parser.ObjectSequence,
           [
-            ["foo", $<Parser.String, "hello">],
-            $<Parser.String, " ">,
-            ["bar", $<Parser.String, "world">]
+            ['foo', $<Parser.String, 'hello'>],
+            $<Parser.String, ' '>,
+            ['bar', $<Parser.String, 'world'>]
           ]
         >
       >,
-      "hello world"
+      'hello world'
     >,
-    { foo: "hello"; bar: "world" }
+    { foo: 'hello'; bar: 'world' }
   >
 ];
 
-type WeatherString = $<Parser.String, "Weather">;
+type WeatherString = $<Parser.String, 'Weather'>;
 
 type TimeString = $<
-  $<Parser.Map, $<Object.At, "time">>,
+  $<Parser.Map, $<Object.At, 'time'>>,
   $<
     Parser.ObjectSequence,
     [
-      $<Parser.String, "(">,
+      $<Parser.String, '('>,
       [
-        "time",
+        'time',
         $<
           Parser.Choice,
-          [$<Parser.String, "today">, $<Parser.String, "yesterday">]
+          [$<Parser.String, 'today'>, $<Parser.String, 'yesterday'>]
         >
       ],
-      $<Parser.String, ")">
+      $<Parser.String, ')'>
     ]
   >
 >;
 
 type WeatherType = $<
   Parser.Choice,
-  [$<Parser.String, "Sunny">, $<Parser.String, "Cloudy">]
+  [$<Parser.String, 'Sunny'>, $<Parser.String, 'Cloudy'>]
 >;
 
 type FullParser = $<
@@ -54,10 +54,10 @@ type FullParser = $<
     Parser.ObjectSequence,
     [
       WeatherString,
-      $<Parser.String, " ">,
-      ["time", TimeString],
-      $<Parser.String, ": ">,
-      ["weather", WeatherType]
+      $<Parser.String, ' '>,
+      ['time', TimeString],
+      $<Parser.String, ': '>,
+      ['weather', WeatherType]
     ]
   >
 >;
@@ -68,7 +68,7 @@ type FullParser_Spec = [
    * : Sunny".
    */
   Test.Expect<
-    $<FullParser, "Weather (today): Sunny">,
-    { time: "today"; weather: "Sunny" }
+    $<FullParser, 'Weather (today): Sunny'>,
+    { time: 'today'; weather: 'Sunny' }
   >
 ];

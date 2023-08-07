@@ -1,4 +1,4 @@
-import { $, Type, Kind, Combinator } from "..";
+import { $, Type, Kind, Combinator } from '..';
 
 /**
  * `ApplySelf` is a higher-order type-level function that takes in a recursive

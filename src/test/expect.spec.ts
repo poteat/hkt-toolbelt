@@ -1,4 +1,4 @@
-import { Test } from "..";
+import { Test } from '..';
 
 type Expect_Spec = [
   /**

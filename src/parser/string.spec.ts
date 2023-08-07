@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..';
 
 type String_Spec = [
   /**
@@ -6,10 +6,10 @@ type String_Spec = [
    */
   Test.Expect<
     $<
-      $<Parser.String, "hello">,
-      { input: "hello world"; index: 0; result: never }
+      $<Parser.String, 'hello'>,
+      { input: 'hello world'; index: 0; result: never }
     >,
-    { input: "hello world"; index: 5; result: "hello" }
+    { input: 'hello world'; index: 5; result: 'hello' }
   >,
 
   /**
@@ -17,7 +17,7 @@ type String_Spec = [
    * is never.
    */
   Test.Expect<
-    $<$<Parser.String, "hello">, { input: "world"; index: 0; result: never }>,
+    $<$<Parser.String, 'hello'>, { input: 'world'; index: 0; result: never }>,
     never
   >
 ];

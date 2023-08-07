@@ -1,9 +1,9 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..';
 
 type _$divideBySubtraction2<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE",
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE',
   QUOTIENT extends DigitList.DigitList = [Digit.Zero],
   REMAINDER extends DigitList.DigitList = A,
   NEXT_QUOTIENT extends DigitList.DigitList = DigitList._$increment<QUOTIENT>,
@@ -21,7 +21,7 @@ type _$divideBySubtraction2<
   MOD_RESULT extends DigitList.DigitList = PERFECTLY_DIVISIBLE extends true
     ? [Digit.Zero]
     : REMAINDER,
-  RESULT extends DigitList.DigitList = OPERATION extends "DIVIDE"
+  RESULT extends DigitList.DigitList = OPERATION extends 'DIVIDE'
     ? DIV_RESULT
     : MOD_RESULT
 > = DONE extends true
@@ -58,11 +58,11 @@ type _$divideBySubtraction2<
 export type _$divideBySubtraction<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE"
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE'
 > = B extends [Digit.Zero]
   ? [Digit.Zero]
-  : B extends ["1"]
-  ? OPERATION extends "DIVIDE"
+  : B extends ['1']
+  ? OPERATION extends 'DIVIDE'
     ? A
     : [Digit.Zero]
   : _$divideBySubtraction2<A, B, OPERATION>;

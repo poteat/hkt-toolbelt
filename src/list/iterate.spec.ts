@@ -8,15 +8,15 @@ import {
   Function,
   List,
   Test
-} from "hkt-toolbelt";
+} from 'hkt-toolbelt';
 
 type Iterate_Spec = [
   /**
    * Can iterate over identity function.
    */
   Test.Expect<
-    $<$<$<List.Iterate, Function.Identity>, 5>, "a">,
-    ["a", "a", "a", "a", "a"]
+    $<$<$<List.Iterate, Function.Identity>, 5>, 'a'>,
+    ['a', 'a', 'a', 'a', 'a']
   >,
 
   /**

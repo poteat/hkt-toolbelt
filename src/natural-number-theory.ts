@@ -1,1 +1,1 @@
-export * from "./natural-number-theory/";
+export * from './natural-number-theory/';

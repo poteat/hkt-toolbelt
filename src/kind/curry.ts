@@ -1,4 +1,4 @@
-import { $, Kind, Number, NaturalNumber, Conditional, Type } from "..";
+import { $, Kind, Number, NaturalNumber, Conditional, Type } from '..';
 
 /**
  * `_$curry` takes in a positive natural number `N` and a type-level function

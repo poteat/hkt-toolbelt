@@ -1,4 +1,4 @@
-import { Conditional, Type } from "..";
+import { Conditional, Type } from '..';
 
 export abstract class _ {
   abstract readonly _: symbol;

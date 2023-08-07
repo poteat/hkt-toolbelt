@@ -1,4 +1,4 @@
-import { $, Function, Kind, List, String, Test } from "..";
+import { $, Function, Kind, List, String, Test } from '..';
 
 type Compose_Spec = [
   /**
@@ -6,10 +6,10 @@ type Compose_Spec = [
    */
   Test.Expect<
     $<
-      $<Kind.Compose, [$<List.Push, "bar">, $<List.Unshift, "foo">]>,
+      $<Kind.Compose, [$<List.Push, 'bar'>, $<List.Unshift, 'foo'>]>,
       [1, 2, 3]
     >,
-    ["foo", 1, 2, 3, "bar"]
+    ['foo', 1, 2, 3, 'bar']
   >,
 
   /**
@@ -27,8 +27,8 @@ type Compose_Spec = [
    * Composition occurs from right-to-left, consistent with standard math.
    */
   Test.Expect<
-    $<$<Kind.Compose, [$<List.Push, "bar">, $<List.Push, "foo">]>, [1, 2, 3]>,
-    [1, 2, 3, "foo", "bar"]
+    $<$<Kind.Compose, [$<List.Push, 'bar'>, $<List.Push, 'foo'>]>, [1, 2, 3]>,
+    [1, 2, 3, 'foo', 'bar']
   >,
 
   /**
@@ -36,22 +36,22 @@ type Compose_Spec = [
    * results in a type error.
    */
   // @ts-expect-error
-  $<Kind.Compose<[$<List.Push, "bar">]>, number>,
+  $<Kind.Compose<[$<List.Push, 'bar'>]>, number>,
 
   /**
    * Incompatible kinds in the composition emit a type error. That is, the
    * output of kind $N$ must be a subtype of the input of kind $N-1$.
    */
   // @ts-expect-error
-  $<Kind.Compose<[String.StartsWith<"foo">, $<List.Push, "bar">]>, []>,
+  $<Kind.Compose<[String.StartsWith<'foo'>, $<List.Push, 'bar'>]>, []>,
 
   /**
    * String operations may be composed.
    */
   Test.Expect<
     $<
-      $<Kind.Compose, [$<String.EndsWith, "bar">, $<String.Append, "bar">]>,
-      "foobar"
+      $<Kind.Compose, [$<String.EndsWith, 'bar'>, $<String.Append, 'bar'>]>,
+      'foobar'
     >
   >
 ];

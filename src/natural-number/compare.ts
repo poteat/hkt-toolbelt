@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
+import { Type, Number, Kind, DigitList, NaturalNumber } from '..';
 
 /**
  * `_$compare` is a type-level function that takes in

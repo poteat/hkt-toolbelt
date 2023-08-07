@@ -1,4 +1,4 @@
-import { $, Conditional, Test } from "..";
+import { $, Conditional, Test } from '..';
 
 type NotEquals_Spec = [
   /**

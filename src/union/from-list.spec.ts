@@ -1,4 +1,4 @@
-import { $, Test, Union } from "..";
+import { $, Test, Union } from '..';
 
 /**
  * Test `Union.ToTuple`, which converts a union type to a tuple composed of the
@@ -44,12 +44,12 @@ type ToList_Spec = [
   /**
    * Can handle unions of strings.
    */
-  Test.Expect<$<Union.FromList, ["foo", "bar", string]>, string>,
+  Test.Expect<$<Union.FromList, ['foo', 'bar', string]>, string>,
 
   /**
    * Generates a list of the correct length.
    */
-  Test.Expect<$<Union.Length, $<Union.FromList, ["foo", "bar", "qux"]>>, 3>,
+  Test.Expect<$<Union.Length, $<Union.FromList, ['foo', 'bar', 'qux']>>, 3>,
 
   /**
    * When an empty tuple is provided, the empty union `never` is emitted.
@@ -65,7 +65,7 @@ type ToList_Spec = [
   /**
    * Can convert a tuple of tuples into a union of tuples.
    */
-  Test.Expect<$<Union.FromList, [["foo"], ["bar"]]>, ["foo"] | ["bar"]>,
+  Test.Expect<$<Union.FromList, [['foo'], ['bar']]>, ['foo'] | ['bar']>,
 
   /**
    * Non-list input results in error.

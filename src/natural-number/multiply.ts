@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
+import { Type, Number, Kind, DigitList, NaturalNumber } from '..';
 
 export type _$multiply<
   A extends Number.Number,

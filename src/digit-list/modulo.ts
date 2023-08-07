@@ -1,4 +1,4 @@
-import { Kind, Type, DigitList } from "..";
+import { Kind, Type, DigitList } from '..';
 
 /**
  * `_$modulo` is a type-level function that calculates the modulo of two digit lists.
@@ -17,7 +17,7 @@ import { Kind, Type, DigitList } from "..";
 export type _$modulo<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList
-> = DigitList._$divide<A, B, "MODULO">;
+> = DigitList._$divide<A, B, 'MODULO'>;
 
 interface Modulo_T<T extends DigitList.DigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$modulo<T, typeof x>;

@@ -1,4 +1,4 @@
-import { $, Test, Parser } from "..";
+import { $, Test, Parser } from '..';
 
 type Optional_Spec = [
   /**
@@ -11,15 +11,15 @@ type Optional_Spec = [
         $<
           Parser.Sequence,
           [
-            $<Parser.String, "hello">,
-            $<Parser.Optional, $<Parser.String, " ">>,
+            $<Parser.String, 'hello'>,
+            $<Parser.Optional, $<Parser.String, ' '>>,
             Parser.Letters
           ]
         >
       >,
-      "hello world"
+      'hello world'
     >,
-    ["hello", " ", "world"]
+    ['hello', ' ', 'world']
   >,
 
   /**
@@ -32,14 +32,14 @@ type Optional_Spec = [
         $<
           Parser.Sequence,
           [
-            $<Parser.String, "hello">,
-            $<Parser.Optional, $<Parser.String, " ">>,
+            $<Parser.String, 'hello'>,
+            $<Parser.Optional, $<Parser.String, ' '>>,
             Parser.Letters
           ]
         >
       >,
-      "helloworld"
+      'helloworld'
     >,
-    ["hello", never, "world"]
+    ['hello', never, 'world']
   >
 ];

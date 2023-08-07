@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 interface Constant_T<X> extends Kind.Kind {
   f(x: this[Kind._]): X;

@@ -1,8 +1,8 @@
-import { Type, Kind, String } from "..";
+import { Type, Kind, String } from '..';
 
 export type _$split<
   S extends string,
-  Delimiter extends string = "",
+  Delimiter extends string = '',
   O extends unknown[] = []
 > = String._$isTemplate<Delimiter> extends true
   ? string[]

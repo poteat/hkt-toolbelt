@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$toList<S extends string, O extends string[] = []> = 0 extends 1
   ? never

@@ -1,4 +1,4 @@
-import { $, Test, Number, NaturalNumberTheory } from "..";
+import { $, Test, Number, NaturalNumberTheory } from '..';
 
 type Factorial_Spec = [
   /**

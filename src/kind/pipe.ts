@@ -1,4 +1,4 @@
-import { Type, List, Kind } from "..";
+import { Type, List, Kind } from '..';
 
 export type _$pipe<FX extends Kind.Kind[], X> = Kind._$compose<
   List._$reverse<FX>,

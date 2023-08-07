@@ -1,4 +1,4 @@
-import { Kind, Type, Union } from "..";
+import { Kind, Type, Union } from '..';
 
 export type _$keys<T extends Record<string, unknown>> = Union._$toList<keyof T>;
 

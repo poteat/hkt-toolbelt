@@ -1,11 +1,11 @@
-import { Kind, Type, DigitList, Number, List, NaturalNumber } from "..";
+import { Kind, Type, DigitList, Number, List, NaturalNumber } from '..';
 
 type _$repeat2<
   FILL_TYPE extends unknown,
   COUNTER extends DigitList.DigitList,
   STATE extends List.List = [],
   STATE_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<
-    STATE["length"]
+    STATE['length']
   >,
   RESULT extends List.List = DigitList._$compare<
     STATE_LENGTH,

@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 type _$toIntersection2<T> = (
   T extends unknown ? (x: T) => unknown : never

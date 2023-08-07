@@ -1,1 +1,1 @@
-export * from "./digit-list/";
+export * from './digit-list/';

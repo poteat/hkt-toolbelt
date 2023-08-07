@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$shift<T extends unknown[]> = T extends [unknown, ...infer Tail]
   ? Tail

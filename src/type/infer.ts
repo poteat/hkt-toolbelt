@@ -1,4 +1,4 @@
-import { Kind, Type, Function } from "..";
+import { Kind, Type, Function } from '..';
 
 type _$inferred =
   | string

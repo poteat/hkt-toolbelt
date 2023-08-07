@@ -1,4 +1,4 @@
-import { DigitList, Kind, Number, Type, NaturalNumber, Digit, List } from "..";
+import { DigitList, Kind, Number, Type, NaturalNumber, Digit, List } from '..';
 
 type _$flattenN2<
   T extends unknown[],

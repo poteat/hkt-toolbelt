@@ -1,4 +1,4 @@
-import { Type, Kind, List } from "..";
+import { Type, Kind, List } from '..';
 
 /**
  * `_$concat` is a type-level function that concatenates two tuples.

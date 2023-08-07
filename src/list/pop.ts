@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$pop<T extends readonly unknown[]> = T extends [
   ...infer Head,

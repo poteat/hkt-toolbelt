@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 export type _$first<T extends unknown[]> = T extends [] ? never : T[0];
 

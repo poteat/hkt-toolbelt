@@ -1,4 +1,4 @@
-import { $, Kind, Type, Object } from "..";
+import { $, Kind, Type, Object } from '..';
 
 export type _$deepMapValues<F extends Kind.Kind, O> = {
   [key in keyof O]: Type._$display<

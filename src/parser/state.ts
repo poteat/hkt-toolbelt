@@ -1,4 +1,4 @@
-import { Number } from "..";
+import { Number } from '..';
 
 export type _$state = {
   /**

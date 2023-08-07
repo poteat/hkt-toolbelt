@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..';
 
 /**
  * `_$last` is a type-level function that gets the last digit of a digit list.

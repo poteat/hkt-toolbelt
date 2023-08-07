@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..';
 
 type Multiply_Spec = [
   /**

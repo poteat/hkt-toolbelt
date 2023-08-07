@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 export type _$isString<S extends unknown> = S extends string ? true : false;
 

@@ -1,4 +1,4 @@
-import { Number, NaturalNumber, Kind, Type } from "..";
+import { Number, NaturalNumber, Kind, Type } from '..';
 
 /**
  * `_$isLessThan` is a type-level function that takes in two natural number

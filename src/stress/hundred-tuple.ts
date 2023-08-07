@@ -1,4 +1,4 @@
-import { Stress } from "..";
+import { Stress } from '..';
 
 export type HundredTuple = [
   ...Stress.TenTuple,

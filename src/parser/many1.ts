@@ -1,4 +1,4 @@
-import { $, Parser, Kind, Type, Conditional } from "..";
+import { $, Parser, Kind, Type, Conditional } from '..';
 
 export type _$many1<
   STATE extends Parser._$state,
@@ -8,15 +8,15 @@ export type _$many1<
     P,
     Type._$cast<STATE, Kind._$inputOf<P>>
   >,
-  NEXT_RESULTS extends unknown[] = [...RESULTS, NEXT_STATE["result"]]
+  NEXT_RESULTS extends unknown[] = [...RESULTS, NEXT_STATE['result']]
 > = 0 extends 1
   ? never
   : Conditional._$equals<NEXT_STATE, never> extends true
   ? RESULTS extends []
     ? never
     : {
-        input: STATE["input"];
-        index: STATE["index"];
+        input: STATE['input'];
+        index: STATE['index'];
         result: RESULTS;
       }
   : _$many1<NEXT_STATE, P, NEXT_RESULTS>;

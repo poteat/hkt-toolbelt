@@ -1,8 +1,8 @@
-import { Type, Kind, DigitList } from "..";
+import { Type, Kind, DigitList } from '..';
 
 type _$toString2<
   T extends DigitList.DigitList,
-  O extends string = ""
+  O extends string = ''
 > = T extends []
   ? O
   : _$toString2<DigitList._$pop<T>, `${DigitList._$last<T>}${O}`>;
@@ -30,7 +30,7 @@ type _$toString2<
 export type _$toString<
   T extends DigitList.DigitList,
   JOIN = _$toString2<T>,
-  RESULT = JOIN extends "" ? "0" : JOIN
+  RESULT = JOIN extends '' ? '0' : JOIN
 > = RESULT;
 
 /**

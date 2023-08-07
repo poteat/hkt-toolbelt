@@ -1,4 +1,4 @@
-import { Type, Kind, DigitList } from "..";
+import { Type, Kind, DigitList } from '..';
 
 /**
  * `_$pop` is a type-level function that removes the last digit from a digit list.

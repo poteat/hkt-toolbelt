@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..';
 
 /**
  * `RecursiveKind` is a higher-order type-level function that serves as a

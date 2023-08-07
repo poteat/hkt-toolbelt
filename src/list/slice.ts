@@ -1,4 +1,4 @@
-import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from "..";
+import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from '..';
 
 /**
  * `_$slice` is a type-level function that extracts and returns a subtuple of specified range from a tuple type.
@@ -45,7 +45,7 @@ type _$slice<
   T extends unknown[],
   START extends Number.Number,
   END extends Number.Number,
-  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T["length"]>,
+  T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T['length']>,
   START_ABS extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<START>
   >,

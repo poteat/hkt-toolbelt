@@ -1,4 +1,4 @@
-import { $, Kind, Type, Parser, List, Conditional } from "..";
+import { $, Kind, Type, Parser, List, Conditional } from '..';
 
 export type _$choice<
   PX extends Parser.Parser[],
@@ -19,9 +19,9 @@ export type _$choice<
   NEW_STATE extends Parser._$state = MATCH_RESULT extends never
     ? never
     : {
-        input: STATE["input"];
-        index: MATCH_RESULT["index"];
-        result: MATCH_RESULT["result"];
+        input: STATE['input'];
+        index: MATCH_RESULT['index'];
+        result: MATCH_RESULT['result'];
       }
 > = NEW_STATE;
 

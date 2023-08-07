@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 /**
  * `$N` is a type-level function that applies a type-level function to a list of

@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..';
 
 type _$divide2<
   A extends DigitList.DigitList,
@@ -7,7 +7,7 @@ type _$divide2<
    * The operation to perform. Either "DIVIDE" or "MODULO". This only controls
    * what we return at the end of the division.
    */
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE",
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE',
   /**
    * The list of active digits to process, from left to right.
    */
@@ -70,7 +70,7 @@ type _$divide2<
   NEXT_REMAINDER extends DigitList.DigitList = DigitList._$divideBySubtraction<
     ARROW_DOWN,
     B,
-    "MODULO"
+    'MODULO'
   >,
   /**
    * We have reached the end of the division when the next dividend is empty.
@@ -79,7 +79,7 @@ type _$divide2<
   /**
    * The result of the division is the quotient and remainder, as a pair.
    */
-  RESULT extends DigitList.DigitList = OPERATION extends "DIVIDE"
+  RESULT extends DigitList.DigitList = OPERATION extends 'DIVIDE'
     ? DigitList._$trim<NEXT_QUOTIENT>
     : NEXT_REMAINDER
 > = DONE extends true
@@ -117,11 +117,11 @@ type _$divide2<
 export type _$divide<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE"
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE'
 > = B extends [Digit.Zero]
   ? [Digit.Zero]
-  : B extends ["1"]
-  ? OPERATION extends "DIVIDE"
+  : B extends ['1']
+  ? OPERATION extends 'DIVIDE'
     ? A
     : [Digit.Zero]
   : _$divide2<A, B, OPERATION>;

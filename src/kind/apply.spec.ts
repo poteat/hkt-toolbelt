@@ -7,7 +7,7 @@ import {
   List,
   String,
   Test
-} from "hkt-toolbelt";
+} from 'hkt-toolbelt';
 
 type Apply_Spec = [
   /**
@@ -55,7 +55,7 @@ type Apply_Spec = [
    * $ enforces kind inputs.
    */
   // @ts-expect-error
-  $<$<Kind.Apply, number>, String.StartsWith<"foo">>,
+  $<$<Kind.Apply, number>, String.StartsWith<'foo'>>,
 
   /**
    * $ will emit an error on non-kinds.

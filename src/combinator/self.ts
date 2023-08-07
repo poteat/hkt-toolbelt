@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..';
 
 /**
  * `Self` is a higher-order type-level function that outputs itself. Since it

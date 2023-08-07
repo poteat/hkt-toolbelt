@@ -1,10 +1,10 @@
-import { Type, Kind, String } from "..";
+import { Type, Kind, String } from '..';
 
 type _$replace2<
   S extends string,
   From extends string,
   To extends string,
-  O extends string = ""
+  O extends string = ''
 > = S extends `${infer Head}${From}${infer Tail}`
   ? _$replace2<Tail, From, To, `${O}${Head}${To}`>
   : `${O}${S}`;
@@ -17,7 +17,7 @@ export type _$replace<
   ? string
   : string extends From
   ? string
-  : From extends ""
+  : From extends ''
   ? `${To}${_$replace2<S, From, To>}`
   : _$replace2<S, From, To>;
 
