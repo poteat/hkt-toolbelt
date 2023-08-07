@@ -1,4 +1,4 @@
-import { $, Conditional, Test } from "..";
+import { $, Conditional, Test } from '..'
 
 type Extends_Spec = [
   /**
@@ -20,4 +20,4 @@ type Extends_Spec = [
    * number is a supertype of string (string extends number) => false
    */
   Test.ExpectNot<$<$<Conditional.IsSupertypeOf, string>, number>>
-];
+]

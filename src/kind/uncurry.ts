@@ -1,4 +1,4 @@
-import { $, Kind, Type } from ".."
+import { $, Kind, Type } from '..'
 
 /**
  * `_$uncurry` is a type-level function that takes in a type-level function and

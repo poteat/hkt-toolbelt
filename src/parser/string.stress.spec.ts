@@ -1,4 +1,4 @@
-import { $, Test, Parser, Stress } from ".."
+import { $, Test, Parser, Stress } from '..'
 
 type String_StressSpec = [
   /**
@@ -21,13 +21,13 @@ type String_StressSpec = [
    */
   Test.Expect<
     $<
-      $<Parser.String, "x">,
+      $<Parser.String, 'x'>,
       { input: `${Stress.ThousandString}`; index: 999; result: never }
     >,
     {
       input: `${Stress.ThousandString}`
       index: 1_000
-      result: "x"
+      result: 'x'
     }
   >
 ]

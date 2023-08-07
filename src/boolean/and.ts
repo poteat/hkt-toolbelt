@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..'
 
 /**
  * `_$and` is a type-level function that takes in two boolean types, `T` and
@@ -25,10 +25,10 @@ export type _$and<T extends boolean, U extends boolean> = [T, U] extends [
   true
 ]
   ? true
-  : false;
+  : false
 
 interface And_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$and<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$and<T, typeof x>
 }
 
 /**
@@ -54,5 +54,5 @@ interface And_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface And extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): And_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): And_T<typeof x>
 }

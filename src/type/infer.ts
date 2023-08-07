@@ -1,4 +1,4 @@
-import { Kind, Type, Function } from "..";
+import { Kind, Type, Function } from '..'
 
 type _$inferred =
   | string
@@ -10,16 +10,16 @@ type _$inferred =
   | Kind.Kind
   | _$inferredTuple
   | {
-      [key: string]: _$inferred;
-    };
+      [key: string]: _$inferred
+    }
 
-type _$inferredTuple = _$inferred[] | ReadonlyArray<_$inferred>;
+type _$inferredTuple = _$inferred[] | ReadonlyArray<_$inferred>
 
 export type _$infer<
   X,
   Narrow = Type._$cast<X, _$inferred> | [...Type._$cast<X, _$inferredTuple>]
-> = Narrow extends unknown[] ? { [key in keyof X]: _$infer<X[key]> } : Narrow;
+> = Narrow extends unknown[] ? { [key in keyof X]: _$infer<X[key]> } : Narrow
 
 export interface Infer extends Kind.Kind {
-  f(x: this[Kind._]): _$infer<typeof x>;
+  f(x: this[Kind._]): _$infer<typeof x>
 }

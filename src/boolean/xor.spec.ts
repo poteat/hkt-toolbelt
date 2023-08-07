@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "..";
+import { $, Boolean, Test } from '..'
 
 type Xor_Spec = [
   /**
@@ -20,4 +20,4 @@ type Xor_Spec = [
    * False ^ False = False
    */
   Test.ExpectNot<$<$<Boolean.Xor, false>, false>>
-];
+]

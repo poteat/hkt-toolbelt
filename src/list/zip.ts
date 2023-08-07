@@ -1,4 +1,4 @@
-import { $, Kind, List, Number, NaturalNumber } from ".."
+import { $, Kind, List, Number, NaturalNumber } from '..'
 
 /**
  * `_$zip` is a type-level function that takes in an array of arrays `T`,

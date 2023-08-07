@@ -1,4 +1,4 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..'
 
 type First_Spec = [
   /**
@@ -21,4 +21,4 @@ type First_Spec = [
    */
   // @ts-expect-error
   $<List.First, number>
-];
+]

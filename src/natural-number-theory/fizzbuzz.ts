@@ -1,4 +1,4 @@
-import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from ".."
+import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from '..'
 
 /**
  * Check whether a natural number `N` is divisible by another number `M`.
@@ -48,15 +48,15 @@ export type FizzBuzz = $N<
   Conditional.If,
   [
     $<DivisibleBy, 15>,
-    $<Function.Constant, "FizzBuzz">,
+    $<Function.Constant, 'FizzBuzz'>,
     $N<
       Conditional.If,
       [
         $<DivisibleBy, 3>,
-        $<Function.Constant, "Fizz">,
+        $<Function.Constant, 'Fizz'>,
         $N<
           Conditional.If,
-          [$<DivisibleBy, 5>, $<Function.Constant, "Buzz">, Function.Identity]
+          [$<DivisibleBy, 5>, $<Function.Constant, 'Buzz'>, Function.Identity]
         >
       ]
     >

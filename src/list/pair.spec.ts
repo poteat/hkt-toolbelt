@@ -1,4 +1,4 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..'
 
 type Pair_Spec = [
   /**
@@ -35,4 +35,4 @@ type Pair_Spec = [
     $<List.Pair, [string, ...number[]]>,
     [string | number, string | number][]
   >
-];
+]

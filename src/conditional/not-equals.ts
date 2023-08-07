@@ -1,4 +1,4 @@
-import { Kind } from ".."
+import { Kind } from '..'
 
 /**
  * `_$notEquals` is a type-level function that returns `true` if `T` and `U` are

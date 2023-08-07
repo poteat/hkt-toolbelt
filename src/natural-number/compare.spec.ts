@@ -5,7 +5,7 @@ type Compare_Spec = [
    * Can compare two numbers.
    */
   Test.Expect<$<$<NaturalNumber.Compare, 123>, 123>, 0>,
-  
+
   Test.Expect<$<$<NaturalNumber.Compare, 123>, 321>, -1>,
 
   Test.Expect<$<$<NaturalNumber.Compare, 321>, 123>, 1>,
@@ -29,7 +29,7 @@ type Compare_Spec = [
    * Can compare a larger number to a smaller one.
    */
   Test.Expect<$<$<NaturalNumber.Compare, 1000>, 1>, 1>,
-  
+
   /**
    * Can compare a smaller number to a larger one.
    */
@@ -59,4 +59,4 @@ type Compare_Spec = [
    * Can compare numbers that are close together.
    */
   Test.Expect<$<$<NaturalNumber.Compare, 125>, 121>, 1>
-];
+]

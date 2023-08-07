@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..'
 
 type IsEven_Spec = [
   /**
@@ -95,4 +95,4 @@ type IsEven_Spec = [
    * 18 is even
    */
   Test.Expect<$<NaturalNumber.IsEven, 18>, true>
-];
+]

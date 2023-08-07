@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "..";
+import { $, Boolean, Test } from '..'
 
 type Or_Spec = [
   /**
@@ -20,4 +20,4 @@ type Or_Spec = [
    * False || False = False
    */
   Test.ExpectNot<$<$<Boolean.Or, false>, false>>
-];
+]

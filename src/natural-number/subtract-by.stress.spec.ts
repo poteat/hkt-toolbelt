@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber, List } from "..";
+import { $, Test, NaturalNumber, List } from '..'
 
 type SubtractBy_Spec = [
   /**
@@ -27,4 +27,4 @@ type SubtractBy_Spec = [
     $<$<$<List.Reduce, NaturalNumber.SubtractBy>, 10>, [11, 21, 31, 21]>,
     10
   >
-];
+]

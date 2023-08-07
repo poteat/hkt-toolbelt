@@ -1,4 +1,4 @@
-import { $, Test, Number } from "..";
+import { $, Test, Number } from '..'
 
 type IsFractional_Spec = [
   /**
@@ -30,4 +30,4 @@ type IsFractional_Spec = [
    * Evaluates the 'number' type properly.
    */
   Test.Expect<$<Number.IsFractional, number>, false>
-];
+]

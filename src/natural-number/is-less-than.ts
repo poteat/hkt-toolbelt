@@ -1,4 +1,4 @@
-import { Number, NaturalNumber, Kind, Type } from "..";
+import { Number, NaturalNumber, Kind, Type } from '..'
 
 /**
  * `_$isLessThan` is a type-level function that takes in two natural number
@@ -26,10 +26,10 @@ export type _$isLessThan<
   RESULT extends boolean = NaturalNumber._$compare<B, A> extends -1
     ? true
     : false
-> = RESULT;
+> = RESULT
 
 interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>): _$isLessThan<A, typeof x>;
+  f(x: Type._$cast<this[Kind._], Number.Number>): _$isLessThan<A, typeof x>
 }
 
 /**
@@ -80,5 +80,5 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ```
  */
 export interface IsLessThan extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>): IsLessThan_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], Number.Number>): IsLessThan_T<typeof x>
 }
