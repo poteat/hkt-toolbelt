@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "..";
 
 /**
  * Tests for String.First, which extracts the first character type from a

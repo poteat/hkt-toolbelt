@@ -1,4 +1,4 @@
-import { $, Test, Union } from "hkt-toolbelt";
+import { $, Test, Union } from "..";
 
 /**
  * Test `Union.ToTuple`, which converts a union type to a tuple composed of the

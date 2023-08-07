@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "..";
 
 /**
  * Tests for $<$<String.Replace, From, To> which replaces all instances of From

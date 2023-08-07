@@ -1,4 +1,4 @@
-import { $, Test, Object } from "hkt-toolbelt";
+import { $, Test, Object } from "..";
 
 /**
  * Tests for `Object.At`, which returns the value at a given key in an object.

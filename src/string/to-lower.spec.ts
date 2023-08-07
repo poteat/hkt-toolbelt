@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from "..";
 
 /**
  * Tests for `String.ToLower`, which converts a string to lowercase for all

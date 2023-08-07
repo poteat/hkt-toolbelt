@@ -1,4 +1,4 @@
-import { $, Test, Function } from "hkt-toolbelt";
+import { $, Test, Function } from "..";
 
 type ReturnType_Spec = [
   /**

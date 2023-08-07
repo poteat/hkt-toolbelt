@@ -1,4 +1,4 @@
-import { $, Test, Union } from "hkt-toolbelt";
+import { $, Test, Union } from "..";
 
 declare function overloaded(x: number): string;
 declare function overloaded(x: string): string;

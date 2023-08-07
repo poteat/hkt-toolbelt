@@ -1,4 +1,4 @@
-import { $, Function, Test } from "hkt-toolbelt";
+import { $, Function, Test } from "..";
 
 type Identity_Spec = [
   /**
