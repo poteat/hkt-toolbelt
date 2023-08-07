@@ -4,10 +4,7 @@
  * literal type. This type is particularly useful when working with
  * type-level numerical operations or string manipulation involving numbers.
  *
- * ## Examples
- *
  * @example
- *
  * Here are some usage examples of the `Digit` type:
  *
  * ```ts
@@ -17,7 +14,6 @@
  * ```
  *
  * @example
- *
  * You can also use the `Digit` type in combination with other `hkt-toolbelt`
  * utilities such as numerical operations or string manipulation.
  *

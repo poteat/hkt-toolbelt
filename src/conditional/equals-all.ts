@@ -4,15 +4,10 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,
  * and returns `true` if all elements of `T` are equal or `T` is empty.
  *
- * ## Parameters
- *
  * @param T An array of types.
  * @param U A type.
  *
- * ## Examples
- *
  * @example
- *
  * For example, we can use `_$equalsAll` to determine whether a series of types are equal.
  * In this example, `[false, false, false]` is passed as a type argument to the
  * type-level function:
@@ -27,7 +22,6 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * ]>; // true
  *
  * @example
- *
  * For example, we can use `_$equalsAll` to determine whether a series of type expressions are all equal to a second input type.
  * In this example, `[true, true]` and `unknown` are passed as type arguments to the
  * type-level function:
@@ -42,7 +36,6 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * ```
  *
  * @example
- *
  * In this example, `[string | number | symbol, keyof any]` and `PropertyKey` are passed as type arguments to the
  * type-level function:
  *
@@ -72,7 +65,6 @@ export type _$equalsAll<
  * @param T An array of types.
  *
  * @example
- *
  * For example, we can use `EqualsAll` to determine whether multiple types are equal.
  * In this example, `EqualsAll` is a type-level function that returns `true` if all elements of its input evaluate as being equal.
  *

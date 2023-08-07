@@ -1,4 +1,4 @@
-import { Test } from "hkt-toolbelt";
+import { Test } from "..";
 
 type Expect_Spec = [
   /**

@@ -1,4 +1,4 @@
-import { $, Test, Object, String, Function, Conditional } from "hkt-toolbelt";
+import { $, Test, Object, String, Function, Conditional } from "..";
 
 /**
  * Tests for `Object.DeepMap` type, which maps over nested values in an object.

@@ -26,7 +26,6 @@ type _$flattenShallow<
  * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely. 
  * 
  * @example
- * 
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  * 
@@ -40,8 +39,8 @@ type _$flattenShallow<
  *  
  * type Result4 = List._$flattenN<MyList, 5> // [0, 1, 2, 3, 4]
  * ```
- * 
- **/
+ *
+ */
 export type _$flattenN<
   T extends unknown[],
   N extends Number.Number,
@@ -62,22 +61,21 @@ interface FlattenN_T<N extends Number.Number> extends Kind.Kind {
  * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely. 
  * 
  * @example
-* 
-* ```ts
-* import { $, List } from 'hkt-toolbelt';
-* 
-* type MyList = [0, [1, [2, [3, [4]]]]]
-* 
-* type Result1 = $<$<List.FlattenN, 1>, MyList> // [0, 1, [2, [3, [4]]]]
-*
-* type Result2 = $<$<List.FlattenN, 2>, MyList> // [0, 1, 2, [3, [4]]]
-* 
-* type Result3 = $<$<List.FlattenN, 4>, MyList> // [0, 1, 2, 3, 4]
-*  
-* type Result4 = $<$<List.FlattenN, 5>, MyList> // [0, 1, 2, 3, 4]
-* ```
-* 
-**/
+ * ```ts
+ * import { $, List } from 'hkt-toolbelt';
+ *
+ * type MyList = [0, [1, [2, [3, [4]]]]]
+ *
+ * type Result1 = $<$<List.FlattenN, 1>, MyList> // [0, 1, [2, [3, [4]]]]
+ *
+ * type Result2 = $<$<List.FlattenN, 2>, MyList> // [0, 1, 2, [3, [4]]]
+ *
+ * type Result3 = $<$<List.FlattenN, 4>, MyList> // [0, 1, 2, 3, 4]
+ *
+ * type Result4 = $<$<List.FlattenN, 5>, MyList> // [0, 1, 2, 3, 4]
+ * ```
+ *
+ */
 export interface FlattenN extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): FlattenN_T<typeof x>;
 }

@@ -1,21 +1,18 @@
 import { Type, Kind, List } from "..";
 
 /**
- * `_$concat` is a type-level function that concatenates two tuples. 
- * 
- * It takes in two arguments: 
- * `T`, the tuple to concatenate onto, and `U`, the tuple to concatenate. 
- * 
- * ## Parameters
- * 
+ * `_$concat` is a type-level function that concatenates two tuples.
+ *
+ * It takes in two arguments:
+ * `T`, the tuple to concatenate onto, and `U`, the tuple to concatenate.
+ *
  * @param T A tuple type.
  * @param U A tuple type, or an unknown.
- * * If `U` is not a tuple type, it will be pushed into `T` as its new last element. 
- * 
+ * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
+ *
  * ## Basic Usage
  * 
  * @example
- * 
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  * 
@@ -25,7 +22,6 @@ import { Type, Kind, List } from "..";
  * ## Advanced Usage
  * 
  * @example
- * 
  * Concatenating to a tuple with a rest parameter results in a tuple that contains the concatenated tuple.
  *
  * ```ts
@@ -34,29 +30,29 @@ import { Type, Kind, List } from "..";
  * List._$concat<[1, 2, ...string[]], ["foo"]>; // [1, 2, ...string[], "foo"]
  * ```
  *
- **/
-export type _$concat<U extends unknown, T extends unknown[]> = U extends unknown[] ? [...T, ...U] : List._$push<U, T>
+ */
+export type _$concat<
+  U extends unknown,
+  T extends unknown[]
+> = U extends unknown[] ? [...T, ...U] : List._$push<U, T>;
 
 interface Concat_T<U extends unknown> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$concat<U, typeof x>;
 }
 
 /**
- * `Concat` is a type-level function that concatenates two tuples. 
- * 
- * It takes in two arguments: 
- * `T`, the tuple to concatenate onto, and `U`, the tuple to concatenate. 
- * 
- * ## Parameters
- * 
+ * `Concat` is a type-level function that concatenates two tuples.
+ *
+ * It takes in two arguments:
+ * `T`, the tuple to concatenate onto, and `U`, the tuple to concatenate.
+ *
  * @param T A tuple type.
  * @param U A tuple type, or an unknown.
- * * If `U` is not a tuple type, it will be pushed into `T` as its new last element. 
- * 
+ * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
+ *
  * ## Basic Usage
  * 
  * @example
- * 
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  * 
@@ -66,7 +62,6 @@ interface Concat_T<U extends unknown> extends Kind.Kind {
  * ## Advanced Usage
  * 
  * @example
- * 
  * Concatenating to a tuple with a rest parameter results in a tuple that contains the concatenated tuple.
  *
  * ```ts
@@ -75,7 +70,7 @@ interface Concat_T<U extends unknown> extends Kind.Kind {
  * $<$<List.Concat, ["foo"]>, [1, 2, ...string[]]>; // [1, 2, ...string[], "foo"]
  * ```
  *
- **/
+ */
 export interface Concat extends Kind.Kind {
   f(x: this[Kind._]): Concat_T<typeof x>;
 }

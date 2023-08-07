@@ -4,12 +4,9 @@ import { Type, Kind, Digit, DigitList } from "..";
  * `_$last` is a type-level function that gets the last digit of a digit list.
  * It returns the last digit of the digit list. If the list is empty, it returns "0".
  *
- * ## Parameters
- * 
  * @param A - The digit list to get the last digit from.
  *
  * @example
- * 
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
@@ -26,12 +23,9 @@ export type _$last<T extends DigitList.DigitList> = T extends []
  * `Last` is a type-level function that gets the last digit of a digit list.
  * It returns the last digit of the digit list. If the list is empty, it returns "0".
  *
- * ## Parameters
- * 
  * @param A - The digit list to get the last digit from.
  *
  * @example
- *
  * For example, we can use `Last` to get the last digit of a digit list:
  *
  * ```ts

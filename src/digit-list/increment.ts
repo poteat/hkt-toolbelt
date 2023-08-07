@@ -63,12 +63,9 @@ export type _$increment<
  * `Increment` is a type-level function that increments a digit list.
  * It returns the incremented digit list.
  *
- * ## Parameters
- *
  * @param A - The digit list to increment.
  *
  * @example
- *
  * For example, we can use `Increment` to increment a digit list:
  *
  * ```ts

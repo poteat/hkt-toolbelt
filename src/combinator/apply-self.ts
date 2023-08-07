@@ -11,14 +11,9 @@ import { $, Type, Kind, Combinator } from "..";
  * where the function `f` takes in itself as an argument, and returns its own
  * application to itself.
  *
- * ## Parameters
- *
  * @param F A recursive kind that takes in itself as a type argument.
  *
- * ## Examples
- *
  * @example
- *
  * For example, we can use `ApplySelf` to create the omega combinator, which
  * is the simplest way to cause an infinite loop in term-rewriting systems.
  *
@@ -29,7 +24,6 @@ import { $, Type, Kind, Combinator } from "..";
  * ```
  *
  * @example
- *
  * For example, you could apply `ApplySelf` to the identity function. This
  * returns the identity function itself, so is of little practical use.
  *

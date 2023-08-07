@@ -18,13 +18,10 @@ export type _$multiply2<
  * `_$multiplyDigit` is a type-level function that multiplies a digit list by a single digit.
  * It returns the result of the multiplication operation.
  *
- * ## Parameters
- *
  * @param A - The digit list.
  * @param B - The single digit.
  *
  * @example
- *
  * For example, we can use `_$multiplyDigit` to multiply a digit list by a single digit:
  *
  * ```ts
@@ -49,13 +46,10 @@ export interface Multiply_T<T extends DigitList.DigitList> extends Kind.Kind {
  * `MultiplyDigit` is a type-level function that multiplies a digit list by a single digit.
  * It returns the result of the multiplication operation.
  *
- * ## Parameters
- *
  * @param A - The digit list.
  * @param B - The single digit.
  * 
  * @example
- *
  * For example, we can use `MultiplyDigit` to multiply a digit list by a single digit:
  *
  * ```ts

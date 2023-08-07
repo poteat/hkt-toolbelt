@@ -37,7 +37,6 @@ type DivisibleBy = $N<
  * @param N The number to compute the FizzBuzz result for.
  *
  * @example
- *
  * ```ts
  * import { $, NaturalNumberTheory } from "hkt-toolbelt"
  *
@@ -71,7 +70,6 @@ export type FizzBuzz = $N<
  * @param N The number of FizzBuzz results to compute.
  *
  * @example
- *
  * ```ts
  * import { $, NaturalNumberTheory } from "hkt-toolbelt"
  *

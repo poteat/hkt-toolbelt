@@ -13,7 +13,6 @@ import { $, Type, Kind } from "..";
  * @param X A list of types. The target of the filtering operation.
  * 
  * @example
- * 
  * For example, we can use `_$filter` to filter out negative elements from a tuple of numeric types:
  * 
  * ```ts
@@ -51,7 +50,6 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  * @param X A list of types. The target of the filtering operation.
  * 
  * @example
- * 
  * For example, we can define a filter for positive numbers and then apply it to a list:
  * 
  * ```ts
@@ -61,7 +59,6 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  * ```
  * 
  * @example
- * 
  * We can also use the `$N` applicator to invoke `Filter` with a list containing the required arguments
  * This improves readability by allowing us to avoid nesting `$` calls. 
  * 
@@ -75,8 +72,7 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  * ```
  * 
  * @example
- * 
- * By partially applying only the first argument to `Filter`, 
+ * By partially applying only the first argument to `Filter`,
  * we can define a type-level function that can apply the same operation to multiple list inputs.
  * 
  * ```ts
@@ -88,7 +84,6 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  * ```
  * 
  * @example
- * 
  * Another use case for a partially-applied `Filter` function is to implement
  * sophisticated higher-order functionality by passing it into other type-level functions. 
  * 

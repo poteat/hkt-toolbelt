@@ -5,12 +5,9 @@ import { Number, Type, Kind, Combinator, Function } from "..";
  * 
  * It returns `-T` if T >= 0, and `T` if T < 0.
  *
- * ## Parameters
- *
  * @param T A number type.
  *
  * @example
- *
  * ```ts
  * import { Number } from "hkt-toolbelt";
  *
@@ -33,19 +30,16 @@ export type _$negate<
  * 
  * It returns `-T` if T >= 0, and `T` if T < 0.
  *
- * ## Parameters
- *
  * @param T A number type.
  *
  * @example
+ * ```ts
+ * import { Number } from "hkt-toolbelt";
  *
-* ```ts
-* import { Number } from "hkt-toolbelt";
-*
-* type Result1 = $<Number.Negate, 42>; // -42
-* type Result2 = $<Number.Negate, -42>; // 42
-* ```
-*/
+ * type Result1 = $<Number.Negate, 42>; // -42
+ * type Result2 = $<Number.Negate, -42>; // 42
+ * ```
+ */
 export interface Negate extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>

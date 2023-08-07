@@ -1,4 +1,4 @@
-import { $, Test, Object } from "hkt-toolbelt";
+import { $, Test, Object } from "..";
 
 /**
  * Tests for `Object.Keys` type, which returns the keys as a tuple.
