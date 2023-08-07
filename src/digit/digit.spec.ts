@@ -1,4 +1,4 @@
-import { $, Test, Conditional, Digit, Union } from "..";
+import { $, Test, Conditional, Digit, Union } from '..'
 
 type Digit_Spec = [
   /**
@@ -10,4 +10,4 @@ type Digit_Spec = [
    * There are ten digits.
    */
   Test.Expect<$<Union.Length, Digit.Digit>, 10>
-];
+]

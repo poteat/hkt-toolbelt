@@ -1,4 +1,4 @@
-import { $, Conditional, Test, List, NaturalNumber } from "..";
+import { $, Conditional, Test, List, NaturalNumber } from '..'
 
 type EqualsAll_Spec = [
   /**

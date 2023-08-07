@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "..";
+import { $, Boolean, Test } from '..'
 
 type And_Spec = [
   /**
@@ -26,4 +26,4 @@ type And_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Boolean.And<true>, number>>
-];
+]

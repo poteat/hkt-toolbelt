@@ -1,9 +1,9 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
+import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
 
 /**
- * `_$compare` is a type-level function that takes in 
- * two natural number types `A` and `B`, and returns the comparison result as a number type. 
- * The result will be 1 if `A` is greater than `B`, 
+ * `_$compare` is a type-level function that takes in
+ * two natural number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
  * @param A A natural number type.
@@ -36,18 +36,18 @@ export type _$compare<
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
   RESULT extends -1 | 0 | 1 = DigitList._$compare<A_LIST, B_LIST>
-> = RESULT;
+> = RESULT
 
 interface Compare_T<A extends Number.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? _$compare<A, typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? _$compare<A, typeof x> : never
 }
 
 /**
- * `Compare` is a type-level function that takes in 
- * two natural number types `A` and `B`, and returns the comparison result as a number type. 
- * The result will be 1 if `A` is greater than `B`, 
+ * `Compare` is a type-level function that takes in
+ * two natural number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
  * @param A A natural number type.
@@ -67,5 +67,5 @@ interface Compare_T<A extends Number.Number> extends Kind.Kind {
 export interface Compare extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? Compare_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Compare_T<typeof x> : never
 }

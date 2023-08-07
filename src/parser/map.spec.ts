@@ -1,4 +1,4 @@
-import { $, $$, Test, Parser, Number, Object } from "..";
+import { $, $$, Test, Parser, Number, Object } from '..'
 
 type Map_Spec = [
   /**
@@ -6,8 +6,8 @@ type Map_Spec = [
    */
   Test.Expect<
     $<
-      $$<[Parser.String, $<Parser.Map, Number.FromString>, Parser.Run], "123">,
-      "123"
+      $$<[Parser.String, $<Parser.Map, Number.FromString>, Parser.Run], '123'>,
+      '123'
     >,
     123
   >,
@@ -19,10 +19,10 @@ type Map_Spec = [
     $<
       $<
         Parser.Run,
-        $<$<Parser.Map, $<Object.Emplace, "data">>, Parser.Letters>
+        $<$<Parser.Map, $<Object.Emplace, 'data'>>, Parser.Letters>
       >,
-      "hello"
+      'hello'
     >,
-    { data: "hello" }
+    { data: 'hello' }
   >
-];
+]

@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$nand` is a type-level function that takes in two boolean types, `T` and
@@ -25,10 +25,10 @@ export type _$nand<T extends boolean, U extends boolean> = [T, U] extends [
   true
 ]
   ? false
-  : true;
+  : true
 
 interface Nand_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$nand<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$nand<T, typeof x>
 }
 
 /**
@@ -54,5 +54,5 @@ interface Nand_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Nand extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Nand_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Nand_T<typeof x>
 }

@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$nor` is a type-level function that takes in two boolean types, `T` and
@@ -25,10 +25,10 @@ export type _$nor<T extends boolean, U extends boolean> = [T, U] extends [
   false
 ]
   ? true
-  : false;
+  : false
 
 interface Nor_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$nor<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$nor<T, typeof x>
 }
 
 /**
@@ -54,5 +54,5 @@ interface Nor_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Nor extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Nor_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Nor_T<typeof x>
 }

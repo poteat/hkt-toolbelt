@@ -1,9 +1,9 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..'
 
 type _$divideBySubtraction2<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE",
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE',
   QUOTIENT extends DigitList.DigitList = [Digit.Zero],
   REMAINDER extends DigitList.DigitList = A,
   NEXT_QUOTIENT extends DigitList.DigitList = DigitList._$increment<QUOTIENT>,
@@ -21,12 +21,12 @@ type _$divideBySubtraction2<
   MOD_RESULT extends DigitList.DigitList = PERFECTLY_DIVISIBLE extends true
     ? [Digit.Zero]
     : REMAINDER,
-  RESULT extends DigitList.DigitList = OPERATION extends "DIVIDE"
+  RESULT extends DigitList.DigitList = OPERATION extends 'DIVIDE'
     ? DIV_RESULT
     : MOD_RESULT
 > = DONE extends true
   ? RESULT
-  : _$divideBySubtraction2<A, B, OPERATION, NEXT_QUOTIENT, NEXT_REMAINDER>;
+  : _$divideBySubtraction2<A, B, OPERATION, NEXT_QUOTIENT, NEXT_REMAINDER>
 
 /**
  * `_$divideBySubtraction` is a type-level function that performs the division or modulo operation by subtraction.
@@ -58,22 +58,21 @@ type _$divideBySubtraction2<
 export type _$divideBySubtraction<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE"
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE'
 > = B extends [Digit.Zero]
   ? [Digit.Zero]
-  : B extends ["1"]
-  ? OPERATION extends "DIVIDE"
+  : B extends ['1']
+  ? OPERATION extends 'DIVIDE'
     ? A
     : [Digit.Zero]
-  : _$divideBySubtraction2<A, B, OPERATION>;
+  : _$divideBySubtraction2<A, B, OPERATION>
 
 interface DivideBySubtraction_T<A extends DigitList.DigitList>
   extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ): _$divideBySubtraction<A, typeof x>;
+  ): _$divideBySubtraction<A, typeof x>
 }
-
 
 /**
  * `DivideBySubtraction` is a type-level function that performs a division by subtraction.
@@ -95,5 +94,5 @@ interface DivideBySubtraction_T<A extends DigitList.DigitList>
 export interface DivideBySubtraction extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], DigitList.DigitList>
-  ): DivideBySubtraction_T<typeof x>;
+  ): DivideBySubtraction_T<typeof x>
 }

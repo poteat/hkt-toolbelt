@@ -1,4 +1,4 @@
-import { $, String, Test } from "..";
+import { $, String, Test } from '..'
 
 type Join_Spec = [
   /**
@@ -6,23 +6,23 @@ type Join_Spec = [
    */
   Test.Expect<
     $<
-      $<String.Join, "">,
+      $<String.Join, ''>,
       [
-        "foo",
-        "bar",
-        "baz",
-        "qux",
-        "quux",
-        "corge",
-        "grault",
-        "garply",
-        "waldo",
-        "fred",
-        "plugh",
-        "xyzzy",
-        "thud"
+        'foo',
+        'bar',
+        'baz',
+        'qux',
+        'quux',
+        'corge',
+        'grault',
+        'garply',
+        'waldo',
+        'fred',
+        'plugh',
+        'xyzzy',
+        'thud'
       ]
     >,
-    "foobarbazquxquuxcorgegraultgarplywaldofredplughxyzzythud"
+    'foobarbazquxquuxcorgegraultgarplywaldofredplughxyzzythud'
   >
-];
+]

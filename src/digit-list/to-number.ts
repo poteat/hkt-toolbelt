@@ -1,4 +1,4 @@
-import { DigitList, Kind, Number, Type } from "..";
+import { DigitList, Kind, Number, Type } from '..'
 
 /**
  * `_$toNumber` is a type-level function that converts a digit list to a number.
@@ -21,8 +21,10 @@ import { DigitList, Kind, Number, Type } from "..";
  */
 export type _$toNumber<
   T extends DigitList.DigitList,
-  RESULT extends Number.Number = T extends [] ? never : Number._$fromString<DigitList._$toString<T>>
-> = RESULT;
+  RESULT extends Number.Number = T extends []
+    ? never
+    : Number._$fromString<DigitList._$toString<T>>
+> = RESULT
 
 /**
  * `ToNumber` is a type-level function that represents a function to convert a digit list to a number.
@@ -42,5 +44,5 @@ export type _$toNumber<
  * In this example, `Result` is a type that represents the number 502, which is the result of converting the digit list ["5", "0", "2"] to a number.
  */
 export interface ToNumber extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$toNumber<typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$toNumber<typeof x>
 }

@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from "..";
+import { $, Test, NaturalNumber } from '..'
 
 type IsOdd_Spec = [
   /**
@@ -95,4 +95,4 @@ type IsOdd_Spec = [
    * 19 is odd
    */
   Test.Expect<$<NaturalNumber.IsOdd, 19>, true>
-];
+]

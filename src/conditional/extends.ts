@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..'
 
 /**
  * `_$extends` is a type-level function that takes in two types, `T` and `X`,
@@ -29,10 +29,10 @@ import { Kind } from "..";
  */
 export type _$extends<T, X> = (X extends unknown ? X : never) extends T
   ? true
-  : false;
+  : false
 
 interface Extends_T<T> extends Kind.Kind {
-  f(x: this[Kind._]): _$extends<T, typeof x>;
+  f(x: this[Kind._]): _$extends<T, typeof x>
 }
 
 /**
@@ -69,5 +69,5 @@ interface Extends_T<T> extends Kind.Kind {
  * sophisticated type-level functions.
  */
 export interface Extends extends Kind.Kind {
-  f(x: this[Kind._]): Extends_T<typeof x>;
+  f(x: this[Kind._]): Extends_T<typeof x>
 }

@@ -1,4 +1,4 @@
-import { $, Test, Number, NaturalNumberTheory } from "..";
+import { $, Test, Number, NaturalNumberTheory } from '..'
 
 type Factorial_Spec = [
   /**
@@ -36,4 +36,4 @@ type Factorial_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Number._$factorial<-1>, never>>
-];
+]

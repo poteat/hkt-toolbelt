@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..'
 
 /**
  * `_$last` is a type-level function that gets the last digit of a digit list.
@@ -17,7 +17,7 @@ export type _$last<T extends DigitList.DigitList> = T extends []
   ? Digit.Zero
   : T extends [...unknown[], infer X]
   ? X
-  : Digit.Zero;
+  : Digit.Zero
 
 /**
  * `Last` is a type-level function that gets the last digit of a digit list.
@@ -37,5 +37,5 @@ export type _$last<T extends DigitList.DigitList> = T extends []
  * In this example, `Result` is a type that represents "3", which is the last digit of the digit list ["1", "2", "3"].
  */
 export interface Last extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$last<typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$last<typeof x>
 }

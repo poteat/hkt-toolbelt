@@ -1,4 +1,4 @@
-import { $, Test, Union } from "..";
+import { $, Test, Union } from '..'
 
 /**
  * Test `Union.ToTuple`, which converts a union type to a tuple composed of the
@@ -13,7 +13,7 @@ type ToList_Spec = [
   /**
    * Length of the tuple is the number of elements in the union.
    */
-  Test.Expect<$<Union.ToList, 1 | 2 | 3>["length"], 3>,
+  Test.Expect<$<Union.ToList, 1 | 2 | 3>['length'], 3>,
 
   /**
    * Converting boolean results in [false, true]
@@ -29,20 +29,20 @@ type ToList_Spec = [
    * Converting boolean with other types results in both true and false being
    * present separately.
    */
-  Test.Expect<$<Union.ToList, string | boolean>["length"], 3>,
+  Test.Expect<$<Union.ToList, string | boolean>['length'], 3>,
 
   /**
    * Can handle unions of strings.
    */
   Test.Expect<
-    $<Union.ToList, "foo" | "bar" | "qux">[number],
-    ["foo", "bar", "qux"][number]
+    $<Union.ToList, 'foo' | 'bar' | 'qux'>[number],
+    ['foo', 'bar', 'qux'][number]
   >,
 
   /**
    * Generates a list of the correct length.
    */
-  Test.Expect<$<Union.ToList, "foo" | "bar" | "qux">["length"], 3>,
+  Test.Expect<$<Union.ToList, 'foo' | 'bar' | 'qux'>['length'], 3>,
 
   /**
    * When `never` is provided, an empty tuple is emitted.
@@ -52,10 +52,10 @@ type ToList_Spec = [
   /**
    * Can convert unions of tuples.
    */
-  Test.Expect<$<Union.ToList, ["foo"] | ["bar"]>[number], ["foo"] | ["bar"]>,
+  Test.Expect<$<Union.ToList, ['foo'] | ['bar']>[number], ['foo'] | ['bar']>,
 
   /**
    * Converting unions of tuples results in correct length.
    */
-  Test.Expect<$<Union.ToList, ["foo"] | ["bar"]>["length"], 2>
-];
+  Test.Expect<$<Union.ToList, ['foo'] | ['bar']>['length'], 2>
+]

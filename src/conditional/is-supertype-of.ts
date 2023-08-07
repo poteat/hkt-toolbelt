@@ -1,15 +1,15 @@
-import { $, $$, Conditional, Kind } from "..";
+import { $, $$, Conditional, Kind } from '..'
 
 /**
  * `_$isSupertypeOf` is a type-level function that takes in two types, `T` and `X`,
  * and returns a boolean value. `_$isSupertypeOf` will return `true` if `X` is a
  * supertype of `T`, otherwise it returns `false`.
  *
- * This function checks the converse of `_$extends`. 
- * While `_$extends` returns `true` if `X` -> `T` is true, 
+ * This function checks the converse of `_$extends`.
+ * While `_$extends` returns `true` if `X` -> `T` is true,
  * `_$isSupertypeOf` will return `true` if and only if `X` <- `T` is true.
- * 
- * This is useful if it is known that `T` extends `X`, 
+ *
+ * This is useful if it is known that `T` extends `X`,
  * but the two arguments are being supplied in the opposite order expected by `_$extends`.
  *
  * @param T The subtype that we are checking if `X` is a supertype of.
@@ -28,21 +28,24 @@ import { $, $$, Conditional, Kind } from "..";
  *
  * Here, `boolean` is a supertype of `true`, so `_$isSupertypeOf` returns `true`.
  */
-export type _$isSupertypeOf<T, X> = $$<[Conditional.Extends, $<Kind.Apply, T>], X>
+export type _$isSupertypeOf<T, X> = $$<
+  [Conditional.Extends, $<Kind.Apply, T>],
+  X
+>
 
 interface IsSupertypeOf_T<T> extends Kind.Kind {
-  f(x: this[Kind._]): _$isSupertypeOf<T, typeof x>;
+  f(x: this[Kind._]): _$isSupertypeOf<T, typeof x>
 }
 
 /**
  * `IsSupertypeOf` is a type-level function that takes in two types, `T` and `U`, and
  * returns a boolean that represents whether `T` is a supertype of `U`.
- * 
- * This function checks the converse of `Extends`. 
- * While `Extends` returns `true` if `T` -> `U` is true, 
+ *
+ * This function checks the converse of `Extends`.
+ * While `Extends` returns `true` if `T` -> `U` is true,
  * `IsSupertypeOf` will return `true` if and only if `T` <- `U` is true.
- * 
- * This is useful if it is known that `U` extends `T`, 
+ *
+ * This is useful if it is known that `U` extends `T`,
  * but the two arguments are being supplied in the opposite order expected by `Extends`.
  *
  * @param T The supertype that we are checking if `U` extends.
@@ -75,5 +78,5 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
  * sophisticated type-level functions.
  */
 export interface IsSupertypeOf extends Kind.Kind {
-  f(x: this[Kind._]): IsSupertypeOf_T<typeof x>;
+  f(x: this[Kind._]): IsSupertypeOf_T<typeof x>
 }

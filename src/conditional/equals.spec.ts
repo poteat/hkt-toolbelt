@@ -1,4 +1,4 @@
-import { $, Conditional, Test } from "..";
+import { $, Conditional, Test } from '..'
 
 type Equals_Spec = [
   /**
@@ -44,9 +44,17 @@ type Equals_Spec = [
   /**
    * Deeply equals nested objects
    */
-  Test.Expect<$<$<Conditional.Equals, { a: 1, b: 2, c: { d: 3, e: { f: 4, g: [5, 6, 7], h: 8 | 9 | 10 } } }>, { a: 1, b: 2, c: { d: 3, e: { f: 4, g: [5, 6, 7], h: 8 | 9 | 10 } } }>>,
-  
-  /** 
+  Test.Expect<
+    $<
+      $<
+        Conditional.Equals,
+        { a: 1; b: 2; c: { d: 3; e: { f: 4; g: [5, 6, 7]; h: 8 | 9 | 10 } } }
+      >,
+      { a: 1; b: 2; c: { d: 3; e: { f: 4; g: [5, 6, 7]; h: 8 | 9 | 10 } } }
+    >
+  >,
+
+  /**
    * Equals empty lists and objects
    */
   Test.Expect<$<$<Conditional.Equals, []>, []>>,
@@ -54,5 +62,5 @@ type Equals_Spec = [
   Test.Expect<$<$<Conditional.Equals, {}>, {}>>,
   Test.Expect<$<$<Conditional.Equals, {}>, object>>,
   Test.Expect<$<$<Conditional.Equals, {}>, Record<PropertyKey, unknown>>>,
-  Test.Expect<$<$<Conditional.Equals, [{}]>, [{}]>>,
-];
+  Test.Expect<$<$<Conditional.Equals, [{}]>, [{}]>>
+]

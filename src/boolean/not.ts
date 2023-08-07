@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$not` is a type-level function that takes in a boolean type `T`, and
@@ -16,7 +16,7 @@ import { Type, Kind } from "..";
  * type Result = Boolean._$not<true>; // false
  * ```
  */
-export type _$not<T extends boolean> = T extends true ? false : true;
+export type _$not<T extends boolean> = T extends true ? false : true
 
 /**
  * `Not` is a type-level function that takes in a boolean type `T`, and
@@ -36,5 +36,5 @@ export type _$not<T extends boolean> = T extends true ? false : true;
  * ```
  */
 export interface Not extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$not<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$not<typeof x>
 }

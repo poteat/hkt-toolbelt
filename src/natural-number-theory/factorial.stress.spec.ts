@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumberTheory } from "..";
+import { $, Test, NaturalNumberTheory } from '..'
 
 type Factorial_Spec = [
   /**
@@ -8,4 +8,4 @@ type Factorial_Spec = [
     $<NaturalNumberTheory.Factorial, 30>,
     265252859812191058636308480000000n
   >
-];
+]

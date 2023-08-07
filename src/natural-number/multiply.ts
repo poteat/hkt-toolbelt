@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
+import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
 
 export type _$multiply<
   A extends Number.Number,
@@ -10,18 +10,16 @@ export type _$multiply<
     B_LIST
   >,
   PRODUCT = DigitList._$toNumber<PRODUCT_LIST>
-> = PRODUCT;
+> = PRODUCT
 
 interface Multiply_T<A extends Number.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true
-    ? _$multiply<A, typeof x>
-    : never;
+  ): Number._$isNatural<typeof x> extends true ? _$multiply<A, typeof x> : never
 }
 
 export interface Multiply extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? Multiply_T<typeof x> : never;
+  ): Number._$isNatural<typeof x> extends true ? Multiply_T<typeof x> : never
 }

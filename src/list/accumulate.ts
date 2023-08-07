@@ -1,4 +1,4 @@
-import { $, $N, Kind, Type, List } from ".."
+import { $N, Kind, Type, List } from '..'
 
 export type _$accumulate<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
@@ -8,15 +8,17 @@ export type _$accumulate<
   CURR = List._$first<X>,
   REST extends List.List = List._$shift<X>,
   ACC = $N<F, [O, CURR]>,
-  RESULT extends Kind._$inputOf<F>[] = X extends [] 
+  RESULT extends Kind._$inputOf<F>[] = X extends []
     ? M
-    : ACC extends Kind._$inputOf<F> 
-      ? _$accumulate<F, REST, ACC, List._$push<ACC, M>> 
-      : never
+    : ACC extends Kind._$inputOf<F>
+    ? _$accumulate<F, REST, ACC, List._$push<ACC, M>>
+    : never
 > = 0 extends 1 ? never : RESULT
 
-interface Accumulate_T2<F extends Kind.Kind<(x: never) => Kind.Kind>, O extends Kind._$inputOf<F>>
-  extends Kind.Kind {
+interface Accumulate_T2<
+  F extends Kind.Kind<(x: never) => Kind.Kind>,
+  O extends Kind._$inputOf<F>
+> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], List.List>): _$accumulate<F, typeof x, O>
 }
 

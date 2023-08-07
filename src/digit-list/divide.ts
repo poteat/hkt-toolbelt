@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from "..";
+import { Type, Kind, Digit, DigitList } from '..'
 
 type _$divide2<
   A extends DigitList.DigitList,
@@ -7,7 +7,7 @@ type _$divide2<
    * The operation to perform. Either "DIVIDE" or "MODULO". This only controls
    * what we return at the end of the division.
    */
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE",
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE',
   /**
    * The list of active digits to process, from left to right.
    */
@@ -70,7 +70,7 @@ type _$divide2<
   NEXT_REMAINDER extends DigitList.DigitList = DigitList._$divideBySubtraction<
     ARROW_DOWN,
     B,
-    "MODULO"
+    'MODULO'
   >,
   /**
    * We have reached the end of the division when the next dividend is empty.
@@ -79,13 +79,12 @@ type _$divide2<
   /**
    * The result of the division is the quotient and remainder, as a pair.
    */
-  RESULT extends DigitList.DigitList = OPERATION extends "DIVIDE"
+  RESULT extends DigitList.DigitList = OPERATION extends 'DIVIDE'
     ? DigitList._$trim<NEXT_QUOTIENT>
     : NEXT_REMAINDER
 > = DONE extends true
   ? RESULT
-  : _$divide2<A, B, OPERATION, NEXT_DIVIDEND, NEXT_QUOTIENT, NEXT_REMAINDER>;
-
+  : _$divide2<A, B, OPERATION, NEXT_DIVIDEND, NEXT_QUOTIENT, NEXT_REMAINDER>
 
 /**
  * `_$divide` is a type-level function that performs the division or modulo operation.
@@ -118,17 +117,17 @@ type _$divide2<
 export type _$divide<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
-  OPERATION extends "DIVIDE" | "MODULO" = "DIVIDE"
+  OPERATION extends 'DIVIDE' | 'MODULO' = 'DIVIDE'
 > = B extends [Digit.Zero]
   ? [Digit.Zero]
-  : B extends ["1"]
-  ? OPERATION extends "DIVIDE"
+  : B extends ['1']
+  ? OPERATION extends 'DIVIDE'
     ? A
     : [Digit.Zero]
-  : _$divide2<A, B, OPERATION>;
+  : _$divide2<A, B, OPERATION>
 
 interface Divide_T<A extends DigitList.DigitList> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$divide<A, typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$divide<A, typeof x>
 }
 
 /**
@@ -147,5 +146,5 @@ interface Divide_T<A extends DigitList.DigitList> extends Kind.Kind {
  * In this example, `Result` is a type that represents the digit list ["5"], which is the result of dividing 10 by 2.
  */
 export interface Divide extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Divide_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Divide_T<typeof x>
 }

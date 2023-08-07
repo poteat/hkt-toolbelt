@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$or` is a type-level function that takes in two boolean types, `T` and
@@ -25,10 +25,10 @@ export type _$or<T extends boolean, U extends boolean> = [T, U] extends [
   false
 ]
   ? false
-  : true;
+  : true
 
 interface Or_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$or<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$or<T, typeof x>
 }
 
 /**
@@ -54,5 +54,5 @@ interface Or_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Or extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Or_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Or_T<typeof x>
 }
