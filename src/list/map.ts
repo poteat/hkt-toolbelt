@@ -13,7 +13,6 @@ import { $, Type, Kind } from "..";
  * @param X A list of types. The target of the map operation.
  * 
  * @example
- * 
  * For example, we can use `_$map` to extract the same property from a list of objects.
  * 
  * ```ts
@@ -46,7 +45,6 @@ interface Map_T<T extends Kind.Kind> extends Kind.Kind {
  * @param X A list of types. The target of the map operation.
  * 
  * @example
- * 
  * For example, we can use `Map` to extract the same property from a list of objects.
  * 
  * ```ts
@@ -59,7 +57,6 @@ interface Map_T<T extends Kind.Kind> extends Kind.Kind {
  * ]>;  // ["Los Angeles", "Seoul", "Paris"]
  * 
  * @example
- * 
  * We can also use the `$N` applicator to invoke `Map` with a list containing the required arguments
  * This improves readability by allowing us to avoid nesting `$` calls. 
  * 
@@ -77,8 +74,7 @@ interface Map_T<T extends Kind.Kind> extends Kind.Kind {
  * ```
  * 
  * @example
- * 
- * By partially applying only the first argument to `Map`, 
+ * By partially applying only the first argument to `Map`,
  * we can define a type-level function that can apply the same operation to multiple list inputs.
  * 
  * ```ts
@@ -90,7 +86,6 @@ interface Map_T<T extends Kind.Kind> extends Kind.Kind {
  * ```
  * 
  * @example
- * 
  * Another use case for a partially-applied `Map` function is to implement
  * sophisticated higher-order functionality by passing it into other type-level functions. 
  * 

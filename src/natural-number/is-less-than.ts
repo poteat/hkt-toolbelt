@@ -8,8 +8,6 @@ import { Number, NaturalNumber, Kind, Type } from "..";
  * This function works by comparing the ordinal values of `A` and `B`. If `B`
  * has a lower ordinal value than `A`, then `B` is less than `A`.
  *
- * ## Parameters
- *
  * @param A The number to compare against.
  * @param B The number to compare.
  */
@@ -39,8 +37,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * types, `A` and `B`, and returns a boolean indicating whether `B` is less
  * than `A`.
  *
- * ## Parameters
- *
  * @param A The number to compare against.
  * @param B The number to evaluate.
  *
@@ -51,7 +47,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ## Usage Examples
  *
  * @example
- *
  * For example, we can use `IsLessThan` to determine whether a natural number is
  * less than another natural number. In this example, `3` and `2` are passed as
  * type arguments to the type-level function:
@@ -66,7 +61,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * If we apply `IsLessThan` to `3` and `3`, we should expect to get `false`.
  *
  * ```ts
@@ -76,7 +70,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * If we apply `IsLessThan` to `3` and `4`, we should also expect to get
  * `false`.
  *

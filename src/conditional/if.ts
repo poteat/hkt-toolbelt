@@ -8,8 +8,6 @@ import { $, Type, Kind } from ".."
  *
  * This can be thought of as a type-level ternary operator.
  *
- * ## Parameters
- *
  * @param Predicate A type-level function of the form `(x: never) => boolean`.
  * @param Then A type-level function that is applied on the truthy branch.
  * @param Else A type-level function that is applied on the falsy branch.
@@ -56,8 +54,6 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  *
  * This can be thought of as a type-level ternary operator.
  *
- * ## Parameters
- *
  * @param Predicate A type-level function of the form `(x: never) => boolean`.
  * @param Then A type-level function that is applied when the predicate returns
  * `true`.
@@ -68,7 +64,6 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  * ## Usage Examples
  *
  * @example
- *
  * For example, we can use `If` to create a type-level ternary operator. Since
  * `If` has a high arity, we use `$N` to pipe multiple arguments to `If`.
  *
@@ -99,7 +94,6 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  * on the input string, so more complex processing can be done in the branches.
  *
  * @example
- *
  * We can also use `If` to filter a list. In this example, we use
  * `String.StartsWith` to filter out elements of a list that do not start with
  * the string "foo":

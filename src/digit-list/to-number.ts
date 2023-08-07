@@ -4,13 +4,10 @@ import { DigitList, Kind, Number, Type } from "..";
  * `_$toNumber` is a type-level function that converts a digit list to a number.
  * It returns the number from the digit list.
  *
- * ## Parameters
- *
  * @param T - The digit list to convert.
  * @param RESULT - The number that the digit list represents.
  *
  * @example
- *
  * For example, we can use `_$toNumber` to convert a digit list to a number:
  *
  * ```ts
@@ -31,12 +28,9 @@ export type _$toNumber<
  * `ToNumber` is a type-level function that represents a function to convert a digit list to a number.
  * It returns the number from the digit list.
  *
- * ## Parameters
- *
  * @param x - A digit list to convert to a number.
  *
  * @example
- *
  * For example, we can use `ToNumber` to convert a digit list to a number:
  *
  * ```ts

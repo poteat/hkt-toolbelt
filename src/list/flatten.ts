@@ -6,16 +6,15 @@ import { Kind, List, Type } from "..";
  * @param T The input tuple.
  * 
  * @example
-* 
-* ```ts
-* import { $, List } from 'hkt-toolbelt';
-* 
-* type MyList = [0, [1, [2, [3, [4]]]]]
-* 
-* type Result = List._$flatten<MyList> // [0, 1, 2, 3, 4]
-* ```
-* 
-**/
+ * ```ts
+ * import { $, List } from 'hkt-toolbelt';
+ *
+ * type MyList = [0, [1, [2, [3, [4]]]]]
+ *
+ * type Result = List._$flatten<MyList> // [0, 1, 2, 3, 4]
+ * ```
+ *
+ */
 export type _$flatten<
   T extends unknown[],
   RESULT extends List.List = T extends [infer H, ...infer R]
@@ -31,16 +30,15 @@ export type _$flatten<
  * @param T The input tuple.
  * 
  * @example
-* 
-* ```ts
-* import { $, List } from 'hkt-toolbelt';
-* 
-* type MyList = [0, [1, [2, [3, [4]]]]]
-* 
-* type Result = $<List.Flatten, MyList> // [0, 1, 2, 3, 4]
-* ```
-* 
-**/
+ * ```ts
+ * import { $, List } from 'hkt-toolbelt';
+ *
+ * type MyList = [0, [1, [2, [3, [4]]]]]
+ *
+ * type Result = $<List.Flatten, MyList> // [0, 1, 2, 3, 4]
+ * ```
+ *
+ */
 export interface Flatten extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$flatten<typeof x>;
 }

@@ -4,12 +4,9 @@ import { Digit, DigitList, Kind, Type } from "../";
  * `_$first` is a type-level function that returns the first digit of a digit list.
  * If the list is empty, it returns ["0"].
  *
- * ## Parameters
- * 
  * @param T The digit list to extract the first digit from.
  * 
  * @example
- * 
  * ```ts
  * import { $, DigitList, Type } from "hkt-toolbelt";
  *
@@ -27,7 +24,6 @@ export type _$first<T extends DigitList.DigitList> = T extends []
  * It returns the first digit of the digit list. If the list is empty, it returns ["0"].
  *
  * @example
- *
  * For example, we can use `First` to get the first digit of a digit list representing the number 12:
  *
  * ```ts

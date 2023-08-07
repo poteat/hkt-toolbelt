@@ -8,14 +8,9 @@ import { $, Kind, List, Number, NaturalNumber } from ".."
  * The zip operation stops when the shortest sub-array is exhausted.
  * Any remaining items in the longer sub-array are ignored, cutting off the result to the length of the shortest sub-array.
  *
- * ## Parameters
- *
  * @param T An array of types.
  *
- * ## Examples
- *
  * @example
- *
  * For example, we can use `_$zip` to perform parallel iteration.
  * In this example, `[[1, 2, 3], ["a", "b", "c"]]` is passed as a type argument to the
  * type-level function:
@@ -27,7 +22,6 @@ import { $, Kind, List, Number, NaturalNumber } from ".."
  * ```
  *
  * @example
- *
  * When an array containing multiple sub-arrays of different lengths are passed into `_$zip`,
  * the length of the returned result will be equal to the shortest sub-array length found in the input array.
  * In this example, `[[1, 2], ["a", "b", "c"], ["A", "B"]]` is passed as a type argument to the
@@ -67,7 +61,6 @@ export type _$zip<
  * @param T An array of arrays.
  *
  * @example
- *
  * For example, we can use `Zip` to perform parallel iteration over multiple sub-arrays.
  * In this example, `Zip` is a type-level function that returns an array of arrays.
  *

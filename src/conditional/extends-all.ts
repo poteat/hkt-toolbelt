@@ -5,15 +5,10 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * and returns `true` if and only if all elements of `T` extend `U`, or `T` is empty.
  * Otherwise it returns `false`.
  *
- * ## Parameters
- *
  * @param T An array of types.
  * @param U A type.
  *
- * ## Examples
- *
  * @example
- *
  * For example, we can use `_$extendsAll` to determine whether a series of type expressions all extend a second input type.
  * In this example, `[true, false]` and `boolean` are passed as type arguments to the
  * type-level function:
@@ -28,7 +23,6 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * ```
  *
  * @example
- *
  * For example, we can use `_$extendsAll` to determine whether a series of types all extend the second input type.
  * In this example, `[string, number]` and `string | number` are passed as type arguments to the
  * type-level function:
@@ -43,7 +37,6 @@ import { $, Type, Kind, List, Conditional, Boolean } from ".."
  * ```
  *
  * @example
- *
  * In this example, `[unknown]` and `never` are passed as type arguments to the
  * type-level function:
  *
@@ -79,7 +72,6 @@ interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
  * @param T An array of types.
  *
  * @example
- *
  * For example, we can use `ExtendsAll` to determine whether a series of types all extend a second input type.
  * In this example, we partially apply `ExtendsAll` to `string | number` and `never`, which result in
  * two type-level functions that return `true` if all elements of their input extend `string | number` and `never`, respectively.

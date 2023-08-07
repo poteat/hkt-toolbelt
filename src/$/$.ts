@@ -29,18 +29,13 @@ import { Kind, Function } from "..";
  * If we wanted to create a 'Map' type, we would not be able to do so with
  * normal generic type parameters. Instead, we would need to use a higher-order
  * type-level function. That is what `hkt-toolbelt` provides.
- * 
- * ## Parameters
- * 
+ *
  * @param F A type-level function.
  * @param X The input type to apply the type-level function to.
- * 
- * ## Examples
- * 
+ *
  * ### Basic Usage
  * 
  * @example
- * 
  * For example, `Function.Identity` is a type-level function which takes in one
  * argument: the input type. `Function.Identity` returns the input type that was
  * passed in.
@@ -54,7 +49,6 @@ import { Kind, Function } from "..";
  * ```
  * 
  * @example
- * 
  * For example, `String.Append` is a type-level function which takes in two
  * arguments: first, the string to append, and second, the string to append to.
  * 
@@ -79,7 +73,6 @@ import { Kind, Function } from "..";
  * ### Advanced Usage
  * 
  * @example
- * 
  * For example, `List.Map` is a type-level function which takes in two
  * arguments: first, a type-level function, and second, a list. `List.Map`
  * returns a list of the same length as the input list, where each element is
@@ -102,7 +95,6 @@ import { Kind, Function } from "..";
  * achieved with normal generic type parameters.
  * 
  * @example
- * 
  * For example, `List.Filter` is a type-level function which takes in two
  * arguments: first, a type-level function, and second, a list. `List.Filter`
  * will only return the elements of the input list where the type-level

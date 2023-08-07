@@ -11,14 +11,11 @@ type _$toString2<
  * `_$toString` is a type-level function that converts a digit list to a string.
  * It returns the string representation of the digit list.
  *
- * ## Parameters
- *
  * @param T - The digit list to convert.
  * @param JOIN - The string that joins the digits in the list.
  * @param RESULT - The string that the digit list represents.
  *
  * @example
- *
  * For example, we can use `_$toString` to convert a digit list to a string:
  *
  * ```ts
@@ -40,12 +37,9 @@ export type _$toString<
  * `ToString` is a type-level function that converts a digit list to a string.
  * It returns the string representation of the digit list.
  *
- * ## Parameters
- *
  * @param A - A digit list to convert to a string.
  *
  * @example
- *
  * For example, we can use `ToString` to convert a digit list to a string:
  *
  * ```ts
