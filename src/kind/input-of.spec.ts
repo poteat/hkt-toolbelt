@@ -6,11 +6,11 @@ import {
   NaturalNumber,
   List,
   Test,
-} from ".."
+} from "..";
 
-type Add2 = $<NaturalNumber.Add, 2>
-type ReduceAdd = $<List.Reduce, NaturalNumber.Add>
-type ReduceAdd0 = $<ReduceAdd, 0>
+type Add2 = $<NaturalNumber.Add, 2>;
+type ReduceAdd = $<List.Reduce, NaturalNumber.Add>;
+type ReduceAdd0 = $<ReduceAdd, 0>;
 
 type Unapply_Spec = [
   Test.Expect<
@@ -27,4 +27,4 @@ type Unapply_Spec = [
     $<Kind.InputOf, ReduceAdd0>, 
     unknown[]
   >,
-]
+];

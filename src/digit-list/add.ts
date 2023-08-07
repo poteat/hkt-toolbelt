@@ -1,4 +1,4 @@
-import { Digit, DigitList, Kind, Type } from '..'
+import { Digit, DigitList, Kind, Type } from '..';
 
 type _$add2<
   A extends DigitList.DigitList,
@@ -17,7 +17,7 @@ type _$add2<
   OUTPUT_NEXT extends DigitList.DigitList = [SUM_CARRY, ...OUTPUT],
   DONE = A extends [] ? (B extends [] ? true : false) : false,
   RESULT = CARRY extends '1' ? [CARRY, ...OUTPUT] : OUTPUT
-> = DONE extends true ? RESULT : _$add2<A_NEXT, B_NEXT, CARRY_NEXT, OUTPUT_NEXT>
+> = DONE extends true ? RESULT : _$add2<A_NEXT, B_NEXT, CARRY_NEXT, OUTPUT_NEXT>;
 
 /**
  * `_$add` is a type-level function that takes in two digit lists `A` and `B`,
@@ -41,7 +41,7 @@ export type _$add<
   B extends DigitList.DigitList,
   SUM = _$add2<A, B>,
   RESULT = SUM extends [] ? [Digit.Zero] : SUM
-> = RESULT
+> = RESULT;
 
 interface Add_T<X extends DigitList.DigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$add<X, typeof x>

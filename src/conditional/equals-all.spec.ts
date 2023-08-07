@@ -72,4 +72,4 @@ type EqualsAll_Spec = [
     >,
     true
   >
-]
+];

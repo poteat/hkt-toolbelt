@@ -1,4 +1,4 @@
-import { $, Test, String, Stress } from ".."
+import { $, Test, String, Stress } from "..";
 
 type FromList_Spec = [
   /**
@@ -15,4 +15,4 @@ type FromList_Spec = [
    * Can join 1000 elements.
    */
   Test.Expect<$<String.FromList, Stress.ThousandTuple>, Stress.ThousandString>
-]
+];

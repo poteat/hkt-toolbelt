@@ -11,4 +11,4 @@ type Unshift_Spec = [
    */
   // @ts-expect-error
   $<List.Unshift<4>, number>
-]
+];

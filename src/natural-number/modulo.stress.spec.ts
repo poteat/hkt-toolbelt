@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type Modulo_Spec = [
   /**
@@ -14,4 +14,4 @@ type Modulo_Spec = [
     >,
     4
   >
-]
+];

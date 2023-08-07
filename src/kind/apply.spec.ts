@@ -7,7 +7,7 @@ import {
   List,
   String,
   Test,
-} from ".."
+} from "..";
 
 type Apply_Spec = [
   /**
@@ -59,4 +59,4 @@ type Apply_Spec = [
    */
   // @ts-expect-error
   $<$<Kind.Apply, number>, number>
-]
+];

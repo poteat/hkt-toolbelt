@@ -1,4 +1,4 @@
-import { $, Test, Parser } from ".."
+import { $, Test, Parser } from "..";
 
 type Many1_Spec = [
   /**
@@ -38,4 +38,4 @@ type Many1_Spec = [
       result: ["a", "a", "a", "a", "a"]
     }
   >
-]
+];

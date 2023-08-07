@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type DivideBy_Spec = [
   /**
@@ -45,4 +45,4 @@ type DivideBy_Spec = [
    * 99 / 100 = 1.
    */
   Test.Expect<$<$<NaturalNumber.DivideBy, 99>, 100>, 1>
-]
+];

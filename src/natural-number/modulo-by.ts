@@ -19,7 +19,7 @@ export type _$moduloBy<
    * The numerator.
    */
   B extends number
-> = NaturalNumber._$modulo<B, A>
+> = NaturalNumber._$modulo<B, A>;
 
 interface ModuloBy_T<A extends number> extends Kind.Kind {
   f(

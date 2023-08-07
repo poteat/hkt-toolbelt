@@ -46,4 +46,4 @@ type NotEquals_Spec = [
    */
   Test.Expect<$<$<Conditional.NotEquals, []>, [[]]>>,
   Test.Expect<$<$<Conditional.NotEquals, {}>, []>>,
-]
+];

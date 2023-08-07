@@ -28,7 +28,7 @@ import { $, $$, Conditional, Kind } from "..";
  *
  * Here, `boolean` is a supertype of `true`, so `_$isSupertypeOf` returns `true`.
  */
-export type _$isSupertypeOf<T, X> = $$<[Conditional.Extends, $<Kind.Apply, T>], X>
+export type _$isSupertypeOf<T, X> = $$<[Conditional.Extends, $<Kind.Apply, T>], X>;
 
 interface IsSupertypeOf_T<T> extends Kind.Kind {
   f(x: this[Kind._]): _$isSupertypeOf<T, typeof x>;

@@ -23,7 +23,7 @@ export type _$negate<
       : `${T}` extends `-${infer U extends number}` 
         ? U 
         : Number._$fromString<`-${T}`>
-> = RESULT
+> = RESULT;
 
 /**
  * `Negate` is a type-level function that takes a number type `T`, and returns its absolute value. 

@@ -1,4 +1,4 @@
-import { $, DigitList, Test } from '../'
+import { $, DigitList, Test } from '../';
 
 export type First_Spec = [
   /**

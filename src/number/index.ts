@@ -1,5 +1,5 @@
-export * from "./absolute"
-export * from "./compare"
+export * from "./absolute";
+export * from "./compare";
 export * from "./from-string";
 export * from "./is-fractional";
 export * from "./is-integer";

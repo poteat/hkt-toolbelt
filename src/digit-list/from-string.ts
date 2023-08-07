@@ -5,7 +5,7 @@ export type _$fromString2<
   M extends DigitList.DigitList = []
 > = T extends `${infer D extends Digit.Digit}${infer Rest}`
   ? _$fromString2<Rest, [...M, D]>
-  : M
+  : M;
 
 /**
  * `_$fromString` is a type-level function that converts a string into a digit list and trims leading zeros.
@@ -18,7 +18,7 @@ export type _$fromString2<
  *
  * type Result = DigitList._$fromString<"00123">; // ["1", "2", "3"]
  * ```
-*/
+ */
 export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
 
 /**

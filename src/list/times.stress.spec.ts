@@ -1,4 +1,4 @@
-import { $, Test, List } from ".."
+import { $, Test, List } from "..";
 
 type Times_Spec = [
   /**
@@ -109,4 +109,4 @@ type Times_Spec = [
       99
     ]
   >
-]
+];

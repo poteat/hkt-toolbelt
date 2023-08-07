@@ -15,4 +15,4 @@
  * In this example, we add `Zero` to the digit "1", and the result is a digit
  * list containing the digit "1".
  */
-export type Zero = '0'
+export type Zero = '0';

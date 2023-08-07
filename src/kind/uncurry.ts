@@ -1,4 +1,4 @@
-import { $, Kind, Type } from ".."
+import { $, Kind, Type } from "..";
 
 /**
  * `_$uncurry` is a type-level function that takes in a type-level function and
@@ -21,7 +21,7 @@ export type _$uncurry<K extends Kind.Kind, X extends unknown[]> = X extends [
   ? $<K, A> extends Kind.Kind
     ? _$uncurry<$<K, A>, B>
     : $<K, A>
-  : K
+  : K;
 
 interface Uncurry_T<K extends Kind.Kind> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$uncurry<K, typeof x>

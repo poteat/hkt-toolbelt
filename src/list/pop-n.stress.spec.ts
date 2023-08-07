@@ -1,4 +1,4 @@
-import { $, Test, List, Stress } from ".."
+import { $, Test, List, Stress } from "..";
 
 type PopN_Spec = [
   /**
@@ -100,4 +100,4 @@ type PopN_Spec = [
     $<$<List.PopN, 1990>, [...Stress.ThousandTuple, ...Stress.ThousandTuple]>,
     Stress.TenTuple
   >
-]
+];

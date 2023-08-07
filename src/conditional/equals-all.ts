@@ -1,4 +1,4 @@
-import { Type, Kind, List, Conditional, Boolean } from ".."
+import { Type, Kind, List, Conditional, Boolean } from "..";
 
 /**
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,
@@ -55,7 +55,7 @@ export type _$equalsAll<
   ? Conditional._$equals<PREV, CURR> extends false
     ? false
     : _$equalsAll<REST, CURR>
-  : true
+  : true;
 
 /**
  * `EqualsAll` is a type-level function that takes in one array of types, `T`, and returns a

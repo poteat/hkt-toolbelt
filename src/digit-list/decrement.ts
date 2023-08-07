@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from '..'
+import { Type, Kind, Digit, DigitList } from '..';
 
 type _$decrement2<
   A extends DigitList.DigitList,
@@ -20,7 +20,7 @@ type _$decrement2<
   ? FINAL_RESULT
   : CARRY extends '0'
   ? SHORT_CIRCUIT
-  : _$decrement2<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>
+  : _$decrement2<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>;
 
 /**
  * `_$decrement` is a type-level function that takes in a digit list `A` and
@@ -55,7 +55,7 @@ type _$decrement2<
  */
 export type _$decrement<A extends DigitList.DigitList> = DigitList._$trim<
   A extends '0'[] ? ['0'] : _$decrement2<A>
->
+>;
 
 /**
  * `Decrement` is a type-level function that takes in a digit list `A` and

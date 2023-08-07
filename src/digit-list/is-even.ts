@@ -6,7 +6,7 @@ import { Type, Kind, Digit, DigitList } from "..";
  *
  * @param T - The digit list to check.
  * @param LAST - The last digit of T.
-* 
+ * 
  * @example
  * ```ts
  * import { DigitList } from "hkt-toolbelt";

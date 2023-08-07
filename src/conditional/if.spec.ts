@@ -6,7 +6,7 @@ import {
   List,
   String,
   Test,
-} from ".."
+} from "..";
 
 /**
  * Tests associated with `Conditional.If`, which encodes kind-level if-then-else
@@ -97,4 +97,4 @@ type If_Spec = [
     >,
     [true, false, never, true]
   >
-]
+];

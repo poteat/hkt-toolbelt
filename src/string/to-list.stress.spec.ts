@@ -1,4 +1,4 @@
-import { $, Test, String, Stress } from ".."
+import { $, Test, String, Stress } from "..";
 
 type ToList_Spec = [
   /**
@@ -67,4 +67,4 @@ type ToList_Spec = [
       ...Stress.ThousandTuple
     ]
   >
-]
+];

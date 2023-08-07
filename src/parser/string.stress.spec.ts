@@ -1,4 +1,4 @@
-import { $, Test, Parser, Stress } from ".."
+import { $, Test, Parser, Stress } from "..";
 
 type String_StressSpec = [
   /**
@@ -30,4 +30,4 @@ type String_StressSpec = [
       result: "x"
     }
   >
-]
+];

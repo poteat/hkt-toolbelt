@@ -72,4 +72,4 @@ type ToList_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Union.FromList, unknown>, unknown>
-]
+];

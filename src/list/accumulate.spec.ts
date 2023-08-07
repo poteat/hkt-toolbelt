@@ -1,4 +1,4 @@
-import { $, Test, List, Number, NaturalNumber } from ".."
+import { $, Test, List, Number, NaturalNumber } from "..";
 
 type Accumulate_Spec = [
   /**
@@ -43,4 +43,4 @@ type Accumulate_Spec = [
     $<$<$<List.Accumulate, NaturalNumber.Add>, 0>, unknown>,
     []
   >,
-]
+];

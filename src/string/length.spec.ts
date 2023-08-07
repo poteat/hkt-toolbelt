@@ -1,4 +1,4 @@
-import { $, String, Test } from ".."
+import { $, String, Test } from "..";
 
 type Length_Spec = [
   /**
@@ -20,4 +20,4 @@ type Length_Spec = [
    * A variadic string is of length `number`.
    */
   Test.Expect<$<String.Length, `foo${string}`>, number>
-]
+];

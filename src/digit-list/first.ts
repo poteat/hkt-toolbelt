@@ -12,7 +12,7 @@ import { Digit, DigitList, Kind, Type } from "../";
  *
  * type Result = DigitList._$first<["1", "2", "3"]>; // "1"
  * ```
-*/
+ */
 export type _$first<T extends DigitList.DigitList> = T extends []
   ? Digit.Zero
   : T extends [infer X, ...unknown[]]
@@ -33,7 +33,7 @@ export type _$first<T extends DigitList.DigitList> = T extends []
  * ```
  *
  * In this example, `Result` is a type that represents the digit "1", which is the first digit of the digit list ["1", "2"].
-*/
+ */
 export interface First extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$first<typeof x>;
 }

@@ -1,4 +1,4 @@
-import { Type, Kind, List, Conditional, Boolean } from ".."
+import { Type, Kind, List, Conditional, Boolean } from "..";
 
 /**
  * `_$extendsAll` is a type-level function that takes in an array of types `T` and a type `U`,
@@ -55,7 +55,7 @@ export type _$extendsAll<
   ? Conditional._$extends<U, CURR> extends false
     ? false
     : _$extendsAll<REST, U>
-  : true
+  : true;
 
 interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], List.List>): _$extendsAll<typeof x, U>

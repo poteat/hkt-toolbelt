@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type Multiply_Spec = [
   /**
@@ -40,4 +40,4 @@ type Multiply_Spec = [
    * 0 * 0 = 0
    */
   Test.Expect<$<$<NaturalNumber.Multiply, 0>, 0>, 0>
-]
+];

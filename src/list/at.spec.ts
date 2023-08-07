@@ -49,4 +49,4 @@ type At_Spec = [
    */
   // @ts-expect-error
   $<$<List.At, 1>, number>
-]
+];

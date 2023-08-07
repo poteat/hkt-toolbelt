@@ -1,4 +1,4 @@
-import { Boolean, Digit, DigitList, Kind, NaturalNumber, Type } from '../'
+import { Boolean, Digit, DigitList, Kind, NaturalNumber, Type } from '../';
 
 type _$compare2<
   A extends DigitList.DigitList,
@@ -28,7 +28,7 @@ type _$compare2<
     : COMP extends 0
     ? _$compare2<A_NEXT, B_NEXT>
     : COMP
-> = RESULT
+> = RESULT;
 
 /**
  * `_$compare` is a type-level function that takes in two digit lists `A` and
@@ -62,7 +62,7 @@ export type _$compare<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
   RESULT extends 1 | 0 | -1 = _$compare2<A, B>
-> = RESULT
+> = RESULT;
 
 interface Compare_T<X extends DigitList.DigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$compare<X, typeof x>

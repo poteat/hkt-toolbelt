@@ -47,4 +47,4 @@ type Paths_Spec = [
       ["b", "bb", "bbb"]
     ][number]
   >
-]
+];

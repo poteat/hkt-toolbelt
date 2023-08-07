@@ -1,4 +1,4 @@
-import { $, Type, Kind } from ".."
+import { $, Type, Kind } from "..";
 
 /**
  * `_$if` is a type-level function that evaluates a predicate `Predicate` with
@@ -20,7 +20,7 @@ export type _$if<
   X extends Kind._$inputOf<Predicate>
 > = $<Predicate, X> extends true
   ? $<Then, Type._$cast<X, Kind._$inputOf<Then>>>
-  : $<Else, Type._$cast<X, Kind._$inputOf<Else>>>
+  : $<Else, Type._$cast<X, Kind._$inputOf<Else>>>;
 
 interface If_T3<
   Predicate extends Kind.Kind<(x: never) => boolean>,

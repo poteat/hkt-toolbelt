@@ -30,7 +30,7 @@ export type _$unapply<
   X extends Kind._$inputOf<F> = K extends $<F, infer X>
     ? X
     : never
-> = X
+> = X;
 
 interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
   f(

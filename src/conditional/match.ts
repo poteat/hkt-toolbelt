@@ -9,7 +9,7 @@ import {
   Object,
   String,
   Test,
-} from ".."
+} from "..";
 
 interface LocationSchema {
   city: string
@@ -65,7 +65,7 @@ type RawResponses = [
     title: "The backend responded with an error"
     detail: "Reputation service not responding after three requests."
   }
-]
+];
 
 type ValidResponses = [
   {
@@ -89,9 +89,9 @@ type ValidResponses = [
     coordinates: { latitude: "38.6709"; longitude: "95.1991" }
     timezone: { offset: "+3:30"; description: "Tehran" }
   }
-]
+];
 
-type ExtendsSchema = $<Conditional.Extends, LocationSchema>
+type ExtendsSchema = $<Conditional.Extends, LocationSchema>;
 
 type _ = [
   Test.Expect<
@@ -131,4 +131,4 @@ type _ = [
     ["Summerside, Canada", "Essertines-sur-Yverdon, Switzerland", "Sviland, Norway"]
     // "Summerside, Canada; Essertines-sur-Yverdon, Switzerland; Sviland, Norway; "
   >
-]
+];

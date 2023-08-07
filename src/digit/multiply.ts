@@ -1,4 +1,4 @@
-import { Type, Kind, Digit } from '..'
+import { Type, Kind, Digit } from '..';
 
 type _$multiply_LUT = [
   ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
@@ -11,7 +11,7 @@ type _$multiply_LUT = [
   ['0', '7', '4', '1', '8', '5', '2', '9', '6', '3'],
   ['0', '8', '6', '4', '2', '0', '8', '6', '4', '2'],
   ['0', '9', '8', '7', '6', '5', '4', '3', '2', '1']
-]
+];
 
 /**
  * `_$multiply` is a type-level function that takes in two digit types, `A` and
@@ -34,7 +34,7 @@ type _$multiply_LUT = [
 export type _$multiply<
   A extends Digit.Digit,
   B extends Digit.Digit
-> = _$multiply_LUT[A][B]
+> = _$multiply_LUT[A][B];
 
 interface Multiply_T<A extends Digit.Digit> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Digit.Digit>): _$multiply<A, typeof x>

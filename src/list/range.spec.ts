@@ -23,19 +23,19 @@ type Range_Spec = [
   Test.Expect<$<$<$<List.Range, 100>, 99>, -2>, []>,
 
   /**
-    * Returns `never` if START or STOP are not natural numbers.
-    */
+   * Returns `never` if START or STOP are not natural numbers.
+   */
   Test.Expect<$<$<$<List.Range, -1>, -100>, -2>, never>,
   Test.Expect<$<$<$<List.Range, 1.5>, 100>, 1>, never>,
 
   /**
-    * Returns `never` if STEP is a non-integer.
-    */
+   * Returns `never` if STEP is a non-integer.
+   */
   Test.Expect<$<$<$<List.Range, 1>, 100>, 1.5>, never>,
 
   /**
-    * Retursn `never` if the sign of STEP is incompatible with the range provided by START and STOP.
-    */
+   * Retursn `never` if the sign of STEP is incompatible with the range provided by START and STOP.
+   */
   Test.Expect<$<$<$<List.Range, 1>, 100>, -2>, never>,
   Test.Expect<$<$<$<List.Range, 100>, 0>, 2>, never>,
 ];

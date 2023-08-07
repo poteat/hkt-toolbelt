@@ -13,7 +13,7 @@ export type _$iterate<
     : ACC extends Kind._$inputOf<F>
         ? _$iterate<F, O, N, NaturalNumber._$decrement<COUNT>, List._$push<ACC, M>, ACC>
         : never
-> = 0 extends 1 ? never : RESULT
+> = 0 extends 1 ? never : RESULT;
 
 interface Iterate_T2<F extends Kind.Kind, N extends Number.Number> extends Kind.Kind {
     f(x: Type._$cast<this[Kind._], Kind._$inputOf<F>>): _$iterate<F, typeof x, N>;

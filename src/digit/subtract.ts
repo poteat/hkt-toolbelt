@@ -1,4 +1,4 @@
-import { Type, Digit, Kind } from '..'
+import { Type, Digit, Kind } from '..';
 
 type _$subtract_LUT = [
   ['0', '9', '8', '7', '6', '5', '4', '3', '2', '1'],
@@ -11,7 +11,7 @@ type _$subtract_LUT = [
   ['7', '6', '5', '4', '3', '2', '1', '0', '9', '8'],
   ['8', '7', '6', '5', '4', '3', '2', '1', '0', '9'],
   ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
-]
+];
 
 /**
  * `_$subtract` is a type-level function that takes in two digit types, `A` and
@@ -35,7 +35,7 @@ type _$subtract_LUT = [
 export type _$subtract<
   A extends Digit.Digit,
   B extends Digit.Digit
-> = _$subtract_LUT[A][B]
+> = _$subtract_LUT[A][B];
 
 interface Subtract_T<A extends Digit.Digit> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Digit.Digit>): _$subtract<A, typeof x>

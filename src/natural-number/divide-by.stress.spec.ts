@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from ".."
+import { $, Test, NaturalNumber } from "..";
 
 type DivideBy_Spec = [
   /**
@@ -11,4 +11,4 @@ type DivideBy_Spec = [
     >,
     24691357824691357824691357824691357824691357824691357824691357824691357824691357824691357n
   >
-]
+];

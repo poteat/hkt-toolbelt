@@ -1,4 +1,4 @@
-import { Type, Digit, Kind } from '..'
+import { Type, Digit, Kind } from '..';
 
 /**
  * `_$subtractTens_LUT` is a lookup table used internally by `_$subtractTens`
@@ -15,7 +15,7 @@ type _$subtractTens_LUT = [
   ['0', '0', '0', '0', '0', '0', '0', '0', '1', '1'],
   ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1'],
   ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
-]
+];
 
 /**
  * `_$subtractTens` is a type-level function that takes in two digit types, `A`
@@ -38,7 +38,7 @@ type _$subtractTens_LUT = [
 export type _$subtractTens<
   A extends Digit.Digit,
   B extends Digit.Digit
-> = _$subtractTens_LUT[A][B]
+> = _$subtractTens_LUT[A][B];
 
 /**
  * `SubtractTens_T` is an internal type used by `SubtractTens` to compute the

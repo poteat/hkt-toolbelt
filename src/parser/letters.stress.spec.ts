@@ -1,4 +1,4 @@
-import { $, Parser, Test, Stress } from ".."
+import { $, Parser, Test, Stress } from "..";
 
 type Letters_Spec = [
   /**
@@ -61,4 +61,4 @@ type Letters_Spec = [
       result: Stress.ThousandString
     }
   >
-]
+];

@@ -1,4 +1,4 @@
-import { $, Test, List } from ".."
+import { $, Test, List } from "..";
 
 type Times_Spec = [
   /**
@@ -20,4 +20,4 @@ type Times_Spec = [
    * Has 'never' for non-natural numbers.
    */
   Test.Expect<$<List.Times, -1>, never>
-]
+];

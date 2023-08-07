@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from ".."
+import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
 
 /**
  * `Modulo` is a type-level function that takes in two natural number types,
@@ -14,7 +14,7 @@ export type _$modulo<
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
   MODULUS_LIST extends DigitList.DigitList = DigitList._$modulo<A_LIST, B_LIST>,
   MODULUS = DigitList._$toNumber<MODULUS_LIST>
-> = MODULUS
+> = MODULUS;
 
 interface Modulo_T<A extends Number.Number> extends Kind.Kind {
   f(

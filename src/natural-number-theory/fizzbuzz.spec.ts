@@ -30,7 +30,7 @@ type FizzBuzz_Spec = [
    * 4 => 4
    */
   Test.Expect<$<NaturalNumberTheory.FizzBuzz, 4>, 4>
-]
+];
 
 type FizzBuzzSequence_Spec = [
   /**
@@ -66,4 +66,4 @@ type FizzBuzzSequence_Spec = [
    * Non-integral input emits never
    */
   Test.Expect<$<NaturalNumberTheory.FizzBuzzSequence, 1.5>, never>
-]
+];

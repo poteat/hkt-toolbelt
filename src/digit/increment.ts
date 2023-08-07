@@ -1,6 +1,6 @@
-import { Type, Digit, Kind } from '..'
+import { Type, Digit, Kind } from '..';
 
-type _$increment_LUT = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+type _$increment_LUT = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 /**
  * `_$increment` is a type-level function that takes in a digit type `A` and
@@ -18,7 +18,7 @@ type _$increment_LUT = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
  * type Result = Digit._$increment<"3">; // "4"
  * ```
  */
-export type _$increment<A extends Digit.Digit> = _$increment_LUT[A]
+export type _$increment<A extends Digit.Digit> = _$increment_LUT[A];
 
 /**
  * `Increment` is a type-level function that takes in a digit type `A` and

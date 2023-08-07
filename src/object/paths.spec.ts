@@ -68,4 +68,4 @@ type Paths_Spec = [
       ["address", "zip", "code"]
     ][number]
   >
-]
+];

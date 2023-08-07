@@ -1,4 +1,4 @@
-import { $, Test, Number } from ".."
+import { $, Test, Number } from "..";
 
 export type FromString_Spec = [
   /**
@@ -30,4 +30,4 @@ export type FromString_Spec = [
    * The 'string' type results in never.
    */
   Test.Expect<$<Number.FromString, string>, never>
-]
+];

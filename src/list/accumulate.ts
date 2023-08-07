@@ -1,4 +1,4 @@
-import { $N, Kind, Type, List } from ".."
+import { $N, Kind, Type, List } from "..";
 
 export type _$accumulate<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
@@ -13,7 +13,7 @@ export type _$accumulate<
     : ACC extends Kind._$inputOf<F> 
       ? _$accumulate<F, REST, ACC, List._$push<ACC, M>> 
       : never
-> = 0 extends 1 ? never : RESULT
+> = 0 extends 1 ? never : RESULT;
 
 interface Accumulate_T2<F extends Kind.Kind<(x: never) => Kind.Kind>, O extends Kind._$inputOf<F>>
   extends Kind.Kind {

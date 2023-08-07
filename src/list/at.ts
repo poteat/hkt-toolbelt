@@ -6,7 +6,7 @@ import {
   List,
   NaturalNumber,
   Boolean,
-} from ".."
+} from "..";
 
 export type _$at<
   T extends List.List,
@@ -25,7 +25,7 @@ export type _$at<
   INDEX extends number = DigitList._$toNumber<POS_NORM>
 > = POS_NORM extends never
   ? never
-  : T[INDEX]
+  : T[INDEX];
 
 interface At_T<X extends Number.Number> extends Kind.Kind {
   f(

@@ -21,7 +21,7 @@ type _$range2<
     ? COUNT extends 0
       ? []
       : RESULT 
-    : never
+    : never;
 
 export type _$range<
   START extends Number.Number,
@@ -33,7 +33,7 @@ export type _$range<
     Number._$isInteger<STEP>
   ]> extends true
     ? _$range2<START, STOP, STEP>
-    : never
+    : never;
 
 interface Range_T2<START extends Number.Number, STOP extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): _$range<START, STOP, typeof x>;
