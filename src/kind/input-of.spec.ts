@@ -1,12 +1,4 @@
-import {
-  $,
-  Kind,
-  Function,
-  Number,
-  NaturalNumber,
-  List,
-  Test
-} from '..'
+import { $, Kind, Function, Number, NaturalNumber, List, Test } from '..'
 
 type Add2 = $<NaturalNumber.Add, 2>
 type ReduceAdd = $<List.Reduce, NaturalNumber.Add>
