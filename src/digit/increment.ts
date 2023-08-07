@@ -14,7 +14,6 @@ type _$increment_LUT = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$increment` to increment a digit type:
  *
  * ```ts
@@ -33,7 +32,6 @@ export type _$increment<A extends Digit.Digit> = _$increment_LUT[A];
  * @param A A digit type.
  *
  * @example
- *
  * For example, we can use `Increment` to increment a digit type:
  *
  * We apply `Increment` to a digit type using the `$` type-level applicator:

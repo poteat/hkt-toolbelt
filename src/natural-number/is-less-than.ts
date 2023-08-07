@@ -51,7 +51,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ## Usage Examples
  *
  * @example
- *
  * For example, we can use `IsLessThan` to determine whether a natural number is
  * less than another natural number. In this example, `3` and `2` are passed as
  * type arguments to the type-level function:
@@ -66,7 +65,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * If we apply `IsLessThan` to `3` and `3`, we should expect to get `false`.
  *
  * ```ts
@@ -76,7 +74,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * If we apply `IsLessThan` to `3` and `4`, we should also expect to get
  * `false`.
  *

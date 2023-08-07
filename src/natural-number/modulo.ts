@@ -36,7 +36,6 @@ interface Modulo_T<A extends Number.Number> extends Kind.Kind {
  * ## Usage Examples
  *
  * @example
- *
  * For example, we can use `Modulo` to determine the remainder of a natural
  * number divided by another natural number. In this example, `3` and `2` are
  * passed as type arguments to the type-level function:
@@ -51,7 +50,6 @@ interface Modulo_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- *
  * Here we calculate the remainder of `10` divided by `3`:
  *
  * ```ts

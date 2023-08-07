@@ -16,7 +16,6 @@ import { Kind, Type } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$imply` to determine whether a statement is true
  * given the truth values of two propositions, `T` and `U`. In this example,
  * `true` and `false` are passed as type arguments to the type-level function:
@@ -49,7 +48,6 @@ interface Imply_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Imply` to determine whether a statement is true
  * given the truth values of two propositions, `T` and `U`. In this example,
  * `true` and `false` are passed as type arguments to the type-level function:

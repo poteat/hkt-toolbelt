@@ -13,7 +13,6 @@ import { Type, Kind, Digit } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$multiplyTens` to compute the tens place of the
  * product of two single-digit types:
  *
@@ -53,7 +52,6 @@ interface MultiplyTens_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A single-digit type.
  *
  * @example
- *
  * For example, we can use `MultiplyTens` to compute the tens place of the
  * product of two single-digit types:
  *

@@ -12,7 +12,6 @@ import { Kind } from "..";
  * ## Examples
  *
  * @example
- *
  * For example, we can use `_$equals` to determine whether two types are equal.
  * In this example, `true` and `true` are passed as type arguments to the
  * type-level function:
@@ -24,7 +23,6 @@ import { Kind } from "..";
  * ```
  *
  * @example
- *
  * In this example, `true` and `false` are passed as type arguments to the
  * type-level function:
  *
@@ -49,7 +47,6 @@ interface Equals_T<T> extends Kind.Kind {
  * @param U A type.
  *
  * @example
- *
  * For example, we can use `Equals` to determine whether two types are equal.
  * In this example, we partially apply `Equals` to `true`, which results in a
  * type-level function that returns `true` if its input is the same as `true`.

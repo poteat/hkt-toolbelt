@@ -68,7 +68,6 @@ export type _$increment<
  * @param A - The digit list to increment.
  *
  * @example
- *
  * For example, we can use `Increment` to increment a digit list:
  *
  * ```ts

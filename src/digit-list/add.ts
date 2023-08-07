@@ -33,7 +33,6 @@ type _$add2<
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$add` to add two digit lists representing the
  * numbers 123 and 456:
  *
@@ -62,7 +61,6 @@ interface Add_T<X extends DigitList.DigitList> extends Kind.Kind {
  * @param B A digit list.
  *
  * @example
- *
  * For example, we can use `Add` to add two digit lists representing the
  * numbers 123 and 456:
  *

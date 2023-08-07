@@ -44,7 +44,6 @@ type _$compare2<
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$compare` to compare two digit lists. In this
  * example, we compare the digit lists ["1", "2", "3"] and ["3", "2", "1"]:
  *
@@ -83,7 +82,6 @@ interface Compare_T<X extends DigitList.DigitList> extends Kind.Kind {
  * @param B A digit list type.
  *
  * @example
- *
  * For example, we can use the `$` type-level applicator to apply `Compare` to two digit lists.
  * In this example, we compare the digit lists ["1", "2", "3"] and ["3", "2", "1"]:
  *

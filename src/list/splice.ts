@@ -81,7 +81,6 @@ type _$splice2<
  * ## Usage
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *
@@ -161,7 +160,6 @@ interface Splice_T<START extends Number.Number> extends Kind.Kind {
  * ## Usage
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *

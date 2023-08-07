@@ -40,7 +40,6 @@ import { Kind, Function } from "..";
  * ### Basic Usage
  *
  * @example
- *
  * For example, `Function.Identity` is a type-level function which takes in one
  * argument: the input type. `Function.Identity` returns the input type that was
  * passed in.
@@ -54,7 +53,6 @@ import { Kind, Function } from "..";
  * ```
  *
  * @example
- *
  * For example, `String.Append` is a type-level function which takes in two
  * arguments: first, the string to append, and second, the string to append to.
  *
@@ -79,7 +77,6 @@ import { Kind, Function } from "..";
  * ### Advanced Usage
  *
  * @example
- *
  * For example, `List.Map` is a type-level function which takes in two
  * arguments: first, a type-level function, and second, a list. `List.Map`
  * returns a list of the same length as the input list, where each element is
@@ -102,7 +99,6 @@ import { Kind, Function } from "..";
  * achieved with normal generic type parameters.
  *
  * @example
- *
  * For example, `List.Filter` is a type-level function which takes in two
  * arguments: first, a type-level function, and second, a list. `List.Filter`
  * will only return the elements of the input list where the type-level

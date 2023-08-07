@@ -27,7 +27,6 @@ type _$subtract_LUT = [
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$subtract` to subtract two digit types. In this
  * example, "2" and "1" are passed as type arguments to the type-level function:
  *
@@ -54,7 +53,6 @@ interface Subtract_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A digit type.
  *
  * @example
- *
  * For example, we can use `Subtract` to subtract two digit types. In this
  * example, "2" and "1" are passed as type arguments to the type-level function:
  *

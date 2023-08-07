@@ -14,7 +14,6 @@ import { Type, Kind } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$or` to determine whether at least one of two boolean
  * types is true. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:
@@ -45,7 +44,6 @@ interface Or_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Or` to determine whether at least one of two boolean
  * types is true. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:

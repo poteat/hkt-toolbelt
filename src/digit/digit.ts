@@ -7,7 +7,6 @@
  * ## Examples
  *
  * @example
- *
  * Here are some usage examples of the `Digit` type:
  *
  * ```ts
@@ -17,7 +16,6 @@
  * ```
  *
  * @example
- *
  * You can also use the `Digit` type in combination with other `hkt-toolbelt`
  * utilities such as numerical operations or string manipulation.
  *

@@ -38,7 +38,6 @@ type _$divideBySubtraction2<
  * @param OPERATION A string type representing the operation to be performed. Can be either "DIVIDE" or "MODULO".
  *
  * @example
- *
  * For example, we can use `_$divideBySubtraction` to divide a digit list representing the number 10 by 2:
  *
  * ```ts
@@ -48,7 +47,6 @@ type _$divideBySubtraction2<
  * ```
  *
  * @example
- *
  * We can also use `_$divideBySubtraction` to find the remainder when a digit list representing the number 123 is divided by 17:
  *
  * ```ts
@@ -86,7 +84,6 @@ interface DivideBySubtraction_T<A extends DigitList.DigitList>
  * @param B A digit list representing a number to divide by.
  *
  * @example
- *
  * For example, we can use `DivideBySubtraction` to divide a digit list representing the number 10 by 2:
  *
  * ```ts

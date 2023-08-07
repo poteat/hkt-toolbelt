@@ -10,7 +10,6 @@ import { Number, Type, Kind, Function } from "..";
  * @param T A number type.
  *
  * @example
- *
  * ```ts
  * import { Number } from "hkt-toolbelt";
  *
@@ -37,7 +36,6 @@ export type _$negate<
  * @param T A number type.
  *
  * @example
- *
  * ```ts
  * import { Number } from "hkt-toolbelt";
  *

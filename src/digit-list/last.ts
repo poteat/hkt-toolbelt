@@ -9,7 +9,6 @@ import { Type, Kind, Digit, DigitList } from "..";
  * @param A - The digit list to get the last digit from.
  *
  * @example
- *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
@@ -31,7 +30,6 @@ export type _$last<T extends DigitList.DigitList> = T extends []
  * @param A - The digit list to get the last digit from.
  *
  * @example
- *
  * For example, we can use `Last` to get the last digit of a digit list:
  *
  * ```ts

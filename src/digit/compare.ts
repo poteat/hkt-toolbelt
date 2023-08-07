@@ -25,7 +25,6 @@ type _$compare_LUT = [
  * @param B A one-character decimal digit type.
  *
  * @example
- *
  * For example, forwarding two decimal digits `7` and `4` will result in 1:
  *
  * ```ts
@@ -53,7 +52,6 @@ interface Compare_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A one-character decimal digit type.
  *
  * @example
- *
  * For example, we can use the `$` type-level applicator to apply `Compare` to two digits.
  * In this example, we compare the digits `7` and `4`.
  *

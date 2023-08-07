@@ -14,7 +14,6 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$compare` to compare two natural numbers.
  * In this example, we compare 123 and 321:
  *
@@ -63,7 +62,6 @@ interface Compare_T<A extends Number.Number> extends Kind.Kind {
  * ## Example
  *
  * @example
- *
  * For example, we can use `Compare` to compare two natural numbers.
  * In this example, we compare 123 and 321:
  *

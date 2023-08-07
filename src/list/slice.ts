@@ -19,7 +19,6 @@ import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from "..";
  * ## Basic Usage
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *
@@ -103,7 +102,6 @@ interface Slice_T<START extends Number.Number> extends Kind.Kind {
  * We apply `Slice` to `START`, `END`, and `T` respectively using the `$` type-level applicator.
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *

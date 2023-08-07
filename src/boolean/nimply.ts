@@ -14,7 +14,6 @@ import { Kind, Type } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$nimply` to determine whether two boolean types
  * follow the 'not-implies' logical operation. In this example, `true` and
  * `false` are passed as type arguments to the type-level function:
@@ -45,7 +44,6 @@ interface Nimply_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Nimply` to determine whether two boolean types
  * follow the 'not-implies' logical operation. In this example, `true` and
  * `false` are passed as type arguments to the type-level function:

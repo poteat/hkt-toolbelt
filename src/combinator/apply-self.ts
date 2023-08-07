@@ -18,7 +18,6 @@ import { $, Type, Kind, Combinator } from "..";
  * ## Examples
  *
  * @example
- *
  * For example, we can use `ApplySelf` to create the omega combinator, which
  * is the simplest way to cause an infinite loop in term-rewriting systems.
  *
@@ -29,7 +28,6 @@ import { $, Type, Kind, Combinator } from "..";
  * ```
  *
  * @example
- *
  * For example, you could apply `ApplySelf` to the identity function. This
  * returns the identity function itself, so is of little practical use.
  *

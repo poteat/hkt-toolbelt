@@ -10,7 +10,6 @@ import { Number, Type, Kind } from "..";
  * @param T A number type.
  *
  * @example
- *
  * ```ts
  * import { Number } from "hkt-toolbelt";
  *
@@ -31,7 +30,6 @@ export type _$absolute<T extends Number.Number> =
  * @param T A number type.
  *
  * @example
- *
  * ```ts
  * import { Number } from "hkt-toolbelt";
  *

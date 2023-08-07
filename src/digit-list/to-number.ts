@@ -10,7 +10,6 @@ import { DigitList, Kind, Number, Type } from "..";
  * @param RESULT - The number that the digit list represents.
  *
  * @example
- *
  * For example, we can use `_$toNumber` to convert a digit list to a number:
  *
  * ```ts
@@ -38,7 +37,6 @@ export type _$toNumber<
  * @param x - A digit list to convert to a number.
  *
  * @example
- *
  * For example, we can use `ToNumber` to convert a digit list to a number:
  *
  * ```ts

@@ -33,7 +33,6 @@ type _$repeat2<
  * ## Basic Usage
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *

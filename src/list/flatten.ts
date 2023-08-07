@@ -6,7 +6,6 @@ import { Kind, List, Type } from "..";
  * @param T The input tuple.
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *
@@ -31,7 +30,6 @@ export type _$flatten<
  * @param T The input tuple.
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *

@@ -12,7 +12,6 @@ import { Type, Kind } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$not` to negate a boolean type:
  *
  * ```ts
@@ -30,7 +29,6 @@ export type _$not<T extends boolean> = T extends true ? false : true;
  * @param T A boolean type.
  *
  * @example
- *
  * For example, we can use `Not` to negate a boolean type:
  *
  * We apply `Not` to `true` using the `$` type-level applicator:

@@ -31,7 +31,6 @@ type _$subtract2<
  * @param B - A digit list representing a number to substract by.
  *
  * @example
- *
  * For example, we can use `_$subtract` to subtract one digit list from another:
  *
  * ```ts
@@ -62,7 +61,6 @@ interface Subtract_T<X extends DigitList.DigitList> extends Kind.Kind {
  * @param B - A digit list representing a number to substract by.
  *
  * @example
- *
  * For example, we can use `Subtract` to subtract one digit list from another:
  *
  * ```ts

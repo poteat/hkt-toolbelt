@@ -6,7 +6,6 @@
  * ## Example
  *
  * @example
- *
  * For example, we can use `Zero` in arithmetic operations like addition:
  *
  * ```ts

@@ -19,7 +19,6 @@ import { Kind } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$extends` to determine whether a type is a subtype
  * of another type. In this example, we are checking whether the type `true` is
  * a subtype of the type `boolean`:
@@ -52,7 +51,6 @@ interface Extends_T<T> extends Kind.Kind {
  * ## Example
  *
  * @example
- *
  * For example, we can use `Extends` to determine whether a type `T` extends a
  * type `U`. In this example, we test whether `true` extends `boolean`:
  *

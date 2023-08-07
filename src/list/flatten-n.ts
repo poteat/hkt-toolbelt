@@ -26,7 +26,6 @@ type _$flattenShallow<
  * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely.
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *
@@ -62,7 +61,6 @@ interface FlattenN_T<N extends Number.Number> extends Kind.Kind {
  * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely.
  *
  * @example
- *
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
  *

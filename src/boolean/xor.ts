@@ -14,7 +14,6 @@ import { Type, Kind } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$xor` to determine whether two boolean types are
  * different. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:
@@ -42,7 +41,6 @@ interface Xor_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Xor` to determine whether two boolean types are
  * different. In this example, `true` and `false` are passed as type arguments
  * to the type-level function:

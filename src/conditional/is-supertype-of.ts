@@ -20,7 +20,6 @@ import { $, $$, Conditional, Kind } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$isSupertypeOf` to determine whether a type is a supertype
  * of another type. In this example, we are checking whether the type `boolean` is
  * a supertype of the type `true`:
@@ -61,7 +60,6 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
  * ## Example
  *
  * @example
- *
  * For example, we can use `IsSupertypeOf` to determine whether a given type `T` is a supertype of
  * another type `U`. In this example, we test whether `boolean` is a supertype of `true`:
  *

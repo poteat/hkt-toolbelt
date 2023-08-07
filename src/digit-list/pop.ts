@@ -9,7 +9,6 @@ import { Type, Kind, DigitList } from "..";
  * @param A - The digit list.
  *
  * @example
- *
  * For example, we can use `_$pop` to remove the last digit from a digit list:
  *
  * ```ts
@@ -36,7 +35,6 @@ export type _$pop<T extends DigitList.DigitList> = T extends []
  * @param A - The digit list.
  *
  * @example
- *
  * For example, we can use `Pop` to remove the last digit from a digit list:
  *
  * ```ts

@@ -10,7 +10,6 @@ import { Type, Kind, Digit, DigitList } from "..";
  * @param LAST - The last digit of T.
  *
  * @example
- *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
@@ -31,7 +30,6 @@ export type _$isEven<
  * @param T - The digit list to check.
  *
  * @example
- *
  * For example, we can use `IsEven` to check if a digit list is even:
  *
  * ```ts

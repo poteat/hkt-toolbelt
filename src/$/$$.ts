@@ -58,7 +58,6 @@ import { Kind, List } from "..";
  * ### Basic Usage
  *
  * @example
- *
  * Here's a basic example that uses `$$` to apply a type-level function to an
  * input type:
  *

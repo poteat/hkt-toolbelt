@@ -99,7 +99,6 @@ type _$divide2<
  * @param OPERATION A string type representing the operation to be performed. Can be either "DIVIDE" or "MODULO".
  *
  * @example
- *
  * For example, we can use `_$divide` to divide a digit list representing the number 10 by 2:
  *
  * ```ts
@@ -109,7 +108,6 @@ type _$divide2<
  * ```
  *
  * @example
- *
  * We can also use `_$divide` to find the remainder when a digit list representing the number 123 is divided by 17:
  *
  * ```ts
@@ -139,7 +137,6 @@ interface Divide_T<A extends DigitList.DigitList> extends Kind.Kind {
  * It returns the result of the division operation.
  *
  * @example
- *
  * For example, we can use `Divide` to create a division operation that divides a digit list representing the number 10 by 2:
  *
  * ```ts

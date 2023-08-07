@@ -18,7 +18,6 @@ type _$decrementTens_LUT = ["1", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
  * @param A A one-character decimal digit type.
  *
  * @example
- *
  * For example, forwarding a decimal digit `9` will result in:
  *
  * ```ts
@@ -38,7 +37,6 @@ export type _$decrementTens<A extends Digit.Digit> = _$decrementTens_LUT[A];
  * @param A A one-character decimal digit type.
  *
  * @example
- *
  * For example, using the `hkt-toolbelt` `$` type-level applicator,
  * we apply `DecrementTens` to the digit `4`:
  *

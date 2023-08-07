@@ -18,7 +18,6 @@ type _$toString2<
  * @param RESULT - The string that the digit list represents.
  *
  * @example
- *
  * For example, we can use `_$toString` to convert a digit list to a string:
  *
  * ```ts
@@ -45,7 +44,6 @@ export type _$toString<
  * @param A - A digit list to convert to a string.
  *
  * @example
- *
  * For example, we can use `ToString` to convert a digit list to a string:
  *
  * ```ts

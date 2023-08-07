@@ -26,7 +26,6 @@ type _$multiply_LUT = [
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$multiply` to multiply two digit types. In this
  * example, `2` and `3` are passed as type arguments to the type-level function:
  *
@@ -54,7 +53,6 @@ interface Multiply_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A digit type.
  *
  * @example
- *
  * For example, we can use `Multiply` to multiply two digit types. In this
  * example, `2` and `3` are passed as type arguments to the type-level function:
  *

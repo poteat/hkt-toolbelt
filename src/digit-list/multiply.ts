@@ -24,7 +24,6 @@ export type _$multiply2<
  * @param B - The single digit.
  *
  * @example
- *
  * For example, we can use `_$multiplyDigit` to multiply a digit list by a single digit:
  *
  * ```ts
@@ -55,7 +54,6 @@ export interface Multiply_T<T extends DigitList.DigitList> extends Kind.Kind {
  * @param B - The single digit.
  *
  * @example
- *
  * For example, we can use `MultiplyDigit` to multiply a digit list by a single digit:
  *
  * ```ts

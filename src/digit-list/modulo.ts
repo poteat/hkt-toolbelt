@@ -10,7 +10,6 @@ import { Kind, Type, DigitList } from "..";
  * @param B - The second digit list.
  *
  * @example
- *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
@@ -36,7 +35,6 @@ interface Modulo_T<T extends DigitList.DigitList> extends Kind.Kind {
  * @param B - The second digit list.
  *
  * @example
- *
  * For example, we can use `Modulo` to calculate the modulo of two digit lists:
  *
  * ```ts

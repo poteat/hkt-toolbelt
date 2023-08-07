@@ -8,7 +8,6 @@ import { Kind } from "..";
  * @param U The second type to compare.
  *
  * @example
- *
  * In this example, `true` and `false` are passed as type arguments to the
  * type-level function:
  *

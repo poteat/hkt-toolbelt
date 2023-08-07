@@ -68,7 +68,6 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  * ## Usage Examples
  *
  * @example
- *
  * For example, we can use `If` to create a type-level ternary operator. Since
  * `If` has a high arity, we use `$N` to pipe multiple arguments to `If`.
  *
@@ -99,7 +98,6 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  * on the input string, so more complex processing can be done in the branches.
  *
  * @example
- *
  * We can also use `If` to filter a list. In this example, we use
  * `String.StartsWith` to filter out elements of a list that do not start with
  * the string "foo":

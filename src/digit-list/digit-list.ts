@@ -6,7 +6,6 @@ import { Digit } from "..";
  * ## Example
  *
  * @example
- *
  * For example, we can use `DigitList` to represent a list of decimal digits from "0" to "9":
  *
  * ```ts

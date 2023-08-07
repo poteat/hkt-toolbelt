@@ -11,7 +11,6 @@ import { Type, Kind, Digit, DigitList } from "..";
  * @returns `true` if the digit list is odd, `false` otherwise.
  *
  * @example
- *
  * ```ts
  * import { DigitList} from "hkt-toolbelt";
  *
@@ -32,7 +31,6 @@ export type _$isOdd<
  * @param T - The digit list to check.
  *
  * @example
- *
  * For example, we can use `IsOdd` to check if a digit list is odd:
  *
  * ```ts

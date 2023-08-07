@@ -14,7 +14,6 @@ type _$decrement_LUT = ["9", "0", "1", "2", "3", "4", "5", "6", "7", "8"];
  * ## Example
  *
  * @example
- *
  * For example, if we want to subtract one from the digit "5", we would use
  * this type-level function as follows:
  *
@@ -40,7 +39,6 @@ export type _$decrement<A extends Digit.Digit> = _$decrement_LUT[A];
  * ## Example
  *
  * @example
- *
  * For example, if we want to subtract one from the digit "5", we would use
  * this type-level function as follows:
  *

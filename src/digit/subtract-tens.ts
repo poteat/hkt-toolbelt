@@ -30,7 +30,6 @@ type _$subtractTens_LUT = [
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$subtractTens` to subtract two digit types in the
  * tens place:
  *
@@ -62,7 +61,6 @@ interface SubtractTens_T<A extends Digit.Digit> extends Kind.Kind {
  * @param B A digit type.
  *
  * @example
- *
  * For example, we can use `SubtractTens` to subtract two digit types in the
  * tens place:
  *

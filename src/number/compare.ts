@@ -77,7 +77,6 @@ export type _$decimalCompare<
  * ## Example
  *
  * @example
- *
  * For example, we can use `_$compare` to compare two numbers.
  *
  * ```ts
@@ -121,7 +120,6 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
  * ## Example
  *
  * @example
- *
  * For example, we can use `Compare` to compare two numbers.
  *
  * ```ts
