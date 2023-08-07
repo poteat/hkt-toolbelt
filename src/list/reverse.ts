@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
   ...infer Init,
@@ -9,7 +9,7 @@ type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
     : _$reverse2<Init, [...O, Last]>
   : T extends [infer Head, ...unknown[]]
   ? Head
-  : [...O, ...T];
+  : [...O, ...T]
 
 export type _$reverse<
   T extends unknown[],
@@ -18,8 +18,8 @@ export type _$reverse<
   ? _$reverse<Tail, [Head, ...O]>
   : T extends []
   ? O
-  : [..._$reverse2<T>, ...O];
+  : [..._$reverse2<T>, ...O]
 
 export interface Reverse extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): _$reverse<typeof x>;
+  f(x: Type._$cast<this[Kind._], unknown[]>): _$reverse<typeof x>
 }

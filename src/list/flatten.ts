@@ -1,10 +1,10 @@
-import { Kind, List, Type } from "..";
+import { Kind, List, Type } from '..'
 
 /**
- * `_$flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements. 
- * 
+ * `_$flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements.
+ *
  * @param T The input tuple.
- * 
+ *
  * @example
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
@@ -18,17 +18,17 @@ import { Kind, List, Type } from "..";
 export type _$flatten<
   T extends unknown[],
   RESULT extends List.List = T extends [infer H, ...infer R]
-  ? H extends unknown[]
-    ? [..._$flatten<H>, ..._$flatten<R>]
-    : [H, ..._$flatten<R>]
-  : []
-> = RESULT;
+    ? H extends unknown[]
+      ? [..._$flatten<H>, ..._$flatten<R>]
+      : [H, ..._$flatten<R>]
+    : []
+> = RESULT
 
 /**
- * `Flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements. 
- * 
+ * `Flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements.
+ *
  * @param T The input tuple.
- * 
+ *
  * @example
  * ```ts
  * import { $, List } from 'hkt-toolbelt';
@@ -40,5 +40,5 @@ export type _$flatten<
  *
  */
 export interface Flatten extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): _$flatten<typeof x>;
+  f(x: Type._$cast<this[Kind._], unknown[]>): _$flatten<typeof x>
 }

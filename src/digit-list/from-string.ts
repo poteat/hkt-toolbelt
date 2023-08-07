@@ -1,4 +1,4 @@
-import { Kind, Type, DigitList, Digit } from "..";
+import { Kind, Type, DigitList, Digit } from '..'
 
 export type _$fromString2<
   T extends string,
@@ -18,8 +18,8 @@ export type _$fromString2<
  *
  * type Result = DigitList._$fromString<"00123">; // ["1", "2", "3"]
  * ```
-*/
-export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
+ */
+export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>
 
 /**
  * `FromString` is a type-level function that converts a string into a digit list and trims leading zeros.
@@ -43,9 +43,9 @@ export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>;
  * import { $, DigitList, Type } from "hkt-toolbelt";
  *
  * type Result = $<DigitList.FromString, "00123">; // ["1", "2", "3"]
- * ``` 
+ * ```
  *
  */
 export interface FromString extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], string>): _$fromString<typeof x>;
+  f(x: Type._$cast<this[Kind._], string>): _$fromString<typeof x>
 }

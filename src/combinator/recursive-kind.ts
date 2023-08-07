@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `RecursiveKind` is a higher-order type-level function that serves as a
@@ -9,5 +9,5 @@ import { Type, Kind } from "..";
  * combination with other type-level functions.
  */
 export interface RecursiveKind extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], RecursiveKind>): unknown;
+  f(x: Type._$cast<this[Kind._], RecursiveKind>): unknown
 }

@@ -1,4 +1,4 @@
-import { $, Conditional, Function, Test } from "..";
+import { $, Conditional, Function, Test } from '..'
 
 type Function_Spec = [
   /**
@@ -22,4 +22,4 @@ type Function_Spec = [
    * Other types are not a subtype of Function.
    */
   Test.ExpectNot<$<$<Conditional.Extends, Function.Function>, number>>
-];
+]

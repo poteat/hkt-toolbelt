@@ -1,12 +1,12 @@
-import { $, Function, Kind, List, String, Test } from "..";
+import { $, Function, Kind, List, String, Test } from '..'
 
 type Pipe_Spec = [
   /**
    * Can pipe simple operations.
    */
   Test.Expect<
-    $<$<Kind.Pipe, [$<List.Push, "bar">, $<List.Unshift, "foo">]>, [1, 2, 3]>,
-    ["foo", 1, 2, 3, "bar"]
+    $<$<Kind.Pipe, [$<List.Push, 'bar'>, $<List.Unshift, 'foo'>]>, [1, 2, 3]>,
+    ['foo', 1, 2, 3, 'bar']
   >,
 
   /**
@@ -24,8 +24,8 @@ type Pipe_Spec = [
    * Pipe occurs from left-to-right.
    */
   Test.Expect<
-    $<$<Kind.Pipe, [$<List.Push, "bar">, $<List.Push, "foo">]>, [1, 2, 3]>,
-    [1, 2, 3, "bar", "foo"]
+    $<$<Kind.Pipe, [$<List.Push, 'bar'>, $<List.Push, 'foo'>]>, [1, 2, 3]>,
+    [1, 2, 3, 'bar', 'foo']
   >,
 
   /**
@@ -33,22 +33,22 @@ type Pipe_Spec = [
    * in a type error.
    */
   // @ts-expect-error
-  $<Kind.Pipe<[$<List.Push, "bar">]>, number>,
+  $<Kind.Pipe<[$<List.Push, 'bar'>]>, number>,
 
   /**
    * Incompatible kinds in the pipe emit a type error. That is, the output of
    * kind $N$ must be a subtype of the input of kind $N+1$.
    */
   // @ts-expect-error
-  $<Kind.Pipe<[$<List.Push, "bar">, String.StartsWith<"foo">]>, []>,
+  $<Kind.Pipe<[$<List.Push, 'bar'>, String.StartsWith<'foo'>]>, []>,
 
   /**
    * String operations may be piped.
    */
   Test.Expect<
     $<
-      $<Kind.Pipe, [$<String.Append, "bar">, $<String.EndsWith, "bar">]>,
-      "foobar"
+      $<Kind.Pipe, [$<String.Append, 'bar'>, $<String.EndsWith, 'bar'>]>,
+      'foobar'
     >
   >,
 
@@ -59,11 +59,11 @@ type Pipe_Spec = [
     $<
       $<
         Kind.Pipe,
-        [$<List.Push, "foo"> | $<List.Push, "qux">, $<List.Push, "bar">]
+        [$<List.Push, 'foo'> | $<List.Push, 'qux'>, $<List.Push, 'bar'>]
       >,
       []
     >,
-    ["foo" | "qux", "bar"]
+    ['foo' | 'qux', 'bar']
   >,
 
   /**
@@ -90,4 +90,4 @@ type Pipe_Spec = [
     >,
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   >
-];
+]

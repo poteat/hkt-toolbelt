@@ -1,4 +1,4 @@
-import { Kind, Type, DigitList } from "..";
+import { Kind, Type, DigitList } from '..'
 
 /**
  * `_$modulo` is a type-level function that calculates the modulo of two digit lists.
@@ -6,7 +6,7 @@ import { Kind, Type, DigitList } from "..";
  *
  * @param A - The first digit list.
  * @param B - The second digit list.
- * 
+ *
  * @example
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
@@ -17,10 +17,10 @@ import { Kind, Type, DigitList } from "..";
 export type _$modulo<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList
-> = DigitList._$divide<A, B, "MODULO">;
+> = DigitList._$divide<A, B, 'MODULO'>
 
 interface Modulo_T<T extends DigitList.DigitList> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$modulo<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$modulo<T, typeof x>
 }
 
 /**
@@ -42,5 +42,5 @@ interface Modulo_T<T extends DigitList.DigitList> extends Kind.Kind {
  * In this example, `Result` is a type that represents ["1"], which is the modulo of the division of ["1", "0"] by ["3"].
  */
 export interface Modulo extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Modulo_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Modulo_T<typeof x>
 }

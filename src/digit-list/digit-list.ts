@@ -1,4 +1,4 @@
-import { Digit } from "..";
+import { Digit } from '..'
 
 /**
  * `DigitList` is a type alias representing a list of decimal digits from "0" to "9" (inclusive).
@@ -13,4 +13,4 @@ import { Digit } from "..";
  * ```
  *
  */
-export type DigitList = readonly Digit.Digit[];
+export type DigitList = readonly Digit.Digit[]

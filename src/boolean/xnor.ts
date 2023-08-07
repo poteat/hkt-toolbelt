@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$xnor` is a type-level function that takes in two boolean types, `T` and
@@ -32,10 +32,10 @@ import { Type, Kind } from "..";
  */
 export type _$xnor<T extends boolean, U extends boolean> = T extends U
   ? true
-  : false;
+  : false
 
 interface Xnor_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$xnor<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$xnor<T, typeof x>
 }
 
 /**
@@ -78,5 +78,5 @@ interface Xnor_T<T extends boolean> extends Kind.Kind {
  * equivalent to the negation of the xor (exclusive or) operation.
  */
 export interface Xnor extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Xnor_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Xnor_T<typeof x>
 }

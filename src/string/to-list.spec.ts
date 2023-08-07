@@ -1,25 +1,25 @@
-import { $, Test, String } from "..";
+import { $, Test, String } from '..'
 
 type ToList_Spec = [
   /**
    * "abc" => ["a", "b", "c"]
    */
-  Test.Expect<$<String.ToList, "abc">, ["a", "b", "c"]>,
+  Test.Expect<$<String.ToList, 'abc'>, ['a', 'b', 'c']>,
 
   /**
    * "" => []
    */
-  Test.Expect<$<String.ToList, "">, []>,
+  Test.Expect<$<String.ToList, ''>, []>,
 
   /**
    * "a" => ["a"]
    */
-  Test.Expect<$<String.ToList, "a">, ["a"]>,
+  Test.Expect<$<String.ToList, 'a'>, ['a']>,
 
   /**
    * "ab" => ["a", "b"]
    */
-  Test.Expect<$<String.ToList, "ab">, ["a", "b"]>,
+  Test.Expect<$<String.ToList, 'ab'>, ['a', 'b']>,
 
   /**
    * Can split 10 elements.
@@ -73,9 +73,9 @@ type ToList_Spec = [
     >,
     [...Thousand, ...Thousand, ...Thousand, ...Thousand, ...Thousand]
   >
-];
+]
 
-type Ten = ["a", "b", "c", "d", "e", "f", "g", "h", "i", " "];
+type Ten = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', ' ']
 
 type Hundred = [
   ...Ten,
@@ -88,7 +88,7 @@ type Hundred = [
   ...Ten,
   ...Ten,
   ...Ten
-];
+]
 
 type Thousand = [
   ...Hundred,
@@ -101,12 +101,12 @@ type Thousand = [
   ...Hundred,
   ...Hundred,
   ...Hundred
-];
+]
 
-type TenString = "abcdefghi ";
+type TenString = 'abcdefghi '
 
 type HundredString =
-  `${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}`;
+  `${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}`
 
 type ThousandString =
-  `${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}`;
+  `${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}`

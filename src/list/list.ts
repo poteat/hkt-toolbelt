@@ -1,1 +1,1 @@
-export type List = unknown[];
+export type List = unknown[]

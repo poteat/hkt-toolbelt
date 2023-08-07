@@ -1,4 +1,4 @@
-import { $, NaturalNumber, Test } from "..";
+import { $, NaturalNumber, Test } from '..'
 
 type IsLessThan_Spec = [
   /**
@@ -21,4 +21,4 @@ type IsLessThan_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<$<NaturalNumber.IsLessThan, boolean>, 2>>
-];
+]

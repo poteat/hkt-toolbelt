@@ -1,4 +1,4 @@
-import { Type, Kind } from ".."
+import { Type, Kind } from '..'
 
 export type _$unshift<X, T extends unknown[]> = [X, ...T]
 

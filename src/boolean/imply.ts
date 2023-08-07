@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..'
 
 /**
  * `_$imply` is a type-level function that takes in two boolean types, `T` and
@@ -27,10 +27,10 @@ export type _$imply<T extends boolean, U extends boolean> = [T, U] extends [
   false
 ]
   ? false
-  : true;
+  : true
 
 interface Imply_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$imply<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$imply<T, typeof x>
 }
 
 /**
@@ -58,5 +58,5 @@ interface Imply_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Imply extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Imply_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Imply_T<typeof x>
 }

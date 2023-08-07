@@ -1,4 +1,4 @@
-import { $, Test, Object } from "..";
+import { $, Test, Object } from '..'
 
 /**
  * Tests for `Object.AtPath`, which returns the value at a given path in an
@@ -10,16 +10,16 @@ type AtPath_Spec = [
    */
   Test.Expect<
     $<
-      $<Object.AtPath, ["name", "first"]>,
+      $<Object.AtPath, ['name', 'first']>,
       {
         name: {
-          first: "foo";
-          last: string;
-        };
-        age: number;
+          first: 'foo'
+          last: string
+        }
+        age: number
       }
     >,
-    "foo"
+    'foo'
   >,
 
   /**
@@ -27,23 +27,23 @@ type AtPath_Spec = [
    */
   Test.Expect<
     $<
-      $<Object.AtPath, ["name", "first"]>,
+      $<Object.AtPath, ['name', 'first']>,
       | {
           name: {
-            first: "foo";
-            last: string;
-          };
-          age: number;
+            first: 'foo'
+            last: string
+          }
+          age: number
         }
       | {
           name: {
-            first: "bar";
-            last: string;
-          };
-          age: number;
+            first: 'bar'
+            last: string
+          }
+          age: number
         }
     >,
-    "foo" | "bar"
+    'foo' | 'bar'
   >,
 
   /**
@@ -51,9 +51,9 @@ type AtPath_Spec = [
    */
   Test.Expect<
     $<
-      $<Object.AtPath, ["name", "first"]>,
+      $<Object.AtPath, ['name', 'first']>,
       { name: { last: string }; age: number }
     >,
     never
   >
-];
+]

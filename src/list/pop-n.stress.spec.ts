@@ -1,4 +1,4 @@
-import { $, Test, List, Stress } from ".."
+import { $, Test, List, Stress } from '..'
 
 type PopN_Spec = [
   /**

@@ -1,1 +1,1 @@
-export * from "./digit/";
+export * from './digit/'

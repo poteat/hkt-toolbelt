@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..'
 
 /**
  * `Self` is a higher-order type-level function that outputs itself. Since it
@@ -13,5 +13,5 @@ import { Kind } from "..";
  * ```
  */
 export interface Self extends Kind.Kind {
-  f(x: this[Kind._]): Self;
+  f(x: this[Kind._]): Self
 }

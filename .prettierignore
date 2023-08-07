@@ -1,0 +1,14 @@
+prompts
+scripts
+package
+docs
+node_modules
+dist
+package-lock.json
+**/*.md
+**/*.yml
+**/*.sh
+**/*.html
+**/*.css
+.*rc
+.*eslintrc-remove-imports

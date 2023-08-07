@@ -1,4 +1,4 @@
-import { $, Kind, Type, Parser, List } from "..";
+import { $, Kind, Type, Parser, List } from '..'
 
 export type _$sequence<
   STATE extends Parser._$state,
@@ -13,7 +13,7 @@ export type _$sequence<
     ACTIVE_PX,
     Type._$cast<STATE, Kind._$inputOf<ACTIVE_PX>>
   >,
-  NEXT_RESULTS extends unknown[] = [...RESULTS, NEXT_STATE["result"]],
+  NEXT_RESULTS extends unknown[] = [...RESULTS, NEXT_STATE['result']],
   IS_DONE extends boolean = NEXT_PX extends []
     ? true
     : NEXT_STATE extends never
@@ -23,16 +23,16 @@ export type _$sequence<
   ? NEXT_STATE extends never
     ? never
     : {
-        input: STATE["input"];
-        index: NEXT_STATE["index"];
-        result: NEXT_RESULTS;
+        input: STATE['input']
+        index: NEXT_STATE['index']
+        result: NEXT_RESULTS
       }
-  : _$sequence<NEXT_STATE, NEXT_PX, NEXT_RESULTS>;
+  : _$sequence<NEXT_STATE, NEXT_PX, NEXT_RESULTS>
 
 interface Sequence_T<PX extends Parser.Parser[]> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Parser._$state>): _$sequence<typeof x, PX>;
+  f(x: Type._$cast<this[Kind._], Parser._$state>): _$sequence<typeof x, PX>
 }
 
 export interface Sequence extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Parser.Parser[]>): Sequence_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], Parser.Parser[]>): Sequence_T<typeof x>
 }

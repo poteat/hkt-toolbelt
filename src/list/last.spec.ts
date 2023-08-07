@@ -1,4 +1,4 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..'
 
 type Last_Spec = [
   /**
@@ -26,10 +26,10 @@ type Last_Spec = [
    * When there are elements after a variadic type, the last such element is
    * selected as the last element.
    */
-  Test.Expect<$<List.Last, [string, ...number[], "foo"]>, "foo">,
+  Test.Expect<$<List.Last, [string, ...number[], 'foo']>, 'foo'>,
 
   /**
    * The last element of a one-tuple is the one element.
    */
   Test.Expect<$<List.Last, [string]>, string>
-];
+]

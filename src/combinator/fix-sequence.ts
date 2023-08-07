@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..'
 
 /**
  * _$fixSequence is a type-level function that generates a fixed-point sequence
@@ -108,12 +108,12 @@ export type _$fixSequence<
       DONE extends false ? KIND : never,
       Type._$cast<NEXT_VALUE, Kind._$inputOf<KIND>>,
       NEXT_STATE
-    >;
+    >
 
 interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Kind._$inputOf<KIND>>
-  ): _$fixSequence<KIND, typeof x>;
+  ): _$fixSequence<KIND, typeof x>
 }
 
 /**
@@ -179,5 +179,5 @@ interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
 export interface FixSequence extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Kind.Kind>
-  ): FixSequence_T<Type._$cast<this[Kind._], Kind.Kind>>;
+  ): FixSequence_T<Type._$cast<this[Kind._], Kind.Kind>>
 }

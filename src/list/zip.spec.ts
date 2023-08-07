@@ -1,4 +1,4 @@
-import { $, Test, List } from ".."
+import { $, Test, List } from '..'
 
 type Zip_Spec = [
   /**
@@ -33,12 +33,12 @@ type Zip_Spec = [
       List.Zip,
       [
         [1, 2, 3],
-        ["a", "b", "c", "d"],
+        ['a', 'b', 'c', 'd'],
         [true, false, null, undefined],
-        ["A", "B", "C", "D"]
+        ['A', 'B', 'C', 'D']
       ]
     >,
-    [[1, "a", true, "A"], [2, "b", false, "B"], [3, "c", null, "C"]]
+    [[1, 'a', true, 'A'], [2, 'b', false, 'B'], [3, 'c', null, 'C']]
   >,
 
   /**

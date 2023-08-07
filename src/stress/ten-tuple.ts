@@ -1,1 +1,1 @@
-export type TenTuple = ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x"];
+export type TenTuple = ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x']

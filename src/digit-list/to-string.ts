@@ -1,11 +1,11 @@
-import { Type, Kind, DigitList } from "..";
+import { Type, Kind, DigitList } from '..'
 
 type _$toString2<
   T extends DigitList.DigitList,
-  O extends string = ""
+  O extends string = ''
 > = T extends []
   ? O
-  : _$toString2<DigitList._$pop<T>, `${DigitList._$last<T>}${O}`>;
+  : _$toString2<DigitList._$pop<T>, `${DigitList._$last<T>}${O}`>
 
 /**
  * `_$toString` is a type-level function that converts a digit list to a string.
@@ -30,8 +30,8 @@ type _$toString2<
 export type _$toString<
   T extends DigitList.DigitList,
   JOIN = _$toString2<T>,
-  RESULT = JOIN extends "" ? "0" : JOIN
-> = RESULT;
+  RESULT = JOIN extends '' ? '0' : JOIN
+> = RESULT
 
 /**
  * `ToString` is a type-level function that converts a digit list to a string.
@@ -51,5 +51,5 @@ export type _$toString<
  * In this example, `Result` is a type that represents the string "502", which is the result of converting the digit list ["5", "0", "2"] to a string.
  */
 export interface ToString extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$toString<typeof x>;
+  f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$toString<typeof x>
 }

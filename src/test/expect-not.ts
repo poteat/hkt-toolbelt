@@ -1,4 +1,4 @@
-import { Conditional, Test, Type } from "..";
+import { Conditional, Test, Type } from '..'
 
 export type ExpectNot<
   X extends Conditional._$equals<X, V> extends true ? V : V & Test._,
@@ -7,4 +7,4 @@ export type ExpectNot<
   ? X
   : Type._$isNever<X> extends true
   ? ExpectNot<X, V>
-  : X;
+  : X

@@ -1,20 +1,20 @@
-import { $, Test, String } from "..";
+import { $, Test, String } from '..'
 
 type FromList_Spec = [
   /**
    * [a, b, c] => abc
    */
-  Test.Expect<$<String.FromList, ["a", "b", "c"]>, "abc">,
+  Test.Expect<$<String.FromList, ['a', 'b', 'c']>, 'abc'>,
 
   /**
    * [] => ""
    */
-  Test.Expect<$<String.FromList, []>, "">,
+  Test.Expect<$<String.FromList, []>, ''>,
 
   /**
    * "foo", "bar" => foobar
    */
-  Test.Expect<$<String.FromList, ["foo", "bar"]>, "foobar">,
+  Test.Expect<$<String.FromList, ['foo', 'bar']>, 'foobar'>,
 
   /**
    * Can join 10 elements.
@@ -30,9 +30,9 @@ type FromList_Spec = [
    * Can join 1000 elements.
    */
   Test.Expect<$<String.FromList, Thousand>, ThousandString>
-];
+]
 
-type Ten = ["a", "b", "c", "d", "e", "f", "g", "h", "i", " "];
+type Ten = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', ' ']
 
 type Hundred = [
   ...Ten,
@@ -45,7 +45,7 @@ type Hundred = [
   ...Ten,
   ...Ten,
   ...Ten
-];
+]
 
 type Thousand = [
   ...Hundred,
@@ -58,12 +58,12 @@ type Thousand = [
   ...Hundred,
   ...Hundred,
   ...Hundred
-];
+]
 
-type TenString = "abcdefghi ";
+type TenString = 'abcdefghi '
 
 type HundredString =
-  `${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}`;
+  `${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}`
 
 type ThousandString =
-  `${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}`;
+  `${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}`
