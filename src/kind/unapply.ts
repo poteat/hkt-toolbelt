@@ -6,8 +6,8 @@ import { $, Kind, Type, Function } from '..'
  * b) the original type-level function that was invoked to derive the first input type,
  * and then extracts and returns the applied argument from closure.
  *
- * @param K The target type-level function to unapply.
- * @param F The type-level function that was applied to an argument to derive `K`
+ * @param {Kind.Kind} K The target type-level function to unapply.
+ * @param {Kind.Kind} F The type-level function that was applied to an argument to derive `K`
  *
  * Note that `_$unapply` infers the most specific type for the closure argument,
  * whereas `Kind._$inputOf` returns the widest category of arguments accepted by the input function.
@@ -40,8 +40,8 @@ interface Unapply_T<F extends Kind.Kind> extends Kind.Kind {
  * b) the original type-level function that was invoked to derive the first input type,
  * and then extracts and returns the applied argument from closure.
  *
- * @param K The target type-level function to unapply.
- * @param F The type-level function that was applied to an argument to derive `K`
+ * @param {Kind.Kind} K The target type-level function to unapply.
+ * @param {Kind.Kind} F The type-level function that was applied to an argument to derive `K`
  *
  * Note that `_$unapply` infers the most specific type for the closure argument,
  * whereas `Kind._$inputOf` returns the widest category of arguments accepted by the input function.
