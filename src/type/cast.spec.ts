@@ -1,4 +1,4 @@
-import { Test, Type } from "hkt-toolbelt";
+import { Test, Type } from "..";
 
 type Cast_Spec = [
   /**

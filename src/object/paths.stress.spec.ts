@@ -1,4 +1,4 @@
-import { $, Test, Object } from "hkt-toolbelt"
+import { $, Test, Object } from "..";
 
 type Paths_Spec = [
   /**

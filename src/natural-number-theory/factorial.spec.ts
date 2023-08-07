@@ -1,4 +1,4 @@
-import { $, Test, Number, NaturalNumberTheory } from "hkt-toolbelt";
+import { $, Test, Number, NaturalNumberTheory } from "..";
 
 type Factorial_Spec = [
   /**

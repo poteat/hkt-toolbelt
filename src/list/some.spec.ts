@@ -1,4 +1,4 @@
-import { $, Conditional, Function, List, String, Test } from "hkt-toolbelt";
+import { $, Conditional, Function, List, String, Test } from "..";
 
 type Some_Spec = [
   /**

@@ -1,4 +1,4 @@
-import { $, Combinator, Test } from "hkt-toolbelt";
+import { $, Combinator, Test } from "..";
 
 type Self_Spec = [
   /**

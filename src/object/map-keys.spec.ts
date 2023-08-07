@@ -1,4 +1,4 @@
-import { $, Test, Object, String } from "hkt-toolbelt";
+import { $, Test, Object, String } from "..";
 
 type MapKeys_Spec = [
   /**

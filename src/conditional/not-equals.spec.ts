@@ -1,4 +1,4 @@
-import { $, Conditional, Test } from "hkt-toolbelt"
+import { $, Conditional, Test } from "..";
 
 type NotEquals_Spec = [
   /**
