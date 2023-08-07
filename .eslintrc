@@ -42,7 +42,7 @@
     "rules": {
         "strict": "error",
         "prettier/prettier": "off",
-        "jsdoc/require-jsdoc": "warn",
+        "jsdoc/require-jsdoc": "off",
         "jsdoc/tag-lines": "off",
         "semi": "off",
         "@typescript-eslint/semi": "off",
