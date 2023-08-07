@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..'
 
 /**
  * `_$nimply` is a type-level function that takes in two boolean types, `T` and
@@ -6,15 +6,10 @@ import { Kind, Type } from "..";
  * operation on `T` and `U`. If `T` is true and `U` is false, then `_$nimply`
  * returns true, otherwise it returns false.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$nimply` to determine whether two boolean types
  * follow the 'not-implies' logical operation. In this example, `true` and
  * `false` are passed as type arguments to the type-level function:
@@ -30,10 +25,10 @@ export type _$nimply<T extends boolean, U extends boolean> = [T, U] extends [
   false
 ]
   ? true
-  : false;
+  : false
 
 interface Nimply_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$nimply<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$nimply<T, typeof x>
 }
 
 /**
@@ -45,7 +40,6 @@ interface Nimply_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Nimply` to determine whether two boolean types
  * follow the 'not-implies' logical operation. In this example, `true` and
  * `false` are passed as type arguments to the type-level function:
@@ -60,5 +54,5 @@ interface Nimply_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Nimply extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Nimply_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Nimply_T<typeof x>
 }

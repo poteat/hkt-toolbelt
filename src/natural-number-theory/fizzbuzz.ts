@@ -1,4 +1,4 @@
-import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from ".."
+import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from '..'
 
 /**
  * Check whether a natural number `N` is divisible by another number `M`.
@@ -37,7 +37,6 @@ type DivisibleBy = $N<
  * @param N The number to compute the FizzBuzz result for.
  *
  * @example
- *
  * ```ts
  * import { $, NaturalNumberTheory } from "hkt-toolbelt"
  *
@@ -49,15 +48,15 @@ export type FizzBuzz = $N<
   Conditional.If,
   [
     $<DivisibleBy, 15>,
-    $<Function.Constant, "FizzBuzz">,
+    $<Function.Constant, 'FizzBuzz'>,
     $N<
       Conditional.If,
       [
         $<DivisibleBy, 3>,
-        $<Function.Constant, "Fizz">,
+        $<Function.Constant, 'Fizz'>,
         $N<
           Conditional.If,
-          [$<DivisibleBy, 5>, $<Function.Constant, "Buzz">, Function.Identity]
+          [$<DivisibleBy, 5>, $<Function.Constant, 'Buzz'>, Function.Identity]
         >
       ]
     >
@@ -71,7 +70,6 @@ export type FizzBuzz = $N<
  * @param N The number of FizzBuzz results to compute.
  *
  * @example
- *
  * ```ts
  * import { $, NaturalNumberTheory } from "hkt-toolbelt"
  *

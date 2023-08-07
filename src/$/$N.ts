@@ -1,4 +1,4 @@
-import { Kind } from ".."
+import { Kind } from '..'
 
 /**
  * `$N` is a type-level function that applies a type-level function to a list of
@@ -18,7 +18,6 @@ import { Kind } from ".."
  * such as conditionals.
  *
  * @example
- *
  * For example, `Function.If` is a type-level function which takes in four
  * arguments: a predicate, a truthy branch, a falsy branch, and an input type.
  *

@@ -1,12 +1,12 @@
-import { $, Test, Object, String, Function, Conditional } from "hkt-toolbelt";
+import { $, Test, Object, String, Function, Conditional } from '..'
 
 type MapValues_Spec = [
   /**
    * Can map the values of an object.
    */
   Test.Expect<
-    $<$<Object.MapValues, String.ToUpper>, { a: "foo"; b: "bar"; c: "baz" }>,
-    { a: "FOO"; b: "BAR"; c: "BAZ" }
+    $<$<Object.MapValues, String.ToUpper>, { a: 'foo'; b: 'bar'; c: 'baz' }>,
+    { a: 'FOO'; b: 'BAR'; c: 'BAZ' }
   >,
 
   /**
@@ -27,9 +27,9 @@ type MapValues_Spec = [
           Function.Identity
         >
       >,
-      { a: "foo"; b: { c: "bar"; d: "baz" } }
+      { a: 'foo'; b: { c: 'bar'; d: 'baz' } }
     >,
-    { a: "FOO"; b: { c: "bar"; d: "baz" } }
+    { a: 'FOO'; b: { c: 'bar'; d: 'baz' } }
   >,
 
   /**
@@ -37,4 +37,4 @@ type MapValues_Spec = [
    */
   // @ts-expect-error
   $<$<Object.MapValues, String.ToUpper>, number>
-];
+]

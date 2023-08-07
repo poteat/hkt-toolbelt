@@ -1,4 +1,4 @@
-import { Kind, Type, Number, NaturalNumber } from "..";
+import { Kind, Type, Number, NaturalNumber } from '..'
 
 export type _$factorial<
   COUNTER extends Number.Number,
@@ -11,8 +11,8 @@ export type _$factorial<
   : _$factorial<
       NaturalNumber._$decrement<COUNTER>,
       NaturalNumber._$multiply<VALUE, COUNTER>
-    >;
+    >
 
 export interface Factorial extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>): _$factorial<typeof x>;
+  f(x: Type._$cast<this[Kind._], Number.Number>): _$factorial<typeof x>
 }

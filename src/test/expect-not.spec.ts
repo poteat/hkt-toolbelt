@@ -1,4 +1,4 @@
-import { Test } from "hkt-toolbelt";
+import { Test } from '..'
 
 type ExpectNot_Spec = [
   /**
@@ -29,4 +29,4 @@ type ExpectNot_Spec = [
    */
   // @ts-expect-error
   Test.ExpectNot<true, never>
-];
+]

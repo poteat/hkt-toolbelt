@@ -1,1 +1,1 @@
-export * from "./kind/";
+export * from './kind/'

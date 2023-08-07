@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "hkt-toolbelt";
+import { $, Boolean, Test } from '..'
 
 type Nimply_Spec = [
   /**
@@ -26,4 +26,4 @@ type Nimply_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<$<Boolean.Nimply, true>, number>>
-];
+]

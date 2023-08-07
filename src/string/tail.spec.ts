@@ -1,4 +1,4 @@
-import { $, String, Test } from "hkt-toolbelt";
+import { $, String, Test } from '..'
 
 /**
  * Tests for String.Tail, which extracts every element after the first element
@@ -8,12 +8,12 @@ type Tail_Spec = [
   /**
    * Can extract the tail of a string.
    */
-  Test.Expect<$<String.Tail, "foo">, "oo">,
+  Test.Expect<$<String.Tail, 'foo'>, 'oo'>,
 
   /**
    * Can extract the tail of an empty string.
    */
-  Test.Expect<$<String.Tail, "">, "">,
+  Test.Expect<$<String.Tail, ''>, ''>,
 
   /**
    * Can extract the tail of a literal string.
@@ -34,7 +34,7 @@ type Tail_Spec = [
   /**
    * Properly handles string union types.
    */
-  Test.Expect<$<String.Tail, "foobar" | "bazqux">, "oobar" | "azqux">,
+  Test.Expect<$<String.Tail, 'foobar' | 'bazqux'>, 'oobar' | 'azqux'>,
 
   /**
    * The 'string' template is supported.
@@ -45,4 +45,4 @@ type Tail_Spec = [
    * The tail of a string is string.
    */
   Test.Expect<$<String.Tail, string>, string>
-];
+]

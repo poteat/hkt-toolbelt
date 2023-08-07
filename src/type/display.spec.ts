@@ -1,4 +1,4 @@
-import { $, Test, Type } from "hkt-toolbelt";
+import { $, Test, Type } from '..'
 
 /**
  * Tests associated with `Type.Display`, which forces the compiler to resolve
@@ -8,5 +8,5 @@ type Display_Spec = [
   /**
    * Acts as an identity function.
    */
-  Test.Expect<$<Type.Display, "foo">, "foo">
-];
+  Test.Expect<$<Type.Display, 'foo'>, 'foo'>
+]

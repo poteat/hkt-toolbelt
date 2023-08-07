@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "hkt-toolbelt";
+import { $, Boolean, Test } from '..'
 
 type Xnor_Spec = [
   /**
@@ -20,4 +20,4 @@ type Xnor_Spec = [
    * !(False ^ False) = True
    */
   Test.Expect<$<$<Boolean.Xnor, false>, false>>
-];
+]

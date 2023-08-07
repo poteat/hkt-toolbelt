@@ -1,4 +1,4 @@
-import { Kind, Type } from "..";
+import { Kind, Type } from '..'
 
 /**
  * `_$imply` is a type-level function that takes in two boolean types, `T` and
@@ -8,15 +8,10 @@ import { Kind, Type } from "..";
  *
  * This is also known as the 'logical implication' operator.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$imply` to determine whether a statement is true
  * given the truth values of two propositions, `T` and `U`. In this example,
  * `true` and `false` are passed as type arguments to the type-level function:
@@ -32,10 +27,10 @@ export type _$imply<T extends boolean, U extends boolean> = [T, U] extends [
   false
 ]
   ? false
-  : true;
+  : true
 
 interface Imply_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$imply<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$imply<T, typeof x>
 }
 
 /**
@@ -49,7 +44,6 @@ interface Imply_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Imply` to determine whether a statement is true
  * given the truth values of two propositions, `T` and `U`. In this example,
  * `true` and `false` are passed as type arguments to the type-level function:
@@ -64,5 +58,5 @@ interface Imply_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Imply extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Imply_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Imply_T<typeof x>
 }

@@ -1,4 +1,4 @@
-import { $, Test, Number } from "..";
+import { $, Test, Number } from '..'
 
 export type Absolute_Spec = [
   /**
@@ -24,5 +24,5 @@ export type Absolute_Spec = [
   /**
    * Can get the sign of a negative floating point number.
    */
-  Test.Expect<$<Number.Absolute, -42.42>, 42.42>,
-];
+  Test.Expect<$<Number.Absolute, -42.42>, 42.42>
+]

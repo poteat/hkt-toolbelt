@@ -1,4 +1,4 @@
-import { $, Test, Object } from "hkt-toolbelt"
+import { $, Test, Object } from '..'
 
 type Paths_Spec = [
   /**
@@ -31,20 +31,20 @@ type Paths_Spec = [
       }
     >[number],
     [
-      ["a"],
-      ["a", "aa"],
-      ["a", "aa", "aaa"],
-      ["a", "aa", "aab"],
-      ["a", "ab"],
-      ["a", "ab", "aba"],
-      ["a", "ab", "abb"],
-      ["b"],
-      ["b", "ba"],
-      ["b", "ba", "baa"],
-      ["b", "ba", "bab"],
-      ["b", "bb"],
-      ["b", "bb", "bba"],
-      ["b", "bb", "bbb"]
+      ['a'],
+      ['a', 'aa'],
+      ['a', 'aa', 'aaa'],
+      ['a', 'aa', 'aab'],
+      ['a', 'ab'],
+      ['a', 'ab', 'aba'],
+      ['a', 'ab', 'abb'],
+      ['b'],
+      ['b', 'ba'],
+      ['b', 'ba', 'baa'],
+      ['b', 'ba', 'bab'],
+      ['b', 'bb'],
+      ['b', 'bb', 'bba'],
+      ['b', 'bb', 'bbb']
     ][number]
   >
 ]

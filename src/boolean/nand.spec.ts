@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "hkt-toolbelt";
+import { $, Boolean, Test } from '..'
 
 type Nand_Spec = [
   /**
@@ -26,4 +26,4 @@ type Nand_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Boolean.Nand<true>, number>>
-];
+]

@@ -1,18 +1,13 @@
-import { Kind } from "..";
+import { Kind } from '..'
 
 /**
  * `_$equals` is a type-level function that takes in two types, `T` and `U`, and
  * returns `true` if `T` and `U` are the same type, and `false` otherwise.
  *
- * ## Parameters
- *
  * @param T A type.
  * @param U A type.
  *
- * ## Examples
- *
  * @example
- *
  * For example, we can use `_$equals` to determine whether two types are equal.
  * In this example, `true` and `true` are passed as type arguments to the
  * type-level function:
@@ -24,7 +19,6 @@ import { Kind } from "..";
  * ```
  *
  * @example
- *
  * In this example, `true` and `false` are passed as type arguments to the
  * type-level function:
  *
@@ -34,10 +28,10 @@ import { Kind } from "..";
  * type Result = Conditional._$equals<true, false>; // false
  * ```
  */
-export type _$equals<T, U> = [T, U] extends [U, T] ? true : false;
+export type _$equals<T, U> = [T, U] extends [U, T] ? true : false
 
 interface Equals_T<T> extends Kind.Kind {
-  f(x: this[Kind._]): _$equals<T, typeof x>;
+  f(x: this[Kind._]): _$equals<T, typeof x>
 }
 
 /**
@@ -49,7 +43,6 @@ interface Equals_T<T> extends Kind.Kind {
  * @param U A type.
  *
  * @example
- *
  * For example, we can use `Equals` to determine whether two types are equal.
  * In this example, we partially apply `Equals` to `true`, which results in a
  * type-level function that returns `true` if its input is the same as `true`.
@@ -65,5 +58,5 @@ interface Equals_T<T> extends Kind.Kind {
  * ```
  */
 export interface Equals extends Kind.Kind {
-  f(x: this[Kind._]): Equals_T<typeof x>;
+  f(x: this[Kind._]): Equals_T<typeof x>
 }

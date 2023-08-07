@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "hkt-toolbelt";
+import { $, Boolean, Test } from '..'
 
 type Nor_Spec = [
   /**
@@ -20,4 +20,4 @@ type Nor_Spec = [
    * !(False || False) = True
    */
   Test.Expect<$<$<Boolean.Nor, false>, false>>
-];
+]

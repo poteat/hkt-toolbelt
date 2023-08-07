@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 export type _$toList<S extends string, O extends string[] = []> = 0 extends 1
   ? never
@@ -6,8 +6,8 @@ export type _$toList<S extends string, O extends string[] = []> = 0 extends 1
   ? [string]
   : S extends `${infer Head}${infer Tail}`
   ? _$toList<Tail, [...O, Head]>
-  : O;
+  : O
 
 export interface ToList extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], string>): _$toList<typeof x>;
+  f(x: Type._$cast<this[Kind._], string>): _$toList<typeof x>
 }

@@ -1,4 +1,4 @@
-import { $, List, Test } from "..";
+import { $, List, Test } from '..'
 
 type Length_Spec = [
   /**
@@ -25,4 +25,4 @@ type Length_Spec = [
    * The length of a one-tuple is 1.
    */
   Test.Expect<$<List.Length, [string]>, 1>
-];
+]

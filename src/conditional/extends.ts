@@ -1,4 +1,4 @@
-import { Kind } from "..";
+import { Kind } from '..'
 
 /**
  * `_$extends` is a type-level function that takes in two types, `T` and `X`,
@@ -11,15 +11,10 @@ import { Kind } from "..";
  * ensures that we are only checking if `X` is a subtype of `T`, rather than
  * checking if `T` is a subtype of `X`.
  *
- * ## Parameters
- *
  * @param T The supertype that we are checking if `X` extends.
  * @param X The type that we are checking if it is a subtype of `T`.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$extends` to determine whether a type is a subtype
  * of another type. In this example, we are checking whether the type `true` is
  * a subtype of the type `boolean`:
@@ -34,25 +29,20 @@ import { Kind } from "..";
  */
 export type _$extends<T, X> = (X extends unknown ? X : never) extends T
   ? true
-  : false;
+  : false
 
 interface Extends_T<T> extends Kind.Kind {
-  f(x: this[Kind._]): _$extends<T, typeof x>;
+  f(x: this[Kind._]): _$extends<T, typeof x>
 }
 
 /**
  * `Extends` is a type-level function that takes in two types, `T` and `U`, and
  * returns a boolean that represents whether `T` extends `U`.
  *
- * ## Parameters
- *
  * @param T The supertype that we are checking if `U` extends.
  * @param U The type that we are checking if it is a subtype of `T`.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `Extends` to determine whether a type `T` extends a
  * type `U`. In this example, we test whether `true` extends `boolean`:
  *
@@ -79,5 +69,5 @@ interface Extends_T<T> extends Kind.Kind {
  * sophisticated type-level functions.
  */
 export interface Extends extends Kind.Kind {
-  f(x: this[Kind._]): Extends_T<typeof x>;
+  f(x: this[Kind._]): Extends_T<typeof x>
 }

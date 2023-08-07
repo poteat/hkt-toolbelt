@@ -1,10 +1,12 @@
-import { $, Function, Kind, List, String, Test } from "hkt-toolbelt";
+import { $, Function, Kind, List, String, Test } from '..'
 
 type Composable_Spec = [
   /**
    * Simple list operations should be composable.
    */
-  Test.Expect<$<Kind.Composable, [$<List.Push, "foo">, List.Unshift<"bar">]>>,
+  Test.Expect<
+    $<Kind.Composable, [$<List.Push, 'foo'>, $<List.Unshift, 'bar'>]>
+  >,
 
   /**
    * The empty tuple should be composable.
@@ -14,13 +16,13 @@ type Composable_Spec = [
   /**
    * Any single kind should be composable.
    */
-  Test.Expect<$<Kind.Composable, [$<List.Push, "foo">]>>,
+  Test.Expect<$<Kind.Composable, [$<List.Push, 'foo'>]>>,
 
   /**
    * List and string operations are usually not composable.
    */
   Test.ExpectNot<
-    $<Kind.Composable, [$<String.StartsWith, "foo">, $<List.Push, "foo">]>
+    $<Kind.Composable, [$<String.StartsWith, 'foo'>, $<List.Push, 'foo'>]>
   >,
 
   /**
@@ -28,6 +30,6 @@ type Composable_Spec = [
    * then it is not composable.
    */
   Test.ExpectNot<
-    $<Kind.Composable, [$<List.Push, "foo">, $<Function.Constant, "bar">]>
+    $<Kind.Composable, [$<List.Push, 'foo'>, $<Function.Constant, 'bar'>]>
   >
-];
+]

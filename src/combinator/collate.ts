@@ -54,7 +54,6 @@ export type _$collate<N extends number> = N extends 0 ? [] : _$collate2<N>
  * If zero is passed in, an empty tuple is immediately returned.
  *
  * @example
- *
  * ```ts
  * import { $, Kind, Type } from "ts-toolbelt"
  *

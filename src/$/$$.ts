@@ -1,4 +1,4 @@
-import { Kind, List } from "..";
+import { Kind, List } from '..'
 
 /**
  * `$$` is a type-level function in `hkt-toolbelt` that allows users to pipe
@@ -48,17 +48,12 @@ import { Kind, List } from "..";
  * Here, `$$` is being used to pipe `List.Push` and `String.Join` together and
  * then apply them to a list of strings.
  *
- * ## Parameters
- *
  * @param FX A tuple of type-level functions that will be piped together.
  * @param X The input type that the type-level functions will be applied to.
- *
- * ## Examples
  *
  * ### Basic Usage
  *
  * @example
- *
  * Here's a basic example that uses `$$` to apply a type-level function to an
  * input type:
  *
@@ -87,4 +82,4 @@ import { Kind, List } from "..";
 export type $$<
   FX extends Kind.Kind[],
   X extends FX extends [] ? unknown : Kind._$inputOf<List._$first<FX>>
-> = Kind._$pipe<FX, X>;
+> = Kind._$pipe<FX, X>

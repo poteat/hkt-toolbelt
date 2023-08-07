@@ -1,4 +1,4 @@
-import { $, Combinator, Test, Kind } from "..";
+import { $, Combinator, Test, Kind } from '..'
 
 type RecursiveKind_Spec = [
   /**
@@ -13,4 +13,4 @@ type RecursiveKind_Spec = [
    * A RecursiveKind can be applied to itself.
    */
   $<Combinator.RecursiveKind, Combinator.RecursiveKind>
-];
+]

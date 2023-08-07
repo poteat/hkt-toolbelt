@@ -1,4 +1,4 @@
-import { Test, Type } from "hkt-toolbelt";
+import { Test, Type } from '..'
 
 type Cast_Spec = [
   /**
@@ -15,4 +15,4 @@ type Cast_Spec = [
    * Casting to a supertype keeps the type narrow.
    */
   Test.Expect<Type._$cast<true, boolean>, true>
-];
+]

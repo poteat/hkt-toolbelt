@@ -1,20 +1,20 @@
-import { $, Test, NaturalNumberTheory } from "hkt-toolbelt"
+import { $, Test, NaturalNumberTheory } from '..'
 
 type FizzBuzz_Spec = [
   /**
    * 15 => FizzBuzz
    */
-  Test.Expect<$<NaturalNumberTheory.FizzBuzz, 15>, "FizzBuzz">,
+  Test.Expect<$<NaturalNumberTheory.FizzBuzz, 15>, 'FizzBuzz'>,
 
   /**
    * 3 => Fizz
    */
-  Test.Expect<$<NaturalNumberTheory.FizzBuzz, 3>, "Fizz">,
+  Test.Expect<$<NaturalNumberTheory.FizzBuzz, 3>, 'Fizz'>,
 
   /**
    * 5 => Buzz
    */
-  Test.Expect<$<NaturalNumberTheory.FizzBuzz, 5>, "Buzz">,
+  Test.Expect<$<NaturalNumberTheory.FizzBuzz, 5>, 'Buzz'>,
 
   /**
    * 1 => 1
@@ -41,19 +41,19 @@ type FizzBuzzSequence_Spec = [
     [
       1,
       2,
-      "Fizz",
+      'Fizz',
       4,
-      "Buzz",
-      "Fizz",
+      'Buzz',
+      'Fizz',
       7,
       8,
-      "Fizz",
-      "Buzz",
+      'Fizz',
+      'Buzz',
       11,
-      "Fizz",
+      'Fizz',
       13,
       14,
-      "FizzBuzz"
+      'FizzBuzz'
     ]
   >,
 

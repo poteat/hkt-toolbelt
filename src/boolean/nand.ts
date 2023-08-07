@@ -1,4 +1,4 @@
-import { Type, Kind } from "..";
+import { Type, Kind } from '..'
 
 /**
  * `_$nand` is a type-level function that takes in two boolean types, `T` and
@@ -6,15 +6,10 @@ import { Type, Kind } from "..";
  * on `T` and `U`. If both `T` and `U` are true, then `_$nand` returns false,
  * otherwise it returns true.
  *
- * ## Parameters
- *
  * @param T A boolean type.
  * @param U A boolean type.
  *
- * ## Example
- *
  * @example
- *
  * For example, we can use `_$nand` to determine whether two boolean types are
  * not both true. In this example, `true` and `false` are passed as type
  * arguments to the type-level function:
@@ -30,10 +25,10 @@ export type _$nand<T extends boolean, U extends boolean> = [T, U] extends [
   true
 ]
   ? false
-  : true;
+  : true
 
 interface Nand_T<T extends boolean> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): _$nand<T, typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): _$nand<T, typeof x>
 }
 
 /**
@@ -45,7 +40,6 @@ interface Nand_T<T extends boolean> extends Kind.Kind {
  * @param U A boolean type.
  *
  * @example
- *
  * For example, we can use `Nand` to determine whether two boolean types are
  * not both true. In this example, `true` and `false` are passed as type
  * arguments to the type-level function:
@@ -60,5 +54,5 @@ interface Nand_T<T extends boolean> extends Kind.Kind {
  * ```
  */
 export interface Nand extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], boolean>): Nand_T<typeof x>;
+  f(x: Type._$cast<this[Kind._], boolean>): Nand_T<typeof x>
 }

@@ -1,4 +1,4 @@
-import { $, String, Test, Stress } from ".."
+import { $, String, Test, Stress } from '..'
 
 type Length_Spec = [
   /**

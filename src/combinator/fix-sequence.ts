@@ -1,4 +1,4 @@
-import { $, Type, Kind } from "..";
+import { $, Type, Kind } from '..'
 
 /**
  * _$fixSequence is a type-level function that generates a fixed-point sequence
@@ -24,8 +24,6 @@ import { $, Type, Kind } from "..";
  * - `STATE`: An array type that keeps track of the intermediate values in the
  * fixed-point sequence. This is optional and defaults to an array containing
  * the initial `VALUE`.
- *
- * ## Examples
  *
  * ### Term Rewriting
  *
@@ -110,12 +108,12 @@ export type _$fixSequence<
       DONE extends false ? KIND : never,
       Type._$cast<NEXT_VALUE, Kind._$inputOf<KIND>>,
       NEXT_STATE
-    >;
+    >
 
 interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Kind._$inputOf<KIND>>
-  ): _$fixSequence<KIND, typeof x>;
+  ): _$fixSequence<KIND, typeof x>
 }
 
 /**
@@ -134,8 +132,6 @@ interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
  *
  * If convergence is not reached, the 'infinite type instantiation' error will
  * be emitted by the TypeScript compiler.
- *
- * ## Examples
  *
  * ### Term Rewriting
  *
@@ -183,5 +179,5 @@ interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
 export interface FixSequence extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Kind.Kind>
-  ): FixSequence_T<Type._$cast<this[Kind._], Kind.Kind>>;
+  ): FixSequence_T<Type._$cast<this[Kind._], Kind.Kind>>
 }

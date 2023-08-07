@@ -1,4 +1,4 @@
-import { $, Boolean, Test } from "hkt-toolbelt";
+import { $, Boolean, Test } from '..'
 
 type Imply_Spec = [
   /**
@@ -26,4 +26,4 @@ type Imply_Spec = [
    */
   // @ts-expect-error
   Test.Expect<$<Boolean.Imply<true>, number>>
-];
+]
