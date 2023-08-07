@@ -1,4 +1,4 @@
-import { $, $N, Function, NaturalNumber, Conditional, Test } from 'hkt-toolbelt'
+import { $, $N, Function, NaturalNumber, Conditional, Test } from '..'
 
 type IsLessThan5 = $N<
   Conditional.If,
