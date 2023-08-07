@@ -12,8 +12,8 @@ import { $, Kind, Number, NaturalNumber, Conditional, Type } from '..'
  * argument is applied. Once the tuple has `N` elements, it applies the
  * type-level function `K` to the tuple.
  *
- * @param N The number of arguments to expect.
- * @param K The type-level function to curry.
+ * @param {Number.Number} N The number of arguments to expect.
+ * @param {Kind.Kind} K The type-level function to curry.
  *
  * See `Combinator.Collate` for a similar combinator.
  */
@@ -67,8 +67,8 @@ interface Curry_T<N extends number> extends Kind.Kind {
  * argument is applied. Once the tuple has `N` elements, it applies the
  * type-level function `K` to the tuple.
  *
- * @param N The number of arguments to expect.
- * @param K The type-level function to curry.
+ * @param {Number.Number} N The number of arguments to expect.
+ * @param {Kind.Kind} K The type-level function to curry.
  *
  * See `Combinator.Collate` for a similar combinator.
  *
