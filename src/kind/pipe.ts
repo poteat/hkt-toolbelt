@@ -21,5 +21,3 @@ export interface Pipe extends Kind.Kind {
     ? Pipe_T<typeof x>
     : never
 }
-
-export declare const pipe: Kind._$reify<Pipe>
