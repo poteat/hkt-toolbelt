@@ -1,5 +1,9 @@
 import { Type, Digit, Kind } from '..'
 
+/**
+ * `_$add_LUT` is a type-level lookup table that contains the result of adding
+ * two decimal digits together, modulo 10.
+ */
 type _$add_LUT = [
   ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
   ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],

@@ -1,5 +1,10 @@
 import { Type, Digit, Kind } from '..'
 
+/**
+ * `_$incrementTens_LUT` is a type-level lookup table that maps a digit type to
+ * its tens place increment. In practice, only the ninth digit gets mapped to
+ * "1", and all other digits get mapped to "0".
+ */
 type _$incrementTens_LUT = ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1']
 
 /**
@@ -17,7 +22,7 @@ type _$incrementTens_LUT = ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1']
  * ```ts
  * import { Digit } from "hkt-toolbelt";
  *
- * type Result = Digit._$incrementTens<"9">; // "1"
+ * type Result = Digit._$incrementTens<"9"> // "1"
  * ```
  *
  * Incrementing a digit "5" will result in the tens place increment of "0":
@@ -25,7 +30,7 @@ type _$incrementTens_LUT = ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1']
  * ```ts
  * import { Digit } from "hkt-toolbelt";
  *
- * type Result = Digit._$incrementTens<"5">; // "0"
+ * type Result = Digit._$incrementTens<"5"> // "0"
  * ```
  */
 export type _$incrementTens<A extends Digit.Digit> = _$incrementTens_LUT[A]

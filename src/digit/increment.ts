@@ -1,5 +1,9 @@
 import { Type, Digit, Kind } from '..'
 
+/**
+ * `_$increment_LUT` is a lookup table for the `_$increment` type-level
+ * function. It maps a digit type to its next digit in the sequence.
+ */
 type _$increment_LUT = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
 /**
@@ -13,9 +17,9 @@ type _$increment_LUT = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
  * For example, we can use `_$increment` to increment a digit type:
  *
  * ```ts
- * import { Digit } from "hkt-toolbelt";
+ * import { Digit } from "hkt-toolbelt"
  *
- * type Result = Digit._$increment<"3">; // "4"
+ * type Result = Digit._$increment<"3"> // "4"
  * ```
  */
 export type _$increment<A extends Digit.Digit> = _$increment_LUT[A]
@@ -33,9 +37,9 @@ export type _$increment<A extends Digit.Digit> = _$increment_LUT[A]
  * We apply `Increment` to a digit type using the `$` type-level applicator:
  *
  * ```ts
- * import { $, Digit } from "hkt-toolbelt";
+ * import { $, Digit } from "hkt-toolbelt"
  *
- * type Result = $<Digit.Increment, "3">; // "4"
+ * type Result = $<Digit.Increment, "3"> // "4"
  * ```
  */
 export interface Increment extends Kind.Kind {

@@ -1,4 +1,5 @@
 export * from './append'
+export * from './capitalize'
 export * from './ends-with'
 export * from './first'
 export * from './from-list'

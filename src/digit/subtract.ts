@@ -1,5 +1,14 @@
 import { Type, Digit, Kind } from '..'
 
+/**
+ * `_$subtract_LUT` is a lookup table that contains the results of all possible
+ * single digit subtractions. It is used internally by `_$subtract` to compute
+ * the result of subtracting two digits.
+ *
+ * For example, the result of subtracting "3" from "5" is "2", which is located
+ * at `_$subtract_LUT[5][3]`. Thereby, A - B is represented via
+ * `_$subtract_LUT[A][B]`.
+ */
 type _$subtract_LUT = [
   ['0', '9', '8', '7', '6', '5', '4', '3', '2', '1'],
   ['1', '0', '9', '8', '7', '6', '5', '4', '3', '2'],
@@ -15,9 +24,9 @@ type _$subtract_LUT = [
 
 /**
  * `_$subtract` is a type-level function that takes in two digit types, `A` and
- * `B`, and returns the digit result of subtracting `B` from `A`. The subtraction
- * is performed using a lookup table (`_$subtract_LUT`), which contains the
- * results of all possible digit subtractions.
+ * `B`, and returns the digit result of subtracting `B` from `A`. The
+ * subtraction is performed using a lookup table (`_$subtract_LUT`), which
+ * contains the results of all possible digit subtractions.
  *
  * @param A A digit type.
  * @param B A digit type.
@@ -27,9 +36,9 @@ type _$subtract_LUT = [
  * example, "2" and "1" are passed as type arguments to the type-level function:
  *
  * ```ts
- * import { Digit } from "hkt-toolbelt";
+ * import { Digit } from "hkt-toolbelt"
  *
- * type Result = Digit._$subtract<"2", "1">; // "1"
+ * type Result = Digit._$subtract<"2", "1"> // "1"
  * ```
  */
 export type _$subtract<
@@ -56,9 +65,9 @@ interface Subtract_T<A extends Digit.Digit> extends Kind.Kind {
  * applicator:
  *
  * ```ts
- * import { $, Digit } from "hkt-toolbelt";
+ * import { $, Digit } from "hkt-toolbelt"
  *
- * type Result = $<$<Digit.Subtract, "2">, "1">; // "1"
+ * type Result = $<$<Digit.Subtract, "2">, "1"> // "1"
  * ```
  */
 export interface Subtract extends Kind.Kind {

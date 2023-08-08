@@ -13,9 +13,9 @@ import { Type, Kind, Digit } from '..'
  * product of two single-digit types:
  *
  * ```ts
- * import { Digit } from "hkt-toolbelt";
+ * import { Digit } from "hkt-toolbelt"
  *
- * type Result = Digit._$multiplyTens<"5", "4">; // "2"
+ * type Result = Digit._$multiplyTens<"5", "4"> // "2"
  * ```
  */
 type _$multiplyTens_LUT = [
@@ -55,9 +55,9 @@ interface MultiplyTens_T<A extends Digit.Digit> extends Kind.Kind {
  * type-level applicator:
  *
  * ```ts
- * import { $, Digit } from "hkt-toolbelt";
+ * import { $, Digit } from "hkt-toolbelt"
  *
- * type Result = $<$<Digit.MultiplyTens, "5">, "4">; // "2"
+ * type Result = $<$<Digit.MultiplyTens, "5">, "4"> // "2"
  * ```
  */
 export interface MultiplyTens extends Kind.Kind {
