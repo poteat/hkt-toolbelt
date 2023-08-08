@@ -116,5 +116,3 @@ interface Map_T<T extends Kind.Kind> extends Kind.Kind {
 export interface Map extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): Map_T<typeof x>
 }
-
-export declare const map: Kind._$reify<Map>
