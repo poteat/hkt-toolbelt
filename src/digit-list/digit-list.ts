@@ -12,6 +12,5 @@ import { Digit } from '..'
  *
  * type MyDigitList = DigitList; // ("0" | "1" | "2" | ... | "9")[]
  * ```
- *
  */
 export type DigitList = readonly Digit.Digit[]
