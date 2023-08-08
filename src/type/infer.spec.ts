@@ -1,4 +1,8 @@
-import { Kind, Function, String, List, Test } from '..'
+/**
+ * Can we infer the most specific type of a value in a reified type?
+ */
+
+import { Kind, Function, String, List } from '..'
 
 declare const append: Kind._$reify<String.Append>
 declare const map: Kind._$reify<List.Map>
@@ -10,14 +14,9 @@ identity('foo')
 
 expectType<'foo'>(identity('foo'))
 
-const result1 = identity(['foo', 'bar'])
+expectType<['foo', 'bar']>(identity(['foo', 'bar']))
 
-const result2 = identity([['foo']])
-
-type Infer_Spec = [
-  Test.Expect<typeof result1, ['foo', 'bar']>,
-  Test.Expect<typeof result2, [['foo']]>
-]
+expectType<[['foo']]>(identity([['foo']]))
 
 const appendBar = map(append('bar'))(['foo', 'baz'])
 //    ^?

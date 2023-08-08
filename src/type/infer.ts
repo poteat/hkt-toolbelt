@@ -1,11 +1,24 @@
-import { Kind, Function } from 'hkt-toolbelt'
+import { Kind, Type, Function } from '..'
 
-type _$inferred = string | number | bigint | boolean | Kind.Kind
+type _$inferred =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | Function.Function
+  | Kind.Kind
+  | _$inferredTuple
+  | {
+      [key: string]: _$inferred
+    }
 
-export type _$infer<X> =
-  | (X extends [] ? [] : never)
-  | (X extends _$inferred ? X : never)
-  | { [K in keyof X]: X[K] extends Function.Function ? X[K] : _$infer<X[K]> }
+type _$inferredTuple = _$inferred[] | ReadonlyArray<_$inferred>
+
+export type _$infer<
+  X,
+  Narrow = Type._$cast<X, _$inferred> | [...Type._$cast<X, _$inferredTuple>]
+> = Narrow extends unknown[] ? { [key in keyof X]: _$infer<X[key]> } : Narrow
 
 export interface Infer extends Kind.Kind {
   f(x: this[Kind._]): _$infer<typeof x>
