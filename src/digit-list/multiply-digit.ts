@@ -17,14 +17,17 @@ type _$multiplyDigit2<
 > = A extends [] ? RESULT : _$multiplyDigit2<POP_A, B, NEXT_CARRY, NEXT_OUT>
 
 /**
- * `_$multiplyDigit` is a type-level function that multiplies a digit list by a single digit.
+ * `_$multiplyDigit` is a type-level function that multiplies a digit list by a
+ * single digit.
+ *
  * Returns the result of the multiplication operation.
  *
  * @param A - The digit list.
  * @param B - The single digit.
  *
  * @example
- * For example, we can use `_$multiplyDigit` to multiply a digit list by a single digit:
+ * For example, we can use `_$multiplyDigit` to multiply a digit list by a
+ * single digit:
  *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
@@ -32,7 +35,8 @@ type _$multiplyDigit2<
  * type Result = DigitList._$multiplyDigit<["3"], "2">; // ["6"]
  * ```
  *
- * In this example, `Result` is a type that represents ["6"], which is the result of multiplying ["3"] by "2".
+ * In this example, `Result` is a type that represents ["6"], which is the
+ * result of multiplying ["3"] by "2".
  *
  */
 export type _$multiplyDigit<
@@ -47,14 +51,17 @@ export interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
 }
 
 /**
- * `MultiplyDigit` is a type-level function that multiplies a digit list by a single digit.
+ * `MultiplyDigit` is a type-level function that multiplies a digit list by a
+ * single digit.
+ *
  * Returns the result of the multiplication operation.
  *
  * @param A - The digit list.
  * @param B - The single digit.
  *
  * @example
- * For example, we can use `MultiplyDigit` to multiply a digit list by a single digit:
+ * For example, we can use `MultiplyDigit` to multiply a digit list by a single
+ * digit:
  *
  * ```ts
  * import { $, DigitList } from "hkt-toolbelt";
@@ -62,7 +69,8 @@ export interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
  * type Result = $<$<DigitList.MultiplyDigit, "2">, ["3"]>; // ["6"]
  * ```
  *
- * In this example, `Result` is a type that represents ["6"], which is the result of multiplying ["3"] by "2".
+ * In this example, `Result` is a type that represents ["6"], which is the
+ * result of multiplying ["3"] by "2".
  */
 export interface MultiplyDigit extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Digit.Digit>): MultiplyDigit_T<typeof x>

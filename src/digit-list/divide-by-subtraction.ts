@@ -143,7 +143,6 @@ interface DivideBySubtraction_T<A extends DigitList.DigitList>
  *
  * type Result = $<$<DigitList.DivideBySubtraction, ["1", "0"]>, ["2"]>; // ["5"] quotient is 5, and the remainder is 0.
  * ```
- *
  */
 export interface DivideBySubtraction extends Kind.Kind {
   f(
