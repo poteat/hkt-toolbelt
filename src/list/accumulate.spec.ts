@@ -33,7 +33,7 @@ type Accumulate_Spec = [
   >,
 
   /**
-   * Empty array input retursn empty array.
+   * Empty array input returns empty array.
    */
   Test.Expect<$<$<$<List.Accumulate, NaturalNumber.Add>, 0>, []>, []>,
 
