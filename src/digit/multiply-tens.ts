@@ -31,6 +31,21 @@ type _$multiplyTens_LUT = [
   ['0', '0', '1', '2', '3', '4', '5', '6', '7', '8']
 ]
 
+/**
+ * `_$multiplyTens` is a type-level function that takes in two single-digit
+ * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
+ * This function works with digit types represented as strings.
+ *
+ * @param A - A single-digit type
+ * @param B - A single-digit type
+ *
+ * @example
+ * ```ts
+ * import { Digit } from "hkt-toolbelt";
+ *
+ * type Result = Digit._$multiplyTens<"5", "4">; // "2"
+ * ```
+ */
 export type _$multiplyTens<
   A extends Digit.Digit,
   B extends Digit.Digit
