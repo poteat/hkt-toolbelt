@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.22.1
+
+- Add `String.Capitalize` utility for capitalizing the first letter of a string.
+
 ## 0.22.0
 
 - Add various conditional 'variadic' utilities:
