@@ -1,4 +1,4 @@
-import { $, Test, Integer } from "..";
+import { $, Test, Integer } from '..'
 
 type Decrement_Spec = [
   /**
@@ -35,4 +35,4 @@ type Decrement_Spec = [
     $<Integer.Decrement, 999999999999999999999n>,
     999999999999999999998n
   >
-];
+]

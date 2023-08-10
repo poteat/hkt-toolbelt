@@ -1,4 +1,4 @@
-import { $, Test, Integer } from ".."
+import { $, Test, Integer } from '..'
 
 export type Add_Spec = [
   /**
@@ -34,6 +34,6 @@ export type Add_Spec = [
   /**
    * Can add numbers as strings.
    */
-  Test.Expect<$<$<Integer.Add, "-123456789">, "-123456789">, -246913578>,
-  Test.Expect<$<$<Integer.Add, "-123456789">, "123456789">, 0>
+  Test.Expect<$<$<Integer.Add, '-123456789'>, '-123456789'>, -246913578>,
+  Test.Expect<$<$<Integer.Add, '-123456789'>, '123456789'>, 0>
 ]

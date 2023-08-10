@@ -1,4 +1,4 @@
-import { $, Test, Integer } from ".."
+import { $, Test, Integer } from '..'
 
 type Increment_Spec = [
   /**
@@ -25,5 +25,5 @@ type Increment_Spec = [
    * Can increment 9999 and -9999.
    */
   Test.Expect<$<Integer.Increment, 9999>, 10000>,
-  Test.Expect<$<Integer.Increment, -9999>, -9998>,
+  Test.Expect<$<Integer.Increment, -9999>, -9998>
 ]
