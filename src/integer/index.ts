@@ -1,5 +1,6 @@
 export * from './add'
 export * from './decrement'
+export * from './divide'
 export * from './increment'
 export * from './multiply'
 export * from './subtract'
