@@ -6,10 +6,9 @@
     "stress": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.stress.json",
     "build": "./build.sh",
     "lint-check": "npm run prettier-check && npm run eslint-check",
-    "lint": "npm run prettier-fix && npm run remove-unused-imports && npm run eslint-fix",
+    "lint": "npm run prettier-fix && npm run eslint-fix",
     "eslint-check": "npx eslint --ext .ts ./src/**",
     "eslint-fix": "npx eslint --fix --ext .ts ./src/**",
-    "remove-unused-imports": "npx eslint --fix --ext .ts --no-eslintrc --config ./.eslintrc-remove-imports ./src/**",
     "prettier-check": "npx prettier --check ./src/**",
     "prettier-fix": "npx prettier --write ./src/**",
     "npm-update": "npx -y npm-check-updates -u && npm i"
