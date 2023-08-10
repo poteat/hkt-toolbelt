@@ -25,7 +25,12 @@
     "node_modules/**",
     "dist/**"
   ],
-  "plugins": ["@typescript-eslint", "jsdoc", "prettier"],
+  "plugins": [
+    "@typescript-eslint",
+    "jsdoc",
+    "prettier",
+    "unused-imports"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -37,10 +42,13 @@
     "plugin:jsdoc/recommended"
   ],
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "strict": "error",
     "prettier/prettier": "off",
     "jsdoc/require-jsdoc": "off",
     "jsdoc/tag-lines": "off",
+    "jsdoc/no-undefined-types": "off",
+    "jsdoc/check-types": "off",
     "semi": "off",
     "@typescript-eslint/semi": "off",
     "no-unexpected-multiline": "error",
@@ -105,14 +113,18 @@
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts"]
+      "@typescript-eslint/parser": [
+        ".ts"
+      ]
     },
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
         // use an array of glob patterns
-        "project": ["./tsconfig.json"]
+        "project": [
+          "./tsconfig.json"
+        ]
       }
     }
   }

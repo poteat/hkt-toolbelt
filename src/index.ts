@@ -1,3 +1,5 @@
+/* eslint-disable unused-imports/no-unused-imports */
+
 import * as $ from './$'
 export { $, $$, $N } from './$'
 
