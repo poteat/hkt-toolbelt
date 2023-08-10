@@ -1,9 +1,4 @@
-export * from "./add"
-export * from "./decrement"
-// export * from "./divide-by"
-// export * from "./divide"
-export * from "./increment"
-// export * from "./modulo-by"
-// export * from "./modulo"
-// export * from "./multiply"
-export * from "./subtract"
+export * from './add'
+export * from './decrement'
+export * from './increment'
+export * from './subtract'

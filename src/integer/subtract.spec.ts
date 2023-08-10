@@ -1,4 +1,4 @@
-import { $, Test, Integer, List } from ".."
+import { $, Test, Integer } from '..'
 
 type Subtract_Spec = [
   /**
@@ -61,6 +61,6 @@ type Subtract_Spec = [
   /**
    * Can subtract integeres represented as strings.
    */
-  Test.Expect<$<$<Integer.Subtract, "456">, "123">, 333>,
-  Test.Expect<$<$<Integer.Subtract, "-456">, "-123">, -333>,
+  Test.Expect<$<$<Integer.Subtract, '456'>, '123'>, 333>,
+  Test.Expect<$<$<Integer.Subtract, '-456'>, '-123'>, -333>
 ]

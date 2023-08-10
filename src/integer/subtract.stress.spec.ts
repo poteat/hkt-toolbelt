@@ -1,4 +1,4 @@
-import { $, Test, Integer, List } from "..";
+import { $, Test, Integer, List } from '..'
 
 type Subtract_Spec = [
   /**
@@ -27,4 +27,4 @@ type Subtract_Spec = [
     $<$<$<List.Reduce, Integer.Subtract>, -10000>, [1, 2, 3, 4, 5]>,
     -10015
   >
-];
+]
