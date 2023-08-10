@@ -1,12 +1,4 @@
-import {
-  DigitList,
-  Kind,
-  Type,
-  Number,
-  List,
-  NaturalNumber,
-  Boolean
-} from '../'
+import { DigitList, Kind, Type, Number, List, NaturalNumber } from '../'
 
 export type _$at<
   T extends List.List,

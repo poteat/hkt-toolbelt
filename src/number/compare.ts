@@ -1,12 +1,4 @@
-import {
-  Type,
-  Number,
-  Kind,
-  Digit,
-  DigitList,
-  NaturalNumber,
-  Boolean
-} from '..'
+import { Type, Number, Kind, Digit, DigitList, NaturalNumber } from '..'
 
 export type _$compare2<
   A extends Number.Number,
