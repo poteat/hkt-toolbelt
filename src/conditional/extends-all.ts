@@ -1,4 +1,4 @@
-import { Type, Kind, List, Conditional, Boolean } from '..'
+import { Type, Kind, List, Conditional } from '..'
 
 /**
  * `_$extendsAll` is a type-level function that takes in an array of types `T` and a type `U`,

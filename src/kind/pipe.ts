@@ -1,4 +1,4 @@
-import { $$, Type, List, Kind } from '..'
+import { Type, List, Kind } from '..'
 
 /**
  * `_$pipe` is a type-level function that allows users to compose

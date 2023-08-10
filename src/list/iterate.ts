@@ -1,4 +1,4 @@
-import { $, Type, Kind, Number, Function, List, NaturalNumber } from '..'
+import { $, Type, Kind, Number, List, NaturalNumber } from '..'
 
 export type _$iterate<
   F extends Kind.Kind,

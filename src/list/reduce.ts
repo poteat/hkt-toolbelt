@@ -13,7 +13,7 @@ import { $, Kind, Type, Function } from '..'
  * @param F A type-level function for a pairwise operation.
  * @param X A list of types. The target of the reduce operation.
  * @param O A type specifying the initial argument that will be taken by `F`.
- *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
+ *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
  *
  * @example
  * For example, we can use `_$reduce` to derive the sum of all elements in a list of numeric types.
@@ -21,7 +21,7 @@ import { $, Kind, Type, Function } from '..'
  * ```ts
  * import { List } from "hkt-toolbelt";
  *
- * type Sum1to10 = List._$reduce<NaturalNumber.Add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0>;
+ * type Sum1to10 = List._$reduce<NaturalNumber.Add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0>;  // 55
  * ```
  */
 export type _$reduce<
@@ -87,11 +87,11 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * ```ts
  * import { $N, List } from "hkt-toolbelt";
  *
- * type IsFalse = $N<List.Reduce, [
+ * type IsTrue = $N<List.Reduce, [
  *   Boolean.Xor,
  *   true,
  *   [false, true, false, true]
- * ]>;  // false
+ * ]>;  // true
  * ```
  *
  * @example
