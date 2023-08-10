@@ -1,7 +1,10 @@
 import { Type, Kind, DigitList } from '..'
 
 /**
- * `_$pop` is a type-level function that removes the last digit from a digit list.
+ * `_$pop` is a type-level function that removes the last digit from a digit
+ * list. This may result in a completely empty digit list, which is semantically
+ * equivalent to the number zero.
+ *
  * It returns the digit list after the last digit has been removed.
  *
  * @param A - The digit list.
@@ -26,7 +29,9 @@ export type _$pop<T extends DigitList.DigitList> = T extends []
 
 /**
  * `Pop` is a type-level function that removes the last digit from a digit list.
- * It returns the digit list after the last digit has been removed.
+ * It returns the digit list after the last digit has been removed. This may
+ * result in a completely empty digit list, which is semantically equivalent to
+ * the number zero.
  *
  * @param A - The digit list.
  *
