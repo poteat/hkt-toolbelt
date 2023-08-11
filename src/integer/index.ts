@@ -1,4 +1,5 @@
 export * from './add'
+export * from './compare'
 export * from './decrement'
 export * from './divide'
 export * from './divide-by'
