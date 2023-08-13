@@ -48,8 +48,8 @@ interface Remainder_T<A extends Number.Number> extends Kind.Kind {
  * ## Usage Examples
  *
  * @example
- * For example, we can use `Remainder` to determine the remainder of a natural
- * number divided by another natural number. In this example, all four combinations of
+ * For example, we can use `Remainder` to determine the remainder of an integer
+ * divided by another integer. In this example, all four combinations of
  * `+/-3`, `+/-2` are passed as type arguments to the type-level function:
  *
  * We apply `Remainder` to `+/-3`, and then to `+/-2` respectively using the `$`
@@ -65,15 +65,15 @@ interface Remainder_T<A extends Number.Number> extends Kind.Kind {
  * ```
  *
  * @example
- * Here we calculate the remainder of `10` divided by `3`:
+ * Here we calculate the remainder of `10` and `-10` divided by `3` and `-3`:
  *
  * ```ts
  * import { $, Integer } from "hkt-toolbelt";
  *
- * type Result = $<$<Integer.Remainder, 10>, 3>; // 1
- * type Result = $<$<Integer.Remainder, -10>, -3>; // 1
- * type Result = $<$<Integer.Remainder, 10>, -3>; // -1
- * type Result = $<$<Integer.Remainder, -10>, 3>; // -1
+ * type Result1 = $<$<Integer.Remainder, 10>, 3>; // 1
+ * type Result2 = $<$<Integer.Remainder, -10>, -3>; // 1
+ * type Result3 = $<$<Integer.Remainder, 10>, -3>; // -1
+ * type Result4 = $<$<Integer.Remainder, -10>, 3>; // -1
  * ```
  */
 export interface Remainder extends Kind.Kind {
