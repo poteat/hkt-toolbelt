@@ -52,6 +52,17 @@ type Apply_Spec = [
   >,
 
   /**
+   * Can loop through a list of kinds and apply them to an input.
+   */
+  Test.Expect<
+    $<
+      $<List.Map, $<Kind.Apply, 'qux'>>,
+      [$<String.Prepend, 'foo'>, $<String.Append, 'bar'>, String.ToUpper]
+    >,
+    ['fooqux', 'quxbar', 'QUX']
+  >,
+
+  /**
    * $ enforces kind inputs.
    */
   // @ts-expect-error
