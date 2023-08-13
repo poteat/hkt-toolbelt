@@ -108,7 +108,7 @@ import { $, Function, List } from "hkt-toolbelt";
 
 type IAmI = $<Function.Identity, "I">;  // ["I"]
 
-type HelloWorld = $<$<List.Push, ["world"]>, ["hello"]>;  // ["hello", "world"]
+type HelloWorld = $<$<List.Push, "world">, ["hello"]>;  // ["hello", "world"]
 ```
 
 ```js
