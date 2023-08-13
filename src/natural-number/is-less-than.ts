@@ -44,8 +44,6 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * in a coherent manner. That is, we can apply `IsLessThan` to `3`, and have a
  * function `IsLessThanThree`.
  *
- * ## Usage Examples
- *
  * @example
  * For example, we can use `IsLessThan` to determine whether a natural number is
  * less than another natural number. In this example, `3` and `2` are passed as
