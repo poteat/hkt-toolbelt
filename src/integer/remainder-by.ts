@@ -7,7 +7,7 @@ import { Kind, Type, Number, Integer } from '..'
  * @param A The number to divide by to calculate the remainder.
  * @param B The numerator.
  *
- * The parameters are reversed from `_$modulo`. This is useful for partial
+ * The parameters are reversed from `_$remainder`. This is useful for partial
  * application, i.e. to test divisibility.
  */
 export type _$remainderBy<
@@ -39,11 +39,9 @@ interface RemainderBy_T<A extends number> extends Kind.Kind {
  * The parameters are reversed from `Remainder`. This is useful for partial
  * application, i.e. to test divisibility.
  *
- * ## Usage Examples
- *
  * @example
  * For example, we can use `RemainderBy` to determine the remainder
- * of an integer divided by another integer. In this example, `3` and `4` are
+ * of an integer divided by another integer. In this example, `3` and `4`, `-4` are
  * passed as type arguments to the type-level function:
  *
  * ```ts
@@ -51,7 +49,8 @@ interface RemainderBy_T<A extends number> extends Kind.Kind {
  *
  * type RemainderByThree = $<Integer.RemainderBy, 3>;
  *
- * type Result = $<RemainderByThree, 4>; // 4 % 3 = 1
+ * type Result1 = $<RemainderByThree, 4>; // 4 % 3 = 1
+ * type Result2 = $<RemainderByThree, -4>; // -4 % 3 = -1
  * ```
  */
 export interface RemainderBy extends Kind.Kind {
