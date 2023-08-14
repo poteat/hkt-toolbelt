@@ -1,5 +1,22 @@
 import { Number, NaturalNumber, DigitList, Type, Kind } from '..'
 
+/**
+ * `_$subtract` is a type-level function that subtracts one integer from
+ * another. It returns the result of the subtraction.
+ *
+ * @param {Number.Number} A - An integer to subtract.
+ * @param {Number.Number} B - An integer to subtract by.
+ * @returns {Number.Number} An integer.
+ *
+ * @example
+ * For example, we can use `_$subtract` to subtract one integer from another:
+ *
+ * ```ts
+ * import { Integer } from "hkt-toolbelt";
+ *
+ * type Result = Integer._$subtract<-125, 121>; // -246
+ * ```
+ */
 export type _$subtract<
   A extends Number.Number,
   B extends Number.Number,
@@ -41,6 +58,32 @@ interface Subtract_T<A extends Number.Number> extends Kind.Kind {
   ): Number._$isInteger<typeof x> extends true ? _$subtract<A, typeof x> : never
 }
 
+/**
+ * `Subtract` is a type-level function that subtracts one integer from
+ * another. It returns the result of the subtraction.
+ *
+ * @param {Number.Number} A - An integer to subtract.
+ * @param {Number.Number} B - An integer to subtract by.
+ * @returns {Number.Number} An integer type or `never`.
+ *
+ * @example
+ * For example, we can use `Subtract` to subtract one integer from another:
+ *
+ * ```ts
+ * import { $, Integer } from "hkt-toolbelt";
+ *
+ * type Result = $<$<Integer.Subtract, -50>, 25>; // -75
+ * ```
+ *
+ * @example
+ * If one of the inputs is not a integer, `never` is returned.
+ *
+ * ```ts
+ * import { $, Integer } from "hkt-toolbelt";
+ *
+ * type IsNever = $<Integer.Subtract, -42.42>; // never
+ * ```
+ */
 export interface Subtract extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
