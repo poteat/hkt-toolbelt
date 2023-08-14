@@ -6,8 +6,9 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
  * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * @param A An integer type.
- * @param B An integer type.
+ * @param {Number.Number} A - An integer type.
+ * @param {Number.Number} B - An integer type.
+ * @returns {-1 | 0 | 1}
  *
  * @example
  * For example, we can use `_$compare` to compare two integers.
@@ -60,8 +61,9 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
  * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * @param A An integer type.
- * @param B An integer type.
+ * @param {Number.Number} A - An integer type.
+ * @param {Number.Number} B - An integer type.
+ * @returns {-1 | 0 | 1 }
  *
  * @example
  * For example, we can use `Compare` to compare two integers.

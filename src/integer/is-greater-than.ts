@@ -5,8 +5,9 @@ import { Number, Integer, Kind, Type } from '..'
  * types, `A` and `B`, and returns a boolean indicating whether `B` is greater
  * than `A`.
  *
- * @param A The number to compare against.
- * @param B The number to compare.
+ * @param {Number.Number} A - An integer to compare against.
+ * @param {Number.Number} B - An integer to compare.
+ * @returns {boolean}
  */
 export type _$isGreaterThan<
   /**
@@ -32,8 +33,9 @@ interface IsGreaterThan_T<A extends Number.Number> extends Kind.Kind {
  * types, `A` and `B`, and returns a boolean indicating whether `B` is greater
  * than `A`.
  *
- * @param A The number to compare against.
- * @param B The number to evaluate.
+ * @param {Number.Number} A - An integer to compare against.
+ * @param {Number.Number} B - An integer to evaluate.
+ * @returns {boolean}
  *
  * The parameters are ordered such that `IsGreaterThan` can be partially applied
  * in a coherent manner. That is, we can apply `IsGreaterThan` to `3`, and have a
