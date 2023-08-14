@@ -5,7 +5,8 @@ import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
  * returns a new natural number representing the result of decrementing the input
  * natural number by 1. If the input is zero, the result will be zero.
  *
- * @param A A natural number type.
+ * @param {Number.Number} A - A natural number to decrement.
+ * @returns {Number.Number} A natural number.
  *
  * @example
  * For example, we can use `_$decrement` to decrement the number 42 by 1.
@@ -40,7 +41,8 @@ export type _$decrement<
  * `Decrement` is a type-level function that decrements a natural number type.
  * It returns the decremented number.
  *
- * @param A - The natural number to decrement.
+ * @param {Number.Number} A - The natural number to decrement.
+ * @returns {Number.Number} A natural number or `never`.
  *
  * If the input is not zero or a natural number, `never` is returned.
  *
@@ -67,7 +69,7 @@ export type _$decrement<
  * If one of the inputs is not a natural number, `never` is returned.
  *
  * ```ts
- * import { NaturalNumber } from "hkt-toolbelt";
+ * import { $, NaturalNumber } from "hkt-toolbelt";
  *
  * type IsNever = $<NaturalNumber.Decrement, -42.42>; // never
  * ```

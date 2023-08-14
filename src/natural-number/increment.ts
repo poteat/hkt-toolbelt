@@ -5,7 +5,8 @@ import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
  * returns a new natural number representing the result of incrementing the input
  * natural number by 1. If the input is zero, the result will be zero.
  *
- * @param A A natural number type.
+ * @param {Number.Number} A - A natural number to increment.
+ * @returns {Number.Number} A natural number.
  *
  * @example
  * For example, we can use `_$increment` to increment the number 42 by 1.
@@ -39,7 +40,8 @@ export type _$increment<
  * `Increment` is a type-level function that increments a natural number type.
  * It returns the incremented natural number.
  *
- * @param A - The natural number to increment.
+ * @param {Number.Number} A - A natural number to increment.
+ * @returns {Number.Number} A natural number or `never`.
  *
  * If the input is not zero or a natural number, `never` is returned.
  *
@@ -56,7 +58,7 @@ export type _$increment<
  * If the input is not a natural number, `never` is returned.
  *
  * ```ts
- * import { NaturalNumber } from "hkt-toolbelt";
+ * import { $, NaturalNumber } from "hkt-toolbelt";
  *
  * type IsNever = $<NaturalNumber.Increment, -42.42>; // never
  * ```
