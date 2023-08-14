@@ -39,9 +39,8 @@ import { NaturalNumber, Number, DigitList, Digit, Kind, Type, List } from '..'
  * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
  * If `END` is greater than or equal to the length of `T`, all elements up to the end are extracted.
  * If `END` is positioned before or at `START` after normalization, returns empty tuple.
- *
  */
-type _$slice<
+export type _$slice<
   T extends unknown[],
   START extends Number.Number,
   END extends Number.Number,
