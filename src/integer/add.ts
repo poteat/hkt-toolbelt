@@ -1,5 +1,21 @@
 import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
 
+/**
+ * `_$add` is a type-level function that takes in two integers `A` and `B`,
+ * and returns the sum of the two integers.
+ *
+ * @param A An integer.
+ * @param B An integer.
+ *
+ * @example
+ * For example, we can use `_$add` to add the two integers -123 and 456:
+ *
+ * ```ts
+ * import { Integer } from "hkt-toolbelt"
+ *
+ * type Result = Integer._$add<-123, 456> // 333
+ * ```
+ */
 export type _$add<
   A extends Number.Number,
   B extends Number.Number,
@@ -41,6 +57,36 @@ interface Add_T<A extends Number.Number> extends Kind.Kind {
   ): Number._$isInteger<typeof x> extends true ? _$add<A, typeof x> : never
 }
 
+/**
+ * `Add` is a type-level function that takes in two integers `A` and `B`,
+ * and returns the sum of the two integers.
+ *
+ * @param A An integer.
+ * @param B An integer.
+ *
+ * If one or more of the inputs is not an integer, an error is emitted.
+ *
+ * @example
+ * For example, we can use `Add` to add the two integers -123 and 456:
+ *
+ * We apply `Add` to -123 and 456 respectively using
+ * the `$` type-level applicator:
+ *
+ * ```ts
+ * import { $, Integer } from "hkt-toolbelt"
+ *
+ * type Result = $<$<Integer.Add, -123>, 456> // 333
+ * ```
+ *
+ * @example
+ * If one of the inputs is not a natural number, `never` is returned.
+ *
+ * ```ts
+ * import { Integer } from "hkt-toolbelt";
+ *
+ * type IsNever = $<Integer.Add, -42.42>; // never
+ * ```
+ */
 export interface Add extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
