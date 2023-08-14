@@ -4,8 +4,9 @@ import { Kind, Type, Number, Integer } from '..'
  * `_$moduloBy` is a type-level function that takes in two integer types,
  * `A` and `B`, and returns the floored modulo of `B` divided by `A`.
  *
- * @param A The number to divide by to calculate the remainder.
- * @param B The numerator.
+ * @param {Number.Number} A - An integer to divide by to calculate the remainder.
+ * @param {Number.Number} B - An integer numerator to be divided.
+ * @returns {Number.Number} An integer type.
  *
  * The parameters are reversed from `_$modulo`. This is useful for partial
  * application, i.e. to test divisibility.
@@ -31,8 +32,9 @@ interface ModuloBy_T<A extends number> extends Kind.Kind {
  * `ModuloBy` is a type-level function that takes in two integer types,
  * `A` and `B`, and returns the floored modulo of `B` divided by `A`.
  *
- * @param A The number to divide by to calculate the modulo.
- * @param B The numerator.
+ * @param {Number.Number} A - An integer to divide by to calculate the modulo.
+ * @param {Number.Number} B - An integer type to be divided numerator.
+ * @returns {Number.Number} An integer type or `never`.
  *
  * The parameters are reversed from `Modulo`. This is useful for partial
  * application, i.e. to test divisibility.

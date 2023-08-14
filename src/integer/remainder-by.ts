@@ -4,8 +4,9 @@ import { Kind, Type, Number, Integer } from '..'
  * `_$remainderBy` is a type-level function that takes in two integer types,
  * `A` and `B`, and returns the remainder of `B` divided by `A`.
  *
- * @param A The number to divide by to calculate the remainder.
- * @param B The numerator.
+ * @param {Number.Number} A - An integer to divide by to calculate the remainder.
+ * @param {Number.Number} B - The numerator.
+ * @returns {Number.Number} An integer type.
  *
  * The parameters are reversed from `_$remainder`. This is useful for partial
  * application, i.e. to test divisibility.
@@ -33,8 +34,9 @@ interface RemainderBy_T<A extends number> extends Kind.Kind {
  * `RemainderBy` is a type-level function that takes in two integer types,
  * `A` and `B`, and returns the remainder of `B` divided by `A`.
  *
- * @param A The number to divide by to calculate the remainder.
- * @param B The numerator.
+ * @param {Number.Number} A - An integer to divide by to calculate the remainder.
+ * @param {Number.Number} B - The numerator.
+ * @returns {Number.Number} An integer type or `never.
  *
  * The parameters are reversed from `Remainder`. This is useful for partial
  * application, i.e. to test divisibility.
