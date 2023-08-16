@@ -1,4 +1,5 @@
 export * from './apply'
+export * from './apply-n'
 export * from './composable-pair'
 export * from './composable'
 export * from './compose'
