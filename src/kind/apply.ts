@@ -3,6 +3,7 @@ import { $, Type, Kind } from '..'
 /**
  * `_$apply` is the internal implementation for the `Apply` utility.
  *
+ * @see {@link $}
  * It takes a value X and kind K, casts X to the input type of K, and applies
  * K to the casted X using the `$` operator.
  *
@@ -25,8 +26,12 @@ interface Apply_T<X> extends Kind.Kind {
 /**
  * `Apply` is a type-level function that applies a kind to a type.
  *
- * Notably, the argument positions are reversed - we first take in a value, and
- * then a kind to apply to that value.
+ * It takes a value X and kind K, casts X to the input type of K, and applies
+ * K to the casted X using the `$` operator.
+ *
+ * @see {@link $}
+ * Notably, the argument positions are reversed compared to `$`.
+ * Here, we first take in a value, and then a kind to apply to that value.
  *
  * @param X - The value of type X to apply the kind to
  * @param K - The kind to apply
