@@ -2,9 +2,10 @@ import { $, Type, List, Kind } from '..'
 
 /**
  * `_$compose` is a type-level function that allows users to compose
- * multiple type-level functions together. It takes in a list of functions and a type argument as input,
- * composes the functions in its input list from right to left,
- * and applies the resulting type-level function to the second input type.
+ * multiple type-level functions together. It takes in a list of functions and
+ * a type argument as input, composes the functions in its input list from
+ * right to left, and applies the resulting type-level function to the second
+ * input type.
  *
  * @param {Kind.Kind[]} FX a tuple of type-level functions
  * @param X a type to which a `Kind` can be applied.
