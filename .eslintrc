@@ -39,7 +39,7 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
-    "plugin:jsdoc/recommended"
+    "plugin:jsdoc/recommended-typescript"
   ],
   "rules": {
     "unused-imports/no-unused-imports": "error",
@@ -49,6 +49,7 @@
     "jsdoc/tag-lines": "off",
     "jsdoc/no-undefined-types": "off",
     "jsdoc/check-types": "off",
+    "jsdoc/require-hyphen-before-param-description": "error",
     "semi": "off",
     "@typescript-eslint/semi": "off",
     "no-unexpected-multiline": "error",
