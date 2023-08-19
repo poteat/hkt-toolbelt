@@ -5,8 +5,8 @@ import { $, $N, Kind, NaturalNumber, Conditional, List, Function } from '..'
  *
  * i.e. determine whether `N % M === 0`.
  *
- * @param M The number to divide by.
- * @param N The number to check divisibility for.
+ * @param M - The number to divide by.
+ * @param N - The number to check divisibility for.
  *
  * This function 'lifts' the modulo parameters (M and N) out of the pipe via
  * the curry and uncurry operators.
@@ -34,7 +34,7 @@ type DivisibleBy = $N<
  * This function uses the `Conditional.If` type-level function to encode an
  * if-then-else statement.
  *
- * @param N The number to compute the FizzBuzz result for.
+ * @param N - The number to compute the FizzBuzz result for.
  *
  * @example
  * ```ts
@@ -67,7 +67,7 @@ export type FizzBuzz = $N<
  * A type-level function that returns a list of the FizzBuzz results for the
  * first `N` natural numbers, from 1 to `N` inclusive.
  *
- * @param N The number of FizzBuzz results to compute.
+ * @param N - The number of FizzBuzz results to compute.
  *
  * @example
  * ```ts

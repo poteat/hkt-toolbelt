@@ -10,9 +10,9 @@ import { $N, Kind, Type, List } from '..'
  * The type-level function input must be a unary, curried `Kind` type as defined in this library, while being of arity 2 when uncurried.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F A type-level function for a pairwise operation.
- * @param X A list of types. The target of the accumulate operation.
- * @param O A type specifying the initial argument that will be taken by `F`.
+ * @param F - A type-level function for a pairwise operation.
+ * @param X - A list of types. The target of the accumulate operation.
+ * @param O - A type specifying the initial argument that will be taken by `F`.
  *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
  *
  * @example
@@ -61,10 +61,10 @@ interface Accumulate_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * The type-level function input must be a unary, curried `Kind` type as defined in this library, while being of arity 2 if uncurried.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F A type-level function for a pairwise operation.
- * @param O A type specifying the initial argument that will be taken by `F`.
+ * @param F - A type-level function for a pairwise operation.
+ * @param O - A type specifying the initial argument that will be taken by `F`.
  *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
- * @param X A list of types. The target of the accumulate operation.
+ * @param X - A list of types. The target of the accumulate operation.
  *
  * @example
  * For example, we can use `Accumulate` to derive the sum of k = 1 to n for all elements n in a list of natural number types.

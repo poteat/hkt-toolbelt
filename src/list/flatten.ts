@@ -3,7 +3,7 @@ import { Kind, List, Type } from '..'
 /**
  * `_$flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements.
  *
- * @param T The input tuple.
+ * @param T - The input tuple.
  *
  * @example
  * ```ts
@@ -27,7 +27,7 @@ export type _$flatten<
 /**
  * `Flatten` is a type-level function that completely flattens a tuple by recursively concatenating all nested elements.
  *
- * @param T The input tuple.
+ * @param T - The input tuple.
  *
  * @example
  * ```ts

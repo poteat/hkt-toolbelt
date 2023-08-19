@@ -8,8 +8,8 @@ import { $, Kind, Type } from '..'
  * This is syntactic sugar for nested `$` applications. See `$N`, which is the
  * operator shorthand for this function.
  *
- * @param {Kind.Kind} K The type-level function to apply.
- * @param {List.List} X The list of arguments to apply the type-level function to.
+ * @param {Kind.Kind} K - The type-level function to apply.
+ * @param {List.List} X - The list of arguments to apply the type-level function to.
  *
  * This is useful for applying a type-level function that takes many arguments,
  * such as conditionals.
@@ -35,8 +35,8 @@ interface Uncurry_T<K extends Kind.Kind> extends Kind.Kind {
  * This is syntactic sugar for nested `$` applications. See `$N`, which is the
  * operator shorthand for this function.
  *
- * @param {Kind.Kind} K The type-level function to apply.
- * @param {List.List} X The list of arguments to apply the type-level function to.
+ * @param {Kind.Kind} K - The type-level function to apply.
+ * @param {List.List} X - The list of arguments to apply the type-level function to.
  *
  * This is useful for applying a type-level function that takes many arguments,
  * such as conditionals.
