@@ -5,6 +5,8 @@
     "test": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.spec.json",
     "stress": "NODE_OPTIONS=--max-old-space-size=24576 tsc --project tsconfig.stress.json",
     "build": "./build.sh",
+    "precommit": "npm run lint-check && npm run test",
+    "prepush": "npm run lint && npm run test && npm run stress",
     "lint-check": "npm run prettier-check && npm run eslint-check",
     "lint": "npm run prettier-fix && npm run eslint-fix",
     "eslint-check": "npx eslint --ext .ts ./src/**",
