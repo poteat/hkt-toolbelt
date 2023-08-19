@@ -15,16 +15,16 @@ export type _$moduloBy<
   /**
    * The number to divide by to calculate the modulo.
    */
-  A extends number,
+  A extends Number.Number,
   /**
    * The numerator.
    */
-  B extends number
+  B extends Number.Number
 > = Integer._$modulo<B, A>
 
-interface ModuloBy_T<A extends number> extends Kind.Kind {
+interface ModuloBy_T<A extends Number.Number> extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], number>
+    x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isInteger<typeof x> extends true ? _$moduloBy<A, typeof x> : never
 }
 
@@ -54,5 +54,5 @@ interface ModuloBy_T<A extends number> extends Kind.Kind {
  * ```
  */
 export interface ModuloBy extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], number>): ModuloBy_T<typeof x>
+  f(x: Type._$cast<this[Kind._], Number.Number>): ModuloBy_T<typeof x>
 }
