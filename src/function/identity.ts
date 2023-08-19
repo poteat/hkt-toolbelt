@@ -5,7 +5,7 @@ import { Kind } from '..'
  *
  * It acts as the "identity" function at the type level.
  *
- * @typeParam T - The input type to return unchanged
+ * @template T - The input type to return unchanged
  * @param x - The input value of type T
  * @returns The input value x, unchanged
  *
