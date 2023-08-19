@@ -9,8 +9,8 @@ import { $, Type, Kind } from '..'
  * The type-level function input must be a unary, curried `Kind` type as defined in this library.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F A type-level function that transforms a unary input and returns the result.
- * @param X A list of types. The target of the map operation.
+ * @param F - A type-level function that transforms a unary input and returns the result.
+ * @param X - A list of types. The target of the map operation.
  *
  * @example
  * For example, we can use `_$map` to extract the same property from a list of objects.
@@ -41,8 +41,8 @@ interface Map_T<T extends Kind.Kind> extends Kind.Kind {
  * The type-level function input must be a unary, curried `Kind` type as defined in this library.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F A type-level function that transforms a unary input and returns the result.
- * @param X A list of types. The target of the map operation.
+ * @param F - A type-level function that transforms a unary input and returns the result.
+ * @param X - A list of types. The target of the map operation.
  *
  * @example
  * For example, we can use `Map` to extract the same property from a list of objects.

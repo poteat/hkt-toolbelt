@@ -14,7 +14,7 @@ type _$decrement_LUT = ['9', '0', '1', '2', '3', '4', '5', '6', '7', '8']
  *
  * ## Parameter
  *
- * @param A A single-digit type which represents a digit from "0" to "9".
+ * @param A - A single-digit type which represents a digit from "0" to "9".
  *
  * @example
  * For example, if we want to subtract one from the digit "5", we would use
@@ -35,7 +35,7 @@ export type _$decrement<A extends Digit.Digit> = _$decrement_LUT[A]
  *
  * We apply `Decrement` to a digit using the `$` type-level applicator.
  *
- * @param A A single-digit type which represents a digit from "0" to "9".
+ * @param A - A single-digit type which represents a digit from "0" to "9".
  *
  * @example
  * For example, if we want to subtract one from the digit "5", we would use

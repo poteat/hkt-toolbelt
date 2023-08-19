@@ -5,8 +5,8 @@ import { Type, Kind, List, Conditional } from '..'
  * and returns `true` if and only if all elements of `T` extend `U`, or `T` is empty.
  * Otherwise it returns `false`.
  *
- * @param T An array of types.
- * @param U A type.
+ * @param T - An array of types.
+ * @param U - A type.
  *
  * @example
  * For example, we can use `_$extendsAll` to determine whether a series of type expressions all extend a second input type.
@@ -68,8 +68,8 @@ interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
  *
  * If T is empty, `true` is returned.
  *
- * @param U A type.
- * @param T An array of types.
+ * @param U - A type.
+ * @param T - An array of types.
  *
  * @example
  * For example, we can use `ExtendsAll` to determine whether a series of types all extend a second input type.

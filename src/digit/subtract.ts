@@ -28,8 +28,8 @@ type _$subtract_LUT = [
  * subtraction is performed using a lookup table (`_$subtract_LUT`), which
  * contains the results of all possible digit subtractions.
  *
- * @param A A digit type.
- * @param B A digit type.
+ * @param A - A digit type.
+ * @param B - A digit type.
  *
  * @example
  * For example, we can use `_$subtract` to subtract two digit types. In this
@@ -54,8 +54,8 @@ interface Subtract_T<A extends Digit.Digit> extends Kind.Kind {
  * `Subtract` is a type-level function that takes in two digit types, `A` and
  * `B`, and returns the digit result of subtracting `B` from `A`.
  *
- * @param A A digit type.
- * @param B A digit type.
+ * @param A - A digit type.
+ * @param B - A digit type.
  *
  * @example
  * For example, we can use `Subtract` to subtract two digit types. In this
