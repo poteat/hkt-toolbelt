@@ -21,8 +21,8 @@ type _$flattenShallow<
 /**
  * `_$flattenN` is a type-level function that flattens a tuple up to a specified depth level by recursively concatenating nested subtuple elements.
  *
- * @param T The input tuple.
- * @param N Natural number specifying the depth level by which a nested tuple should be flattened.
+ * @param T - The input tuple.
+ * @param N - Natural number specifying the depth level by which a nested tuple should be flattened.
  * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely.
  *
  * @example
@@ -55,8 +55,8 @@ interface FlattenN_T<N extends Number.Number> extends Kind.Kind {
 /**
  * `FlattenN` is a type-level function that flattens a tuple up to a specified depth level by recursively concatenating nested subtuple elements.
  *
- * @param T The input tuple.
- * @param N Natural number specifying the depth level by which a nested tuple should be flattened.
+ * @param T - The input tuple.
+ * @param N - Natural number specifying the depth level by which a nested tuple should be flattened.
  * If N is greater than or equal to the depth of the input tuple `T`, `T` will be flattened completely.
  *
  * @example

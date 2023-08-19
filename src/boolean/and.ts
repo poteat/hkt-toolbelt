@@ -6,8 +6,8 @@ import { Kind, Type } from '..'
  * on `T` and `U`. If both `T` and `U` are true, then `_$and` returns true,
  * otherwise it returns false.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `_$and` to determine whether two boolean types are
@@ -36,8 +36,8 @@ interface And_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'and' logical operation
  * on `T` and `U`.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `And` to determine whether two boolean types are

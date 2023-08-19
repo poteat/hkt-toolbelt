@@ -69,12 +69,12 @@ type _$splice2<
  *
  * Both positive and negative indices are supported for `START`. Negative indices will be normalized into zero-based indices.
  *
- * @param T The input tuple.
- * @param START An integer representing the index at which to start splicing.
+ * @param T - The input tuple.
+ * @param START - An integer representing the index at which to start splicing.
  * A negative index counts back from the end of the input tuple.
  * If `START < 0`, `START + T["length"]` is used.
- * @param DEL_COUNT A natural number representing the number of elements to remove from T at the starting index.
- * @param INSERTS An array of elements to insert into T at the starting index.
+ * @param DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
+ * @param INSERTS - An array of elements to insert into T at the starting index.
  *
  * ## Usage
  *
@@ -146,12 +146,12 @@ interface Splice_T<START extends Number.Number> extends Kind.Kind {
  *
  * Both positive and negative indices are supported for `START`. Negative indices will be normalized into zero-based indices.
  *
- * @param T The input tuple.
- * @param START An integer representing the index at which to start splicing.
+ * @param T - The input tuple.
+ * @param START - An integer representing the index at which to start splicing.
  * A negative index counts back from the end of the input tuple.
  * If `START < 0`, `START + T["length"]` is used.
- * @param DEL_COUNT A natural number representing the number of elements to remove from T at the starting index.
- * @param INSERTS An array of elements to insert into T at the starting index.
+ * @param DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
+ * @param INSERTS - An array of elements to insert into T at the starting index.
  *
  * ## Usage
  *

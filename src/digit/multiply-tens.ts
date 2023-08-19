@@ -5,8 +5,8 @@ import { Type, Kind, Digit } from '..'
  * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
  * This function works with digit types represented as strings.
  *
- * @param A A single-digit type.
- * @param B A single-digit type.
+ * @param A - A single-digit type.
+ * @param B - A single-digit type.
  *
  * @example
  * For example, we can use `_$multiplyTens` to compute the tens place of the
@@ -59,8 +59,8 @@ interface MultiplyTens_T<A extends Digit.Digit> extends Kind.Kind {
  * `MultiplyTens` is a type-level function that takes in two single-digit
  * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
  *
- * @param A A single-digit type.
- * @param B A single-digit type.
+ * @param A - A single-digit type.
+ * @param B - A single-digit type.
  *
  * @example
  * For example, we can use `MultiplyTens` to compute the tens place of the

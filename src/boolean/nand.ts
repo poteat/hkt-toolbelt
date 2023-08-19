@@ -6,8 +6,8 @@ import { Type, Kind } from '..'
  * on `T` and `U`. If both `T` and `U` are true, then `_$nand` returns false,
  * otherwise it returns true.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `_$nand` to determine whether two boolean types are
@@ -36,8 +36,8 @@ interface Nand_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'nand' logical operation
  * on `T` and `U`.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `Nand` to determine whether two boolean types are
