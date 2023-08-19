@@ -12,6 +12,6 @@ type Modulo_Spec = [
       >,
       -5
     >,
-    -1
+    -4
   >
 ]
