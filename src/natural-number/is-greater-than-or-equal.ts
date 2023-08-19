@@ -40,8 +40,8 @@ interface IsGreaterThanOrEqual_T<A extends Number.Number> extends Kind.Kind {
  * types, `A` and `B`, and returns a boolean indicating whether `B` is greater
  * than or equal to `A`.
  *
- * @param {Number.Number} A The natural number to compare against.
- * @param {Number.Number} B The natural number to compare.
+ * @param {Number.Number} A - The natural number to compare against.
+ * @param {Number.Number} B - The natural number to compare.
  * @returns {boolean}
  *
  * The parameters are ordered such that `IsGreaterThanOrEqual` can be partially applied
