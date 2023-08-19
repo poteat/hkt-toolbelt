@@ -5,7 +5,7 @@ import { Number, Type, Kind } from '..'
  *
  * It returns `T` if T >= 0, and `-T` if T < 0.
  *
- * @param T A number type.
+ * @param T - A number type.
  *
  * @example
  * ```ts
@@ -23,7 +23,7 @@ export type _$absolute<T extends Number.Number> =
  *
  * It returns `T` if T >= 0, and `-T` if T < 0.
  *
- * @param T A number type.
+ * @param T - A number type.
  *
  * @example
  * ```ts

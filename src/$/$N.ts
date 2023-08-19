@@ -8,8 +8,8 @@ import { Kind } from '..'
  * the contrapositive of `$$`, in that `$$` pipes a value through a list of
  * functions, while `$N` pipes a list of values through a function.
  *
- * @param {Kind.Kind} K The type-level function to apply.
- * @param {List.List} X The list of arguments to apply the type-level function to.
+ * @param {Kind.Kind} K - The type-level function to apply.
+ * @param {List.List} X - The list of arguments to apply the type-level function to.
  *
  * Since all type-level functions are curried, we successively apply the
  * type-level function to each argument in the list.

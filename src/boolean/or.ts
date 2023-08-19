@@ -6,8 +6,8 @@ import { Type, Kind } from '..'
  * on `T` and `U`. If either `T` or `U` is true, then `_$or` returns true,
  * otherwise it returns false.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `_$or` to determine whether at least one of two boolean
@@ -36,8 +36,8 @@ interface Or_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'or' logical operation
  * on `T` and `U`.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `Or` to determine whether at least one of two boolean

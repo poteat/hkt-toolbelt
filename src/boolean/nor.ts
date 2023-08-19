@@ -6,8 +6,8 @@ import { Type, Kind } from '..'
  * on `T` and `U`. If both `T` and `U` are false, then `_$nor` returns true,
  * otherwise it returns false.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `_$nor` to determine whether two boolean types are
@@ -36,8 +36,8 @@ interface Nor_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'nor' logical operation
  * on `T` and `U`.
  *
- * @param T A boolean type.
- * @param U A boolean type.
+ * @param T - A boolean type.
+ * @param U - A boolean type.
  *
  * @example
  * For example, we can use `Nor` to determine whether two boolean types are both
