@@ -15,16 +15,16 @@ export type _$remainderBy<
   /**
    * The number to divide by to calculate the remainder.
    */
-  A extends number,
+  A extends Number.Number,
   /**
    * The numerator.
    */
-  B extends number
+  B extends Number.Number
 > = Integer._$remainder<B, A>
 
-interface RemainderBy_T<A extends number> extends Kind.Kind {
+interface RemainderBy_T<A extends Number.Number> extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], number>
+    x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isInteger<typeof x> extends true
     ? _$remainderBy<A, typeof x>
     : never
@@ -56,5 +56,5 @@ interface RemainderBy_T<A extends number> extends Kind.Kind {
  * ```
  */
 export interface RemainderBy extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], number>): RemainderBy_T<typeof x>
+  f(x: Type._$cast<this[Kind._], Number.Number>): RemainderBy_T<typeof x>
 }
