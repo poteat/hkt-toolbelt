@@ -2,9 +2,9 @@ import { Type, Kind, Number } from '..'
 
 /**
  * `Number.IsInteger` is a type-level function that checks if a number is an integer.
- * 
+ *
  * @template T - The number to check.
- * 
+ *
  * @example
  * type T0 = Number._$isInteger<1> // true
  * type T1 = Number._$isInteger<1.5> // false
@@ -17,9 +17,9 @@ export type _$isInteger<T extends Number.Number> = `${T}` extends `${bigint}`
 
 /**
  * `Number.IsInteger` is a type-level function that checks if a number is an integer.
- * 
+ *
  * @template T - The number to check.
- * 
+ *
  * @example
  * type T0 = $<Number.IsInteger, 1> // true
  * type T1 = $<Number.IsInteger, 1.5> // false

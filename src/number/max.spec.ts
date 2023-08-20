@@ -21,4 +21,3 @@ type Test3 = Test.Expect<$<$<Max, 0>, 1>, 1>
  * Can get the maximum of a negative number and zero.
  */
 type Test4 = Test.Expect<$<$<Max, 0>, -1>, 0>
-

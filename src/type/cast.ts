@@ -3,10 +3,10 @@ import { Kind } from '..'
 /**
  * `_$cast` is a type-level function that casts a type `T` to a type `U`.
  * It is used in custom kind development to encode input constraints.
- * 
+ *
  * @template T - The type to cast.
  * @template U - The type to cast to.
- * 
+ *
  * @example
  * type T0 = _$cast<123, string> // Causes a type error
  * type T1 = _$cast<'hello', string> // 'hello'

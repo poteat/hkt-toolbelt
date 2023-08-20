@@ -10,9 +10,9 @@ type _$toIntersection2<T> = (
  * `_$toIntersection` is a type-level function that converts a type to an intersection type.
  * An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need.
  * It handles boolean types separately.
- * 
+ *
  * @template T - The type to convert to an intersection type.
- * 
+ *
  * @example
  * type T0 = _$toIntersection<{ a: 'foo' } | { b: 'foo' }> // { a: 'foo'; b: 'foo' }
  * type T1 = _$toIntersection<number | string> // never
@@ -24,9 +24,9 @@ export type _$toIntersection<T> = boolean extends T
 /**
  * `ToIntersection` is a type-level function that converts a type to an intersection type.
  * An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need.
- * 
+ *
  * @template T - The type to convert to an intersection type.
- * 
+ *
  * @example
  * type T0 = $<ToIntersection, { a: 'foo' } | { b: 'foo' }> // { a: 'foo'; b: 'foo' }
  */
