@@ -125,8 +125,8 @@ type _$decimalCompare<
  * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * @param A - A number type.
- * @param B - A number type.
+ * @template A - A number type.
+ * @template B - A number type.
  *
  * @example
  * For example, we can use `_$compare` to compare two numbers.
@@ -164,8 +164,8 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
  * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * @param A - A number type.
- * @param B - A number type.
+ * @template A - A number type.
+ * @template B - A number type.
  *
  * @example
  * For example, we can use `Compare` to compare two numbers.

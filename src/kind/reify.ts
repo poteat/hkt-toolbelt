@@ -4,7 +4,7 @@ import { $, Kind, Type } from '..'
  * Represents a type-level utility that "reifies" a kind, turning it into a function signature.
  * This utility allows type-level kinds to be used as if they were functions, with type inference capabilities.
  *
- * @template K The kind to be "reified" or transformed into a function signature.
+ * @template K - The kind to be "reified" or transformed into a function signature.
  *
  * @returns A function signature derived from the provided kind, allowing it to accept and return appropriate types.
  *
@@ -23,7 +23,7 @@ export type _$reify<K extends Kind.Kind> = K & {
  * Represents a type-level utility to reify a kind into a function signature.
  * The `Reify` interface is a more structured way to use the reification process, and is built upon the `_$reify` type.
  *
- * @template F The kind to be reified.
+ * @template F - The kind to be reified.
  *
  * @returns A function signature derived from the provided kind.
  *

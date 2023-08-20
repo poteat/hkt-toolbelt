@@ -9,8 +9,8 @@ import { $, Type, Kind } from '..'
  * The type-level function input must be a unary, curried `Kind` type as defined in this library.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F - A type-level function that returns a boolean type indicating whether a type should be included in the result.
- * @param X - A list of types. The target of the filtering operation.
+ * @template F - A type-level function that returns a boolean type indicating whether a type should be included in the result.
+ * @template X - A list of types. The target of the filtering operation.
  *
  * @example
  * For example, we can use `_$filter` to filter out negative elements from a tuple of numeric types:
@@ -45,8 +45,8 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  * The type-level function input must be a unary, curried `Kind` type as defined in this library.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F - A type-level function that returns a boolean type indicating whether a type should be included in the result.
- * @param X - A list of types. The target of the filtering operation.
+ * @template F - A type-level function that returns a boolean type indicating whether a type should be included in the result.
+ * @template X - A list of types. The target of the filtering operation.
  *
  * @example
  * For example, we can define a filter for positive numbers and then apply it to a list:

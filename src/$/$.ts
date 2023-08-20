@@ -30,8 +30,8 @@ import { Kind, Function } from '..'
  * normal generic type parameters. Instead, we would need to use a higher-order
  * type-level function. That is what `hkt-toolbelt` provides.
  *
- * @param F - A type-level function.
- * @param X - The input type to apply the type-level function to.
+ * @template F - A type-level function.
+ * @template X - The input type to apply the type-level function to.
  *
  * ### Basic Usage
  *

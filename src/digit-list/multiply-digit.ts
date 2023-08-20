@@ -22,8 +22,8 @@ type _$multiplyDigit2<
  *
  * Returns the result of the multiplication operation.
  *
- * @param A - The digit list.
- * @param B - The single digit.
+ * @template A - The digit list.
+ * @template B - The single digit.
  *
  * @example
  * For example, we can use `_$multiplyDigit` to multiply a digit list by a
@@ -56,8 +56,8 @@ export interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
  *
  * Returns the result of the multiplication operation.
  *
- * @param A - The digit list.
- * @param B - The single digit.
+ * @template A - The digit list.
+ * @template B - The single digit.
  *
  * @example
  * For example, we can use `MultiplyDigit` to multiply a digit list by a single

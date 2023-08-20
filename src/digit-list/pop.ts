@@ -7,7 +7,7 @@ import { Type, Kind, DigitList } from '..'
  *
  * It returns the digit list after the last digit has been removed.
  *
- * @param A - The digit list.
+ * @template A - The digit list.
  *
  * @example
  * For example, we can use `_$pop` to remove the last digit from a digit list:
@@ -33,7 +33,7 @@ export type _$pop<T extends DigitList.DigitList> = T extends []
  * result in a completely empty digit list, which is semantically equivalent to
  * the number zero.
  *
- * @param A - The digit list.
+ * @template A - The digit list.
  *
  * @example
  * For example, we can use `Pop` to remove the last digit from a digit list:

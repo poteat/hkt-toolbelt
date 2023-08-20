@@ -7,8 +7,8 @@ import { $, Type, List, Kind } from '..'
  * right to left, and applies the resulting type-level function to the second
  * input type.
  *
- * @param {Kind.Kind[]} FX - a tuple of type-level functions
- * @param X - a type to which a `Kind` can be applied.
+ * @template {Kind.Kind[]} FX - a tuple of type-level functions
+ * @template X - a type to which a `Kind` can be applied.
  *
  * @see {@link Kind._$pipe}
  * `Kind._$pipe` provides the same functionality as `_$compose` but evaluates the list of functions in reverse order.
@@ -56,8 +56,8 @@ interface Compose_T<FX extends Kind.Kind[]> extends Kind.Kind {
  * composes the functions in its input list from right to left,
  * and returns a higher-kinded-type function that takes in a type and returns the result of the composition.
  *
- * @param {Kind.Kind[]} FX  - a tuple of type-level functions
- * @param X - a type to which a `Kind` can be applied.
+ * @template {Kind.Kind[]} FX  - a tuple of type-level functions
+ * @template X - a type to which a `Kind` can be applied.
  *
  * @see {@link Kind.Pipe}
  * `Kind.Pipe` provides the same functionality as `Compose` but evaluates the list of functions in reverse order.

@@ -4,8 +4,8 @@ import { Type, Kind, Digit, DigitList } from '..'
  * `_$isEven` is a type-level function that checks if a digit list is even.
  * It returns `true` if the digit list is even, `false` otherwise.
  *
- * @param T - The digit list to check.
- * @param LAST - The last digit of T.
+ * @template T - The digit list to check.
+ * @template LAST - The last digit of T.
  *
  * @example
  * ```ts
@@ -23,7 +23,7 @@ export type _$isEven<
  * `IsEven` is a type-level function that checks if a digit list is even.
  * It returns `true` if the digit list is even, `false` otherwise.
  *
- * @param T - The digit list to check.
+ * @template T - The digit list to check.
  *
  * @example
  * For example, we can use `IsEven` to check if a digit list is even:

@@ -8,10 +8,10 @@ import { $, Type, Kind } from '..'
  *
  * This can be thought of as a type-level ternary operator.
  *
- * @param Predicate - A type-level function of the form `(x: never) => boolean`.
- * @param Then - A type-level function that is applied on the truthy branch.
- * @param Else - A type-level function that is applied on the falsy branch.
- * @param X - The input to the predicate function.
+ * @template Predicate - A type-level function of the form `(x: never) => boolean`.
+ * @template Then - A type-level function that is applied on the truthy branch.
+ * @template Else - A type-level function that is applied on the falsy branch.
+ * @template X - The input to the predicate function.
  */
 export type _$if<
   Predicate extends Kind.Kind<(x: never) => boolean>,
@@ -54,12 +54,12 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  *
  * This can be thought of as a type-level ternary operator.
  *
- * @param Predicate - A type-level function of the form `(x: never) => boolean`.
- * @param Then - A type-level function that is applied when the predicate returns
+ * @template Predicate - A type-level function of the form `(x: never) => boolean`.
+ * @template Then - A type-level function that is applied when the predicate returns
  * `true`.
- * @param Else - A type-level function that is applied when the predicate returns
+ * @template Else - A type-level function that is applied when the predicate returns
  * `false`.
- * @param X - The input to the predicate function.
+ * @template X - The input to the predicate function.
  *
  * ## Usage Examples
  *

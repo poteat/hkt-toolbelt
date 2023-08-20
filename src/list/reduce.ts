@@ -10,9 +10,9 @@ import { $, Kind, Type, Function } from '..'
  * The type-level function input must be a unary, curried `Kind` type as defined in this library, while being of arity 2 when uncurried.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F - A type-level function for a pairwise operation.
- * @param X - A list of types. The target of the reduce operation.
- * @param O - A type specifying the initial argument that will be taken by `F`.
+ * @template F - A type-level function for a pairwise operation.
+ * @template X - A list of types. The target of the reduce operation.
+ * @template O - A type specifying the initial argument that will be taken by `F`.
  *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
  *
  * @example
@@ -66,10 +66,10 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * The type-level function input must be a unary, curried `Kind` type as defined in this library, while being of arity 2 if uncurried.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
  *
- * @param F - A type-level function for a pairwise operation.
- * @param O - A type specifying the initial argument that will be taken by `F`.
+ * @template F - A type-level function for a pairwise operation.
+ * @template O - A type specifying the initial argument that will be taken by `F`.
  *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
- * @param X - A list of types. The target of the reduce operation.
+ * @template X - A list of types. The target of the reduce operation.
  *
  * @example
  * For example, we can use `Reduce` to derive the sum of all elements in a list of numeric types.

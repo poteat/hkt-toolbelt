@@ -11,7 +11,7 @@ type _$increment_LUT = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
  * returns the next digit in the sequence. If the input digit is "9", the
  * function returns "0".
  *
- * @param A - A digit type.
+ * @template A - A digit type.
  *
  * @example
  * For example, we can use `_$increment` to increment a digit type:
@@ -29,7 +29,7 @@ export type _$increment<A extends Digit.Digit> = _$increment_LUT[A]
  * returns the next digit in the sequence. If the input digit is "9", the
  * function returns "0".
  *
- * @param A - A digit type.
+ * @template A - A digit type.
  *
  * @example
  * For example, we can use `Increment` to increment a digit type:
