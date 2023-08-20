@@ -42,7 +42,41 @@ In all cases, adequate examples should be provided. Take note that the examples 
 
 ## Case of 2+ ary kinds
 
-2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented.
+2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented. Here is an example:
+
+```ts
+/**
+ * `String.EndsWith` is a type-level function that checks if a string ends with a given suffix.
+ * 
+ * @template Suffix - The suffix to check for.
+ * @template S - The string to check.
+ * 
+ * @example
+ * type T0 = String._$endsWith<'bar', 'foobar'> // true
+ * type T1 = String._$endsWith<'foo', 'foobar'> // false
+ */
+export type _$endsWith<
+  Suffix extends string,
+  S extends string
+> = S extends `${string}${Suffix}` ? true : false
+
+interface EndsWith_T<T extends string> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$endsWith<T, typeof x>
+}
+
+/**
+ * `String.EndsWith` is a type-level function that checks if a string ends with a given suffix.
+ * 
+ * @example
+ * type T0 = $<$<String.EndsWith, 'bar'>, 'foobar'> // true
+ * type T1 = $<$<String.EndsWith, 'foo'>, 'foobar'> // false
+ */
+export interface EndsWith extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): EndsWith_T<typeof x>
+}
+```
+
+In this example, `EndsWith_T` is the intermediate interface for currying and is not exported, so it doesn't have a JSDoc comment. The examples for `_$endsWith` and `EndsWith` demonstrate the correct usage of 2-ary kinds, providing all parameters.
 
 ## Case of multi-stage kinds
 
