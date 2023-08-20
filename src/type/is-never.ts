@@ -2,9 +2,9 @@ import { Conditional, Kind } from '..'
 
 /**
  * `_$isNever` is a type-level function that checks if a type is `never`.
- * 
+ *
  * @template X - The type to check.
- * 
+ *
  * @example
  * type T0 = _$isNever<'1'> // false
  * type T1 = _$isNever<never> // true
@@ -15,9 +15,9 @@ export type _$isNever<X> = Conditional._$equals<X, never>
 
 /**
  * `IsNever` is a type-level function that checks if a type is `never`.
- * 
+ *
  * @template X - The type to check.
- * 
+ *
  * @example
  * type T0 = $<IsNever, '1'> // false
  * type T1 = $<IsNever, never> // true
