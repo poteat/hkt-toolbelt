@@ -6,3 +6,4 @@ node_modules
 *.tgz
 todo.md
 wiki
+.aider*
