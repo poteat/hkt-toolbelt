@@ -23,17 +23,17 @@ const ignorePatterns = fs.existsSync('.multi-aider-ignore')
   ? fs.readFileSync('.multi-aider-ignore', 'utf-8').split('\n')
   : []
 
-console.log(ignorePatterns)
-
 const files = glob.sync(argv.pattern, { ignore: ignorePatterns })
-const commands = files.reduce((acc, file) => {
+const commands = files.reduce((acc: string[], file) => {
   const specFile = file.replace('.ts', '.spec.ts')
   let command = argv.template
   if (fs.existsSync(specFile)) {
     command = command.replace('{s}', file).replace('{t}', specFile)
     acc.push(`aider --msg="${command}"`)
   } else if (command.includes('{t}')) {
-    console.warn(`Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`)
+    console.warn(
+      `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
+    )
   } else {
     command = command.replace('{s}', file).replace('{t}', '')
     acc.push(`aider --msg="${command}"`)
