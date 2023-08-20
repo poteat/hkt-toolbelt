@@ -1,4 +1,4 @@
-import { $, Kind, Combinator, Conditional, Function, NaturalNumber } from '..'
+import { $, Combinator, Conditional, Function, NaturalNumberTheory } from '..'
 
 /**
  * `CollatzSequence` is a type-level function that represents the Collatz sequence.
@@ -18,6 +18,6 @@ export type CollatzSequence = $<
   Combinator.FixSequence,
   $<
     $<$<Conditional.If, $<Conditional.Equals, 1>>, $<Function.Constant, 1>>,
-    Collatz
+    NaturalNumberTheory.Collatz
   >
 >

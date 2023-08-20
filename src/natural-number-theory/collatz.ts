@@ -1,4 +1,4 @@
-import { $, Kind, Conditional, Function, NaturalNumber } from '..'
+import { $, Kind, Conditional, NaturalNumber } from '..'
 
 /**
  * `Collatz` is a type-level function that represents the Collatz function.
