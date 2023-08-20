@@ -15,14 +15,6 @@ export type _$endsWith<
   S extends string
 > = S extends `${string}${Suffix}` ? true : false
 
-/**
- * `String.EndsWith` is a type-level function that checks if a string ends with a given suffix.
- * 
- * @template T - The suffix to check for.
- * 
- * @example
- * type T0 = $<String.EndsWith, 'bar'> // EndsWith_T<'bar'>
- */
 interface EndsWith_T<T extends string> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$endsWith<T, typeof x>
 }
@@ -31,7 +23,7 @@ interface EndsWith_T<T extends string> extends Kind.Kind {
  * `String.EndsWith` is a type-level function that checks if a string ends with a given suffix.
  * 
  * @example
- * type T0 = $<String.EndsWith, 'bar'> // EndsWith_T<'bar'>
+ * type T0 = $<String.EndsWith, 'bar'> // true
  */
 export interface EndsWith extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): EndsWith_T<typeof x>
