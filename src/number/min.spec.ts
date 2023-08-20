@@ -22,4 +22,3 @@ type Test3 = Test.Expect<$<$<Min, 0>, 1>, 0>
  */
 type Test4 = Test.Expect<$<$<Min, 0>, -1>, -1>
 
-export type Min_Spec = [Test1, Test2, Test3, Test4]
