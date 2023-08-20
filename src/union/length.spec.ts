@@ -19,5 +19,10 @@ type Length_Spec = [
   /**
    * Can get the length of a union with duplicates.
    */
-  Test.Expect<$<Union.Length, '1' | '1' | '2'>, 2>
+  Test.Expect<$<Union.Length, '1' | '1' | '2'>, 2>,
+
+  /**
+   * Length of the 'boolean' union is 2.
+   */
+  Test.Expect<$<Union.Length, boolean>, 2>
 ]
