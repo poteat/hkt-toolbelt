@@ -22,6 +22,9 @@ interface Max_T<N extends Number.Number> extends Kind.Kind {
 /**
  * `Number.Max` is a type-level function that returns the maximum of two numbers.
  *
+ * @template X - The current type.
+ * @template N - The number to compare with.
+ *
  * @example
  * type T0 = $<$<Number.Max, 1>, 2> // 2
  * type T1 = $<$<Number.Max, 5>, 10> // 10
