@@ -55,6 +55,9 @@ type _$compare2<
     : [Digit.Zero],
   /**
    * The result of the comparison. This is 1 if `A` is greater than `B`, 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
+   *
+   * We only need to perform decimal-based checks if the integer parts are
+   * equal.
    */
   RESULT extends 1 | 0 | -1 = A_SGN extends '+'
     ? B_SGN extends '+'
