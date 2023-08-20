@@ -1,5 +1,16 @@
 import { $, Test, Number } from '..'
 
+/**
+ * `Compare_Spec` is a type-level array that contains test cases for the `Number.Compare` utility.
+ * 
+ * Each test case is an expectation that compares two numbers and checks if the result is as expected.
+ * 
+ * @example
+ * Test.Expect<$<$<Number.Compare, 123>, 123>, 0>,
+ * Test.Expect<$<$<Number.Compare, 123>, 321>, -1>,
+ * Test.Expect<$<$<Number.Compare, 321>, 123>, 1>,
+ * ...
+ */
 type Compare_Spec = [
   /**
    * Can compare two numbers.
