@@ -2,10 +2,12 @@
   "compilerOptions": {
     "incremental": true,
     // "tsBuildInfoFile": ".tsbuildinfo",
-    "target": "es2016",
+    "target": "es2020",
     "module": "commonjs",
     "paths": {
-      "hkt-toolbelt": ["./src"]
+      "hkt-toolbelt": [
+        "./src"
+      ]
     },
     "rootDir": "./",
     "declaration": true,
@@ -18,6 +20,12 @@
     "forceConsistentCasingInFileNames": false,
     "strict": true
   },
-  "include": ["src/**/*.spec.ts"],
-  "exclude": ["src/**/*.stress.spec.ts", "node_modules", "prompts"]
+  "include": [
+    "src/**/*.spec.ts"
+  ],
+  "exclude": [
+    "src/**/*.stress.spec.ts",
+    "node_modules",
+    "prompts"
+  ]
 }
