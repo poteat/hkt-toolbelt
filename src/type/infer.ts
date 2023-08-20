@@ -17,9 +17,9 @@ type _$inferredTuple = _$inferred[] | ReadonlyArray<_$inferred>
 
 /**
  * `_$infer` is a type-level function that infers the most specific type of a value.
- * 
+ *
  * @template X - The value to infer the type of.
- * 
+ *
  * @example
  * type T0 = _$infer<'foo'> // 'foo'
  */
@@ -30,18 +30,18 @@ export type _$infer<
 
 /**
  * `Infer` is a type-level function that infers the most specific type of a value.
- * 
+ *
  * @template X - The value to infer the type of.
- * 
+ *
  * @example
  * type T0 = $<Infer, 'foo'> // 'foo'
- * 
+ *
  * @example
  * // Demonstrating usage of Infer for const parameters in functions
- * function inferType<T>(x: Type._$infer<T>): T {
- *   return x as never
+ * function inferType<T>(x: $<Type.Infer, T>): typeof x {
+ *   return x
  * }
- * 
+ *
  * const x = inferType(['foo', { x: ['x'] }, 'bar', ['foo']])
  * // x is inferred as ['foo', { x: ['x'] }, 'bar', ['foo']]
  */
