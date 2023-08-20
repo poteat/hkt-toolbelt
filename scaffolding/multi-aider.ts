@@ -2,6 +2,7 @@ import * as glob from 'glob'
 import inquirer from 'inquirer'
 import { exec } from 'child_process'
 import fs from 'fs'
+import chalk from 'chalk'
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .option('pattern', {
@@ -32,7 +33,7 @@ const commands = files.reduce((acc: string[], file) => {
     acc.push(`aider --msg="${command}"`)
   } else if (command.includes('{t}')) {
     console.warn(
-      `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
+      chalk.red(`Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`)
     )
   } else {
     command = command.replace('{s}', file).replace('{t}', '')
