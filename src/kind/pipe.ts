@@ -6,8 +6,8 @@ import { Type, List, Kind } from '..'
  * composes the functions in its input list from left to right, and
  * and applies the resulting type-level function to the second input type.
  *
- * @param {Kind.Kind[]} FX - a tuple of type-level functions
- * @param X - a type to which a `Kind` can be applied
+ * @template {Kind.Kind[]} FX - a tuple of type-level functions
+ * @template X - a type to which a `Kind` can be applied
  *
  * @see {@link Kind._$compose}
  * The functionality of `_$pipe` is identical to `Kind._$compose`
@@ -49,8 +49,8 @@ interface Pipe_T<FX extends Kind.Kind[]> extends Kind.Kind {
  * composes the functions in its input list from left to right, and
  * and applies the resulting type-level function to the second input type.
  *
- * @param {Kind.Kind[]} FX - a tuple of type-level functions
- * @param X - a type to which a `Kind` can be applied
+ * @template {Kind.Kind[]} FX - a tuple of type-level functions
+ * @template X - a type to which a `Kind` can be applied
  *
  * @see {@link Kind.Compose}
  * The functionality of `Pipe` is identical to `Kind.Compose`

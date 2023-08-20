@@ -11,7 +11,7 @@ import { Type, Kind } from '..'
  * composed with g, and we say that 'g is piped into f'. In other words,
  * composition is a right-to-left description.
  *
- * @param F - A tuple containing two kinds to check
+ * @template F - A tuple containing two kinds to check
  *
  * @returns Whether the kinds are composable
  *
@@ -37,7 +37,7 @@ export type _$composablePair<F extends [Kind.Kind, Kind.Kind]> =
  * composed with g, and we say that 'g is piped into f'. In other words,
  * composition is a right-to-left description.
  *
- * @param K - A tuple containing two kinds to check
+ * @template K - A tuple containing two kinds to check
  *
  * @returns Whether the kinds are composable
  *

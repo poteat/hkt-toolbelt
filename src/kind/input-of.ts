@@ -4,7 +4,7 @@ import { Type, Kind } from '..'
  * Represents a type-level utility to infer the input type of a provided kind's function.
  * This is an internal utility used primarily within the `Kind.InputOf` interface.
  *
- * @template F The kind whose function's input type needs to be inferred.
+ * @template F - The kind whose function's input type needs to be inferred.
  *
  * @returns The inferred input type of the provided kind's function. If the kind's function doesn't have a deducible input type, it will return `unknown`.
  *
@@ -23,7 +23,7 @@ export type _$inputOf<F extends Kind.Kind> = F extends {
 /**
  * Represents a type-level utility to deduce the input type of a provided kind.
  *
- * @template F The kind whose input type needs to be inferred.
+ * @template F - The kind whose input type needs to be inferred.
  *
  * @returns The inferred input type of the provided kind. If the kind doesn't
  * have a deducible input type, it will return `unknown`.

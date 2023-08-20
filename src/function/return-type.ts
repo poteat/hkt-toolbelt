@@ -9,7 +9,7 @@ import { Kind, Type } from '..'
  * This works because `infer` declares a new generic type variable that takes
  * on the return value of the function.
  *
- * @param T - A function type
+ * @template T - A function type
  * @returns The inferred return type R of T, or `never`
  *
  * @example
@@ -30,7 +30,7 @@ export type _$returnType<T> = T extends (...args: never[]) => infer R
 /**
  * `ReturnType` extracts the return type of a function type.
  *
- * @param x - A function type
+ * @template x - A function type
  * @returns The inferred return type of the function
  *
  * @example

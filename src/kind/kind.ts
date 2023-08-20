@@ -15,7 +15,7 @@ export type _ = typeof _
  * Represents the abstract structure of a kind in the type-level programming toolkit.
  * Kinds are foundational constructs in the toolkit, allowing the modeling and manipulation of type-level functions.
  *
- * @template F The type-level function associated with the kind. Defaults to the base `Function.Function`.
+ * @template F - The type-level function associated with the kind. Defaults to the base `Function.Function`.
  *
  * - [_] An internal unique identifier for the kind.
  * - f The type-level function associated with the kind.

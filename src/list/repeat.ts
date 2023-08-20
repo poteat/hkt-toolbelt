@@ -24,8 +24,8 @@ type _$repeat2<
  * `_$repeat` can handle an output tuple length of up to 2137,
  * which is larger than 999, the maximum recursion depth limit of TypeScript.
  *
- * @param T - An unknown type.
- * @param N - A natural number.
+ * @template T - An unknown type.
+ * @template N - A natural number.
  * If `N` is not a natural number, returns `never`.
  *
  * ## Basic Usage

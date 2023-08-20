@@ -4,7 +4,7 @@ import { Kind, Type } from '..'
  * Represents a type-level utility to infer the output type of a provided kind's function.
  * This is an internal utility used primarily within the `Kind.OutputOf` interface.
  *
- * @template F The kind whose function's output type needs to be inferred.
+ * @template F - The kind whose function's output type needs to be inferred.
  *
  * @returns The inferred output type of the provided kind's function. If the kind's function doesn't have a deducible output type, it will return `unknown`.
  *
@@ -22,7 +22,7 @@ export type _$outputOf<F extends Kind.Kind> = F extends {
 /**
  * Represents a type-level utility to deduce the output type of a provided kind.
  *
- * @template F The kind whose output type needs to be inferred.
+ * @template F - The kind whose output type needs to be inferred.
  *
  * @returns The inferred output type of the provided kind. If the kind doesn't have a deducible output type, it will return `unknown`.
  *

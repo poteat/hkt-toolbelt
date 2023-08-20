@@ -4,8 +4,8 @@ import { Kind } from '..'
  * `_$equals` is a type-level function that takes in two types, `T` and `U`, and
  * returns `true` if `T` and `U` are the same type, and `false` otherwise.
  *
- * @param T - A type.
- * @param U - A type.
+ * @template T - A type.
+ * @template U - A type.
  *
  * @example
  * For example, we can use `_$equals` to determine whether two types are equal.
@@ -39,8 +39,8 @@ interface Equals_T<T> extends Kind.Kind {
  * type-level function that takes in one type, `U`, and returns `true` if `U` is
  * the same type as `T`, and `false` otherwise.
  *
- * @param T - A type.
- * @param U - A type.
+ * @template T - A type.
+ * @template U - A type.
  *
  * @example
  * For example, we can use `Equals` to determine whether two types are equal.

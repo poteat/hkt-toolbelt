@@ -7,8 +7,8 @@ import { $, Type, Kind } from '..'
  * It takes a value X and kind K, casts X to the input type of K, and applies
  * K to the casted X using the `$` operator.
  *
- * @param K - The kind to apply
- * @param X - The value to apply K to
+ * @template K - The kind to apply
+ * @template X - The value to apply K to
  *
  * @returns The result of applying K to the casted X
  */
@@ -33,8 +33,8 @@ interface Apply_T<X> extends Kind.Kind {
  * Notably, the argument positions are reversed compared to `$`.
  * Here, we first take in a value, and then a kind to apply to that value.
  *
- * @param X - The value of type X to apply the kind to
- * @param K - The kind to apply
+ * @template X - The value of type X to apply the kind to
+ * @template K - The kind to apply
  *
  * @returns The result of applying K to x
  *

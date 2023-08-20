@@ -10,8 +10,8 @@ interface Constant_T<X> extends Kind.Kind {
  *
  * It ignores its argument and always returns the configured constant value.
  *
- * @param T - The constant value to return.
- * @param X - The input type. This is ignored.
+ * @template T - The constant value to return.
+ * @template X - The input type. This is ignored.
  *
  * @returns The configured constant value T.
  *

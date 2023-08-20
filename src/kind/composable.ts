@@ -27,7 +27,7 @@ import { Type, List, Kind } from '..'
  *
  * Where `<:` represents the "is subtype of" relationship.
  *
- * @param FX - The tuple of kinds to check
+ * @template FX - The tuple of kinds to check
  * @returns Whether the kinds can be composed
  *
  * @example
@@ -65,7 +65,7 @@ export type _$composable<FX extends Kind.Kind[]> = List._$every<
  *
  * Two kinds `X` and `Y` are composable if `X`'s output type is a subtype of `Y`'s input type.
  *
- * @param K - The tuple of kinds to check
+ * @template K - The tuple of kinds to check
  * @returns Whether the kinds are composable
  *
  * @example

@@ -23,8 +23,8 @@ type _$addTens_LUT = [
  * the two specified digits.
  * Details can be found in the corresponding lookup-table `_$addTens_LUT`.
  *
- * @param A - A one-character decimal digit type.
- * @param B - A one-character decimal digit type.
+ * @template A - A one-character decimal digit type.
+ * @template B - A one-character decimal digit type.
  *
  * @example
  * For example, forwarding two decimal digits `5` and `6` will result in `1`
@@ -50,8 +50,8 @@ interface AddTens_T<A extends Digit.Digit> extends Kind.Kind {
  * `A` and `B`, adds them together, and returns the resultant tens digit.
  *
  * ## Parameters
- * @param A - A one-character decimal digit type.
- * @param B - A one-character decimal digit type.
+ * @template A - A one-character decimal digit type.
+ * @template B - A one-character decimal digit type.
  *
  * @example
  * For example, using the `hkt-toolbelt` `$` type-level applicator,

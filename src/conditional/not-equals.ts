@@ -4,8 +4,8 @@ import { Kind } from '..'
  * `_$notEquals` is a type-level function that returns `true` if `T` and `U` are
  * not equal. Otherwise, it returns `false`.
  *
- * @param T - The first type to compare.
- * @param U - The second type to compare.
+ * @template T - The first type to compare.
+ * @template U - The second type to compare.
  *
  * @example
  * In this example, `true` and `false` are passed as type arguments to the
@@ -27,8 +27,8 @@ interface NotEquals_T<T> extends Kind.Kind {
  * `NotEquals` is a type-level function that returns `true` if `T` and `U` are
  * not equal. Otherwise, it returns `false`.
  *
- * @param T - The first type to compare.
- * @param U - The second type to compare.
+ * @template T - The first type to compare.
+ * @template U - The second type to compare.
  *
  * @example
  * ```ts
