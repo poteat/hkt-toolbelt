@@ -2,9 +2,9 @@ import { Kind, Type } from '..'
 
 /**
  * `String._$capitalize` is a type-level function that capitalizes the first character of a string.
- * 
+ *
  * @template S - The string to capitalize.
- * 
+ *
  * @example
  * type T0 = String._$capitalize<'hello'> // 'Hello'
  * type T1 = String._$capitalize<'Hello'> // 'Hello'
@@ -14,9 +14,9 @@ export type _$capitalize<S extends string> = Capitalize<S>
 
 /**
  * `String.Capitalize` is a type-level function that capitalizes the first character of a string.
- * 
+ *
  * @template S - The string to capitalize.
- * 
+ *
  * @example
  * type T0 = $<String.Capitalize, 'hello'> // 'Hello'
  * type T1 = $<String.Capitalize, 'Hello'> // 'Hello'
