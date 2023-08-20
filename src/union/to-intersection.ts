@@ -1,13 +1,5 @@
 import { Kind } from '..'
 
-/**
- * `_$toIntersection2` is a type-level function that converts a type to an intersection type.
- * 
- * @template T - The type to convert to an intersection type.
- * 
- * @example
- * type T0 = _$toIntersection2<{ a: 'foo' } | { b: 'foo' }> // { a: 'foo'; b: 'foo' }
- */
 type _$toIntersection2<T> = (
   T extends unknown ? (x: T) => unknown : never
 ) extends (x: infer X) => void
