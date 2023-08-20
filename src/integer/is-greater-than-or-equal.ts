@@ -31,7 +31,7 @@ interface IsGreaterThanOrEqual_T<A extends Number.Number> extends Kind.Kind {
 }
 
 /**
- * `IsGreaterThanOrEqual` is a type-level function that takes in two natural number
+ * `IsGreaterThanOrEqual` is a type-level function that takes in two integer
  * types, `A` and `B`, and returns a boolean indicating whether `B` is greater
  * than or equal to `A`.
  *
