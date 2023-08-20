@@ -22,8 +22,8 @@ interface Append_T<Suffix extends string> extends Kind.Kind {
  * @template Suffix - The string to append.
  * 
  * @example
- * type T0 = $<String.Append, 'bar'>, 'foo'> // 'foobar'
- * type T1 = $<String.Append, ''>, 'foo'> // 'foo'
+ * type T0 = $<$<String.Append, 'bar'>, 'foo'> // 'foobar'
+ * type T1 = $<$<String.Append, ''>, 'foo'> // 'foo'
  */
 export interface Append extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): Append_T<typeof x>
