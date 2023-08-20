@@ -97,7 +97,7 @@ import { Equals, Extends, If } from "hkt-toolbelt/conditional";
 
 ## Usage
 
-### 1) `$`: Applicator
+### 1) `$`: Apply a Function to *an Argument*
 
 > **`$<KIND, ARG>`**
 
@@ -106,16 +106,19 @@ The kind utilities in **`hkt-toolbelt`** are curried, unary type-level functions
 ```ts
 import { $, Function, List } from "hkt-toolbelt";
 
-type IAmI = $<Function.Identity, "I">;  // ["I"]
-
 type HelloWorld = $<$<List.Push, "world">, ["hello"]>;  // ["hello", "world"]
+
+type OneTwoThree = $<
+  $<List.Filter, $<Conditional.Extends, number>>,
+  [1, "foo", 2, 3, "bar"]
+>; // [1, 2, 3]
 ```
 
 ```js
 // In javascript, this would be..
-const iAmI = ((x) => x)("I");
-
 const helloWorld = ((arr) => [...arr, "world"])(["hello"]);
+
+const oneTwoThree = ((arr) => arr.filter((e) => typeof e === "number"))([1, "foo", 2, 3, "bar"]);
 ```
 
 ### 2) `$N`: Pass *Multiple Arguments* into an uncurried Function
@@ -138,6 +141,7 @@ type ReduceSum1to5 = $N<List.Reduce, [
 type ReduceSum = $N<List.Reduce, [NaturalNumber.Add, 0]>;
 
 type ReduceSum1to5 = $<ReduceSum, [1, 2, 3, 4, 5]>;  // 15
+type ReduceSum1to10 = $<ReduceSum, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]>;  // 55
 ```
 
 ```js
@@ -150,6 +154,7 @@ const reduceSum1to5$N = [1, 2, 3, 4, 5].reduce((acc, curr) => acc + curr, 0);
 const reduceSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
 
 const reduceSum1to5 = reduceSum([1, 2, 3, 4, 5]);
+const reduceSum1to10 = reduceSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
 ### 3) `$$`: Pipe an Argument through *Multiple Functions*
