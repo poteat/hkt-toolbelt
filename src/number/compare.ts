@@ -9,7 +9,7 @@ import { Type, Number, Kind, Digit, DigitList, NaturalNumber } from '..'
  * @template A - A number type.
  * @template B - A number type.
  */
-export type _$compare2<
+type _$compare2<
   A extends Number.Number,
   B extends Number.Number,
   A_SGN extends '+' | '-' = Number._$sign<A>,
@@ -54,7 +54,7 @@ export type _$compare2<
  * @template A - A number type.
  * @template B - A number type.
  */
-export type _$decimalCompare<
+type _$decimalCompare<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
   A_FIRST extends Digit.Digit = DigitList._$first<A>,
