@@ -1,5 +1,14 @@
 import { Type, Number, Kind, Digit, DigitList, NaturalNumber } from '..'
 
+/**
+ * `_$compare2` is a type-level function that takes in
+ * two number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
+ * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
+ *
+ * @template A - A number type.
+ * @template B - A number type.
+ */
 export type _$compare2<
   A extends Number.Number,
   B extends Number.Number,
@@ -36,6 +45,15 @@ export type _$compare2<
     : DigitList._$compare<B_INT, A_INT>
 > = RESULT
 
+/**
+ * `_$decimalCompare` is a type-level function that takes in
+ * two number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
+ * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
+ *
+ * @template A - A number type.
+ * @template B - A number type.
+ */
 export type _$decimalCompare<
   A extends DigitList.DigitList,
   B extends DigitList.DigitList,
@@ -84,12 +102,27 @@ export type _$decimalCompare<
  * type Result2 = $<$<Number.Compare, -123>, 321>; // -1
  * ```
  */
+/**
+ * `_$compare` is a type-level function that takes in
+ * two number types `A` and `B`, and returns the comparison result as a number type.
+ * The result will be 1 if `A` is greater than `B`,
+ * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
+ *
+ * @template A - A number type.
+ * @template B - A number type.
+ */
 export type _$compare<
   A extends Number.Number,
   B extends Number.Number,
   RESULT extends 1 | 0 | -1 = _$compare2<A, B>
 > = RESULT
 
+/**
+ * `Compare_T` is a type-level function that takes in
+ * a number type `X`, and returns the comparison result as a number type.
+ *
+ * @template X - A number type.
+ */
 interface Compare_T<X extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): _$compare<X, typeof x>
 }
@@ -112,6 +145,12 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
  * type Result1 = $<$<Number.Compare, 123>, -321>; // 1
  * type Result2 = $<$<Number.Compare, -123>, 321>; // -1
  * ```
+ */
+/**
+ * `Compare` is a type-level function that takes in
+ * a number type `X`, and returns the comparison result as a number type.
+ *
+ * @template X - A number type.
  */
 export interface Compare extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Compare_T<typeof x>
