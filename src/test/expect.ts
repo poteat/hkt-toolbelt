@@ -2,6 +2,8 @@ import { Conditional, Type } from '..'
 
 /**
  * Abstract class used for internal purposes.
+ * The purpose of `_` is to allow us to show the expected type, but also not to accept mere subtype relations,
+ * and to force a necessity of symmetric type equality.
  */
 export abstract class _ {
   abstract readonly _: symbol
