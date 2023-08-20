@@ -73,13 +73,41 @@ type _$compare2<
 > = RESULT
 
 type _$decimalCompare<
+  /**
+   * The first decimal digit list to compare.
+   */
   A extends DigitList.DigitList,
+  /**
+   * The second decimal digit list to compare.
+   */
   B extends DigitList.DigitList,
+  /**
+   * The first digit of the first decimal digit list.
+   */
   A_FIRST extends Digit.Digit = DigitList._$first<A>,
+  /**
+   * The first digit of the second decimal digit list.
+   */
   B_FIRST extends Digit.Digit = DigitList._$first<B>,
+  /**
+   * The next copy of the first decimal digit list that we pass to the recursive call.
+   * This has the first digit removed, as it has been processed.
+   */
   A_NEXT extends DigitList.DigitList = DigitList._$shift<A>,
+  /**
+   * The next copy of the second decimal digit list that we pass to the recursive call.
+   * This has the first digit removed, as it has been processed.
+   */
   B_NEXT extends DigitList.DigitList = DigitList._$shift<B>,
+  /**
+   * The result of the comparison of the first digits of the decimal digit lists.
+   * This is 1 if `A_FIRST` is greater than `B_FIRST`, 0 if they are equal, and -1 if `A_FIRST` is less than `B_FIRST`.
+   */
   COMP extends 1 | 0 | -1 = Digit._$compare<A_FIRST, B_FIRST>,
+  /**
+   * The result of the comparison of the decimal digit lists.
+   * This is 1 if `A` is greater than `B`, 0 if they are equal, and -1 if `A` is less than `B`.
+   */
   RESULT extends 1 | 0 | -1 = A extends []
     ? B extends []
       ? 0
