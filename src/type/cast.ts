@@ -18,8 +18,15 @@ interface Cast_T<T> extends Kind.Kind {
 }
 
 /**
- * `Cast` is an interface that extends `Kind.Kind`.
- * It is used in custom kind development to encode input constraints.
+ * `Cast` is a type-level function that casts a type `T` to a type `U`.
+ *
+ * @template T - The type to cast.
+ * @template U - The type to cast to.
+ *
+ * @example
+ * type T0 = $<$<Cast, true>, true> // true
+ * type T1 = $<$<Cast, boolean>, true> // true
+ * type T2 = $<$<Cast, true>, boolean> // true
  */
 export interface Cast extends Kind.Kind {
   f(x: this[Kind._]): Cast_T<typeof x>
