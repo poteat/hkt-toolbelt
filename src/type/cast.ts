@@ -13,12 +13,6 @@ import { Kind } from '..'
  */
 export type _$cast<T, U> = T extends U ? T : U
 
-/**
- * `Cast_T` is an interface that extends `Kind.Kind`.
- * It is used in custom kind development to encode input constraints.
- * 
- * @template T - The type to cast.
- */
 interface Cast_T<T> extends Kind.Kind {
   f(x: this[Kind._]): _$cast<typeof x, T>
 }
