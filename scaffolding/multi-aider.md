@@ -13,7 +13,8 @@ Replace `'glob-pattern'` with the glob pattern for your input files, and `'scrip
 ### Example
 
 ```bash
-ts-node multi-aider.ts --pattern './src/string/!(*.spec).ts' --template 'echo Processing {s} and {t}'
+ts-node multi-aider.ts --pattern './src/string/!(*.spec).ts' \\
+--template 'echo Processing {s} and {t}'
 ```
 
 This will echo a message for each `.ts` file in the `src/string` directory, excluding `.spec.ts` files. If a corresponding `.spec.ts` file exists for a source file, `{t}` will be replaced with the spec file; otherwise, `{t}` will be replaced with an empty string.
