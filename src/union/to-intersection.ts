@@ -8,6 +8,7 @@ type _$toIntersection2<T> = (
 
 /**
  * `_$toIntersection` is a type-level function that converts a type to an intersection type.
+ * An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need.
  * It handles boolean types separately.
  * 
  * @template T - The type to convert to an intersection type.
@@ -22,6 +23,7 @@ export type _$toIntersection<T> = boolean extends T
 
 /**
  * `ToIntersection` is a type-level function that converts a type to an intersection type.
+ * An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need.
  * 
  * @template T - The type to convert to an intersection type.
  * 
