@@ -2,7 +2,7 @@
  * Can we infer the most specific type of a value in a reified type?
  */
 
-import { Kind, Function, String, List } from '..'
+import { Kind, Function, String, List, Type } from '..'
 
 declare const append: Kind._$reify<String.Append>
 declare const map: Kind._$reify<List.Map>
@@ -27,3 +27,11 @@ const result = identity(['foo', { x: ['x'] }, 'bar', ['foo']])
 //    ^?
 
 expectType<['foo', { x: ['x'] }, 'bar', ['foo']]>(result)
+
+function mySpecificFcn<T>(x: Type._$infer<T>): T {
+  return x as never
+}
+
+const x = mySpecificFcn(['foo', { x: ['x'] }, 'bar', ['foo']])
+
+expectType<['foo', { x: ['x'] }, 'bar', ['foo']]>(x)
