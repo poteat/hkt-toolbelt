@@ -2,7 +2,7 @@ import { $, Test, Type } from '..'
 
 /**
  * Tests associated with `Type.Display`, which forces the compiler to resolve
- * types such that Intellisense may parse them.
+ * types such that IDEs can display them.
  */
 type Display_Spec = [
   /**

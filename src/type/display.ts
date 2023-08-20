@@ -2,10 +2,10 @@ import { Kind } from '..'
 
 /**
  * `_$display` is a type-level function that forces the compiler to resolve
- * types such that IDEs can display them.
- * 
+ * types such that IDEs can display them on hover.
+ *
  * @template T - The type to be displayed.
- * 
+ *
  * @example
  * type T0 = _$display<'foo'> // 'foo'
  */
@@ -19,10 +19,10 @@ export type _$display<T> = T extends (...args: never[]) => unknown
 
 /**
  * `Display` is a type-level function that forces the compiler to resolve
- * types such that IDEs can display them.
- * 
+ * types such that IDEs can display them on hover.
+ *
  * @template T - The type to be displayed.
- * 
+ *
  * @example
  * type T0 = $<Display, 'foo'> // 'foo'
  */
