@@ -35,6 +35,15 @@ export type _$infer<
  * 
  * @example
  * type T0 = $<Infer, 'foo'> // 'foo'
+ * 
+ * @example
+ * // Demonstrating usage of Infer for const parameters in functions
+ * function inferType<T>(x: Type._$infer<T>): T {
+ *   return x as never
+ * }
+ * 
+ * const x = inferType(['foo', { x: ['x'] }, 'bar', ['foo']])
+ * // x is inferred as ['foo', { x: ['x'] }, 'bar', ['foo']]
  */
 export interface Infer extends Kind.Kind {
   f(x: this[Kind._]): _$infer<typeof x>
