@@ -30,20 +30,29 @@ const commands = files.reduce((acc: string[], file) => {
   let command = argv.template
   if (fs.existsSync(specFile)) {
     command = command.replace('{s}', file).replace('{t}', specFile)
-    acc.push(`aider --msg="${command}" ${file} ${specFile}`)
+    acc.push([
+      'aider',
+      `--msg="${command}"`,
+      `${file}`,
+      `${specFile}`
+    ].join('\n  '))
   } else if (command.includes('{t}')) {
     console.warn(
       chalk.red(`Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`)
     )
   } else {
     command = command.replace('{s}', file).replace('{t}', '')
-    acc.push(`aider --msg="${command}" ${file}`)
+    acc.push([
+      'aider',
+      `--msg="${command}"`,
+      `${file}`
+    ].join('\n  '))
   }
   return acc
 }, [])
 
 console.log('The following commands will be run:')
-console.log(commands.join('\n'))
+console.log(commands.join('\n\n'))
 
 inquirer
   .prompt([
@@ -57,7 +66,7 @@ inquirer
   .then((answers) => {
     if (answers.proceed) {
       commands.forEach((command) => {
-        exec(command, (error, stdout, stderr) => {
+        exec(command.split('\n  ').join(' '), (error, stdout, stderr) => {
           if (error) {
             console.error(`exec error: ${error}`)
             return
