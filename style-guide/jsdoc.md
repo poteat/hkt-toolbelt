@@ -38,7 +38,7 @@ export interface Length extends Kind.Kind {
 }
 ```
 
-In all cases, adequate examples should be provided. Take note that the examples properly use the `_$` and `$` syntaxes.
+In all cases, adequate examples should be provided. Take note that the examples properly use the `_$` and `$` syntaxes. When using the `$` syntax, ensure that it is used correctly. For example, if you are demonstrating a type-level function that takes two arguments, the `$` syntax should be used twice, like so: `$<$<String.Append, 'bar'>, 'foo'>`.
 
 ## Case of 2+ ary kinds
 
