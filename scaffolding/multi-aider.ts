@@ -28,7 +28,7 @@ const commands = files.map((file) => {
   } else {
     command = command.replace('{s}', file).replace('{t}', '')
   }
-  return command
+  return `aider --msg="${command}"`
 })
 
 console.log('The following commands will be run:')
