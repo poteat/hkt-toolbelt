@@ -1,9 +1,5 @@
 import { Test, Type } from '..'
 
-/**
- * `Cast_Spec` is a type that tests the `_$cast` type-level function.
- * It includes tests for casting a type to itself, to a subtype, and to a supertype.
- */
 type Cast_Spec = [
   /**
    * Can cast a type to itself.

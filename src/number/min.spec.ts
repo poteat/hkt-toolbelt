@@ -21,4 +21,3 @@ type Test3 = Test.Expect<$<$<Min, 0>, 1>, 0>
  * Can get the minimum of a negative number and zero.
  */
 type Test4 = Test.Expect<$<$<Min, 0>, -1>, -1>
-
