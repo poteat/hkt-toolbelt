@@ -18,8 +18,17 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
   .help()
   .alias('help', 'h').argv
 
-const files = glob.sync(argv.pattern)
-const commands = files.map((file) => argv.template.replace('{}', file))
+const files = glob.sync(argv.pattern);
+const commands = files.map((file) => {
+    const specFile = file.replace('.ts', '.spec.ts');
+    let command = argv.template;
+    if (fs.existsSync(specFile)) {
+        command = command.replace('{s}', file).replace('{t}', specFile);
+    } else {
+        command = command.replace('{s}', file).replace('{t}', '');
+    }
+    return command;
+});
 
 console.log('The following commands will be run:')
 console.log(commands.join('\n'))
