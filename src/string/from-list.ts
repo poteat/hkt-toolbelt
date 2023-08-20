@@ -2,10 +2,10 @@ import { Type, Kind } from '..'
 
 /**
  * `String.FromList` is a type-level function that joins a list of strings into a single string.
- * 
+ *
  * @template T - The list of strings to join.
  * @template O - The output string, initially empty.
- * 
+ *
  * @example
  * type T0 = String._$fromList<['hello', ' ', 'world']> // 'hello world'
  * type T1 = String._$fromList<[]> // ''
@@ -18,7 +18,7 @@ export type _$fromList<T, O extends string = ''> = 0 extends 1
 
 /**
  * `String.FromList` is a type-level function that joins a list of strings into a single string.
- * 
+ *
  * @example
  * type T0 = $<String.FromList, ['hello', ' ', 'world']> // 'hello world'
  * type T1 = $<String.FromList, []> // ''
