@@ -22,4 +22,3 @@ type Test3 = Test.Expect<$<$<Max, 0>, 1>, 1>
  */
 type Test4 = Test.Expect<$<$<Max, 0>, -1>, 0>
 
-export type Max_Spec = [Test1, Test2, Test3, Test4]
