@@ -43,3 +43,32 @@ In all cases, adequate examples should be provided. Take note that the examples 
 ## Case of 2+ ary kinds
 
 2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented.
+
+## Case of multi-stage kinds
+
+Some kinds are quite complex, and are defined via long sequences of generic parameters. In these cases, each stage should be documented. The following is  a simplified example.
+
+```ts
+export type _$complex<
+  /**
+   * @template A - The first number to add.
+   */
+  A extends number,
+
+  /**
+   * @template B - The second number to add.
+   */
+  B extends number,
+
+  /**
+   * @template C - The carry digit from the prior computation.
+   */
+  CARRY extends number = 0,
+
+  /**
+   * @template CURRENT_SUM - The current sum of the digits. This is computed on
+   * every step of the recursion.
+   */
+  CURRENT_SUM extends number = ...
+> = ...
+```
