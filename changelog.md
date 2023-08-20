@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.22.2
+
+- Add additional JSDoc annotations for some modules. (`Union`, `Type`, `Kind`)
+
 ## 0.22.1
 
 - Add `String.Capitalize` utility for capitalizing the first letter of a string.

@@ -1,6 +1,6 @@
 {
   "name": "hkt-toolbelt",
-  "version": "0.22.1",
+  "version": "0.22.2",
   "description": "Functional and composable type utilities",
   "types": "./dist/index.d.ts",
   "repository": {
