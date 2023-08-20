@@ -22,6 +22,9 @@ export type Collatz = $<
  * starting from a given number, until reaching 1. This sequence is generated using the FixSequence type-level function,
  * which creates a fixed-point sequence for the Collatz function until it reaches a fixed point, which in this case is 1.
  * 
+ * Note: We're "artificially" making `Collatz(1)` return `1` so that we can use the fixed sequence operation. 
+ * Otherwise, the sequence wouldn't halt as per the Collatz conjecture.
+ * 
  * @template T - The starting number of the sequence.
  * 
  * @example
