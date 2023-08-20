@@ -44,7 +44,6 @@ export type _$fromString<T extends string> = DigitList._$trim<_$fromString2<T>>
  *
  * type Result = $<DigitList.FromString, "00123">; // ["1", "2", "3"]
  * ```
- *
  */
 export interface FromString extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$fromString<typeof x>
