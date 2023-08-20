@@ -1,5 +1,15 @@
 import { Kind, Type, Number } from '..'
 
+/**
+ * `_$max` is a type-level function that returns the maximum of two numbers.
+ *
+ * @template A - The first number.
+ * @template B - The second number.
+ *
+ * @example
+ * type T0 = _$max<1, 2> // 2
+ * type T1 = _$max<5, 10> // 10
+ */
 export type _$max<
   A extends Number.Number,
   B extends Number.Number
