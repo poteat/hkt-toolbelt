@@ -23,7 +23,7 @@ export type _$toList<T, O extends unknown[] = []> = Union._$toIntersection<
  *
  * @example
  * type T0 = $<ToList, 1 | 2 | 3> // [1, 2, 3]
- * type T1 = $<ToList, string | boolean> // [string, boolean]
+ * type T1 = $<ToList, string | boolean> // [string, false, true]
  */
 export interface ToList extends Kind.Kind {
   f(x: this[Kind._]): _$toList<this[Kind._]>
