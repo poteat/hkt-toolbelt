@@ -11,7 +11,6 @@ interface Max_T<N extends Number.Number> extends Kind.Kind {
 
 /**
  * `Number.Max` is a type-level function that returns the maximum of two numbers.
- * It's a 2-ary function and is called with currying.
  *
  * @example
  * type T0 = $<$<Number.Max, 1>, 2> // 2
