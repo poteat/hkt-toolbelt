@@ -22,6 +22,9 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
 const ignorePatterns = fs.existsSync('.multi-aider-ignore')
   ? fs.readFileSync('.multi-aider-ignore', 'utf-8').split('\n')
   : []
+
+console.log(ignorePatterns)
+
 const files = glob.sync(argv.pattern, { ignore: ignorePatterns })
 const commands = files.map((file) => {
   const specFile = file.replace('.ts', '.spec.ts')
