@@ -1,8 +1,5 @@
 import { Kind, Type, Function } from '..'
 
-/**
- * `_$inferred` is a type that represents the most specific type of a value.
- */
 type _$inferred =
   | string
   | number
