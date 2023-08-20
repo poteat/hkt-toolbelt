@@ -1,6 +1,7 @@
 import * as glob from 'glob'
 import inquirer from 'inquirer'
 import { exec } from 'child_process'
+import fs from 'fs'
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .option('pattern', {
