@@ -103,25 +103,37 @@ function generateCommand(
 
   let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
   let command = replacePlaceholders(template, placeholders)
-  return ['aider', `--msg="${command}"`, '--model', model, file, specFile, ...extraFiles].join(
-    ' '
-  )
+  return [
+    'aider',
+    `--msg="${command}"`,
+    '--model',
+    model,
+    file,
+    specFile,
+    ...extraFiles
+  ].join(' ')
 }
 
 function generateCommands(
   files: string[],
   template: string,
-  extraFiles: string[]
+  extraFiles: string[],
+  model: string
 ): string[] {
   return files
     .map((file) => {
       const specFile = file.replace('.ts', '.spec.ts')
-      return generateCommand(file, specFile, template, extraFiles)
+      return generateCommand(file, specFile, template, extraFiles, model)
     })
     .filter((command) => command !== null) as string[]
 }
 
-const commands = generateCommands(files, argv.template, argv.extraFiles)
+const commands = generateCommands(
+  files,
+  argv.template,
+  argv.extraFiles,
+  argv.model
+)
 
 async function executeCommand(command: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
