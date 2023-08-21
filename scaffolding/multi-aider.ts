@@ -30,23 +30,18 @@ const commands = files.reduce((acc: string[], file) => {
   let command = argv.template
   if (fs.existsSync(specFile)) {
     command = command.replace('{s}', file).replace('{t}', specFile)
-    acc.push([
-      'aider',
-      `--msg="${command}"`,
-      `${file}`,
-      `${specFile}`
-    ].join('\n  '))
+    acc.push(
+      ['aider', `--msg="${command}"`, `${file}`, `${specFile}`].join('\\\n  ')
+    )
   } else if (command.includes('{t}')) {
     console.warn(
-      chalk.red(`Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`)
+      chalk.red(
+        `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
+      )
     )
   } else {
     command = command.replace('{s}', file).replace('{t}', '')
-    acc.push([
-      'aider',
-      `--msg="${command}"`,
-      `${file}`
-    ].join('\n  '))
+    acc.push(['aider', `--msg="${command}"`, `${file}`].join('  \\\n  '))
   }
   return acc
 }, [])
