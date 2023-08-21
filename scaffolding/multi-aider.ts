@@ -43,18 +43,22 @@ function replacePlaceholders(
   return result
 }
 
-function checkSpecFile(file: string, specFile: string, template: string): string | null {
+function checkSpecFile(
+  file: string,
+  specFile: string,
+  template: string
+): string | null {
   if (fs.existsSync(specFile)) {
-    return specFile;
+    return specFile
   } else if (template.includes('{t}')) {
     console.warn(
       chalk.red(
         `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
       )
     )
-    return null;
+    return null
   }
-  return '';
+  return ''
 }
 
 function generateCommand(
@@ -63,9 +67,9 @@ function generateCommand(
   template: string,
   extraFiles: string[]
 ): string {
-  const specFileChecked = checkSpecFile(file, specFile, template);
+  const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
-    return '';
+    return ''
   }
 
   let placeholders = { s: file, t: specFileChecked } as Record<string, string>
@@ -78,15 +82,14 @@ function generateCommand(
   )
 }
 
-function generateCommands(files: string[], template: string, extraFiles: string[]): string[] {
+function generateCommands(
+  files: string[],
+  template: string,
+  extraFiles: string[]
+): string[] {
   return files.reduce((acc: string[], file) => {
     const specFile = file.replace('.ts', '.spec.ts')
-    const command = generateCommand(
-      file,
-      specFile,
-      template,
-      extraFiles
-    )
+    const command = generateCommand(file, specFile, template, extraFiles)
     if (command) {
       acc.push(command)
     }
