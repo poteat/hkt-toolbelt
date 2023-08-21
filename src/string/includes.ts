@@ -1,9 +1,11 @@
+import { Kind, Type } from '..'
+
 /**
  * `String._$includes` is a type-level function that checks if a string includes a given infix.
- * 
+ *
  * @template Infix - The infix to check for.
  * @template S - The string to check.
- * 
+ *
  * @example
  * type T0 = String._$includes<'oba', 'foobar'> // true
  * type T1 = String._$includes<'qux', 'foobar'> // false
@@ -15,7 +17,7 @@ export type _$includes<
 
 /**
  * `String.Includes_T` is an intermediate interface for currying.
- * 
+ *
  * @template Infix - The infix to check for.
  */
 interface Includes_T<Infix extends string> extends Kind.Kind {
@@ -24,10 +26,10 @@ interface Includes_T<Infix extends string> extends Kind.Kind {
 
 /**
  * `String.Includes` is a type-level function that checks if a string includes a given infix.
- * 
+ *
  * @template Infix - The infix to check for.
  * @template S - The string to check.
- * 
+ *
  * @example
  * type T0 = $<$<String.Includes, 'oba'>, 'foobar'> // true
  * type T1 = $<$<String.Includes, 'qux'>, 'foobar'> // false
