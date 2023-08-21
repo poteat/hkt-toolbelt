@@ -118,7 +118,7 @@ const commands = generateCommands(files, argv.template, argv.extraFiles)
 
 async function executeCommand(command: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
-    const [cmd, ...args] = command.split(' ')
+    const [cmd, ...args] = command.match(/(?:[^\s"]+|"[^"]*")+/g) || []
     const proc = spawn(cmd, args)
 
     proc.stdout.on('data', (data) => {
