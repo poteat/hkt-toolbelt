@@ -29,6 +29,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     type: 'boolean',
     default: false
   })
+  .option('model', {
+    alias: 'm',
+    description: 'Model name',
+    type: 'string',
+    default: ''
+  })
   .help()
   .alias('help', 'h').argv
 
@@ -69,9 +75,10 @@ function checkSpecFile(
 function generatePlaceholders(
   file: string,
   specFile: string,
-  extraFiles: string[]
+  extraFiles: string[],
+  model: string
 ): Record<string, string> {
-  let placeholders = { s: file, t: specFile } as Record<string, string>
+  let placeholders = { s: file, t: specFile, m: model } as Record<string, string>
   extraFiles.forEach((extraFile: string) => {
     placeholders[extraFile] = extraFile
   })
@@ -82,7 +89,8 @@ function generateCommand(
   file: string,
   specFile: string,
   template: string,
-  extraFiles: string[]
+  extraFiles: string[],
+  model: string
 ): string | null {
   const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
@@ -94,9 +102,9 @@ function generateCommand(
     return null
   }
 
-  let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
+  let placeholders = generatePlaceholders(file, specFileChecked, extraFiles, model)
   let command = replacePlaceholders(template, placeholders)
-  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
+  return ['aider', `--msg="${command}"`, '--model', model, file, specFile, ...extraFiles].join(
     ' '
   )
 }
