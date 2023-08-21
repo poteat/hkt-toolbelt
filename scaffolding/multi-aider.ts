@@ -123,7 +123,7 @@ async function executeCommand(command: string): Promise<boolean> {
     const proc = spawn(cmd, args)
 
     proc.stdout.on('data', (data) => {
-      process.stdout.write(data.toString())
+      process.stdout.write(chalk.gray(data.toString()))
     })
 
     proc.stderr.on('data', (data) => {
