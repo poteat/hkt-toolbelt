@@ -13,6 +13,8 @@ export interface Utility extends Kind.Kind {
 In this case, we document both the type and the interface. Usually, the contents of the JSDoc are similar between them.
 
 ```ts
+import { $, Kind } from 'ts-toolbelt'
+
 /**
  * `String.Length` is a type-level function that returns the length of a string.
  * 
@@ -51,6 +53,8 @@ For example, `String.Split` is a type-level function that splits a string into a
 Here is an example:
 
 ```ts
+import { $, Kind } from 'ts-toolbelt'
+
 /**
  * `String.EndsWith` is a type-level function that checks if a string ends with a given suffix.
  * 
@@ -97,6 +101,8 @@ In this example, `EndsWith_T` is the intermediate interface for currying and is 
 Some kinds are quite complex, and are defined via long sequences of generic parameters. In these cases, each template should be documented. The following is a simplified example.
 
 ```ts
+import { $, Kind } from 'ts-toolbelt'
+
 /**
  * `Number.Complex` is a type-level function that complexes two numbers.
  * 
