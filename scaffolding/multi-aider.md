@@ -2,6 +2,14 @@
 
 The `multi-aider.ts` script is a utility for running multiple commands in parallel. It takes a glob pattern for input files and a script template as command-line arguments, and runs the script for each input file.
 
+The script includes several functions:
+
+- `replacePlaceholders()`: This function replaces placeholders in a template with their corresponding values.
+- `checkSpecFile()`: This function checks if a spec file exists for a given file and template.
+- `generateCommand()`: This function generates a command for a given file, spec file, template, and extra files.
+- `generateCommands()`: This function generates commands for a list of files, a template, and extra files.
+- `promptUser()`: This function prompts the user to confirm execution of the commands and then executes them.
+
 ## Usage
 
 ```bash
