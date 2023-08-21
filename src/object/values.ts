@@ -1,7 +1,9 @@
-import { Kind, Type } from '..'
-import { _$keys } from './keys'
+import { Kind, Type, Object } from '..'
 
-export type _$values<T extends Record<string, unknown>, Keys = _$keys<T>> = {
+export type _$values<
+  T extends Record<string, unknown>,
+  Keys = Object._$keys<T>
+> = {
   [key in keyof Keys]: T[Type._$cast<Keys[key], keyof T>]
 }
 
