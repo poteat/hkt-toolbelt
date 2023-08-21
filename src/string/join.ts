@@ -42,10 +42,11 @@ interface Join_T<D extends string> extends Kind.Kind {
  * `String.Join` is a type-level function that joins an array of strings into a single string.
  * 
  * @template D - The delimiter to use when joining the strings.
+ * @template T - The array of strings to join.
  * 
  * @example
- * type T0 = $<String.Join, ['foo', 'bar']> // 'foobar'
- * type T1 = $<String.Join, ['foo', 'bar', 'qux']> // 'foo bar qux'
+ * type T0 = $<$<String.Join, ''>, ['foo', 'bar']> // 'foobar'
+ * type T1 = $<$<String.Join, ' '>, ['foo', 'bar', 'qux']> // 'foo bar qux'
  */
 export interface Join extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): Join_T<typeof x>
