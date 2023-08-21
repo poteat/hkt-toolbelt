@@ -5,7 +5,6 @@ import { Type, Kind, String } from '..'
  * 
  * @template S - The string to split.
  * @template Delimiter - The delimiter to split the string by.
- * @template O - The output array of substrings.
  * 
  * @example
  * type T0 = String._$split<'foobar', ''> // ['f', 'o', 'o', 'b', 'a', 'r']
@@ -13,17 +12,14 @@ import { Type, Kind, String } from '..'
  */
 export type _$split<
   S extends string,
-  Delimiter extends string = '',
-  O extends unknown[] = []
+  Delimiter extends string = ''
 > = String._$isTemplate<Delimiter> extends true
   ? string[]
   : string extends Delimiter
   ? string[]
   : S extends `${infer Head}${Delimiter}${infer Tail}`
-  ? _$split<Tail, Delimiter, [...O, Head]>
-  : S extends Delimiter
-  ? O
-  : [...O, S]
+  ? _$split<Tail, Delimiter>
+  : [S]
 
 interface Split_T<Delimiter extends string> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$split<typeof x, Delimiter>
