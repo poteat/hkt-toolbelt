@@ -2,9 +2,9 @@ import { Type, Kind } from '..'
 
 /**
  * `String._$tail` is a type-level function that extracts every element after the first element of a string.
- * 
+ *
  * @template S - The string to extract the tail from.
- * 
+ *
  * @example
  * type T0 = String._$tail<'hello'> // 'ello'
  * type T1 = String._$tail<''> // ''
@@ -19,7 +19,7 @@ export type _$tail<S extends string> = S extends `${string}${infer Tail}`
 
 /**
  * `String.Tail` is a type-level function that extracts every element after the first element of a string.
- * 
+ *
  * @example
  * type T0 = $<String.Tail, 'hello'> // 'ello'
  * type T1 = $<String.Tail, ''> // ''
