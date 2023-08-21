@@ -15,7 +15,7 @@ interface FileContent {
   content: string
 }
 
-async function main() {
+function getCommandLineArgs() {
   const {
     in: globPattern,
     out: outputPath,
@@ -49,8 +49,10 @@ async function main() {
     throw new Error('Output path is required')
   }
 
-  const fullOutputPath = path.join(process.cwd(), outputPath)
+  return { globPattern, outputPath, maxLines };
+}
 
+async function readFiles(globPattern: string) {
   const files = await globAsync(globPattern)
 
   const fileContents: FileContent[] = []
@@ -74,6 +76,10 @@ async function main() {
     })
   }
 
+  return fileContents;
+}
+
+async function writeFiles(outputPath: string, maxLines: number, fileContents: FileContent[]) {
   let outputCount = 1
   let lines = 0
 
@@ -98,7 +104,13 @@ async function main() {
     lines += file.content.split('\n').length
   }
 
-  console.log(`Wrote ${fileContents.length} files to ${fullOutputPath}`)
+  console.log(`Wrote ${fileContents.length} files to ${outputPath}`)
+}
+
+async function main() {
+  const { globPattern, outputPath, maxLines } = getCommandLineArgs();
+  const fileContents = await readFiles(globPattern);
+  await writeFiles(outputPath, maxLines, fileContents);
 }
 
 main()
