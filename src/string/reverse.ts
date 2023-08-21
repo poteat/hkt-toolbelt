@@ -1,12 +1,5 @@
 import { Type, Kind } from '..'
 
-type _ReverseHelper<
-  S extends string,
-  O extends string = ''
-> = S extends `${infer Head}${infer Tail}`
-  ? _ReverseHelper<Tail, `${Head}${O}`>
-  : `${string extends S ? string : ''}${O}`
-
 /**
  * `String._$reverse` is a type-level function that reverses the order of characters in a string.
  *
@@ -16,7 +9,12 @@ type _ReverseHelper<
  * type T0 = String._$reverse<'foo'> // 'oof'
  * type T1 = String._$reverse<''> // ''
  */
-export type _$reverse<S extends string> = _ReverseHelper<S>
+export type _$reverse<
+  S extends string,
+  O extends string = ''
+> = S extends `${infer Head}${infer Tail}`
+  ? _$reverse<Tail, `${Head}${O}`>
+  : `${string extends S ? string : ''}${O}`
 
 /**
  * `String.Reverse` is a type-level function that reverses the order of characters in a string.
