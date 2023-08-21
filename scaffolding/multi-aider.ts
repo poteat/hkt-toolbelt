@@ -61,6 +61,18 @@ function checkSpecFile(
   return ''
 }
 
+function generatePlaceholders(
+  file: string,
+  specFile: string,
+  extraFiles: string[]
+): Record<string, string> {
+  let placeholders = { s: file, t: specFile } as Record<string, string>
+  extraFiles.forEach((extraFile: string) => {
+    placeholders[extraFile] = extraFile
+  })
+  return placeholders
+}
+
 function generateCommand(
   file: string,
   specFile: string,
@@ -72,10 +84,7 @@ function generateCommand(
     throw new Error(`Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`)
   }
 
-  let placeholders = { s: file, t: specFileChecked } as Record<string, string>
-  extraFiles.forEach((extraFile: string) => {
-    placeholders[extraFile] = extraFile
-  })
+  let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
   let command = replacePlaceholders(template, placeholders)
   return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
     '\\\n  '
