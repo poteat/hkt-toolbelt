@@ -110,6 +110,21 @@ function generateCommands(
 
 const commands = generateCommands(files, argv.template, argv.extraFiles)
 
+async function executeCommand(command: string) {
+  const execPromisified = util.promisify(exec)
+  try {
+    const { stdout, stderr } = await execPromisified(
+      command.split('\n  ').join(' ')
+    )
+    console.log(`stdout: ${stdout}`)
+    console.error(`stderr: ${stderr}`)
+  } catch (error) {
+    console.error(`Error executing command: ${command}`)
+    console.error(`exec error: ${error}`)
+    throw error
+  }
+}
+
 async function promptUser(commands: string[]) {
   console.log('The following commands will be run:')
   console.log(commands.join('\n\n'))
@@ -124,19 +139,8 @@ async function promptUser(commands: string[]) {
   ])
 
   if (answers.proceed) {
-    const execPromisified = util.promisify(exec)
     for (const command of commands) {
-      try {
-        const { stdout, stderr } = await execPromisified(
-          command.split('\n  ').join(' ')
-        )
-        console.log(`stdout: ${stdout}`)
-        console.error(`stderr: ${stderr}`)
-      } catch (error) {
-        console.error(`Error executing command: ${command}`)
-        console.error(`exec error: ${error}`)
-        throw error
-      }
+      await executeCommand(command)
     }
   }
 }
