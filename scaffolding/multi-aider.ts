@@ -75,10 +75,9 @@ function checkSpecFile(
 function generatePlaceholders(
   file: string,
   specFile: string,
-  extraFiles: string[],
-  model: string
+  extraFiles: string[]
 ): Record<string, string> {
-  let placeholders = { s: file, t: specFile, m: model } as Record<string, string>
+  let placeholders = { s: file, t: specFile } as Record<string, string>
   extraFiles.forEach((extraFile: string) => {
     placeholders[extraFile] = extraFile
   })
@@ -102,7 +101,7 @@ function generateCommand(
     return null
   }
 
-  let placeholders = generatePlaceholders(file, specFileChecked, extraFiles, model)
+  let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
   let command = replacePlaceholders(template, placeholders)
   return ['aider', `--msg="${command}"`, '--model', model, file, specFile, ...extraFiles].join(
     ' '
