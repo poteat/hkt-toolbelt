@@ -48,7 +48,7 @@ async function main() {
 
   const fullOutputPath = path.join(process.cwd(), outputPath)
 
-  const files = glob.sync(globPattern)
+  const files = await glob(globPattern)
 
   const fileContents: FileContent[] = []
 
