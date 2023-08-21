@@ -97,9 +97,7 @@ function generateCommand(
 
   let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
   let command = replacePlaceholders(template, placeholders)
-  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
-    '\\\n  '
-  )
+  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(' ')
 }
 
 function generateCommands(
