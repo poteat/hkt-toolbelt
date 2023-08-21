@@ -1,3 +1,5 @@
+import { List, Kind, Type, Number, String } from '..'
+
 /**
  * `String._$slice` is a type-level function that slices a string from a given index.
  *
