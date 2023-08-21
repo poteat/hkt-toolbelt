@@ -25,11 +25,6 @@ export type _$split<
   ? O
   : [...O, S]
 
-/**
- * `String.Split_T` is an intermediate interface for currying.
- * 
- * @template Delimiter - The delimiter to split the string by.
- */
 interface Split_T<Delimiter extends string> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$split<typeof x, Delimiter>
 }
