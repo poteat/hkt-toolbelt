@@ -109,7 +109,7 @@ function generateCommands(
 
 const commands = generateCommands(files, argv.template, argv.extraFiles)
 
-async function executeCommand(command: string) {
+async function executeCommand(command: string): Promise<boolean> {
   const execPromisified = util.promisify(exec)
   try {
     const { stdout, stderr } = await execPromisified(
@@ -117,10 +117,11 @@ async function executeCommand(command: string) {
     )
     console.log(`stdout: ${stdout}`)
     console.error(`stderr: ${stderr}`)
+    return true
   } catch (error) {
     console.error(`Error executing command: ${command}`)
     console.error(`exec error: ${error}`)
-    throw error
+    return false
   }
 }
 
@@ -144,7 +145,10 @@ async function promptUser(commands: string[]) {
 
   if (answers.proceed) {
     for (const command of commands) {
-      await executeCommand(command)
+      const success = await executeCommand(command)
+      if (!success) {
+        console.log(`Failed to execute command: ${command}`)
+      }
     }
   }
 }
