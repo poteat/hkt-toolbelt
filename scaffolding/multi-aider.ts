@@ -103,15 +103,17 @@ function generateCommand(
 
   let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
   let command = replacePlaceholders(template, placeholders)
-  return [
+  let commandParts = [
     'aider',
     `--msg="${command}"`,
-    '--model',
-    model,
     file,
     specFile,
     ...extraFiles
-  ].join(' ')
+  ];
+  if (model) {
+    commandParts.splice(2, 0, '--model', model);
+  }
+  return commandParts.join(' ');
 }
 
 function generateCommands(
