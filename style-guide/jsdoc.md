@@ -42,7 +42,7 @@ In all cases, adequate examples should be provided. Take note that the examples 
 
 ## Case of 2+ ary kinds
 
-2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented. Here is an example:
+2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented. **Note: Do not add JSDoc comments to these unexported intermediary interfaces.** Here is an example:
 
 ```ts
 /**
