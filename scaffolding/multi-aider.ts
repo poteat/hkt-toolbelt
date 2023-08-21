@@ -17,6 +17,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     type: 'string',
     demandOption: true
   })
+  .option('extraFiles', {
+    alias: 'e',
+    description: 'Extra content files',
+    type: 'array',
+    default: []
+  })
   .help()
   .alias('help', 'h').argv
 
@@ -30,6 +36,9 @@ const commands = files.reduce((acc: string[], file) => {
   let command = argv.template
   if (fs.existsSync(specFile)) {
     command = command.replace('{s}', file).replace('{t}', specFile)
+    argv.extraFiles.forEach((extraFile: string) => {
+      command = command.replace(`{${extraFile}}`, extraFile)
+    })
     acc.push(
       ['aider', `--msg="${command}"`, `${file}`, `${specFile}`].join('\\\n  ')
     )
@@ -41,6 +50,9 @@ const commands = files.reduce((acc: string[], file) => {
     )
   } else {
     command = command.replace('{s}', file).replace('{t}', '')
+    argv.extraFiles.forEach((extraFile: string) => {
+      command = command.replace(`{${extraFile}}`, extraFile)
+    })
     acc.push(['aider', `--msg="${command}"`, `${file}`].join('  \\\n  '))
   }
   return acc
