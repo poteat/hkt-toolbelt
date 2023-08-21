@@ -7,3 +7,4 @@ node_modules
 todo.md
 wiki
 .aider*
+.multi-aider-ignore
