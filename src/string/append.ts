@@ -20,6 +20,7 @@ interface Append_T<Suffix extends string> extends Kind.Kind {
  * `String.Append` is a type-level function that appends a suffix to a string.
  *
  * @template Suffix - The string to append.
+ * @template S - The original string.
  *
  * @example
  * type T0 = $<$<String.Append, 'bar'>, 'foo'> // 'foobar'

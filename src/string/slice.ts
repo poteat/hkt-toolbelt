@@ -21,6 +21,8 @@ interface Slice_T<N extends Number.Number> extends Kind.Kind {
 
 /**
  * `String.Slice` is a type-level function that slices a string from a given index.
+ * @template N - The index from which to start the slice.
+ * @template S - The string to slice.
  *
  * @example
  * type T0 = $<$<String.Slice, 1>, 'hello'> // 'ello'
