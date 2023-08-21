@@ -46,6 +46,8 @@ In all cases, adequate examples should be provided. Take note that the examples 
 
 Kind interfaces like `Split` should have their template parameters documented, even though they 'syntactically' don't possess generics. This is because these interfaces are used in a way that effectively makes them generic, and documenting these 'effective generics' helps provide clarity on their usage.
 
+For example, `String.Split` is a type-level function that splits a string into an array of substrings. It takes two template parameters: `S` which is the string to split, and `Delimiter` which is the delimiter to split the string by. Even though `Split` doesn't syntactically possess these generics, they are effectively used in the implementation and should therefore be documented.
+
 Here is an example:
 
 ```ts
