@@ -68,9 +68,11 @@ export type _$endsWith<
 
 /**
  * `String.EndsWith_T` is an intermediate interface for currying.
+ * 
+ * @template Suffix - The suffix to check for.
  */
-interface EndsWith_T<T extends string> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], string>): _$endsWith<T, typeof x>
+interface EndsWith_T<Suffix extends string> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], string>): _$endsWith<Suffix, typeof x>
 }
 
 /**
@@ -92,29 +94,23 @@ In this example, `EndsWith_T` is the intermediate interface for currying and is 
 
 ## Case of multi-stage kinds
 
-Some kinds are quite complex, and are defined via long sequences of generic parameters. In these cases, each stage should be documented. The following is  a simplified example.
+Some kinds are quite complex, and are defined via long sequences of generic parameters. In these cases, each template should be documented. The following is a simplified example.
 
 ```ts
+/**
+ * `Number.Complex` is a type-level function that complexes two numbers.
+ * 
+ * @template A - The first number to add.
+ * @template B - The second number to add.
+ * @template C - The carry digit from the prior computation.
+ * @template CURRENT_SUM - The current sum of the digits. This is computed on
+ * every step of the recursion.
+ * ...
+ */
 export type _$complex<
-  /**
-   * @template A - The first number to add.
-   */
   A extends number,
-
-  /**
-   * @template B - The second number to add.
-   */
   B extends number,
-
-  /**
-   * @template C - The carry digit from the prior computation.
-   */
   CARRY extends number = 0,
-
-  /**
-   * @template CURRENT_SUM - The current sum of the digits. This is computed on
-   * every step of the recursion.
-   */
   CURRENT_SUM extends number = ...
 > = ...
 ```
