@@ -92,11 +92,11 @@ const commands = files.reduce((acc: string[], file) => {
   return acc
 }, [])
 
-console.log('The following commands will be run:')
-console.log(commands.join('\n\n'))
+async function promptUser(commands: string[]) {
+  console.log('The following commands will be run:')
+  console.log(commands.join('\n\n'))
 
-inquirer
-  .prompt([
+  const answers = await inquirer.prompt([
     {
       type: 'confirm',
       name: 'proceed',
@@ -104,21 +104,23 @@ inquirer
       default: false
     }
   ])
-  .then(async (answers) => {
-    if (answers.proceed) {
-      const execPromisified = util.promisify(exec)
-      for (const command of commands) {
-        try {
-          const { stdout, stderr } = await execPromisified(
-            command.split('\n  ').join(' ')
-          )
-          console.log(`stdout: ${stdout}`)
-          console.error(`stderr: ${stderr}`)
-        } catch (error) {
-          console.error(`Error executing command: ${command}`)
-          console.error(`exec error: ${error}`)
-          throw error
-        }
+
+  if (answers.proceed) {
+    const execPromisified = util.promisify(exec)
+    for (const command of commands) {
+      try {
+        const { stdout, stderr } = await execPromisified(
+          command.split('\n  ').join(' ')
+        )
+        console.log(`stdout: ${stdout}`)
+        console.error(`stderr: ${stderr}`)
+      } catch (error) {
+        console.error(`Error executing command: ${command}`)
+        console.error(`exec error: ${error}`)
+        throw error
       }
     }
-  })
+  }
+}
+
+promptUser(commands)
