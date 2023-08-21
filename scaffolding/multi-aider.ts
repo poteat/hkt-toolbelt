@@ -78,12 +78,13 @@ function generateCommand(
   specFile: string,
   template: string,
   extraFiles: string[]
-): string {
+): string | null {
   const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
-    throw new Error(
-      `No corresponding spec file exists for ${file} and the template uses {t}. Stopping the script.`
+    console.error(
+      `Error: No corresponding spec file exists for ${file} and the template uses {t}.`
     )
+    return null
   }
 
   let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
@@ -98,14 +99,12 @@ function generateCommands(
   template: string,
   extraFiles: string[]
 ): string[] {
-  return files.reduce((acc: string[], file) => {
-    const specFile = file.replace('.ts', '.spec.ts')
-    const command = generateCommand(file, specFile, template, extraFiles)
-    if (command) {
-      acc.push(command)
-    }
-    return acc
-  }, [])
+  return files
+    .map(file => {
+      const specFile = file.replace('.ts', '.spec.ts')
+      return generateCommand(file, specFile, template, extraFiles)
+    })
+    .filter(command => command !== null) as string[]
 }
 
 const commands = generateCommands(files, argv.template, argv.extraFiles)
@@ -126,6 +125,11 @@ async function executeCommand(command: string) {
 }
 
 async function promptUser(commands: string[]) {
+  if (commands.length === 0) {
+    console.log('No commands to execute.')
+    return
+  }
+
   console.log('The following commands will be run:')
   console.log(commands.join('\n\n'))
 
