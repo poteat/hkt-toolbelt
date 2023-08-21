@@ -31,28 +31,31 @@ const ignorePatterns = fs.existsSync('.multi-aider-ignore')
   : []
 
 const files = glob.sync(argv.pattern, { ignore: ignorePatterns })
-const commands = files.reduce((acc: string[], file) => {
-  const specFile = file.replace('.ts', '.spec.ts')
-  let command = argv.template
+function generateCommand(file: string, specFile: string, template: string, extraFiles: string[]): string {
+  let command = template.replace('{s}', file)
   if (fs.existsSync(specFile)) {
-    command = command.replace('{s}', file).replace('{t}', specFile)
-    acc.push(
-      ['aider', `--msg="${command}"`, file, specFile, ...argv.extraFiles].join(
-        '\\\n  '
-      )
-    )
+    command = command.replace('{t}', specFile)
   } else if (command.includes('{t}')) {
     console.warn(
       chalk.red(
         `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
       )
     )
+    return ''
   } else {
-    command = command.replace('{s}', file).replace('{t}', '')
-    argv.extraFiles.forEach((extraFile: string) => {
+    command = command.replace('{t}', '')
+    extraFiles.forEach((extraFile: string) => {
       command = command.replace(`{${extraFile}}`, extraFile)
     })
-    acc.push(['aider', `--msg="${command}"`, `${file}`].join('\n  '))
+  }
+  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join('\\\n  ')
+}
+
+const commands = files.reduce((acc: string[], file) => {
+  const specFile = file.replace('.ts', '.spec.ts')
+  const command = generateCommand(file, specFile, argv.template, argv.extraFiles)
+  if (command) {
+    acc.push(command)
   }
   return acc
 }, [])
