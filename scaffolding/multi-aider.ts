@@ -24,6 +24,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     type: 'array',
     default: []
   })
+  .option('step', {
+    alias: 's',
+    description: 'Execute commands one by one',
+    type: 'boolean',
+    default: false
+  })
   .help()
   .alias('help', 'h').argv
 
@@ -134,20 +140,43 @@ async function promptUser(commands: string[]) {
   console.log('The following commands will be run:')
   console.log(commands.join('\n\n'))
 
-  const answers = await inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'proceed',
-      message: 'Do you want to proceed?',
-      default: false
-    }
-  ])
-
-  if (answers.proceed) {
+  if (argv.step) {
     for (const command of commands) {
-      const success = await executeCommand(command)
-      if (!success) {
-        console.log(`Failed to execute command: ${command}`)
+      const answers = await inquirer.prompt([
+        {
+          type: 'confirm',
+          name: 'proceed',
+          message: `Do you want to execute the following command?\n${command}`,
+          default: false
+        }
+      ])
+
+      if (answers.proceed) {
+        const success = await executeCommand(command)
+        if (!success) {
+          console.log(`Failed to execute command: ${command}`)
+        }
+      } else {
+        console.log('Operation aborted by the user.')
+        return
+      }
+    }
+  } else {
+    const answers = await inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'proceed',
+        message: 'Do you want to proceed?',
+        default: false
+      }
+    ])
+
+    if (answers.proceed) {
+      for (const command of commands) {
+        const success = await executeCommand(command)
+        if (!success) {
+          console.log(`Failed to execute command: ${command}`)
+        }
       }
     }
   }
