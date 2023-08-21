@@ -43,23 +43,32 @@ function replacePlaceholders(
   return result
 }
 
-function generateCommand(
-  file: string,
-  specFile: string,
-  template: string,
-  extraFiles: string[]
-): string {
-  let placeholders = { s: file, t: '' } as Record<string, string>
+function checkSpecFile(file: string, specFile: string, template: string): string | null {
   if (fs.existsSync(specFile)) {
-    placeholders['t'] = specFile
+    return specFile;
   } else if (template.includes('{t}')) {
     console.warn(
       chalk.red(
         `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
       )
     )
-    return ''
+    return null;
   }
+  return '';
+}
+
+function generateCommand(
+  file: string,
+  specFile: string,
+  template: string,
+  extraFiles: string[]
+): string {
+  const specFileChecked = checkSpecFile(file, specFile, template);
+  if (specFileChecked === null) {
+    return '';
+  }
+
+  let placeholders = { s: file, t: specFileChecked } as Record<string, string>
   extraFiles.forEach((extraFile: string) => {
     placeholders[extraFile] = extraFile
   })
