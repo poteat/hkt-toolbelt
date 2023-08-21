@@ -36,11 +36,10 @@ const commands = files.reduce((acc: string[], file) => {
   let command = argv.template
   if (fs.existsSync(specFile)) {
     command = command.replace('{s}', file).replace('{t}', specFile)
-    argv.extraFiles.forEach((extraFile: string) => {
-      command = command.replace(`{${extraFile}}`, extraFile)
-    })
     acc.push(
-      ['aider', `--msg="${command}"`, `${file}`, `${specFile}`].join('\\\n  ')
+      ['aider', `--msg="${command}"`, file, specFile, ...argv.extraFiles].join(
+        '\\\n  '
+      )
     )
   } else if (command.includes('{t}')) {
     console.warn(
@@ -53,7 +52,7 @@ const commands = files.reduce((acc: string[], file) => {
     argv.extraFiles.forEach((extraFile: string) => {
       command = command.replace(`{${extraFile}}`, extraFile)
     })
-    acc.push(['aider', `--msg="${command}"`, `${file}`].join('  \\\n  '))
+    acc.push(['aider', `--msg="${command}"`, `${file}`].join('\n  '))
   }
   return acc
 }, [])
