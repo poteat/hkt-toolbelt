@@ -157,7 +157,7 @@ async function promptUser(commands: string[]) {
           type: 'confirm',
           name: 'proceed',
           message: `Do you want to execute the above command?`,
-          default: false
+          default: true
         }
       ])
 
@@ -180,7 +180,7 @@ async function promptUser(commands: string[]) {
         type: 'confirm',
         name: 'proceed',
         message: 'Do you want to proceed?',
-        default: false
+        default: true
       }
     ])
 
