@@ -96,6 +96,7 @@ inquirer
           console.log(`stdout: ${stdout}`)
           console.error(`stderr: ${stderr}`)
         } catch (error) {
+          console.error(`Error executing command: ${command}`);
           console.error(`exec error: ${error}`);
           throw error;
         }
