@@ -32,12 +32,15 @@ const ignorePatterns = fs.existsSync('.multi-aider-ignore')
   : []
 
 const files = glob.sync(argv.pattern, { ignore: ignorePatterns })
-function replacePlaceholders(template: string, placeholders: Record<string, string>): string {
-  let result = template;
+function replacePlaceholders(
+  template: string,
+  placeholders: Record<string, string>
+): string {
+  let result = template
   for (const [placeholder, value] of Object.entries(placeholders)) {
-    result = result.replace(`{${placeholder}}`, value);
+    result = result.replace(`{${placeholder}}`, value)
   }
-  return result;
+  return result
 }
 
 function generateCommand(
@@ -46,9 +49,9 @@ function generateCommand(
   template: string,
   extraFiles: string[]
 ): string {
-  let placeholders = { 's': file, 't': '' };
+  let placeholders = { s: file, t: '' } as Record<string, string>
   if (fs.existsSync(specFile)) {
-    placeholders['t'] = specFile;
+    placeholders['t'] = specFile
   } else if (template.includes('{t}')) {
     console.warn(
       chalk.red(
@@ -58,9 +61,9 @@ function generateCommand(
     return ''
   }
   extraFiles.forEach((extraFile: string) => {
-    placeholders[extraFile] = extraFile;
-  });
-  let command = replacePlaceholders(template, placeholders);
+    placeholders[extraFile] = extraFile
+  })
+  let command = replacePlaceholders(template, placeholders)
   return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
     '\\\n  '
   )
@@ -103,9 +106,9 @@ inquirer
           console.log(`stdout: ${stdout}`)
           console.error(`stderr: ${stderr}`)
         } catch (error) {
-          console.error(`Error executing command: ${command}`);
-          console.error(`exec error: ${error}`);
-          throw error;
+          console.error(`Error executing command: ${command}`)
+          console.error(`exec error: ${error}`)
+          throw error
         }
       }
     }
