@@ -21,3 +21,24 @@ ts-node multi-aider.ts \
 ```
 
 This will echo a message for each `.ts` file in the `src/string` directory, excluding `.spec.ts` files. If a corresponding `.spec.ts` file exists for a source file, `{t}` will be replaced with the spec file; otherwise, `{t}` will be replaced with an empty string.
+
+
+## Example Resultant Aider Command
+
+```sh
+ts-node ./scaffolding/multi-aider.ts \
+  --template "Can we write JSDoc for {s} per style-guide/jsdoc.md? The spec file {t} may be useful." \
+  --pattern "./src/string/!(*.spec).ts" \
+  --extraFiles style-guide/jsdoc.md style-guide/tests.md
+```
+
+```sh
+aider\
+  --msg="Can we write JSDoc for src/string/includes.ts per style-guide/jsdoc.md? The spec file src/string/includes.spec.ts may be useful."\
+  src/string/includes.ts\
+  src/string/includes.spec.ts\
+  style-guide/jsdoc.md\
+  style-guide/tests.md
+
+# ...
+```
