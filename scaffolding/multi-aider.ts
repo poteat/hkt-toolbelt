@@ -115,20 +115,30 @@ function generateCommands(
 
 const commands = generateCommands(files, argv.template, argv.extraFiles)
 
+import { spawn } from 'child_process'
+
 async function executeCommand(command: string): Promise<boolean> {
-  const execPromisified = util.promisify(exec)
-  try {
-    const { stdout, stderr } = await execPromisified(
-      command.split('\n  ').join(' ')
-    )
-    console.log(chalk.green(`stdout: ${stdout}`))
-    console.error(chalk.red(`stderr: ${stderr}`))
-    return true
-  } catch (error) {
-    console.error(chalk.red(`Error executing command: ${command}`))
-    console.error(chalk.red(`exec error: ${error}`))
-    return false
-  }
+  return new Promise((resolve, reject) => {
+    const [cmd, ...args] = command.split(' ')
+    const proc = spawn(cmd, args)
+
+    proc.stdout.on('data', (data) => {
+      console.log(chalk.green(`stdout: ${data}`))
+    })
+
+    proc.stderr.on('data', (data) => {
+      console.error(chalk.red(`stderr: ${data}`))
+    })
+
+    proc.on('close', (code) => {
+      if (code !== 0) {
+        console.error(chalk.red(`Error executing command: ${command}`))
+        reject(false)
+      } else {
+        resolve(true)
+      }
+    })
+  })
 }
 
 async function promptUser(commands: string[]) {
