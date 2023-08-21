@@ -31,7 +31,12 @@ const ignorePatterns = fs.existsSync('.multi-aider-ignore')
   : []
 
 const files = glob.sync(argv.pattern, { ignore: ignorePatterns })
-function generateCommand(file: string, specFile: string, template: string, extraFiles: string[]): string {
+function generateCommand(
+  file: string,
+  specFile: string,
+  template: string,
+  extraFiles: string[]
+): string {
   let command = template.replace('{s}', file)
   if (fs.existsSync(specFile)) {
     command = command.replace('{t}', specFile)
@@ -48,12 +53,19 @@ function generateCommand(file: string, specFile: string, template: string, extra
       command = command.replace(`{${extraFile}}`, extraFile)
     })
   }
-  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join('\\\n  ')
+  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
+    '\\\n  '
+  )
 }
 
 const commands = files.reduce((acc: string[], file) => {
   const specFile = file.replace('.ts', '.spec.ts')
-  const command = generateCommand(file, specFile, argv.template, argv.extraFiles)
+  const command = generateCommand(
+    file,
+    specFile,
+    argv.template,
+    argv.extraFiles
+  )
   if (command) {
     acc.push(command)
   }
