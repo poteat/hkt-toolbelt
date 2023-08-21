@@ -109,11 +109,11 @@ function generateCommand(
     file,
     specFile,
     ...extraFiles
-  ];
+  ]
   if (model) {
-    commandParts.splice(2, 0, '--model', model);
+    commandParts.splice(2, 0, '--model', model)
   }
-  return commandParts.join(' ');
+  return commandParts.join(' ')
 }
 
 function generateCommands(

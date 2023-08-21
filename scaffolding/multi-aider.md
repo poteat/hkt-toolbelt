@@ -39,7 +39,8 @@ ts-node ./scaffolding/multi-aider.ts \
   --template "Can we write JSDoc for {s} per style-guide/jsdoc.md? The spec file {t} may be useful." \
   --pattern "./src/string/!(*.spec).ts" \
   --extraFiles style-guide/jsdoc.md \
-  --step
+  --step \
+  --model "gpt-4-32k"
 ```
 
 ```sh
