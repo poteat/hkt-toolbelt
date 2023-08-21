@@ -40,9 +40,13 @@ export interface Length extends Kind.Kind {
 
 In all cases, adequate examples should be provided. Take note that the examples properly use the `_$` and `$` syntaxes. When using the `$` syntax, ensure that it is used correctly. For example, if you are demonstrating a type-level function that takes two arguments, the `$` syntax should be used twice, like so: `$<$<String.Append, 'bar'>, 'foo'>`.
 
-## Case of 2+ ary kinds
+## Case of 2+ ary kinds and Kind interfaces
 
-2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented. **Note: Do not add JSDoc comments to these unexported intermediary interfaces.** Here is an example:
+2-ary kinds possess an intermediate interface for currying. This interface is not exported, and thus doesn't need to be documented. **Note: Do not add JSDoc comments to these unexported intermediary interfaces.**
+
+Kind interfaces like `Split` should have their template parameters documented, even though they 'syntactically' don't possess generics. This is because these interfaces are used in a way that effectively makes them generic, and documenting these 'effective generics' helps provide clarity on their usage.
+
+Here is an example:
 
 ```ts
 /**
