@@ -18,7 +18,7 @@ ts-node multi-aider.ts \
   --template 'script-template'
 ```
 
-Replace `'glob-pattern'` with the glob pattern for your input files, `'script-template'` with your script template, and `'model-name'` with your model name. The script template should include `{s}` as a placeholder for the source file, `{t}` as a placeholder for the corresponding spec file, and `{m}` as a placeholder for the model name.
+Replace `'glob-pattern'` with the glob pattern for your input files, `'script-template'` with your script template, and `'model-name'` with your model name. The script template should include `{s}` as a placeholder for the source file and `{t}` as a placeholder for the corresponding spec file. The model name is passed as a flag to the `aider` command.
 
 ### Example
 
