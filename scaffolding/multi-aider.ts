@@ -1,9 +1,8 @@
 import * as glob from 'glob'
 import inquirer from 'inquirer'
-import { exec } from 'child_process'
 import fs from 'fs'
 import chalk from 'chalk'
-import util from 'util'
+import { spawn } from 'child_process'
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .option('pattern', {
@@ -97,7 +96,9 @@ function generateCommand(
 
   let placeholders = generatePlaceholders(file, specFileChecked, extraFiles)
   let command = replacePlaceholders(template, placeholders)
-  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(' ')
+  return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
+    ' '
+  )
 }
 
 function generateCommands(
@@ -114,8 +115,6 @@ function generateCommands(
 }
 
 const commands = generateCommands(files, argv.template, argv.extraFiles)
-
-import { spawn } from 'child_process'
 
 async function executeCommand(command: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
