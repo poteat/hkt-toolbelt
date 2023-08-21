@@ -2,9 +2,9 @@ import { Type, Kind, String } from '..'
 
 /**
  * `String._$length` is a type-level function that returns the length of a string.
- * 
+ *
  * @template S - The string to get the length of.
- * 
+ *
  * @example
  * type T0 = String._$length<'hello'> // 5
  * type T1 = String._$length<''> // 0
@@ -17,9 +17,9 @@ export type _$length<S extends string> = String._$isTemplate<S> extends true
 
 /**
  * `String.Length` is a type-level function that returns the length of a string.
- * 
+ *
  * @template S - The string to get the length of.
- * 
+ *
  * @example
  * type T0 = $<String.Length, 'hello'> // 5
  * type T1 = $<String.Length, ''> // 0
