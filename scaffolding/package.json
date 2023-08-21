@@ -8,10 +8,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^4",
     "glob": "^10.3.3",
+    "inquirer": "^8.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@types/inquirer": "^8.0.0",
     "@types/node": "^20.4.7",
     "@types/yargs": "^17.0.24"
   }

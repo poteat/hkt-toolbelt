@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "target": "es2020",
+    "module": "commonjs",
+    "rootDir": "./",
+    "declaration": true,
+    "noEmit": true,
+    "outDir": "./dist/",
+    "stripInternal": true,
+    "noEmitOnError": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": false,
+    "strict": true
+  },
+  "exclude": ["node_modules"]
+}
