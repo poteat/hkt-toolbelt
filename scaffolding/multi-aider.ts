@@ -58,7 +58,7 @@ function checkSpecFile(
     return specFile
   } else if (template.includes('{t}')) {
     console.warn(
-      chalk.red(
+      chalk.yellow(
         `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
       )
     )
@@ -88,7 +88,7 @@ function generateCommand(
   const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
     console.error(
-      `Error: No corresponding spec file exists for ${file} and the template uses {t}.`
+      chalk.red(`Error: No corresponding spec file exists for ${file} and the template uses {t}.`)
     )
     return null
   }
@@ -121,12 +121,12 @@ async function executeCommand(command: string): Promise<boolean> {
     const { stdout, stderr } = await execPromisified(
       command.split('\n  ').join(' ')
     )
-    console.log(`stdout: ${stdout}`)
-    console.error(`stderr: ${stderr}`)
+    console.log(chalk.green(`stdout: ${stdout}`))
+    console.error(chalk.red(`stderr: ${stderr}`))
     return true
   } catch (error) {
-    console.error(`Error executing command: ${command}`)
-    console.error(`exec error: ${error}`)
+    console.error(chalk.red(`Error executing command: ${command}`))
+    console.error(chalk.red(`exec error: ${error}`))
     return false
   }
 }
@@ -139,8 +139,8 @@ async function promptUser(commands: string[]) {
 
   if (argv.step) {
     for (const command of commands) {
-      console.log('The following command will be run:')
-      console.log(command)
+      console.log(chalk.bold('The following command will be run:'))
+      console.log(chalk.bold(command))
 
       const answers = await inquirer.prompt([
         {
@@ -154,7 +154,7 @@ async function promptUser(commands: string[]) {
       if (answers.proceed) {
         const success = await executeCommand(command)
         if (!success) {
-          console.log(`Failed to execute command: ${command}`)
+          console.log(chalk.red(`Failed to execute command: ${command}`))
         }
       } else {
         console.log('Operation aborted by the user.')
@@ -162,8 +162,8 @@ async function promptUser(commands: string[]) {
       }
     }
   } else {
-    console.log('The following commands will be run:')
-    console.log(commands.join('\n\n'))
+    console.log(chalk.bold('The following commands will be run:'))
+    console.log(chalk.bold(commands.join('\n\n')))
 
     const answers = await inquirer.prompt([
       {
@@ -178,7 +178,7 @@ async function promptUser(commands: string[]) {
       for (const command of commands) {
         const success = await executeCommand(command)
         if (!success) {
-          console.log(`Failed to execute command: ${command}`)
+          console.log(chalk.red(`Failed to execute command: ${command}`))
         }
       }
     }
