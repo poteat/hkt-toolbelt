@@ -19,6 +19,7 @@ export type _$tail<S extends string> = S extends `${string}${infer Tail}`
 
 /**
  * `String.Tail` is a type-level function that extracts every element after the first element of a string.
+ *
  * @template S - The string to extract the tail from.
  *
  * @example
