@@ -78,19 +78,23 @@ function generateCommand(
   )
 }
 
-const commands = files.reduce((acc: string[], file) => {
-  const specFile = file.replace('.ts', '.spec.ts')
-  const command = generateCommand(
-    file,
-    specFile,
-    argv.template,
-    argv.extraFiles
-  )
-  if (command) {
-    acc.push(command)
-  }
-  return acc
-}, [])
+function generateCommands(files: string[], template: string, extraFiles: string[]): string[] {
+  return files.reduce((acc: string[], file) => {
+    const specFile = file.replace('.ts', '.spec.ts')
+    const command = generateCommand(
+      file,
+      specFile,
+      template,
+      extraFiles
+    )
+    if (command) {
+      acc.push(command)
+    }
+    return acc
+  }, [])
+}
+
+const commands = generateCommands(files, argv.template, argv.extraFiles)
 
 async function promptUser(commands: string[]) {
   console.log('The following commands will be run:')
