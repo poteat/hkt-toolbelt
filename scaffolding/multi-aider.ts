@@ -69,7 +69,7 @@ function generateCommand(
 ): string {
   const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
-    return ''
+    throw new Error(`Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`)
   }
 
   let placeholders = { s: file, t: specFileChecked } as Record<string, string>
