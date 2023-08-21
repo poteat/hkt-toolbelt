@@ -17,6 +17,7 @@ export type _$first<S extends string> = S extends `${infer Head}${string}`
 
 /**
  * `String.First` is a type-level function that extracts the first character from a string.
+ * @template S - The string to extract the first character from.
  *
  * @example
  * type T0 = $<String.First, 'hello'> // 'h'

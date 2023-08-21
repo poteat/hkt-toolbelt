@@ -18,6 +18,7 @@ export type _$reverse<
 
 /**
  * `String.Reverse` is a type-level function that reverses the order of characters in a string.
+ * @template S - The string to reverse.
  *
  * @example
  * type T0 = $<String.Reverse, 'foo'> // 'oof'

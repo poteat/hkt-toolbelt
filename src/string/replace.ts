@@ -54,6 +54,7 @@ interface Replace_T<From extends string> extends Kind.Kind {
  *
  * @template From - The string to replace.
  * @template To - The string to replace with.
+ * @template S - The string to replace in.
  *
  * @example
  * type T0 = $<$<$<String.Replace, 'foo'>, 'bar'>, 'foobar'> // 'barbar'
