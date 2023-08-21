@@ -100,11 +100,11 @@ function generateCommands(
   extraFiles: string[]
 ): string[] {
   return files
-    .map(file => {
+    .map((file) => {
       const specFile = file.replace('.ts', '.spec.ts')
       return generateCommand(file, specFile, template, extraFiles)
     })
-    .filter(command => command !== null) as string[]
+    .filter((command) => command !== null) as string[]
 }
 
 const commands = generateCommands(files, argv.template, argv.extraFiles)
