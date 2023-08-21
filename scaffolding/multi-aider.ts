@@ -86,15 +86,15 @@ inquirer
   ])
   .then((answers) => {
     if (answers.proceed) {
-      commands.forEach((command) => {
-        exec(command.split('\n  ').join(' '), (error, stdout, stderr) => {
-          if (error) {
-            console.error(`exec error: ${error}`)
-            return
-          }
-          console.log(`stdout: ${stdout}`)
-          console.error(`stderr: ${stderr}`)
-        })
-      })
+      const execPromisified = util.promisify(exec);
+      for (const command of commands) {
+        try {
+          const { stdout, stderr } = await execPromisified(command.split('\n  ').join(' '));
+          console.log(`stdout: ${stdout}`);
+          console.error(`stderr: ${stderr}`);
+        } catch (error) {
+          console.error(`exec error: ${error}`);
+        }
+      }
     }
   })
