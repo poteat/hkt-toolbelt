@@ -66,6 +66,9 @@ export type _$endsWith<
   S extends string
 > = S extends `${string}${Suffix}` ? true : false
 
+/**
+ * `String.EndsWith_T` is an intermediate interface for currying.
+ */
 interface EndsWith_T<T extends string> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$endsWith<T, typeof x>
 }
