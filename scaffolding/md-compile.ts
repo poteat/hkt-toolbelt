@@ -1,8 +1,11 @@
 #!/usr/bin/env ts-node
 
+import { promisify } from 'util'
 import * as glob from 'glob'
 import fs from 'fs/promises'
 import path from 'path'
+
+const globAsync = promisify(glob)
 
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
@@ -48,7 +51,7 @@ async function main() {
 
   const fullOutputPath = path.join(process.cwd(), outputPath)
 
-  const files = await glob(globPattern)
+  const files = await globAsync(globPattern)
 
   const fileContents: FileContent[] = []
 
