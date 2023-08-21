@@ -32,28 +32,35 @@ const ignorePatterns = fs.existsSync('.multi-aider-ignore')
   : []
 
 const files = glob.sync(argv.pattern, { ignore: ignorePatterns })
+function replacePlaceholders(template: string, placeholders: Record<string, string>): string {
+  let result = template;
+  for (const [placeholder, value] of Object.entries(placeholders)) {
+    result = result.replace(`{${placeholder}}`, value);
+  }
+  return result;
+}
+
 function generateCommand(
   file: string,
   specFile: string,
   template: string,
   extraFiles: string[]
 ): string {
-  let command = template.replace('{s}', file)
+  let placeholders = { 's': file, 't': '' };
   if (fs.existsSync(specFile)) {
-    command = command.replace('{t}', specFile)
-  } else if (command.includes('{t}')) {
+    placeholders['t'] = specFile;
+  } else if (template.includes('{t}')) {
     console.warn(
       chalk.red(
         `Warning: Skipping command for ${file} as no corresponding spec file exists and the template uses {t}`
       )
     )
     return ''
-  } else {
-    command = command.replace('{t}', '')
-    extraFiles.forEach((extraFile: string) => {
-      command = command.replace(`{${extraFile}}`, extraFile)
-    })
   }
+  extraFiles.forEach((extraFile: string) => {
+    placeholders[extraFile] = extraFile;
+  });
+  let command = replacePlaceholders(template, placeholders);
   return ['aider', `--msg="${command}"`, file, specFile, ...extraFiles].join(
     '\\\n  '
   )
