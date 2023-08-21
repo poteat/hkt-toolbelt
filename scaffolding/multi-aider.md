@@ -37,7 +37,8 @@ This will echo a message for each `.ts` file in the `src/string` directory, excl
 ts-node ./scaffolding/multi-aider.ts \
   --template "Can we write JSDoc for {s} per style-guide/jsdoc.md? The spec file {t} may be useful." \
   --pattern "./src/string/!(*.spec).ts" \
-  --extraFiles style-guide/jsdoc.md style-guide/tests.md
+  --extraFiles style-guide/jsdoc.md \
+  --step
 ```
 
 ```sh

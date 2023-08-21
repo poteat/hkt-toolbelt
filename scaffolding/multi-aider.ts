@@ -88,7 +88,9 @@ function generateCommand(
   const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
     console.error(
-      chalk.red(`Error: No corresponding spec file exists for ${file} and the template uses {t}.`)
+      chalk.red(
+        `Error: No corresponding spec file exists for ${file} and the template uses {t}.`
+      )
     )
     return null
   }
