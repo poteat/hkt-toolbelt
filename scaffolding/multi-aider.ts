@@ -3,6 +3,7 @@ import inquirer from 'inquirer'
 import { exec } from 'child_process'
 import fs from 'fs'
 import chalk from 'chalk'
+import util from 'util'
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .option('pattern', {
@@ -84,16 +85,18 @@ inquirer
       default: false
     }
   ])
-  .then((answers) => {
+  .then(async (answers) => {
     if (answers.proceed) {
-      const execPromisified = util.promisify(exec);
+      const execPromisified = util.promisify(exec)
       for (const command of commands) {
         try {
-          const { stdout, stderr } = await execPromisified(command.split('\n  ').join(' '));
-          console.log(`stdout: ${stdout}`);
-          console.error(`stderr: ${stderr}`);
+          const { stdout, stderr } = await execPromisified(
+            command.split('\n  ').join(' ')
+          )
+          console.log(`stdout: ${stdout}`)
+          console.error(`stderr: ${stderr}`)
         } catch (error) {
-          console.error(`exec error: ${error}`);
+          console.error(`exec error: ${error}`)
         }
       }
     }
