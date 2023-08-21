@@ -82,7 +82,7 @@ function generateCommand(
   const specFileChecked = checkSpecFile(file, specFile, template)
   if (specFileChecked === null) {
     throw new Error(
-      `Omitting command for ${file} as no corresponding spec file exists and the template uses {t}. Halting program.`
+      `No corresponding spec file exists for ${file} and the template uses {t}. Stopping the script.`
     )
   }
 
