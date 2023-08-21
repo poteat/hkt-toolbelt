@@ -137,16 +137,16 @@ async function promptUser(commands: string[]) {
     return
   }
 
-  console.log('The following commands will be run:')
-  console.log(commands.join('\n\n'))
-
   if (argv.step) {
     for (const command of commands) {
+      console.log('The following command will be run:')
+      console.log(command)
+
       const answers = await inquirer.prompt([
         {
           type: 'confirm',
           name: 'proceed',
-          message: `Do you want to execute the following command?\n${command}`,
+          message: `Do you want to execute the above command?`,
           default: false
         }
       ])
@@ -162,6 +162,9 @@ async function promptUser(commands: string[]) {
       }
     }
   } else {
+    console.log('The following commands will be run:')
+    console.log(commands.join('\n\n'))
+
     const answers = await inquirer.prompt([
       {
         type: 'confirm',
