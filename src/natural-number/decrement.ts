@@ -5,7 +5,7 @@ import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
  * returns a new natural number representing the result of decrementing the input
  * natural number by 1. If the input is zero, the result will be zero.
  *
- * @param {Number.Number} A - A natural number to decrement.
+ * @template {Number.Number} A - A natural number to decrement.
  * @returns {Number.Number} A natural number.
  *
  * @example
@@ -41,7 +41,7 @@ export type _$decrement<
  * `Decrement` is a type-level function that decrements a natural number type.
  * It returns the decremented number.
  *
- * @param {Number.Number} A - The natural number to decrement.
+ * @template {Number.Number} A - The natural number to decrement.
  * @returns {Number.Number} A natural number or `never`.
  *
  * If the input is not zero or a natural number, `never` is returned.

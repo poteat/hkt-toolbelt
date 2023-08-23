@@ -5,7 +5,7 @@ import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
  * returns a new integer representing the result of decrementing the input
  * integer by 1.
  *
- * @param {Number.Number} A - An integer type.
+ * @template {Number.Number} A - An integer type.
  *
  * @example
  * For example, we can use `_$decrement` to decrement the number -42 by 1.
@@ -44,7 +44,7 @@ export type _$decrement<
  * `Decrement` is a type-level function that decrements an integer type.
  * It returns the decremented integer.
  *
- * @param {Number.Number} A - - The integer to decrement.
+ * @template {Number.Number} A - - The integer to decrement.
  *
  * If the input is not an integer, `never` is returned.
  *

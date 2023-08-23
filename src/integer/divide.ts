@@ -5,8 +5,8 @@ import { Type, Number, Kind, DigitList, NaturalNumber, Boolean } from '..'
  * It takes in two integers `A` and `B` representing the dividend and divisor respectively,
  * and returns the result of dividing `A` by `B`.
  *
- * @param {Number.Number} A - An integer to divide.
- * @param {Number.Number} B - An integer to divide by.
+ * @template {Number.Number} A - An integer to divide.
+ * @template {Number.Number} B - An integer to divide by.
  * @returns {Number.Number} An integer type.
  *
  * If `A` is not a multiple of `B`, the quotient is returned and the remainder is thrown away.
@@ -64,8 +64,8 @@ interface Divide_T<A extends Number.Number> extends Kind.Kind {
  * `Divide` is a type-level function that takes in two integers and performs a division operation.
  * It returns the result of the division operation.
  *
- * @param {Number.Number} A - An integer to divide.
- * @param {Number.Number} B - An integer to divide by.
+ * @template {Number.Number} A - An integer to divide.
+ * @template {Number.Number} B - An integer to divide by.
  * @returns {Number.Number} An integer type.
  *
  * If `A` is not a multiple of `B`, the quotient is returned and the remainder is thrown away.

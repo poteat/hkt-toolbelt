@@ -4,7 +4,7 @@ import { Type, Kind, DigitList, Number, NaturalNumber } from '..'
  * `_$isOdd` is a type-level function that takes in an integer type,
  * `A`, and returns a boolean indicating whether `A` is an odd number
  *
- * @param {Number.Number} A - An integer type.
+ * @template {Number.Number} A - An integer type.
  * @returns {boolean}
  */
 export type _$isOdd<
@@ -19,7 +19,7 @@ export type _$isOdd<
  * `IsOdd` is a type-level function that takes in an integer type,
  * `A`, and returns a boolean indicating whether `A` is an odd number
  *
- * @param {Number.Number} A - An integer type.
+ * @template {Number.Number} A - An integer type.
  * @returns {boolean}
  */
 export interface IsOdd extends Kind.Kind {

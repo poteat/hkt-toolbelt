@@ -4,8 +4,8 @@ import { Kind, Type, Boolean, Number, NaturalNumber, DigitList } from '..'
  * `_$remainder` is a type-level function that takes in two integer types,
  * `A` and `B`, and returns the remainder of `A` divided by `B`.
  *
- * @param {Number.Number} A - An integer to divide.
- * @param {Number.Number} B - An integer to divide by.
+ * @template {Number.Number} A - An integer to divide.
+ * @template {Number.Number} B - An integer to divide by.
  * @returns {Number.Number} An integer type.
  */
 export type _$remainder<
@@ -43,8 +43,8 @@ interface Remainder_T<A extends Number.Number> extends Kind.Kind {
  * `Remainder` is a type-level function that takes in two integer types,
  * `A` and `B`, and returns the remainder of `A` divided by `B`.
  *
- * @param {Number.Number} A - An integer to divide.
- * @param {Number.Number} B - An integer to divide by.
+ * @template {Number.Number} A - An integer to divide.
+ * @template {Number.Number} B - An integer to divide by.
  * @returns {Number.Number} An integer type or `never`.
  *
  * @example

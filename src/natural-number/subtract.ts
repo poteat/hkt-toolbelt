@@ -4,8 +4,8 @@ import { Number, NaturalNumber, DigitList, Type, Kind } from '..'
  * `_$subtract` is a type-level function that subtracts one natural number from
  * another. It returns the result of the subtraction.
  *
- * @param {Number.Number} A - A natural number to subtract.
- * @param {Number.Number} B - A natural number to subtract by.
+ * @template {Number.Number} A - A natural number to subtract.
+ * @template {Number.Number} B - A natural number to subtract by.
  * @returns {Number.Number} A natural number.
  *
  * @example
@@ -45,8 +45,8 @@ interface Subtract_T<X extends Number.Number> extends Kind.Kind {
  * `Subtract` is a type-level function that subtracts one natural number from
  * another. It returns the result of the subtraction.
  *
- * @param {Number.Number} A - A natural number to subtract.
- * @param {Number.Number} B - A natural number to subtract by.
+ * @template {Number.Number} A - A natural number to subtract.
+ * @template {Number.Number} B - A natural number to subtract by.
  * @returns {Number.Number} A natural number or `never`.
  *
  * @example

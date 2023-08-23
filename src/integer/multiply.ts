@@ -4,8 +4,8 @@ import { Type, Number, Kind, DigitList, Boolean, NaturalNumber } from '..'
  * `_$multiply` is a type-level function that takes in two integers `A` and `B`,
  * and returns the product of the two integers.
  *
- * @param {Number.Number} A - An integer.
- * @param {Number.Number} B - An integer.
+ * @template {Number.Number} A - An integer.
+ * @template {Number.Number} B - An integer.
  * @returns {Number.Number} An integer type.
  *
  * @example
@@ -60,8 +60,8 @@ interface Multiply_T<A extends Number.Number> extends Kind.Kind {
  * `Multiply` is a type-level function that multiplies an integer by another integer.
  * It returns the result of the multiplication operation.
  *
- * @param {Number.Number} A - - An integer.
- * @param {Number.Number} B - - An integer.
+ * @template {Number.Number} A - - An integer.
+ * @template {Number.Number} B - - An integer.
  * @returns {Number.Number} An integer type or `never`.
  *
  * If one or more of the inputs is not an integer, an error is emitted.

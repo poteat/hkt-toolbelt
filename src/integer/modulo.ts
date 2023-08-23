@@ -13,8 +13,8 @@ import { Kind, Type, Boolean, Number, NaturalNumber, DigitList } from '..'
  * The sign of output `k` is always the same as the divisor `B`,
  * and the value of `k` is always within the range `-B < k < B`.
  *
- * @param {Number.Number} A - An integer to divide.
- * @param {Number.Number} B - An integer to divide by.
+ * @template {Number.Number} A - An integer to divide.
+ * @template {Number.Number} B - An integer to divide by.
  * @returns {Number.Number} An integer type.
  */
 export type _$modulo<
@@ -61,8 +61,8 @@ interface Modulo_T<A extends Number.Number> extends Kind.Kind {
  * The sign of output `k` is always the same as the divisor `B`,
  * and the value of `k` is always within the range `-B < k < B`.
  *
- * @param {Number.Number} A - An integer to divide.
- * @param {Number.Number} B - An integer to divide by.
+ * @template {Number.Number} A - An integer to divide.
+ * @template {Number.Number} B - An integer to divide by.
  * @returns {Number.Number} An integer type or `never`.
  *
  * @example
