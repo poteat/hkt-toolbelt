@@ -5,8 +5,8 @@ import { Number, Integer, Kind, Type } from '..'
  * types, `A` and `B`, and returns a boolean indicating whether `B` is less
  * than or equal to `A`.
  *
- * @param {Number.Number} A - An integer to compare against.
- * @param {Number.Number} B - An integer to compare.
+ * @template {Number.Number} A - An integer to compare against.
+ * @template {Number.Number} B - An integer to compare.
  * @returns {boolean}
  */
 export type _$isLessThanOrEqual<
@@ -35,8 +35,8 @@ interface IsLessThanOrEqual_T<A extends Number.Number> extends Kind.Kind {
  * types, `A` and `B`, and returns a boolean indicating whether `B` is less
  * than or equal to `A`.
  *
- * @param {Number.Number} A - An integer to compare against.
- * @param {Number.Number} B - An integer to evaluate.
+ * @template {Number.Number} A - An integer to compare against.
+ * @template {Number.Number} B - An integer to evaluate.
  * @returns {boolean}
  *
  * The parameters are ordered such that `IsLessThanOrEqual` can be partially applied

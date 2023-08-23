@@ -4,8 +4,8 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
  * `_$add` is a type-level function that takes in two integers `A` and `B`,
  * and returns the sum of the two integers.
  *
- * @param {Number.Number} A - An integer.
- * @param {Number.Number} B - An integer.
+ * @template {Number.Number} A - An integer.
+ * @template {Number.Number} B - An integer.
  * @returns {Number.Number} An integer type or `never`.
  *
  * @example
@@ -62,8 +62,8 @@ interface Add_T<A extends Number.Number> extends Kind.Kind {
  * `Add` is a type-level function that takes in two integers `A` and `B`,
  * and returns the sum of the two integers.
  *
- * @param {Number.Number} A - An integer.
- * @param {Number.Number} B - An integer.
+ * @template {Number.Number} A - An integer.
+ * @template {Number.Number} B - An integer.
  * @returns {Number.Number} An integer type or `never`.
  *
  * If one or more of the inputs is not an integer, an error is emitted.

@@ -12,8 +12,8 @@ interface SubtractBy_T<A extends Number.Number> extends Kind.Kind {
  * `SubtractBy` is a type-level function that takes in two natural number types,
  * `A` and `B`, and returns the result of subtracting `A` from `B`.
  *
- * @param {Number.Number} A - A natural number to subtract by.
- * @param {Number.Number} B - A natural number to be subtracted from.
+ * @template {Number.Number} A - A natural number to subtract by.
+ * @template {Number.Number} B - A natural number to be subtracted from.
  * @returns {Number.Number} A natural number type or `never`.
  *
  * The parameters are reversed from `Subtract`. This is useful for partial

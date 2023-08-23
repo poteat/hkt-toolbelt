@@ -5,7 +5,7 @@ import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
  * returns a new integer representing the result of incrementing the input
  * integer by 1.
  *
- * @param {Number.Number} A - An integer type.
+ * @template {Number.Number} A - An integer type.
  *
  * @example
  * For example, we can use `_$increment` to increment the number -42 by 1.
@@ -44,7 +44,7 @@ export type _$increment<
  * `Increment` is a type-level function that increments an integer type.
  * It returns the incremented integer.
  *
- * @param {Number.Number} A - - The integer to increment.
+ * @template {Number.Number} A - - The integer to increment.
  *
  * If the input is not an integer, `never` is returned.
  *

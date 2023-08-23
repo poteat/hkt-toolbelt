@@ -4,7 +4,7 @@ import { Type, Kind, Number, NaturalNumber, DigitList } from '..'
  * `_$isEven` is a type-level function that takes in a natural number type,
  * `A`, and returns a boolean indicating whether `A` is an even number
  *
- * @param {Number.Number} A - A natural number.
+ * @template {Number.Number} A - A natural number.
  * @returns {boolean}
  */
 export type _$isEven<
@@ -17,7 +17,7 @@ export type _$isEven<
  * `IsEven` is a type-level function that takes in a natural number type,
  * `A`, and returns a boolean indicating whether `A` is an even number
  *
- * @param {Number.Number} A - A natural number.
+ * @template {Number.Number} A - A natural number.
  * @returns {boolean}
  */
 export interface IsEven extends Kind.Kind {

@@ -12,8 +12,8 @@ interface DivideBy_T<A extends Number.Number> extends Kind.Kind {
  * `DivideBy` is a type-level function that takes in two natural number types,
  * `A` and `B`, and returns the result of dividing `B` by `A`.
  *
- * @param {Number.Number} A - A natural number to divide by.
- * @param {Number.Number} B - A natural number to be divided.
+ * @template {Number.Number} A - A natural number to divide by.
+ * @template {Number.Number} B - A natural number to be divided.
  * @returns {Number.Number} A natural number type or `never`.
  *
  * The parameters are reversed from `Divide`. This is useful for partial

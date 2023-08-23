@@ -6,7 +6,7 @@ import { Type, Kind, Digit, DigitList } from '..'
  * digit list by 1. If the input digit list is empty or represents zero, the
  * result will be a digit list representing zero.
  *
- * @param A - A digit list type.
+ * @template A - A digit list type.
  *
  * @example
  * For example, we can use `_$increment` to increment a digit list representing

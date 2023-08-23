@@ -11,9 +11,9 @@ type _$trimRight2<A extends DigitList.DigitList> = A extends [
  * `_$trimRight` is a type-level function that trims trailing zeros from a digit list.
  * It returns the trimmed digit list.
  *
- * @param A - The digit list to trim.
- * @param TRIM - The digit list after trimming trailing zeros.
- * @param OUTPUT - The final output after trimming. If the trimmed list is empty, it returns ["0"].
+ * @template A - The digit list to trim.
+ * @template TRIM - The digit list after trimming trailing zeros.
+ * @template OUTPUT - The final output after trimming. If the trimmed list is empty, it returns ["0"].
  *
  * @example
  * For example, we can use `_$trimRight` to trim trailing zeros from a digit list:
@@ -37,7 +37,7 @@ export type _$trimRight<
  * `TrimRight` is a type-level function that trims trailing zeros from a digit list.
  * It returns the trimmed digit list.
  *
- * @param x - A digit list to trim trailing zeros from.
+ * @template x - A digit list to trim trailing zeros from.
  *
  * @example
  * For example, we can use `TrimRight` to trim trailing zeros from a digit list:

@@ -8,8 +8,8 @@ import { Number, NaturalNumber, Kind, Type } from '..'
  * This function works by comparing the ordinal values of `A` and `B`. If `B`
  * has a lower or equal ordinal value than `A`, then `B` is less than or equal to `A`.
  *
- * @param {Number.Number} A - A number to compare against.
- * @param {Number.Number} B - A number to compare.
+ * @template {Number.Number} A - A number to compare against.
+ * @template {Number.Number} B - A number to compare.
  * @returns {boolean}
  */
 export type _$isLessThanOrEqual<
@@ -40,8 +40,8 @@ interface IsLessThanOrEqual_T<A extends Number.Number> extends Kind.Kind {
  * types, `A` and `B`, and returns a boolean indicating whether `B` is less
  * than or equal to `A`.
  *
- * @param {Number.Number} A - A number to compare against.
- * @param {Number.Number} B - A number to compare.
+ * @template {Number.Number} A - A number to compare against.
+ * @template {Number.Number} B - A number to compare.
  * @returns {boolean}
  *
  * The parameters are ordered such that `IsLessThanOrEqual` can be partially applied
