@@ -11,15 +11,12 @@ import { $, Type, Kind } from '..'
  *
  * @template F - A type-level function that returns a boolean type indicating whether a type should be included in the result.
  * @template X - A list of types. The target of the filtering operation.
+ * @returns A list of types that satisfy the predicate `F`.
  *
  * @example
  * For example, we can use `_$filter` to filter out negative elements from a tuple of numeric types:
  *
- * ```ts
- * import { List } from "hkt-toolbelt";
- *
  * type FilteredNumbers = List._$filter<Conditional.IsPositive, [1, -2, 3, -4]>;  // [1, 3]
- * ```
  */
 export type _$filter<
   F extends Kind.Kind,
@@ -47,53 +44,38 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  *
  * @template F - A type-level function that returns a boolean type indicating whether a type should be included in the result.
  * @template X - A list of types. The target of the filtering operation.
+ * @returns A list of types that satisfy the predicate `F`.
  *
  * @example
  * For example, we can define a filter for positive numbers and then apply it to a list:
  *
- * ```ts
- * import { $, List, Conditional } from "hkt-toolbelt";
- *
  * type FilteredNumbers = $<$<List.Filter, Conditional.IsPositive>, [1, -2, 3, -4]>;  // [1, 3]
- * ```
  *
  * @example
  * We can also use the `$N` applicator to invoke `Filter` with a list containing the required arguments
  * This improves readability by allowing us to avoid nesting `$` calls.
  *
- * ```ts
- * import { $N, List } from "hkt-toolbelt";
- *
  * type FilterZeros = $N<List.Filter, [
  *   $<Conditional.NotEquals, 0>,
  *   [1, 0, 2, 0, 3]
  * ]>;  // [1, 2, 3]
- * ```
  *
  * @example
  * By partially applying only the first argument to `Filter`,
  * we can define a type-level function that can apply the same operation to multiple list inputs.
  *
- * ```ts
- * import { $, List, Conditional } from hkt-toolbelt;
- *
  * type FilterZeros = $<List.Filter, $<Conditional.NotEquals, 0>>;
  * type AllZero = $<FilterZeros, [0, 0, 0, 0, 0]>;  // []
  * type OneZero = $<FilterZeros, [0, 1, 2, 3, 4, 5]>;  // [1, 2, 3, 4, 5]
- * ```
  *
  * @example
  * Another use case for a partially-applied `Filter` function is to implement
  * sophisticated higher-order functionality by passing it into other type-level functions.
  *
- * ```ts
- * import { $, $$, List, Conditional, String } from "hkt-toolbelt";
- *
  * type HelloWorld = $$<[
  *   $<List.Filter, $<Conditional.Extends, string>>
  *   $<String.Join, ", ">
  * ], [42.42, null, "hello", undefined, "world"]>  // "hello, world"
- * ```
  */
 export interface Filter extends Kind.Kind {
   f(
