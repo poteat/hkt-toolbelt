@@ -14,15 +14,12 @@ import { $, Kind, Type, Function } from '..'
  * @template X - A list of types. The target of the reduce operation.
  * @template O - A type specifying the initial argument that will be taken by `F`.
  *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
+ * @returns An unknown output type of `F`.
  *
  * @example
  * For example, we can use `_$reduce` to derive the sum of all elements in a list of numeric types.
  *
- * ```ts
- * import { List } from "hkt-toolbelt";
- *
  * type Sum1to10 = List._$reduce<NaturalNumber.Add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0>;  // 55
- * ```
  */
 export type _$reduce<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
@@ -70,48 +67,34 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * @template O - A type specifying the initial argument that will be taken by `F`.
  *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
  * @template X - A list of types. The target of the reduce operation.
+ * @returns An unknown output type of `F`.
  *
  * @example
  * For example, we can use `Reduce` to derive the sum of all elements in a list of numeric types.
  *
- * ```ts
- * import { $, List } from "hkt-toolbelt";
- *
  * type Sum1to10 = $<$<$<List.Reduce, NaturalNumber.Add>, 0>, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]>;  // 55
- * ```
  *
  * @example
  * We can also use the `$N` applicator to invoke `Reduce` with a list containing the required arguments
  * This improves readability by allowing us to avoid nesting `$` calls three level deep.
- *
- * ```ts
- * import { $N, List } from "hkt-toolbelt";
  *
  * type IsTrue = $N<List.Reduce, [
  *   Boolean.Xor,
  *   true,
  *   [false, true, false, true]
  * ]>;  // true
- * ```
  *
  * @example
  * By partially applying only the first two arguments to `Reduce`,
  * we can define a type-level function that can apply the same operation to multiple list inputs.
  *
- * ```ts
- * import { $, $N, List, Number } from hkt-toolbelt;
- *
  * type GetMax = $N<List.Reduce, [Number.Max, Number.MIN_SAFE_INTEGER]>;
  * type IsZero = $<GetMax, [-5, -4, -3, -2, -1, 0];  // 0
  * type IsHundred = $<GetMax, [1, -1, 10, -10, 100, -100]>;  // 100
- * ```
  *
  * @example
  * Another use case for a partially-applied `Reduce` function is to implement
  * sophisticated higher-order functionality by passing it into other type-level functions.
- *
- * ```ts
- * import { $, $N, List, Conditional, Number, String } from "hkt-toolbelt";
  *
  * type GetMinOrJoin = $N<Conditional.If, [
  *   $<Conditional.Extends, number[]>,
@@ -121,7 +104,6 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  *
  * type IsNegativeHundred = $<GetMinOrJoin, [1, -1, 10, -10, 100, -100]>;  // -100
  * type HelloWorld = $<GetMinOrJoin, ["hello", "world"]>;  // "hello, world"
- * ```
  */
 export interface Reduce extends Kind.Kind {
   f(

@@ -13,7 +13,8 @@ import { $N, Kind, Type, List } from '..'
  * @template F - A type-level function for a pairwise operation.
  * @template X - A list of types. The target of the accumulate operation.
  * @template O - A type specifying the initial argument that will be taken by `F`.
- *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
+ *          To use the first element of `X` as the initial argument, simply pass in `Functionlue..Identity`.
+ * @returns A list of types containing the results of the accumulate operation.
  *
  * @example
  * For example, we can use `_$accumulate` to derive the sum of k = 1 to n for all elements n in a list of natural number types.
@@ -65,58 +66,42 @@ interface Accumulate_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  * @template O - A type specifying the initial argument that will be taken by `F`.
  *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
  * @template X - A list of types. The target of the accumulate operation.
+ * @returns A list of types containing the results of the accumulate operation.
  *
  * @example
  * For example, we can use `Accumulate` to derive the sum of k = 1 to n for all elements n in a list of natural number types.
  *
- * ```ts
- * import { $, List } from "hkt-toolbelt";
- *
  * type SummationSum1to10 = $<$<$<List.Accumulate, NaturalNumber.Add>, 0>, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]>; // [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
- * ```
  *
  * @example
  * We can also use the `$N` applicator to invoke `Accumulate` with a list containing the required arguments
  * This improves readability by allowing us to avoid nesting `$` calls three level deep.
- *
- * ```ts
- * import { $N, List } from "hkt-toolbelt";
  *
  * type IsFalse = $N<List.Accumulate, [
  *   Boolean.Xor,
  *   true,
  *   [false, true, false, true]
  * ]>;  // [true, false, false, true]
- * ```
  *
  * @example
  * By partially applying only the first two arguments to `Accumulate`,
  * we can define a type-level function that can apply the same operation to multiple list inputs.
  *
- * ```ts
- * import { $, $N, List, Number } from hkt-toolbelt;
- *
  * type GetMax = $N<List.Accumulate, [Number.Max, Number.MIN_SAFE_INTEGER]>;
  * type IsZero = $<GetMax, [-5, -4, -3, -2, -1, 0];  // [-5, -4, -3, -2, -1, 0]
  * type IsHundred = $<GetMax, [1, -1, 10, -10, 100, -100]>;  // [1, 1, 10, 10, 100, 100]
- * ```
  *
  * @example
  * Another use case for a partially-applied `Accumulate` function is to implement
  * sophisticated higher-order functionality by passing it into other type-level functions.
- *
- * ```ts
- * import { $, $N, List, Conditional, Number, String } from "hkt-toolbelt";
  *
  * type GetMinOrJoin = $N<Conditional.If, [
  *   $<Conditional.Extends, number[]>,
  *   $N<List.Accumulate, [Number.Min, Number.MAX_SAFE_INTEGER]>,
  *   $<String.Join, ", ">,
  * ]>;
- *
  * type IsNegativeHundred = $<GetMinOrJoin, [1, -1, 10, -10, 100, -100]>;  // [1, -1, -1, -10, -10, -100]
  * type HelloWorld = $<GetMinOrJoin, ["hello", "world"]>;  // "hello, world"
- * ```
  */
 export interface Accumulate extends Kind.Kind {
   f(

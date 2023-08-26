@@ -6,8 +6,8 @@ import { DigitList, Kind, Type, Number, List, NaturalNumber } from '../'
  * It takes in two arguments: a tuple, and an integer specifying the index of the element to be accessed.
  * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood.
  *
- * @param T - A tuple type.
- * @param POS - An integer type specifying the index of the element to be accessed.
+ * @template T - A tuple type.
+ * @template POS - An integer type specifying the index of the element to be accessed.
  * @returns The element of `T` at index `POS`.
  *
  * ## Edge Cases
@@ -18,9 +18,6 @@ import { DigitList, Kind, Type, Number, List, NaturalNumber } from '../'
  *
  * @example
  * A negative index counts back from the end of the input tuple.
- *
- * ```ts
- * import { List } from 'hkt-toolbelt';
  *
  * type MyList = ['a', 'b', 'c', 'd', 'e'];
  *
@@ -60,8 +57,8 @@ interface At_T<X extends Number.Number> extends Kind.Kind {
  * It takes in two arguments: a tuple, and an integer specifying the index of the element to be accessed.
  * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood.
  *
- * @param T - A tuple type.
- * @param POS - An integer type specifying the index of the element to be accessed.
+ * @template T - A tuple type.
+ * @template POS - An integer type specifying the index of the element to be accessed.
  * @returns The element of `T` at index `POS`.
  *
  * ## Edge Cases
@@ -73,9 +70,6 @@ interface At_T<X extends Number.Number> extends Kind.Kind {
  * @example
  * A negative index counts back from the end of the input tuple.
  *
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
  * type MyList = ['a', 'b', 'c', 'd', 'e'];
  *
  * type Head = $<$<List.At, 0>, MyList>; // 'a'
@@ -83,7 +77,6 @@ interface At_T<X extends Number.Number> extends Kind.Kind {
  *
  * type IsNever = $<$<List.At, 5>, MyList>;  // never
  * type IsNever2 = $<$<List.At, -6>, MyList>;  // never
- * ```
  */
 export interface At extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): At_T<typeof x>
