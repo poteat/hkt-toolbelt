@@ -10,9 +10,8 @@ import { $N, Type, Kind } from '..'
  *
  * The type-level function input can be a fully or partially uncurried `Kind`.
  *
- * @param F - A type-level function that can be uncurried and applied to a list of arguments.
- * @param X - A list of lists of arguments. The target of the map operation.
- *
+ * @template F - A type-level function that can be uncurried and applied to a list of arguments.
+ * @template X - A list of lists of arguments. The target of the map operation.
  * @returns a mapped list of types
  */
 export type _$mapN<T extends Kind.Kind, X extends unknown[][]> = {
@@ -33,9 +32,8 @@ interface MapN_T<T extends Kind.Kind> extends Kind.Kind {
  *
  * The type-level function input can be a fully or partially uncurried `Kind`.
  *
- * @param F - A type-level function that can be uncurried and applied to a list of arguments.
- * @param X - A list of lists of arguments. The target of the map operation.
- *
+ * @template F - A type-level function that can be uncurried and applied to a list of arguments.
+ * @template X - A list of lists of arguments. The target of the map operation.
  * @returns a mapped list of types
  */
 export interface MapN extends Kind.Kind {
