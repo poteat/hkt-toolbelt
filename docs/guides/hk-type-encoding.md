@@ -36,37 +36,36 @@ namespace Kind {
   export type _ = unique symbol;
 }
 
-declare abstract class Kind<F extends Function = Function> {
+declare abstract class Kind<F extends Function.Function = Function.Function> {
   abstract readonly [Kind._]: unknown;
-  abstract f: F;
+  f: F;
 }
 ```
 
 ## 1. HK-Types
 
-A HK-type is also defined via an abstract class, that extends the `Kind` type.
+A HK-type is defined via an interface that extends the `Kind` type.
 
 ```ts
-declare abstract class Length extends Kind {
-  abstract f: (x: Cast<this[Kind._], unknown[]>) => typeof x["length"];
+interface Length extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown[]>): typeof x["length"];
 }
 ```
 
-We encode the higher-kinded type parameter via `this`. We can further use the `Cast` generic to encode input constraints.
+We encode the higher-kinded type parameter via `this`. We can further use the `Type._$cast` generic to encode input constraints.
 
 ## 2. Apply using $<>
 
-Finally, we can apply a higher-kinded type to a type via the `$` generic.
+Finally, we can apply a higher-kinded type to a type argument via the `$` generic.
 
 ```ts
-export type $<F extends Kind, X extends Kind.InputOf<F>> = ReturnType<
-  (F & {
-    readonly [Kind._]: X;
-  })["f"]
->;
+export type $<F extends Kind.Kind, X> = 
+Function._$returnType<
+  (F & { readonly [Kind._]: Type._$cast<X, Kind._$inputOf<F>> })['f']
+>
 ```
 
-Here, we use the `InputOf` type to extract and constrain the input type of the higher-kinded type. We then use the `ReturnType` generic to extract the return type of the higher-kinded type, _after_ we have used `&` to merge the higher-kinded type with the input type.
+Here, we use the `Kind._$inputOf` and `Type._$cast` types to extract and constrain the input type of the higher-kinded type $F$. We then use the `Function._$returnType` generic to extract the return type of the higher-kinded type, _after_ we have used `&` to merge the higher-kinded type with the input type.
 
 ### 2.1. Apply Example
 
