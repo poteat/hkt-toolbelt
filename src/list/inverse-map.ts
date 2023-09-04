@@ -6,8 +6,9 @@ import { $, Type, Kind } from '..'
  * and a target type argument which will be passed into all of these functions.
  * It returns a list filled with the returned results of applying the functions to the argument.
  *
- * @param T - A list of type-level functions that transform unary inputs and return the result.
- * @param X - A type. The argument to be passed into every element of `T`.
+ * @template T - A list of type-level functions that transform unary inputs and return the result.
+ * @template X - A type. The argument to be passed into every element of `T`.
+ * @returns {List.List} A list of types resulting from `X` being inversely mapped onto `T` as an argument.
  *
  * The type-level functions in `T` must be unary, curried `Kind` types as defined in this library.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
@@ -26,8 +27,9 @@ interface InverseMap_T<T extends Kind.Kind[]> extends Kind.Kind {
  * and a target type argument which will be passed into all of these functions.
  * It returns a list filled with the returned results of applying the functions to the argument.
  *
- * @param T - A list of type-level functions that transform unary inputs and return the result.
- * @param X - A type. The argument to be passed into every element of `T`.
+ * @template T - A list of type-level functions that transform unary inputs and return the result.
+ * @template X - A type. The argument to be passed into every element of `T`.
+ * @returns {List.List} A list of types resulting from `X` being inversely mapped onto `T` as an argument.
  *
  * The type-level functions in `T` must be unary, curried `Kind` types as defined in this library.
  * @see {@link https://github.com/poteat/hkt-toolbelt/blob/main/docs/guides/custom-kinds.md} for details on how to create a custom kind.
