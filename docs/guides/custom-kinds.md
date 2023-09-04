@@ -42,15 +42,15 @@ type Result = OmitNonStrings<{ foo: number; bar: string }>; // { bar: string }
 After `OmitNonStrings` is available, we can wrap it in a kind as follows:
 
 ```ts
-import { Kind } from "hkt-toolbelt";
+import { Kind, Type } from "hkt-toolbelt";
 
-declare abstract class OmitNonStringsKind extends Kind {
-  abstract f: (
-    x: Cast<this[Kind._], Record<string, unknown>>
-  ) => OmitNonStrings<typeof x>;
+interface OmitNonStringsKind extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Record<string, unknown>>
+  ): OmitNonStrings<typeof x>;
 }
 ```
 
-The `Cast` parameter _enforces_ that this kind _must_ be applied with a subtype of `Record<string, unknown>`. This is a useful pattern for ensuring that the kind is applied correctly.
+The `Type._$cast` parameter _enforces_ that this kind _must_ be applied with a subtype of `Record<string, unknown>`. This is a useful pattern for ensuring that the kind is applied correctly.
 
 Now that `OmitNonStringsKind` is available, we can use it in kind combinators like `List.Map` to map over a tuple of object types.

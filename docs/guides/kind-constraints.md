@@ -31,13 +31,15 @@ Kinds may be embedded with constraints that are enforced at compile-time. This i
 
 ## Input Constraints
 
-Input constraints are enforced by the `Cast` type. `Cast` is a generic that takes in a type and a constraint type.
+Input constraints are enforced by the `Type._$cast` type. `Type._$cast` is a generic that takes in a type and a constraint type.
 
 ```ts
-import { Cast, Kind } from "hkt-toolbelt";
+import { Kind, Type } from "hkt-toolbelt";
 
-declare abstract class MyKind extends Kind {
-  abstract f: (x: Cast<this[Kind._], string>) => typeof x;
+interface MyKind extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], string>
+  ): typeof x;
 }
 ```
 
@@ -53,10 +55,12 @@ type Result = $<MyKind, 1>; // Type '1' is not assignable to type 'string'
 Kinds can take in kinds. This is useful for defining a kind that takes in a kind that satisfies a certain predicate. However - can we specify that a kind can only take in kinds, which themselves only take in strings?
 
 ```ts
-import { Cast, Kind } from "hkt-toolbelt";
+import { Kind, Type } from "hkt-toolbelt";
 
-declare abstract class MyKind extends Kind {
-  abstract f: (x: Cast<this[Kind._], Kind<(x: string) => unknown>>) => typeof x;
+interface MyKind extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind<(x: string) => unknown>
+  ): typeof x;
 }
 ```
 
@@ -64,7 +68,7 @@ As defined above, this is totally possible to encode, such that the following wi
 
 ```ts
 // @ts-expect-error
-type Result = $<MyKind, Boolean.And<true>>; // Type 'And<true>' does not satisfy the constraint 'Kind<(x: string) => unknown>'.
+type Result = $<MyKind, $<Boolean.And, true>>; // Type '$<Boolean.And, true>' does not satisfy the constraint 'Kind<(x: string) => unknown>'.
 ```
 
 ## Kind Output Constraints
@@ -72,10 +76,12 @@ type Result = $<MyKind, Boolean.And<true>>; // Type 'And<true>' does not satisfy
 Finally, we can also specify that a kind can only be applied to a _kind_ that outputs a particular type.
 
 ```ts
-import { Cast, Kind } from "hkt-toolbelt";
+import { Kind, Type } from "hkt-toolbelt";
 
-declare abstract class MyKind extends Kind {
-  abstract f: (x: Cast<this[Kind._], Kind<(x: never) => string>>) => typeof x;
+interface MyKind extends Kind.Kind {
+  f(
+    x: Type._$cast<this[Kind._], Kind<(x: never) => string>
+  ): typeof x;
 }
 ```
 
