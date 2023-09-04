@@ -13,17 +13,13 @@ import { $N, Kind, Type, List } from '..'
  * @template F - A type-level function for a pairwise operation.
  * @template X - A list of types. The target of the accumulate operation.
  * @template O - A type specifying the initial argument that will be taken by `F`.
- *          To use the first element of `X` as the initial argument, simply pass in `Functionlue..Identity`.
+ *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
  * @returns A list of types containing the results of the accumulate operation.
  *
  * @example
  * For example, we can use `_$accumulate` to derive the sum of k = 1 to n for all elements n in a list of natural number types.
  *
- * ```ts
- * import { List } from "hkt-toolbelt";
- *
  * type SummationSum1to10 = List._$accumulate<NaturalNumber.Add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], []>; // [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
- * ```
  */
 export type _$accumulate<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
