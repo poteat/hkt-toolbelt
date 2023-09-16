@@ -4,6 +4,7 @@ import { Type, Kind } from '..'
  * `_$isVariadic` is a type-level function that checks if a tuple is variadic.
  *
  * @template T - The tuple to check.
+ * @returns A boolean.
  *
  * @example
  * type T0 = List._$isVariadic<[1, 2, 3, ...number[]]> // true
@@ -17,6 +18,7 @@ export type _$isVariadic<T extends unknown[]> = number extends T['length']
  * `IsVariadic` is a type-level function that checks if a tuple is variadic.
  *
  * @template T - The tuple to check.
+ * @returns A boolean.
  *
  * @example
  * type T0 = $<List.IsVariadic, [1, 2, 3, ...number[]]> // true

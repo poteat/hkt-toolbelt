@@ -15,6 +15,7 @@ type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
  * `_$reverse` is a type-level function that reverses a tuple.
  *
  * @template T - The tuple to reverse.
+ * @returns A list of types.
  *
  * @example
  * type T0 = List._$reverse<[1, 2, 3]> // [3, 2, 1]
@@ -32,6 +33,7 @@ export type _$reverse<
  * `Reverse` is a type-level function that reverses a tuple.
  *
  * @template T - The tuple to reverse.
+ * @returns A list of types.
  *
  * @example
  * type T0 = $<List.Reverse, [1, 2, 3]> // [3, 2, 1]

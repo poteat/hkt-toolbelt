@@ -5,6 +5,7 @@ import { $, Boolean, Type, Kind } from '..'
  *
  * @template F - The predicate function.
  * @template T - The tuple to check.
+ * @returns A boolean.
  *
  * @example
  * type T0 = List._$every<$<Conditional.Extends, number>, [1, 2, 3]> // true
@@ -32,6 +33,7 @@ interface Every_T<F extends Kind.Kind<(x: never) => boolean>>
  *
  * @template F - The predicate function.
  * @template T - The tuple to check.
+ * @returns A boolean.
  *
  * @example
  * type T0 = $<$<List.Every, $<Conditional.Extends, number>>, [1, 2, 3]> // true

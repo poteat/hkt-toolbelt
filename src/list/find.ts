@@ -5,6 +5,7 @@ import { $, Type, Kind } from '..'
  *
  * @template F - The predicate function.
  * @template X - The list to search.
+ * @returns An element of `X`.
  *
  * @example
  * type T0 = List._$find<$<Conditional.Equals, 3>, [1, 2, 3]> // 3
@@ -33,6 +34,7 @@ interface Find_T<F extends Kind.Kind<(x: never) => boolean>> extends Kind.Kind {
  *
  * @template F - The predicate function.
  * @template X - The list to search.
+ * @returns An element of `X`.
  *
  * @example
  * type T0 = $<$<List.Find, $<Conditional.Equals, 3>>, [1, 2, 3]> // 3

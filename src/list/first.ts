@@ -4,6 +4,7 @@ import { Type, Kind } from '..'
  * `_$first` is a type-level function that returns the first element of a tuple.
  *
  * @template T - The tuple to get the first element of.
+ * @returns An element of `T`.
  *
  * @example
  * type T0 = List._$first<[1, 2, 3]> // 1
@@ -15,6 +16,7 @@ export type _$first<T extends unknown[]> = T extends [] ? never : T[0]
  * `First` is a type-level function that returns the first element of a tuple.
  *
  * @template T - The tuple to get the first element of.
+ * @returns An element of `T`.
  *
  * @example
  * type T0 = $<List.First, [1, 2, 3]> // 1

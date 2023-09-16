@@ -15,6 +15,7 @@ type _$shiftN2<
  *
  * @template T - The array to shift elements from.
  * @template N - The number of elements to shift.
+ * @returns A list of types.
  *
  * @example
  * type T0 = List._$shiftN<['a', 'b', 'c'], 1> // ['b', 'c']
@@ -37,6 +38,7 @@ interface ShiftN_T<N extends Number.Number> extends Kind.Kind {
  *
  * @template N - The number of elements to shift.
  * @template T - The array to shift elements from.
+ * @returns A list of types.
  *
  * @example
  * type T0 = $<$<List.ShiftN, 1>, ['a', 'b', 'c']> // ['b', 'c']

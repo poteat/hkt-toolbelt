@@ -1,9 +1,10 @@
 import { Type, Kind } from '..'
 
 /**
- * `_$shift` is a type-level function that shifts one element from the head of an array.
+ * `_$shift` is a type-level function that shifts one element from the head of a list.
  *
- * @template T - The array to remove the head from.
+ * @template T - The list to remove the head from.
+ * @returns A list of types.
  *
  * @example
  * type T0 = List._$shift<['a', 'b', 'c']> // ['b', 'c']
@@ -14,9 +15,10 @@ export type _$shift<T extends unknown[]> = T extends [unknown, ...infer Tail]
   : never
 
 /**
- * `Shift` is a type-level function that shifts one element from the head of an array.
+ * `Shift` is a type-level function that shifts one element from the head of a list.
  *
- * @template T - The array to remove the head from.
+ * @template T - The list to remove the head from.
+ * @returns A list of types.
  *
  * @example
  * type T0 = $<List.Shift, ['a', 'b', 'c']> // ['b', 'c']

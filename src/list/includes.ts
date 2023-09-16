@@ -5,6 +5,7 @@ import { $, Type, Kind } from '..'
  *
  * @template F - The function to apply to each element.
  * @template X - The list to check.
+ * @returns A boolean.
  *
  * @example
  * type T0 = List._$includes<$<Conditional.Equals, 3>, [1, 2, 3]> // true
@@ -29,6 +30,7 @@ interface Includes_T<T extends Kind.Kind<(x: never) => boolean>>
  *
  * @template T - The function to apply to each element.
  * @template X - The list to check.
+ * @returns A boolean.
  *
  * @example
  * type T0 = $<$<List.Includes, $<Conditional.Equals, 3>>, [1, 2, 3]> // true

@@ -5,6 +5,7 @@ import { Type, Kind } from '..'
  * where each element is paired with the next element.
  *
  * @template T - The tuple to generate pairs from.
+ * @returns A list of tuples of length 2 that contain sequential elements of `T`.
  *
  * @example
  * type T0 = List._$pair<[1, 2, 3, 4]> // [[1, 2], [2, 3], [3, 4]]
@@ -26,6 +27,7 @@ export type _$pair<
  * where each element is paired with the next element.
  *
  * @template T - The tuple to generate pairs from.
+ * @returns A list of tuples of length 2 that contain sequential elements of `T`.
  *
  * @example
  * type T0 = $<List.Pair, [1, 2, 3, 4]> // [[1, 2], [2, 3], [3, 4]]

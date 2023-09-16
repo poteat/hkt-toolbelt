@@ -5,7 +5,7 @@ import { $, Boolean, Type, Kind } from '..'
  *
  * @template F - The predicate function.
  * @template T - The tuple to check.
- * @template O - The initial output value (default is false).
+ * @returns A boolean.
  *
  * @example
  * type T0 = List._$some<$<Conditional.Extends, number>, [1, 2, 3, 'x']> // true
@@ -29,10 +29,12 @@ interface Some_T<T extends Kind.Kind<(x: never) => boolean>> extends Kind.Kind {
  * `Some` is a type-level function that checks if some element in a tuple satisfies a predicate.
  *
  * @template F - The predicate function.
+ * @template T - The tuple to check.
+ * @returns A boolean.
  *
  * @example
- * type T0 = $<List.Some, $<Conditional.Extends, number>> // (x: [1, 2, 3, 'x']) => true
- * type T1 = $<List.Some, $<Conditional.Extends, number>> // (x: ['x', 'y', 'z']) => false
+ * type T0 = $<$<List.Some, $<Conditional.Extends, number>>, [1, 2, 3, 'x']>  // true
+ * type T1 = $<$<List.Some, $<Conditional.Extends, number>>, ['x', 'y', 'z']> // false
  */
 export interface Some extends Kind.Kind {
   f(
