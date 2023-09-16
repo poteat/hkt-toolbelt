@@ -1,11 +1,11 @@
 import { $, Type, Kind } from '..'
 
 /**
- * `List._$find` is a type-level function that finds the first element in a list that satisfies a given condition.
- * 
- * @template F - The condition function.
- * @template X - The list to search in.
- * 
+ * `_$find` is a type-level function that finds the first element in a list that satisfies a predicate.
+ *
+ * @template F - The predicate function.
+ * @template X - The list to search.
+ *
  * @example
  * type T0 = List._$find<$<Conditional.Equals, 3>, [1, 2, 3]> // 3
  * type T1 = List._$find<$<Conditional.Equals, 4>, [1, 2, 3]> // never
@@ -21,7 +21,7 @@ export type _$find<F extends Kind.Kind, X extends unknown[]> = X extends [
 
 /**
  * `List.Find_T` is an intermediate interface for currying.
- * 
+ *
  * @template F - The condition function.
  */
 interface Find_T<F extends Kind.Kind<(x: never) => boolean>> extends Kind.Kind {
@@ -29,10 +29,11 @@ interface Find_T<F extends Kind.Kind<(x: never) => boolean>> extends Kind.Kind {
 }
 
 /**
- * `List.Find` is a type-level function that finds the first element in a list that satisfies a given condition.
- * 
- * @template F - The condition function.
- * 
+ * `Find` is a type-level function that finds the first element in a list that satisfies a predicate.
+ *
+ * @template F - The predicate function.
+ * @template X - The list to search.
+ *
  * @example
  * type T0 = $<$<List.Find, $<Conditional.Equals, 3>>, [1, 2, 3]> // 3
  * type T1 = $<$<List.Find, $<Conditional.Equals, 4>>, [1, 2, 3]> // never

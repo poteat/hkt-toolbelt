@@ -1,10 +1,10 @@
 import { Type, Kind } from '..'
 
 /**
- * `List.Last` is a type-level function that returns the last element of a tuple.
- * 
+ * `_$last` is a type-level function that returns the last element of a tuple.
+ *
  * @template T - The tuple to get the last element of.
- * 
+ *
  * @example
  * type T0 = List._$last<[1, 2, 3]> // 3
  * type T1 = List._$last<[]> // never
@@ -22,10 +22,10 @@ export type _$last<T extends readonly unknown[]> = T extends [infer X]
   : T[number]
 
 /**
- * `List.Last` is a type-level function that returns the last element of a tuple.
- * 
+ * `Last` is a type-level function that returns the last element of a tuple.
+ *
  * @template T - The tuple to get the last element of.
- * 
+ *
  * @example
  * type T0 = $<List.Last, [1, 2, 3]> // 3
  * type T1 = $<List.Last, []> // never
