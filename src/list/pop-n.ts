@@ -15,6 +15,7 @@ type _$popN2<
  *
  * @template T - The list to pop elements from.
  * @template N - The number of elements to pop.
+ * @returns A list of types.
  *
  * @example
  * type T0 = List._$popN<['a', 'b', 'c'], 1> // ['a', 'b']
@@ -36,6 +37,7 @@ interface PopN_T<N extends Number.Number> extends Kind.Kind {
  *
  * @template N - The number of elements to pop.
  * @template T - The list to pop elements from.
+ * @returns A list of types.
  *
  * @example
  * type T0 = $<$<List.PopN, 1>, ['a', 'b', 'c']> // ['a', 'b']

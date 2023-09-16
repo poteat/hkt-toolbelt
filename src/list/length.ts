@@ -4,6 +4,7 @@ import { Type, Kind } from '..'
  * `_$length` is a type-level function that returns the length of a list.
  *
  * @template T - The list to get the length of.
+ * @returns A non-negative integer type.
  *
  * @example
  * type T0 = List._$length<[1, 2, 3]> // 3
@@ -15,6 +16,7 @@ export type _$length<T extends unknown[]> = T['length']
  * `Length` is a type-level function that returns the length of a list.
  *
  * @template T - The list to get the length of.
+ * @returns A non-negative integer type.
  *
  * @example
  * type T0 = $<List.Length, [1, 2, 3]> // 3

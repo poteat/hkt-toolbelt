@@ -4,6 +4,7 @@ import { Type, Kind } from '..'
  * `_$last` is a type-level function that returns the last element of a tuple.
  *
  * @template T - The tuple to get the last element of.
+ * @returns An element of `T`.
  *
  * @example
  * type T0 = List._$last<[1, 2, 3]> // 3
@@ -25,6 +26,7 @@ export type _$last<T extends readonly unknown[]> = T extends [infer X]
  * `Last` is a type-level function that returns the last element of a tuple.
  *
  * @template T - The tuple to get the last element of.
+ * @returns An element of `T`.
  *
  * @example
  * type T0 = $<List.Last, [1, 2, 3]> // 3

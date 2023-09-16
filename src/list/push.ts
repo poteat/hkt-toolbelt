@@ -5,6 +5,7 @@ import { Type, Kind } from '..'
  *
  * @template X - The element to push.
  * @template T - The tuple to push the element to.
+ * @returns A list of types.
  *
  * @example
  * type T0 = List._$push<3, [1, 2]> // [1, 2, 3]
@@ -21,6 +22,7 @@ interface Push_T<X> extends Kind.Kind {
  *
  * @template X - The element to push.
  * @template T - The tuple to push the element to.
+ * @returns A list of types.
  *
  * @example
  * type T0 = $<$<List.Push, 3>, [1, 2]> // [1, 2, 3]

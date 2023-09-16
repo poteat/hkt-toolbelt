@@ -5,6 +5,7 @@ import { Type, Kind } from '..'
  *
  * @template X - The item to prepend.
  * @template T - The list to prepend to.
+ * @returns A list of types.
  *
  * @example
  * type T0 = List._$unshift<1, [2, 3, 4]> // [1, 2, 3, 4]
@@ -20,6 +21,7 @@ interface Unshift_T<X> extends Kind.Kind {
  *
  * @template X - The item to prepend.
  * @template T - The list to prepend to.
+ * @returns A list of types.
  *
  * @example
  * type T0 = $<$<List.Unshift, 1>, [2, 3, 4]> // [1, 2, 3, 4]

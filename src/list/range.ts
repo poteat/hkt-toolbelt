@@ -42,6 +42,7 @@ type _$range2<
  * @template START - The start of the range.
  * @template STOP - The end of the range.
  * @template STEP - The step size for the range.
+ * @returns A list of integer types.
  *
  * @example
  * type T0 = List._$range<0, 10, 1> // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -77,6 +78,7 @@ interface Range_T<START extends Number.Number> extends Kind.Kind {
  * @template START - The start of the range.
  * @template STOP - The end of the range.
  * @template STEP - The step size for the range.
+ * @returns A list of integer types.
  *
  * @example
  * type T0 = $<$<$<List.Range, 0>, 10>, 1> // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

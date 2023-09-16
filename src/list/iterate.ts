@@ -7,6 +7,7 @@ import { $, Type, Kind, Number, List, NaturalNumber } from '..'
  * @template F - The function to iterate with.
  * @template O - The initial input to the function.
  * @template N - The number of times to iterate.
+ * @returns A list of types containing the results of iterating `F` over `O` `N` times.
  *
  * @example
  * type T0 = List._$iterate<$<Boolean.Xor, true>, true, 5> // [true, false, true, false, true]
@@ -49,6 +50,7 @@ interface Iterate_T<F extends Kind.Kind> extends Kind.Kind {
  * @template F - The function to iterate with.
  * @template N - The number of times to iterate.
  * @template O - The initial input to the function.
+ * @returns A list of types containing the results of iterating `F` over `O` `N` times.
  *
  * @example
  * type T0 = $<$<$<List.Iterate, $<Boolean.Xor, true>>, 5>, true> // [true, false, true, false, true]

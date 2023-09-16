@@ -16,6 +16,7 @@ type _$times2<
  * `_$times` is a type-level function that generates a list of numbers from 0 to N-1.
  *
  * @template N - The length of the list to be generated.
+ * @returns A list of non-negative integer types.
  */
 export type _$times<N extends Number.Number> = _$times2<
   NaturalNumber._$toList<N>
@@ -25,6 +26,7 @@ export type _$times<N extends Number.Number> = _$times2<
  * `Times` is a type-level function that generates a list of numbers from 0 to N-1.
  *
  * @template N - The length of the list to be generated.
+ * @returns A list of non-negative integer types.
  */
 export interface Times extends Kind.Kind {
   f(
