@@ -21,6 +21,19 @@ import { $, Kind, Type, Function } from '..'
  *
  * type Sum1to10 = List._$reduce<NaturalNumber.Add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0>;  // 55
  */
+/**
+ * `List._$reduce` is a type-level function that performs a reduce operation (also known as "fold") over a list of types.
+ * 
+ * @template F - A type-level function for a pairwise operation.
+ * @template X - A list of types. The target of the reduce operation.
+ * @template O - A type specifying the initial argument that will be taken by `F`.
+ *          To use the first element of `X` as the initial argument, simply pass in `Function.Identity`.
+ * 
+ * @example
+ * For example, we can use `_$reduce` to derive the sum of all elements in a list of numeric types.
+ *
+ * type Sum1to10 = List._$reduce<NaturalNumber.Add, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0>;  // 55
+ */
 export type _$reduce<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
   X extends unknown[],
@@ -104,6 +117,19 @@ interface Reduce_T<F extends Kind.Kind<(x: never) => Kind.Kind>>
  *
  * type IsNegativeHundred = $<GetMinOrJoin, [1, -1, 10, -10, 100, -100]>;  // -100
  * type HelloWorld = $<GetMinOrJoin, ["hello", "world"]>;  // "hello, world"
+ */
+/**
+ * `List.Reduce` is a type-level function that performs a reduce operation (also known as "fold") over a list of types.
+ *
+ * @template F - A type-level function for a pairwise operation.
+ * @template O - A type specifying the initial argument that will be taken by `F`.
+ *          To use first element of `X` as the initial argument, simply pass in `Function.Identity`.
+ * @template X - A list of types. The target of the reduce operation.
+ *
+ * @example
+ * For example, we can use `Reduce` to derive the sum of all elements in a list of numeric types.
+ *
+ * type Sum1to10 = $<$<$<List.Reduce, NaturalNumber.Add>, 0>, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]>;  // 55
  */
 export interface Reduce extends Kind.Kind {
   f(
