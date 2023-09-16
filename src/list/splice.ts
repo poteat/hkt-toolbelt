@@ -9,6 +9,25 @@ import {
   Boolean
 } from '..'
 
+/**
+ * `_$splice2` is a type-level function that changes the contents of a list by removing or replacing existing elements and/or adding new elements.
+ * 
+ * @template T - The input list.
+ * @template START - An integer representing the index at which to start splicing.
+ * @template DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
+ * @template INSERTS - An array of elements to insert into T at the starting index.
+ * @template PRE - A list of elements before the start index.
+ * @template POST - A list of elements after the start index.
+ * @template T_LENGTH - The length of the input list.
+ * @template START_ABS - The absolute value of the start index.
+ * @template START_NORM - The normalized start index.
+ * @template RESULT - The result list after splicing.
+ * 
+ * @example
+ * type T0 = _$splice2<[0, 1, 2, 3, 4], 1, 2, []>; // [0, 3, 4]
+ * type T1 = _$splice2<[0, 1, 2, 3, 4], 1, 2, ['a', 'b']>; // [0, 'a', 'b', 3, 4]
+ * type T2 = _$splice2<[0, 1, 2, 3, 4], -2, 2, ['a', 'b']>; // [0, 1, 'a', 'b', 4]
+ */
 type _$splice2<
   T extends List.List,
   START extends Number.Number,
@@ -104,6 +123,13 @@ export type _$splice<
     : never
 > = RESULT
 
+/**
+ * `Splice_T3` is an intermediate interface for currying.
+ * 
+ * @template START - The index at which to start changing the list.
+ * @template DEL_COUNT - The number of elements to remove from the list at the starting index.
+ * @template INSERTS - An array of elements to insert into the list at the starting index.
+ */
 interface Splice_T3<
   START extends Number.Number,
   DEL_COUNT extends Number.Number,
@@ -114,6 +140,12 @@ interface Splice_T3<
   ): _$splice<typeof x, START, DEL_COUNT, INSERTS>
 }
 
+/**
+ * `Splice_T2` is an intermediate interface for currying.
+ * 
+ * @template START - The index at which to start changing the list.
+ * @template DEL_COUNT - The number of elements to remove from the list at the starting index.
+ */
 interface Splice_T2<
   START extends Number.Number,
   DEL_COUNT extends Number.Number
@@ -123,6 +155,11 @@ interface Splice_T2<
   ): Splice_T3<START, DEL_COUNT, typeof x>
 }
 
+/**
+ * `Splice_T` is an intermediate interface for currying.
+ * 
+ * @template START - The index at which to start changing the list.
+ */
 interface Splice_T<START extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Splice_T2<START, typeof x>
 }
