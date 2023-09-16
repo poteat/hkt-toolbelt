@@ -1,12 +1,11 @@
 import { Type, Kind } from '..'
 
 /**
- * `List.Pair` is a type-level function that generates a tuple of pairs from a tuple, 
+ * `_$pair` is a type-level function that generates a tuple of pairs from a tuple,
  * where each element is paired with the next element.
- * 
+ *
  * @template T - The tuple to generate pairs from.
- * @template O - The output tuple of pairs.
- * 
+ *
  * @example
  * type T0 = List._$pair<[1, 2, 3, 4]> // [[1, 2], [2, 3], [3, 4]]
  * type T1 = List._$pair<[]> // []
@@ -23,11 +22,11 @@ export type _$pair<
   : O
 
 /**
- * `List.Pair` is a type-level function that generates a tuple of pairs from a tuple, 
+ * `Pair` is a type-level function that generates a tuple of pairs from a tuple,
  * where each element is paired with the next element.
- * 
+ *
  * @template T - The tuple to generate pairs from.
- * 
+ *
  * @example
  * type T0 = $<List.Pair, [1, 2, 3, 4]> // [[1, 2], [2, 3], [3, 4]]
  * type T1 = $<List.Pair, []> // []
