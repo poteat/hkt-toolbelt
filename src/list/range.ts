@@ -1,5 +1,12 @@
 import { $, Kind, Type, Number, List, NaturalNumber, Conditional } from '..'
 
+/**
+ * Helper type for the implementation of `_$range`.
+ * 
+ * @template START - The start of the range.
+ * @template STOP - The end of the range.
+ * @template STEP - The step size for the range.
+ */
 type _$range2<
   START extends Number.Number,
   STOP extends Number.Number,
@@ -36,6 +43,17 @@ type _$range2<
     : RESULT
   : never
 
+/**
+ * `List.Range` is a type-level function that generates a range of numbers.
+ * 
+ * @template START - The start of the range.
+ * @template STOP - The end of the range.
+ * @template STEP - The step size for the range.
+ * 
+ * @example
+ * type T0 = $<$<$<List.Range, 0>, 10>, 1> // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * type T1 = $<$<$<List.Range, 10>, 0>, -2> // [10, 8, 6, 4, 2]
+ */
 export type _$range<
   START extends Number.Number,
   STOP extends Number.Number,
@@ -51,15 +69,37 @@ export type _$range<
   ? _$range2<START, STOP, STEP>
   : never
 
+/**
+ * Intermediate interface for currying.
+ * 
+ * @template START - The start of the range.
+ * @template STOP - The end of the range.
+ */
 interface Range_T2<START extends Number.Number, STOP extends Number.Number>
   extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): _$range<START, STOP, typeof x>
 }
 
+/**
+ * Intermediate interface for currying.
+ * 
+ * @template START - The start of the range.
+ */
 interface Range_T<START extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Range_T2<START, typeof x>
 }
 
+/**
+ * `List.Range` is a type-level function that generates a range of numbers.
+ * 
+ * @template START - The start of the range.
+ * @template STOP - The end of the range.
+ * @template STEP - The step size for the range.
+ * 
+ * @example
+ * type T0 = $<$<$<List.Range, 0>, 10>, 1> // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * type T1 = $<$<$<List.Range, 10>, 0>, -2> // [10, 8, 6, 4, 2]
+ */
 export interface Range extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Range_T<typeof x>
 }
