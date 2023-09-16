@@ -1,14 +1,5 @@
 import { Kind, Type, DigitList, Number, List, NaturalNumber } from '..'
 
-/**
- * `_$repeat2` is a helper type-level function for `_$repeat` that recursively fills a tuple with elements of a specified type.
- *
- * @template FILL_TYPE - The type to fill the tuple with.
- * @template COUNTER - A digit list representing the number of times to fill the tuple with `FILL_TYPE`.
- * @template STATE - The current state of the tuple being filled.
- * @template STATE_LENGTH - The length of the current state of the tuple.
- * @template RESULT - The final result of the tuple after it has been filled.
- */
 type _$repeat2<
   FILL_TYPE extends unknown,
   COUNTER extends DigitList.DigitList,
@@ -42,24 +33,6 @@ type _$repeat2<
  * @example
  * type Result = List._$repeat<"a", 3>; // ["a", "a", "a"]
  */
-/**
- * `_$repeat` is a type-level function that returns a tuple filled with multiple elements of a specified type.
- *
- * It takes in two arguments:
- * `T`, the type to repeat, and `N`, the number of times to repeat `T`.
- *
- * `_$repeat` can handle an output tuple length of up to 2137,
- * which is larger than 999, the maximum recursion depth limit of TypeScript.
- *
- * @template T - An unknown type.
- * @template N - A natural number.
- * @returns A list of types containing `N` counts of `T`.
- *
- * If `N` is not a natural number, returns `never`.
- *
- * @example
- * type Result = List._$repeat<"a", 3>; // ["a", "a", "a"]
- */
 export type _$repeat<
   T extends unknown,
   N extends Number.Number,
@@ -68,11 +41,6 @@ export type _$repeat<
     : never
 > = RESULT
 
-/**
- * `Repeat_T` is an intermediate interface for currying.
- *
- * @template N - A natural number.
- */
 interface Repeat_T<N extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown>): _$repeat<typeof x, N>
 }
