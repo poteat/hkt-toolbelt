@@ -10,6 +10,17 @@ type _$shiftN2<
     : []
 > = RESULT
 
+/**
+ * `_$shiftN` is a type-level function that shifts N elements from the head of an array.
+ *
+ * @template T - The array to shift elements from.
+ * @template N - The number of elements to shift.
+ * @returns A list of types.
+ *
+ * @example
+ * type T0 = List._$shiftN<['a', 'b', 'c'], 1> // ['b', 'c']
+ * type T1 = List._$shiftN<['a', 'b', 'c'], 2> // ['c']
+ */
 export type _$shiftN<
   T extends unknown[],
   N extends Number.Number,
@@ -22,6 +33,17 @@ interface ShiftN_T<N extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$shiftN<typeof x, N>
 }
 
+/**
+ * `ShiftN` is a type-level function that shifts N elements from the head of an array.
+ *
+ * @template N - The number of elements to shift.
+ * @template T - The array to shift elements from.
+ * @returns A list of types.
+ *
+ * @example
+ * type T0 = $<$<List.ShiftN, 1>, ['a', 'b', 'c']> // ['b', 'c']
+ * type T1 = $<$<List.ShiftN, 2>, ['a', 'b', 'c']> // ['c']
+ */
 export interface ShiftN extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): ShiftN_T<typeof x>
 }

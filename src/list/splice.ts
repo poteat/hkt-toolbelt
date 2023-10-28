@@ -75,21 +75,13 @@ type _$splice2<
  * If `START < 0`, `START + T["length"]` is used.
  * @template DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
  * @template INSERTS - An array of elements to insert into T at the starting index.
- *
- * ## Usage
+ * @returns A list of types.
  *
  * @example
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
  * type MyList = [0, 1, 2, 3, 4]
- *
  * type Result1 = List._$splice<[0, 1, 2, 3, 4], 1, 2, []>; // [0, 3, 4]
- *
  * type Result2 = List._$splice<[0, 1, 2, 3, 4], 1, 2, ['a', 'b']>; // [0, 'a', 'b', 3, 4]
- *
  * type Result3 = List._$splice<[0, 1, 2, 3, 4], -2, 2, ['a', 'b']>; // [0, 1, 'a', 'b', 4]
- * ```
  *
  * ## Edge Cases
  *
@@ -152,21 +144,15 @@ interface Splice_T<START extends Number.Number> extends Kind.Kind {
  * If `START < 0`, `START + T["length"]` is used.
  * @template DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
  * @template INSERTS - An array of elements to insert into T at the starting index.
+ * @returns A list of types.
  *
  * ## Usage
  *
  * @example
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
  * type MyList = [0, 1, 2, 3, 4]
- *
  * type Result1 = $<$<$<$<List.Splice, 1>, 2>, []>, [0, 1, 2, 3, 4]>; // [0, 3, 4]
- *
  * type Result2 = $<<$<$<$<List.Splice, 1>, 2>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 'a', 'b', 3, 4]
- *
  * type Result3 = $<$<$<$<List.Splice, -2>, 2>, ['a', 'b']>, [0, 1, 2, 3, 4]>; // [0, 1, 'a', 'b', 4]
- * ```
  *
  * ## Edge Cases
  *
@@ -174,7 +160,6 @@ interface Splice_T<START extends Number.Number> extends Kind.Kind {
  * If `START < -T["length"]` or `START` is omitted, `START` is subsituted with 0.
  * If `DEL_COUNT`is greater than or equal to the number of elements after the position specified by `START`, then all the elements from `START` to the end of the array will be deleted.
  * If `START` is not an integer, or `DEL_COUNT` is not a natural number, returns never.
- *
  */
 export interface Splice extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Splice_T<typeof x>

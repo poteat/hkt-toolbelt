@@ -1,5 +1,33 @@
 import { DigitList, Kind, Type, Number, List, NaturalNumber } from '../'
 
+/**
+ * `_$at` is a type-level function that retrieves and returns an element from a tuple type.
+ *
+ * It takes in two arguments: a tuple, and an integer specifying the index of the element to be accessed.
+ * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood.
+ *
+ * @template T - A tuple type.
+ * @template POS - An integer type specifying the index of the element to be accessed.
+ * @returns The element of `T` at index `POS`.
+ *
+ * ## Edge Cases
+ *
+ * If `POS` is greater than or equal to the length of `T`, returns `never`.
+ * If `POS` is lesser than the negated length of `T`, returns `never`.
+ * If `POS` is not a numeric type, returns `never`.
+ *
+ * @example
+ * A negative index counts back from the end of the input tuple.
+ *
+ * type MyList = ['a', 'b', 'c', 'd', 'e'];
+ *
+ * type Head = List._$at<MyList, 0>; // 'a'
+ * type Tail = List._$at<MyList, -1>; // 'e'
+ *
+ * type IsNever = List._$at<MyList, 5>;  // never
+ * type IsNever2 = List._$at<MyList, -6>;  // never
+ * ```
+ */
 export type _$at<
   T extends List.List,
   POS extends Number.Number,
@@ -23,6 +51,33 @@ interface At_T<X extends Number.Number> extends Kind.Kind {
   ): Number._$isInteger<X> extends true ? _$at<typeof x, X> : never
 }
 
+/**
+ * `At` is a type-level function that retrieves and returns an element from a tuple type.
+ *
+ * It takes in two arguments: a tuple, and an integer specifying the index of the element to be accessed.
+ * Both positive and negative indices are supported, with negative indices being normalized into zero-based indices under the hood.
+ *
+ * @template T - A tuple type.
+ * @template POS - An integer type specifying the index of the element to be accessed.
+ * @returns The element of `T` at index `POS`.
+ *
+ * ## Edge Cases
+ *
+ * If `POS` is greater than or equal to the length of `T`, returns `never`.
+ * If `POS` is lesser than the negated length of `T`, returns `never`.
+ * If `POS` is not an integer type, returns `never`.
+ *
+ * @example
+ * A negative index counts back from the end of the input tuple.
+ *
+ * type MyList = ['a', 'b', 'c', 'd', 'e'];
+ *
+ * type Head = $<$<List.At, 0>, MyList>; // 'a'
+ * type Tail = $<$<List.At, -1>, MyList>; // 'e'
+ *
+ * type IsNever = $<$<List.At, 5>, MyList>;  // never
+ * type IsNever2 = $<$<List.At, -6>, MyList>;  // never
+ */
 export interface At extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): At_T<typeof x>
 }
