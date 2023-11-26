@@ -7,4 +7,10 @@
     "exclude": [
         "**/*.spec.ts",
     ],
+    "visibilityFilters": {
+        "protected": false,
+        "private": false,
+        "inherited": false,
+        "external": false
+    }
 }
