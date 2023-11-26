@@ -40,8 +40,8 @@ export type _$zip<
   RESULT extends List.List = MIN_LENGTH extends Number.MAX_SAFE_INTEGER
     ? []
     : IDX extends MIN_LENGTH
-    ? ACC
-    : _$zip<T, NaturalNumber._$increment<IDX>, List._$push<CURR, ACC>>
+      ? ACC
+      : _$zip<T, NaturalNumber._$increment<IDX>, List._$push<CURR, ACC>>
 > = RESULT
 
 /**

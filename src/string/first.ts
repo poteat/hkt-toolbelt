@@ -12,8 +12,8 @@ import { Type, Kind } from '..'
 export type _$first<S extends string> = S extends `${infer Head}${string}`
   ? Head
   : string extends S
-  ? S
-  : ''
+    ? S
+    : ''
 
 /**
  * `String.First` is a type-level function that extracts the first character from a string.

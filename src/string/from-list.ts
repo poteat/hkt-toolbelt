@@ -13,8 +13,8 @@ import { Type, Kind } from '..'
 export type _$fromList<T, O extends string = ''> = 0 extends 1
   ? never
   : T extends [infer Head, ...infer Tail]
-  ? _$fromList<Tail, `${O}${Type._$cast<Head, string>}`>
-  : O
+    ? _$fromList<Tail, `${O}${Type._$cast<Head, string>}`>
+    : O
 
 /**
  * `String.FromList` is a type-level function that joins a list of strings into a single string.

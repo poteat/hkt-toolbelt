@@ -21,8 +21,8 @@ import { Type, Kind, DigitList } from '..'
 export type _$shift<T extends DigitList.DigitList> = T extends []
   ? []
   : T extends [unknown, ...infer X]
-  ? X
-  : []
+    ? X
+    : []
 
 /**
  * `Shift` is a type-level function that removes the first digit from a digit list.

@@ -14,8 +14,8 @@ import { Kind, Union, Type } from '..'
 export type _$length<T> = Type._$isNever<T> extends true
   ? 0
   : Union._$toList<T> extends infer X extends unknown[]
-  ? X['length']
-  : never
+    ? X['length']
+    : never
 
 /**
  * `Union.Length` is a type-level function that returns the length of a union.
