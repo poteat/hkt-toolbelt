@@ -1,0 +1,29 @@
+name: Lint, build, and run stress tests
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-stress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Swap Space
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 24
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install npm dependencies
+        run: npm install
+      - name: Run linter
+        run: npm run lint-check
+      - name: Run TypeScript compiler
+        run: npm run build
+      - name: Run tests
+        run: npm test
+      - name: Run stress tests
+        run: npm run stress
