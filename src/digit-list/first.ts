@@ -16,8 +16,8 @@ import { Digit, DigitList, Kind, Type } from '../'
 export type _$first<T extends DigitList.DigitList> = T extends []
   ? Digit.Zero
   : T extends [infer X, ...unknown[]]
-  ? X
-  : Digit.Zero
+    ? X
+    : Digit.Zero
 
 /**
  * `First` is a type-level function that returns the first digit of a digit list.

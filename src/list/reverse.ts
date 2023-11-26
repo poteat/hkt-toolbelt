@@ -8,8 +8,8 @@ type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
     ? [...O, Last]
     : _$reverse2<Init, [...O, Last]>
   : T extends [infer Head, ...unknown[]]
-  ? Head
-  : [...O, ...T]
+    ? Head
+    : [...O, ...T]
 
 /**
  * `_$reverse` is a type-level function that reverses a tuple.
@@ -26,8 +26,8 @@ export type _$reverse<
 > = T extends [infer Head, ...infer Tail]
   ? _$reverse<Tail, [Head, ...O]>
   : T extends []
-  ? O
-  : [..._$reverse2<T>, ...O]
+    ? O
+    : [..._$reverse2<T>, ...O]
 
 /**
  * `Reverse` is a type-level function that reverses a tuple.

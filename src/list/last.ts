@@ -17,10 +17,10 @@ import { Type, Kind } from '..'
 export type _$last<T extends readonly unknown[]> = T extends [infer X]
   ? X
   : T extends [unknown, ...infer Tail]
-  ? _$last<Tail>
-  : T extends [...unknown[], infer X]
-  ? X
-  : T[number]
+    ? _$last<Tail>
+    : T extends [...unknown[], infer X]
+      ? X
+      : T[number]
 
 /**
  * `Last` is a type-level function that returns the last element of a tuple.

@@ -51,8 +51,8 @@ export type _$slice<
     DigitList.DigitList = Number._$isNatural<START> extends true
     ? START_ABS
     : DigitList._$compare<T_LENGTH, START_ABS> extends -1
-    ? [Digit.Zero]
-    : DigitList._$subtract<T_LENGTH, START_ABS>,
+      ? [Digit.Zero]
+      : DigitList._$subtract<T_LENGTH, START_ABS>,
   POP_NORM extends DigitList.DigitList = Number._$isNatural<END> extends true
     ? DigitList._$compare<T_LENGTH, END_ABS> extends -1
       ? [Digit.Zero]

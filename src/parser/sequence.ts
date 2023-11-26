@@ -17,8 +17,8 @@ export type _$sequence<
   IS_DONE extends boolean = NEXT_PX extends []
     ? true
     : NEXT_STATE extends never
-    ? false
-    : false
+      ? false
+      : false
 > = IS_DONE extends true
   ? NEXT_STATE extends never
     ? never

@@ -14,8 +14,8 @@ import { Type, Kind, Number } from '..'
 export type _$sign<T extends Number.Number> = number extends T
   ? '+' | '-'
   : `${T}` extends `-${string}`
-  ? '-'
-  : '+'
+    ? '-'
+    : '+'
 
 /**
  * `Number.Sign` is a type-level function that returns the sign of a number.

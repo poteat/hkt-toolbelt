@@ -56,8 +56,8 @@ export type _$increment<
 > = A extends []
   ? FINAL_RESULT
   : CARRY extends '0'
-  ? SHORT_CIRCUIT
-  : _$increment<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>
+    ? SHORT_CIRCUIT
+    : _$increment<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>
 
 /**
  * `Increment` is a type-level function that increments a digit list.

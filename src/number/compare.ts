@@ -66,10 +66,10 @@ type _$compare2<
         : DigitList._$compare<A_INT, B_INT>
       : 1
     : B_SGN extends '+'
-    ? -1
-    : A_INT extends B_INT
-    ? _$decimalCompare<B_DEC, A_DEC>
-    : DigitList._$compare<B_INT, A_INT>
+      ? -1
+      : A_INT extends B_INT
+        ? _$decimalCompare<B_DEC, A_DEC>
+        : DigitList._$compare<B_INT, A_INT>
 > = RESULT
 
 type _$decimalCompare<
@@ -113,10 +113,10 @@ type _$decimalCompare<
       ? 0
       : -1
     : B extends []
-    ? 1
-    : COMP extends 0
-    ? _$decimalCompare<A_NEXT, B_NEXT>
-    : COMP
+      ? 1
+      : COMP extends 0
+        ? _$decimalCompare<A_NEXT, B_NEXT>
+        : COMP
 > = RESULT
 
 /**

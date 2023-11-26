@@ -24,38 +24,38 @@ type _$splice2<
     DigitList.DigitList = Number._$isNatural<START> extends true
     ? START_ABS
     : DigitList._$compare<T_LENGTH, START_ABS> extends -1
-    ? [Digit.Zero]
-    : DigitList._$subtract<T_LENGTH, START_ABS>,
+      ? [Digit.Zero]
+      : DigitList._$subtract<T_LENGTH, START_ABS>,
   RESULT extends List.List = DigitList._$compare<
     START_NORM,
     NaturalNumber._$toList<T['length']>
   > extends 1 | 0
     ? List._$concat<INSERTS, T>
     : DEL_COUNT extends [Digit.Zero]
-    ? START_NORM extends [Digit.Zero]
-      ? [...PRE, ...INSERTS, ...POST]
-      : _$splice2<
-          T,
-          DigitList._$toNumber<DigitList._$decrement<START_NORM>>,
-          [Digit.Zero],
-          INSERTS,
-          List._$push<POST[0], PRE>,
-          List._$shift<POST>
-        >
-    : START_NORM extends [Digit.Zero]
-    ? [
-        ...PRE,
-        ...INSERTS,
-        ...List._$shiftN<POST, DigitList._$toNumber<DEL_COUNT>>
-      ]
-    : _$splice2<
-        T,
-        DigitList._$toNumber<DigitList._$decrement<START_NORM>>,
-        DEL_COUNT,
-        INSERTS,
-        List._$push<POST[0], PRE>,
-        List._$shift<POST>
-      >
+      ? START_NORM extends [Digit.Zero]
+        ? [...PRE, ...INSERTS, ...POST]
+        : _$splice2<
+            T,
+            DigitList._$toNumber<DigitList._$decrement<START_NORM>>,
+            [Digit.Zero],
+            INSERTS,
+            List._$push<POST[0], PRE>,
+            List._$shift<POST>
+          >
+      : START_NORM extends [Digit.Zero]
+        ? [
+            ...PRE,
+            ...INSERTS,
+            ...List._$shiftN<POST, DigitList._$toNumber<DEL_COUNT>>
+          ]
+        : _$splice2<
+            T,
+            DigitList._$toNumber<DigitList._$decrement<START_NORM>>,
+            DEL_COUNT,
+            INSERTS,
+            List._$push<POST[0], PRE>,
+            List._$shift<POST>
+          >
 > = RESULT
 
 /**

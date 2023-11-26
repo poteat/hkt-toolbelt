@@ -6,10 +6,10 @@ export type _$letters2<
 > = 0 extends 1
   ? never
   : S extends `${infer Head}${infer Tail}`
-  ? Head extends Parser.__$letter
-    ? _$letters2<Tail, `${MATCH}${Head}`>
+    ? Head extends Parser.__$letter
+      ? _$letters2<Tail, `${MATCH}${Head}`>
+      : MATCH
     : MATCH
-  : MATCH
 
 export type _$letters<
   STATE extends Parser._$state,
