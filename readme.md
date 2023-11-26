@@ -182,6 +182,14 @@ const unshiftPushJoin =
   )));
 ```
 
+## Documentation
+
+For full documentation on all of the types included in this library, see: [https://majorlift.github.io/hkt-toolbelt/](https://majorlift.github.io/hkt-toolbelt/)
+
+Note: The curried nature of the functions in this library is intended to be utilized to compose types using point-free style.
+
+As a general principle, **`hkt-toolbelt`** types are written to first take in operations, and then the data to be operated on.
+
 ## Guides
 
 We have additional resources to help you get started with **`hkt-toolbelt`**, that go in depth on the concepts and usage.
