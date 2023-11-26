@@ -23,18 +23,18 @@ type _$range2<
       ? true
       : false
     : NaturalNumber._$compare<START, STOP> extends -1 | 0
-    ? true
-    : false,
+      ? true
+      : false,
   RESULT extends Number.Number[] = START extends Kind._$inputOf<F>
     ? List._$iterate<F, START, COUNT>
     : never
 > = 0 extends 1
   ? never
   : VALIDATE extends true
-  ? COUNT extends 0
-    ? []
-    : RESULT
-  : never
+    ? COUNT extends 0
+      ? []
+      : RESULT
+    : never
 
 /**
  * `_$range` is a type-level function that generates a range of numbers.

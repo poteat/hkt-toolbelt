@@ -19,8 +19,8 @@ export type _$pair<
 > = T extends [infer X1, infer X2, ...infer Rest]
   ? _$pair<[X2, ...Rest], [...O, [X1, X2]]>
   : number extends T['length']
-  ? [T[number], T[number]][]
-  : O
+    ? [T[number], T[number]][]
+    : O
 
 /**
  * `Pair` is a type-level function that generates a tuple of pairs from a tuple,

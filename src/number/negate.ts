@@ -20,8 +20,8 @@ export type _$negate<
   RESULT extends Number.Number = T extends 0
     ? 0
     : `${T}` extends `-${infer U extends number}`
-    ? U
-    : Number._$fromString<`-${T}`>
+      ? U
+      : Number._$fromString<`-${T}`>
 > = RESULT
 
 /**

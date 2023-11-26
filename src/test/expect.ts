@@ -34,5 +34,5 @@ export type Expect<
 > = Type._$isNever<V> extends true
   ? X
   : Type._$isNever<X> extends true
-  ? Expect<X, V>
-  : X
+    ? Expect<X, V>
+    : X

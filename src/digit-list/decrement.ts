@@ -78,8 +78,8 @@ type _$decrement2<
 > = A extends '0'[]
   ? FINAL_RESULT
   : CARRY extends '0'
-  ? SHORT_CIRCUIT
-  : _$decrement2<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>
+    ? SHORT_CIRCUIT
+    : _$decrement2<NEXT_A, NEXT_CARRY, NEXT_OUTPUT>
 
 /**
  * `_$decrement` is a type-level function that takes in a digit list `A` and

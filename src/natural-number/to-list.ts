@@ -19,8 +19,8 @@ export type _$toList<
 > = Number._$toString<S> extends `${infer Head}${infer Tail}`
   ? _$toList<Tail, [...O, Head]>
   : O extends DigitList.DigitList
-  ? O
-  : ['0']
+    ? O
+    : ['0']
 
 /**
  * Represents a type-level utility to convert a natural number into a list of its digits.

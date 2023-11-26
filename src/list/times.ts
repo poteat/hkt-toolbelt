@@ -9,8 +9,8 @@ type _$times2<
 > = 0 extends 1
   ? never
   : COUNTER extends ['0']
-  ? STATE
-  : _$times2<DEC, [DEC_NUM, ...STATE]>
+    ? STATE
+    : _$times2<DEC, [DEC_NUM, ...STATE]>
 
 /**
  * `_$times` is a type-level function that generates a list of numbers from 0 to N-1.
