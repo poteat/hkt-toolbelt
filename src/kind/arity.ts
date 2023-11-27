@@ -16,8 +16,8 @@ export type _$arity<
 > = Kind._$inputOf<K> extends never
   ? ACC
   : $<K, never> extends Kind.Kind
-  ? _$arity<$<K, never>, NaturalNumber._$increment<ACC>>
-  : never
+    ? _$arity<$<K, never>, NaturalNumber._$increment<ACC>>
+    : never
 
 /**
  * `Arity` is a type-level function that takes in a curried type-level function,
