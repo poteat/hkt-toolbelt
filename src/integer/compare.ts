@@ -46,8 +46,8 @@ export type _$compare<
     ? DigitList._$compare<A_INT, B_INT>
     : 1
   : B_SGN extends '+'
-  ? -1
-  : DigitList._$compare<B_INT, A_INT>
+    ? -1
+    : DigitList._$compare<B_INT, A_INT>
 
 interface Compare_T<X extends Number.Number> extends Kind.Kind {
   f(
