@@ -22,8 +22,8 @@ export type _$parameters<
 > = Kind._$inputOf<K> extends never
   ? ACC
   : $<K, never> extends Kind.Kind
-  ? _$parameters<$<K, never>, List._$push<Kind._$inputOf<K>, ACC>>
-  : never
+    ? _$parameters<$<K, never>, List._$push<Kind._$inputOf<K>, ACC>>
+    : never
 
 /**
  * `Parameters` is a type-level function that takes in a curried n-ary type-level function,
