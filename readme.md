@@ -82,7 +82,7 @@ import {
   $, $$, $N, 
   Boolean, Conditional, Function,
   List, Object, String, Union,
-  Number, NaturalNumber,
+  Number, Integer, NaturalNumber,
   Kind, Type, Combinator, Parser,
 } from "hkt-toolbelt";
 ```
