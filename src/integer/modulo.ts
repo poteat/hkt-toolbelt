@@ -37,10 +37,10 @@ export type _$modulo<
     ? DigitList._$toNumber<MODULUS_LIST>
     : Number._$negate<DigitList._$toNumber<MODULUS_LIST>>
   : B_SGN extends '+'
-  ? DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
-  : Number._$negate<
-      DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
-    >
+    ? DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
+    : Number._$negate<
+        DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
+      >
 
 interface Modulo_T<A extends Number.Number> extends Kind.Kind {
   f(

@@ -33,23 +33,23 @@ export type _$add<
     ? B_SGN extends '+'
       ? DigitList._$toNumber<DigitList._$add<A_LIST, B_LIST>>
       : IS_A_GREATER extends 0
-      ? 0
-      : IS_A_GREATER extends 1
-      ? DigitList._$toNumber<DigitList._$subtract<A_LIST, B_LIST>>
-      : Number._$fromString<`-${DigitList._$toNumber<
-          DigitList._$subtract<B_LIST, A_LIST>
-        >}`>
+        ? 0
+        : IS_A_GREATER extends 1
+          ? DigitList._$toNumber<DigitList._$subtract<A_LIST, B_LIST>>
+          : Number._$fromString<`-${DigitList._$toNumber<
+              DigitList._$subtract<B_LIST, A_LIST>
+            >}`>
     : B_SGN extends '+'
-    ? IS_A_GREATER extends 0
-      ? 0
-      : IS_A_GREATER extends 1
-      ? Number._$fromString<`-${DigitList._$toNumber<
-          DigitList._$subtract<A_LIST, B_LIST>
+      ? IS_A_GREATER extends 0
+        ? 0
+        : IS_A_GREATER extends 1
+          ? Number._$fromString<`-${DigitList._$toNumber<
+              DigitList._$subtract<A_LIST, B_LIST>
+            >}`>
+          : DigitList._$toNumber<DigitList._$subtract<B_LIST, A_LIST>>
+      : Number._$fromString<`-${DigitList._$toNumber<
+          DigitList._$add<A_LIST, B_LIST>
         >}`>
-      : DigitList._$toNumber<DigitList._$subtract<B_LIST, A_LIST>>
-    : Number._$fromString<`-${DigitList._$toNumber<
-        DigitList._$add<A_LIST, B_LIST>
-      >}`>
 > = SUM
 
 interface Add_T<A extends Number.Number> extends Kind.Kind {
