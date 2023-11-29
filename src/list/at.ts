@@ -12,8 +12,8 @@ export type _$at<
       ? POS_ABS
       : never
     : DigitList._$compare<T_LENGTH, POS_ABS> extends -1
-    ? never
-    : DigitList._$subtract<T_LENGTH, POS_ABS>,
+      ? never
+      : DigitList._$subtract<T_LENGTH, POS_ABS>,
   INDEX extends number = DigitList._$toNumber<POS_NORM>
 > = POS_NORM extends never ? never : T[INDEX]
 

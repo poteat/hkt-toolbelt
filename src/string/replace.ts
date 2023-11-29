@@ -30,10 +30,10 @@ export type _$replace<
 > = String._$isTemplate<From> extends true
   ? string
   : string extends From
-  ? string
-  : From extends ''
-  ? `${To}${_$replace2<S, From, To>}`
-  : _$replace2<S, From, To>
+    ? string
+    : From extends ''
+      ? `${To}${_$replace2<S, From, To>}`
+      : _$replace2<S, From, To>
 
 /**
  * `Replace_T2` is an intermediate interface for currying.

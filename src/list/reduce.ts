@@ -31,20 +31,22 @@ export type _$reduce<
 > = 0 extends 1
   ? never
   : X extends [infer H, ...infer T]
-  ? $<
-      $<F, Type._$cast<O, Kind._$inputOf<F>>>,
-      Type._$cast<
-        H,
-        Kind._$inputOf<
-          Function._$returnType<
-            (F & { readonly [Kind._]: Type._$cast<O, Kind._$inputOf<F>> })['f']
+    ? $<
+        $<F, Type._$cast<O, Kind._$inputOf<F>>>,
+        Type._$cast<
+          H,
+          Kind._$inputOf<
+            Function._$returnType<
+              (F & {
+                readonly [Kind._]: Type._$cast<O, Kind._$inputOf<F>>
+              })['f']
+            >
           >
         >
-      >
-    > extends infer R
-    ? _$reduce<F, T, R>
-    : never
-  : O
+      > extends infer R
+      ? _$reduce<F, T, R>
+      : never
+    : O
 
 interface Reduce_T2<F extends Kind.Kind<(x: never) => Kind.Kind>, X>
   extends Kind.Kind {

@@ -12,10 +12,10 @@ import { Type, Kind } from '..'
 export type _$toList<S extends string, O extends string[] = []> = 0 extends 1
   ? never
   : string extends S
-  ? [string]
-  : S extends `${infer Head}${infer Tail}`
-  ? _$toList<Tail, [...O, Head]>
-  : O
+    ? [string]
+    : S extends `${infer Head}${infer Tail}`
+      ? _$toList<Tail, [...O, Head]>
+      : O
 
 /**
  * `String.ToList` is a type-level function that splits a string into a list of its characters.

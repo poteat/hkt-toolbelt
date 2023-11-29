@@ -35,8 +35,8 @@ export type _$accumulate<
   RESULT extends Kind._$inputOf<F>[] = X extends []
     ? M
     : ACC extends Kind._$inputOf<F>
-    ? _$accumulate<F, REST, ACC, List._$push<ACC, M>>
-    : never
+      ? _$accumulate<F, REST, ACC, List._$push<ACC, M>>
+      : never
 > = 0 extends 1 ? never : RESULT
 
 interface Accumulate_T2<
