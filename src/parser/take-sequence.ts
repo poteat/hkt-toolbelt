@@ -12,16 +12,16 @@ type _$takeSequence<
   NEXT_STATE extends Parser._$state = ACTIVE_PX extends [Parser.Parser]
     ? $<ACTIVE_PX[0], Type._$cast<STATE, Kind._$inputOf<ACTIVE_PX[0]>>>
     : ACTIVE_PX extends Parser.Parser
-    ? $<ACTIVE_PX, Type._$cast<STATE, Kind._$inputOf<ACTIVE_PX>>>
-    : never,
+      ? $<ACTIVE_PX, Type._$cast<STATE, Kind._$inputOf<ACTIVE_PX>>>
+      : never,
   NEXT_RESULT extends unknown = ACTIVE_PX extends [Parser.Parser]
     ? NEXT_STATE['result']
     : RESULT,
   IS_DONE extends boolean = NEXT_PX extends []
     ? true
     : NEXT_STATE extends never
-    ? false
-    : false
+      ? false
+      : false
 > = IS_DONE extends true
   ? NEXT_STATE extends never
     ? never

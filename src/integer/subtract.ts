@@ -34,22 +34,22 @@ export type _$subtract<
       ? IS_A_GREATER extends 0
         ? 0
         : IS_A_GREATER extends 1
-        ? DigitList._$toNumber<DigitList._$subtract<A_LIST, B_LIST>>
-        : Number._$fromString<`-${DigitList._$toNumber<
-            DigitList._$subtract<B_LIST, A_LIST>
-          >}`>
+          ? DigitList._$toNumber<DigitList._$subtract<A_LIST, B_LIST>>
+          : Number._$fromString<`-${DigitList._$toNumber<
+              DigitList._$subtract<B_LIST, A_LIST>
+            >}`>
       : DigitList._$toNumber<DigitList._$add<A_LIST, B_LIST>>
     : B_SGN extends '+'
-    ? Number._$fromString<`-${DigitList._$toNumber<
-        DigitList._$add<A_LIST, B_LIST>
-      >}`>
-    : IS_A_GREATER extends 0
-    ? 0
-    : IS_A_GREATER extends 1
-    ? Number._$fromString<`-${DigitList._$toNumber<
-        DigitList._$subtract<A_LIST, B_LIST>
-      >}`>
-    : DigitList._$toNumber<DigitList._$subtract<B_LIST, A_LIST>>
+      ? Number._$fromString<`-${DigitList._$toNumber<
+          DigitList._$add<A_LIST, B_LIST>
+        >}`>
+      : IS_A_GREATER extends 0
+        ? 0
+        : IS_A_GREATER extends 1
+          ? Number._$fromString<`-${DigitList._$toNumber<
+              DigitList._$subtract<A_LIST, B_LIST>
+            >}`>
+          : DigitList._$toNumber<DigitList._$subtract<B_LIST, A_LIST>>
 > = DIFF
 
 interface Subtract_T<A extends Number.Number> extends Kind.Kind {

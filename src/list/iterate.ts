@@ -11,15 +11,15 @@ export type _$iterate<
   RESULT extends Kind._$inputOf<F>[] = COUNT extends 0
     ? M
     : ACC extends Kind._$inputOf<F>
-    ? _$iterate<
-        F,
-        O,
-        N,
-        NaturalNumber._$decrement<COUNT>,
-        List._$push<ACC, M>,
-        ACC
-      >
-    : never
+      ? _$iterate<
+          F,
+          O,
+          N,
+          NaturalNumber._$decrement<COUNT>,
+          List._$push<ACC, M>,
+          ACC
+        >
+      : never
 > = 0 extends 1 ? never : RESULT
 
 interface Iterate_T2<F extends Kind.Kind, N extends Number.Number>

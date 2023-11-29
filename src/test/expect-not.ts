@@ -17,5 +17,5 @@ export type ExpectNot<
 > = Type._$isNever<V> extends true
   ? X
   : Type._$isNever<X> extends true
-  ? ExpectNot<X, V>
-  : X
+    ? ExpectNot<X, V>
+    : X
