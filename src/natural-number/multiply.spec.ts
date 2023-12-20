@@ -39,5 +39,15 @@ type Multiply_Spec = [
   /**
    * 0 * 0 = 0
    */
-  Test.Expect<$<$<NaturalNumber.Multiply, 0>, 0>, 0>
+  Test.Expect<$<$<NaturalNumber.Multiply, 0>, 0>, 0>,
+
+  /**
+   * Can multiply numbers as strings.
+   */
+  Test.Expect<$<$<NaturalNumber.Multiply, '1234'>, '5678'>, 7006652>,
+
+  /**
+   * Non-natural number input emits error
+   */
+  Test.Expect<$<NaturalNumber.Multiply, -42.42>, never>
 ]
