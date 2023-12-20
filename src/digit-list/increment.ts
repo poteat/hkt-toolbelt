@@ -1,5 +1,36 @@
 import { Type, Kind, Digit, DigitList } from '..'
 
+/**
+ * `_$increment` is a type-level function that takes in a digit list `A` and
+ * returns a new digit list representing the result of incrementing the input
+ * digit list by 1. If the input digit list is empty or represents zero, the
+ * result will be a digit list representing zero.
+ *
+ * @template A - A digit list type.
+ *
+ * @example
+ * For example, we can use `_$increment` to increment a digit list representing
+ * the number 42 by 1. In this example, the digit list `["4", "2"]` is passed as
+ * a type argument to the type-level function:
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type Result = DigitList._$increment<["4", "2"]>; // ["4", "3"]
+ * ```
+ *
+ * @example
+ * We can also use `_$increment` with an empty digit list or a digit list
+ * representing zero. In both cases, the result will be a digit list
+ * representing one:
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type Result1 = DigitList._$increment<[]>; // ["1"]
+ * type Result2 = DigitList._$increment<["0"]>; // ["1"]
+ * ```
+ */
 export type _$increment<
   /**
    * The digit-list to increment.

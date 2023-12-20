@@ -16,7 +16,7 @@ import { Number, Type, Kind } from '..'
  * ```
  */
 export type _$absolute<T extends Number.Number> =
-  `${T}` extends `-${infer U extends number}` ? U : T
+  `${T}` extends `-${infer U extends number | bigint}` ? U : T
 
 /**
  * `Absolute` is a type-level function that takes a number type `T`, and returns its absolute value.

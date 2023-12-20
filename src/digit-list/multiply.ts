@@ -71,23 +71,30 @@ type _$multiply2<
 > = DONE extends true ? SUM : _$multiply2<POP_A, B, NEXT_SCALE, ADD>
 
 /**
- * `_$multiplyDigit` is a type-level function that multiplies a digit list by a single digit.
+ * `_$multiply` is a type-level function that multiplies a digit list by another digit list.
  * It returns the result of the multiplication operation.
  *
  * @template A - The digit list.
- * @template B - The single digit.
+ * @template B - A digit list.
  *
  * @example
- * For example, we can use `_$multiplyDigit` to multiply a digit list by a single digit:
+ * For example, we can use `_$multiply` to multiply a digit list ["4", "2"] by another digit list ["1", "2"]:
  *
  * ```ts
  * import { DigitList } from "hkt-toolbelt";
  *
- * type Result = DigitList._$multiplyDigit<["3"], "2">; // ["6"]
+ * type Is504 = DigitList._$multiply<["4", "2"], ["1", "2"]>; // ["5", "0", "4"]
  * ```
  *
- * In this example, `Result` is a type that represents ["6"], which is the result of multiplying ["3"] by "2".
+ * @example
+ * If one of the inputs is an empty digit list or the zero digit, the result will be the zero digit.
  *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type IsZero = DigitList._$multiply<["4", "2"], []>; // ["0"]
+ * type IsZero2 = DigitList._$multiply<["4", "2"], ["0"]>; // ["0"]
+ * ```
  */
 export type _$multiply<
   A extends DigitList.DigitList,
@@ -99,22 +106,29 @@ interface Multiply_T<T extends DigitList.DigitList> extends Kind.Kind {
 }
 
 /**
- * `MultiplyDigit` is a type-level function that multiplies a digit list by a single digit.
+ * `Multiply` is a type-level function that multiplies a digit list by another digit list.
  * It returns the result of the multiplication operation.
  *
  * @template A - The digit list.
  * @template B - The single digit.
  *
  * @example
- * For example, we can use `MultiplyDigit` to multiply a digit list by a single digit:
+ * For example, we can use `Multiply` to multiply a digit list ["4", "2"] by another digit list ["1", "2"]:
  *
  * ```ts
  * import { $, DigitList } from "hkt-toolbelt";
  *
- * type Result = $<$<DigitList.MultiplyDigit, "2">, ["3"]>; // ["6"]
+ * type Is504 = $<$<DigitList.Multiply, ["1", "2"]>, ["4", "2"]>; // ["5", "0", "4"]
  * ```
  *
- * In this example, `Result` is a type that represents ["6"], which is the result of multiplying ["3"] by "2".
+ * @example
+ * If one of the inputs is an empty digit list or the zero digit, the result will be the zero digit.
+ *
+ * ```ts
+ * import { DigitList } from "hkt-toolbelt";
+ *
+ * type IsZero = $<$<DigitList.Multiply, []>, ["4", "2"]>; // ["0"]
+ * type IsZero2 = $<$<DigitList.Multiply, ["0"], ["4", "2"]>; // ["0"]
  */
 export interface Multiply extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Multiply_T<typeof x>
