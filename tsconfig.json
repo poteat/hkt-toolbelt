@@ -5,7 +5,9 @@
     "target": "es2020",
     "module": "commonjs",
     "paths": {
-      "hkt-toolbelt": ["./src"]
+      "hkt-toolbelt": [
+        "./src"
+      ]
     },
     "rootDir": "./",
     "declaration": true,
@@ -18,5 +20,13 @@
     "forceConsistentCasingInFileNames": false,
     "strict": true
   },
-  "exclude": ["node_modules", "prompts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "docs",
+    "pkg",
+    "prompts",
+    "scaffolding",
+    "style-guide"
+  ]
 }
