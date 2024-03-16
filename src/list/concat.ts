@@ -6,29 +6,23 @@ import { Type, Kind, List } from '..'
  * It takes in two arguments:
  * `T`, the tuple to concatenate onto, and `U`, the tuple to concatenate.
  *
- * @template T - A tuple type.
- * @template U - A tuple type, or an unknown.
+ * @template T - A tuple type to be concatenated onto.
+ * @template U - A tuple type to concatenate, or an unknown.
+ * @returns A tuple type.
+ *
  * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
  *
  * ## Basic Usage
  *
  * @example
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
  * type Result = List._$concat<[0, 1], [2, 3]>; // [0, 1, 2, 3]
- * ```
  *
  * ## Advanced Usage
  *
- * @example
  * Concatenating to a tuple with a rest parameter results in a tuple that contains the concatenated tuple.
  *
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
- * List._$concat<[1, 2, ...string[]], ["foo"]>; // [1, 2, ...string[], "foo"]
- * ```
+ * @example
+ * type Result = List._$concat<[1, 2, ...string[]], ["foo"]>; // [1, 2, ...string[], "foo"]
  *
  */
 export type _$concat<
@@ -46,29 +40,23 @@ interface Concat_T<U extends unknown> extends Kind.Kind {
  * It takes in two arguments:
  * `T`, the tuple to concatenate onto, and `U`, the tuple to concatenate.
  *
- * @template T - A tuple type.
- * @template U - A tuple type, or an unknown.
+ * @template T - A tuple type to be concatenated onto.
+ * @template U - A tuple type to concatenate, or an unknown.
+ * @returns A tuple type.
+ *
  * If `U` is not a tuple type, it will be pushed into `T` as its new last element.
  *
  * ## Basic Usage
  *
  * @example
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
  * type Result = $<$<List.Concat [2, 3]>, [1, 2]>; // [0, 1, 2, 3]
- * ```
  *
  * ## Advanced Usage
  *
- * @example
  * Concatenating to a tuple with a rest parameter results in a tuple that contains the concatenated tuple.
  *
- * ```ts
- * import { $, List } from 'hkt-toolbelt';
- *
- * $<$<List.Concat, ["foo"]>, [1, 2, ...string[]]>; // [1, 2, ...string[], "foo"]
- * ```
+ * @example
+ * type Result = $<$<List.Concat, ["foo"]>, [1, 2, ...string[]]>; // [1, 2, ...string[], "foo"]
  *
  */
 export interface Concat extends Kind.Kind {

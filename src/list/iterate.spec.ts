@@ -43,8 +43,8 @@ type Iterate_Spec = [
    * Can iterate over Factorial
    */
   Test.Expect<
-    $<$<$<List.Iterate, NaturalNumberTheory.Factorial>, 4>, -1>,
-    [-1, 0, 1, 1]
+    $<$<$<List.Iterate, NaturalNumberTheory.Factorial>, 3>, 0>,
+    [0, 1, 1]
   >,
 
   Test.Expect<

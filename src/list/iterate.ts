@@ -1,5 +1,17 @@
 import { $, Type, Kind, Number, List, NaturalNumber } from '..'
 
+/**
+ * `_$iterate` is a type-level function that repeatedly applies a function over an input value for a given number of times,
+ * and returns a list containing all of the intermediate results.
+ *
+ * @template F - The function to iterate with.
+ * @template O - The initial input to the function.
+ * @template N - The number of times to iterate.
+ * @returns A list of types containing the results of iterating `F` over `O` `N` times.
+ *
+ * @example
+ * type T0 = List._$iterate<$<Boolean.Xor, true>, true, 5> // [true, false, true, false, true]
+ */
 export type _$iterate<
   F extends Kind.Kind,
   O extends Kind._$inputOf<F>,
@@ -31,6 +43,18 @@ interface Iterate_T<F extends Kind.Kind> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Iterate_T2<F, typeof x>
 }
 
+/**
+ * `Iterate` is a type-level function that repeatedly applies a function over an input value for a given number of times,
+ * and returns a list containing all of the intermediate results.
+ *
+ * @template F - The function to iterate with.
+ * @template N - The number of times to iterate.
+ * @template O - The initial input to the function.
+ * @returns A list of types containing the results of iterating `F` over `O` `N` times.
+ *
+ * @example
+ * type T0 = $<$<$<List.Iterate, $<Boolean.Xor, true>>, 5>, true> // [true, false, true, false, true]
+ */
 export interface Iterate extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): Iterate_T<typeof x>
 }

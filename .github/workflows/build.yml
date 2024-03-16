@@ -1,18 +1,24 @@
-name: build
+name: Lint, build, and test
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout the repository
+        
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
-      - run: npm install
-      - run: npm run lint-check
-      - run: npm run build
-      - run: npm test
+          node-version-file: '.nvmrc'
+      - name: Install npm dependencies
+        run: npm install
+      - name: Run linter
+        run: npm run lint-check
+      - name: Run TypeScript compiler
+        run: npm run build
+      - name: Run tests
+        run: npm test

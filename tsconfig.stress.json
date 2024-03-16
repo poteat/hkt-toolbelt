@@ -25,6 +25,11 @@
   ],
   "exclude": [
     "node_modules",
-    "prompts"
+    "dist",
+    "docs",
+    "pkg",
+    "prompts",
+    "scaffolding",
+    "style-guide"
   ]
 }

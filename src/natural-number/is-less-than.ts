@@ -8,8 +8,9 @@ import { Number, NaturalNumber, Kind, Type } from '..'
  * This function works by comparing the ordinal values of `A` and `B`. If `B`
  * has a lower ordinal value than `A`, then `B` is less than `A`.
  *
- * @template A - The number to compare against.
- * @template B - The number to compare.
+ * @template {Number.Numer} A - A natural number to compare against.
+ * @template {Number.Numer} B - A natural number to compare.
+ * @returns {boolean}
  */
 export type _$isLessThan<
   /**
@@ -37,14 +38,13 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
  * types, `A` and `B`, and returns a boolean indicating whether `B` is less
  * than `A`.
  *
- * @template A - The number to compare against.
- * @template B - The number to evaluate.
+ * @template {Number.Number} A - A natural number to compare against.
+ * @template {Number.Number} B - A natural number to compare.
+ * @returns {boolean}
  *
  * The parameters are ordered such that `IsLessThan` can be partially applied
  * in a coherent manner. That is, we can apply `IsLessThan` to `3`, and have a
  * function `IsLessThanThree`.
- *
- * ## Usage Examples
  *
  * @example
  * For example, we can use `IsLessThan` to determine whether a natural number is

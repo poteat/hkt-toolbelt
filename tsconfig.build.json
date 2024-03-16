@@ -7,6 +7,16 @@
     "noEmit": false,
     "emitDeclarationOnly": true
   },
-  "include": ["src/index.ts"],
-  "exclude": ["node_modules", "prompts"]
+  "include": [
+    "src/index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "docs",
+    "pkg",
+    "prompts",
+    "scaffolding",
+    "style-guide"
+  ]
 }
