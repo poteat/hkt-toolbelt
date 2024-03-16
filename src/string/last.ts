@@ -14,8 +14,8 @@ export type _$last<S extends string> = S extends `${string}${infer Tail}`
     ? S
     : _$last<Tail>
   : string extends S
-  ? S
-  : ''
+    ? S
+    : ''
 
 /**
  * `String.Last` is a type-level function that extracts the last character from a string.

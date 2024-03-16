@@ -12,10 +12,10 @@ import { Kind } from '..'
 export type _$display<T> = T extends (...args: never[]) => unknown
   ? T
   : T extends abstract new (...args: never[]) => unknown
-  ? T
-  : {
-      [key in keyof T]: T[key]
-    }
+    ? T
+    : {
+        [key in keyof T]: T[key]
+      }
 
 /**
  * `Display` is a type-level function that forces the compiler to resolve

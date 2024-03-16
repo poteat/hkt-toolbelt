@@ -116,10 +116,10 @@ export type _$divideBySubtraction<
 > = B extends [Digit.Zero]
   ? [Digit.Zero]
   : B extends ['1']
-  ? OPERATION extends 'DIVIDE'
-    ? A
-    : [Digit.Zero]
-  : _$divideBySubtraction2<A, B, OPERATION>
+    ? OPERATION extends 'DIVIDE'
+      ? A
+      : [Digit.Zero]
+    : _$divideBySubtraction2<A, B, OPERATION>
 
 interface DivideBySubtraction_T<A extends DigitList.DigitList>
   extends Kind.Kind {

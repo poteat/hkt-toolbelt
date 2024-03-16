@@ -1,4 +1,4 @@
-import { Type, List, Kind } from '..'
+import { Type, List, Kind, NaturalNumber, $ } from '..'
 
 /**
  * `_$pipe` is a type-level function that allows users to compose
@@ -79,3 +79,7 @@ export interface Pipe extends Kind.Kind {
     ? Pipe_T<typeof x>
     : never
 }
+
+type Foo = $<Pipe, [NaturalNumber.Add]>
+
+type Bar = $<$<Foo, 1>, 2>

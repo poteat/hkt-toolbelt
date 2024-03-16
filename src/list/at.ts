@@ -1,19 +1,37 @@
 import { DigitList, Kind, Type, Number, List, NaturalNumber } from '../'
 
 export type _$at<
+  /**
+   * The list to extract the element from.
+   */
   T extends List.List,
+  /**
+   * The index of the element to extract.
+   */
   POS extends Number.Number,
+  /**
+   * The length of the list. Computed via taking the length of the tuple and
+   * converting it to a natural number.
+   */
   T_LENGTH extends DigitList.DigitList = NaturalNumber._$toList<T['length']>,
+  /**
+   * The absolute value of the index. Computed via taking the absolute value of
+   * the index.
+   */
   POS_ABS extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<POS>
   >,
+  /**
+   * The normalized index. Computed via taking the absolute value of the index
+   * if the index is negative, otherwise the index itself.
+   */
   POS_NORM extends DigitList.DigitList = Number._$isNatural<POS> extends true
     ? DigitList._$compare<POS_ABS, T_LENGTH> extends -1
       ? POS_ABS
       : never
     : DigitList._$compare<T_LENGTH, POS_ABS> extends -1
-    ? never
-    : DigitList._$subtract<T_LENGTH, POS_ABS>,
+      ? never
+      : DigitList._$subtract<T_LENGTH, POS_ABS>,
   INDEX extends number = DigitList._$toNumber<POS_NORM>
 > = POS_NORM extends never ? never : T[INDEX]
 

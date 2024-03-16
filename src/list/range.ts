@@ -23,33 +23,34 @@ type _$range2<
       ? true
       : false
     : NaturalNumber._$compare<START, STOP> extends -1 | 0
-    ? true
-    : false,
+      ? true
+      : false,
   RESULT extends Number.Number[] = START extends Kind._$inputOf<F>
     ? List._$iterate<F, START, COUNT>
     : never
 > = 0 extends 1
   ? never
   : VALIDATE extends true
-  ? COUNT extends 0
-    ? []
-    : RESULT
-  : never
+    ? COUNT extends 0
+      ? []
+      : RESULT
+    : never
 
 export type _$range<
   START extends Number.Number,
   STOP extends Number.Number,
   STEP extends Number.Number
-> = List._$every<
-  $<Conditional.Extends, true>,
-  [
-    Number._$isNatural<START>,
-    Number._$isNatural<STOP>,
-    Number._$isInteger<STEP>
-  ]
-> extends true
-  ? _$range2<START, STOP, STEP>
-  : never
+> =
+  List._$every<
+    $<Conditional.Extends, true>,
+    [
+      Number._$isNatural<START>,
+      Number._$isNatural<STOP>,
+      Number._$isInteger<STEP>
+    ]
+  > extends true
+    ? _$range2<START, STOP, STEP>
+    : never
 
 interface Range_T2<START extends Number.Number, STOP extends Number.Number>
   extends Kind.Kind {

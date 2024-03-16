@@ -9,8 +9,8 @@ type _$times2<
 > = 0 extends 1
   ? never
   : COUNTER extends ['0']
-  ? STATE
-  : _$times2<DEC, [DEC_NUM, ...STATE]>
+    ? STATE
+    : _$times2<DEC, [DEC_NUM, ...STATE]>
 
 export type _$times<N extends Number.Number> = _$times2<
   NaturalNumber._$toList<N>

@@ -10,10 +10,8 @@ import { Kind, Type, Number } from '..'
  * type T0 = _$max<1, 2> // 2
  * type T1 = _$max<5, 10> // 10
  */
-export type _$max<
-  A extends Number.Number,
-  B extends Number.Number
-> = Number._$compare<A, B> extends 1 ? A : B
+export type _$max<A extends Number.Number, B extends Number.Number> =
+  Number._$compare<A, B> extends 1 ? A : B
 
 interface Max_T<N extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): _$max<typeof x, N>

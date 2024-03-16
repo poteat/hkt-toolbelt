@@ -15,19 +15,20 @@ export type _$join<
   T extends (string | unknown)[],
   D extends string = '',
   O extends string = ''
-> = List._$isVariadic<T> extends true
-  ? string
-  : T extends [infer Head, ...infer Tail]
-  ? Tail extends []
-    ? `${O}${O extends '' ? '' : D}${Type._$cast<Head, string>}`
-    : _$join<
-        Type._$cast<Tail, string[]>,
-        D,
-        `${O}${O extends '' ? '' : D}${Type._$cast<Head, string>}`
-      >
-  : string[] extends T
-  ? `${O}${string}`
-  : O
+> =
+  List._$isVariadic<T> extends true
+    ? string
+    : T extends [infer Head, ...infer Tail]
+      ? Tail extends []
+        ? `${O}${O extends '' ? '' : D}${Type._$cast<Head, string>}`
+        : _$join<
+            Type._$cast<Tail, string[]>,
+            D,
+            `${O}${O extends '' ? '' : D}${Type._$cast<Head, string>}`
+          >
+      : string[] extends T
+        ? `${O}${string}`
+        : O
 
 /**
  * `String.Join_T` is an intermediate interface for currying.

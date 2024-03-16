@@ -16,8 +16,8 @@ import { Type, Kind, Digit, DigitList } from '..'
 export type _$last<T extends DigitList.DigitList> = T extends []
   ? Digit.Zero
   : T extends [...unknown[], infer X]
-  ? X
-  : Digit.Zero
+    ? X
+    : Digit.Zero
 
 /**
  * `Last` is a type-level function that gets the last digit of a digit list.
