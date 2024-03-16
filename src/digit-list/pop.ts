@@ -24,8 +24,8 @@ import { Type, Kind, DigitList } from '..'
 export type _$pop<T extends DigitList.DigitList> = T extends []
   ? []
   : T extends [...infer X, unknown]
-  ? X
-  : []
+    ? X
+    : []
 
 /**
  * `Pop` is a type-level function that removes the last digit from a digit list.

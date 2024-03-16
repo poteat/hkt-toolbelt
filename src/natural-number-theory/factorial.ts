@@ -18,11 +18,11 @@ export type _$factorial<
 > = 0 extends 1
   ? never
   : DONE extends true
-  ? VALUE
-  : _$factorial<
-      NaturalNumber._$decrement<COUNTER>,
-      NaturalNumber._$multiply<VALUE, COUNTER>
-    >
+    ? VALUE
+    : _$factorial<
+        NaturalNumber._$decrement<COUNTER>,
+        NaturalNumber._$multiply<VALUE, COUNTER>
+      >
 
 /**
  * `Factorial` is a type-level function that calculates the factorial of a number.

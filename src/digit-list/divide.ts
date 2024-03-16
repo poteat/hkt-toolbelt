@@ -121,10 +121,10 @@ export type _$divide<
 > = B extends [Digit.Zero]
   ? [Digit.Zero]
   : B extends ['1']
-  ? OPERATION extends 'DIVIDE'
-    ? A
-    : [Digit.Zero]
-  : _$divide2<A, B, OPERATION>
+    ? OPERATION extends 'DIVIDE'
+      ? A
+      : [Digit.Zero]
+    : _$divide2<A, B, OPERATION>
 
 interface Divide_T<A extends DigitList.DigitList> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): _$divide<A, typeof x>
