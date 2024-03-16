@@ -9,17 +9,14 @@ import { $, Kind, List, Number, NaturalNumber } from '..'
  * Any remaining items in the longer sub-array are ignored, cutting off the result to the length of the shortest sub-array.
  *
  * @template T - An array of types.
+ * @returns A nested list of types.
  *
  * @example
  * For example, we can use `_$zip` to perform parallel iteration.
  * In this example, `[[1, 2, 3], ["a", "b", "c"]]` is passed as a type argument to the
  * type-level function:
  *
- * ```ts
- * import { List } from "hkt-toolbelt";
- *
  * type Result = List._$zip<[[1, 2, 3], ["a", "b", "c"]]> // [[1, "a"], [2, "b"], [3, "c"]]
- * ```
  *
  * @example
  * When an array containing multiple sub-arrays of different lengths are passed into `_$zip`,
@@ -27,11 +24,7 @@ import { $, Kind, List, Number, NaturalNumber } from '..'
  * In this example, `[[1, 2], ["a", "b", "c"], ["A", "B"]]` is passed as a type argument to the
  * type-level function:
  *
- * ```ts
- * import { List } from "hkt-toolbelt";
- *
  * type Result = List._$zip<[[1, 2], ["a", "b", "c"], ["A", "B"]]> // [[1, "a", "A"], [2, "b", "B"]]
- * ```
  */
 export type _$zip<
   T extends List.List,
@@ -59,17 +52,13 @@ export type _$zip<
  * Any remaining items in the longer sub-array are ignored, cutting off the result to the length of the shortest sub-array.
  *
  * @template T - An array of arrays.
+ * @returns A nested list of types.
  *
  * @example
  * For example, we can use `Zip` to perform parallel iteration over multiple sub-arrays.
  * In this example, `Zip` is a type-level function that returns an array of arrays.
  *
- * ```ts
- * import { $, List } from "hkt-toolbelt";
-import { MAX_SAFE_INTEGER } from '../number/number';
- *
- * $<List.Zip, [[1, 2], ["a", "b", "c"], ["A", "B"]]>; // [[1, "a", "A"], [2, "b", "B"]]
- * ```
+ * type Result = $<List.Zip, [[1, 2], ["a", "b", "c"], ["A", "B"]]>; // [[1, "a", "A"], [2, "b", "B"]]
  */
 export interface Zip extends Kind.Kind {
   f(x: this[Kind._]): typeof x extends List.List ? _$zip<typeof x> : never
