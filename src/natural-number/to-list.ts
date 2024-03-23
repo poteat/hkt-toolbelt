@@ -13,14 +13,12 @@ import { Type, Number, DigitList, Kind } from '..'
  * // Convert the number 42 into a list of digits:
  * type ListOfDigits = _$toList<42>; // This will be inferred as ['4', '2']
  */
-export type _$toList<
-  S extends Number.Number,
-  O extends string[] = []
-> = Number._$toString<S> extends `${infer Head}${infer Tail}`
-  ? _$toList<Tail, [...O, Head]>
-  : O extends DigitList.DigitList
-    ? O
-    : ['0']
+export type _$toList<S extends Number.Number, O extends string[] = []> =
+  Number._$toString<S> extends `${infer Head}${infer Tail}`
+    ? _$toList<Tail, [...O, Head]>
+    : O extends DigitList.DigitList
+      ? O
+      : ['0']
 
 /**
  * Represents a type-level utility to convert a natural number into a list of its digits.

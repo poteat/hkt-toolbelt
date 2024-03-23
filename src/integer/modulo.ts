@@ -29,18 +29,19 @@ export type _$modulo<
     Number._$absolute<B>
   >,
   MODULUS_LIST extends DigitList.DigitList = DigitList._$modulo<A_LIST, B_LIST>
-> = Boolean._$xnor<
-  A_SGN extends '+' ? true : false,
-  B_SGN extends '+' ? true : false
-> extends true
-  ? B_SGN extends '+'
-    ? DigitList._$toNumber<MODULUS_LIST>
-    : Number._$negate<DigitList._$toNumber<MODULUS_LIST>>
-  : B_SGN extends '+'
-    ? DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
-    : Number._$negate<
-        DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
-      >
+> =
+  Boolean._$xnor<
+    A_SGN extends '+' ? true : false,
+    B_SGN extends '+' ? true : false
+  > extends true
+    ? B_SGN extends '+'
+      ? DigitList._$toNumber<MODULUS_LIST>
+      : Number._$negate<DigitList._$toNumber<MODULUS_LIST>>
+    : B_SGN extends '+'
+      ? DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
+      : Number._$negate<
+          DigitList._$toNumber<DigitList._$subtract<B_LIST, MODULUS_LIST>>
+        >
 
 interface Modulo_T<A extends Number.Number> extends Kind.Kind {
   f(

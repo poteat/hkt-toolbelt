@@ -16,14 +16,12 @@ import { $, Kind, Type, List } from '..'
  * If `K` is a fully-applied `Kind`, an empty list will be returned.
  * If `K` is not a `Kind`, an error will be emitted.
  */
-export type _$parameters<
-  K extends Kind.Kind,
-  ACC extends List.List = []
-> = Kind._$inputOf<K> extends never
-  ? ACC
-  : $<K, never> extends Kind.Kind
-    ? _$parameters<$<K, never>, List._$push<Kind._$inputOf<K>, ACC>>
-    : never
+export type _$parameters<K extends Kind.Kind, ACC extends List.List = []> =
+  Kind._$inputOf<K> extends never
+    ? ACC
+    : $<K, never> extends Kind.Kind
+      ? _$parameters<$<K, never>, List._$push<Kind._$inputOf<K>, ACC>>
+      : never
 
 /**
  * `Parameters` is a type-level function that takes in a curried n-ary type-level function,

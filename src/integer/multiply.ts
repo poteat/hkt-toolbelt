@@ -43,12 +43,13 @@ export type _$multiply<
     B_LIST
   >,
   PRODUCT extends Number.Number = DigitList._$toNumber<PRODUCT_LIST>
-> = Boolean._$xnor<
-  A_SGN extends '+' ? true : false,
-  B_SGN extends '+' ? true : false
-> extends true
-  ? PRODUCT
-  : Number._$negate<PRODUCT>
+> =
+  Boolean._$xnor<
+    A_SGN extends '+' ? true : false,
+    B_SGN extends '+' ? true : false
+  > extends true
+    ? PRODUCT
+    : Number._$negate<PRODUCT>
 
 interface Multiply_T<A extends Number.Number> extends Kind.Kind {
   f(

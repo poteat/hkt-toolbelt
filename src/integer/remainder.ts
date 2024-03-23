@@ -24,12 +24,13 @@ export type _$remainder<
     B_LIST
   >,
   REMAINDER extends Number.Number = DigitList._$toNumber<REMAINDER_LIST>
-> = Boolean._$xnor<
-  A_SGN extends '+' ? true : false,
-  B_SGN extends '+' ? true : false
-> extends true
-  ? REMAINDER
-  : Number._$negate<REMAINDER>
+> =
+  Boolean._$xnor<
+    A_SGN extends '+' ? true : false,
+    B_SGN extends '+' ? true : false
+  > extends true
+    ? REMAINDER
+    : Number._$negate<REMAINDER>
 
 interface Remainder_T<A extends Number.Number> extends Kind.Kind {
   f(
