@@ -47,12 +47,13 @@ export type _$divide<
     B_LIST
   >,
   QUOTIENT extends Number.Number = DigitList._$toNumber<QUOTIENT_LIST>
-> = Boolean._$xnor<
-  A_SGN extends '+' ? true : false,
-  B_SGN extends '+' ? true : false
-> extends true
-  ? QUOTIENT
-  : Number._$negate<QUOTIENT>
+> =
+  Boolean._$xnor<
+    A_SGN extends '+' ? true : false,
+    B_SGN extends '+' ? true : false
+  > extends true
+    ? QUOTIENT
+    : Number._$negate<QUOTIENT>
 
 interface Divide_T<A extends Number.Number> extends Kind.Kind {
   f(

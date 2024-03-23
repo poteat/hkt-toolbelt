@@ -10,14 +10,12 @@ import { $, Kind, Type, Number, NaturalNumber } from '..'
  * If `K` is a fully-applied `Kind`, 0 will be returned.
  * If `K` is not a `Kind`, an error will be emitted.
  */
-export type _$arity<
-  K extends Kind.Kind,
-  ACC extends Number.Number = 0
-> = Kind._$inputOf<K> extends never
-  ? ACC
-  : $<K, never> extends Kind.Kind
-    ? _$arity<$<K, never>, NaturalNumber._$increment<ACC>>
-    : never
+export type _$arity<K extends Kind.Kind, ACC extends Number.Number = 0> =
+  Kind._$inputOf<K> extends never
+    ? ACC
+    : $<K, never> extends Kind.Kind
+      ? _$arity<$<K, never>, NaturalNumber._$increment<ACC>>
+      : never
 
 /**
  * `Arity` is a type-level function that takes in a curried type-level function,
