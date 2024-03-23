@@ -10,12 +10,11 @@ import { Kind, Union } from '..'
  * type T0 = _$toList<1 | 2 | 3> // [1, 2, 3]
  * type T1 = _$toList<string | boolean> // [string, boolean]
  */
-export type _$toList<T, O extends unknown[] = []> =
-  Union._$toIntersection<T extends unknown ? (t: T) => T : never> extends (
-    x: never
-  ) => infer X
-    ? _$toList<Exclude<T, X>, [X, ...O]>
-    : O
+export type _$toList<T, O extends unknown[] = []> = Union._$toIntersection<
+  T extends unknown ? (t: T) => T : never
+> extends (x: never) => infer X
+  ? _$toList<Exclude<T, X>, [X, ...O]>
+  : O
 
 /**
  * `ToList` is a type-level function that converts a union type to a list (tuple) type.
