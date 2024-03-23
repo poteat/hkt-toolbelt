@@ -27,13 +27,14 @@ export type _$replace<
   S extends string,
   From extends string,
   To extends string
-> = String._$isTemplate<From> extends true
-  ? string
-  : string extends From
+> =
+  String._$isTemplate<From> extends true
     ? string
-    : From extends ''
-      ? `${To}${_$replace2<S, From, To>}`
-      : _$replace2<S, From, To>
+    : string extends From
+      ? string
+      : From extends ''
+        ? `${To}${_$replace2<S, From, To>}`
+        : _$replace2<S, From, To>
 
 /**
  * `Replace_T2` is an intermediate interface for currying.
