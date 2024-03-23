@@ -8,17 +8,18 @@ export type _$optional<
     P,
     Type._$cast<STATE, Kind._$inputOf<P>>
   >
-> = Conditional._$equals<NEXT_STATE, never> extends true
-  ? {
-      input: STATE['input']
-      index: STATE['index']
-      result: RESULT
-    }
-  : {
-      input: STATE['input']
-      index: NEXT_STATE['index']
-      result: NEXT_STATE['result']
-    }
+> =
+  Conditional._$equals<NEXT_STATE, never> extends true
+    ? {
+        input: STATE['input']
+        index: STATE['index']
+        result: RESULT
+      }
+    : {
+        input: STATE['input']
+        index: NEXT_STATE['index']
+        result: NEXT_STATE['result']
+      }
 
 interface Optional_T<P extends Parser.Parser> extends Parser.Parser {
   f(x: Type._$cast<this[Kind._], Parser._$state>): _$optional<typeof x, P>

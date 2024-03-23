@@ -17,11 +17,8 @@ import { Kind, Type } from '..'
  * type Result = Boolean._$andAll<[true, true, true]>; // true
  * ```
  */
-export type _$andAll<B extends boolean[]> = TrueList<
-  B['length'] extends 0 ? 1 : B['length']
-> extends B
-  ? true
-  : false
+export type _$andAll<B extends boolean[]> =
+  TrueList<B['length'] extends 0 ? 1 : B['length']> extends B ? true : false
 
 type TrueList<
   L extends number,
