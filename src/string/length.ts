@@ -9,12 +9,11 @@ import { Type, Kind, String } from '..'
  * type T0 = String._$length<'hello'> // 5
  * type T1 = String._$length<''> // 0
  */
-export type _$length<S extends string> =
-  String._$isTemplate<S> extends true
+export type _$length<S extends string> = String._$isTemplate<S> extends true
+  ? number
+  : string extends S
     ? number
-    : string extends S
-      ? number
-      : String._$toList<S>['length']
+    : String._$toList<S>['length']
 
 /**
  * `String.Length` is a type-level function that returns the length of a string.

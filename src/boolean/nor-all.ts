@@ -17,8 +17,11 @@ import { Kind, Type } from '..'
  * type Result = Boolean._$norAll<[false, false, false]>; // true
  * ```
  */
-export type _$norAll<B extends boolean[]> =
-  FalseList<B['length'] extends 0 ? 1 : B['length']> extends B ? true : false
+export type _$norAll<B extends boolean[]> = FalseList<
+  B['length'] extends 0 ? 1 : B['length']
+> extends B
+  ? true
+  : false
 
 type FalseList<
   L extends number,
