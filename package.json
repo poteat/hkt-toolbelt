@@ -10,11 +10,10 @@
     "prepush": "npm run lint && npm run test && npm run stress",
     "lint-check": "npm run prettier-check && npm run eslint-check",
     "lint": "npm run prettier-fix && npm run eslint-fix",
-    "eslint-check": "npx eslint --ext .ts ./src/**",
-    "eslint-fix": "npx eslint --fix --ext .ts ./src/**",
-    "prettier-check": "npx prettier --check ./src/**",
-    "prettier-fix": "npx prettier --write ./src/**",
-    "npm-update": "npx -y npm-check-updates -u && npm i"
+    "eslint-check": "eslint --ext .ts ./src/**",
+    "eslint-fix": "eslint --fix --ext .ts ./src/**",
+    "prettier-check": "prettier --check ./src/**",
+    "prettier-fix": "prettier --write ./src/**"
   },
   "license": "MIT",
   "devDependencies": {
