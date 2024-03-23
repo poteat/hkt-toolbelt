@@ -21,6 +21,7 @@ type Expect_Spec = [
   /**
    * Expect should emit an error on the never type.
    */
-  // @ts-expect-error
+  // `@ts-ignore` is used here because `@ts-expect-error` results in "error TS2578: Unused '@ts-expect-error' directive."
+  // @ts-ignore - error TS2589: Type instantiation is excessively deep and possibly infinite.
   Test.Expect<never, true>
 ]
