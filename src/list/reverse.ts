@@ -8,7 +8,7 @@ type _$reverse2<T extends unknown[], O extends unknown[] = []> = T extends [
     ? [...O, Last]
     : _$reverse2<Init, [...O, Last]>
   : T extends [infer Head, ...unknown[]]
-    ? Head
+    ? [Head]
     : [...O, ...T]
 
 /**
