@@ -11,7 +11,7 @@ import { Kind, Type } from '..'
 export type _$update<
   P extends PropertyKey[],
   V extends unknown,
-  O extends Record<string, unknown>,
+  O extends Record<PropertyKey, unknown>,
   Output = Type._$display<{
     [K in keyof O]: P extends [PropertyKey]
       ? P[0] extends K
