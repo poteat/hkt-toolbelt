@@ -21,7 +21,7 @@ export type _$updateN<
       Tail,
       VTail,
       Type._$cast<
-        _$update<
+        Object._$update<
           Type._$cast<
             Head extends PropertyKey[] ? Head : [Head],
             PropertyKey[]
