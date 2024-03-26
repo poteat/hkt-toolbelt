@@ -32,18 +32,18 @@ type RemoveItem<T extends unknown[], U> = T extends [infer Head, ...infer Tail]
 /**
  * Intermediate interface for currying `_update`.
  */
-interface Update_T2<PATHS extends PropertyKey[], VALUE extends unknown>
+interface Update_T2<Paths extends PropertyKey[], Value extends unknown>
   extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Record<PropertyKey, unknown>>
-  ): _$update<PATHS, VALUE, typeof x>
+  ): _$update<Paths, Value, typeof x>
 }
 
 /**
  * Intermediate interface for currying `_update`.
  */
-interface Update_T<PATHS extends PropertyKey[]> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown>): Update_T2<PATHS, typeof x>
+interface Update_T<Paths extends PropertyKey[]> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown>): Update_T2<Paths, typeof x>
 }
 
 /**
