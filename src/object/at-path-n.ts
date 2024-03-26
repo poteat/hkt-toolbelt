@@ -23,7 +23,7 @@ export type _$atPathN<
         [
           ...Acc,
           Head extends PropertyKey[]
-            ? _$atPath<Head, O>
+            ? Object._$atPath<Head, O>
             : O[Type._$cast<Head, keyof O>]
         ]
       >
