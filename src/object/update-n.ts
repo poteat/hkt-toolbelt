@@ -13,7 +13,7 @@ import { _$update } from './update'
 export type _$updateN<
   P extends KeyOrPath[],
   V extends unknown[],
-  O extends Record<string, unknown>
+  O extends Record<PropertyKey, unknown>
 > = [[P], [V]] extends [
   [[infer Head, ...infer Tail extends KeyOrPath[]]],
   [[infer VHead, ...infer VTail]]

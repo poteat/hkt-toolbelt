@@ -13,7 +13,7 @@ export type _$atPath<Path extends PropertyKey[], T> = Path extends [
 
 interface AtPath_T<Path extends PropertyKey[]> extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Record<string, unknown>>
+    x: Type._$cast<this[Kind._], Record<PropertyKey, unknown>>
   ): _$atPath<Path, typeof x>
 }
 
