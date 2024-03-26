@@ -37,18 +37,18 @@ export type _$updateN<
 /**
  * Intermediate interface for currying `_updateN`.
  */
-interface UpdateN_T2<PATHS extends KeyOrPath[], VALUE extends unknown[]>
+interface UpdateN_T2<Paths extends KeyOrPath[], Value extends unknown[]>
   extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Record<PropertyKey, unknown>>
-  ): _$updateN<PATHS, VALUE, typeof x>
+  ): _$updateN<Paths, Value, typeof x>
 }
 
 /**
  * Intermediate interface for currying `_updateN`.
  */
-interface UpdateN_T<PATHS extends KeyOrPath[]> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): UpdateN_T2<PATHS, typeof x>
+interface UpdateN_T<Paths extends KeyOrPath[]> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown[]>): UpdateN_T2<Paths, typeof x>
 }
 
 /**
