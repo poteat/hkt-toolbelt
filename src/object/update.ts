@@ -23,7 +23,7 @@ export type _$update<
   }>
 > = Output
 
-type RemoveItem<T extends any[], U> = T extends [infer Head, ...infer Tail]
+type RemoveItem<T extends unknown[], U> = T extends [infer Head, ...infer Tail]
   ? Head extends U
     ? Tail
     : [Head, ...RemoveItem<Tail, U>]

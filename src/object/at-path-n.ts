@@ -14,7 +14,7 @@ export type KeyOrPath = PropertyKey | PropertyKey[]
 export type _$atPathN<
   P extends KeyOrPath[],
   O extends Record<PropertyKey, unknown>,
-  Acc extends any[] = [],
+  Acc extends unknown[] = [],
   Output = P extends [
     infer Head extends KeyOrPath,
     ...infer Tail extends KeyOrPath[]
