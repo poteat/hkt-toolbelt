@@ -2,7 +2,7 @@ import { $, Test, Object } from '..'
 
 type Update_Spec = [
   /**
-   * Can  Update at key.
+   * Can update at key.
    */
   Test.Expect<
     $<
@@ -20,7 +20,7 @@ type Update_Spec = [
     }
   >,
   /**
-   * Can  Update at nestd path.
+   * Can update at nested path.
    */
   Test.Expect<
     $<
@@ -38,7 +38,7 @@ type Update_Spec = [
     }
   >,
   /**
-   *  Keeps original object if  the path is invalid
+   * Keeps original object if the path is invalid
    */
   Test.Expect<
     $<

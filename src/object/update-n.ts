@@ -1,5 +1,5 @@
 import { Kind, Type, Object } from '..'
-import { KeyOrPath } from './key-or-path';
+import { KeyOrPath } from './key-or-path'
 
 /**
  * `_updateN` is a type-level function that Update multiple nested values in object O

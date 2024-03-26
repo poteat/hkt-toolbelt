@@ -2,7 +2,7 @@ import { $, Test, Object } from '..'
 
 type UpdateN_Spec = [
   /**
-   * Can  Update List Of Keys
+   * Can update a list of keys
    */
   Test.Expect<
     $<
@@ -20,7 +20,7 @@ type UpdateN_Spec = [
     }
   >,
   /**
-   * Can  Update nested paths
+   * Can update nested paths
    */
   Test.Expect<
     $<
@@ -49,7 +49,7 @@ type UpdateN_Spec = [
     }
   >,
   /**
-   * Can  Update a list of keys and nested paths
+   * Can update a list of keys and nested paths
    */
   Test.Expect<
     $<
@@ -86,7 +86,7 @@ type UpdateN_Spec = [
   >,
 
   /**
-   *  Keeps original object if the path is invalid
+   * Keeps original object if the path is invalid
    */
   Test.Expect<
     $<
