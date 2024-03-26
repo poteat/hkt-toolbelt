@@ -1,7 +1,5 @@
-import { Kind, Type } from '..'
-import { _$atPath } from './at-path'
-
-export type KeyOrPath = PropertyKey | PropertyKey[]
+import { Kind, Type, Object } from '..'
+import { KeyOrPath } from './key-or-path';
 
 /**
  * `_atPathN` is a type-level function that get the nested values in object O at the paths and keys specified in P.

@@ -1,6 +1,5 @@
-import { Kind, Type } from '..'
-import { KeyOrPath } from './at-path-n'
-import { _$update } from './update'
+import { Kind, Type, Object } from '..'
+import { KeyOrPath } from './key-or-path';
 
 /**
  * `_updateN` is a type-level function that Update multiple nested values in object O
