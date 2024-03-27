@@ -11,7 +11,7 @@ import { Kind } from '..'
  * type T1 = _$cast<boolean, true> // true
  * type T2 = _$cast<true, boolean> // true
  */
-export type _$cast<T, U> = T extends U ? T : U
+export type _$cast<T, U> = [T] extends [U] ? T : U
 
 interface Cast_T<T> extends Kind.Kind {
   f(x: this[Kind._]): _$cast<typeof x, T>
