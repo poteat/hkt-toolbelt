@@ -1,6 +1,5 @@
-import { Kind, Type } from '..'
-import { KeyOrPath } from './at-path-n'
-import { _$update } from './update'
+import { Kind, Type, Object } from '..'
+import { KeyOrPath } from './key-or-path'
 
 /**
  * `_updateN` is a type-level function that Update multiple nested values in object O
@@ -13,7 +12,7 @@ import { _$update } from './update'
 export type _$updateN<
   P extends KeyOrPath[],
   V extends unknown[],
-  O extends Record<string, unknown>
+  O extends Record<PropertyKey, unknown>
 > = [[P], [V]] extends [
   [[infer Head, ...infer Tail extends KeyOrPath[]]],
   [[infer VHead, ...infer VTail]]
@@ -22,7 +21,7 @@ export type _$updateN<
       Tail,
       VTail,
       Type._$cast<
-        _$update<
+        Object._$update<
           Type._$cast<
             Head extends PropertyKey[] ? Head : [Head],
             PropertyKey[]
@@ -38,18 +37,18 @@ export type _$updateN<
 /**
  * Intermediate interface for currying `_updateN`.
  */
-interface UpdateN_T2<PATHS extends KeyOrPath[], VALUE extends unknown[]>
+interface UpdateN_T2<Paths extends KeyOrPath[], Value extends unknown[]>
   extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Record<PropertyKey, unknown>>
-  ): _$updateN<PATHS, VALUE, typeof x>
+  ): _$updateN<Paths, Value, typeof x>
 }
 
 /**
  * Intermediate interface for currying `_updateN`.
  */
-interface UpdateN_T<PATHS extends KeyOrPath[]> extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown[]>): UpdateN_T2<PATHS, typeof x>
+interface UpdateN_T<Paths extends KeyOrPath[]> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], unknown[]>): UpdateN_T2<Paths, typeof x>
 }
 
 /**
