@@ -14,5 +14,10 @@ type Cast_Spec = [
   /**
    * Casting to a supertype keeps the type narrow.
    */
-  Test.Expect<Type._$cast<true, boolean>, true>
+  Test.Expect<Type._$cast<true, boolean>, true>,
+
+  /**
+   * Can coercively cast a type to an unrelated type.
+   */
+  Test.Expect<Type._$cast<boolean, 0>, 0>
 ]
