@@ -42,18 +42,18 @@ export type _$divide<
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<B>
   >,
-  QUOTIENT_LIST extends DigitList.DigitList = DigitList._$divide<
+  QUOTIENT_LIST = DigitList._$divide<
     A_LIST,
     B_LIST
   >,
-  QUOTIENT extends Number.Number = DigitList._$toNumber<QUOTIENT_LIST>
+  QUOTIENT = DigitList._$toNumber<QUOTIENT_LIST & DigitList.DigitList>
 > =
   Boolean._$xnor<
     A_SGN extends '+' ? true : false,
     B_SGN extends '+' ? true : false
   > extends true
     ? QUOTIENT
-    : Number._$negate<QUOTIENT>
+    : Number._$negate<QUOTIENT & Number.Number>
 
 interface Divide_T<A extends Number.Number> extends Kind.Kind {
   f(
