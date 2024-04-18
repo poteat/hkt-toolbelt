@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.23.0]
+
+- Add support for TypeScript v5.4.2.
+- Improve performance for division-based operations.
+- Add `DigitList._$signedAdd`, for efficient signed addition using digit lists.
+- **[Breaking]** Improve `List.Range` edge case semantics.
+
 ## [0.22.2]
 
 - Add additional JSDoc annotations for some modules. (`Union`, `Type`, `Kind`)
