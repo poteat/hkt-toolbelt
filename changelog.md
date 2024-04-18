@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.23.1]
+
+- Add `Type.Assert` utility for strict type assertions.
+
 ## [0.23.0]
 
 - Add support for TypeScript v5.4.2.
