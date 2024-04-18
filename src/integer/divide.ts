@@ -42,11 +42,10 @@ export type _$divide<
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<B>
   >,
-  QUOTIENT_LIST = DigitList._$divide<
-    A_LIST,
-    B_LIST
-  >,
-  QUOTIENT = DigitList._$toNumber<QUOTIENT_LIST extends DigitList.DigitList ? QUOTIENT_LIST : never>
+  QUOTIENT_LIST = DigitList._$divide<A_LIST, B_LIST>,
+  QUOTIENT = DigitList._$toNumber<
+    QUOTIENT_LIST extends DigitList.DigitList ? QUOTIENT_LIST : never
+  >
 > =
   Boolean._$xnor<
     A_SGN extends '+' ? true : false,
