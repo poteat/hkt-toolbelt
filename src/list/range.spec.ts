@@ -7,11 +7,12 @@ type Range_Spec = [
 
   Test.Expect<$<$<$<List.Range, 10>, 0>, -1>, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]>,
 
+  Test.Expect<$<$<$<List.Range, 100>, 99>, -2>, [100]>,
+
   /**
-   * Returns empty array if the difference between START and STOP is less than the absolute value of STEP
+   * Returns empty array if START and STOP are equal.
    */
   Test.Expect<$<$<$<List.Range, 100>, 100>, -2>, []>,
-  Test.Expect<$<$<$<List.Range, 100>, 99>, -2>, []>,
 
   /**
    * Returns `never` if START or STOP are not natural numbers.
@@ -25,8 +26,8 @@ type Range_Spec = [
   Test.Expect<$<$<$<List.Range, 1>, 100>, 1.5>, never>,
 
   /**
-   * Retursn `never` if the sign of STEP is incompatible with the range provided by START and STOP.
+   * Returns `[]` if the sign of STEP is incompatible with the range provided by START and STOP.
    */
-  Test.Expect<$<$<$<List.Range, 1>, 100>, -2>, never>,
-  Test.Expect<$<$<$<List.Range, 100>, 0>, 2>, never>
+  Test.Expect<$<$<$<List.Range, 1>, 100>, -2>, []>,
+  Test.Expect<$<$<$<List.Range, 100>, 0>, 2>, []>
 ]
