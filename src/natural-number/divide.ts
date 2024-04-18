@@ -34,11 +34,10 @@ export type _$divide<
   B extends Number.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
-  QUOTIENT_LIST = DigitList._$divide<
-    A_LIST,
-    B_LIST
-  >,
-  QUOTIENT = DigitList._$toNumber<QUOTIENT_LIST extends DigitList.DigitList ? QUOTIENT_LIST : never>
+  QUOTIENT_LIST = DigitList._$divide<A_LIST, B_LIST>,
+  QUOTIENT = DigitList._$toNumber<
+    QUOTIENT_LIST extends DigitList.DigitList ? QUOTIENT_LIST : never
+  >
 > = QUOTIENT
 
 interface Divide_T<A extends Number.Number> extends Kind.Kind {

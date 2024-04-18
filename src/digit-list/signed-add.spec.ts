@@ -54,7 +54,7 @@ type SignedAdd_Spec = [
    */
   Test.Expect<
     DigitList._$signedAdd<['1', '2', '3'], ['1', '2', '3'], '+', '-'>,
-    ['+', ["0"]]
+    ['+', ['0']]
   >,
 
   /**
@@ -76,8 +76,5 @@ type SignedAdd_Spec = [
   /**
    * Adding two empty lists.
    */
-  Test.Expect<
-    DigitList._$signedAdd<[], [], '+', '+'>,
-    ['+', ["0"]]
-  >
+  Test.Expect<DigitList._$signedAdd<[], [], '+', '+'>, ['+', ['0']]>
 ]

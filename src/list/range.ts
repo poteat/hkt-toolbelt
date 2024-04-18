@@ -1,10 +1,10 @@
-import { $, Kind, Type, Number, List, Conditional, DigitList, Digit, Integer, NaturalNumber } from '..'
+import { $, Kind, Type, Number, List, Conditional, DigitList } from '..'
 
 type _$range2<
   START extends DigitList.DigitList,
   STOP extends DigitList.DigitList,
   STEP extends DigitList.DigitList,
-  STEP_SIGN extends "+" | "-",
+  STEP_SIGN extends '+' | '-',
   COUNTER extends DigitList.DigitList = START,
   LIST extends Number.Number[] = [DigitList._$toNumber<START>],
   /**
@@ -12,18 +12,19 @@ type _$range2<
    * than the intended stop value.
    */
   COMPARE extends 1 | 0 | -1 = DigitList._$compare<COUNTER, STOP>,
-  NEW_COUNTER extends DigitList.DigitList = 
-    STEP_SIGN extends "+"
-      ? DigitList._$add<COUNTER, STEP>
-      : DigitList._$subtract<COUNTER, STEP>,
-  NEW_LIST extends Number.Number[] =
-    [...LIST, DigitList._$toNumber<NEW_COUNTER>],
+  NEW_COUNTER extends DigitList.DigitList = STEP_SIGN extends '+'
+    ? DigitList._$add<COUNTER, STEP>
+    : DigitList._$subtract<COUNTER, STEP>,
+  NEW_LIST extends Number.Number[] = [
+    ...LIST,
+    DigitList._$toNumber<NEW_COUNTER>
+  ],
   /**
    * Whether we are done iterating; we basically calculate whether we
    * should expect the counter to be larger or smaller than the stop
    * value, per the sign of the step value.
    */
-  IS_DONE = STEP_SIGN extends "+"
+  IS_DONE = STEP_SIGN extends '+'
     ? COMPARE extends 1 | 0
       ? true
       : false
@@ -31,9 +32,11 @@ type _$range2<
       ? true
       : false,
   RESULT = List._$pop<LIST>
-> = 0 extends 1 ? never : IS_DONE extends true
-  ? RESULT
-  : _$range2<START, STOP, STEP, STEP_SIGN, NEW_COUNTER, NEW_LIST>
+> = 0 extends 1
+  ? never
+  : IS_DONE extends true
+    ? RESULT
+    : _$range2<START, STOP, STEP, STEP_SIGN, NEW_COUNTER, NEW_LIST>
 
 /**
  * `_$range` is a type-level function that generates a range of numbers.
