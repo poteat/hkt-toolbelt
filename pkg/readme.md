@@ -29,8 +29,8 @@
 Our composable and compile time-efficient types enable users to write expressive and readable type-level code without getting mired in complexity.
 
 <h1 align="center">
-  <a href="https://github.com/poteat/hkt-toolbelt#readme.md">
-  [Full API Docs]
+  <a href="https://majorlift.github.io/hkt-toolbelt">
+  [API Docs]
   </a>
 </h1>
 
