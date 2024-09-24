@@ -1,4 +1,4 @@
-import { $, Function, Kind, List, String, Test } from '..'
+import { $, Function, Kind, List, NaturalNumber, String, Test } from '..'
 
 type Pipe_Spec = [
   /**
@@ -91,3 +91,11 @@ type Pipe_Spec = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   >
 ]
+
+it('should pipe functions together', () => {
+  const result = Kind.pipe([NaturalNumber.increment, NaturalNumber.increment])(
+    0
+  )
+
+  expect(result).toBe(2)
+})
