@@ -1,12 +1,12 @@
-import { Type, Kind, List, Conditional } from '..'
+import { Conditional, Kind, List, Type } from '..'
 
 /**
  * `_$extendsAll` is a type-level function that takes in an array of types `T` and a type `U`,
  * and returns `true` if and only if all elements of `T` extend `U`, or `T` is empty.
  * Otherwise it returns `false`.
  *
- * @template T - An array of types.
- * @template U - A type.
+ * @template {any[]} T - An array of types.
+ * @template {any} U - A type.
  *
  * @example
  * For example, we can use `_$extendsAll` to determine whether a series of type expressions all extend a second input type.
@@ -68,8 +68,8 @@ interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
  *
  * If T is empty, `true` is returned.
  *
- * @template U - A type.
- * @template T - An array of types.
+ * @template {any} U - A type.
+ * @template {any[]} T - An array of types.
  *
  * @example
  * For example, we can use `ExtendsAll` to determine whether a series of types all extend a second input type.
@@ -86,5 +86,5 @@ interface ExtendsAll_T<U extends unknown> extends Kind.Kind {
  * ```
  */
 export interface ExtendsAll extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], unknown>): ExtendsAll_T<typeof x>
+  f(x: this[Kind._]): ExtendsAll_T<typeof x>
 }

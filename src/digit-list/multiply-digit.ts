@@ -1,4 +1,4 @@
-import { Kind, Type, Digit, DigitList } from '..'
+import { Digit, DigitList, Kind, Type } from '..'
 
 type _$multiplyDigit2<
   A extends DigitList.DigitList,
@@ -44,7 +44,7 @@ export type _$multiplyDigit<
   B extends Digit.Digit
 > = B extends '0' ? ['0'] : _$multiplyDigit2<A, B>
 
-export interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
+interface MultiplyDigit_T<T extends Digit.Digit> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], DigitList.DigitList>
   ): _$multiplyDigit<typeof x, T>

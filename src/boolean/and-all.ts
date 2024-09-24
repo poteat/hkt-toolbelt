@@ -4,7 +4,7 @@ import { Kind, Type } from '..'
  * `_$andAll` is a type-level function that determines whether all elements
  * in a sequence of booleans are `true`.
  *
- * @template B - A sequence of booleans.
+ * @template T - A sequence of booleans.
  *
  * @example
  * For example, we can use `_$andAll` to check if all elements in a boolean
@@ -29,8 +29,10 @@ type TrueList<
 > = Output
 
 /**
- * `AndAll` is a type-level function that applies the '_$andAll' operation to
- * a sequence of booleans.
+ * `AndAll` is a type-level function that checks whether all elements in a
+ * sequence of booleans are `true`.
+ *
+ * @template {boolean[]} T - The boolean array to check.
  *
  * @example
  * For example, we can use `AndAll` to check if all elements in a boolean array
@@ -41,7 +43,7 @@ type TrueList<
  * ```ts
  * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Boolean.AndAll, [true, true, true]>>; // true
+ * type Result = $<Boolean.AndAll, [true, true, true]>; // true
  * ```
  */
 export interface AndAll extends Kind.Kind {

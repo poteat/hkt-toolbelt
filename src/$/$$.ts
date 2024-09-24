@@ -4,7 +4,7 @@ import { Kind, List } from '..'
  * `$$` is a type-level function in `hkt-toolbelt` that allows users to pipe
  * multiple type-level functions together and apply them to an input.
  *
- * ## Purpose
+ * ### Purpose
  *
  * `hkt-toolbelt` provides a variety of higher-order type-level functions that
  * enable users to create complex type-level logic. However, it can be
@@ -48,10 +48,10 @@ import { Kind, List } from '..'
  * Here, `$$` is being used to pipe `List.Push` and `String.Join` together and
  * then apply them to a list of strings.
  *
- * @template FX - A tuple of type-level functions that will be piped together.
- * @template X - The input type that the type-level functions will be applied to.
+ * @template {Kind[]} FX - A tuple of type-level functions that will be piped together.
+ * @template {InputOf<FX[0]>} X - The input type that the type-level functions will be applied to.
  *
- * ### Basic Usage
+ * #### Basic Usage
  *
  * @example
  * Here's a basic example that uses `$$` to apply a type-level function to an
@@ -69,7 +69,7 @@ import { Kind, List } from '..'
  * Here, `List.Push` and `List.Unshift` are being piped together using `$$` to
  * append "bar" to a list of numbers and then prepend "foo".
  *
- * ## Errors
+ * #### Errors
  *
  * `$$` will enforce that the Nth type-level function's output is a subtype of
  * the (N + 1)th input. If this is not the case, `$$` will return the `never`

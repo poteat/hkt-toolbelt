@@ -1,4 +1,4 @@
-import { Type, Kind, Digit, DigitList } from '..'
+import { Digit, DigitList, Kind, Type } from '..'
 
 /**
  * For each digit in the multiplicand, from right to left, we multiply the digit
@@ -129,6 +129,7 @@ interface Multiply_T<T extends DigitList.DigitList> extends Kind.Kind {
  *
  * type IsZero = $<$<DigitList.Multiply, []>, ["4", "2"]>; // ["0"]
  * type IsZero2 = $<$<DigitList.Multiply, ["0"], ["4", "2"]>; // ["0"]
+ * ```
  */
 export interface Multiply extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], DigitList.DigitList>): Multiply_T<typeof x>

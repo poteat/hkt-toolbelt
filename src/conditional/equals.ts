@@ -4,8 +4,8 @@ import { Kind } from '..'
  * `_$equals` is a type-level function that takes in two types, `T` and `U`, and
  * returns `true` if `T` and `U` are the same type, and `false` otherwise.
  *
- * @template T - A type.
- * @template U - A type.
+ * @template {any} T - A type.
+ * @template {any} U - A type.
  *
  * @example
  * For example, we can use `_$equals` to determine whether two types are equal.
@@ -39,8 +39,8 @@ interface Equals_T<T> extends Kind.Kind {
  * type-level function that takes in one type, `U`, and returns `true` if `U` is
  * the same type as `T`, and `false` otherwise.
  *
- * @template T - A type.
- * @template U - A type.
+ * @template {any} T - A type.
+ * @template {any} U - A type.
  *
  * @example
  * For example, we can use `Equals` to determine whether two types are equal.
@@ -60,3 +60,22 @@ interface Equals_T<T> extends Kind.Kind {
 export interface Equals extends Kind.Kind {
   f(x: this[Kind._]): Equals_T<typeof x>
 }
+
+/**
+ * Given two values `x` and `y`, returns a function that returns `true` if `x`
+ * is equal to `y`, and `false` otherwise.
+ *
+ * @param {unknown} x - The first value to compare.
+ * @param {unknown} y - The second value to compare.
+ *
+ * `x => y => x === y`
+ *
+ * @example
+ * ```ts
+ * import { $, Conditional } from "hkt-toolbelt";
+ *
+ * const result = Conditional.equals('foo')('foo') // true
+ * ```
+ */
+export const equals = ((x: unknown) => (y: unknown) =>
+  x === y) as Kind._$reify<Equals>

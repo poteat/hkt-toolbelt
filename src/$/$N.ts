@@ -8,8 +8,11 @@ import { Kind } from '..'
  * the contrapositive of `$$`, in that `$$` pipes a value through a list of
  * functions, while `$N` pipes a list of values through a function.
  *
- * @template {Kind.Kind} K - The type-level function to apply.
- * @template {List.List} X - The list of arguments to apply the type-level function to.
+ * There is no specific type checking to ensure the elements of the list are
+ * subtypes of the input type of the type-level function.
+ *
+ * @template {Kind} K - The type-level function to apply.
+ * @template {List} X - The list of arguments to apply the type-level function to.
  *
  * Since all type-level functions are curried, we successively apply the
  * type-level function to each argument in the list.

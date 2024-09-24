@@ -1,4 +1,4 @@
-import { Type, Digit, Kind } from '..'
+import { Digit, Kind, Type } from '..'
 
 /**
  * `_$decrementTens_LUT` is a type-level lookup table that maps decimal digits
@@ -20,7 +20,7 @@ type _$decrementTens_LUT = ['1', '0', '0', '0', '0', '0', '0', '0', '0', '0']
  * It only operates on individual digits and does not handle the logic
  * for the full subtraction or decrementing of the tens digit.
  *
- * @template A - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
  *
  * @example
  * For example, forwarding a decimal digit `9` will result in:
@@ -38,11 +38,9 @@ export type _$decrementTens<A extends Digit.Digit> = _$decrementTens_LUT[A]
  * type `A` and determines whether the tens digit should be decremented
  * during a subtraction operation.
  *
- * ## Parameters
- * @template A - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
  *
  * @example
- *
  * For example, using the `hkt-toolbelt` `$` type-level applicator, we apply
  * `DecrementTens` to the digit `4`:
  *

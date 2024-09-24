@@ -1,4 +1,4 @@
-import { $, Type, Kind } from '..'
+import { $, Kind, Type } from '..'
 
 /**
  * _$fixSequence is a type-level function that generates a fixed-point sequence
@@ -121,6 +121,9 @@ interface FixSequence_T<KIND extends Kind.Kind> extends Kind.Kind {
  * given kind `KIND`. A fixed-point sequence is a sequence of values where the
  * next value in the sequence is the result of applying `KIND` to the previous
  * value, and so on, until the value reaches a fixed point.
+ *
+ * @template {Kind} F - The kind for which the fixed-point sequence is generated.
+ * @template {InputOf<F>} X - The initial value of the fixed-point sequence.
  *
  * A fixed point is reached when applying `KIND` to a value returns that same
  * value. Notably, this means that an infinite loop is possible if we do not

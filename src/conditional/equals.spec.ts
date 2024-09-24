@@ -64,3 +64,11 @@ type Equals_Spec = [
   Test.Expect<$<$<Conditional.Equals, {}>, Record<PropertyKey, unknown>>>,
   Test.Expect<$<$<Conditional.Equals, [{}]>, [{}]>>
 ]
+
+it('should return true for equal values', () => {
+  expect(Conditional.equals(1)(1)).toBe(true)
+})
+
+it('should return false for unequal values', () => {
+  expect(Conditional.equals(1)(2)).toBe(false)
+})
