@@ -1,12 +1,12 @@
-import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
+import { DigitList, Kind, NaturalNumber, Number as Number_, Type } from '..'
 
 /**
  * `_$increment` is a type-level function that takes in a natural number `A` and
  * returns a new natural number representing the result of incrementing the input
  * natural number by 1. If the input is zero, the result will be zero.
  *
- * @template {Number.Number} A - A natural number to increment.
- * @returns {Number.Number} A natural number.
+ * @template {Number_.Number} A - A natural number to increment.
+ * @returns {Number_.Number} A natural number.
  *
  * @example
  * For example, we can use `_$increment` to increment the number 42 by 1.
@@ -28,10 +28,10 @@ import { Type, Kind, DigitList, NaturalNumber, Number } from '..'
  * ```
  */
 export type _$increment<
-  A extends Number.Number,
+  A extends Number_.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   INCREMENT extends DigitList.DigitList = DigitList._$increment<A_LIST>,
-  RESULT extends Number.Number = Number._$fromString<
+  RESULT extends Number_.Number = Number_._$fromString<
     DigitList._$toString<INCREMENT>
   >
 > = RESULT
@@ -40,8 +40,8 @@ export type _$increment<
  * `Increment` is a type-level function that increments a natural number type.
  * It returns the incremented natural number.
  *
- * @template {Number.Number} A - A natural number to increment.
- * @returns {Number.Number} A natural number or `never`.
+ * @template {Number_.Number} A - A natural number to increment.
+ * @returns {Number_.Number} A natural number or `never`.
  *
  * If the input is not zero or a natural number, `never` is returned.
  *
@@ -65,6 +65,19 @@ export type _$increment<
  */
 export interface Increment extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? _$increment<typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? _$increment<typeof x> : never
 }
+
+/**
+ * Given a natural number `N`, return the result of incrementing `N`.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.increment(1) // 2
+ * ```
+ */
+export const increment = ((n: Number_.Number) =>
+  Number(n) + 1) as Kind._$reify<Increment>
