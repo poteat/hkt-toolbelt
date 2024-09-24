@@ -2,8 +2,6 @@
 
 ## [Unreleased]
 
-## [0.24.0]
-
 - Add various `Kind` utilities:
   - Add `Kind.Juxt` for performing multiple calculations on a single input.
   - Add `Kind.PipeWeak` for a more flexible pipe operation with less checks.
