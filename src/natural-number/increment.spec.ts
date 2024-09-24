@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from '..'
+import { $, NaturalNumber, Test } from '..'
 
 type Increment_Spec = [
   /**
@@ -26,3 +26,7 @@ type Increment_Spec = [
    */
   Test.Expect<$<NaturalNumber.Increment, -1>, never>
 ]
+
+it('should return the result of incrementing a natural number', () => {
+  expect(NaturalNumber.increment(1)).toBe(2)
+})
