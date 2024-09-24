@@ -5,7 +5,7 @@ import { _$norAll } from './nor-all'
  * `_$orAll` is a type-level function that determines whether any of the
  * elements in a sequence of booleans are `true`.
  *
- * @template B - A sequence of booleans.
+ * @template {boolean[]} B - A sequence of booleans.
  *
  * @example
  * For example, we can use `_$orAll` to check if any of the elements in a
@@ -25,8 +25,10 @@ export type _$orAll<B extends boolean[]> = 0 extends B['length']
     : true
 
 /**
- * `OrAll` is a type-level function that applies the '_$orAll' operation to
- * a sequence of booleans.
+ * `OrAll` is a type-level function that returns true if any of the elements in
+ * the given sequence of booleans are true.
+ *
+ * @template {boolean[]} T - The boolean array to check.
  *
  * @example
  * For example, we can use `OrAll` to check if any of the elements in a
@@ -38,7 +40,7 @@ export type _$orAll<B extends boolean[]> = 0 extends B['length']
  * ```ts
  * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Boolean.OrAll, [false, false, false]>>; // false
+ * type Result = $<Boolean.OrAll, [false, false, false]>; // false
  * ```
  */
 export interface OrAll extends Kind.Kind {

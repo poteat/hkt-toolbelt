@@ -12,8 +12,8 @@ import { $, $$, Conditional, Kind } from '..'
  * This is useful if it is known that `T` extends `X`,
  * but the two arguments are being supplied in the opposite order expected by `_$extends`.
  *
- * @template T - The subtype that we are checking if `X` is a supertype of.
- * @template X - The type that we are checking if it is a supertype of `T`.
+ * @template {any} T - The subtype that we are checking if `X` is a supertype of.
+ * @template {any} X - The type that we are checking if it is a supertype of `T`.
  *
  * @example
  * For example, we can use `_$isSupertypeOf` to determine whether a type is a supertype
@@ -48,8 +48,8 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
  * This is useful if it is known that `U` extends `T`,
  * but the two arguments are being supplied in the opposite order expected by `Extends`.
  *
- * @template T - The supertype that we are checking if `U` extends.
- * @template U - The type that we are checking if it is a subtype of `T`.
+ * @template {any} T - The supertype that we are checking if `U` extends.
+ * @template {any} U - The type that we are checking if it is a subtype of `T`.
  *
  * @example
  * For example, we can use `IsSupertypeOf` to determine whether a given type `T` is a supertype of
@@ -64,6 +64,7 @@ interface IsSupertypeOf_T<T> extends Kind.Kind {
  * type Result = $<$<Conditional.IsSupertypeOf, true>, boolean>; // true
  * ```
  *
+ * @example
  * In the following examples, we test whether a number is a supertype of a string:
  *
  * ```ts

@@ -8,8 +8,8 @@ import { Kind, Type } from '..'
  *
  * This is also known as the 'logical implication' operator.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `_$imply` to determine whether a statement is true
@@ -40,8 +40,8 @@ interface Imply_T<T extends boolean> extends Kind.Kind {
  *
  * This is also known as the 'logical implication' operator.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `Imply` to determine whether a statement is true

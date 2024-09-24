@@ -5,13 +5,10 @@ interface Constant_T<X> extends Kind.Kind {
 }
 
 /**
- * `Constant` is a type-level function that returns a constant value regardless
- * of its input.
- *
- * It ignores its argument and always returns the configured constant value.
+ * `Constant` is a type-level function that constructs a type-level function
+ * which always returns the given value, regardless of input.
  *
  * @template T - The constant value to return.
- * @template X - The input type. This is ignored.
  *
  * @returns The configured constant value T.
  *

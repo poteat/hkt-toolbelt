@@ -6,9 +6,9 @@ export * from './$/'
  *
  * @example
  * ```ts
- * import { $, List, String } from 'hkt-toolbelt'
+ * import { $, String } from 'hkt-toolbelt'
  *
- * type Result = $<List.Map<String.ToUpper>, ['foo', 'bar']> // ['FOO', 'BAR']
+ * type Result = $<String.ToUpper, 'foo'> // 'FOO'
  * ```
  */
 declare module './$' {}

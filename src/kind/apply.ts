@@ -1,4 +1,4 @@
-import { $, Type, Kind } from '..'
+import { $, Kind, Type } from '..'
 
 /**
  * `_$apply` is the internal implementation for the `Apply` utility.
@@ -30,7 +30,7 @@ interface Apply_T<X> extends Kind.Kind {
  * K to the casted X using the `$` operator.
  *
  * @see {@link $}
- * Notably, the argument positions are reversed compared to `$`.
+ * Notably, the argument positions are reversed compared to `\$`.
  * Here, we first take in a value, and then a kind to apply to that value.
  *
  * @template X - The value of type X to apply the kind to

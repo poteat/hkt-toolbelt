@@ -1,4 +1,4 @@
-import { Type, Digit, Kind } from '..'
+import { Digit, Kind, Type } from '..'
 
 /**
  * `_$subtractTens_LUT` is a lookup table used internally by `_$subtractTens`
@@ -22,8 +22,8 @@ type _$subtractTens_LUT = [
  * and `B`, and returns the result of subtracting `B` from `A` in the tens
  * place. If `B` is greater than `A`, the result is 1.
  *
- * @template A - A digit type.
- * @template B - A digit type.
+ * @template {Digit} A - A digit type, the minuend.
+ * @template {Digit} B - A digit type, the subtrahend.
  *
  * @example
  * For example, we can use `_$subtractTens` to subtract two digit types in the
@@ -53,8 +53,8 @@ interface SubtractTens_T<A extends Digit.Digit> extends Kind.Kind {
  * and `B`, and returns the result of subtracting `B` from `A` in the tens
  * place. If `B` is greater than `A`, the result is 1.
  *
- * @template A - A digit type.
- * @template B - A digit type.
+ * @template {Digit} A - A digit type, the minuend.
+ * @template {Digit} B - A digit type, the subtrahend.
  *
  * @example
  * For example, we can use `SubtractTens` to subtract two digit types in the

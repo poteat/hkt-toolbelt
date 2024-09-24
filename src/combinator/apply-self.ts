@@ -1,4 +1,4 @@
-import { $, Type, Kind, Combinator } from '..'
+import { $, Combinator, Kind, Type } from '..'
 
 /**
  * `ApplySelf` is a higher-order type-level function that takes in a recursive
@@ -11,7 +11,7 @@ import { $, Type, Kind, Combinator } from '..'
  * where the function `f` takes in itself as an argument, and returns its own
  * application to itself.
  *
- * @template F - A recursive kind that takes in itself as a type argument.
+ * @template {Kind} F - A recursive kind that takes in itself as a type argument.
  *
  * @example
  * For example, we can use `ApplySelf` to create the omega combinator, which

@@ -1,4 +1,4 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 interface ApplyN_T<X extends unknown[]> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): Kind._$uncurry<typeof x, X>
@@ -11,6 +11,7 @@ interface ApplyN_T<X extends unknown[]> extends Kind.Kind {
  * K to X using the `$N` operator.
  *
  * @see {@link Kind.Uncurry}
+ *
  * `ApplyN` is `Kind.Uncurry` with the argument positions reversed.
  * Here, we first take in the values, and then a kind to apply to those values.
  *

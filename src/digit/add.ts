@@ -1,4 +1,4 @@
-import { Type, Digit, Kind } from '..'
+import { Digit, Kind, Type } from '..'
 
 /**
  * `_$add_LUT` is a type-level lookup table that contains the result of adding
@@ -23,8 +23,8 @@ type _$add_LUT = [
  * does not include any carry-over from the addition (see `_$addTens` for tens
  * place operation).
  *
- * @template A - A one-character decimal digit type.
- * @template B - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
+ * @template {Digit} B - A one-character decimal digit type.
  *
  * @example
  * For example, forwarding two decimal digits `7` and `4` will result in `1`
@@ -50,9 +50,8 @@ interface Add_T<A extends Digit.Digit> extends Kind.Kind {
  * `A` and `B`, adds them together (excluding the carry-over), and returns
  * the resulting digit type.
  *
- * ## Parameters
- * @template A - A one-character decimal digit type.
- * @template B - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
+ * @template {Digit} B - A one-character decimal digit type.
  *
  * @example
  * For example, using the `hkt-toolbelt` `$` type-level applicator,

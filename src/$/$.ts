@@ -1,4 +1,4 @@
-import { Kind, Function } from '..'
+import { Function, Kind } from '..'
 
 /**
  * `$` is the most fundamental type in `hkt-toolbelt`. `$` is a generic type
@@ -12,7 +12,7 @@ import { Kind, Function } from '..'
  * type-level function to a different input type. All applications of `$` must
  * be curried.
  *
- * ## Higher Order Type-Level Functions
+ * ### Type-Level Function Application
  *
  * The reason that we use `$` instead of normal generic type parameters is that
  * we want to be able to partially apply type-level functions. If we used
@@ -30,10 +30,10 @@ import { Kind, Function } from '..'
  * normal generic type parameters. Instead, we would need to use a higher-order
  * type-level function. That is what `hkt-toolbelt` provides.
  *
- * @template F - A type-level function.
- * @template X - The input type to apply the type-level function to.
+ * @template {Kind} F - A type-level function.
+ * @template {InputOf<F>} X - The input type to apply the type-level function to.
  *
- * ### Basic Usage
+ * #### Basic Usage
  *
  * @example
  * For example, `Function.Identity` is a type-level function which takes in one
@@ -70,7 +70,7 @@ import { Kind, Function } from '..'
  * type Result = $<$<String.Append, "bar">, "foo">; // "foobar"
  * ```
  *
- * ### Advanced Usage
+ * #### Advanced Usage
  *
  * @example
  * For example, `List.Map` is a type-level function which takes in two
