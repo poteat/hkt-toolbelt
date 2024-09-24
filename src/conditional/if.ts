@@ -1,5 +1,4 @@
 import { $, Kind, Type } from '..'
-import { InputOf } from '../kind'
 
 /**
  * `_$if` is a type-level function that evaluates a predicate `Predicate` with
