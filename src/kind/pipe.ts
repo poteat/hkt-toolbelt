@@ -1,4 +1,4 @@
-import { Type, List, Kind, NaturalNumber, $ } from '..'
+import { Function, Kind, List, Type } from '..'
 
 /**
  * `_$pipe` is a type-level function that allows users to compose
@@ -80,6 +80,26 @@ export interface Pipe extends Kind.Kind {
     : never
 }
 
-type Foo = $<Pipe, [NaturalNumber.Add]>
+/**
+ * Given a list of functions, pipe the functions together, applying them in
+ * order from left to right.
+ *
+ * @example
+ * ```ts
+ * import { Kind, NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = Kind.pipe([
+ *   NaturalNumber.increment,
+ *   NaturalNumber.increment
+ * ])(0) // 2
+ * ```
+ */
+export const pipe = ((fx: Function.Function[]) => (input: unknown) => {
+  let value = input
 
-type Bar = $<$<Foo, 1>, 2>
+  for (const f of fx) {
+    value = f(value as never)
+  }
+
+  return value
+}) as Kind._$reify<Pipe>
