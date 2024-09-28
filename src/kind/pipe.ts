@@ -1,4 +1,4 @@
-import { Function, Kind, List, Type } from '..'
+import { $, Function, Kind, List, Type } from '..'
 
 /**
  * `_$pipe` is a type-level function that allows users to compose
@@ -29,10 +29,14 @@ import { Function, Kind, List, Type } from '..'
  * and `Kind.OutputOf` type-level functions to inspect the input and output
  * types of the type-level functions that you are piping together.
  */
-export type _$pipe<FX extends Kind.Kind[], X> = Kind._$compose<
-  List._$reverse<FX>,
-  X
->
+export type _$pipe<T extends Kind.Kind[], X> = T extends [
+  infer Head extends Kind.Kind,
+  ...infer Tail extends Kind.Kind[]
+]
+  ? [X] extends [never]
+    ? never
+    : _$pipe<Tail, $<Head, Type._$cast<X, Kind._$inputOf<Head>>>>
+  : X
 
 interface Pipe_T<FX extends Kind.Kind[]> extends Kind.Kind {
   f(
