@@ -25,3 +25,18 @@ export type _$first<T extends unknown[]> = T extends [] ? never : T[0]
 export interface First extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$first<typeof x>
 }
+
+/**
+ * Returns the first element of a list.
+ *
+ * @param {unknown[]} x - The list to get the first element of.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.first([1, 2, 3])
+ * //    ^? 1
+ * ```
+ */
+export const first = ((x: unknown[]) => x[0]) as Kind._$reify<First>
