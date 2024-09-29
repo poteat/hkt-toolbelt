@@ -1,4 +1,4 @@
-import { $, Kind, NaturalNumber, Object, Type, Function } from '..'
+import { $, Kind, NaturalNumber, Object, Type, Function, List } from '..'
 
 type _$countBy2<
   F extends Kind.Kind,
@@ -36,7 +36,10 @@ export type _$countBy<
   F extends Kind.Kind,
   T extends unknown[],
   O extends Record<string | number | symbol, number> = {}
-> = Type._$display<_$countBy2<F, T, O>>
+> =
+  List._$isVariadic<T> extends true
+    ? Record<Type._$cast<T[number], PropertyKey>, number>
+    : Type._$display<_$countBy2<F, T, O>>
 
 export interface CountBy_T<F extends Kind.Kind> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$countBy<F, typeof x>
