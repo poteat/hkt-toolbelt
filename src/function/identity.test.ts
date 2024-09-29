@@ -19,3 +19,7 @@ type Identity_Spec = [
    */
   Test.Expect<$<Function.Identity, Function.Identity>, Function.Identity>
 ]
+
+it('should return the input', () => {
+  expect(Function.identity('foo')).toBe('foo')
+})

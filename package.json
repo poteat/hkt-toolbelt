@@ -2,7 +2,8 @@
   "name": "hkt-toolbelt",
   "private": true,
   "scripts": {
-    "test": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.spec.json",
+    "jest": "jest",
+    "test": "NODE_OPTIONS=--max-old-space-size=8192 tsc --project tsconfig.spec.json && jest",
     "stress": "NODE_OPTIONS=--max-old-space-size=24576 tsc --project tsconfig.stress.json",
     "build": "./build.sh",
     "build:docs": "NODE_OPTIONS=--max-old-space-size=8192 typedoc --skipErrorChecking",
