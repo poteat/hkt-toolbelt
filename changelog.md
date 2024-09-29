@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.24.1]
+
+- Add `List.CountBy` to count the number of elements in a list that satisfy a predicate.
+- Add `Object.Entries` to get the entries of an object.
+- Add `Object.Assign` to assign a value to a key in an object.
+- Add `List.MaxBy` and `List.MinBy` to find the maximum or minimum element in a list that satisfies a predicate.
+- Add various value-level implementations.
+
 ## [0.24.0]
 
 - Add various `Kind` utilities:
