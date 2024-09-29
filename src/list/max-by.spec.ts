@@ -1,4 +1,4 @@
-import { $, Test, List, Function, String } from 'hkt-toolbelt'
+import { $, Test, List, Function, String } from '..'
 
 type MaxBy_Spec = [
   /**
