@@ -1,4 +1,4 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 /**
  * `_$xor` is a type-level function that takes in two boolean types, `T` and
@@ -6,8 +6,8 @@ import { Type, Kind } from '..'
  * logical operation on `T` and `U`. If `T` and `U` are the same, then
  * `_$xor` returns false, otherwise it returns true.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean}U - A boolean type.
  *
  * @example
  * For example, we can use `_$xor` to determine whether two boolean types are
@@ -33,8 +33,8 @@ interface Xor_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'exclusive or' (xor)
  * logical operation on `T` and `U`.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `Xor` to determine whether two boolean types are

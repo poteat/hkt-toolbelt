@@ -1,4 +1,4 @@
-import { $, Kind, Type, Number, NaturalNumber } from '..'
+import { $, Kind, NaturalNumber, Number, Type } from '..'
 
 /**
  * `_$arity` is a type-level function that takes in a curried type-level function,
@@ -28,10 +28,12 @@ export type _$arity<K extends Kind.Kind, ACC extends Number.Number = 0> =
  * If `K` is not a `Kind`, an error will be emitted.
  *
  * @example
+ * ```ts
  * type ReduceArity = $<Kind.Arity, List.Reduce>  // 3
  * type PartialApply1 = $<Kind.Arity, $<List.Reduce, never>>  // 2
  * type PartialApply2 = $<Kind.Arity, $<$<List.Reduce, never>, never>>  // 1
  * type FullApply = $<Kind.Arity, $<$<$<List.Reduce, never>, never>, never>>  // 0
+ * ```
  */
 export interface Arity extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): _$arity<typeof x>

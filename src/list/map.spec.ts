@@ -54,7 +54,7 @@ type Map_Spec = [
             ]
           >
         >,
-        $<$<List.Repeat, 2>, $<List.Times, 3>>
+        $<$<List.Repeat, $<List.Times, 3>>, 2>
       ]
     >,
     [[null, 1, null], [null, 1, null]]

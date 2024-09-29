@@ -1,13 +1,13 @@
-import { $, Test, List } from '..'
+import { $, List, Test } from '..'
 
 type Repeat_Spec = [
   /**
    * N = 100
    */
-  Test.Expect<$<$<List.Repeat, 100>, '0'>[99], '0'>,
+  Test.Expect<$<$<List.Repeat, '0'>, 100>[99], '0'>,
 
   /**
    * N = 2137
    */
-  Test.Expect<$<$<List.Repeat, 2137>, '0'>[2136], '0'>
+  Test.Expect<$<$<List.Repeat, '0'>, 2137>[2136], '0'>
 ]

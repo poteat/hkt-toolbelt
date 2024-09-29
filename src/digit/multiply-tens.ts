@@ -1,23 +1,5 @@
-import { Type, Kind, Digit } from '..'
+import { Digit, Kind, Type } from '..'
 
-/**
- * `_$multiplyTens` is a type-level function that takes in two single-digit
- * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
- * This function works with digit types represented as strings.
- *
- * @template A - A single-digit type.
- * @template B - A single-digit type.
- *
- * @example
- * For example, we can use `_$multiplyTens` to compute the tens place of the
- * product of two single-digit types:
- *
- * ```ts
- * import { Digit } from "hkt-toolbelt"
- *
- * type Result = Digit._$multiplyTens<"5", "4"> // "2"
- * ```
- */
 type _$multiplyTens_LUT = [
   ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
   ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
@@ -36,8 +18,8 @@ type _$multiplyTens_LUT = [
  * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
  * This function works with digit types represented as strings.
  *
- * @template A - A single-digit type
- * @template B - A single-digit type
+ * @template {Digit} A - A single-digit type
+ * @template {Digit} B - A single-digit type
  *
  * @example
  * ```ts
@@ -59,8 +41,8 @@ interface MultiplyTens_T<A extends Digit.Digit> extends Kind.Kind {
  * `MultiplyTens` is a type-level function that takes in two single-digit
  * types, `A` and `B`, and returns the tens place of the product of `A` and `B`.
  *
- * @template A - A single-digit type.
- * @template B - A single-digit type.
+ * @template {Digit} A - A single-digit type.
+ * @template {Digit} B - A single-digit type.
  *
  * @example
  * For example, we can use `MultiplyTens` to compute the tens place of the

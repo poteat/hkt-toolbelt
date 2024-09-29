@@ -1,4 +1,4 @@
-import { Type, Digit, Kind } from '..'
+import { Digit, Kind, Type } from '..'
 
 /**
  * `_addTens_LUT` is a type level lookup table for adding tens of two digits.
@@ -23,8 +23,8 @@ type _$addTens_LUT = [
  * the two specified digits.
  * Details can be found in the corresponding lookup-table `_$addTens_LUT`.
  *
- * @template A - A one-character decimal digit type.
- * @template B - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
+ * @template {Digit} B - A one-character decimal digit type.
  *
  * @example
  * For example, forwarding two decimal digits `5` and `6` will result in `1`
@@ -49,9 +49,8 @@ interface AddTens_T<A extends Digit.Digit> extends Kind.Kind {
  * `AddTens` is a type-level function that takes two decimal digit types,
  * `A` and `B`, adds them together, and returns the resultant tens digit.
  *
- * ## Parameters
- * @template A - A one-character decimal digit type.
- * @template B - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
+ * @template {Digit} B - A one-character decimal digit type.
  *
  * @example
  * For example, using the `hkt-toolbelt` `$` type-level applicator,

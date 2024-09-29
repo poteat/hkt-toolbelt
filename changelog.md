@@ -2,6 +2,33 @@
 
 ## [Unreleased]
 
+- Add various `Kind` utilities:
+  - Add `Kind.Juxt` for performing multiple calculations on a single input.
+  - Add `Kind.PipeWeak` for a more flexible pipe operation with less checks.
+- Add various `List` utilities:
+  - Add `List.Chunk` for chunking lists into specified sizes of sublists.
+  - Add `List.Duplicates` to identify duplicate values in a list.
+  - Add `List.FlatMap` that maps over a kind and flattens the result one level.
+  - Add `List.IncludesValue` as an argument swap of `List.Includes`.
+  - Add `List.Intersect` to get common elements between two lists.
+  - Add `List.PushValue` as an argument swap of `List.Push`.
+  - Add `List.Remove` to filter out every instance of a value from a list.
+  - Add `List.Unique` to return a list with all duplicate elements removed.
+- Add new `Loop` module with an initial `Loop.Until` utility.
+- Add new `Matrix` module for dealing with two-dimensional arrays:
+  - Add `Matrix.Chunk` to chunk a matrix into a list of matrices.
+  - Add `Matrix.Columns` to get the columns of a matrix.
+  - Add `Matrix.Combine` to combine to merge a matrix of matrices into a single matrix.
+  - Add `Matrix.Rows` to get the rows of a matrix.
+  - Add `Matrix.Slice` to slice a matrix to get a submatrix using four indices.
+- Add new `Type` utilities for intersection and union types:
+  - Add `Type.Intersect` to get the intersection of two types.
+  - Add `Type.Union` to get the union of two types.
+  - Add `Type.IntersectAll` to get the intersection of all types in a tuple.
+  - Add `Type.UnionAll` to get the union of all types in a tuple.
+- **[Breaking]** Swap argument order of `List.Repeat` to match documentation.
+- **[Breaking]** Change `List.Includes` to take in direct value (since `List.Some` already exists).
+
 ## [0.23.1]
 
 - Add `Type.Assert` utility for strict type assertions.

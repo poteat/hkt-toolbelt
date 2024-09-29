@@ -1,4 +1,4 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 /**
  * `_$nor` is a type-level function that takes in two boolean types, `T` and
@@ -6,8 +6,8 @@ import { Type, Kind } from '..'
  * on `T` and `U`. If both `T` and `U` are false, then `_$nor` returns true,
  * otherwise it returns false.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `_$nor` to determine whether two boolean types are
@@ -36,8 +36,8 @@ interface Nor_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'nor' logical operation
  * on `T` and `U`.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `Nor` to determine whether two boolean types are both

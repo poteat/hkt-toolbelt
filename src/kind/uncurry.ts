@@ -2,8 +2,8 @@ import { $, Kind, Type } from '..'
 
 /**
  * `_$uncurry` is a type-level function that takes in a type-level function and
- * a list of arguments, and applies the type-level function to the list of
- * arguments.
+ * a list of arguments, and applies each element of the list to the kind one-by-
+ * one.
  *
  * This is syntactic sugar for nested `$` applications. See `$N`, which is the
  * operator shorthand for this function.

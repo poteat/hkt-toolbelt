@@ -1,4 +1,4 @@
-import { $, Kind, Type, String } from '..'
+import { $, Kind, Type } from '..'
 
 export type _$mapKeys<
   T extends Record<string, unknown>,
@@ -23,11 +23,3 @@ export interface MapKeys extends Kind.Kind {
     >
   ): MapKeys_T<typeof x>
 }
-
-declare const mapKeys: Kind._$reify<MapKeys>
-
-declare const prepend: Kind._$reify<String.Prepend>
-
-const result = mapKeys(prepend('on_'))({ a: 1, b: 2, c: 3 })
-
-type result = typeof result

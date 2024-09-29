@@ -6,8 +6,8 @@ import { Kind, Type } from '..'
  * operation on `T` and `U`. If `T` is true and `U` is false, then `_$nimply`
  * returns true, otherwise it returns false.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `_$nimply` to determine whether two boolean types
@@ -36,8 +36,8 @@ interface Nimply_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'not-implies' logical
  * operation on `T` and `U`.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `Nimply` to determine whether two boolean types

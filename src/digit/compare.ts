@@ -27,8 +27,8 @@ type _$compare_LUT = [
  *
  * It returns `1` if A > B, `-1` if A < B and `0` if A === B.
  *
- * @template A - A one-character decimal digit type.
- * @template B - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
+ * @template {Digit} B - A one-character decimal digit type.
  *
  * @example
  * For example, forwarding two decimal digits `7` and `4` will result in 1:
@@ -54,12 +54,10 @@ interface Compare_T<A extends Digit.Digit> extends Kind.Kind {
  * and `B`, compares their magnitudes, and returns the corresponding result
  * {-1, 0, or 1}.
  *
- * ## Parameters
- * @template A - A one-character decimal digit type.
- * @template B - A one-character decimal digit type.
+ * @template {Digit} A - A one-character decimal digit type.
+ * @template {Digit} B - A one-character decimal digit type.
  *
  * @example
- *
  * For example, we can use the `$` type-level applicator to apply `Compare` to
  * two digits. In this example, we compare the digits `7` and `4`.
  *

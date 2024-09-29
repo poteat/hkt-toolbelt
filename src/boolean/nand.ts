@@ -1,4 +1,4 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 /**
  * `_$nand` is a type-level function that takes in two boolean types, `T` and
@@ -36,8 +36,8 @@ interface Nand_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'nand' logical operation
  * on `T` and `U`.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `Nand` to determine whether two boolean types are

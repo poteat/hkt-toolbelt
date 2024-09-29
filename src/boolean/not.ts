@@ -1,11 +1,11 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 /**
  * `_$not` is a type-level function that takes in a boolean type `T`, and
  * returns the boolean result of applying the 'not' logical operation on `T`.
  * If `T` is true, then `_$not` returns false, otherwise it returns true.
  *
- * @template T - A boolean type.
+ * @template {boolean} T - A boolean type.
  *
  * @example
  * For example, we can use `_$not` to negate a boolean type:
@@ -22,7 +22,7 @@ export type _$not<T extends boolean> = T extends true ? false : true
  * `Not` is a type-level function that takes in a boolean type `T`, and
  * returns the boolean result of applying the 'not' logical operation on `T`.
  *
- * @template T - A boolean type.
+ * @template {boolean} T - A boolean type.
  *
  * @example
  * For example, we can use `Not` to negate a boolean type:
