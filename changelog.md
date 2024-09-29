@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [0.24.0]
 
 - Add various `Kind` utilities:
   - Add `Kind.Juxt` for performing multiple calculations on a single input.
@@ -26,6 +26,7 @@
   - Add `Type.Union` to get the union of two types.
   - Add `Type.IntersectAll` to get the intersection of all types in a tuple.
   - Add `Type.UnionAll` to get the union of all types in a tuple.
+- Add various `Object` utilities for object manipulation.
 - **[Breaking]** Swap argument order of `List.Repeat` to match documentation.
 - **[Breaking]** Change `List.Includes` to take in direct value (since `List.Some` already exists).
 
