@@ -38,7 +38,7 @@ export type _$pipe<T extends Kind.Kind[], X> = T extends [
     : _$pipe<Tail, $<Head, Type._$cast<X, Kind._$inputOf<Head>>>>
   : X
 
-interface Pipe_T<FX extends Kind.Kind[]> extends Kind.Kind {
+export interface Pipe_T<FX extends Kind.Kind[]> extends Kind.Kind {
   f(
     x: Type._$cast<
       this[Kind._],
@@ -87,6 +87,9 @@ export interface Pipe extends Kind.Kind {
 /**
  * Given a list of functions, pipe the functions together, applying them in
  * order from left to right.
+ *
+ * @param {Kind.Kind[]} fx - A list of functions to pipe together.
+ * @param {InputOf<FX[0]>} x - The input to pipe through the functions.
  *
  * @example
  * ```ts

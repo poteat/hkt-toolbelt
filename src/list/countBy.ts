@@ -1,4 +1,4 @@
-import { $, Kind, NaturalNumber, Object, Type } from '..'
+import { $, Kind, NaturalNumber, Object, Type, Function } from '..'
 
 type _$countBy2<
   F extends Kind.Kind,
@@ -38,7 +38,7 @@ export type _$countBy<
   O extends Record<string | number | symbol, number> = {}
 > = Type._$display<_$countBy2<F, T, O>>
 
-interface CountBy_T<F extends Kind.Kind> extends Kind.Kind {
+export interface CountBy_T<F extends Kind.Kind> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$countBy<F, typeof x>
 }
 
@@ -59,3 +59,33 @@ interface CountBy_T<F extends Kind.Kind> extends Kind.Kind {
 export interface CountBy extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): CountBy_T<typeof x>
 }
+
+/**
+ * Given a list, return a new list containing the count of each unique element.
+ *
+ * @param {Kind.Kind} f - The function to apply to each element to get the key.
+ * @param {unknown[]} values - The list to count the elements of.
+ *
+ * @example
+ * ```ts
+ * import { List, Function } from "hkt-toolbelt";
+ *
+ * const result = List.countBy(Function.identity)(['foo', 'foo', 'bar'])
+ * //    ^? { foo: 2, bar: 1 }
+ * ```
+ */
+export const countBy = ((f: Function.Function) => (values: unknown[]) => {
+  const result = {} as Record<string | number | symbol, number>
+
+  for (const element of values) {
+    const key = f(element as never) as string | number | symbol
+
+    if (key in result) {
+      result[key]++
+    } else {
+      result[key] = 1
+    }
+  }
+
+  return result
+}) as Kind._$reify<CountBy>

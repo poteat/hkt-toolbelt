@@ -39,3 +39,18 @@ export type _$last<T extends readonly unknown[]> = T extends [infer X]
 export interface Last extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], readonly unknown[]>): _$last<typeof x>
 }
+
+/**
+ * Returns the last element of a list.
+ *
+ * @param {unknown[]} x - The list to get the last element of.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.last([1, 2, 3])
+ * //    ^? 3
+ * ```
+ */
+export const last = ((x: unknown[]) => x[x.length - 1]) as Kind._$reify<Last>
