@@ -33,3 +33,7 @@ type Last_Spec = [
    */
   Test.Expect<$<List.Last, [string]>, string>
 ]
+
+it('should return the last element of a list', () => {
+  expect(List.last([1, 2, 3])).toBe(3)
+})

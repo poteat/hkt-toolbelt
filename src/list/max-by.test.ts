@@ -11,3 +11,7 @@ type MaxBy_Spec = [
    */
   Test.Expect<$<$<List.MaxBy, String.Length>, ['foo', 'bars', 'qux']>, 'bars'>
 ]
+
+it('should return the element in the list that has the highest score', () => {
+  expect(List.maxBy(Function.identity)([1, 2, 3])).toBe(3)
+})
