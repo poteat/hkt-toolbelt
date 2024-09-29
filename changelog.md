@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.24.3]
+
+- Add `List.IsEmpty` to check if a list is empty.
+- Add `List.Take` to take the first N elements of a list.
+- Add `List.TransformAt` to transform the element at a given index in a list.
+- Add `List.UnshiftValue` to unshift a value onto a list.
+- Add `Kind.LazyPipe` to apply a list of kinds lazily, i.e. allow intermediate currying.
+- Add `Boolean.ToNumber` to convert a boolean to a number, i.e. 1 or 0.
+- Modify `List.At` to return the union of all elements in a list if given `number` as an index.
+
 ## [0.24.2]
 
 - Fix `List.CountBy` to gracefully handle variadics.

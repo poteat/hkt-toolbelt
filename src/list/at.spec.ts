@@ -48,5 +48,12 @@ type At_Spec = [
    * Emits an error if being applied to a non-tuple.
    */
   // @ts-expect-error
-  $<$<List.At, 1>, number>
+  $<$<List.At, 1>, number>,
+
+  /**
+   * Accessing via a number type returns the union of all elements.
+   */
+  Test.Expect<$<$<List.At, number>, ['a', 'b', 'c']>, 'a' | 'b' | 'c'>
 ]
+
+type X = $<$<List.At, number>, ['a', 'b', 'c']>
