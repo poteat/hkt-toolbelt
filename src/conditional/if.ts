@@ -1,4 +1,4 @@
-import { $, Type, Kind } from '..'
+import { $, Kind, Type } from '..'
 
 /**
  * `_$if` is a type-level function that evaluates a predicate `Predicate` with
@@ -55,12 +55,12 @@ interface If_T1<Predicate extends Kind.Kind<(x: never) => boolean>>
  *
  * This can be thought of as a type-level ternary operator.
  *
- * @template Predicate - A type-level function of the form `(x: never) => boolean`.
- * @template Then - A type-level function that is applied when the predicate returns
+ * @template {Kind} Predicate - A type-level function that returns a boolean.
+ * @template {Kind} Then - A type-level function that is applied when the predicate returns
  * `true`.
- * @template Else - A type-level function that is applied when the predicate returns
+ * @template {Kind} Else - A type-level function that is applied when the predicate returns
  * `false`.
- * @template X - The input to the predicate function.
+ * @template {InputOf<Predicate>} X - The input to the predicate function.
  *
  * ## Usage Examples
  *

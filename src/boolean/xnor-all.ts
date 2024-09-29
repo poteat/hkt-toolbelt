@@ -1,20 +1,20 @@
-import { Kind, NaturalNumber, Type, $ } from '..'
+import { $, Kind, NaturalNumber, Type } from '..'
 
 /**
- * `_$xnorAll` is a type-level function that determines whether an even number
+ * `_$xnorAll` is a type-level function that determines whether an odd number
  * of elements in a sequence of booleans are `true`.
  *
- * @template B - A sequence of booleans.
+ * @template {boolean[]} B - A sequence of booleans.
  *
  * @example
- * For example, we can use `_$xnorAll` to check if an even number of elements
+ * For example, we can use `_$xnorAll` to check if an odd number of elements
  * in a boolean array are `true`. In this example, we have an array with an odd
  * number of `true` elements:
  *
  * ```ts
  * import { Boolean } from "hkt-toolbelt";
  *
- * type Result = Boolean._$xnorAll<[true, false, true]>; // false
+ * type Result = Boolean._$xnorAll<[true, false, false]>; // false
  * ```
  */
 export type _$xnorAll<B extends boolean[]> = $<
@@ -34,8 +34,10 @@ type NumberOfTrues<
 > = Output
 
 /**
- * `XnorAll` is a type-level function that applies the '_$xnorAll' operation to
- * a sequence of booleans.
+ * `XnorAll` is a type-level function that returns true if an odd number of
+ * elements in the given sequence of booleans are true.
+ *
+ * @template {boolean[]} T - The boolean array to check.
  *
  * @example
  * For example, we can use `XnorAll` to check if an even number of elements in
@@ -47,7 +49,7 @@ type NumberOfTrues<
  * ```ts
  * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Boolean.XnorAll, [true, false, true]>>; // false
+ * type Result = $<Boolean.XnorAll, [true, false, true]>; // false
  * ```
  */
 export interface XnorAll extends Kind.Kind {

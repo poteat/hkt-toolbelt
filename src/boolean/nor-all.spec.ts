@@ -13,6 +13,10 @@ type NorAll_Spec = [
    */
   Test.Expect<$<Boolean.NorAll, [true, true, false]>, false>,
   /**
+   * An array of all falses resolves to true
+   */
+  Test.Expect<$<Boolean.NorAll, [false, false, false]>, true>,
+  /**
    * Running 'NorAll' on a non-boolean type should emit an error.
    */
   // @ts-expect-error

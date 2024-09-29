@@ -1,4 +1,4 @@
-import { Kind, Type, Boolean } from '..'
+import { Boolean, Kind, Type } from '..'
 
 /**
  * `_$nAndAll` is a type-level function that determines whether none of the
@@ -24,8 +24,10 @@ export type _$nandAll<B extends boolean[]> = 0 extends B['length']
     : true
 
 /**
- * `NandAll` is a type-level function that applies the '_$nAndAll' operation to
- * a sequence of booleans.
+ * `NandAll` is a type-level function that checks whether none of the elements
+ * in a sequence of boolean values are `true`.
+ *
+ * @template {boolean[]} T - The boolean array to check.
  *
  * @example
  * For example, we can use `NandAll` to check if none of the elements in a
@@ -37,7 +39,7 @@ export type _$nandAll<B extends boolean[]> = 0 extends B['length']
  * ```ts
  * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Boolean.NandAll, [false, false, false]>>; // true
+ * type Result = $<Boolean.NandAll, [false, false, false]>; // true
  * ```
  */
 export interface NandAll extends Kind.Kind {

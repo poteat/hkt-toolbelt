@@ -4,7 +4,7 @@ import { Kind, Type } from '..'
  * `_$norAll` is a type-level function that determines whether none of the
  * elements in a sequence of booleans are `true`.
  *
- * @template B - A sequence of booleans.
+ * @template {boolean[]} B - A sequence of booleans.
  *
  * @example
  * For example, we can use `_$norAll` to check if none of the elements in a
@@ -29,8 +29,10 @@ type FalseList<
 > = Output
 
 /**
- * `NorAll` is a type-level function that applies the '_$norAll' operation to
- * a sequence of booleans.
+ * `NorAll` is a type-level function that returns true only if every element in
+ * the given sequence of booleans is false.
+ *
+ * @template {boolean[]} B - A sequence of booleans.
  *
  * @example
  * For example, we can use `NorAll` to check if none of the elements in a
@@ -42,7 +44,7 @@ type FalseList<
  * ```ts
  * import { $, Boolean } from "hkt-toolbelt";
  *
- * type Result = $<$<Boolean.NorAll, [false, false, false]>>; // true
+ * type Result = $<Boolean.NorAll, [false, false, false]>; // true
  * ```
  */
 export interface NorAll extends Kind.Kind {

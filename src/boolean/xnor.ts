@@ -1,4 +1,4 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 /**
  * `_$xnor` is a type-level function that takes in two boolean types, `T` and
@@ -6,8 +6,8 @@ import { Type, Kind } from '..'
  * on `T` and `U`. If `T` and `U` are equal, then `_$xnor` returns true,
  * otherwise it returns false.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `_$xnor` to determine whether two boolean types are
@@ -43,8 +43,8 @@ interface Xnor_T<T extends boolean> extends Kind.Kind {
  * `U`, and returns the boolean result of applying the 'xnor' logical operation
  * on `T` and `U`.
  *
- * @template T - A boolean type.
- * @template U - A boolean type.
+ * @template {boolean} T - A boolean type.
+ * @template {boolean} U - A boolean type.
  *
  * @example
  * For example, we can use `Xnor` to determine whether two boolean types are

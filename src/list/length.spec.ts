@@ -26,3 +26,7 @@ type Length_Spec = [
    */
   Test.Expect<$<List.Length, [string]>, 1>
 ]
+
+it('should return the length of a list', () => {
+  expect(List.length([1, 2, 3])).toBe(3)
+})

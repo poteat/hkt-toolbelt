@@ -1,11 +1,10 @@
-import { Type, Kind, List, Conditional } from '..'
+import { Conditional, Kind, List, Type } from '..'
 
 /**
  * `_$equalsAll` is a type-level function that takes in an array of types `T`,
  * and returns `true` if all elements of `T` are equal or `T` is empty.
  *
- * @template T - An array of types.
- * @template U - A type.
+ * @template {any[]} T - An array of types.
  *
  * @example
  * For example, we can use `_$equalsAll` to determine whether a series of types are equal.
@@ -62,7 +61,7 @@ export type _$equalsAll<T extends List.List, PREV = T[0]> = T extends [
  * type-level function that returns `true` if all elements of `T` evaluate to the same type or `T` is empty,
  * and `false` if otherwise.
  *
- * @template T - An array of types.
+ * @template {any[]} T - An array of types.
  *
  * @example
  * For example, we can use `EqualsAll` to determine whether multiple types are equal.

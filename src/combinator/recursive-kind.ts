@@ -1,9 +1,11 @@
-import { Type, Kind } from '..'
+import { Kind, Type } from '..'
 
 /**
  * `RecursiveKind` is a higher-order type-level function that serves as a
  * subtype. It is used to express the fact that some other higher-order kind
  * takes in itself as a type argument.
+ *
+ * @template {RecursiveKind} F - Input type of the recursive kind.
  *
  * This type-level function doesn't do much on its own, but it is useful in
  * combination with other type-level functions.

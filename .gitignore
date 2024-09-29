@@ -10,3 +10,5 @@ wiki
 .aider*
 .multi-aider-ignore
 .DS_Store
+
+!jest.config.js

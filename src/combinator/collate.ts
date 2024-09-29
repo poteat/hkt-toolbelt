@@ -1,4 +1,4 @@
-import { Kind, NaturalNumber, Number, Conditional, Type } from '..'
+import { Conditional, Kind, NaturalNumber, Number, Type } from '..'
 
 interface _$collate2<
   /**
@@ -43,7 +43,7 @@ export type _$collate<N extends number> = N extends 0 ? [] : _$collate2<N>
  * applications will return a tuple of length `N`, containing the arguments
  * applied.
  *
- * @template N - The arity of the type-level function to create.
+ * @template {number} N - The arity of the type-level function to create.
  *
  * This is useful for creating type-level functions that are 'variadic' in the
  * sense that they can take in a specified number of arguments.

@@ -1,4 +1,4 @@
-import { Type, Kind, Digit } from '..'
+import { Digit, Kind, Type } from '..'
 
 /**
  * `_$multiply_LUT` is a type-level lookup table that is used by `_$multiply` to
@@ -26,8 +26,8 @@ type _$multiply_LUT = [
  * `B`, and returns the result of multiplying `A` by `B`, modulo 10. The result
  * is a single digit type.
  *
- * @template A - A digit type.
- * @template B - A digit type.
+ * @template {Digit} A - A digit type, the multiplier.
+ * @template {Digit} B - A digit type, the multiplicand.
  *
  * @example
  * For example, we can use `_$multiply` to multiply two digit types. In this
@@ -53,8 +53,8 @@ interface Multiply_T<A extends Digit.Digit> extends Kind.Kind {
  * `B`, and returns the result of multiplying `A` by `B`, modulo 10. The result
  * is a single digit type.
  *
- * @template A - A digit type.
- * @template B - A digit type.
+ * @template {Digit} A - A digit type, the multiplier.
+ * @template {Digit} B - A digit type, the multiplicand.
  *
  * @example
  * For example, we can use `Multiply` to multiply two digit types. In this
