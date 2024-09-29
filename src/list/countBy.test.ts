@@ -32,6 +32,15 @@ type CountBy_Spec = [
       3: 2
       4: 1
     }
+  >,
+
+  /**
+   * Can gracefully handle variadics. The only thing we can infer is that the
+   * resultant value will be a map from strings to numbers.
+   */
+  Test.Expect<
+    $<$<List.CountBy, Function.Identity>, string[]>,
+    Record<string, number>
   >
 ]
 
