@@ -82,6 +82,11 @@ type Compare_Spec = [
   Test.Expect<$<$<Number.Compare, 123456789>, 1>, 1>,
 
   /**
+   * All numbers are greater than 'never'.
+   */
+  Test.Expect<$<$<Number.Compare, 42>, never>, 1>,
+
+  /**
    * Can compare fractionals.
    */
   Test.Expect<$<$<Number.Compare, 125>, 121>, 1>,
