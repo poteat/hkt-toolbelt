@@ -1,6 +1,6 @@
 {
   "name": "hkt-toolbelt",
-  "version": "0.23.1",
+  "version": "0.24.0",
   "description": "Functional and composable type utilities",
   "types": "./dist/index.d.ts",
   "repository": {
@@ -17,7 +17,7 @@
     "kinded",
     "kinds"
   ],
-  "author": "Michael Poteat <admin@code.lol>",
+  "author": "Alice Poteat <alice@code.lol>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/poteat/hkt-toolbelt/issues"
