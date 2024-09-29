@@ -34,3 +34,10 @@ type CountBy_Spec = [
     }
   >
 ]
+
+it('should return the count of each unique element', () => {
+  expect(List.countBy(Function.identity)(['foo', 'foo', 'bar'])).toEqual({
+    foo: 2,
+    bar: 1
+  })
+})

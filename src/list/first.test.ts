@@ -22,3 +22,7 @@ type First_Spec = [
   // @ts-expect-error
   $<List.First, number>
 ]
+
+it('should return the first element of a list', () => {
+  expect(List.first([1, 2, 3])).toBe(1)
+})
