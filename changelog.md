@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.24.2]
+
+- Fix `List.CountBy` to gracefully handle variadics.
+
 ## [0.24.1]
 
 - Add `List.CountBy` to count the number of elements in a list that satisfy a predicate.
