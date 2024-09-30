@@ -1,4 +1,4 @@
-import { $, Kind, Type } from '..'
+import { $, Kind, Type, Function } from '..'
 
 /**
  * `_$apply` is the internal implementation for the `Apply` utility.
@@ -71,3 +71,20 @@ interface Apply_T<X> extends Kind.Kind {
 export interface Apply extends Kind.Kind {
   f(x: this[Kind._]): Apply_T<typeof x>
 }
+
+/**
+ * Given a kind and a value, apply the kind to the value.
+ *
+ * @param {unknown} x - The value to apply the kind to.
+ * @param {Kind.Kind} f - The kind to apply.
+ *
+ * @example
+ * ```ts
+ * import { Kind, String } from "hkt-toolbelt";
+ *
+ * const result = Kind.apply('foo')(String.toUpper)
+ * //    ^? 'FOO'
+ * ```
+ */
+export const apply = ((x: unknown) => (f: Function.Function) =>
+  f(x as never)) as Kind._$reify<Apply>
