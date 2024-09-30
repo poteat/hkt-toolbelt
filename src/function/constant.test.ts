@@ -6,3 +6,7 @@ type Constant_Spec = [
    */
   Test.Expect<$<$<Function.Constant, 'foo'>, 0>, 'foo'>
 ]
+
+it('should return the configured constant value', () => {
+  expect(Function.constant('foo')('ignored')).toBe('foo')
+})
