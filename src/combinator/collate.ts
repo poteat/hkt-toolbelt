@@ -65,3 +65,28 @@ export type _$collate<N extends number> = N extends 0 ? [] : _$collate2<N>
 export interface Collate extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], number>): _$collate<typeof x>
 }
+
+/**
+ * Given a number N, take in N curried elements and return a list of N length.
+ *
+ * @param {number} n - The number of elements to collate.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.collate(2)("foo")("bar")
+ * //    ^? ["foo", "bar"]
+ * ```
+ */
+export const collate = ((n: number) => {
+  const values: unknown[] = []
+
+  const taker = (value: unknown) => {
+    values.push(value)
+
+    return values.length === n ? values : taker
+  }
+
+  return taker
+}) as Kind._$reify<Collate>
