@@ -1,6 +1,6 @@
 {
   "name": "hkt-toolbelt",
-  "version": "0.24.3",
+  "version": "0.24.4",
   "description": "Functional and composable type utilities",
   "types": "./index.d.ts",
   "main": "./index.js",
