@@ -1,4 +1,4 @@
-import { $, Kind, Type, Function, Combinator } from '..'
+import { $, Kind, Type, Function } from '..'
 
 /**
  * Given a list of kinds, apply them in order to a value.
