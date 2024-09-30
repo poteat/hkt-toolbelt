@@ -16,3 +16,7 @@ type ToNumber_Spec = [
    */
   Test.Expect<$<Boolean.ToNumber, boolean>, 0 | 1>
 ]
+
+it('should convert a boolean to a number', () => {
+  expect(Boolean.toNumber(true)).toBe(1)
+})
