@@ -31,3 +31,7 @@ type Push_Spec = [
   // @ts-expect-error
   $<List.Push<'foo'>, number>
 ]
+
+it('should push an element onto the end of a list', () => {
+  expect(List.push('foo')(['bar'])).toEqual(['bar', 'foo'])
+})

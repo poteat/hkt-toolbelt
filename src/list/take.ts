@@ -43,3 +43,20 @@ interface Take_T<N extends Number.Number> extends Kind.Kind {
 export interface Take extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Take_T<typeof x>
 }
+
+/**
+ * Given a number and a list, take the first N elements of the list.
+ *
+ * @param {number} n - The number of elements to take.
+ * @param {unknown[]} values - The list to take elements from.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.take(2)([1, 2, 3])
+ * //    ^? [1, 2]
+ * ```
+ */
+export const take = ((n: number) => (values: unknown[]) =>
+  values.slice(0, n)) as Kind._$reify<Take>

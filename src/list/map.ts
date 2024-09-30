@@ -1,4 +1,4 @@
-import { $, Type, Kind } from '..'
+import { $, Type, Kind, Function } from '..'
 
 /**
  * `_$map` is a type-level function that maps a type-level function over a list of types.
@@ -33,3 +33,21 @@ interface Map_T<F extends Kind.Kind> extends Kind.Kind {
 export interface Map extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): Map_T<typeof x>
 }
+
+/**
+ * Given a kind `F` and a list `X`, return a list of the results of applying
+ * `F` to each element of `X`.
+ *
+ * @param {Kind.Kind} f - The kind to map over the list.
+ * @param {unknown[]} x - The list to map over.
+ *
+ * @example
+ * ```ts
+ * import { List, Function } from "hkt-toolbelt";
+ *
+ * const result = List.map(Function.constant('foo'))(['foo', 'bar'])
+ * //    ^? ['foo', 'foo']
+ * ```
+ */
+export const map = ((f: Function.Function) => (x: unknown[]) =>
+  x.map(f as never)) as Kind._$reify<Map>

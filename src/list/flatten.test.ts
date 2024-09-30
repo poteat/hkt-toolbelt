@@ -46,3 +46,27 @@ type Flatten_Spec = [
   // @ts-expect-error
   $<List.Flatten, number>
 ]
+
+it('should flatten a list', () => {
+  expect(
+    List.flatten([
+      [1, 2],
+      [3, 4]
+    ])
+  ).toEqual([1, 2, 3, 4])
+})
+
+it('should flatten a nested list', () => {
+  expect(
+    List.flatten([
+      [
+        [1, 2],
+        [3, 4]
+      ],
+      [
+        [5, 6],
+        [7, 8]
+      ]
+    ])
+  ).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
+})

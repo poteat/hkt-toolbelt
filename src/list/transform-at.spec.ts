@@ -25,3 +25,10 @@ type TransformAt_Spec = [
     ['foo', 'bar']
   >
 ]
+
+it('should transform the element at the specified index in a list', () => {
+  expect(List.transformAt(String.toUpper)(1)(['foo', 'bar'])).toEqual([
+    'foo',
+    'BAR'
+  ])
+})

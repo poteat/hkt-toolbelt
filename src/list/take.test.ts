@@ -21,3 +21,7 @@ type Take_Spec = [
    */
   Test.Expect<$<$<List.Take, 4>, [1, 2, 3]>, never>
 ]
+
+it('should take the first N elements of a list', () => {
+  expect(List.take(2)([1, 2, 3])).toEqual([1, 2])
+})

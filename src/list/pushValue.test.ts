@@ -20,3 +20,7 @@ type PushValue_Spec = [
     [1, 2, ...string[], 'foo']
   >
 ]
+
+it('should push a value onto the end of a list', () => {
+  expect(List.pushValue([1, 2, 3])(4)).toEqual([1, 2, 3, 4])
+})
