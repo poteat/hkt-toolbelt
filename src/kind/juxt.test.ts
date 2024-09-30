@@ -33,3 +33,10 @@ type Juxt_Spec = [
    */
   Test.Expect<$<$<Kind.Juxt, []>, [1, 2, 3]>, []>
 ]
+
+it('should apply a list of kinds to a value and return a tuple of the results', () => {
+  expect(Kind.juxt([List.length, List.reverse])([1, 2, 3])).toEqual([
+    3,
+    [3, 2, 1]
+  ])
+})

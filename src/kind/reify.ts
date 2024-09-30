@@ -16,7 +16,11 @@ import { $, Kind, Type } from '..'
 export type _$reify<K extends Kind.Kind> = K & {
   <X extends Kind._$inputOf<K>>(
     x: Type._$infer<X>
-  ): $<K, X> extends Kind.Kind ? _$reify<$<K, X>> : $<K, X>
+  ): $<K, X> extends infer Result
+    ? Result extends Kind.Kind
+      ? _$reify<Result>
+      : $<K, X>
+    : never
 }
 
 /**

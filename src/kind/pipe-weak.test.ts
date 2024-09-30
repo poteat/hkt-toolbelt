@@ -12,3 +12,11 @@ type PipeWeak_Spec = [
     'bazfoobar'
   >
 ]
+
+it('should pipe functions together', () => {
+  const result = Kind.pipeWeak([String.append('foo'), String.append('bar')])(
+    'baz'
+  )
+
+  expect(result).toBe('bazfoobar')
+})

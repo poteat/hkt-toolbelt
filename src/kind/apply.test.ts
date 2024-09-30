@@ -1,13 +1,4 @@
-import {
-  $,
-  $N,
-  Kind,
-  Function,
-  Conditional,
-  List,
-  String,
-  Test
-} from 'hkt-toolbelt'
+import { $, $N, Kind, Function, Conditional, List, String, Test } from '..'
 
 type Apply_Spec = [
   /**
@@ -74,3 +65,7 @@ type Apply_Spec = [
   // @ts-expect-error
   $<$<Kind.Apply, number>, number>
 ]
+
+it('should apply a kind to a value', () => {
+  expect(Kind.apply('foo')(String.toUpper)).toBe('FOO')
+})

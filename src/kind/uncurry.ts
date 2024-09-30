@@ -1,4 +1,4 @@
-import { $, Kind, Type } from '..'
+import { $, Kind, Type, Function } from '..'
 
 /**
  * `_$uncurry` is a type-level function that takes in a type-level function and
@@ -47,3 +47,28 @@ interface Uncurry_T<K extends Kind.Kind> extends Kind.Kind {
 export interface Uncurry extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): Uncurry_T<typeof x>
 }
+
+/**
+ * Given a kind `K`, return a function that takes in a list of arguments and
+ * returns the result of applying `K` successively to each argument.
+ *
+ * @param {Kind.Kind} k - The kind to uncurry.
+ * @param {unknown[]} x - The list of arguments to apply the kind to.
+ *
+ * @example
+ * ```ts
+ * import { Kind, String } from "hkt-toolbelt";
+ *
+ * const result = Kind.uncurry(String.append)(['foo', 'bar'])
+ * //    ^? 'barfoo'
+ * ```
+ */
+export const uncurry = ((k: Function.Function) => (x: unknown[]) => {
+  let value: unknown = k
+
+  for (let i = 0; i < x.length; i++) {
+    value = (value as Function.Function)(x[i] as never)
+  }
+
+  return value
+}) as Kind._$reify<Uncurry>

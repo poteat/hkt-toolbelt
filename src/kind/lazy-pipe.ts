@@ -1,4 +1,4 @@
-import { $, Kind, Type } from '..'
+import { $, Kind, Type, Function, Combinator } from '..'
 
 /**
  * Given a list of kinds, apply them in order to a value.
@@ -52,3 +52,37 @@ interface LazyPipe_T<KX extends Kind.Kind[]> extends Kind.Kind {
 export interface LazyPipe extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind[]>): LazyPipe_T<typeof x>
 }
+
+/**
+ * Given a list of kinds, apply them all to a value, returning a tuple of the
+ * results.
+ *
+ * This is similar to `Kind.pipe`, but if the result of a kind is a kind, we return
+ * a new pipe instead of sending the result to the next kind.
+ *
+ * @param {Kind.Kind[]} fx - A list of kinds to apply.
+ * @param {unknown} x - The value to apply the kinds to.
+ *
+ * @example
+ * ```ts
+ * import { Kind, List } from "hkt-toolbelt";
+ *
+ * const result = Kind.lazyPipe([List.reverse])([1, 2, 3])
+ * //    ^? [3, 2, 1]
+ * ```
+ */
+export const lazyPipe = ((fx: Function.Function[]) => (input: unknown) => {
+  let value = input
+
+  for (let i = 0; i < fx.length; i++) {
+    const f = fx[i]
+
+    value = f(value as never)
+
+    if (typeof value === 'function') {
+      return lazyPipe([value, ...fx.slice(i + 1)] as never)
+    }
+  }
+
+  return value
+}) as Kind._$reify<LazyPipe>
