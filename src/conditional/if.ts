@@ -1,4 +1,4 @@
-import { $, Kind, Type } from '..'
+import { $, Kind, Type, Function } from '..'
 
 /**
  * `_$if` is a type-level function that evaluates a predicate `Predicate` with
@@ -121,3 +121,34 @@ export interface If extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
   ): If_T1<typeof x>
 }
+
+/**
+ * Given a predicate, a true branch, and a false branch, return the result of
+ * the if statement.
+ *
+ * @param {Kind.Kind<(x: never) => boolean>} p - The predicate to evaluate.
+ * @param {Kind.Kind} thenClause - The branch to evaluate if the predicate is true.
+ * @param {Kind.Kind} elseClause - The branch to evaluate if the predicate is false.
+ * @param {unknown} x - The input to the predicate.
+ *
+ * @example
+ * ```ts
+ * import { Conditional } from "hkt-toolbelt";
+ *
+ * const result = Conditional.if(
+ *   Conditional.equals('foo')
+ * )(
+ *   Function.constant('bar')
+ * )(
+ *   Function.identity
+ * )('foo')
+ * //    ^? bar
+ * ```
+ */
+const _if = ((predicate: Function.Function) =>
+  (thenClause: Function.Function) =>
+  (elseClause: Function.Function) =>
+  (x: never) =>
+    predicate(x) ? thenClause(x) : elseClause(x)) as Kind._$reify<If>
+
+export { _if as if }
