@@ -8,3 +8,9 @@ type FixSequence_Spec = [
    */
   Test.Expect<$<Rewrite, 'zyxyzyzyz'>, ['zyxyzyzyz', 'zyxyzyz', 'zyxyz', 'zyx']>
 ]
+
+const rewrite = Combinator.fixSequence(String.replace('xyz')('x'))
+
+it('should execute term-rewriting systems', () => {
+  expect(rewrite('zyxyzyzyz')).toEqual(['zyxyzyzyz', 'zyxyzyz', 'zyxyz', 'zyx'])
+})
