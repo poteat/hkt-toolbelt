@@ -29,3 +29,18 @@ export type _$toNumber<B extends boolean> = B extends true ? 1 : 0
 export interface ToNumber extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], boolean>): _$toNumber<typeof x>
 }
+
+/**
+ * Given a boolean, return either 1 or 0.
+ *
+ * @param {boolean} b - The boolean to convert.
+ *
+ * @example
+ * ```ts
+ * import { Boolean } from "hkt-toolbelt";
+ *
+ * const result = Boolean.toNumber(true)
+ * //    ^? 1
+ * ```
+ */
+export const toNumber = ((b: boolean) => (b ? 1 : 0)) as Kind._$reify<ToNumber>
