@@ -49,3 +49,7 @@ type ToUpper_Spec = [
    */
   Test.Expect<$<String.ToUpper, string>, Uppercase<string>>
 ]
+
+it('should convert a string to uppercase', () => {
+  expect(String.toUpper('foo')).toBe('FOO')
+})

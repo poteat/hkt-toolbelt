@@ -65,3 +65,7 @@ type Replace_Spec = [
   // @ts-expect-error
   $<$<$<String.Replace, 'foo'>, 'bar'>, number>
 ]
+
+it('should replace all instances of a string with another string', () => {
+  expect(String.replace('foo')('bar')('foobar')).toBe('barbar')
+})

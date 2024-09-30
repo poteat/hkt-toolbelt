@@ -23,3 +23,19 @@ export type _$isString<S extends unknown> = S extends string ? true : false
 export interface IsString extends Kind.Kind {
   f(x: this[Kind._]): _$isString<typeof x>
 }
+
+/**
+ * Given a string, check if it is a string.
+ *
+ * @param {string} x - The string to check.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.isString('hello')
+ * //    ^? true
+ * ```
+ */
+export const isString = ((x: string) =>
+  typeof x === 'string') as Kind._$reify<IsString>
