@@ -1,3 +1,4 @@
+import { values } from 'lodash'
 import { Kind, Type } from '..'
 
 /**
@@ -37,3 +38,22 @@ interface PushValue_T<T extends unknown[]> extends Kind.Kind {
 export interface PushValue extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): PushValue_T<typeof x>
 }
+
+/**
+ * Given a list and a value, push the value onto the end of the list.
+ *
+ * @param {unknown[]} values - The list to push the value onto.
+ * @param {unknown} x - The value to push onto the list.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.pushValue([1, 2, 3])(4)
+ * //    ^? [1, 2, 3, 4]
+ * ```
+ */
+export const pushValue = ((values: unknown[]) => (x: unknown) => [
+  ...values,
+  x
+]) as Kind._$reify<PushValue>

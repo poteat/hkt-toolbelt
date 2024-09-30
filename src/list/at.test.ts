@@ -56,4 +56,6 @@ type At_Spec = [
   Test.Expect<$<$<List.At, number>, ['a', 'b', 'c']>, 'a' | 'b' | 'c'>
 ]
 
-type X = $<$<List.At, number>, ['a', 'b', 'c']>
+it('should return the element at the specified index', () => {
+  expect(List.at(1)(['a', 'b', 'c'])).toBe('b')
+})

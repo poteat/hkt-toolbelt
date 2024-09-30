@@ -31,3 +31,7 @@ type Every_Spec = [
   // @ts-expect-error
   $<List.Every<String.StartsWith<'foo'>>, [1, 2, 3]>
 ]
+
+it('should check if all elements of the list satisfy the predicate', () => {
+  expect(List.every(String.isString)(['foo', 'bar'])).toBe(true)
+})

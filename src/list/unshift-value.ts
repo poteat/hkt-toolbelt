@@ -39,3 +39,22 @@ interface UnshiftValue_T<X extends unknown[]> extends Kind.Kind {
 export interface UnshiftValue extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): UnshiftValue_T<typeof x>
 }
+
+/**
+ * Given a list and a value, unshift the value onto the start of the list.
+ *
+ * @param {unknown[]} values - The list to unshift the value onto.
+ * @param {unknown} x - The value to unshift onto the list.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.unshiftValue([1, 2, 3])(4)
+ * //    ^? [4, 1, 2, 3]
+ * ```
+ */
+export const unshiftValue = ((values: unknown[]) => (x: unknown) => [
+  x,
+  ...values
+]) as Kind._$reify<UnshiftValue>
