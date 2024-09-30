@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.24.4]
+- Add various value-level implementations across `List`, `NaturalNumber`, `String`, and `Type`.
+- Add `Type.Never` to represent the `never` type.
+
 ## [0.24.3]
 
 - Add `List.IsEmpty` to check if a list is empty.
