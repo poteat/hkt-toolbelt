@@ -1,4 +1,4 @@
-import { $, Boolean, Type, Kind } from '..'
+import { $, Boolean, Type, Kind, Function } from '..'
 
 /**
  * `_$every` is a type-level function that checks if every element in a tuple satisfies a predicate.
@@ -44,3 +44,21 @@ export interface Every extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
   ): Every_T<typeof x>
 }
+
+/**
+ * Given a predicate and a list, check if all elements of the list satisfy the
+ * predicate.
+ *
+ * @param {Kind.Kind<(x: unknown) => boolean>} f - The predicate to check.
+ * @param {unknown[]} values - The list to check.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.every(String.isString)(['foo', 'bar'])
+ * //    ^? true
+ * ```
+ */
+export const every = ((f: Function.Function) => (values: unknown[]) =>
+  values.every((value) => f(value as never))) as Kind._$reify<Every>

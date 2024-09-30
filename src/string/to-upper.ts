@@ -23,3 +23,18 @@ export type _$toUpper<S extends string> = Uppercase<S>
 export interface ToUpper extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$toUpper<typeof x>
 }
+
+/**
+ * Given a string, convert it to uppercase.
+ *
+ * @param {string} x - The string to convert to uppercase.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.toUpper('foo')
+ * //    ^? 'FOO'
+ * ```
+ */
+export const toUpper = ((x: string) => x.toUpperCase()) as Kind._$reify<ToUpper>

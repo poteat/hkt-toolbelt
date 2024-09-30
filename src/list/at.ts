@@ -106,3 +106,19 @@ interface At_T<X extends Number.Number> extends Kind.Kind {
 export interface At extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): At_T<typeof x>
 }
+
+/**
+ * Returns the element at the specified index in a list.
+ *
+ * @param {number} i - The index of the element to get.
+ * @param {unknown[]} x - The list to get the element from.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.at(1)(['a', 'b', 'c'])
+ * //    ^? ['b', 'c']
+ * ```
+ */
+export const at = ((i: number) => (x: unknown[]) => x[i]) as Kind._$reify<At>

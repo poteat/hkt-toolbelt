@@ -41,3 +41,19 @@ export type _$reverse<
 export interface Reverse extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$reverse<typeof x>
 }
+
+/**
+ * Given a list, reverse the order of the elements.
+ *
+ * @param {unknown[]} x - The list to reverse.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.reverse([1, 2, 3])
+ * //    ^? [3, 2, 1]
+ * ```
+ */
+export const reverse = ((x: unknown[]) =>
+  [...x].reverse()) as Kind._$reify<Reverse>

@@ -1,4 +1,4 @@
-import { Kind, List, Type } from '..'
+import { Kind, List, Type, Function } from '..'
 
 /**
  * `PipeWeak` is a type-level function that takes a tuple of type-level
@@ -74,3 +74,33 @@ interface PipeWeak_T<FX extends Kind.Kind[]> extends Kind.Kind {
 export interface PipeWeak extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind[]>): PipeWeak_T<typeof x>
 }
+
+/**
+ * Given a list of kinds, apply them in order to a value.
+ *
+ * This is similar to `Kind.Pipe`, but type-level constraints are weakened.
+ *
+ * @param {Kind.Kind[]} fx - A list of kinds to apply.
+ * @param {unknown} x - The value to apply the kinds to.
+ *
+ * @example
+ * ```ts
+ * import { Kind, String } from "hkt-toolbelt";
+ *
+ * type MyFunc = $<Kind.PipeWeak, [
+ *   $<String.Append, "foo">,
+ *   $<String.Append, "bar">,
+ * ]>
+ *
+ * type Result = $<MyFunc, "baz"> // "bazfoobar"
+ * ```
+ */
+export const pipeWeak = ((fx: Function.Function[]) => (x: unknown) => {
+  let value = x
+
+  for (const f of fx) {
+    value = f(value as never)
+  }
+
+  return value
+}) as Kind._$reify<PipeWeak>

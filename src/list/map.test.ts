@@ -1,4 +1,4 @@
-import { $, $N, Conditional, Function, List, Test } from '..'
+import { $, $N, Conditional, Function, List, NaturalNumber, Test } from '..'
 
 type Map_Spec = [
   /**
@@ -60,3 +60,14 @@ type Map_Spec = [
     [[null, 1, null], [null, 1, null]]
   >
 ]
+
+it('should map a kind over a list', () => {
+  expect(List.map(Function.constant('foo'))(['foo', 'bar'])).toEqual([
+    'foo',
+    'foo'
+  ])
+})
+
+it('should map a modifying kind over a list', () => {
+  expect(List.map(NaturalNumber.increment)([1, 2, 3])).toEqual([2, 3, 4])
+})

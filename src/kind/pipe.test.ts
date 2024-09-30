@@ -99,3 +99,9 @@ it('should pipe functions together', () => {
 
   expect(result).toBe(2)
 })
+
+it('a pipe of no functions should be the identity function', () => {
+  const result = Kind.pipe([])(0)
+
+  expect(result).toBe(0)
+})

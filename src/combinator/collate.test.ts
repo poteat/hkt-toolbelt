@@ -11,3 +11,7 @@ type Collate_Spec = [
    */
   Test.Expect<$<Combinator.Collate, 0>, []>
 ]
+
+it('should take in N curried elements and return a list of N length', () => {
+  expect(Combinator.collate(2)('foo')('bar')).toEqual(['foo', 'bar'])
+})
