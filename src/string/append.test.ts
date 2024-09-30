@@ -33,3 +33,7 @@ type Append_Spec = [
   // @ts-expect-error
   $<$<String.Append, ''>, number>
 ]
+
+it('should append a suffix to a string', () => {
+  expect(String.append('bar')('foo')).toBe('foobar')
+})

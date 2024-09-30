@@ -64,3 +64,22 @@ interface Replace_T<From extends string> extends Kind.Kind {
 export interface Replace extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): Replace_T<typeof x>
 }
+
+/**
+ * Given a string and a string to replace, replace all instances of the string
+ * with the replacement string.
+ *
+ * @param {string} from - The string to replace.
+ * @param {string} to - The string to replace with.
+ * @param {string} x - The string to replace in.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.replace('foo')('bar')('foobar')
+ * //    ^? 'barbar'
+ * ```
+ */
+export const replace = ((from: string) => (to: string) => (x: string) =>
+  x.replaceAll(from, to)) as Kind._$reify<Replace>
