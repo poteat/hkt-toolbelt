@@ -22,3 +22,7 @@ type IsLessThan_Spec = [
   // @ts-expect-error
   Test.Expect<$<$<Number.IsLessThan, boolean>, 2>>
 ]
+
+it('should return whether the second number is less than the first', () => {
+  expect(Number.isLessThan(3)(-2)).toBe(true)
+})
