@@ -29,3 +29,7 @@ type Reverse_Spec = [
     ['foo', ...number[], 3, 2, 1]
   >
 ]
+
+it('should reverse the order of the elements in a list', () => {
+  expect(List.reverse([1, 2, 3])).toEqual([3, 2, 1])
+})

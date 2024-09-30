@@ -79,3 +79,18 @@ export interface Decrement extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? _$decrement<typeof x> : never
 }
+
+/**
+ * Given a natural number, decrement it by 1.
+ *
+ * @param {number} x - The natural number to decrement.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.decrement(1)
+ * //    ^? 0
+ * ```
+ */
+export const decrement = ((x: number) => x - 1) as Kind._$reify<Decrement>

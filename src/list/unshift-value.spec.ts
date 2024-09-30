@@ -19,3 +19,7 @@ type UnshiftValue_Spec = [
     [[4, 5, 6], 1, 2, 3]
   >
 ]
+
+it('should unshift a value onto the start of a list', () => {
+  expect(List.unshiftValue([1, 2, 3])(4)).toEqual([4, 1, 2, 3])
+})

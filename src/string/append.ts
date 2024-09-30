@@ -29,3 +29,20 @@ interface Append_T<Suffix extends string> extends Kind.Kind {
 export interface Append extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): Append_T<typeof x>
 }
+
+/**
+ * Given a suffix and a string, append the suffix to the string.
+ *
+ * @param {string} suffix - The suffix to append.
+ * @param {string} s - The string to append the suffix to.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.append('bar')('foo')
+ * //    ^? foobar
+ * ```
+ */
+export const append = ((suffix: string) => (s: string) =>
+  s + suffix) as Kind._$reify<Append>

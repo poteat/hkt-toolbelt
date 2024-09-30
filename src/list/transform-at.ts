@@ -1,4 +1,4 @@
-import { $, Kind, Type, Number } from '..'
+import { $, Kind, Type, Number, Function } from '..'
 
 /**
  * `_$transformAt` is a type-level function that takes in a function `F`, an
@@ -50,3 +50,27 @@ interface TransformAt_T1<F extends Kind.Kind> extends Kind.Kind {
 export interface TransformAt extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): TransformAt_T1<typeof x>
 }
+
+/**
+ * Given a function and an index, transform the element at the specified index
+ * in a list.
+ *
+ * @param {Kind.Kind} f - The function to transform the element with.
+ * @param {number} i - The index of the element to transform.
+ * @param {unknown[]} values - The list to transform the element in.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.transformAt(String.toUpper)(1)(['foo', 'bar'])
+ * //    ^? ['foo', 'BAR']
+ * ```
+ */
+export const transformAt = ((f: Function.Function) =>
+  (i: number) =>
+  (values: unknown[]) => {
+    const result = [...values]
+    result[i] = f(result[i] as never)
+    return result
+  }) as unknown as Kind._$reify<TransformAt>

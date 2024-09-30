@@ -90,3 +90,11 @@ type If_Spec = [
     [true, false, never, true]
   >
 ]
+
+it('should return the result of the if statement', () => {
+  expect(
+    Conditional.if(Conditional.equals('foo'))(Function.constant('bar'))(
+      Function.identity
+    )('foo')
+  ).toBe('bar')
+})

@@ -1,4 +1,4 @@
-import { $, Kind, Type } from '..'
+import { $, Kind, Type, Function } from '..'
 
 /**
  * `_$juxt` is a type-level function that takes in a tuple of kinds `FX` and
@@ -67,3 +67,26 @@ interface Juxt_T<FX extends Kind.Kind[]> extends Kind.Kind {
 export interface Juxt extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind[]>): Juxt_T<typeof x>
 }
+
+/**
+ * Given a list of kinds, apply them all to a value, returning a tuple of the
+ * results.
+ *
+ * @param {Kind.Kind[]} fx - The list of kinds to apply.
+ * @param {unknown} x - The value to apply the kinds to.
+ *
+ * @example
+ * ```ts
+ * import { Kind, List } from "hkt-toolbelt";
+ *
+ * const result = Kind.juxt([List.length, List.reverse])([1, 2, 3])
+ * //    ^? [3, [3, 2, 1]]
+ * ```
+ */
+export const juxt = ((fx: Function.Function[]) => (x: unknown) => {
+  const result = []
+  for (const f of fx) {
+    result.push(f(x as never))
+  }
+  return result
+}) as Kind._$reify<Juxt>

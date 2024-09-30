@@ -25,3 +25,19 @@ interface Constant_T<X> extends Kind.Kind {
 export interface Constant extends Kind.Kind {
   f(x: this[Kind._]): Constant_T<typeof x>
 }
+
+/**
+ * Given a value, form a constant function that always returns that value.
+ *
+ * @param {unknown} x - The value to return.
+ *
+ * @example
+ * ```ts
+ * import { Function } from "hkt-toolbelt";
+ *
+ * const result = Function.constant('foo')('ignored')
+ * //    ^? foo
+ * ```
+ */
+export const constant = ((x: unknown) => (_y?: never) =>
+  x) as Kind._$reify<Constant>

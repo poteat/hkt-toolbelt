@@ -34,3 +34,7 @@ type Decrement_Spec = [
     999999999999999999998n
   >
 ]
+
+it('should decrement a natural number by 1', () => {
+  expect(NaturalNumber.decrement(1)).toBe(0)
+})

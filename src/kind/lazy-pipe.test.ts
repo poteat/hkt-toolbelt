@@ -26,3 +26,15 @@ type LazyPipe_Spec = [
     6
   >
 ]
+
+it('should apply a list of kinds to a value', () => {
+  expect(Kind.lazyPipe([List.reverse])([1, 2, 3])).toEqual([3, 2, 1])
+})
+
+it('should be able to handle collation', () => {
+  expect(
+    Kind.lazyPipe([Combinator.collate(2), List.flatten, List.length])([
+      1, 2, 3
+    ])([4, 5, 6])
+  ).toEqual(6)
+})

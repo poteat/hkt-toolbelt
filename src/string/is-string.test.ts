@@ -55,3 +55,11 @@ type IsString_Spec = [
    */
   Test.Expect<$<String.IsString, boolean | number>, false>
 ]
+
+it('should check if a string is a string', () => {
+  expect(String.isString('hello')).toBe(true)
+})
+
+it('values which are not strings should not be strings', () => {
+  expect(String.isString(42)).toBe(false)
+})

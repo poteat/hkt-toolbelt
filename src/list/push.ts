@@ -31,3 +31,22 @@ interface Push_T<X> extends Kind.Kind {
 export interface Push extends Kind.Kind {
   f(x: this[Kind._]): Push_T<typeof x>
 }
+
+/**
+ * Given an element and a list, push the element onto the end of the list.
+ *
+ * @param {unknown} x - The element to push onto the list.
+ * @param {unknown[]} values - The list to push the element onto.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.push('foo')(['bar'])
+ * //    ^? ['bar', 'foo']
+ * ```
+ */
+export const push = ((x: unknown) => (values: unknown[]) => [
+  ...values,
+  x
+]) as unknown as Kind._$reify<Push>
