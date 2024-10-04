@@ -12,7 +12,6 @@ import { Kind, Type } from '..'
  * type T1 = Object._$atKey<{ a: 1; b: 2; c: 3 }, 'd'> // never
  * ```
  */
-
 export type _$atKey<
   O extends Record<PropertyKey, unknown>,
   K extends PropertyKey

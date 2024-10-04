@@ -109,8 +109,7 @@ export interface Until extends Kind.Kind {
  *   NaturalNumber.isGreaterThan(10),
  *   NaturalNumber.add(1),
  *   0
- * )
- * //    ^? 10
+ * ) // 11
  * ```
  */
 export const until = ((p: Function.Function) =>
