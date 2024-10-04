@@ -72,3 +72,7 @@ it('should return true for equal values', () => {
 it('should return false for unequal values', () => {
   expect(Conditional.equals(1)(2)).toBe(false)
 })
+
+it('performs deep equality', () => {
+  expect(Conditional.equals({ a: 1, b: 2 })({ a: 1, b: 2 })).toBe(true)
+})
