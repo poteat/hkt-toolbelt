@@ -36,3 +36,7 @@ type ToString_Spec = [
    */
   Test.Expect<$<Number.ToString, typeof Infinity>, `${number}`>
 ]
+
+it('should convert a number to a string', () => {
+  expect(Number.toString(42)).toBe('42')
+})
