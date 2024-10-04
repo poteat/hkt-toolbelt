@@ -23,3 +23,18 @@ export type _$toLower<S extends string> = Lowercase<S>
 export interface ToLower extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$toLower<typeof x>
 }
+
+/**
+ * Given a string, convert it to lowercase.
+ *
+ * @param {string} x - The string to convert to lowercase.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.toLower('HELLO')
+ * //    ^? 'hello'
+ * ```
+ */
+export const toLower = ((x: string) => x.toLowerCase()) as Kind._$reify<ToLower>
