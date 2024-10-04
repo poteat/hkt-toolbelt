@@ -1,4 +1,5 @@
 export * from './assign'
+export * from './at-key'
 export * from './at'
 export * from './at-path'
 export * from './at-path-n'
