@@ -41,3 +41,7 @@ type ToList_Spec = [
    */
   Test.Expect<$<NaturalNumber.ToList, -42>, never>
 ]
+
+it('should convert a number to a list of digits', () => {
+  expect(NaturalNumber.toList(42)).toEqual(['4', '2'])
+})

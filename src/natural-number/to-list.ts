@@ -39,3 +39,27 @@ export interface ToList extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? _$toList<typeof x> : never
 }
+
+/**
+ * Given a number, convert it to a list of digits.
+ *
+ * @param {number} x - The number to convert to a list of digits.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.toList(42)
+ * //    ^? ['4', '2']
+ * ```
+ */
+export const toList = ((x: number) => {
+  const digits: string[] = []
+
+  while (x > 0) {
+    digits.push(`${x % 10}`)
+    x = Math.floor(x / 10)
+  }
+
+  return digits.reverse()
+}) as Kind._$reify<ToList>
