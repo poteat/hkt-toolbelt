@@ -94,3 +94,7 @@ type Split_Spec = [
     ]
   >
 ]
+
+it('should split a string into an array of substrings', () => {
+  expect(String.split(' ')('foo bar')).toEqual(['foo', 'bar'])
+})
