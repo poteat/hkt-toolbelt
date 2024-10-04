@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.24.5]
+- Add `NaturalNumber.Square` to compute the square of a natural number.
+- Add `Object.AtKey` to get the value at a key in an object. (swapped argument order of `Object.At`)
+- Modify `Conditional.equals` to perform deep equality.
+- Add various value-level implementations.
+
 ## [0.24.4]
 - Add various value-level implementations across `List`, `NaturalNumber`, `String`, and `Type`.
 - Add `Type.Never` to represent the `never` type.
