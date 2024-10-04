@@ -51,3 +51,11 @@ type SubtractBy_Spec = [
    */
   Test.Expect<$<$<NaturalNumber.SubtractBy, 456>, 123>, 0>
 ]
+
+it('should subtract two numbers', () => {
+  expect(NaturalNumber.subtractBy(123)(456)).toBe(333)
+})
+
+it('caps result at zero', () => {
+  expect(NaturalNumber.subtractBy(456)(123)).toBe(0)
+})

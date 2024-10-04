@@ -1,4 +1,4 @@
-import { $, Conditional, Function, Kind, List, Test } from '..'
+import { $, Conditional, Function, Kind, List, NaturalNumber, Test } from '..'
 
 type Filter_Spec = [
   /**
@@ -58,3 +58,19 @@ type Filter_Spec = [
     [1, 2, 3]
   >
 ]
+
+it('should not filter out when predicate always returns true', () => {
+  expect(List.filter(Function.constant(true))([1, 2, 3, 4, 5])).toEqual([
+    1, 2, 3, 4, 5
+  ])
+})
+
+it('should filter out when predicate always returns false', () => {
+  expect(List.filter(Function.constant(false))([1, 2, 3, 4, 5])).toEqual([])
+})
+
+it('can filter out numbers that are not greater than 3', () => {
+  expect(List.filter(NaturalNumber.isGreaterThan(3))([1, 2, 3, 4, 5])).toEqual([
+    4, 5
+  ])
+})

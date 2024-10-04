@@ -49,3 +49,7 @@ type ToLower_Spec = [
    */
   Test.Expect<$<String.ToLower, string>, Lowercase<string>>
 ]
+
+it('should convert a string to lowercase', () => {
+  expect(String.toLower('FOO')).toBe('foo')
+})

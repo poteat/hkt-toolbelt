@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.24.6]
+- Add `String.FromCharCode` to convert a character code to a string.
+- Add `String.IsLetter` to check if a string is a letter.
+- Add `String.ToCharCode` to convert a string to a character code.
+- Reify `String.Split` to a value-level function.
+- Reify `String.ToLower` to a value-level function.
+- Reify `NaturalNumber.SubtractBy` to a value-level function.
+- Reify `NaturalNumber.Subtract` to a value-level function.
+- Reify `List.Filter` to a value-level function.
+
 ## [0.24.5]
 - Add `NaturalNumber.Square` to compute the square of a natural number.
 - Add `Object.AtKey` to get the value at a key in an object. (swapped argument order of `Object.At`)

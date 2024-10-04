@@ -1,4 +1,4 @@
-import { $, Type, Kind } from '..'
+import { $, Type, Kind, Function } from '..'
 
 /**
  * `_$filter` is a type-level function that takes in two inputs:
@@ -82,3 +82,21 @@ export interface Filter extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
   ): Filter_T<typeof x>
 }
+
+/**
+ * Given a predicate and a list, filter the list to only include elements that
+ * satisfy the predicate.
+ *
+ * @param {Kind.Kind<(x: never) => boolean>} f - The predicate to filter the list by.
+ * @param {unknown[]} values - The list to filter.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.filter(NaturalNumber.isGreaterThan(3))([1, 2, 3, 4, 5])
+ * //    ^? [4, 5]
+ * ```
+ */
+export const filter = ((f: Function.Function) => (values: unknown[]) =>
+  values.filter((value) => f(value as never))) as Kind._$reify<Filter>

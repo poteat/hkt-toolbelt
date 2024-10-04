@@ -46,3 +46,21 @@ export interface SubtractBy extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? SubtractBy_T<typeof x> : never
 }
+
+/**
+ * Given two natural numbers, subtract the first number from the second. The
+ * result is capped at zero.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.subtractBy(2)(3)
+ * //    ^? 1
+ * ```
+ */
+export const subtractBy = ((a: number) => (b: number) =>
+  a > b ? 0 : b - a) as Kind._$reify<SubtractBy>
