@@ -1,10 +1,15 @@
-export function deepEqual(a: any, b: any): boolean {
-  if (a === b) return true
+export function deepEqual(a: unknown, b: unknown): boolean {
+  if (Object.is(a, b)) return true
 
-  if (a && b && typeof a === 'object' && typeof b === 'object') {
-    if (a.constructor !== b.constructor) return false
-
+  if (
+    a &&
+    b &&
+    typeof a === 'object' &&
+    typeof b === 'object' &&
+    Object.getPrototypeOf(a) === Object.getPrototypeOf(b)
+  ) {
     if (Array.isArray(a)) {
+      if (!Array.isArray(b)) return false
       if (a.length !== b.length) return false
       for (let i = 0; i < a.length; i++) {
         if (!deepEqual(a[i], b[i])) return false
@@ -13,14 +18,17 @@ export function deepEqual(a: any, b: any): boolean {
     }
 
     if (a instanceof Map) {
+      if (!(b instanceof Map)) return false
       if (a.size !== b.size) return false
       for (const [key, val] of a) {
-        if (!b.has(key) || !deepEqual(val, b.get(key))) return false
+        if (!b.has(key)) return false
+        if (!deepEqual(val, b.get(key))) return false
       }
       return true
     }
 
     if (a instanceof Set) {
+      if (!(b instanceof Set)) return false
       if (a.size !== b.size) return false
       for (const val of a) {
         if (!b.has(val)) return false
@@ -28,18 +36,32 @@ export function deepEqual(a: any, b: any): boolean {
       return true
     }
 
-    if (a instanceof Date) return a.getTime() === b.getTime()
-    if (a instanceof RegExp) return a.toString() === b.toString()
+    if (a instanceof Date) {
+      if (!(b instanceof Date)) return false
+      return a.getTime() === b.getTime()
+    }
 
-    const keys = Object.keys(a)
-    if (keys.length !== Object.keys(b).length) return false
+    if (a instanceof RegExp) {
+      if (!(b instanceof RegExp)) return false
+      return a.toString() === b.toString()
+    }
 
-    for (const key of keys) {
-      if (!deepEqual(a[key], b[key])) return false
+    const aKeys = Object.keys(a as Record<string, unknown>)
+    const bKeys = Object.keys(b as Record<string, unknown>)
+    if (aKeys.length !== bKeys.length) return false
+
+    for (const key of aKeys) {
+      if (
+        !deepEqual(
+          (a as Record<string, unknown>)[key],
+          (b as Record<string, unknown>)[key]
+        )
+      )
+        return false
     }
 
     return true
   }
 
-  return Number.isNaN(a) && Number.isNaN(b)
+  return false
 }

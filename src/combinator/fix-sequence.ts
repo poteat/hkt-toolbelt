@@ -203,7 +203,7 @@ export interface FixSequence extends Kind.Kind {
  * ```
  */
 export const fixSequence = ((f: Function.Function) => (x: unknown) => {
-  let state = [x]
+  const state = [x]
 
   let previousValue = undefined
   let value = x
