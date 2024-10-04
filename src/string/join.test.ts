@@ -87,3 +87,7 @@ type Join_Spec = [
     string
   >
 ]
+
+it('should join a list of strings with a delimiter', () => {
+  expect(String.join(' ')(['foo', 'bar', 'baz'])).toBe('foo bar baz')
+})

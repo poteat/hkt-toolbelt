@@ -1,6 +1,6 @@
 import { $, Test, Number } from '..'
 
-export type Sign_Spec = [
+type Sign_Spec = [
   /**
    * Can get the sign of a positive number.
    */

@@ -82,3 +82,21 @@ interface IsGreaterThan_T<A extends Number.Number> extends Kind.Kind {
 export interface IsGreaterThan extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): IsGreaterThan_T<typeof x>
 }
+
+/**
+ * Given two numbers, return whether the second number is greater than the
+ * first.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.isGreaterThan(3)(2)
+ * //    ^? false
+ * ```
+ */
+export const isGreaterThan = ((a: number) => (b: number) =>
+  b > a) as Kind._$reify<IsGreaterThan>

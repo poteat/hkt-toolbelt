@@ -1,4 +1,4 @@
-import { $, Conditional, Kind, Type } from '..'
+import { $, Conditional, Kind, Type, Function } from '..'
 
 /**
  * `_$until` is a type-level function that takes in a looping clause kind, an
@@ -92,3 +92,34 @@ export interface Until extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
   ): Until_T1<typeof x>
 }
+
+/**
+ * Given a stopping predicate, an updater, and an initial value, loop until we reach
+ * a value that satisfies the stopping predicate.
+ *
+ * @param {Kind.Kind<(x: never) => boolean>} p - The stopping predicate.
+ * @param {Kind.Kind<(x: never) => unknown>} u - The updater.
+ * @param {unknown} x - The initial value.
+ *
+ * @example
+ * ```ts
+ * import { Kind, NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = Kind.until(
+ *   NaturalNumber.isGreaterThan(10),
+ *   NaturalNumber.add(1),
+ *   0
+ * ) // 11
+ * ```
+ */
+export const until = ((p: Function.Function) =>
+  (u: Function.Function) =>
+  (x: unknown) => {
+    let value = x
+
+    while (!p(value as never)) {
+      value = u(value as never)
+    }
+
+    return value
+  }) as Kind._$reify<Until>
