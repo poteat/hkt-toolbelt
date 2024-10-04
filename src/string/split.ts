@@ -3,8 +3,8 @@ import { Type, Kind, String } from '..'
 /**
  * `String.Split` is a type-level function that splits a string into an array of substrings.
  *
- * @template S - The string to split.
  * @template Delimiter - The delimiter to split the string by.
+ * @template S - The string to split.
  *
  * @example
  * type T0 = String._$split<'foobar', ''> // ['f', 'o', 'o', 'b', 'a', 'r']
@@ -32,8 +32,8 @@ interface Split_T<Delimiter extends string> extends Kind.Kind {
 /**
  * `String.Split` is a type-level function that splits a string into an array of substrings.
  *
- * @template S - The string to split.
  * @template Delimiter - The delimiter to split the string by.
+ * @template S - The string to split.
  *
  * @example
  * type T0 = $<$<String.Split, ''>, 'foobar'> // ['f', 'o', 'o', 'b', 'a', 'r']
@@ -42,3 +42,20 @@ interface Split_T<Delimiter extends string> extends Kind.Kind {
 export interface Split extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): Split_T<typeof x>
 }
+
+/**
+ * Given a string and a delimiter, split the string into an array of substrings.
+ *
+ * @param {string} d - The delimiter to split the string by.
+ * @param {string} s - The string to split.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.split(' ')('foo bar')
+ * //    ^? ['foo', 'bar']
+ * ```
+ */
+export const split = ((d: string) => (s: string) =>
+  s.split(d)) as Kind._$reify<Split>
