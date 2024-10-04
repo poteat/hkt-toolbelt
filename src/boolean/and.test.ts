@@ -27,3 +27,11 @@ type And_Spec = [
   // @ts-expect-error
   Test.Expect<$<Boolean.And<true>, number>>
 ]
+
+it('should return true if both inputs are true', () => {
+  expect(Boolean.and(true)(true)).toBe(true)
+})
+
+it('should return false if one input is false', () => {
+  expect(Boolean.and(true)(false)).toBe(false)
+})

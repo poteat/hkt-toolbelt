@@ -49,3 +49,19 @@ type TrueList<
 export interface AndAll extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], boolean[]>): _$andAll<typeof x>
 }
+
+/**
+ * Given a list of booleans, return whether all elements are true.
+ *
+ * @param {boolean[]} b - The list of booleans.
+ *
+ * @example
+ * ```ts
+ * import { Boolean } from "hkt-toolbelt";
+ *
+ * const result = Boolean.andAll([true, true, true])
+ * //    ^? true
+ * ```
+ */
+export const andAll = ((b: boolean[]) =>
+  b.every((e) => e)) as Kind._$reify<AndAll>

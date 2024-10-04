@@ -22,3 +22,7 @@ type IsGreaterThan_Spec = [
   // @ts-expect-error
   Test.Expect<$<$<NaturalNumber.IsGreaterThan, boolean>, 2>>
 ]
+
+it('should return whether the second number is greater than the first', () => {
+  expect(NaturalNumber.isGreaterThan(3)(2)).toBe(false)
+})

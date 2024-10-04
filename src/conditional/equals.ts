@@ -1,4 +1,5 @@
 import { Kind } from '..'
+import { deepEqual } from '../_internal/deepEqual'
 
 /**
  * `_$equals` is a type-level function that takes in two types, `T` and `U`, and
@@ -78,4 +79,4 @@ export interface Equals extends Kind.Kind {
  * ```
  */
 export const equals = ((x: unknown) => (y: unknown) =>
-  x === y) as Kind._$reify<Equals>
+  deepEqual(x, y)) as Kind._$reify<Equals>

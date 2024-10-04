@@ -29,3 +29,9 @@ type Until_Spec = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   >
 ]
+
+it('should loop until the stopping predicate is satisfied', () => {
+  expect(
+    Loop.until(NaturalNumber.isGreaterThan(10))(NaturalNumber.increment)(0)
+  ).toBe(11)
+})
