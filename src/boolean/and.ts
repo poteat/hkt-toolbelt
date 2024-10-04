@@ -56,3 +56,19 @@ interface And_T<T extends boolean> extends Kind.Kind {
 export interface And extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], boolean>): And_T<typeof x>
 }
+
+/**
+ * Given two booleans, return whether both are true.
+ *
+ * @param {boolean} a - The first boolean.
+ * @param {boolean} b - The second boolean.
+ *
+ * @example
+ * ```ts
+ * import { Boolean } from "hkt-toolbelt";
+ *
+ * const result = Boolean.and(true)(false)
+ * //    ^? false
+ * ```
+ */
+export const and = ((a: boolean) => (b: boolean) => a && b) as Kind._$reify<And>
