@@ -81,3 +81,20 @@ export interface Subtract extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? Subtract_T<typeof x> : never
 }
+
+/**
+ * Given two natural numbers, subtract the second number from the first.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.subtract(3)(2)
+ * //    ^? 1
+ * ```
+ */
+export const subtract = ((a: number) => (b: number) =>
+  b > a ? 0 : a - b) as Kind._$reify<Subtract>
