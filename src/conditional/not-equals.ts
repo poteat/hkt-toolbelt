@@ -1,4 +1,5 @@
 import { Kind } from '..'
+import { deepEqual } from '../_internal/deepEqual'
 
 /**
  * `_$notEquals` is a type-level function that returns `true` if `T` and `U` are
@@ -40,3 +41,20 @@ interface NotEquals_T<T> extends Kind.Kind {
 export interface NotEquals extends Kind.Kind {
   f(x: this[Kind._]): NotEquals_T<typeof x>
 }
+
+/**
+ * Given two values, return whether they are not equal.
+ *
+ * @param {unknown} a - The first value.
+ * @param {unknown} b - The second value.
+ *
+ * @example
+ * ```ts
+ * import { Conditional } from "hkt-toolbelt";
+ *
+ * const result = Conditional.notEquals('foo')('bar')
+ * //    ^? true
+ * ```
+ */
+export const notEquals = ((a: unknown) => (b: unknown) =>
+  !deepEqual(a, b)) as Kind._$reify<NotEquals>

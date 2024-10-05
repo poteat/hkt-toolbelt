@@ -57,3 +57,21 @@ type NotEquals_Spec = [
   Test.Expect<$<$<Conditional.NotEquals, []>, [[]]>>,
   Test.Expect<$<$<Conditional.NotEquals, {}>, []>>
 ]
+
+it('should return true if two values are not equal', () => {
+  expect(Conditional.notEquals(true)(false)).toBe(true)
+})
+
+it('should return false if two values are equal', () => {
+  expect(Conditional.notEquals(true)(true)).toBe(false)
+})
+
+it('can handle deep equality', () => {
+  expect(Conditional.notEquals([1, [2, [3, [4]]]])([1, [2, [3, [5]]]])).toBe(
+    true
+  )
+})
+
+it('can handle deep equality', () => {
+  expect(Conditional.notEquals({ a: 1 })({ a: 1 })).toBe(false)
+})
