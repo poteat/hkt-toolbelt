@@ -27,3 +27,19 @@ export type _$reverse<
 export interface Reverse extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$reverse<typeof x>
 }
+
+/**
+ * Given a string, return the string with the characters in reverse order.
+ *
+ * @param {string} x - The string to reverse.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.reverse('foo')
+ * //    ^? 'oof'
+ * ```
+ */
+export const reverse = ((x: string) =>
+  [...x].reverse().join('')) as Kind._$reify<Reverse>
