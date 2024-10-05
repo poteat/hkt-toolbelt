@@ -26,3 +26,15 @@ type Chunk_Spec = [
    */
   Test.Expect<$<$<List.Chunk, 0>, [1, 2, 3, 4, 5]>, [[1, 2, 3, 4, 5]]>
 ]
+
+it('should chunk a list into sublists of a specified size', () => {
+  expect(List.chunk(2)([1, 2, 3, 4, 5])).toEqual([[1, 2], [3, 4], [5]])
+})
+
+it('chunking an empty list results in an empty list', () => {
+  expect(List.chunk(2)([])).toEqual([])
+})
+
+it('chunking by 0 results in the original list', () => {
+  expect(List.chunk(0)([1, 2, 3, 4, 5])).toEqual([[1, 2, 3, 4, 5]])
+})

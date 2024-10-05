@@ -68,3 +68,29 @@ interface Chunk_T<N extends number> extends Kind.Kind {
 export interface Chunk extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], number>): Chunk_T<typeof x>
 }
+
+/**
+ * Given a number N, return a list of lists, where each list contains N elements.
+ *
+ * @param {number} n - The number of elements to include in each sublist.
+ * @param {unknown[]} x - The list to chunk.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.chunk(2)([1, 2, 3, 4, 5])
+ * //    ^? [[1, 2], [3, 4], [5]]
+ * ```
+ */
+export const chunk = ((n: number) => (x: unknown[]) => {
+  const result: unknown[][] = []
+
+  if (n === 0) return [x]
+
+  for (let i = 0; i < x.length; i += n) {
+    result.push(x.slice(i, i + n))
+  }
+
+  return result
+}) as Kind._$reify<Chunk>
