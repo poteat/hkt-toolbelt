@@ -1,4 +1,4 @@
-import { Kind, Type, List } from '..'
+import { Kind } from '..'
 
 /**
  * `_$of` is a type-level function that takes in a value `X` and returns a list

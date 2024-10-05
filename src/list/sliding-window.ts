@@ -1,4 +1,4 @@
-import { $, Kind, Type, Number as Number_, List } from '..'
+import { Kind, Type, Number as Number_, List } from '..'
 
 /**
  * Given a length and a list, return a list of lists, where each sublist has the
