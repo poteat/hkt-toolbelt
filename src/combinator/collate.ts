@@ -80,13 +80,15 @@ export interface Collate extends Kind.Kind {
  * ```
  */
 export const collate = ((n: number) => {
-  const values: unknown[] = []
-
-  const taker = (value: unknown) => {
-    values.push(value)
-
-    return values.length === n ? values : taker
-  }
-
-  return taker
+  const collector =
+    (values: unknown[] = []) =>
+    (value: unknown) => {
+      const newValues = [...values, value]
+      if (newValues.length === n) {
+        return newValues
+      } else {
+        return collector(newValues)
+      }
+    }
+  return collector()
 }) as Kind._$reify<Collate>
