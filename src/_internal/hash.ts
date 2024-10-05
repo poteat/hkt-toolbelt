@@ -6,31 +6,29 @@ export function hash(value: unknown): string {
     if (val === null) return 'null'
     if (val === undefined) return 'undefined'
 
-    const type = typeof val
-
     if (
-      type === 'boolean' ||
-      type === 'number' ||
-      type === 'bigint' ||
-      type === 'symbol'
+      typeof val === 'boolean' ||
+      typeof val === 'number' ||
+      typeof val === 'bigint' ||
+      typeof val === 'symbol'
     ) {
-      return `${type}:${String(val)}`
+      return `${typeof val}:${String(val)}`
     }
 
-    if (type === 'string') {
+    if (typeof val === 'string') {
       return `string:${val}`
     }
 
-    if (type === 'function') {
+    if (typeof val === 'function') {
       return `function:${val.toString()}`
     }
 
-    if (type === 'object') {
-      if (seen.has(val as object)) {
-        return `circular#${seen.get(val as object)}`
+    if (typeof val === 'object') {
+      if (seen.has(val)) {
+        return `circular#${seen.get(val)}`
       }
 
-      seen.set(val as object, objectCount++)
+      seen.set(val, objectCount++)
 
       if (Array.isArray(val)) {
         const items = val.map((item) => innerHash(item))
@@ -50,9 +48,9 @@ export function hash(value: unknown): string {
       } else if (val instanceof RegExp) {
         return `regexp:${val.toString()}`
       } else {
-        const keys = Object.keys(val as object).sort()
+        const keys = Object.keys(val).sort()
         const entries = keys.map(
-          (key) => `${key}:${innerHash((val as any)[key])}`
+          (key) => `${key}:${innerHash(val[key as keyof typeof val])}`
         )
         return `object:{${entries.join(',')}}`
       }
