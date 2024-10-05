@@ -28,3 +28,18 @@ export type _$pop<T extends readonly unknown[]> = T extends [
 export interface Pop extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], readonly unknown[]>): _$pop<typeof x>
 }
+
+/**
+ * Given a list, remove the last element from the list.
+ *
+ * @param {unknown[]} x - The list to remove the last element from.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.pop(['a', 'b', 'c'])
+ * //    ^? ['a', 'b']
+ * ```
+ */
+export const pop = ((x: unknown[]) => x.slice(0, -1)) as Kind._$reify<Pop>
