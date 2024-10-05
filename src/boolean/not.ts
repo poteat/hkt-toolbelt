@@ -38,3 +38,18 @@ export type _$not<T extends boolean> = T extends true ? false : true
 export interface Not extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], boolean>): _$not<typeof x>
 }
+
+/**
+ * Given a boolean, return the opposite boolean.
+ *
+ * @param {boolean} b - The boolean to negate.
+ *
+ * @example
+ * ```ts
+ * import { Boolean } from "hkt-toolbelt";
+ *
+ * const result = Boolean.not(true)
+ * //    ^? false
+ * ```
+ */
+export const not = ((b: boolean) => !b) as Kind._$reify<Not>
