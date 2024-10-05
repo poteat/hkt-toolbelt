@@ -21,3 +21,7 @@ type Length_Spec = [
    */
   Test.Expect<$<String.Length, `foo${string}`>, number>
 ]
+
+it('should return the length of a string', () => {
+  expect(String.length('foo')).toBe(3)
+})
