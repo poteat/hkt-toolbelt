@@ -1,4 +1,4 @@
-import { $, List, Test } from '..'
+import { $, List, Test, Type } from '..'
 
 type Take_Spec = [
   /**
@@ -24,4 +24,12 @@ type Take_Spec = [
 
 it('should take the first N elements of a list', () => {
   expect(List.take(2)([1, 2, 3])).toEqual([1, 2])
+})
+
+it('taking more elements than the list contains returns never', () => {
+  expect(List.take(4)([1, 2, 3])).toBe(Type.never)
+})
+
+it('can take entire list', () => {
+  expect(List.take(3)([1, 2, 3])).toEqual([1, 2, 3])
 })
