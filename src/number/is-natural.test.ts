@@ -46,3 +46,23 @@ type IsNaturalNumber_Spec = [
    */
   Test.Expect<$<Number.IsNatural, string>, false>
 ]
+
+it('should check if a number is a natural number', () => {
+  expect(Number.isNatural(42)).toBe(true)
+})
+
+it('values which are not natural numbers should not be natural numbers', () => {
+  expect(Number.isNatural(42.42)).toBe(false)
+})
+
+it('can recognize negative numbers', () => {
+  expect(Number.isNatural(-42)).toBe(false)
+})
+
+it('zero is a natural number', () => {
+  expect(Number.isNatural(0)).toBe(true)
+})
+
+it('can evaluate string numbers', () => {
+  expect(Number.isNatural('42')).toBe(true)
+})

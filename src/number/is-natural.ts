@@ -1,4 +1,4 @@
-import { Number, Type, Kind } from '..'
+import { Number as Number_, Type, Kind } from '..'
 
 /**
  * `Number.IsNatural` is a type-level function that checks if a number is a natural number.
@@ -13,9 +13,9 @@ import { Number, Type, Kind } from '..'
  * type T2 = Number._$isNatural<-1> // false
  * type T3 = Number._$isNatural<1.5> // false
  */
-export type _$isNatural<T extends Number.Number> =
-  Number._$isInteger<T> extends true
-    ? Number._$sign<T> extends '+'
+export type _$isNatural<T extends Number_.Number> =
+  Number_._$isInteger<T> extends true
+    ? Number_._$sign<T> extends '+'
       ? true
       : false
     : false
@@ -34,5 +34,21 @@ export type _$isNatural<T extends Number.Number> =
  * type T3 = $<Number.IsNatural, 1.5> // false
  */
 export interface IsNatural extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>): _$isNatural<typeof x>
+  f(x: Type._$cast<this[Kind._], Number_.Number>): _$isNatural<typeof x>
 }
+
+/**
+ * Given a number, return whether or not it is a natural number.
+ *
+ * @param {Number_.Number} x - The number to check.
+ *
+ * @example
+ * ```ts
+ * import { Number } from "hkt-toolbelt";
+ *
+ * const result = Number.isNatural(42)
+ * //    ^? true
+ * ```
+ */
+export const isNatural = ((x: Number_.Number) =>
+  Number.isInteger(Number(x)) && Number(x) >= 0) as Kind._$reify<IsNatural>
