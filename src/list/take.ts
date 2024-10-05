@@ -59,4 +59,4 @@ export interface Take extends Kind.Kind {
  * ```
  */
 export const take = ((n: number) => (values: unknown[]) =>
-  values.slice(0, n)) as Kind._$reify<Take>
+  n <= values.length ? values.slice(0, n) : Type.never) as Kind._$reify<Take>
