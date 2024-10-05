@@ -1,5 +1,4 @@
 import { Kind, Number as Number_, Type } from '..'
-import { _$string } from '../parser'
 
 type _$stringToDigitMap = {
   '0': 0
