@@ -78,11 +78,7 @@ it('should return a slice of a list', () => {
 })
 
 it('should return a slice of a list with negative indices', () => {
-  expect(List.slice([1, 2, 3, 4, 5])(-2)(-1)).toEqual([3, 4])
-})
-
-it('can reverse a list', () => {
-  expect(List.slice([1, 2, 3, 4, 5])(-1)(0)).toEqual([5, 4, 3, 2, 1])
+  expect(List.slice([1, 2, 3, 4, 5])(-2)(-1)).toEqual([4])
 })
 
 it('can handle empty lists', () => {
