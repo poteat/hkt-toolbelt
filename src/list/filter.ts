@@ -28,8 +28,7 @@ export type _$filter<
     : _$filter<F, Tail, O>
   : O
 
-interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
-  extends Kind.Kind {
+interface Filter_T<F extends Kind.Kind> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind._$inputOf<F>[]>): _$filter<F, typeof x>
 }
 
@@ -78,9 +77,7 @@ interface Filter_T<F extends Kind.Kind<(x: never) => boolean>>
  * ], [42.42, null, "hello", undefined, "world"]>  // "hello, world"
  */
 export interface Filter extends Kind.Kind {
-  f(
-    x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
-  ): Filter_T<typeof x>
+  f(x: Type._$cast<this[Kind._], Kind.Kind>): Filter_T<typeof x>
 }
 
 /**

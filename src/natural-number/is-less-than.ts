@@ -82,3 +82,20 @@ interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
 export interface IsLessThan extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): IsLessThan_T<typeof x>
 }
+
+/**
+ * Given two numbers, return whether the second number is less than the first.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.isLessThan(3)(2)
+ * //    ^? true
+ * ```
+ */
+export const isLessThan = ((a: number) => (b: number) =>
+  b < a) as Kind._$reify<IsLessThan>

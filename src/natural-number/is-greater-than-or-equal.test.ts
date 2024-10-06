@@ -22,3 +22,15 @@ type IsGreaterThanOrEqual_Spec = [
   // @ts-expect-error
   Test.Expect<$<$<NaturalNumber.IsGreaterThanOrEqual, boolean>, 2>>
 ]
+
+it('should return whether the second number is greater than or equal to the first', () => {
+  expect(NaturalNumber.isGreaterThanOrEqual(3)(2)).toBe(false)
+})
+
+it('should return whether the second number is greater than or equal to the first', () => {
+  expect(NaturalNumber.isGreaterThanOrEqual(3)(3)).toBe(true)
+})
+
+it('should return whether the second number is greater than or equal to the first', () => {
+  expect(NaturalNumber.isGreaterThanOrEqual(3)(2)).toBe(false)
+})

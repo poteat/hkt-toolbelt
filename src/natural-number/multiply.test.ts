@@ -1,4 +1,4 @@
-import { $, Test, NaturalNumber } from '..'
+import { $, Test, NaturalNumber, Type } from '..'
 
 type Multiply_Spec = [
   /**
@@ -47,7 +47,24 @@ type Multiply_Spec = [
   Test.Expect<$<$<NaturalNumber.Multiply, '1234'>, '5678'>, 7006652>,
 
   /**
-   * Non-natural number input emits error
+   * Non-natural number input emits never
    */
-  Test.Expect<$<NaturalNumber.Multiply, -42.42>, never>
+  Test.Expect<$<$<NaturalNumber.Multiply, -42.42>, 42>, never>
 ]
+
+it('should multiply two natural numbers', () => {
+  expect(NaturalNumber.multiply(2)(2)).toBe(4)
+})
+
+it('can multiply by zero', () => {
+  expect(NaturalNumber.multiply(0)(0)).toBe(0)
+})
+
+it('can multiply by a string', () => {
+  const result = NaturalNumber.multiply('1234')('5678')
+  expect(result).toBe(7006652)
+})
+
+it('multiplying non-natural numbers results in never', () => {
+  expect(NaturalNumber.multiply(-42.42)(42)).toBe(Type.never)
+})

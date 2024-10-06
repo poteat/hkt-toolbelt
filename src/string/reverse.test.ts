@@ -45,3 +45,11 @@ type Reverse_Spec = [
    */
   Test.Expect<$<String.Reverse, string>, string>
 ]
+
+it('should reverse a string', () => {
+  expect(String.reverse('foo')).toBe('oof')
+})
+
+it('should reverse an empty string', () => {
+  expect(String.reverse('')).toBe('')
+})
