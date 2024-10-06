@@ -117,9 +117,9 @@ export interface Slice extends Kind.Kind {
 /**
  * Given a list and a start and end index, return a slice of the list.
  *
- * @param {unknown[]} x - The list to slice.
  * @param {number} s - The start index.
  * @param {number} e - The end index.
+ * @param {unknown[]} x - The list to slice.
  *
  * @example
  * ```ts
@@ -129,5 +129,5 @@ export interface Slice extends Kind.Kind {
  * //    ^? [2, 3]
  * ```
  */
-export const slice = ((x: unknown[]) => (s: number) => (e: number) =>
+export const slice = ((s: number) => (e: number) => (x: unknown[]) =>
   x.slice(s, e)) as Kind._$reify<Slice>
