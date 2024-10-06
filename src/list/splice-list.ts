@@ -1,4 +1,4 @@
-import { $, Kind, Type, Number, List } from '..'
+import { Kind, Type, Number, List } from '..'
 
 /**
  * `_$spliceList` is a type-level function that changes the contents of a list

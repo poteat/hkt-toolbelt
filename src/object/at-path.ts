@@ -69,7 +69,9 @@ export const atPath = ((p: PropertyKey[]) =>
     let result: unknown = o
 
     for (const key of p) {
-      result = (result as any)?.[key as never]
+      result = (result as Record<PropertyKey, unknown>)?.[
+        key as keyof typeof result
+      ]
     }
 
     return result
