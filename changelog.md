@@ -7,7 +7,7 @@
 - Add `List.SlidingWindow` to slide a window of a certain length over a list.
 - Reify various natural number utilities.
 - Reify various string and list utilities.
-- Fix statefulness bug in reified `List.chunk`.
+- Fix statefulness bug in reified `List.collate`.
 
 ## [0.24.6]
 - Add `String.FromCharCode` to convert a character code to a string.
