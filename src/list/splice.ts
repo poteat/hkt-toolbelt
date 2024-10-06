@@ -62,19 +62,19 @@ type _$splice2<
  * `_$splice` is a type-level function that changes the contents of a tuple type by removing or replacing existing elements and/or adding new elements.
  *
  * It takes in four arguments:
- * `T`, the tuple to splice,
  * `START`, the index at which to start changing the tuple.
  * `DEL_COUNT`, the number of elements to remove from `T` at the starting index,
  * `INSERTS`, an array of elements to insert into `T` at the starting index.
+ * `T`, the tuple to splice,
  *
  * Both positive and negative indices are supported for `START`. Negative indices will be normalized into zero-based indices.
  *
- * @template T - The input tuple.
  * @template START - An integer representing the index at which to start splicing.
  * A negative index counts back from the end of the input tuple.
  * If `START < 0`, `START + T["length"]` is used.
  * @template DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
  * @template INSERTS - An array of elements to insert into T at the starting index.
+ * @template T - The input tuple.
  * @returns A list of types.
  *
  * @example
@@ -92,10 +92,10 @@ type _$splice2<
  *
  */
 export type _$splice<
-  T extends List.List,
   START extends Number.Number,
   DEL_COUNT extends Number.Number,
   INSERTS extends List.List,
+  T extends List.List,
   RESULT extends List.List = Boolean._$and<
     Number._$isInteger<START>,
     Number._$isNatural<DEL_COUNT>
@@ -111,7 +111,7 @@ interface Splice_T3<
 > extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], List.List>
-  ): _$splice<typeof x, START, DEL_COUNT, INSERTS>
+  ): _$splice<START, DEL_COUNT, INSERTS, typeof x>
 }
 
 interface Splice_T2<
@@ -131,19 +131,19 @@ interface Splice_T<START extends Number.Number> extends Kind.Kind {
  * `Splice` is a type-level function that changes the contents of a tuple type by removing or replacing existing elements and/or adding new elements.
  *
  * It takes in four arguments:
- * `T`, the tuple to splice,
  * `START`, the index at which to start changing the tuple.
  * `DEL_COUNT`, the number of elements to remove from `T` at the starting index,
  * `INSERTS`, an array of elements to insert into `T` at the starting index.
+ * `T`, the tuple to splice,
  *
  * Both positive and negative indices are supported for `START`. Negative indices will be normalized into zero-based indices.
  *
- * @template T - The input tuple.
  * @template START - An integer representing the index at which to start splicing.
  * A negative index counts back from the end of the input tuple.
  * If `START < 0`, `START + T["length"]` is used.
  * @template DEL_COUNT - A natural number representing the number of elements to remove from T at the starting index.
  * @template INSERTS - An array of elements to insert into T at the starting index.
+ * @template T - The input tuple.
  * @returns A list of types.
  *
  * ## Usage
@@ -166,13 +166,13 @@ export interface Splice extends Kind.Kind {
 }
 
 /**
- * Given a list and a start index, a number of elements to delete, and a list of
- * elements to insert, splice the list at the start index.
+ * Given a start index, a number of elements to delete, and a list of
+ * elements to insert, and a list, splice the list at the start index.
  *
- * @param {unknown[]} x - The list to splice.
  * @param {number} s - The start index.
  * @param {number} d - The number of elements to delete.
  * @param {unknown[]} i - The list of elements to insert.
+ * @param {unknown[]} x - The list to splice.
  *
  * @example
  * ```ts
@@ -182,10 +182,10 @@ export interface Splice extends Kind.Kind {
  * //    ^? [1, 6, 7, 4, 5]
  * ```
  */
-export const splice = ((x: unknown[]) =>
-  (s: number) =>
+export const splice = ((s: number) =>
   (d: number) =>
-  (i: unknown[]) => {
+  (i: unknown[]) =>
+  (x: unknown[]) => {
     const y = [...x]
     y.splice(s, d, ...i)
     return y
