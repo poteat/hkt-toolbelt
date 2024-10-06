@@ -55,5 +55,25 @@ type AtPath_Spec = [
       { name: { last: string }; age: number }
     >,
     never
+  >,
+
+  /**
+   * Empty path should return the object.
+   */
+  Test.Expect<
+    $<$<Object.AtPath, []>, { name: { first: 'foo'; last: 'bar' } }>,
+    { name: { first: 'foo'; last: 'bar' } }
   >
 ]
+
+it('should return the value at a path', () => {
+  expect(
+    Object.atPath(['name', 'first'])({ name: { first: 'foo', last: 'bar' } })
+  ).toBe('foo')
+})
+
+it('empty path should return the object', () => {
+  expect(Object.atPath([])({ name: { first: 'foo', last: 'bar' } })).toEqual({
+    name: { first: 'foo', last: 'bar' }
+  })
+})
