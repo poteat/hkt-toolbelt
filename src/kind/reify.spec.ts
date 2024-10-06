@@ -9,7 +9,7 @@ const f = pipe([map(append('!')), join(' ')])
 
 const x = f(['hello', 'world']) // 'hello! world!'
 
-const y = List.map(Object.atPathInObject({ foo: { bar: 'baz' } }))([
+const y = List.map(Object.atPathInObject({ foo: { bar: 'baz' } } as const))([
   ['foo', 'bar']
 ])
 
