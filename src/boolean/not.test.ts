@@ -17,3 +17,11 @@ type Not_Spec = [
   // @ts-expect-error
   Test.Expect<$<Boolean.Not, number>>
 ]
+
+it('should return the opposite boolean', () => {
+  expect(Boolean.not(true)).toBe(false)
+})
+
+it('should return the opposite boolean', () => {
+  expect(Boolean.not(false)).toBe(true)
+})
