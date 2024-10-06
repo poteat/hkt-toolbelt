@@ -53,7 +53,7 @@ export interface Same extends Kind.Kind {
  */
 export const same = ((x: unknown[]) => {
   let result = true
-  let first = x[0]
+  const first = x[0]
 
   for (let i = 0; i < x.length; i++) {
     if (!deepEqual(x[i], first)) {
