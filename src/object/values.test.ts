@@ -20,3 +20,11 @@ type Values_Spec = [
   // @ts-expect-error
   $<Object.Values, number>
 ]
+
+it('should return the values of an object', () => {
+  expect(Object.values({ a: 1, b: 2, c: 3 })).toEqual([1, 2, 3])
+})
+
+it('should return an empty tuple if the object is empty', () => {
+  expect(Object.values({})).toEqual([])
+})
