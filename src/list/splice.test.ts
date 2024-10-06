@@ -90,3 +90,7 @@ type Splice_Spec = [
   //  @ts-expect-error
   $<$<$<$<$<$<List.Splice, 1>, 2>, 3>, []>, [1, 2, 3]>, []>
 ]
+
+it('should splice a list', () => {
+  expect(List.splice([1, 2, 3, 4, 5])(1)(2)([6, 7])).toEqual([1, 6, 7, 4, 5])
+})

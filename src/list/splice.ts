@@ -164,3 +164,29 @@ interface Splice_T<START extends Number.Number> extends Kind.Kind {
 export interface Splice extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Splice_T<typeof x>
 }
+
+/**
+ * Given a list and a start index, a number of elements to delete, and a list of
+ * elements to insert, splice the list at the start index.
+ *
+ * @param {unknown[]} x - The list to splice.
+ * @param {number} s - The start index.
+ * @param {number} d - The number of elements to delete.
+ * @param {unknown[]} i - The list of elements to insert.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.splice([1, 2, 3, 4, 5])(1)(2)([6, 7])
+ * //    ^? [1, 6, 7, 4, 5]
+ * ```
+ */
+export const splice = ((x: unknown[]) =>
+  (s: number) =>
+  (d: number) =>
+  (i: unknown[]) => {
+    const y = [...x]
+    y.splice(s, d, ...i)
+    return y
+  }) as Kind._$reify<Splice>
