@@ -92,5 +92,5 @@ type Splice_Spec = [
 ]
 
 it('should splice a list', () => {
-  expect(List.splice([1, 2, 3, 4, 5])(1)(2)([6, 7])).toEqual([1, 6, 7, 4, 5])
+  expect(List.splice(1)(2)([6, 7])([1, 2, 3, 4, 5])).toEqual([1, 6, 7, 4, 5])
 })
