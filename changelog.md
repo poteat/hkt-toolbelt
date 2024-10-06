@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.24.7]
+
+- Add `NaturalNumber.Digits` to get the digits of a natural number.
+- Add `List.Of` to create a list containing a single value.
+- Add `List.SlidingWindow` to slide a window of a certain length over a list.
+- Reify various natural number utilities.
+- Reify various string and list utilities.
+- Fix statefulness bug in reified `List.chunk`.
+
 ## [0.24.6]
 - Add `String.FromCharCode` to convert a character code to a string.
 - Add `String.IsLetter` to check if a string is a letter.
