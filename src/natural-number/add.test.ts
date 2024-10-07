@@ -31,3 +31,15 @@ export type Add_Spec = [
    */
   Test.Expect<$<$<NaturalNumber.Add, '123456789'>, '123456789'>, 246913578>
 ]
+
+it('should add two numbers', () => {
+  expect(NaturalNumber.add(0)(0)).toBe(0)
+})
+
+it('can add two numbers', () => {
+  expect(NaturalNumber.add(5)(5)).toBe(10)
+})
+
+it('can add two numbers', () => {
+  expect(NaturalNumber.add(7)(4)).toBe(11)
+})

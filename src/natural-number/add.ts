@@ -26,7 +26,7 @@ export type _$add<
   SUM = DigitList._$toNumber<SUM_LIST>
 > = SUM
 
-interface Add_T<A extends Number.Number> extends Kind.Kind {
+export interface Add_T<A extends Number.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? _$add<A, typeof x> : never
@@ -68,3 +68,19 @@ export interface Add extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? Add_T<typeof x> : never
 }
+
+/**
+ * Given two natural numbers, return their sum.
+ *
+ * @param {number} a - The first natural number.
+ * @param {number} b - The second natural number.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.add(2)(3)
+ * //    ^? 5
+ * ```
+ */
+export const add = ((a: number) => (b: number) => a + b) as Kind._$reify<Add>
