@@ -113,3 +113,21 @@ interface Slice_T<START extends Number.Number> extends Kind.Kind {
 export interface Slice extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Slice_T<typeof x>
 }
+
+/**
+ * Given a list and a start and end index, return a slice of the list.
+ *
+ * @param {number} s - The start index.
+ * @param {number} e - The end index.
+ * @param {unknown[]} x - The list to slice.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.slice([1, 2, 3, 4, 5])(1)(3)
+ * //    ^? [2, 3]
+ * ```
+ */
+export const slice = ((s: number) => (e: number) => (x: unknown[]) =>
+  x.slice(s, e)) as Kind._$reify<Slice>

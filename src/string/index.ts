@@ -1,6 +1,7 @@
 export * from './append'
 export * from './capitalize'
 export * from './ends-with'
+export * from './entries'
 export * from './first'
 export * from './from-char-code'
 export * from './from-list'

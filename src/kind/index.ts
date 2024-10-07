@@ -1,6 +1,7 @@
 export * from './apply'
 export * from './apply-n'
 export * from './arity'
+export * from './collapse'
 export * from './composable'
 export * from './composable-pair'
 export * from './compose'
