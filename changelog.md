@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.24.8]
+
+- Add `List.Count` to create a frequency map from a list.
+- Add `List.Same` to check if all elements in a list are equal.
+- Add `Object.AtPathInObject` to get the value at a path in an object.
+- Reify `Object.AtPath` to a value-level function.
+- Add `Object.Defaults` to initialize an object with default values.
+- Add `Object.Omit` to remove keys from an object.
+- Add `Object.Pick` to pick keys from an object.
+- Reify `Object.Values` to a value-level function.
+- Reify `List.Slice` and `List.Splice` to value-level functions.
+- Add arg-swapped `List.SliceList` and `List.SpliceList` utilities.
+- Add `List.Entries` to get the entries of a list as a list of 2-tuples.
+- Add `String.Entries` to get the entries of a string as a list of 2-tuples.
+- Add `Kind.Collapse` to convert an n-arity kind to a 1-arity kind.
+
 ## [0.24.7]
 
 - Add `NaturalNumber.Digits` to get the digits of a natural number.
@@ -7,7 +23,7 @@
 - Add `List.SlidingWindow` to slide a window of a certain length over a list.
 - Reify various natural number utilities.
 - Reify various string and list utilities.
-- Fix statefulness bug in reified `List.chunk`.
+- Fix statefulness bug in reified `List.collate`.
 
 ## [0.24.6]
 - Add `String.FromCharCode` to convert a character code to a string.

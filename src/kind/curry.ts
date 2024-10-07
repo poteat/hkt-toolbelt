@@ -1,4 +1,4 @@
-import { $, Kind, Number, NaturalNumber, Conditional, Type } from '..'
+import { $, Kind, Number, NaturalNumber, Conditional, Type, Function } from '..'
 
 /**
  * `_$curry` takes in a positive natural number `N` and a type-level function
@@ -81,3 +81,36 @@ interface Curry_T<N extends number> extends Kind.Kind {
 export interface Curry extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], number>): Curry_T<typeof x>
 }
+
+/**
+ * Given a number of arguments N and a function F that takes in a N-tuple,
+ * return a new function of arity N that wraps F.
+ *
+ * This converts a function that takes in a tuple to a function that takes in
+ * a certain number of arguments, in a curried form.
+ *
+ * @param {number} n - The number of arguments to curry.
+ * @param {Kind.Kind} f - The function to curry.
+ *
+ * @example
+ * ```ts
+ * import { Kind, Function } from "hkt-toolbelt";
+ *
+ * const myFcn = Kind.curry(2)(List.same)
+ *
+ * const result = myFcn(1)(2) // false
+ * ```
+ */
+export const curry = ((n: number) => (f: Function.Function) => {
+  const collector =
+    (values: unknown[] = []) =>
+    (value: unknown) => {
+      const newValues = [...values, value]
+      if (newValues.length === n) {
+        return f(newValues as never)
+      } else {
+        return collector(newValues)
+      }
+    }
+  return collector()
+}) as Kind._$reify<Curry>
