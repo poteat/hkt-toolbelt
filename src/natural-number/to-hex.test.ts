@@ -19,7 +19,12 @@ type ToHex_Spec = [
   /**
    * Can convert a natural number to hex with a single digit.
    */
-  Test.Expect<$<NaturalNumber.ToHex, 1>, '1'>
+  Test.Expect<$<NaturalNumber.ToHex, 1>, '1'>,
+
+  /**
+   * Can handle string numbers.
+   */
+  Test.Expect<$<NaturalNumber.ToHex, '12'>, 'c'>
 ]
 
 it('should convert a natural number to hex', () => {
