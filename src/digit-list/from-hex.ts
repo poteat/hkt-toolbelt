@@ -1,4 +1,4 @@
-import { Kind, Type, DigitList, Digit } from '..'
+import { Kind, Type, DigitList } from '..'
 
 /**
  * `_$fromHex` is a type-level function that takes in a list of hex digits
@@ -14,7 +14,7 @@ import { Kind, Type, DigitList, Digit } from '..'
  * type Result = DigitList._$fromHex<[["7"], ["1", "1"]]>; // ["1", "2", "3"]
  * ```
  */
-type _$fromHex<
+export type _$fromHex<
   T extends DigitList.DigitList[],
   /**
    * The unit value of the current place. Multiplies by 16 on every iteration.
