@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.24.9]
+
+- Reify `NaturalNumber.Add` to a value-level function.
+- Add `Kind.JuxtN` to juxt kinds with an arity of greater than one.
+- Add `NaturalNumber.FromHex` to convert a hexadecimal string to a decimal number.
+- Add `NaturalNumber.ToHex` to convert a decimal number to a hexadecimal string.
+- Reify `String.FromList` to a value-level function.
+- Add `List.PadStart` to pad a list to a desired length with a padding value.
+- Add `List.PadEnd` to pad a list to a desired length with a padding value.
+- Add `String.PadStart` to pad a string to a desired length with a padding character.
+- Add `String.PadEnd` to pad a string to a desired length with a padding character.
+- Improve inference efficiency of `List.Collate` and `Kind.LazyPipe`.
+
 ## [0.24.8]
 
 - Add `List.Count` to create a frequency map from a list.
