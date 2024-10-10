@@ -1,4 +1,4 @@
-import { $, Kind, Type, Function, NaturalNumber } from '..'
+import { $, Kind, Type, Function } from '..'
 
 /**
  * `_$juxtN` is a type-level function that takes in a list of kinds `K` and
