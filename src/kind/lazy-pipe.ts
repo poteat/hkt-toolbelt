@@ -24,7 +24,7 @@ export type _$lazyPipe<T extends Kind.Kind[], X> = T extends [
     ? never
     : $<Head, Type._$cast<X, Kind._$inputOf<Head>>> extends infer Result
       ? Result extends Kind.Kind
-        ? LazyPipe_T<[Result, ...Tail]>
+        ? LazyPipe_T<[LazyPipe_T<[Result]>, ...Tail]>
         : _$lazyPipe<Tail, Result>
       : never
   : X

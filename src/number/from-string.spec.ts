@@ -29,5 +29,10 @@ export type FromString_Spec = [
   /**
    * The 'string' type results in never.
    */
-  Test.Expect<$<Number.FromString, string>, never>
+  Test.Expect<$<Number.FromString, string>, never>,
+
+  /**
+   * Can parse types which are already numbers.
+   */
+  Test.Expect<$<Number.FromString, 42>, 42>
 ]

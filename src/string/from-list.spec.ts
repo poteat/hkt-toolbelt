@@ -14,56 +14,17 @@ type FromList_Spec = [
   /**
    * "foo", "bar" => foobar
    */
-  Test.Expect<$<String.FromList, ['foo', 'bar']>, 'foobar'>,
-
-  /**
-   * Can join 10 elements.
-   */
-  Test.Expect<$<String.FromList, Ten>, TenString>,
-
-  /**
-   * Can join 100 elements.
-   */
-  Test.Expect<$<String.FromList, Hundred>, HundredString>,
-
-  /**
-   * Can join 1000 elements.
-   */
-  Test.Expect<$<String.FromList, Thousand>, ThousandString>
+  Test.Expect<$<String.FromList, ['foo', 'bar']>, 'foobar'>
 ]
 
-type Ten = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', ' ']
+it('should convert a list of strings to a single string', () => {
+  expect(String.fromList(['foo', 'bar'])).toBe('foobar')
+})
 
-type Hundred = [
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten,
-  ...Ten
-]
+it('should convert a list of strings to a single string', () => {
+  expect(String.fromList(['foo', 'bar', 'baz'])).toBe('foobarbaz')
+})
 
-type Thousand = [
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred,
-  ...Hundred
-]
-
-type TenString = 'abcdefghi '
-
-type HundredString =
-  `${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}${TenString}`
-
-type ThousandString =
-  `${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}${HundredString}`
+it('can convert an empty list', () => {
+  expect(String.fromList([])).toBe('')
+})

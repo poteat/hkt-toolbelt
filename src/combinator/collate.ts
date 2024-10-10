@@ -1,32 +1,20 @@
-import { Conditional, Kind, NaturalNumber, Number, Type } from '..'
+import { Kind, Type } from '..'
 
-interface _$collate2<
+export interface _$collate2<
   /**
    * The number of arguments to expect.
    */
   N extends number,
   /**
-   * The current argument index.
-   */
-  I extends Number.Number = 0,
-  /**
    * The tuple of arguments applied so far.
    */
-  OUT extends unknown[] = [],
-  /**
-   * The next argument index, which is `I + 1`.
-   */
-  NEXT extends Number.Number = NaturalNumber._$increment<I>,
-  /**
-   * Whether we have reached the end of the list of arguments.
-   */
-  DONE extends boolean = Conditional._$equals<N, NEXT>
+  OUT extends unknown[] = []
 > extends Kind.Kind {
   f(
     x: this[Kind._]
-  ): DONE extends true
+  ): N extends [...OUT, typeof x]['length']
     ? [...OUT, typeof x]
-    : _$collate2<N, NEXT, [...OUT, typeof x]>
+    : _$collate2<N, [...OUT, typeof x]>
 }
 
 /**
