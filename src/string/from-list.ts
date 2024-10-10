@@ -26,3 +26,8 @@ export type _$fromList<T, O extends string = ''> = 0 extends 1
 export interface FromList extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string[]>): _$fromList<typeof x>
 }
+
+/**
+ * Given a list of strings, return a single string joined by an empty string.
+ */
+export const fromList = ((x: string[]) => x.join('')) as Kind._$reify<FromList>
