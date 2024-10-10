@@ -12,8 +12,8 @@ export type _$modulo<
   B extends Number.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
-  MODULUS_LIST extends DigitList.DigitList = DigitList._$modulo<A_LIST, B_LIST>,
-  MODULUS = DigitList._$toNumber<MODULUS_LIST>
+  MODULUS_LIST = DigitList._$modulo<A_LIST, B_LIST>,
+  MODULUS = DigitList._$toNumber<Type._$cast<MODULUS_LIST, DigitList.DigitList>>
 > = MODULUS
 
 interface Modulo_T<A extends Number.Number> extends Kind.Kind {
