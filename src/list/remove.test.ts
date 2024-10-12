@@ -32,3 +32,15 @@ type Remove_Spec = [
     ['foo' | 'bar', 'bar', 'baz']
   >
 ]
+
+it('should remove elements from a tuple', () => {
+  expect(List.remove(3)([1, 2, 3, 4, 5])).toEqual([1, 2, 4, 5])
+})
+
+it('should remove elements from a tuple with duplicates', () => {
+  expect(List.remove(2)([1, 2, 3, 2, 4, 2])).toEqual([1, 3, 4])
+})
+
+it('can attempt to remove a non-existent element', () => {
+  expect(List.remove(10)([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5])
+})
