@@ -2,9 +2,7 @@ import { Kind, Type, String as String_ } from '..'
 
 /**
  * `_$pascalCase` is a type-level function that takes in a string `S` and returns
- * a new string in the "PascalCase" format, whereby the first letter of each word
- * is capitalized, except for the first word. Capitalized acronyms in the input
- * are identified.
+ * a new string in the "PascalCase" format.
  *
  * @template {string} S - The string to convert.
  *
@@ -24,9 +22,7 @@ export type _$pascalCase<
 
 /**
  * `PascalCase` is a type-level function that takes in a string `S` and returns
- * a new string in the "PascalCase" format, whereby the first letter of each word
- * is capitalized, except for the first word. Capitalized acronyms in the input
- * are identified.
+ * a new string in the "PascalCase" format.
  *
  * @template {string} S - The string to convert.
  *
@@ -43,7 +39,7 @@ export interface PascalCase extends Kind.Kind {
 
 /**
  * Given a string, return a new string in the "PascalCase" format, whereby the
- * first letter of each word is capitalized, except for the first word.
+ * first letter of each word is capitalized.
  *
  * @param {string} x - The string to convert.
  *
