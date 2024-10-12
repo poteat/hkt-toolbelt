@@ -24,9 +24,11 @@ export type _$remove<
   T extends unknown[],
   O extends unknown[] = []
 > = T extends [infer Head, ...infer Tail]
-  ? Conditional._$equals<Head, X> extends true
-    ? _$remove<X, Tail, O>
-    : _$remove<X, Tail, [...O, Head]>
+  ? _$remove<
+      X,
+      Tail,
+      Conditional._$equals<Head, X> extends true ? O : [...O, Head]
+    >
   : O
 
 interface Remove_T<X> extends Kind.Kind {
