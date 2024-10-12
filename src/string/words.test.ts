@@ -24,7 +24,17 @@ type Words_Spec = [
   /**
    * Can handle alphanumeric input with no delimiters.
    */
-  Test.Expect<$<String.Words, 'hello42world'>, ['hello', '42', 'world']>
+  Test.Expect<$<String.Words, 'hello42world'>, ['hello', '42', 'world']>,
+
+  /**
+   * Splitting a generic string results in a `string[]` type.
+   */
+  Test.Expect<$<String.Words, string>, string[]>,
+
+  /**
+   * Splitting a template literal string results in a `string[]` type.
+   */
+  Test.Expect<$<String.Words, `foo${string}bar`>, string[]>
 ]
 
 it('should split a string into words', () => {
