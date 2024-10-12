@@ -1,4 +1,4 @@
-import { $, Test, String } from 'hkt-toolbelt'
+import { $, Test, String } from '..'
 
 type Capitalize_Spec = [
   /**
@@ -28,3 +28,15 @@ type Capitalize_Spec = [
   // @ts-expect-error
   $<$<Capitalize, ''>, number>
 ]
+
+it('should capitalize a string', () => {
+  expect(String.capitalize('hello')).toBe('Hello')
+})
+
+it('should capitalize a string with first character already capitalized', () => {
+  expect(String.capitalize('Hello')).toBe('Hello')
+})
+
+it('should handle empty string input', () => {
+  expect(String.capitalize('')).toBe('')
+})
