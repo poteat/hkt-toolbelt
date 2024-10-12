@@ -10,7 +10,7 @@ import { Kind, Type, DigitList, Conditional } from '..'
  *
  * @example
  * ```ts
- * type T0 = List._$indexOf<3>, [1, 2, 3]> // 2
+ * type T0 = List._$indexOf<3, [1, 2, 3]> // 2
  * ```
  */
 export type _$indexOf<
