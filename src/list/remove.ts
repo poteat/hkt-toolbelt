@@ -1,4 +1,5 @@
 import { Conditional, Kind, Type } from '..'
+import { deepEqual } from '../_internal/deepEqual'
 
 /**
  * `_$remove` is a type-level function that takes in a value `X` and a list `T`,
@@ -52,3 +53,20 @@ interface Remove_T<X> extends Kind.Kind {
 export interface Remove extends Kind.Kind {
   f(x: this[Kind._]): Remove_T<typeof x>
 }
+
+/**
+ * Given a value and a list, return a new list with the value removed.
+ *
+ * @param {unknown} x - The value to remove.
+ * @param {unknown[]} values - The list to remove from.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.remove(2)([1, 2, 3, 2, 4, 2])
+ * //    ^? [1, 3, 4]
+ * ```
+ */
+export const remove = ((x: unknown) => (values: unknown[]) =>
+  values.filter((value) => !deepEqual(value, x))) as Kind._$reify<Remove>
