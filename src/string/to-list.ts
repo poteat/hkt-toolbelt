@@ -29,3 +29,18 @@ export type _$toList<S extends string, O extends string[] = []> = 0 extends 1
 export interface ToList extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$toList<typeof x>
 }
+
+/**
+ * Given a string, return a list of its characters.
+ *
+ * @param {string} x - The string to split.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.toList('hello')
+ * //    ^? ['h', 'e', 'l', 'l', 'o']
+ * ```
+ */
+export const toList = ((x: string) => x.split('')) as Kind._$reify<ToList>
