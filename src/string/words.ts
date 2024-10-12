@@ -2,27 +2,7 @@ import { String, Type, Kind } from '..'
 
 type _$isDelimiter<S extends string> = S extends ' ' | '-' | '_' ? true : false
 
-/**
- * `_$words` is a type-level function that takes in a string `S` and returns
- * a list of words in the string. Words are defined as sequences of characters
- * separated by whitespace, or delimited by case changes. Acronyms in the input
- * are identified as individual words.
- *
- * Consecutive digits are treated as their own word, separate from any adjacent
- * letter characters.
- *
- * @template {string} S - The string to split.
- *
- * @example
- * ```ts
- * import { String } from "hkt-toolbelt";
- *
- * type Result = String._$words<'helloWorld'>; // ['hello', 'World']
- * type Result2 = String._$words<'hello world'>; // ['hello', 'world']
- * type Result3 = String._$words<'XMLHttpRequest'>; // ['XML', 'Http', 'Request']
- * ```
- */
-export type _$words<
+type _$words2<
   S extends string,
   /**
    * The current word being built up as we iterate through the string,
@@ -48,12 +28,12 @@ export type _$words<
          * If the character is a delimiter, and the current word is empty, skip
          * the current character.
          */
-        _$words<Tail, CURRENT_WORD, WORDS, Head>
+        _$words2<Tail, CURRENT_WORD, WORDS, Head>
       : /**
          * If the character is a delimiter, and the current word is not empty,
          * add the current word to the list of words and start a new empty word.
          */
-        _$words<Tail, [], [...WORDS, String._$fromList<CURRENT_WORD>], Head>
+        _$words2<Tail, [], [...WORDS, String._$fromList<CURRENT_WORD>], Head>
     : /**
        * The character is not a delimiter, so perform additional checks.
        */
@@ -76,12 +56,12 @@ export type _$words<
                  * If the current word is empty, add the current character to
                  * the current word.
                  */
-                _$words<Tail, [Head], WORDS, Head>
+                _$words2<Tail, [Head], WORDS, Head>
               : /**
                  * If the current word is not empty, add the current word to
                  * the list of words and start a new empty word.
                  */
-                _$words<
+                _$words2<
                   Tail,
                   [Head],
                   [...WORDS, String._$fromList<CURRENT_WORD>],
@@ -91,13 +71,13 @@ export type _$words<
                * Otherwise, the next character is not lowercase, so we can defer
                * handling to the next iteration.
                */
-              _$words<Tail, [...CURRENT_WORD, Head], WORDS, Head>
+              _$words2<Tail, [...CURRENT_WORD, Head], WORDS, Head>
           : /**
              * If both this character and the prior character was uppercase,
              * and there is no next character, we can defer handling to the
              * next iteration.
              */
-            _$words<Tail, [...CURRENT_WORD, Head], WORDS, Head>
+            _$words2<Tail, [...CURRENT_WORD, Head], WORDS, Head>
         : /**
            * If the previous character is lowercase, then we are transitioning
            * from lowercase to uppercase, which implies the start of a new word.
@@ -108,12 +88,12 @@ export type _$words<
                * If the current word is empty, add the current character to the
                * current word.
                */
-              _$words<Tail, [Head], WORDS, Head>
+              _$words2<Tail, [Head], WORDS, Head>
             : /**
                * If the current word is not empty, add the current word to the
                * list of words and start a new empty word.
                */
-              _$words<
+              _$words2<
                 Tail,
                 [Head],
                 [...WORDS, String._$fromList<CURRENT_WORD>],
@@ -124,7 +104,7 @@ export type _$words<
              * character is uppercase, then we include the current character in
              * the current word.
              */
-            _$words<Tail, [...CURRENT_WORD, Head], WORDS, Head>
+            _$words2<Tail, [...CURRENT_WORD, Head], WORDS, Head>
       : /**
          * If the current character isn't uppercase, we check if it's a digit.
          * If it is, it is treated as a separate word from any adjacent letter
@@ -137,18 +117,18 @@ export type _$words<
            * appended to that word.
            */
           String._$isDigit<PREV_CHAR> extends true
-          ? _$words<Tail, [...CURRENT_WORD, Head], WORDS, Head>
+          ? _$words2<Tail, [...CURRENT_WORD, Head], WORDS, Head>
           : CURRENT_WORD['length'] extends 0
             ? /**
                * If the current word is empty, add the current character to the
                * a new word.
                */
-              _$words<Tail, [Head], WORDS, Head>
+              _$words2<Tail, [Head], WORDS, Head>
             : /**
                * If the current word is not empty, add the current word to the
                * list of words and start a new empty word.
                */
-              _$words<
+              _$words2<
                 Tail,
                 [Head],
                 [...WORDS, String._$fromList<CURRENT_WORD>],
@@ -169,18 +149,18 @@ export type _$words<
                * If the current word is empty, add the current character to the
                * current word.
                */
-              _$words<Tail, [Head], WORDS, Head>
+              _$words2<Tail, [Head], WORDS, Head>
             : /**
                * If the current word is not empty, add the current word to the
                * list of words and start a new empty word.
                */
-              _$words<
+              _$words2<
                 Tail,
                 [Head],
                 [...WORDS, String._$fromList<CURRENT_WORD>],
                 Head
               >
-          : _$words<Tail, [...CURRENT_WORD, Head], WORDS, Head>
+          : _$words2<Tail, [...CURRENT_WORD, Head], WORDS, Head>
   : /**
      * If we've iterated through all of the characters, return the list of
      * collected words.
@@ -188,6 +168,33 @@ export type _$words<
     CURRENT_WORD['length'] extends 0
     ? WORDS
     : [...WORDS, String._$fromList<CURRENT_WORD>]
+
+/**
+ * `_$words` is a type-level function that takes in a string `S` and returns
+ * a list of words in the string. Words are defined as sequences of characters
+ * separated by whitespace, or delimited by case changes. Acronyms in the input
+ * are identified as individual words.
+ *
+ * Consecutive digits are treated as their own word, separate from any adjacent
+ * letter characters.
+ *
+ * @template {string} S - The string to split.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * type Result = String._$words<'helloWorld'>; // ['hello', 'World']
+ * type Result2 = String._$words<'hello world'>; // ['hello', 'world']
+ * type Result3 = String._$words<'XMLHttpRequest'>; // ['XML', 'Http', 'Request']
+ * ```
+ */
+export type _$words<S extends string> =
+  String._$isTemplate<S> extends true
+    ? string[]
+    : string extends S
+      ? string[]
+      : _$words2<S>
 
 /**
  * `Words` is a type-level function that takes in a string `S` and returns
