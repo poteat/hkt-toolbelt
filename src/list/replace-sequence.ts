@@ -1,5 +1,18 @@
 import { Kind, Type, List } from '..'
 
+type _$replaceSequence2<
+  X extends unknown[],
+  Y extends unknown[],
+  T extends unknown[]
+> =
+  List._$indexOfSequence<X, T> extends -1
+    ? T
+    : _$replaceSequence2<
+        X,
+        Y,
+        List._$splice<List._$indexOfSequence<X, T>, X['length'], Y, T>
+      >
+
 /**
  * `_$replaceSequence` is a type-level function that takes in a list `X`, a list
  * `Y`, and a list `T`, and returns a new list with all instances of the
@@ -20,10 +33,7 @@ export type _$replaceSequence<
   X extends unknown[],
   Y extends unknown[],
   T extends unknown[]
-> =
-  List._$indexOfSequence<X, T> extends -1
-    ? T
-    : List._$splice<List._$indexOfSequence<X, T>, X['length'], Y, T>
+> = X extends [] ? T : _$replaceSequence2<X, Y, T>
 
 interface ReplaceSequence_T2<X extends unknown[], Y extends unknown[]>
   extends Kind.Kind {
@@ -68,11 +78,20 @@ export interface ReplaceSequence extends Kind.Kind {
 export const replaceSequence = ((x: unknown[]) =>
   (y: unknown[]) =>
   (values: unknown[]) => {
-    const subsequenceIndex: number = List.indexOfSequence(x as never)(
-      values as never
-    )
+    let subsequenceIndex: number = 0
+    let result: unknown[] = values
 
-    if (subsequenceIndex === -1) return values
+    if (x.length === 0) return values
 
-    return List.splice(subsequenceIndex)(x.length)(y as never)(values as never)
+    while (subsequenceIndex !== -1) {
+      subsequenceIndex = List.indexOfSequence(x as never)(result as never)
+
+      if (subsequenceIndex === -1) return result
+
+      result = List.splice(subsequenceIndex)(x.length)(y as never)(
+        result as never
+      )
+    }
+
+    return result
   }) as unknown as Kind._$reify<ReplaceSequence>
