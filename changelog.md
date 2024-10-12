@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.24.10]
+
+- Add `String.CamelCase` to convert a string to camelCase.
+- Add `String.PascalCase` to convert a string to PascalCase.
+- Add `String.SnakeCase` to convert a string to snake_case.
+- Add `String.KebabCase` to convert a string to kebab-case.
+- Add `String.ConstantCase` to convert a string to CONSTANT_CASE.
+- Reify `String.Capitalize` to a value-level function.
+- Add `String.Words` to split a string into words.
+- Add `String.IsUppercaseLetter` to check if a string is uppercase.
+- Add `String.IsLowercaseLetter` to check if a string is lowercase.
+- Add `String.IsDigit` to check if a string is a digit.
+
 ## [0.24.9]
 
 - Reify `NaturalNumber.Add` to a value-level function.
