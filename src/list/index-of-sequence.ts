@@ -1,4 +1,5 @@
 import { Kind, Type, DigitList, List } from '..'
+import { deepEqual } from '../_internal/deepEqual'
 
 type _$indexOfSequence2<
   X extends unknown[],
@@ -75,7 +76,7 @@ export const indexOfSequence = ((x: unknown[]) => (values: unknown[]) => {
   const prefixTable = new Array(x.length).fill(0)
   let j = 0
   for (let i = 1; i < x.length; i++) {
-    while (j > 0 && x[i] !== x[j]) {
+    while (j > 0 && !deepEqual(x[i], x[j])) {
       j = prefixTable[j - 1]
     }
     if (x[i] === x[j]) {
@@ -88,7 +89,7 @@ export const indexOfSequence = ((x: unknown[]) => (values: unknown[]) => {
   let i = 0
   j = 0
   while (i < values.length) {
-    if (values[i] === x[j]) {
+    if (deepEqual(values[i], x[j])) {
       i++
       j++
       if (j === x.length) {

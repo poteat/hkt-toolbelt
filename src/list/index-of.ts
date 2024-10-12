@@ -1,4 +1,5 @@
 import { Kind, Type, DigitList, Conditional } from '..'
+import { deepEqual } from '../_internal/deepEqual'
 
 /**
  * `_$indexOf` is a type-level function that takes in a value `X` and a list `T`,
@@ -59,5 +60,10 @@ export interface IndexOf extends Kind.Kind {
  * //    ^? 0
  * ```
  */
-export const indexOf = ((x: unknown) => (values: unknown[]) =>
-  values.indexOf(x)) as Kind._$reify<IndexOf>
+export const indexOf = ((x: unknown) => (values: unknown[]) => {
+  for (let i = 0; i < values.length; i++) {
+    if (deepEqual(values[i], x)) return i
+  }
+
+  return -1
+}) as Kind._$reify<IndexOf>
