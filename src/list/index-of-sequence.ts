@@ -73,7 +73,7 @@ export const indexOfSequence = ((x: unknown[]) => (values: unknown[]) => {
   if (x.length === 0) return 0 // Empty sequence matches at index 0
 
   // Build the prefix table
-  const prefixTable = new Array(x.length).fill(0)
+  const prefixTable = new Array(x.length).fill(0) as number[]
   let j = 0
   for (let i = 1; i < x.length; i++) {
     while (j > 0 && !deepEqual(x[i], x[j])) {
