@@ -46,3 +46,18 @@ type ModuloBy_Spec = [
    */
   Test.Expect<$<$<NaturalNumber.ModuloBy, 99>, 100>, 1>
 ]
+
+it('should return the remainder of the division', () => {
+  const result = NaturalNumber.moduloBy(3)(10)
+  expect(result).toBe(1)
+})
+
+it('should return the remainder of the division', () => {
+  const result = NaturalNumber.moduloBy(17)(123)
+  expect(result).toBe(4)
+})
+
+it('should return the remainder of the division', () => {
+  const result = NaturalNumber.moduloBy(1)(123)
+  expect(result).toBe(0)
+})
