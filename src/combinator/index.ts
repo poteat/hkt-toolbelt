@@ -1,5 +1,6 @@
 export * from './apply-self'
 export * from './collate'
 export * from './fix-sequence'
+export * from './fix'
 export * from './recursive-kind'
 export * from './self'

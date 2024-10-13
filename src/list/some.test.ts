@@ -41,3 +41,11 @@ type Some_Spec = [
   // @ts-expect-error
   $<List.Some<String.StartsWith<'foo'>>, [1, 2, 3]>
 ]
+
+it('should return true if some element in the list satisfies the predicate', () => {
+  expect(List.some(String.isString)([42, 'bar'])).toBe(true)
+})
+
+it('should return false if no element in the list satisfies the predicate', () => {
+  expect(List.some(String.isString)([42, 51])).toBe(false)
+})

@@ -112,3 +112,32 @@ export interface Reduce extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => Kind.Kind>>
   ): Reduce_T<typeof x>
 }
+
+/**
+ * Given a 2-arty kind `F`, an initial value `O`, and a list, return the result
+ * of applying `F` to each element of the list, starting with `O`, reducing the
+ * list to a single return value of `F`.
+ *
+ * @param {Kind.Kind<(x: never) => Kind.Kind>} f - The kind to reduce.
+ * @param {unknown} x - The initial value.
+ * @param {unknown[]} values - The list to reduce.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.reduce(NaturalNumber.add)(0)([1, 2, 3, 4, 5])
+ * //    ^? 15
+ * ```
+ */
+export const reduce = ((f: Function.Function) =>
+  (x: unknown) =>
+  (values: unknown[]) => {
+    let result = x
+
+    for (const value of values) {
+      result = (f(result as never) as Function.Function)(value as never)
+    }
+
+    return result
+  }) as Kind._$reify<Reduce>
