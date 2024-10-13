@@ -76,7 +76,7 @@ export interface MinIndexBy extends Kind.Kind {
  * //    ^? 0
  * ```
  */
-export const minIndexBy = (f: Function.Function) => (values: unknown[]) => {
+export const minIndexBy = ((f: Function.Function) => (values: unknown[]) => {
   let minIndex = -1
   let minScore = Infinity
 
@@ -90,4 +90,4 @@ export const minIndexBy = (f: Function.Function) => (values: unknown[]) => {
   }
 
   return minIndex
-}
+}) as Kind._$reify<MinIndexBy>
