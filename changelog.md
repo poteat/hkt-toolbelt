@@ -21,6 +21,7 @@
 - Add `List.RemoveIndex` to remove an element at a specified index from a list.
 - Reify `List.Reduce` to a value-level function.
 - Reify `List.Some` to a value-level function.
+- Reify `List.Find` to a value-level function.
 
 ## [0.24.10]
 
