@@ -63,3 +63,26 @@ export type _$zip<
 export interface Zip extends Kind.Kind {
   f(x: this[Kind._]): typeof x extends List.List ? _$zip<typeof x> : never
 }
+
+/**
+ * Given a list of lists, return the transpose, or zip, of the list, whereby
+ * each element in index `i` of the result is the `i`th element of each list.
+ *
+ * @param {unknown[]} x - The list of lists to transpose.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.zip([[1, 2], ["a", "b", "c"]])
+ * //    ^? [[1, "a"], [2, "b"]]
+ */
+export const zip = ((x: unknown[][]) => {
+  const minLength = Math.min(...x.map((arr) => arr.length))
+  const result = []
+  for (let i = 0; i < minLength; i++) {
+    const zipped = x.map((arr) => arr[i])
+    result.push(zipped)
+  }
+  return result
+}) as Kind._$reify<Zip>
