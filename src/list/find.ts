@@ -1,4 +1,4 @@
-import { $, Type, Kind } from '..'
+import { $, Type, Kind, Function } from '..'
 
 /**
  * `_$find` is a type-level function that finds the first element in a list that satisfies a predicate.
@@ -45,3 +45,21 @@ export interface Find extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
   ): Find_T<typeof x>
 }
+
+/**
+ * Given a predicate and a list, return the first element in the list that
+ * satisfies the predicate.
+ *
+ * @param {Kind.Kind<(x: never) => boolean>} f - The predicate to check.
+ * @param {unknown[]} values - The list to check.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.find(String.isString)(['foo', 'bar'])
+ * //    ^? foo
+ * ```
+ */
+export const find = ((f: Function.Function) => (values: unknown[]) =>
+  values.find((value) => f(value as never))) as Kind._$reify<Find>

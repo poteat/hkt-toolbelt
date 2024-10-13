@@ -1,4 +1,4 @@
-import { $, Conditional, Function, List, Test } from '..'
+import { $, Conditional, Function, List, Test, Type } from '..'
 
 type Find_Spec = [
   /**
@@ -25,3 +25,11 @@ type Find_Spec = [
   // @ts-expect-error
   List.Find<Function.Identity>
 ]
+
+it('should return the first element in the list that satisfies the predicate', () => {
+  expect(List.find(Function.constant(true))([1, 2, 3])).toBe(1)
+})
+
+it('should return never if no element in the list satisfies the predicate', () => {
+  expect(List.find(Function.constant(false))([1, 2, 3])).toBe(Type.never)
+})
