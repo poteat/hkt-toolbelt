@@ -1,4 +1,4 @@
-import { $, Boolean, Type, Kind } from '..'
+import { $, Boolean, Type, Kind, Function } from '..'
 
 /**
  * `_$some` is a type-level function that checks if some element in a tuple satisfies a predicate.
@@ -45,3 +45,21 @@ export interface Some extends Kind.Kind {
     x: Type._$cast<this[Kind._], Kind.Kind<(x: never) => boolean>>
   ): Some_T<typeof x>
 }
+
+/**
+ * Given a predicate and a list, return whether or not at least one element in
+ * the list satisfies the predicate.
+ *
+ * @param {Kind.Kind<(x: never) => boolean>} f - The predicate to check.
+ * @param {unknown[]} values - The list to check.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.some(String.isString)(['foo', 'bar'])
+ * //    ^? true
+ * ```
+ */
+export const some = ((f: Function.Function) => (values: unknown[]) =>
+  values.some((value) => f(value as never))) as Kind._$reify<Some>
