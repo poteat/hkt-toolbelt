@@ -93,4 +93,5 @@ export interface Decrement extends Kind.Kind {
  * //    ^? 0
  * ```
  */
-export const decrement = ((x: number) => x - 1) as Kind._$reify<Decrement>
+export const decrement = ((x: number) =>
+  x === 0 ? 0 : x - 1) as Kind._$reify<Decrement>
