@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.24.11]
+
+- Reify `String.ToList` to a value-level function.
+- Add `List.FindIndex` to find the index of a value in a list that satisfies a predicate.
+- Add `List.IndexOf` to find the index of a value in a list.
+- Add `List.StartsWith` to check if a list starts with a sequence of values.
+- Add `List.EndsWith` to check if a list ends with a sequence of values.
+- Add `List.IndexOfSequence` to find the index of a sequence of values in a list.
+- Fix runtime list search utilities to search via deep equality.
+- Add `List.Replace` to replace all instances of a value in a list with another value.
+- Add `List.Remove` to remove all instances of a value from a list.
+- Add `List.ReplaceSequence` to replace all instances of a sequence of values in a list with another sequence.
+- Add `List.RemoveSequence` to remove all instances of a sequence of values from a list.
+- Fix `NaturalNumber.decrement` to return zero when decrementing zero during runtime.
+- Add `Combinator.Fix` to find a fixed point of a higher-order type.
+- Reify `List.MinBy` to a value-level function.
+- Add `List.MaxIndexBy` to find the index of the maximum element in a list according to a scoring function.
+- Add `List.MinIndexBy` to find the index of the minimum element in a list according to a scoring function.
+- Add `List.RemoveIndex` to remove an element at a specified index from a list.
+- Reify `List.Reduce` to a value-level function.
+- Reify `List.Some` to a value-level function.
+- Reify `List.Find` to a value-level function.
+
 ## [0.24.10]
 
 - Add `String.CamelCase` to convert a string to camelCase.
