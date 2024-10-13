@@ -194,11 +194,11 @@ export interface FixSequence extends Kind.Kind {
  *
  * @example
  * ```ts
- * import { Kind, NaturalNumber } from "hkt-toolbelt";
+ * import { Combinator, NaturalNumber } from "hkt-toolbelt";
  *
  * const myFcn = // decrement by 1 if above 0, otherwise return 0
  *
- * const result = Kind.fixSequence(myFcn)(100)
+ * const result = Combinator.fixSequence(myFcn)(100)
  * //    ^? 0
  * ```
  */
