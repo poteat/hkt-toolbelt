@@ -76,7 +76,7 @@ export interface MaxIndexBy extends Kind.Kind {
  * //    ^? 1
  * ```
  */
-export const maxIndexBy = (f: Function.Function) => (values: unknown[]) => {
+export const maxIndexBy = ((f: Function.Function) => (values: unknown[]) => {
   let maxIndex = -1
   let maxScore = -Infinity
 
@@ -90,4 +90,4 @@ export const maxIndexBy = (f: Function.Function) => (values: unknown[]) => {
   }
 
   return maxIndex
-}
+}) as Kind._$reify<MaxIndexBy>
