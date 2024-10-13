@@ -20,6 +20,7 @@
 - Add `List.MinIndexBy` to find the index of the minimum element in a list according to a scoring function.
 - Add `List.RemoveIndex` to remove an element at a specified index from a list.
 - Reify `List.Reduce` to a value-level function.
+- Reify `List.Some` to a value-level function.
 
 ## [0.24.10]
 
