@@ -11,3 +11,11 @@ type MinBy_Spec = [
    */
   Test.Expect<$<$<List.MinBy, String.Length>, ['foo', 'bars', 'qu']>, 'qu'>
 ]
+
+it('should return the element in the list that has the lowest score', () => {
+  expect(List.minBy(String.length)(['foob', 'bar', 'qu'])).toBe('qu')
+})
+
+it('should handle identity functions', () => {
+  expect(List.minBy(Function.identity)([1, 2, 3])).toBe(1)
+})
