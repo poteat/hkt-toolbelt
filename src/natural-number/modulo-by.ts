@@ -55,3 +55,21 @@ interface ModuloBy_T<A extends number> extends Kind.Kind {
 export interface ModuloBy extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], number>): ModuloBy_T<typeof x>
 }
+
+/**
+ * Given two natural numbers, return the remainder of the second divided by the
+ * first.
+ *
+ * @param {number} a - The denominator.
+ * @param {number} b - The numerator.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.moduloBy(3)(10)
+ * //    ^? 1
+ * ```
+ */
+export const moduloBy = ((a: number) => (b: number) =>
+  b % a) as Kind._$reify<ModuloBy>
