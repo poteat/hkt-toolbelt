@@ -32,3 +32,21 @@ interface StartsWith_T<Prefix extends string> extends Kind.Kind {
 export interface StartsWith extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): StartsWith_T<typeof x>
 }
+
+/**
+ * Given a prefix and a string, return whether the string starts with the
+ * prefix.
+ *
+ * @param {string} prefix - The prefix to check for.
+ * @param {string} s - The string to check.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.startsWith('foo')('foobar')
+ * //    ^? true
+ * ```
+ */
+export const startsWith = ((prefix: string) => (s: string) =>
+  s.startsWith(prefix)) as Kind._$reify<StartsWith>

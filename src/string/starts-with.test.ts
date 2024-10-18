@@ -46,3 +46,15 @@ type StartsWith_Spec = [
    */
   Test.Expect<$<$<String.StartsWith, ''>, string>>
 ]
+
+it('should return true if the string starts with the prefix', () => {
+  expect(String.startsWith('foo')('foobar')).toBe(true)
+})
+
+it('should return false if the string does not start with the prefix', () => {
+  expect(String.startsWith('bar')('foobar')).toBe(false)
+})
+
+it('should return true if the string starts with an empty prefix', () => {
+  expect(String.startsWith('')('foobar')).toBe(true)
+})
