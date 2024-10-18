@@ -1,4 +1,4 @@
-import { Number, Type, Kind } from '..'
+import { Number as Number_, Type, Kind } from '..'
 
 /**
  * `_$negate` is a type-level function that takes a number type `T`, and returns its negated value.
@@ -17,11 +17,13 @@ import { Number, Type, Kind } from '..'
  */
 export type _$negate<
   T,
-  RESULT = T extends 0
-    ? 0
-    : `${T & Number.Number}` extends `-${infer U extends number}`
-      ? U
-      : Number._$fromString<`-${T & Number.Number}`>
+  RESULT = number extends T
+    ? number
+    : T extends 0
+      ? 0
+      : `${T & Number_.Number}` extends `-${infer U extends number}`
+        ? U
+        : Number_._$fromString<`-${T & Number_.Number}`>
 > = RESULT
 
 /**
@@ -40,5 +42,21 @@ export type _$negate<
  * ```
  */
 export interface Negate extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Number.Number>): _$negate<typeof x>
+  f(x: Type._$cast<this[Kind._], Number_.Number>): _$negate<typeof x>
 }
+
+/**
+ * Given a number, return the negation of the number.
+ *
+ * @param {number} x - The number to negate.
+ *
+ * @example
+ * ```ts
+ * import { Number } from "hkt-toolbelt";
+ *
+ * const result = Number.negate(42)
+ * //    ^? -42
+ * ```
+ */
+export const negate = ((x: Number_.Number) =>
+  Number(x) === 0 ? 0 : -Number(x)) as Kind._$reify<Negate>
