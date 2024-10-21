@@ -73,7 +73,7 @@ export interface Intersect extends Kind.Kind {
  * //    ^? [1, 3]
  * ```
  */
-export const intersect = (a: unknown[]) => (b: unknown[]) => {
+export const intersect = ((a: unknown[]) => (b: unknown[]) => {
   const aHashes = new Set(a.map(hash))
   const result: unknown[] = []
 
@@ -85,4 +85,4 @@ export const intersect = (a: unknown[]) => (b: unknown[]) => {
   }
 
   return result
-}
+}) as Kind._$reify<Intersect>
