@@ -34,7 +34,7 @@ export interface Flatten extends Kind.Kind {
 }
 
 /**
- * Given a list, flatten the list.
+ * Given a list, flatten the list recursively.
  *
  * @param {unknown[]} x - The list to flatten.
  *
