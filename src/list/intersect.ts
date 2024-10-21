@@ -1,4 +1,5 @@
 import { Kind, List, Type } from '..'
+import { hash } from '../_internal/hash'
 
 /**
  * `_$intersect` is a type-level function that takes in two lists `A` and `B`,
@@ -56,4 +57,32 @@ interface Intersect_T<A extends unknown[]> extends Kind.Kind {
  */
 export interface Intersect extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): Intersect_T<typeof x>
+}
+
+/**
+ * Given two lists, return the elements that are common to both lists.
+ *
+ * @param {unknown[]} a - The first list.
+ * @param {unknown[]} b - The second list.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.intersect([1, 2, 3])([1, 3, 4, 5])
+ * //    ^? [1, 3]
+ * ```
+ */
+export const intersect = (a: unknown[]) => (b: unknown[]) => {
+  const aHashes = new Set(a.map(hash))
+  const result: unknown[] = []
+
+  for (const item of b) {
+    const hashedItem = hash(item)
+    if (aHashes.has(hashedItem)) {
+      result.push(item)
+    }
+  }
+
+  return result
 }
