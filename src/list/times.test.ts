@@ -21,3 +21,7 @@ type Times_Spec = [
    */
   Test.Expect<$<List.Times, -1>, never>
 ]
+
+it('should return a list of numbers from 0 to N-1', () => {
+  expect(List.times(8)).toEqual([0, 1, 2, 3, 4, 5, 6, 7])
+})
