@@ -20,7 +20,15 @@ type Sort_Spec = [
   /**
    * Can sort an empty list.
    */
-  Test.Expect<$<$<List.Sort, Function.Identity>, []>, []>
+  Test.Expect<$<$<List.Sort, Function.Identity>, []>, []>,
+
+  /**
+   * Can sort 2d lists.
+   */
+  Test.Expect<
+    $<$<List.Sort, List.Compare>, [['foo', 'bar'], ['baz', 'qux']]>,
+    [['baz', 'qux'], ['foo', 'bar']]
+  >
 ]
 
 it('should sort a list of numbers', () => {
