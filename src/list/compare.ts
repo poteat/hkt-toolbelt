@@ -1,4 +1,4 @@
-import { Type, Kind, Number, NaturalNumber, String } from 'hkt-toolbelt'
+import { Type, Kind, Number, NaturalNumber, String } from '..'
 
 type _$compare3<
   X extends number | string,
