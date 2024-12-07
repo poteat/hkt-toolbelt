@@ -180,3 +180,23 @@ interface Compare_T<X extends Number.Number> extends Kind.Kind {
 export interface Compare extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): Compare_T<typeof x>
 }
+
+/**
+ * Given two numbers, return their comparison result as a runtime value:
+ * - `1` if `a` is greater than `b`
+ * - `0` if `a` is equal to `b`
+ * - `-1` if `a` is less than `b`
+ *
+ * @param {number} a - The first number to compare.
+ * @param {number} b - The second number to compare.
+ *
+ * @example
+ * ```ts
+ * import { Number } from "hkt-toolbelt";
+ *
+ * const result = Number.compare(2)(3)
+ * //    ^? -1
+ * ```
+ */
+export const compare = ((a: number) => (b: number) =>
+  a > b ? 1 : a < b ? -1 : 0) as Kind._$reify<Number.Compare>
