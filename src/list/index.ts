@@ -1,6 +1,7 @@
 export * from './accumulate'
 export * from './at'
 export * from './chunk'
+export * from './compare-by'
 export * from './compare'
 export * from './concat'
 export * from './count'
