@@ -1,4 +1,4 @@
-import { $, NaturalNumber, Test } from '../'
+import { $, NaturalNumber, Test } from '..'
 
 type Compare_Spec = [
   /**
@@ -60,3 +60,17 @@ type Compare_Spec = [
    */
   Test.Expect<$<$<NaturalNumber.Compare, 125>, 121>, 1>
 ]
+
+describe('NaturalNumber.compare', () => {
+  it('should return 0 for equal numbers', () => {
+    expect(NaturalNumber.compare(2)(2)).toBe(0)
+  })
+
+  it('should return -1 for less numbers', () => {
+    expect(NaturalNumber.compare(2)(3)).toBe(-1)
+  })
+
+  it('should return 1 for greater numbers', () => {
+    expect(NaturalNumber.compare(3)(2)).toBe(1)
+  })
+})
