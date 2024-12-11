@@ -51,3 +51,16 @@ export type IsInteger_Spec = [
    */
   Test.Expect<$<Number.IsInteger, '0x42'>, false>
 ]
+
+describe('Number.IsInteger', () => {
+  it('should check if a number is an integer', () => {
+    expect(Number.isInteger(42)).toBe(true)
+    expect(Number.isInteger(42.42)).toBe(false)
+    expect(Number.isInteger(-42)).toBe(true)
+    expect(Number.isInteger(-42.42)).toBe(false)
+    expect(Number.isInteger(0)).toBe(true)
+    expect(Number.isInteger(42n)).toBe(true)
+    expect(Number.isInteger('42')).toBe(true)
+    expect(Number.isInteger('42.42')).toBe(false)
+  })
+})
