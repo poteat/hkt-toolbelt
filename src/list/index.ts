@@ -1,5 +1,6 @@
 export * from './accumulate'
 export * from './at'
+export * from './cartesian-product'
 export * from './chunk'
 export * from './compare-by'
 export * from './compare'
