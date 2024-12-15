@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.25.0]
+
+- Reify `NaturalNumber.Modulo` and `NaturalNumber.ModuloBy` to value-level functions.
+- Reify `Number.Negate` to a value-level function.
+- Reify `List.Zip`.
+- Add `Integer.Negate`.
+- Add `List.Sort` and `List.SortBy`.
+- Reify `String.StartsWith` and `String.EndsWith` to value-level functions.
+- Add `Object.PickByValue`.
+- Reify `Type.Display` to an identity function.
+- Improve pipe performance.
+- Reify `List.Intersect`.
+- Add `List.Subtract` and `List.SubtractBy`.
+- Add `Kind.ApplyKind`.
+- Reify `List.Unshift`, `List.FlatMap`, and `List.Times`.
+- Add `String.Compare` and `String.CompareChar`.
+- Add `List.Compare` for comparing lists.
+- Reify `Number.Compare` to a value-level function.
+- Add `Type.TypeOf` as a kind for emulating the `typeof` operator.
+- Add `List.UniqueBy` for getting unique values from a list and mapping.
+- Reify `Number.IsInteger` to a value-level function.
+- Add `String.Repeat` for repeating a string.
+- Add `List.CartesianProduct` for generating all possible combinations of elements.
+- Fix edge condition in `String.Join` involving empty values.
+
 ## [0.24.11]
 
 - Reify `String.ToList` to a value-level function.
