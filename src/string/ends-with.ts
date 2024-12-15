@@ -32,3 +32,21 @@ interface EndsWith_T<T extends string> extends Kind.Kind {
 export interface EndsWith extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): EndsWith_T<typeof x>
 }
+
+/**
+ * Given a suffix and a string, return whether the string ends with the
+ * suffix.
+ *
+ * @param {string} suffix - The suffix to check for.
+ * @param {string} s - The string to check.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const result = String.endsWith('bar')('foobar')
+ * //    ^? true
+ * ```
+ */
+export const endsWith = ((suffix: string) => (s: string) =>
+  s.endsWith(suffix)) as Kind._$reify<EndsWith>

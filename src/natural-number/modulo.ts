@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
+import { Type, Number as Number_, Kind, DigitList, NaturalNumber } from '..'
 
 /**
  * `Modulo` is a type-level function that takes in two natural number types,
@@ -8,18 +8,18 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
  * @template B - The number to divide by.
  */
 export type _$modulo<
-  A extends Number.Number,
-  B extends Number.Number,
+  A extends Number_.Number,
+  B extends Number_.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
   MODULUS_LIST = DigitList._$modulo<A_LIST, B_LIST>,
   MODULUS = DigitList._$toNumber<Type._$cast<MODULUS_LIST, DigitList.DigitList>>
 > = MODULUS
 
-interface Modulo_T<A extends Number.Number> extends Kind.Kind {
+interface Modulo_T<A extends Number_.Number> extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? _$modulo<A, typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? _$modulo<A, typeof x> : never
 }
 
 /**
@@ -56,6 +56,23 @@ interface Modulo_T<A extends Number.Number> extends Kind.Kind {
  */
 export interface Modulo extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? Modulo_T<typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? Modulo_T<typeof x> : never
 }
+
+/**
+ * Given two natural numbers, return the remainder of the division.
+ *
+ * @param {number} a - The numerator.
+ * @param {number} b - The denominator.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.modulo(10)(3)
+ * //    ^? 1
+ * ```
+ */
+export const modulo = ((a: number) => (b: number) =>
+  Number(a) % Number(b)) as Kind._$reify<Modulo>
