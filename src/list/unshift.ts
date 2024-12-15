@@ -12,7 +12,7 @@ import { Type, Kind } from '..'
  */
 export type _$unshift<X, T extends unknown[]> = [X, ...T]
 
-interface Unshift_T<X> extends Kind.Kind {
+export interface Unshift_T<X> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], unknown[]>): _$unshift<X, typeof x>
 }
 
@@ -29,3 +29,22 @@ interface Unshift_T<X> extends Kind.Kind {
 export interface Unshift extends Kind.Kind {
   f(x: this[Kind._]): Unshift_T<typeof x>
 }
+
+/**
+ * Given a value and a list, prepend the value to the start of the list.
+ *
+ * @param {unknown} x - The value to prepend.
+ * @param {unknown[]} values - The list to prepend to.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.unshift(1)([2, 3, 4])
+ * //    ^? [1, 2, 3, 4]
+ * ```
+ */
+export const unshift = ((x: unknown) => (values: unknown[]) => [
+  x,
+  ...values
+]) as Kind._$reify<Unshift>

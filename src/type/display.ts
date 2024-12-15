@@ -29,3 +29,20 @@ export type _$display<T> = T extends (...args: never[]) => unknown
 export interface Display extends Kind.Kind {
   f(x: this[Kind._]): _$display<this[Kind._]>
 }
+
+/**
+ * Given a value, return the value unchanged, while performing type inference
+ * on the type to fully display it.
+ *
+ * Acts as an identity function.
+ *
+ * @param {unknown} x - The value to display.
+ *
+ * @example
+ * ```ts
+ * import { Type } from "hkt-toolbelt";
+ *
+ * const result = Type.display('foo') // 'foo'
+ * ```
+ */
+export const display = ((x: unknown) => x) as Kind._$reify<Display>

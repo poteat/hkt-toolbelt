@@ -115,3 +115,41 @@ type Compare_Spec = [
 
   Test.Expect<$<$<Number.Compare, 0.0001234>, 0.01234>, -1>
 ]
+
+describe('Number.compare', () => {
+  it('should return 1 for greater numbers', () => {
+    expect(Number.compare(2)(3)).toBe(-1)
+  })
+
+  it('should return -1 for less numbers', () => {
+    expect(Number.compare(3)(2)).toBe(1)
+  })
+
+  it('should return 0 for equal numbers', () => {
+    expect(Number.compare(2)(2)).toBe(0)
+  })
+
+  it('should return 1 for greater numbers with negative signs', () => {
+    expect(Number.compare(-2)(3)).toBe(-1)
+  })
+
+  it('should return -1 for less numbers with negative signs', () => {
+    expect(Number.compare(3)(-2)).toBe(1)
+  })
+
+  it('should return 0 for equal numbers with negative signs', () => {
+    expect(Number.compare(-2)(-2)).toBe(0)
+  })
+
+  it('should return 1 for greater numbers with fractionals', () => {
+    expect(Number.compare(2.5)(3)).toBe(-1)
+  })
+
+  it('should return -1 for less numbers with fractionals', () => {
+    expect(Number.compare(3)(2.5)).toBe(1)
+  })
+
+  it('should return 0 for equal numbers with fractionals', () => {
+    expect(Number.compare(2.5)(2.5)).toBe(0)
+  })
+})

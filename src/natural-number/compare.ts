@@ -73,3 +73,23 @@ export interface Compare extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? Compare_T<typeof x> : never
 }
+
+/**
+ * Given two natural numbers, return their comparison result as -1, 0, or 1.
+ *
+ * -1 if `a` is less than `b`, 1 if `a` is greater than `b`, and 0 if `a` is
+ * equal to `b`.
+ *
+ * @param {number} a - The first natural number to compare.
+ * @param {number} b - The second natural number to compare.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const result = NaturalNumber.compare(2)(3)
+ * //    ^? -1
+ * ```
+ */
+export const compare = ((a: number) => (b: number) =>
+  a < b ? -1 : a > b ? 1 : 0) as Kind._$reify<Compare>

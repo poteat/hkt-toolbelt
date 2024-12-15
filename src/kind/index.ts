@@ -1,5 +1,6 @@
-export * from './apply'
+export * from './apply-kind'
 export * from './apply-n'
+export * from './apply'
 export * from './arity'
 export * from './collapse'
 export * from './composable'

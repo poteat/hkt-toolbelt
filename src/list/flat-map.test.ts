@@ -19,3 +19,7 @@ type FlatMap_Spec = [
     [[1, 2], 3, 4]
   >
 ]
+
+it('should return a flattened list of the results of applying the mapping function to each element of the list', () => {
+  expect(List.flatMap(List.times)([1, 2, 3])).toEqual([0, 0, 1, 0, 1, 2])
+})
