@@ -52,3 +52,15 @@ type EndsWith_Spec = [
   // @ts-expect-error
   Test.Expect<$<String.EndsWith<''>, number>>
 ]
+
+it('should return true if the string ends with the suffix', () => {
+  expect(String.endsWith('bar')('foobar')).toBe(true)
+})
+
+it('should return false if the string does not end with the suffix', () => {
+  expect(String.endsWith('foo')('foobar')).toBe(false)
+})
+
+it('should return true if the string ends with an empty suffix', () => {
+  expect(String.endsWith('')('foobar')).toBe(true)
+})

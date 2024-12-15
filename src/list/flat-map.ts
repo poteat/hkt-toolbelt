@@ -1,4 +1,4 @@
-import { $, Kind, List, Type } from '..'
+import { $, Kind, List, Type, Function } from '..'
 
 /**
  * `FlatMap` is a type-level function that applies a mapping function to each
@@ -63,3 +63,21 @@ interface FlatMap_T<F extends Kind.Kind> extends Kind.Kind {
 export interface FlatMap extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Kind.Kind>): FlatMap_T<typeof x>
 }
+
+/**
+ * Given a mapping function `F` and a list `X`, return a flattened list of the
+ * results of applying `F` to each element of `X`.
+ *
+ * @param {Kind.Kind} f - The mapping function to apply to each element of the list.
+ * @param {unknown[]} x - The list to apply the mapping function to.
+ *
+ * @example
+ * ```ts
+ * import { List, String } from "hkt-toolbelt";
+ *
+ * const result = List.flatMap(String.times)([1, 2, 3])
+ * //    ^? [0, 0, 1, 0, 1, 2]
+ * ```
+ */
+export const flatMap = ((f: Function.Function) => (x: unknown[]) =>
+  x.flatMap((x) => f(x as never))) as Kind._$reify<FlatMap>

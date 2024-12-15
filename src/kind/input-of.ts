@@ -15,7 +15,7 @@ import { Type, Kind } from '..'
  * type InputType = _$inputOf<ExampleKind>; // This will be inferred as number
  */
 export type _$inputOf<F extends Kind.Kind> = F extends {
-  f: (x: infer X) => unknown
+  f: (x: infer X) => any
 }
   ? X
   : unknown
