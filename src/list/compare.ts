@@ -140,7 +140,7 @@ export const compare = ((x: (string | number)[]) =>
 
       // Both are numbers
       if (aIsNumber && bIsNumber) {
-        const diff = (a as number) - (b as number)
+        const diff = a - b
         if (diff < 0) return -1
         if (diff > 0) return 1
         // if diff === 0, continue
@@ -148,7 +148,7 @@ export const compare = ((x: (string | number)[]) =>
 
       // Both are strings
       if (!aIsNumber && !bIsNumber) {
-        const diff = (a as string).localeCompare(b as string)
+        const diff = a.localeCompare(b)
         if (diff < 0) return -1
         if (diff > 0) return 1
         // if diff === 0, continue
