@@ -85,9 +85,18 @@ type Join_Spec = [
   Test.Expect<
     $<$<String.Join, ` ${string} `>, ['foo', ...string[], 'bar']>,
     string
-  >
+  >,
+
+  /**
+   * Should handle empty values well.
+   */
+  Test.Expect<$<$<String.Join, '-'>, ['', '', 'foobar']>, '--foobar'>
 ]
 
 it('should join a list of strings with a delimiter', () => {
   expect(String.join(' ')(['foo', 'bar', 'baz'])).toBe('foo bar baz')
+})
+
+it('should handle empty values well', () => {
+  expect(String.join('-')(['', '', 'foobar'])).toBe('--foobar')
 })

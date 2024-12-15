@@ -10,3 +10,7 @@ type Display_Spec = [
    */
   Test.Expect<$<Type.Display, 'foo'>, 'foo'>
 ]
+
+it('should return the value unchanged', () => {
+  expect(Type.display('foo')).toBe('foo')
+})

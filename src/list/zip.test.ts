@@ -46,3 +46,28 @@ type Zip_Spec = [
    */
   Test.Expect<$<List.Zip, boolean>, never>
 ]
+
+it('should zip a list of lists', () => {
+  expect(
+    List.zip([
+      [1, 2],
+      ['a', 'b', 'c']
+    ])
+  ).toEqual([
+    [1, 'a'],
+    [2, 'b']
+  ])
+})
+
+it('should zip a list of lists', () => {
+  expect(
+    List.zip([
+      [1, 2],
+      ['a', 'b', 'c'],
+      [true, false, null]
+    ])
+  ).toEqual([
+    [1, 'a', true],
+    [2, 'b', false]
+  ])
+})

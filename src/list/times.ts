@@ -33,3 +33,24 @@ export interface Times extends Kind.Kind {
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? _$times<typeof x> : never
 }
+
+/**
+ * Given a number, return a list of numbers from 0 to N-1.
+ *
+ * @param {number} n - The length of the list to be generated.
+ *
+ * @example
+ * ```ts
+ * import { List } from "hkt-toolbelt";
+ *
+ * const result = List.times(3)
+ * //    ^? [0, 1, 2]
+ * ```
+ */
+export const times = ((n: number) => {
+  const result = []
+  for (let i = 0; i < n; i++) {
+    result.push(i)
+  }
+  return result
+}) as Kind._$reify<Times>
