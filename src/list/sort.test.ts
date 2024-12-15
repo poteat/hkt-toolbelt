@@ -1,4 +1,13 @@
-import { $, Test, List, String, Function } from '..'
+import {
+  $,
+  Test,
+  List,
+  String,
+  Function,
+  Kind,
+  NaturalNumber,
+  Integer
+} from '..'
 
 type Sort_Spec = [
   /**
@@ -45,4 +54,32 @@ it('should sort a list of strings by length', () => {
 
 it('should sort an empty list', () => {
   expect(List.sort(Function.identity)([])).toEqual([])
+})
+
+it('can sort complicated functions on lists', () => {
+  /**
+   * Sort descending by number, then ascending by string.
+   */
+  const mySort = List.sort(
+    List.compareBy([
+      Kind.lazyPipe([NaturalNumber.compare, Integer.negate]),
+      String.compare
+    ])
+  )
+
+  const result = mySort([
+    [1, 'foo'],
+    [2, 'bar'],
+    [3, 'baz'],
+    [1, 'qux'],
+    [3, 'abc']
+  ])
+
+  expect(result).toEqual([
+    [3, 'abc'],
+    [3, 'baz'],
+    [2, 'bar'],
+    [1, 'foo'],
+    [1, 'qux']
+  ])
 })

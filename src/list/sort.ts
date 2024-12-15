@@ -158,7 +158,7 @@ export const sort = ((f: Function.Function) => (values: unknown[]) => {
     const result = f(a as never) as number | Function.Function
 
     return typeof result === 'function'
-      ? (result(a as never) as number)
+      ? (result(b as never) as number)
       : result - (f(b as never) as number)
   })
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.25.2]
+
+- Fix `List.Sort` to work with 2-ary comparators.
+
+## [0.25.1]
+
+- Fix packaging issue.
+
 ## [0.25.0]
 
 - Reify `NaturalNumber.Modulo` and `NaturalNumber.ModuloBy` to value-level functions.
