@@ -1,4 +1,4 @@
-import { Kind, Type } from '..'
+import { Kind } from '..'
 
 /**
  * `_$typeOf` is a helper type that returns the runtime-like `typeof` result as a string literal.

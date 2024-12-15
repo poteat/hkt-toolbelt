@@ -197,7 +197,7 @@ export const compareBy = ((
         // Apply custom comparator
         // Each comparator is a 2-ary kind reified as a function taking `a` then `b`.
         // In runtime form, we assume the comparator returns a number like -1, 0, or 1.
-        result = comparators[i](a)(b) as number
+        result = comparators[i](a)(b)
       } else {
         // Fallback to default logic
         const aIsNumber = typeof a === 'number'
