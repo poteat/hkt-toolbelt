@@ -46,3 +46,13 @@ type DivideBy_Spec = [
    */
   Test.Expect<$<$<NaturalNumber.DivideBy, 99>, 100>, 1>
 ]
+
+it('should return the result of dividing two natural numbers', () => {
+  const result = NaturalNumber.divideBy(2)(10)
+  expect(result).toBe(5)
+})
+
+it('should return the result of dividing two natural numbers', () => {
+  const result = NaturalNumber.divideBy(17)(123)
+  expect(result).toBe(7)
+})
