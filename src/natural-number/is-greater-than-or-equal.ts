@@ -29,7 +29,8 @@ export type _$isGreaterThanOrEqual<
     : false
 > = RESULT
 
-interface IsGreaterThanOrEqual_T<A extends Number.Number> extends Kind.Kind {
+export interface IsGreaterThanOrEqual_T<A extends Number.Number>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
   ): _$isGreaterThanOrEqual<A, typeof x>

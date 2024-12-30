@@ -29,7 +29,7 @@ export type _$isLessThan<
     : false
 > = RESULT
 
-interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
+export interface IsLessThan_T<A extends Number.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number.Number>): _$isLessThan<A, typeof x>
 }
 
