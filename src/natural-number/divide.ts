@@ -1,13 +1,13 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
+import { Type, Number as Number_, Kind, DigitList, NaturalNumber } from '..'
 
 /**
  * `_$divide` is a type-level function that performs the division operation.
  * It takes in two natural numbers `A` and `B` representing the dividend and divisor respectively,
  * and returns the result of dividing `A` by `B`.
  *
- * @template {Number.Number} A - A natural number to divide.
- * @template {Number.Number} B - A natural number to divide by.
- * @returns {Number.Number} A natural number type.
+ * @template {Number_.Number} A - A natural number to divide.
+ * @template {Number_.Number} B - A natural number to divide by.
+ * @returns {Number_.Number} A natural number type.
  *
  * If `A` is not a multiple of `B`, the quotient is returned and the remainder is thrown away.
  *
@@ -30,8 +30,8 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
  * ```
  */
 export type _$divide<
-  A extends Number.Number,
-  B extends Number.Number,
+  A extends Number_.Number,
+  B extends Number_.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
   QUOTIENT_LIST = DigitList._$divide<A_LIST, B_LIST>,
@@ -40,19 +40,19 @@ export type _$divide<
   >
 > = QUOTIENT
 
-interface Divide_T<A extends Number.Number> extends Kind.Kind {
+interface Divide_T<A extends Number_.Number> extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? _$divide<A, typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? _$divide<A, typeof x> : never
 }
 
 /**
  * `Divide` is a type-level function that takes in two natural numbers and performs a division operation.
  * It returns the result of the division operation.
  *
- * @template {Number.Number} A - A natural number to divide.
- * @template {Number.Number} B - A natural number to divide by.
- * @returns {Number.Number} A natural number type.
+ * @template {Number_.Number} A - A natural number to divide.
+ * @template {Number_.Number} B - A natural number to divide by.
+ * @returns {Number_.Number} A natural number type.
  *
  * If `A` is not a multiple of `B`, the quotient is returned and the remainder is thrown away.
  *
@@ -87,6 +87,23 @@ interface Divide_T<A extends Number.Number> extends Kind.Kind {
  */
 export interface Divide extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? Divide_T<typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? Divide_T<typeof x> : never
 }
+
+/**
+ * Given two natural numbers, divide the first by the second, and return the
+ * floored result as a natural number.
+ *
+ * @param {Number_.Number} A - The numerator.
+ * @param {Number_.Number} B - The denominator.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * const T0 = NaturalNumber.divide(42)(10); // 4
+ * ```
+ */
+export const divide = ((a: Number_.Number) => (b: Number_.Number) =>
+  Math.floor(Number(a) / Number(b))) as Kind._$reify<Divide>
