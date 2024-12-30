@@ -21,7 +21,7 @@ export type _$moduloBy<
   B extends number
 > = NaturalNumber._$modulo<B, A>
 
-interface ModuloBy_T<A extends number> extends Kind.Kind {
+export interface ModuloBy_T<A extends number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], number>
   ): Number._$isNatural<typeof x> extends true ? _$moduloBy<A, typeof x> : never

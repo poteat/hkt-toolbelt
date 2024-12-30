@@ -40,7 +40,7 @@ export type _$divide<
   >
 > = QUOTIENT
 
-interface Divide_T<A extends Number_.Number> extends Kind.Kind {
+export interface Divide_T<A extends Number_.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number_.Number>
   ): Number_._$isNatural<typeof x> extends true ? _$divide<A, typeof x> : never

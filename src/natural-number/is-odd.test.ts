@@ -96,3 +96,11 @@ type IsOdd_Spec = [
    */
   Test.Expect<$<NaturalNumber.IsOdd, 19>, true>
 ]
+
+it('should return true if the input is an odd number', () => {
+  expect(NaturalNumber.isOdd(42)).toBe(false)
+})
+
+it('should return false if the input is an even number', () => {
+  expect(NaturalNumber.isOdd(43)).toBe(true)
+})

@@ -21,7 +21,7 @@ export type _$difference<A extends Number_.Number, B extends Number_.Number> =
     ? NaturalNumber._$subtract<B, A>
     : NaturalNumber._$subtract<A, B>
 
-interface Difference_T<A extends Number_.Number> extends Kind.Kind {
+export interface Difference_T<A extends Number_.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number_.Number>): _$difference<A, typeof x>
 }
 
