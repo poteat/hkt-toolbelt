@@ -46,3 +46,11 @@ type Last_Spec = [
    */
   Test.Expect<$<String.Last, string>, string>
 ]
+
+it('should return the last character of a string', () => {
+  expect(String.last('foo')).toBe('o')
+})
+
+it('should return the last character of an empty string', () => {
+  expect(String.last('')).toBe('')
+})

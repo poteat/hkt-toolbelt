@@ -1,5 +1,16 @@
 # Changelog
 
+## [~]
+
+- Add `Object.DeepEntries` to get all deep paths and values in an object.
+- Add `Object.FromEntries` to create an object from a list of key-value pairs.
+- Add `Object.IsObject` to check if a value is an object.
+- Reify `NaturalNumber.DivideBy` to a value-level function.
+- Reify `NaturalNumber.Divide` to a value-level function.
+- Reify `NaturalNumber.IsEven` to a value-level function.
+- Reify `NaturalNumber.IsOdd` to a value-level function.
+- Reify `String.First` and `String.Last` to value-level functions.
+
 ## [0.25.2]
 
 - Fix `List.Sort` to work with 2-ary comparators.

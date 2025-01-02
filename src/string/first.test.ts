@@ -46,3 +46,11 @@ type First_Spec = [
    */
   Test.Expect<$<String.First, string>, string>
 ]
+
+it('should return the first character of a string', () => {
+  expect(String.first('foo')).toBe('f')
+})
+
+it('should return the first character of an empty string', () => {
+  expect(String.first('')).toBe('')
+})
