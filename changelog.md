@@ -10,6 +10,7 @@
 - Reify `NaturalNumber.IsEven` to a value-level function.
 - Reify `NaturalNumber.IsOdd` to a value-level function.
 - Reify `String.First` and `String.Last` to value-level functions.
+- Reify `String.Init` and `String.Tail` to value-level functions.
 
 ## [0.25.2]
 
