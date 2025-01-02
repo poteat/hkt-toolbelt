@@ -53,3 +53,7 @@ type ToUpper_Spec = [
 it('should convert a string to uppercase', () => {
   expect(String.toUpper('foo')).toBe('FOO')
 })
+
+it('should convert an empty string to uppercase', () => {
+  expect(String.toUpper('')).toBe('')
+})
