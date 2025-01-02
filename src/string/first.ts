@@ -26,3 +26,18 @@ export type _$first<S extends string> = S extends `${infer Head}${string}`
 export interface First extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$first<typeof x>
 }
+
+/**
+ * Given a string, return the first character of the string.
+ *
+ * @param {string} x - The string to get the first character of.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const T0 = String.first('foo'); // 'f'
+ * const T1 = String.first(''); // ''
+ * ```
+ */
+export const first = ((x: string) => x[0] ?? '') as Kind._$reify<First>
