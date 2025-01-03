@@ -11,6 +11,7 @@
 - Reify `NaturalNumber.IsOdd` to a value-level function.
 - Reify `String.First` and `String.Last` to value-level functions.
 - Reify `String.Init` and `String.Tail` to value-level functions.
+- Add `String.Unwords` to join a list of strings with a space delimiter.
 
 ## [0.25.2]
 
