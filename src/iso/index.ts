@@ -1,11 +1,11 @@
+export * as NaturalNumber from './natural-number'
 export * as String from './string'
 
+import * as NaturalNumber from './natural-number'
 import * as String from './string'
 
 const _ = {
-  /**
-   * Foo
-   */
+  NaturalNumber: NaturalNumber,
   String: String
 }
 
