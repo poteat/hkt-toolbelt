@@ -7,6 +7,7 @@
   - Add `Iso.String.Words` to wrap the process of iterating over words.
   - Add `Iso.NaturalNumber.Increment` to wrap the process of incrementing a number.
   - Add `Iso.NaturalNumber.Decrement` to wrap the process of decrementing a number.
+  - Add `Iso.NaturalNumber.Digits` to wrap the process of converting a natural number to a list of digits.
 - Add `Object.DeepEntries` to get all deep paths and values in an object.
 - Add `Object.FromEntries` to create an object from a list of key-value pairs.
 - Add `Object.IsObject` to check if a value is an object.
