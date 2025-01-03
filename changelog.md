@@ -14,6 +14,7 @@
 - Reify `NaturalNumber.Divide` to a value-level function.
 - Reify `NaturalNumber.IsEven` to a value-level function.
 - Reify `NaturalNumber.IsOdd` to a value-level function.
+- Add `NaturalNumber.Undigits` to convert a list of digits to a natural number.
 - Reify `String.First` and `String.Last` to value-level functions.
 - Reify `String.Init` and `String.Tail` to value-level functions.
 - Add `String.Unwords` to join a list of strings with a space delimiter.
