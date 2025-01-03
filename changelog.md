@@ -1,6 +1,6 @@
 # Changelog
 
-## [~]
+## [0.26.0]
 
 - Introduce the `Iso` module for isomorphic bijections.
   - Add `Iso.String.Chars` to wrap the process of iterating over chars.
