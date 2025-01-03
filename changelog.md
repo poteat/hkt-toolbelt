@@ -2,6 +2,9 @@
 
 ## [~]
 
+- Introduce the `Iso` module for isomorphisms.
+  - Add `Iso.String.Chars` to wrap the process of iterating over chars.
+  - Add `Iso.String.Words` to wrap the process of iterating over words.
 - Add `Object.DeepEntries` to get all deep paths and values in an object.
 - Add `Object.FromEntries` to create an object from a list of key-value pairs.
 - Add `Object.IsObject` to check if a value is an object.
@@ -12,6 +15,7 @@
 - Reify `String.First` and `String.Last` to value-level functions.
 - Reify `String.Init` and `String.Tail` to value-level functions.
 - Add `String.Unwords` to join a list of strings with a space delimiter.
+- Add `String.RepeatBy` to repeat a string by a given number (argument swapped).
 
 ## [0.25.2]
 
