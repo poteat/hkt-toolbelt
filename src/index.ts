@@ -6,6 +6,7 @@ export * as Digit from './digit'
 export * as DigitList from './digit-list'
 export * as Function from './function'
 export * as Integer from './integer'
+export * as Iso from './iso'
 export * as Kind from './kind'
 export * as List from './list'
 export * as Loop from './loop'
@@ -29,6 +30,7 @@ import * as Digit from './digit'
 import * as DigitList from './digit-list'
 import * as Function from './function'
 import * as Integer from './integer'
+import * as Iso from './iso'
 import * as Kind from './kind'
 import * as List from './list'
 import * as Loop from './loop'
@@ -53,6 +55,7 @@ const _ = {
   Digit,
   Function,
   Integer,
+  Iso,
   Kind,
   List,
   Loop,
