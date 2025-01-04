@@ -29,8 +29,8 @@ type DeepEntries_Spec = [
    * Mixed nesting (arrays are treated as values)
    */
   Test.Expect<
-    $<Object.DeepEntries, { x: ['y', 'z']; w: { v: 1 } }>,
-    [['x', ['y', 'z']], ['w', 'v', 1]]
+    $<Object.DeepEntries, { x: ['y', 'z']; w: { v: 1 } }>[number],
+    [['x', ['y', 'z']], ['w', 'v', 1]][number]
   >
 ]
 
