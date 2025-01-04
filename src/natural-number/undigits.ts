@@ -1,4 +1,4 @@
-import { Type, Digit, Kind, String } from '..'
+import { Type, Kind, String } from '..'
 
 type _$simpleJoin<
   T extends (string | number)[],

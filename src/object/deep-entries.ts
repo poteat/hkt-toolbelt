@@ -85,7 +85,7 @@ export const deepEntries = ((
 
     // If value is an object (non-null) and not an array, recurse
     if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
-      const nested = (deepEntries as Function)(value)
+      const nested = (deepEntries as Function)(value) as unknown[][]
       // Prepend the current key to each nested path
       for (const entry of nested) {
         results.push([key, ...entry])
