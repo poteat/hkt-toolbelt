@@ -29,3 +29,18 @@ export type _$last<S extends string> = S extends `${string}${infer Tail}`
 export interface Last extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$last<typeof x>
 }
+
+/**
+ * Given a string, return the last character of the string.
+ *
+ * @param {string} x - The string to get the last character of.
+ *
+ * @example
+ * ```ts
+ * import { String } from "hkt-toolbelt";
+ *
+ * const T0 = String.last('foo'); // 'o'
+ * const T1 = String.last(''); // ''
+ * ```
+ */
+export const last = ((x: string) => x[x.length - 1] ?? '') as Kind._$reify<Last>

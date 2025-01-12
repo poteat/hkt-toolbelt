@@ -40,7 +40,7 @@ export type _$compare<
   RESULT extends -1 | 0 | 1 = DigitList._$compare<A_LIST, B_LIST>
 > = RESULT
 
-interface Compare_T<A extends Number.Number> extends Kind.Kind {
+export interface Compare_T<A extends Number.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? _$compare<A, typeof x> : never

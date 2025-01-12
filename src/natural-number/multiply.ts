@@ -45,7 +45,7 @@ export type _$multiply<A extends Number_.Number, B extends Number_.Number> =
       : never
     : never
 
-interface Multiply_T<A extends Number_.Number> extends Kind.Kind {
+export interface Multiply_T<A extends Number_.Number> extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], Number_.Number>): _$multiply<A, typeof x>
 }
 
