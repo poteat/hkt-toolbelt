@@ -82,6 +82,10 @@ export const lazyPipe = ((fx: Function.Function[]) => (input: unknown) => {
     if (typeof value === 'function') {
       return lazyPipe([value, ...fx.slice(i + 1)] as never)
     }
+
+    if (value === undefined) {
+      return undefined
+    }
   }
 
   return value
