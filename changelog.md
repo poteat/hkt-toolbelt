@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.26.1]
+
+- Reify `Object.Keys` for getting the keys of an object.
+- Add `List.Min` and `List.Max` to get the minimum and maximum numbers of a list.
+
 ## [0.26.0]
 
 - Introduce the `Iso` module for isomorphic bijections.
