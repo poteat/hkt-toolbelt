@@ -32,3 +32,8 @@ export type _$init<S extends string> = string extends S ? string : _$init2<S>
 export interface Init extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], string>): _$init<typeof x>
 }
+
+/**
+ * Given a string, return the string with the last character removed.
+ */
+export const init = ((x: string) => x.slice(0, -1)) as Kind._$reify<Init>

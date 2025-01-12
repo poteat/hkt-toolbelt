@@ -96,3 +96,11 @@ type IsEven_Spec = [
    */
   Test.Expect<$<NaturalNumber.IsEven, 18>, true>
 ]
+
+it('should return true if the input is an even number', () => {
+  expect(NaturalNumber.isEven(42)).toBe(true)
+})
+
+it('should return false if the input is an odd number', () => {
+  expect(NaturalNumber.isEven(43)).toBe(false)
+})

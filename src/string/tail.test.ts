@@ -46,3 +46,11 @@ type Tail_Spec = [
    */
   Test.Expect<$<String.Tail, string>, string>
 ]
+
+it('should return the string with the first character removed', () => {
+  expect(String.tail('hello')).toBe('ello')
+})
+
+it('should return an empty string if the string is empty', () => {
+  expect(String.tail('')).toBe('')
+})

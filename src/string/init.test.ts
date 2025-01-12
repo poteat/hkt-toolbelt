@@ -45,3 +45,11 @@ type Init_Spec = [
    */
   Test.Expect<$<String.Init, string>, string>
 ]
+
+it('should return the string with the last character removed', () => {
+  expect(String.init('hello')).toBe('hell')
+})
+
+it('should return an empty string if the string is empty', () => {
+  expect(String.init('')).toBe('')
+})

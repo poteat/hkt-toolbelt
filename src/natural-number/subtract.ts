@@ -35,7 +35,7 @@ export type _$subtract<
   RESULT = DigitList._$toNumber<SUB_LIST>
 > = RESULT
 
-interface Subtract_T<X extends Number.Number> extends Kind.Kind {
+export interface Subtract_T<X extends Number.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number.Number>
   ): Number._$isNatural<typeof x> extends true ? _$subtract<X, typeof x> : never

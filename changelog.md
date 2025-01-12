@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.26.0]
+
+- Introduce the `Iso` module for isomorphic bijections.
+  - Add `Iso.String.Chars` to wrap the process of iterating over chars.
+  - Add `Iso.String.Words` to wrap the process of iterating over words.
+  - Add `Iso.NaturalNumber.Increment` to wrap the process of incrementing a number.
+  - Add `Iso.NaturalNumber.Decrement` to wrap the process of decrementing a number.
+  - Add `Iso.NaturalNumber.Digits` to wrap the process of converting a natural number to a list of digits.
+- Add `Object.DeepEntries` to get all deep paths and values in an object.
+- Add `Object.FromEntries` to create an object from a list of key-value pairs.
+- Add `Object.IsObject` to check if a value is an object.
+- Reify `NaturalNumber.DivideBy` to a value-level function.
+- Reify `NaturalNumber.Divide` to a value-level function.
+- Reify `NaturalNumber.IsEven` to a value-level function.
+- Reify `NaturalNumber.IsOdd` to a value-level function.
+- Add `NaturalNumber.Undigits` to convert a list of digits to a natural number.
+- Reify `String.First` and `String.Last` to value-level functions.
+- Reify `String.Init` and `String.Tail` to value-level functions.
+- Add `String.Unwords` to join a list of strings with a space delimiter.
+- Add `String.RepeatBy` to repeat a string by a given number (argument swapped).
+
 ## [0.25.2]
 
 - Fix `List.Sort` to work with 2-ary comparators.

@@ -16,7 +16,7 @@ export type _$modulo<
   MODULUS = DigitList._$toNumber<Type._$cast<MODULUS_LIST, DigitList.DigitList>>
 > = MODULUS
 
-interface Modulo_T<A extends Number_.Number> extends Kind.Kind {
+export interface Modulo_T<A extends Number_.Number> extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Number_.Number>
   ): Number_._$isNatural<typeof x> extends true ? _$modulo<A, typeof x> : never

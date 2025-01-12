@@ -1,11 +1,28 @@
 import { Type, Number, Kind, NaturalNumber } from '..'
 
-interface SubtractBy_T<A extends Number.Number> extends Kind.Kind {
-  f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true
-    ? NaturalNumber._$subtract<typeof x, A>
+/**
+ * Given two natural numbers, subtract the second from the first, and return the
+ * result as a natural number.
+ *
+ * @param {Number.Number} A - The minuend.
+ * @param {Number.Number} B - The subtrahend.
+ *
+ * @example
+ * ```ts
+ * import { NaturalNumber } from "hkt-toolbelt";
+ *
+ * type T0 = NaturalNumber._$subtractBy<10, 42>; // 32
+ * ```
+ */
+export type _$subtractBy<A extends Number.Number, B extends Number.Number> =
+  Number._$isNatural<A> extends true
+    ? Number._$isNatural<B> extends true
+      ? NaturalNumber._$subtract<B, A>
+      : never
     : never
+
+export interface SubtractBy_T<A extends Number.Number> extends Kind.Kind {
+  f(x: Type._$cast<this[Kind._], Number.Number>): _$subtractBy<A, typeof x>
 }
 
 /**
