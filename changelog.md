@@ -4,6 +4,7 @@
 
 - Reify `Object.Keys` for getting the keys of an object.
 - Add `List.Min` and `List.Max` to get the minimum and maximum numbers of a list.
+- Implement value-level short-circuiting for pipe utilities.
 
 ## [0.26.0]
 

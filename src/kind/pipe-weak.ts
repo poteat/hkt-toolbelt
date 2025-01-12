@@ -100,6 +100,10 @@ export const pipeWeak = ((fx: Function.Function[]) => (x: unknown) => {
 
   for (const f of fx) {
     value = f(value as never)
+
+    if (value === undefined) {
+      return undefined
+    }
   }
 
   return value

@@ -106,6 +106,10 @@ export const pipe = ((fx: Function.Function[]) => (input: unknown) => {
 
   for (const f of fx) {
     value = f(value as never)
+
+    if (value === undefined) {
+      return undefined
+    }
   }
 
   return value
