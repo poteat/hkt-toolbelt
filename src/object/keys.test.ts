@@ -25,3 +25,11 @@ type Keys_Spec = [
   // @ts-expect-error
   $<Object.Keys, number>
 ]
+
+it('should return the keys of an object', () => {
+  expect(Object.keys({ a: 1, b: 2, c: 3 })).toEqual(['a', 'b', 'c'])
+})
+
+it('should return an empty tuple if the object is empty', () => {
+  expect(Object.keys({})).toEqual([])
+})
