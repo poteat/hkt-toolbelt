@@ -27,3 +27,22 @@ type Assign_Spec = [
     { foo: 'bar'; bar: 'baz' }
   >
 ]
+
+it('should assign a value to a key', () => {
+  expect(Object.assign('foo')('bar')({})).toEqual({ foo: 'bar' })
+})
+
+it('should assign a value to a key', () => {
+  expect(Object.assign('foo')(42)({})).toEqual({ foo: 42 })
+})
+
+it('should overwrite a value', () => {
+  expect(Object.assign('foo')('bar')({ foo: 'baz' })).toEqual({ foo: 'bar' })
+})
+
+it('should assign a value to a key on an object with existing keys', () => {
+  expect(Object.assign('foo')('bar')({ bar: 'baz' })).toEqual({
+    foo: 'bar',
+    bar: 'baz'
+  })
+})
