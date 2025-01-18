@@ -1,5 +1,6 @@
 export * from './add'
 export * from './compare'
+export * from './compare-by'
 export * from './decrement'
 export * from './difference'
 export * from './digits'

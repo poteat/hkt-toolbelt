@@ -1,4 +1,4 @@
-import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
+import { Type, Number as Number_, Kind, DigitList, NaturalNumber } from '..'
 
 /**
  * `_$compare` is a type-level function that takes in
@@ -6,8 +6,8 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
  * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * @template {Number.Number} A - A natural number to compare against.
- * @template {Number.Number} B - A natural number to compare.
+ * @template {Number_.Number} A - A natural number to compare against.
+ * @template {Number_.Number} B - A natural number to compare.
  *
  * @returns {-1 | 0 | 1}
  *
@@ -33,17 +33,17 @@ import { Type, Number, Kind, DigitList, NaturalNumber } from '..'
  * ```
  */
 export type _$compare<
-  A extends Number.Number,
-  B extends Number.Number,
+  A extends Number_.Number,
+  B extends Number_.Number,
   A_LIST extends DigitList.DigitList = NaturalNumber._$toList<A>,
   B_LIST extends DigitList.DigitList = NaturalNumber._$toList<B>,
   RESULT extends -1 | 0 | 1 = DigitList._$compare<A_LIST, B_LIST>
 > = RESULT
 
-export interface Compare_T<A extends Number.Number> extends Kind.Kind {
+export interface Compare_T<A extends Number_.Number> extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? _$compare<A, typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? _$compare<A, typeof x> : never
 }
 
 /**
@@ -52,8 +52,8 @@ export interface Compare_T<A extends Number.Number> extends Kind.Kind {
  * The result will be 1 if `A` is greater than `B`,
  * 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
  *
- * @template {Number.Number} A - A natural number to compare against.
- * @template {Number.Number} B - A natural number to compare.
+ * @template {Number_.Number} A - A natural number to compare against.
+ * @template {Number_.Number} B - A natural number to compare.
  *
  * @returns {-1 | 0 | 1}
  *
@@ -70,8 +70,8 @@ export interface Compare_T<A extends Number.Number> extends Kind.Kind {
  */
 export interface Compare extends Kind.Kind {
   f(
-    x: Type._$cast<this[Kind._], Number.Number>
-  ): Number._$isNatural<typeof x> extends true ? Compare_T<typeof x> : never
+    x: Type._$cast<this[Kind._], Number_.Number>
+  ): Number_._$isNatural<typeof x> extends true ? Compare_T<typeof x> : never
 }
 
 /**
@@ -91,5 +91,9 @@ export interface Compare extends Kind.Kind {
  * //    ^? -1
  * ```
  */
-export const compare = ((a: number) => (b: number) =>
-  a < b ? -1 : a > b ? 1 : 0) as Kind._$reify<Compare>
+export const compare = ((a: Number_.Number) => (b: Number_.Number) =>
+  Number(a) < Number(b)
+    ? -1
+    : Number(a) > Number(b)
+      ? 1
+      : 0) as Kind._$reify<Compare>
