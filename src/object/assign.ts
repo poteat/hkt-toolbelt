@@ -51,3 +51,26 @@ interface Assign_T1<K extends PropertyKey> extends Kind.Kind {
 export interface Assign extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], PropertyKey>): Assign_T1<typeof x>
 }
+
+/**
+ * Given a key, value, and object, return a new object with the key assigned
+ * the value.
+ *
+ * @param {PropertyKey} k - The key to assign the value to.
+ * @param {unknown} v - The value to assign to the key.
+ * @param {Record<PropertyKey, unknown>} o - The object to assign the value to.
+ *
+ * @example
+ * ```ts
+ * import { Object } from "hkt-toolbelt";
+ *
+ * const result = Object.assign('foo')('bar')({})
+ * //    ^? { foo: 'bar' }
+ * ```
+ */
+export const assign = ((k: PropertyKey) =>
+  (v: unknown) =>
+  (o: Record<PropertyKey, unknown>) => ({
+    ...o,
+    [k]: v
+  })) as Kind._$reify<Assign>
