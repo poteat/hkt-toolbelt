@@ -20,6 +20,11 @@ type Keys_Spec = [
   Test.Expect<$<Object.Keys, {}>, []>,
 
   /**
+   * Numeric keys are converted to strings (matching JS runtime behavior).
+   */
+  Test.Expect<$<Object.Keys, { 1: 'a'; 2: 'b' }>[number], '1' | '2'>,
+
+  /**
    * Will emit an error if applied to a non-object.
    */
   // @ts-expect-error
@@ -32,4 +37,8 @@ it('should return the keys of an object', () => {
 
 it('should return an empty tuple if the object is empty', () => {
   expect(Object.keys({})).toEqual([])
+})
+
+it('should convert numeric keys to strings', () => {
+  expect(Object.keys({ 1: 'a', 2: 'b' })).toEqual(['1', '2'])
 })
