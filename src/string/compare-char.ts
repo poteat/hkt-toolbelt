@@ -63,8 +63,12 @@ export interface CompareChar extends Kind.Kind {
  * Compares two characters. It returns a number indicating the relative order of
  * the two characters.
  *
- * @param {string} x - The first character to compare.
- * @param {string} y - The second character to compare.
+ * @param x - The first character to compare.
+ * @param y - The second character to compare.
+ *
+ * @returns A number indicating the relative order of the two characters, -1 if
+ * x is less than y, 1 if x is greater than y, and 0 if the characters are
+ * equal.
  *
  * @example
  * ```ts
