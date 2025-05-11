@@ -6,6 +6,7 @@
 - Add `List.Min` and `List.Max` to get the minimum and maximum numbers of a list.
 - Implement value-level short-circuiting for pipe utilities.
 - Fix `Object.Keys` to properly stringify numeric literal keys.
+- Add `NaturalNumber.FromString` for convenience.
 
 ## [0.26.0]
 
