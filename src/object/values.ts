@@ -12,10 +12,10 @@ import { Kind, Type, Object as Object_ } from '..'
  * ```
  */
 export type _$values<
-  T extends Record<string, unknown>,
+  T extends Record<PropertyKey, unknown>,
   Keys = Object_._$keys<T>
 > = {
-  [key in keyof Keys]: T[Type._$cast<Keys[key], keyof T>]
+  [key in keyof Keys]: T[Type._$cast<Keys[key], PropertyKey>]
 }
 
 /**
@@ -30,7 +30,9 @@ export type _$values<
  * ```
  */
 export interface Values extends Kind.Kind {
-  f(x: Type._$cast<this[Kind._], Record<string, unknown>>): _$values<typeof x>
+  f(
+    x: Type._$cast<this[Kind._], Record<PropertyKey, unknown>>
+  ): _$values<typeof x>
 }
 
 /**

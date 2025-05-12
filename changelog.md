@@ -7,6 +7,7 @@
 - Implement value-level short-circuiting for pipe utilities.
 - Fix `Object.Keys` to properly stringify numeric literal keys.
 - Add `NaturalNumber.FromString` for convenience.
+- Fix `Object.Values` to properly handle numeric keys.
 
 ## [0.26.0]
 
