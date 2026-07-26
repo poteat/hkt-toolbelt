@@ -54,7 +54,8 @@ export type _$until<
 interface Until_T2<
   Clause extends Kind.Kind<(x: never) => boolean>,
   Updater extends Kind.Kind
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(x: this[Kind._]): _$until<Clause, Updater, typeof x>
 }
 

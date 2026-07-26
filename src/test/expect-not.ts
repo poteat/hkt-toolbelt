@@ -12,7 +12,7 @@ import { Conditional, Test, Type } from '..'
  * type T1 = ExpectNot<true, true> // Compiler error
  */
 export type ExpectNot<
-  X extends Conditional._$equals<X, V> extends true ? V : V & Test._,
+  X extends (Conditional._$equals<X, V> extends true ? V : V & Test._),
   V = false
 > =
   Type._$isNever<V> extends true

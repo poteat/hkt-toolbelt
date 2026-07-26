@@ -39,7 +39,8 @@ export type _$accumulate<
 interface Accumulate_T2<
   F extends Kind.Kind<(x: never) => Kind.Kind>,
   O extends Kind._$inputOf<F>
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], List.List>): _$accumulate<F, typeof x, O>
 }
 

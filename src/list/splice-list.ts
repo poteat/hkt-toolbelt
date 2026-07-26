@@ -27,7 +27,8 @@ interface SpliceList_T3<
   T extends List.List,
   S extends Number.Number,
   D extends Number.Number
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(x: Type._$cast<this[Kind._], List.List>): _$spliceList<T, S, D, typeof x>
 }
 

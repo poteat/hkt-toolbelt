@@ -113,7 +113,8 @@ export type _$compareBy<
 interface CompareBy_T1<
   FComparators extends readonly _$2aryComparator[],
   L1 extends (string | number)[]
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], (string | number)[]>
   ): _$compareBy<FComparators, L1, typeof x>

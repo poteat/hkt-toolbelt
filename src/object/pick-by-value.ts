@@ -18,9 +18,11 @@ export type _$pickByValue<
   F extends Kind.Kind,
   O extends Record<PropertyKey, unknown>
 > = {
-  [key in keyof O as $<F, Type._$cast<O[key], Kind._$inputOf<F>>> extends true
-    ? key
-    : never]: O[key]
+  [
+    key in keyof O as $<F, Type._$cast<O[key], Kind._$inputOf<F>>> extends true
+      ? key
+      : never
+  ]: O[key]
 }
 
 interface PickByValue_T<F extends Kind.Kind> extends Kind.Kind {
