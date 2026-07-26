@@ -26,7 +26,34 @@ const CONTEXT_FILE = ts.createSourceFile(
   ts.ScriptKind.TS
 )
 
-const IDENTIFIER_PATTERN = /^[A-Za-z_$][A-Za-z0-9_$]*$/
+/**
+ * Reports whether `name` can be used as a declared interface name, by asking
+ * the parser rather than approximating with a pattern. A pattern over identifier
+ * characters accepts reserved words such as `class` and `function`, which would
+ * emit a chain that does not parse.
+ *
+ * Contextual keywords like `type` and `any` are accepted, since they are legal
+ * in this position.
+ *
+ * @param name - Candidate kind name.
+ */
+function isDeclarableName(name: string): boolean {
+  const file = ts.createSourceFile(
+    'name.ts',
+    `interface ${name} {}`,
+    ts.ScriptTarget.Latest,
+    false,
+    ts.ScriptKind.TS
+  )
+  const [statement] = file.statements
+
+  return (
+    file.statements.length === 1 &&
+    statement !== undefined &&
+    ts.isInterfaceDeclaration(statement) &&
+    statement.name.text === name
+  )
+}
 
 /**
  * Parses a constraint's type text into a `TypeNode` by wrapping it in a
@@ -235,9 +262,9 @@ function assertValidInputs(
   arity: number,
   constraints: string[]
 ): void {
-  if (!IDENTIFIER_PATTERN.test(name)) {
+  if (!isDeclarableName(name)) {
     throw new TypeError(
-      `kind name must be a valid TypeScript identifier, received: ${JSON.stringify(
+      `kind name must be usable as an interface name, received: ${JSON.stringify(
         name
       )}`
     )

@@ -330,6 +330,18 @@ describe('generateKindInterfaces', () => {
     expect(() => generateKindInterfaces('1Example', 1)).toThrow(TypeError)
   })
 
+  it('rejects a reserved word that identifier characters alone would allow', () => {
+    // `class` and `function` are made of identifier characters but cannot be
+    // declared as interface names, so a chain using one would not parse.
+    expect(() => generateKindInterfaces('class', 1)).toThrow(TypeError)
+    expect(() => generateKindInterfaces('function', 1)).toThrow(TypeError)
+  })
+
+  it('accepts contextual keywords, which are legal in this position', () => {
+    expect(() => generateKindInterfaces('type', 1)).not.toThrow()
+    expect(() => generateKindInterfaces('any', 1)).not.toThrow()
+  })
+
   it('rejects a constraint count that does not match the arity', () => {
     expect(() => generateKindInterfaces('ExampleKind', 3, ['unknown'])).toThrow(
       RangeError
