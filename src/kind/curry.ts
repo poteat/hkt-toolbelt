@@ -42,7 +42,8 @@ export interface _$curry<
    * Whether we have reached the end of the list of arguments.
    */
   DONE extends boolean = Conditional._$equals<N, NEXT>
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: this[Kind._]
   ): DONE extends true

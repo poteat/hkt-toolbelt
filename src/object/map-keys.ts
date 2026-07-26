@@ -9,7 +9,8 @@ export type _$mapKeys<
 
 interface MapKeys_T<
   F extends Kind.Kind<(x: string) => string | number | symbol>
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Record<string, unknown>>
   ): _$mapKeys<typeof x, F>

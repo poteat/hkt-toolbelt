@@ -39,7 +39,8 @@ interface Slice_T4<
   ROW_END extends number,
   COL_START extends number,
   COL_END extends number
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], unknown[][]>
   ): _$slice<ROW_START, ROW_END, COL_START, COL_END, typeof x>
@@ -49,7 +50,8 @@ interface Slice_T3<
   ROW_START extends number,
   ROW_END extends number,
   COL_START extends number
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], number>
   ): Slice_T4<ROW_START, ROW_END, COL_START, typeof x>

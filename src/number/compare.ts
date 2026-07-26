@@ -42,17 +42,17 @@ type _$compare2<
   /**
    * The decimal part of the first number as a digit list.
    */
-  A_DEC extends
-    DigitList.DigitList = `${A}` extends `${string}.${infer DEC extends string}`
-    ? DigitList._$fromString2<DEC>
-    : [Digit.Zero],
+  A_DEC extends DigitList.DigitList =
+    `${A}` extends `${string}.${infer DEC extends string}`
+      ? DigitList._$fromString2<DEC>
+      : [Digit.Zero],
   /**
    * The decimal part of the second number as a digit list.
    */
-  B_DEC extends
-    DigitList.DigitList = `${B}` extends `${string}.${infer DEC extends string}`
-    ? DigitList._$fromString2<DEC>
-    : [Digit.Zero],
+  B_DEC extends DigitList.DigitList =
+    `${B}` extends `${string}.${infer DEC extends string}`
+      ? DigitList._$fromString2<DEC>
+      : [Digit.Zero],
   /**
    * The result of the comparison. This is 1 if `A` is greater than `B`, 0 if `A` is equal to `B`, and -1 if `A` is less than `B`.
    *

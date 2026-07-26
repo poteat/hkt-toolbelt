@@ -9,7 +9,8 @@ export interface _$collate2<
    * The tuple of arguments applied so far.
    */
   OUT extends unknown[] = []
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: this[Kind._]
   ): N extends [...OUT, typeof x]['length']

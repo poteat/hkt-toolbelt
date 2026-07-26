@@ -20,12 +20,12 @@ type _$splice2<
   START_ABS extends DigitList.DigitList = NaturalNumber._$toList<
     Number._$absolute<START>
   >,
-  START_NORM extends
-    DigitList.DigitList = Number._$isNatural<START> extends true
-    ? START_ABS
-    : DigitList._$compare<T_LENGTH, START_ABS> extends -1
-      ? [Digit.Zero]
-      : DigitList._$subtract<T_LENGTH, START_ABS>,
+  START_NORM extends DigitList.DigitList =
+    Number._$isNatural<START> extends true
+      ? START_ABS
+      : DigitList._$compare<T_LENGTH, START_ABS> extends -1
+        ? [Digit.Zero]
+        : DigitList._$subtract<T_LENGTH, START_ABS>,
   RESULT extends List.List = DigitList._$compare<
     START_NORM,
     NaturalNumber._$toList<T['length']>
@@ -108,7 +108,8 @@ interface Splice_T3<
   START extends Number.Number,
   DEL_COUNT extends Number.Number,
   INSERTS extends List.List
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], List.List>
   ): _$splice<START, DEL_COUNT, INSERTS, typeof x>
@@ -117,7 +118,8 @@ interface Splice_T3<
 interface Splice_T2<
   START extends Number.Number,
   DEL_COUNT extends Number.Number
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], List.List>
   ): Splice_T3<START, DEL_COUNT, typeof x>
