@@ -1,7 +1,7 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 module.exports = {
   testEnvironment: 'node',
-  roots: ["src"],
+  roots: ["src", "scaffolding"],
   transform: {
     '^.+.tsx?$': ['ts-jest', {}]
   },
