@@ -1,4 +1,5 @@
 export * from './absolute'
+export * from './clamp'
 export * from './compare'
 export * from './from-string'
 export * from './is-fractional'
