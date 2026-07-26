@@ -20,7 +20,9 @@ const SKILL = path.join(
  * @param markdown - Document text.
  */
 function typescriptBlocks(markdown: string): string[] {
-  return [...markdown.matchAll(/```ts\n([\s\S]*?)```/g)].map((match) =>
+  // Tolerates CRLF, since a checkout with `core.autocrlf` enabled would
+  // otherwise find no blocks at all and fail on unchanged content.
+  return [...markdown.matchAll(/```ts\r?\n([\s\S]*?)```/g)].map((match) =>
     match[1].trimEnd()
   )
 }
@@ -111,6 +113,16 @@ describe('hkt-util skill examples', () => {
     } finally {
       fs.rmSync(dir, { recursive: true, force: true })
     }
+  })
+
+  it('finds the same blocks when the document has CRLF line endings', () => {
+    const document = fs.readFileSync(SKILL, 'utf-8')
+    const crlf = document.replace(/\r?\n/g, '\r\n')
+
+    expect(typescriptBlocks(crlf)).toHaveLength(
+      typescriptBlocks(document).length
+    )
+    expect(typescriptBlocks(crlf).length).toBeGreaterThan(0)
   })
 
   it('witnesses match what the runtime function in the skill returns', () => {
