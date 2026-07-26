@@ -37,7 +37,8 @@ export type _$objectSequence<
 
 interface ObjectSequence_T<
   PX extends ([string, Parser.Parser] | Parser.Parser)[]
-> extends Kind.Kind {
+>
+  extends Kind.Kind {
   f(
     x: Type._$cast<this[Kind._], Parser._$state>
   ): _$objectSequence<typeof x, PX>
